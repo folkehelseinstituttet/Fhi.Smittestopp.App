@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="38dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/warning_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/warningColor"
+        android:padding="4dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView
+            android:src="@drawable/ic_warning_inverted"
+            android:id="@+id/app_warning_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/warning_textView"
+            android:background="@color/warningColor" />
+
+        <TextView
+            android:id="@+id/warning_textView"
+            style="@style/WarningText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="@color/warningColor"
+            android:text="Topbar title" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button_error"
+
+        style="@style/WarningText"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@color/errorColor"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Topbar content"
+        android:textAllCaps="false"
+        android:visibility="invisible" />
+</LinearLayout>

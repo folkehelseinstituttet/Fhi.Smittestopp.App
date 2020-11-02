@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+  <style name="NemIDButton">
+      <item name="android:background">@drawable/default_button</item>
+      <item name="android:textColor">@drawable/default_button</item>
+      <item name="android:textAllCaps">false</item>
+      <item name="android:padding">10dp</item>
+      <item name="android:minWidth">225dp</item>
+      <item name="android:minHeight">48dp</item>
+      <item name="android:fontFamily">@font/raleway_bold</item>
+      <item name="android:textSize">16sp</item>
+    </style>
+</resources>

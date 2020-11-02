@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/proximity_sublayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@id/proximity_status">
+
+    <LinearLayout
+        android:id="@+id/daily_average_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|start"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/daily_average_text_textView"
+            style="@style/AverageText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:layout_gravity="start"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:text="Dit daglige gennemsnit" />
+
+        <ImageButton
+            android:id="@+id/daily_average_text_help_imageButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@null"
+            android:contentDescription="info"
+            android:layout_margin="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_information" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/daily_average_number_textView"
+        style="@style/AverageNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_person"
+        android:drawablePadding="6dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lineSpacingExtra="4sp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="0"
+        android:translationY="-1.91sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/daily_average_text_layout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

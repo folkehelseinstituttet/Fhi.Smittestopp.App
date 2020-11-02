@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:paddingBottom="30dp"
+	android:orientation="horizontal"
+	android:gravity="center_vertical">
+	<CheckBox
+		android:id="@+id/country_item_checkbox"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:buttonTint="@color/dividerWhite"/>
+	<TextView
+		android:id="@+id/country_item_caption"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		style="@style/PrimaryTextBold"
+		android:text="Dummy text"
+		android:gravity="center_vertical"/>
+</LinearLayout>

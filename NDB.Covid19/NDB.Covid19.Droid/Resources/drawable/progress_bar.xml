@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+		<shape
+			android:innerRadiusRatio="3"
+			android:shape="ring"
+			android:useLevel="false">
+			<solid android:color="#FFFFFF" />
+		</shape>
+	</item>
+	<item>
+		<rotate android:fromDegrees="0"
+		        android:toDegrees="360">
+			<shape
+				android:innerRadiusRatio="3"
+				android:shape="ring"
+				android:useLevel="true">
+				<solid android:color="#979797" />
+			</shape>
+		</rotate>
+	</item>
+</layer-list>

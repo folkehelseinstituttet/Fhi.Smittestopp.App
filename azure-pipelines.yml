@@ -1,0 +1,48 @@
+# Xamarin.iOS
+# Build a Xamarin.iOS project.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
+
+trigger:
+- '*' # execute on all branches
+
+pool: 'Default'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'UNIT_TEST'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: dotnet restore
+  inputs:
+    command: restore
+    projects: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: 'NDB.Covid19/*.sln'
+    msbuildArgs: '/p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+# Copy files of Test
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(system.defaultworkingdirectory)'
+    contents: |
+      **\bin\$(buildConfiguration)\**
+      **\$(buildConfiguration)\*test.dll 
+      !**\obj\**
+    targetFolder: '$(build.artifactStagingDirectory)'
+
+# Regression Test
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    searchFolder: '$(build.artifactStagingDirectory)'
+    testAssemblyVer2: '**\*test.dll'
+    publishRunAttachement: true
+    codeCoverageEnabled: true

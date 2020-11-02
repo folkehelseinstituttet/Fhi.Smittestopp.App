@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="555">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Force Update View Controller-->
+        <scene sceneID="554">
+            <objects>
+                <viewController id="555" customClass="ForceUpdateViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="556">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1140">
+                                <rect key="frame" x="40" y="443" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bio-FK-6ki">
+                                <rect key="frame" x="174" y="483.5" width="66" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AppStoreLinkButton_TouchUpInside:" destination="555" eventType="touchUpInside" id="1860"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bio-FK-6ki" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jyy-RW-qoh" secondAttribute="leading" constant="40" id="Bcn-Ye-cWE"/>
+                            <constraint firstItem="jyy-RW-qoh" firstAttribute="trailing" secondItem="1140" secondAttribute="trailing" constant="40" id="H0Z-gx-Hhm"/>
+                            <constraint firstItem="jyy-RW-qoh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bio-FK-6ki" secondAttribute="trailing" constant="40" id="Jl9-nj-FKx"/>
+                            <constraint firstItem="bio-FK-6ki" firstAttribute="top" secondItem="1140" secondAttribute="bottom" constant="20" id="Pb7-02-yub"/>
+                            <constraint firstItem="bio-FK-6ki" firstAttribute="centerX" secondItem="556" secondAttribute="centerX" id="bew-73-LMW"/>
+                            <constraint firstItem="1140" firstAttribute="leading" secondItem="jyy-RW-qoh" secondAttribute="leading" constant="40" id="eTl-ya-y1L"/>
+                            <constraint firstItem="1140" firstAttribute="centerY" secondItem="jyy-RW-qoh" secondAttribute="centerY" id="j9i-dL-sjp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jyy-RW-qoh"/>
+                    </view>
+                    <connections>
+                        <outlet property="AppStoreLinkButton" destination="bio-FK-6ki" id="name-outlet-bio-FK-6ki"/>
+                        <outlet property="TextLabel" destination="1140" id="name-outlet-1140"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="557" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="277" y="-125"/>
+        </scene>
+    </scenes>
+</document>

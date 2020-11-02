@@ -1,0 +1,108 @@
+﻿<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline_testmode_right"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		app:layout_constraintGuide_end="16dp" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline_testmode_left"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		app:layout_constraintGuide_begin="48dp" />
+
+	<Button
+		android:id="@+id/arrow_back_testmode"
+		android:layout_width="24dp"
+		android:layout_height="24dp"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginLeft="8dp"
+		android:layout_marginTop="49dp"
+		android:clickable="true"
+		android:focusable="true"
+		android:background="@drawable/ic_back_arrow"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/settings_testmode_text_layout"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:paddingTop="44dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintLeft_toRightOf="@id/guideline_testmode_left"
+		app:layout_constraintRight_toRightOf="@id/guideline_testmode_right"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="16sp"
+				android:textAlignment="center"
+				android:textStyle="bold"
+				android:text="currentDeviceUUID"
+				android:id="@+id/currentDeviceUUID"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp"
+				android:textIsSelectable="true"
+				style="@style/PrimaryText">
+			</TextView>
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="16sp"
+				android:textAlignment="center"
+				android:textStyle="bold"
+				android:text="deviceCorrelationID"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp"
+				android:textIsSelectable="true"
+				android:id="@+id/deviceCorrelationID"
+				style="@style/PrimaryText">
+			</TextView>
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:textSize="16sp"
+				android:textAlignment="center"
+				android:textStyle="bold"
+				android:text="closeEncountersAmount"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp"
+				android:textIsSelectable="true"
+				android:id="@+id/closeEncountersAmount"
+				style="@style/PrimaryText">
+			</TextView>
+			<Button
+				android:id="@+id/activity_feed_send_logfile"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginTop="0dp"
+				android:layout_marginHorizontal="20dp"
+				android:text="Send logfile"
+				android:background="@drawable/default_button"
+				style="@style/DefaultButton" />
+			<ListView
+				android:minWidth="25px"
+				android:minHeight="25px"
+				android:padding="20dp"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:id="@+id/listViewActivityFeed" />
+			</LinearLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

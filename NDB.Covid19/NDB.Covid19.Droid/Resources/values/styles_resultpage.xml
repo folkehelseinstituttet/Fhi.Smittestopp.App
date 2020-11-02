@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <style name="OnOffButton" parent="@style/PrimaryTextBold">
+    <item name="android:background">@drawable/on_off_button</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+
+  <style name="OnOffButtonGreen" parent="@style/PrimaryTextBold">
+    <item name="android:background">@drawable/on_off_button_green</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+
+  <style name="CounterBackground">
+    <item name="android:background">@drawable/counter_background</item>
+  </style>
+
+  <style name="counterCircle" parent="@style/PrimaryTextLight">
+    <item name="android:background">@drawable/circle_textview</item>
+    <item name="android:textSize">83sp</item>
+  </style>
+
+  <style name="counterNumber" parent="@style/PrimaryTextRegular">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textSize">56sp</item>
+  </style>
+
+  <style name="CounterExplainText" parent="@style/PrimaryTextRegular">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textColor">@color/counterExplainText</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+
+  <style name="contactsTodayText" parent="@style/PrimaryTextRegular">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textSize">24sp</item>
+  </style>
+
+  <style name="AverageText" parent="@style/PrimaryTextBold">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+  <style name="AverageNumber" parent="@style/PrimaryTextRegular">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textSize">24sp</item>
+  </style>
+  <style name="LastUpdatedText" parent="@style/PrimaryTextRegular">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textSize">12sp</item>
+  </style>
+  <style name="UnsupportedText" parent="@style/PrimaryTextRegular">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+</resources>

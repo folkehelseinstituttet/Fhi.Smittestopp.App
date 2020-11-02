@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="582">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="581">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="582" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="583">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-sX-waS">
+                                <rect key="frame" x="268" y="40" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="55z-8d-CNw"/>
+                                    <constraint firstAttribute="height" constant="32" id="v7R-uB-dkS"/>
+                                </constraints>
+                                <state key="normal" image="CloseWhite"/>
+                                <connections>
+                                    <action selector="OnCloseBtnTapped:" destination="582" eventType="touchUpInside" id="2569"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1288">
+                                <rect key="frame" x="0.0" y="92" width="320" height="476"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsItemCell" id="1289" customClass="SettingsItemCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1289" id="1290">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CYr-gH-Cp9">
+                                                    <rect key="frame" x="20" y="20" width="280" height="32"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yja-lY-pzO">
+                                                            <rect key="frame" x="0.0" y="1.5" width="228" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YJo-Ne-YnF">
+                                                            <rect key="frame" x="248" y="2" width="32" height="28.5"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="32" id="Zeu-LX-aGn"/>
+                                                                <constraint firstAttribute="width" constant="32" id="vTB-1V-Wad"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="CYr-gH-Cp9" secondAttribute="trailing" constant="20" id="2Ds-QC-3IK"/>
+                                                <constraint firstItem="CYr-gH-Cp9" firstAttribute="leading" secondItem="1290" secondAttribute="leading" constant="20" id="UxN-WI-g21"/>
+                                                <constraint firstItem="CYr-gH-Cp9" firstAttribute="top" secondItem="1290" secondAttribute="top" constant="20" id="cxX-vN-dNs"/>
+                                                <constraint firstAttribute="bottom" secondItem="CYr-gH-Cp9" secondAttribute="bottom" constant="20" id="xak-lr-CmE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="TextLbl" destination="yja-lY-pzO" id="name-outlet-yja-lY-pzO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.039215686274509803" green="0.18823529411764706" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="1288" firstAttribute="top" secondItem="pR4-sX-waS" secondAttribute="bottom" constant="20" id="1g7-bb-4BM"/>
+                            <constraint firstAttribute="bottom" secondItem="1288" secondAttribute="bottom" id="8go-yy-cbl"/>
+                            <constraint firstItem="g0k-wb-Kag" firstAttribute="trailing" secondItem="pR4-sX-waS" secondAttribute="trailing" constant="20" id="Fp0-aR-eTM"/>
+                            <constraint firstItem="1288" firstAttribute="leading" secondItem="g0k-wb-Kag" secondAttribute="leading" id="QFN-RN-z6E"/>
+                            <constraint firstItem="g0k-wb-Kag" firstAttribute="trailing" secondItem="1288" secondAttribute="trailing" id="hjB-I9-yAe"/>
+                            <constraint firstItem="pR4-sX-waS" firstAttribute="top" secondItem="g0k-wb-Kag" secondAttribute="top" constant="20" id="m8l-IE-XqE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g0k-wb-Kag"/>
+                    </view>
+                    <connections>
+                        <outlet property="SettingsItemsTable" destination="1288" id="name-outlet-1288"/>
+                        <outlet property="CloseBtn" destination="pR4-sX-waS" id="name-outlet-pR4-sX-waS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="584" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="191"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CloseWhite" width="19" height="18.5"/>
+        <image name="chevron.right" catalog="system"/>
+    </resources>
+</document>

@@ -1,0 +1,243 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settings_general_text_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu"
+    android:layout_marginTop="44dp">
+
+    <Button
+        android:id="@+id/arrow_back_general"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/ic_back_arrow"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settings_general_title"
+        style="@style/HeaderText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="24dp"
+        android:lineSpacingExtra="4sp"
+        android:text="Indstillinger"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/arrow_back_general"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/settings_general_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/settings_general_title"
+        app:layout_constraintTop_toBottomOf="@+id/settings_general_title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_general_main_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="70dp">
+
+            <TextView
+                android:id="@+id/settings_general_explanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:lineSpacingExtra="4sp"
+                android:paddingTop="32dp"
+                android:paddingBottom="34dp"
+                android:text="Her kan du redigere dine indstillinger"
+                android:textAppearance="@style/settings_general"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/settings_general_explanation_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:lineSpacingExtra="4sp"
+                android:paddingBottom="17dp"
+                android:text="Explanation of the settings"
+                android:textAppearance="@style/settings_general"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_explanation" />
+
+            <View
+                android:id="@+id/settings_general_divider_top"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="-24dp"
+                android:background="#C5E2FC"
+                app:layout_constraintBottom_toTopOf="@id/settings_general_mobile_data_layout"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/settings_general_mobile_data_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:isScrollContainer="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_explanation_two">
+
+                <TextView
+                    android:id="@+id/settings_general_mobile_data_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@id/settings_general_switch"
+                    android:paddingTop="13dp"
+                    android:paddingBottom="13dp"
+                    android:text="Mobildata"
+                    android:textAppearance="@style/HeaderSmallText" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/settings_general_switch"
+                    android:layout_width="52dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    app:thumbTint="@drawable/switch_thumb"
+                    app:trackTint="@drawable/switch_track" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/settings_general_divider_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="-24dp"
+                android:background="#C5E2FC"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_mobile_data_layout" />
+
+            <TextView
+                android:id="@+id/settings_general_mobile_data_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="46dp"
+                android:text="DummyText"
+                android:textAppearance="@style/MessageListItemDescriptionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_divider_bottom" />
+
+            <TextView
+                android:id="@+id/settings_general_select_lang_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:paddingBottom="13dp"
+                android:text="Choose language"
+                android:textAppearance="@style/settings_general"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_mobile_data_desc" />
+
+            <View
+                android:id="@+id/settings_general_select_lang_divider_top"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="-24dp"
+                android:background="#C5E2FC"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_header" />
+
+            <RadioGroup
+                android:id="@+id/settings_general_select_lang_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:dividerPadding="23dp"
+                android:paddingVertical="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_top">
+
+                <RadioButton
+                    android:id="@+id/settings_general_danish"
+                    style="@style/HeaderSmallText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryText"
+                    android:text="Dansk" />
+
+                <RadioButton
+                    android:id="@+id/settings_general_english"
+                    style="@style/HeaderSmallText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryText"
+                    android:text="English" />
+            </RadioGroup>
+
+            <View
+                android:id="@+id/settings_general_select_lang_divider_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="-24dp"
+                android:background="#C5E2FC"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_radio_group" />
+
+            <TextView
+                android:id="@+id/settings_general_select_lang_desc_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:paddingVertical="14dp"
+                android:text="Restart to see your language setting"
+                android:textAppearance="@style/MessageListItemDescriptionText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_bottom" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one">
+
+                <TextView
+                    android:id="@+id/settings_general_link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableEnd="@drawable/ic_arrow_back_right"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:text="smittestop.dk"
+                    android:textAppearance="@style/MessageListItemDescriptionText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Space
+                    android:id="@+id/spacer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/settings_general_link"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

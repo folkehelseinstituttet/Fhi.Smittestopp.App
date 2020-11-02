@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/ScrollScreen">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/welcome_page_two_title_layout"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="48dp">
+            <Button
+                android:id="@+id/arrow_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="13dp"
+                android:background="@drawable/ic_back_arrow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:id="@+id/welcome_page_two_title"
+                style="@style/HeaderText"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:src="@drawable/working_schema_ag_api"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:id="@+id/working_schema"
+            android:layout_below="@+id/welcome_page_two_title_layout"
+            android:layout_marginBottom="29dp"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/welcome_page_two_bullet_one_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            style="@style/CheckmarkContainer"
+            android:layout_below="@id/working_schema">
+
+            <ImageView 
+                style="@style/Checkmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/checkmark"/>
+
+            <TextView
+                android:id="@+id/welcome_page_two_body_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body one"
+                android:accessibilityTraversalBefore="@id/welcome_page_two_body_two"
+           style="@style/CheckmarkText"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/welcome_page_two_bullet_two_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            style="@style/CheckmarkContainer"
+            android:layout_below="@id/welcome_page_two_bullet_one_layout">
+
+            <ImageView 
+                style="@style/Checkmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/checkmark"/>
+
+            <TextView
+                android:id="@+id/welcome_page_two_body_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body one"
+                android:accessibilityTraversalBefore="@id/welcome_page_two_body_two"
+           style="@style/CheckmarkText"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

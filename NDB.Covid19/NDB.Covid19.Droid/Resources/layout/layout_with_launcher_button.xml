@@ -1,0 +1,33 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView 
+        android:src="@drawable/ic_start_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ic_start_logo"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        />
+    <Button
+        android:text="Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/launcher_button"
+        style="@style/DefaultButton"
+        android:layout_above="@id/launcer_icon_imageview"
+        />
+    <ImageView 
+        android:src="@drawable/health_department_logo"
+        android:layout_width="200dp"
+        android:layout_height="46dp"
+        android:id="@+id/launcer_icon_imageview"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+         android:layout_margin="10dp"
+        />
+</RelativeLayout>

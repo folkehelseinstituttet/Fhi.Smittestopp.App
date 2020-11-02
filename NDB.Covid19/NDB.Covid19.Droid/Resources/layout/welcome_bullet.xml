@@ -1,0 +1,21 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/welcome_bullet"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	tools:showIn="@layout/welcome_what_is_new">
+
+	<CheckBox
+		android:button="@drawable/checkmark"
+		android:clickable="false"
+		android:enabled="false"
+		android:gravity="top"
+		android:paddingLeft="24dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Body two"
+		android:id="@+id/bulletText"
+		style="@style/CheckmarkText"/>
+</LinearLayout>

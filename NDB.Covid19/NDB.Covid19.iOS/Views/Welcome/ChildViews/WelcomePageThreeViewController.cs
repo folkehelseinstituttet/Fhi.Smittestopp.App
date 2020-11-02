@@ -1,0 +1,38 @@
+using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
+using NDB.Covid19.PersistedData;
+using UIKit;
+
+namespace NDB.Covid19.iOS
+{
+    public partial class WelcomePageThreeViewController : PageViewController
+    {
+        public WelcomePageThreeViewController (IntPtr handle) : base (handle)
+        {
+        }
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+            SetTexts();
+
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
+            BackArrow.Hidden = !LocalPreferencesHelper.IsOnboardingCompleted;
+            BackArrow.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+        }
+
+        partial void BackArrowBtn_TouchUpInside(UIButton sender)
+        {
+            NavigationController.PopViewController(true);
+        }
+
+        void SetTexts()
+        {
+            InitTitle(TitleLabel, WelcomeViewModel.WELCOME_PAGE_THREE_TITLE);
+            InitBodyText(BodyText1, WelcomeViewModel.WELCOME_PAGE_THREE_BODY_ONE);
+            InitBodyText(BodyText2, WelcomeViewModel.WELCOME_PAGE_THREE_BODY_TWO);
+            InitBodyText(BoxText, WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY);
+        }
+    }
+}

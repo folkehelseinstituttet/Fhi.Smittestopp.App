@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="584">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings Page4 View Controller-->
+        <scene sceneID="583">
+            <objects>
+                <viewController id="584" customClass="SettingsPage4ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="585">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="I0h-YT-WTT">
+                                <rect key="frame" x="13" y="64" width="388" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1169">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="8Ek-1D-s6c"/>
+                                            <constraint firstAttribute="width" constant="30" id="CBq-gt-rna"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="BackButton"/>
+                                        <connections>
+                                            <action selector="BackButton_TouchUpInside:" destination="584" eventType="touchUpInside" id="2060"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1170" customClass="SetttingsPageTitleLabel">
+                                        <rect key="frame" x="35" y="0.0" width="353" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqm-Qq-zTy">
+                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQF-u3-KHz">
+                                        <rect key="frame" x="24" y="0.0" width="342" height="320"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6SL-nv-F5M">
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="320"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" indicatorStyle="white" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1171" customClass="SettingsContentTextView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="200"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                                    </textView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SundhedDK" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1172">
+                                                        <rect key="frame" x="0.0" y="200" width="342" height="120"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="120" id="RGB-AC-NlL"/>
+                                                        </constraints>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="1171" firstAttribute="centerX" secondItem="6SL-nv-F5M" secondAttribute="centerX" id="g61-qO-BeW"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="6SL-nv-F5M" firstAttribute="top" secondItem="EQF-u3-KHz" secondAttribute="top" id="2lW-Re-DKd"/>
+                                            <constraint firstAttribute="bottom" secondItem="6SL-nv-F5M" secondAttribute="bottom" id="D2Q-4P-pMV"/>
+                                            <constraint firstAttribute="trailing" secondItem="6SL-nv-F5M" secondAttribute="trailing" id="EA0-Pp-HIm"/>
+                                            <constraint firstItem="6SL-nv-F5M" firstAttribute="leading" secondItem="EQF-u3-KHz" secondAttribute="leading" id="g3A-Ya-pyc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EQF-u3-KHz" firstAttribute="leading" secondItem="oqm-Qq-zTy" secondAttribute="leading" id="7Xx-QC-89O"/>
+                                    <constraint firstItem="EQF-u3-KHz" firstAttribute="width" secondItem="oqm-Qq-zTy" secondAttribute="width" id="Hsk-QF-w23"/>
+                                    <constraint firstItem="EQF-u3-KHz" firstAttribute="top" secondItem="oqm-Qq-zTy" secondAttribute="top" id="RDJ-9L-rUg"/>
+                                    <constraint firstAttribute="trailing" secondItem="EQF-u3-KHz" secondAttribute="trailing" constant="48" id="hEu-jE-ZfK"/>
+                                    <constraint firstItem="EQF-u3-KHz" firstAttribute="leading" secondItem="oqm-Qq-zTy" secondAttribute="leading" constant="24" id="kc9-rP-lJF"/>
+                                    <constraint firstAttribute="trailing" secondItem="EQF-u3-KHz" secondAttribute="trailing" id="lM5-ON-uXz"/>
+                                    <constraint firstAttribute="bottom" secondItem="EQF-u3-KHz" secondAttribute="bottom" id="oAh-Wf-HKe"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Xx-QC-89O"/>
+                                        <exclude reference="Hsk-QF-w23"/>
+                                        <exclude reference="lM5-ON-uXz"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666696" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EQF-u3-KHz" firstAttribute="width" secondItem="CZ0-4X-qcf" secondAttribute="width" constant="-72" id="04w-go-rrn"/>
+                            <constraint firstItem="oqm-Qq-zTy" firstAttribute="top" secondItem="I0h-YT-WTT" secondAttribute="bottom" constant="20" id="88s-7i-6g5"/>
+                            <constraint firstAttribute="bottom" secondItem="oqm-Qq-zTy" secondAttribute="bottom" id="Id9-Ua-dIJ"/>
+                            <constraint firstItem="I0h-YT-WTT" firstAttribute="top" secondItem="CZ0-4X-qcf" secondAttribute="top" constant="20" id="OdJ-xZ-D2g"/>
+                            <constraint firstItem="I0h-YT-WTT" firstAttribute="leading" secondItem="CZ0-4X-qcf" secondAttribute="leading" constant="13" id="h8l-fA-8vo"/>
+                            <constraint firstItem="CZ0-4X-qcf" firstAttribute="trailing" secondItem="I0h-YT-WTT" secondAttribute="trailing" constant="13" id="q75-Ma-pfX"/>
+                            <constraint firstItem="oqm-Qq-zTy" firstAttribute="leading" secondItem="CZ0-4X-qcf" secondAttribute="leading" id="qXn-dC-DuR"/>
+                            <constraint firstItem="CZ0-4X-qcf" firstAttribute="trailing" secondItem="oqm-Qq-zTy" secondAttribute="trailing" id="siM-0t-Ywo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CZ0-4X-qcf"/>
+                    </view>
+                    <connections>
+                        <outlet property="BackButton" destination="1169" id="name-outlet-1169"/>
+                        <outlet property="ContentText" destination="1171" id="name-outlet-1171"/>
+                        <outlet property="CustomView" destination="EQF-u3-KHz" id="name-outlet-EQF-u3-KHz"/>
+                        <outlet property="HeaderLabel" destination="1170" id="name-outlet-1170"/>
+                        <outlet property="ScrollView" destination="oqm-Qq-zTy" id="name-outlet-oqm-Qq-zTy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="586" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="415.94200000000001" y="42.857140000000001"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BackButton" width="128" height="128"/>
+        <image name="SundhedDK" width="128" height="128"/>
+    </resources>
+</document>

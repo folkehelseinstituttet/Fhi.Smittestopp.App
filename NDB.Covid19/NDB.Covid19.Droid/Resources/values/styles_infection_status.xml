@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <style name="InfectionStatusOnOffButtonRed" parent="@style/PrimaryTextBold">
+    <item name="android:background">@drawable/infection_status_on_off_button_red</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+
+  <style name="InfectionStatusOnOffButtonGreen" parent="@style/PrimaryTextBold">
+    <item name="android:background">@drawable/infection_status_on_off_button_green</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+
+  <style name="InfectionStatusLayoutButton" parent="@style/PrimaryTextBold">
+    <item name="android:clickable">true</item>
+    <item name="android:background">@drawable/infection_status_layout_button</item>
+    <item name="android:layout_marginTop">20dp</item>
+    <item name="android:layout_marginLeft">16dp</item>
+    <item name="android:layout_marginRight">16dp</item>
+    <item name="android:padding">15dp</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+</resources>

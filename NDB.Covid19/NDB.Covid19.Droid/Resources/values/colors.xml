@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0F2147</color>
+    <color name="colorPrimaryMedium">#5d6280</color>
+    <color name="colorPrimaryDark">#384063</color>
+    <color name="colorAccent">#3498db</color>
+    <color name="lightPrimary">#F7F7F7</color>
+    <color name="textIcon">#FFFFFF</color>
+    <color name="primaryText">#FFFFFF</color>
+    <color name="secondaryText">#727272</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="activated_color">#E8E8E8</color>
+    <color name="colorControlActivated">#FFFFFF</color>
+    <color name="splashBackground">#FBFBFB</color>
+    <color name="topbar">#245C89</color>
+    <color name="topbarDevicer">#334D5D </color>
+    <color name="backgroundColor">#002034</color>
+    <color name="buttonOnGreen">#61D39F</color>
+    <color name="greyedOut">#334D5D</color>
+    <color name="counterExplainText">#A1ACB4</color>
+    <color name="counterLayoutBackgroundColor">#071F32</color>
+    <color name="warningColor">#FFDC3C</color>
+    <color name="errorColor">#FF8C1E</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="dividerBlue">#3498db</color>
+    <color name="dividerWhite">#FFFFFF</color>
+    <color name="selectedDot">#FADC5D</color>
+    <color name="unselectedDot">#FFFFFF</color>
+    <color name="switchSelectedTrack">#088e79</color>
+    <color name="switchUnselectedTrack">#405564</color>
+    <color name="switchSelectedThumb">#01d79c</color>
+    <color name="switchUnselectedThumb">#ffffff</color>
+	<color name="linkColor">#FFFF00</color>
+    <color name="infectionStatusButtonOnGreen">#56c568</color>
+    <color name="infectionStatusButtonOffRed">#eb5757</color>
+    <color name="infectionStatusBackgroundGreen">#8056c568</color>
+    <color name="infectionStatusBackgroundRed">#80eb5757</color>
+    <!--> 33 (20%) indicates the transparency of the color<-->
+    <color name="infectionStatusLayoutButtonBackground">#33C5E2FC</color>
+    <color name="infectionStatusLayoutButtonArrowBackground">#33071F32</color>
+    <color name="lightBlueDivider">#C5E2FC</color>
+    <color name="infectionStatusButtonMark">#32071F32</color>
+</resources>

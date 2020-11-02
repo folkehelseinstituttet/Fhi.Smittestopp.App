@@ -1,0 +1,74 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    >
+
+	<NDB.Covid19.Droid.Views.Welcome.NonSwipeableViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_centerHorizontal="true"
+        android:importantForAccessibility="yes"
+        android:layout_above="@id/tabDots">
+    </NDB.Covid19.Droid.Views.Welcome.NonSwipeableViewPager>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabDots"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        app:tabBackground="@drawable/dotselector"
+        android:layout_above="@id/buttonPlane"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_marginTop="32dp"
+        app:tabPaddingStart="10dp"
+        app:tabPaddingEnd="10dp"
+        android:screenReaderFocusable="false"
+        android:importantForAccessibility="noHideDescendants"
+/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonPlane"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/activityIndicator"
+            android:layout_centerHorizontal="true"
+        />
+        <Button
+            android:text="Previous"
+            android:id="@+id/buttonPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            style="@style/DefaultButtonNoBorder"
+            android:visibility="invisible"
+    />
+        <Button
+            android:text="Klik her for at starte"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/buttonGetStarted"
+            style="@style/DefaultButton"
+      
+            />
+    </LinearLayout>
+</RelativeLayout>

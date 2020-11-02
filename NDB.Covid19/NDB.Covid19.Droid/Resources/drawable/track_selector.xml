@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape android:dither="true" android:shape="rectangle" android:useLevel="false" android:visible="true">
+            <solid android:color="@color/switchSelectedTrack" />
+            <corners android:radius="25dp" />
+            <size android:width="90dp" android:height="40dp" />
+        </shape>
+    </item>
+    <item android:state_checked="false">
+        <shape android:dither="true" android:shape="rectangle" android:useLevel="false" android:visible="true">
+            <solid android:color="@color/switchUnselectedTrack" />
+            <corners android:radius="25dp" />
+            <size android:width="90dp" android:height="40dp" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="395">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="394">
+            <objects>
+                <viewController id="395" customClass="WelcomeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="396">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1664" misplaced="YES">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="1682" kind="embed" identifier="PageViewSegue" id="1714"/>
+                                </connections>
+                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-eT-Ck7">
+                                <rect key="frame" x="0.0" y="500" width="320" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2057">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="48"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="PreviousBtn_TouchUpInside:" destination="395" eventType="touchUpInside" id="2104"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1671">
+                                        <rect key="frame" x="160" y="0.0" width="160" height="48"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="3453"/>
+                                    <constraint firstAttribute="height" constant="48" id="nMy-oM-zWq"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3032">
+                                <rect key="frame" x="288" y="514" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2561">
+                                <rect key="frame" x="16" y="463" width="288" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1664" firstAttribute="leading" secondItem="b5X-h4-uWc" secondAttribute="leading" id="1676"/>
+                            <constraint firstItem="b5X-h4-uWc" firstAttribute="trailing" secondItem="1664" secondAttribute="trailing" id="1677"/>
+                            <constraint firstItem="2561" firstAttribute="trailing" secondItem="396" secondAttribute="trailingMargin" id="2562"/>
+                            <constraint firstItem="2561" firstAttribute="leading" secondItem="396" secondAttribute="leadingMargin" id="2563"/>
+                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="centerX" secondItem="b5X-h4-uWc" secondAttribute="centerX" id="3454"/>
+                            <constraint firstItem="3032" firstAttribute="centerY" secondItem="1671" secondAttribute="centerY" id="7pz-ZJ-6WW"/>
+                            <constraint firstItem="2561" firstAttribute="top" secondItem="1664" secondAttribute="bottom" constant="8" id="DEB-Ok-sdX"/>
+                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="20" id="Swg-cu-uvp"/>
+                            <constraint firstItem="3032" firstAttribute="trailing" secondItem="1671" secondAttribute="trailing" constant="-12" id="jYQ-ui-kDH"/>
+                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="top" secondItem="2561" secondAttribute="bottom" id="mH5-VK-bQM"/>
+                            <constraint firstItem="1664" firstAttribute="top" secondItem="b5X-h4-uWc" secondAttribute="top" id="zsf-Xn-PIv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b5X-h4-uWc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="616"/>
+                    <connections>
+                        <outlet property="ActivityIndicator" destination="3032" id="name-outlet-3032"/>
+                        <outlet property="ButtonsWidthConstraint" destination="3453" id="name-outlet-3453"/>
+                        <outlet property="ContainerView" destination="1664" id="name-outlet-1664"/>
+                        <outlet property="NextBtn" destination="1671" id="name-outlet-1671"/>
+                        <outlet property="PageControl" destination="2561" id="name-outlet-2561"/>
+                        <outlet property="PreviousBtn" destination="2057" id="name-outlet-2057"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="397" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208.6956" y="-64.95536"/>
+        </scene>
+        <!--Welcome Page View Controller-->
+        <scene sceneID="1681">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="min" id="1682" customClass="WelcomePageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1683" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1053" y="25"/>
+        </scene>
+    </scenes>
+</document>

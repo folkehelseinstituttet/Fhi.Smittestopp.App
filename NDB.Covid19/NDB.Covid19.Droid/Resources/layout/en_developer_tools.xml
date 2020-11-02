@@ -1,0 +1,385 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/enDeveloperTools_guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/enDeveloperTools_guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="48dp" />
+
+    <Button
+        android:id="@+id/enDeveloperTools_button_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/enDeveloperTools_constraintLayout_betweenGuidelines"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/enDeveloperTools_guideline_left"
+        app:layout_constraintEnd_toEndOf="@id/enDeveloperTools_guideline_right"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="EN Developer Tools"
+                    android:id="@+id/enDeveloperTools_textView_hello"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:textIsSelectable="true"
+                    style="@style/PrimaryText">
+                </TextView>
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <TextView
+                        android:id="@+id/enDeveloperTools_textView_devOutput"
+                        android:layout_width="match_parent"
+                        android:padding="1dp"
+                        android:text="Output Text"
+                        android:textColor="@android:color/white"
+                        android:layout_height="wrap_content"/>
+                </androidx.core.widget.NestedScrollView>
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_pullKeys"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Pull keys"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_pullKeysAndGetExposureInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Pull keys and save exposureinfos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_pushKeys"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Retrieve Last Key Sent Info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/enDeveloperTools_button_sendExposureMessage_decrement"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Date-"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <Button
+                        android:id="@+id/enDeveloperTools_button_sendExposureMessage"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Send Exposure Message"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <Button
+                        android:id="@+id/enDeveloperTools_button_sendExposureMessage_increment"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Date+"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_sendExposureMessage_after_10_sec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Send Exposure Message After 10 sec"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_lastUsedExposureConfiguration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Last Used Exposure Configuration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_fetchExposureConfiguration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Fetch Exposure Configuration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_toggleMessageRetentionLength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Toggle Message Retention Length"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/enDeveloperTools_button_printLastSymptomOnsetDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Print Last SymptomOnsetDate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/enDeveloperTools_button_printLastKeysPulledAndTimestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Print Last Keys Pulled and Timestamp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_showLatestPullKeysTimesAndStatuses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Show Latest Pull Keys Times And Statuses"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_showLastSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Show last ExposureSummary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_showLastExposureInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Show last ExposureInfos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/enDeveloperTools_button_resetLocalData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="Reset Local Data"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                
+                <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Set consents with app restart:"
+	                android:textColor="@android:color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/no_consents"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="1dp"
+                        android:text="No consents"/>
+                    <Button
+                        android:id="@+id/only_v1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="1dp"
+                        android:text="Only v1"/>
+                    <Button
+                        android:id="@+id/all_consents"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="1dp"
+                        android:text="All consents"/>
+                </LinearLayout>
+
+                <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Set consents without app restart:"
+	                android:textColor="@android:color/white"/>
+
+                <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal">
+	                <Button
+		                android:id="@+id/no_consents_no_restart"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_marginVertical="1dp"
+		                android:text="No consents (NR)"/>
+	                <Button
+		                android:id="@+id/only_v1_no_restart"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_marginVertical="1dp"
+		                android:text="Only v1 (NR)"/>
+	                <Button
+		                android:id="@+id/all_consents_no_restart"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_marginVertical="1dp"
+		                android:text="All consents (NR)"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/print_actual_preferences"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="1dp"
+                    android:text="Print Actual Preferences"/>
+
+                <Button
+	                android:id="@+id/fake_gateway"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginVertical="1dp"
+	                android:text="Fake gateway"/>
+
+                <Button
+	                android:id="@+id/pull_with_delay"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginVertical="1dp"
+	                android:text="Pull with 10 sec delay"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

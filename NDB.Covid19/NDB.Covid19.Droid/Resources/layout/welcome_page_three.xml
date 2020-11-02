@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/ScrollScreen">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/welcome_page_two_title_layout"
+            android:paddingBottom="39dp"
+            android:layout_alignParentTop="true">
+            <Button
+                android:id="@+id/arrow_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="13dp"
+                android:background="@drawable/ic_back_arrow"
+                android:visibility="visible"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:id="@+id/welcome_page_three_title"
+                style="@style/HeaderText"
+                />
+        </LinearLayout>
+        <ImageView
+            android:src="@drawable/technology_background_ag_api"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/technology_background"
+            android:layout_marginBottom="32dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/welcome_page_two_title_layout"
+            />
+
+        <LinearLayout
+            android:id="@+id/welcome_page_four_bullet_one_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            style="@style/CheckmarkContainer"
+            android:layout_below="@id/technology_background">
+
+            <ImageView 
+                style="@style/Checkmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/checkmark"/>
+
+            <TextView
+                android:id="@+id/welcome_page_three_body_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body one"
+            android:accessibilityTraversalBefore="@id/welcome_page_three_body_two"
+           style="@style/CheckmarkText"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/welcome_page_four_bullet_two_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/welcome_page_four_bullet_one_layout"
+            style="@style/CheckmarkContainer">
+
+            <ImageView 
+                style="@style/Checkmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/checkmark"/>
+
+            <TextView
+                android:id="@+id/welcome_page_three_body_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body one"
+                android:accessibilityTraversalBefore="@id/welcome_page_three_infobox_body"
+                style="@style/CheckmarkText"/>
+        </LinearLayout>
+
+        <TextView
+            android:gravity="center"
+            android:textAlignment="viewStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Infobox"
+            android:drawableEnd="@drawable/bluetooth"
+            android:drawablePadding="8dp"
+            android:id="@+id/welcome_page_three_infobox_body"
+            style="@style/PrimaryText"
+            android:screenReaderFocusable="false"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rectangle"
+            android:layout_below="@id/welcome_page_four_bullet_two_layout"
+            />
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_frivillig_brug"
+        android:layout_marginBottom="16dp" />
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_sadan_fungerer_appen"
+        android:layout_below="@+id/consent_paragraph_frivillig_brug"
+        android:layout_marginBottom="16dp" />
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_hvad_registreres"
+        android:layout_below="@+id/consent_paragraph_sadan_fungerer_appen"
+        android:layout_marginBottom="16dp" />
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_hvordan_accepterer"
+        android:layout_below="@+id/consent_paragraph_hvad_registreres"
+        android:layout_marginBottom="16dp" />
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_ret"
+        android:layout_below="@+id/consent_paragraph_hvordan_accepterer"
+        android:layout_marginBottom="16dp" />
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_kontaktregistringer"
+        android:layout_below="@+id/consent_paragraph_ret"
+        android:layout_marginBottom="16dp" />
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_mere"
+        android:layout_below="@+id/consent_paragraph_kontaktregistringer"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:text="Privacy policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ConsentButton"
+        android:id="@+id/consent_paragraph_policy_btn"
+        android:layout_below="@id/consent_paragraph_mere"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="16dp"/>
+
+
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_behandlingen"
+        android:layout_below="@id/consent_paragraph_policy_btn"
+        android:layout_marginBottom="16dp" />
+    <include layout="@layout/consent_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/consent_paragraph_aendringer"
+        android:layout_below="@+id/consent_paragraph_behandlingen"
+        android:layout_marginBottom="16dp" />
+
+</RelativeLayout>

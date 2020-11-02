@@ -1,0 +1,118 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+	<LinearLayout
+		android:id="@+id/top_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_marginStart="14dp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<View
+				android:id="@+id/message_logo"
+				android:layout_width="127dp"
+				android:layout_height="53dp"
+				android:layout_alignParentStart="true"
+				android:background="@drawable/patient_logo" />
+
+			<RelativeLayout
+				android:id="@+id/close_cross_btn"
+				android:layout_width="48dp"
+				android:layout_height="48dp"
+				android:layout_alignParentTop="true"
+				android:layout_alignParentRight="true"
+				android:padding="12dp"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+				<ImageView
+					android:src="@drawable/ic_close_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+			</RelativeLayout>
+		</RelativeLayout>
+		<LinearLayout
+			android:id="@+id/title_and_updated_date"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="21dp"
+			android:layout_marginStart="10dp"
+			android:layout_marginBottom="18dp"
+			android:gravity="center_vertical"
+			android:orientation="vertical">
+			<TextView
+				android:id="@+id/messages_page_title"
+				style="@style/HeaderText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center_vertical"
+				android:lineSpacingExtra="4sp"
+				android:text="Notifikationer" />
+			<TextView
+				android:id="@+id/message_last_update"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/messages_page_title"
+				style="@style/MessageListLastUpdateText"
+				android:lineSpacingExtra="2sp"
+				android:text="Last update: TODAY" />
+		</LinearLayout>
+	</LinearLayout>
+
+	<View
+		android:id="@+id/messages_devider"
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:background="@color/lightBlueDivider"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/top_layout" />
+
+	<LinearLayout
+		android:id="@+id/no_items_message"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@id/messages_devider"
+		android:layout_marginStart="45dp"
+		android:layout_marginEnd="20dp"
+		android:orientation="vertical"
+		android:visibility="visible">
+		<TextView
+			android:id="@+id/no_items_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="@style/MessageListItemTitleText"
+			android:layout_marginTop="16dp"
+			android:lineSpacingExtra="5sp"
+			android:ellipsize="end"
+			android:text="Dummy text" />
+		<TextView
+			android:id="@+id/no_items_description"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="7dp"
+			android:lineSpacingExtra="10sp"
+			style="@style/MessageListItemDescriptionText"
+			android:text="Dummy text" />
+	</LinearLayout>
+
+	<ListView
+		android:id="@+id/messages_list"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:orientation="vertical"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@id/messages_devider"
+		app:layout_constraintBottom_toBottomOf="parent"
+		android:visibility="invisible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
