@@ -19,7 +19,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             DependencyInjectionConfig.Init();
         }
 
-        [Theory]
+        [Theory (Skip = "Not relevant for release 1")]
         [InlineData(OnboardingStatus.NoConsentsGiven, false)]
         [InlineData(OnboardingStatus.OnlyMainOnboardingCompleted, true)]
         [InlineData(OnboardingStatus.CountriesOnboardingCompleted, false)]

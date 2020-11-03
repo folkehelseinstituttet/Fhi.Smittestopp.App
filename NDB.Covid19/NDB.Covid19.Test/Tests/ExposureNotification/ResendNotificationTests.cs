@@ -21,8 +21,11 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         private static readonly LocalNotificationManagerMock LocalNotificationsManager =
             (LocalNotificationManagerMock) NotificationsHelper.LocalNotificationsManager;
 
-        private static SecureStorageService _secureStorageService => ServiceLocator.Current.GetInstance<SecureStorageService>();
-        private static PermissionsMock Permissions => (PermissionsMock) ServiceLocator.Current.GetInstance<IPermissionsHelper>();
+        private static SecureStorageService _secureStorageService =>
+            ServiceLocator.Current.GetInstance<SecureStorageService>();
+
+        private static PermissionsMock Permissions =>
+            (PermissionsMock) ServiceLocator.Current.GetInstance<IPermissionsHelper>();
 
         public ResendNotificationTests()
         {
@@ -93,29 +96,27 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             LocalNotificationsManager.GenerateLocalNotification(new NotificationViewModel(), 0);
             LocalNotificationsManager.HasBeenCalled[NotificationsEnum.NewMessageReceived] = false;
 
-            DateTime preFetchDateTime = MessageUtils.GetDateTimeFromSecureStorageForKey(SecureStorageKeys.LAST_SENT_NOTIFICATION_UTC_KEY, "");
-            SystemTime.SetDateTime(DateTime.Now.Date.AddDays(daysOfTimeShift).AddHours(21).AddMinutes(minutesOfTimeShift).ToUniversalTime());
-            
+            DateTime preFetchDateTime = DateTime.MaxValue;
+
             int initialDay =
                 daysOfTimeShift > 1 ? daysOfTimeShift - 2 : 0; // To fasten up the execution time
             // Simulates pulling on each day
-            for (int i = initialDay; i <= daysOfTimeShift; i++) {
-
+            for (int i = initialDay; i <= daysOfTimeShift; i++)
+            {
                 if (i == daysOfTimeShift)
                 {
                     LocalNotificationsManager.HasBeenCalled[NotificationsEnum.NewMessageReceived] = false;
                 }
+
                 preFetchDateTime =
                     MessageUtils.GetDateTimeFromSecureStorageForKey(
                         SecureStorageKeys.LAST_SENT_NOTIFICATION_UTC_KEY, "");
                 SystemTime.SetDateTime(
-                    DateTime.Now.Date.
-                        AddDays(i).
-                        AddHours(isUpperBound ?
-                            Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END :
-                            Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN).
-                        AddMinutes(minutesOfTimeShift).
-                        ToUniversalTime());
+                    DateTime.Now.Date.AddDays(i)
+                        .AddHours(isUpperBound
+                            ? Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END
+                            : Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN).AddMinutes(minutesOfTimeShift)
+                        .ToUniversalTime());
 
                 try
                 {
@@ -128,7 +129,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 }
             }
 
-            Assert.Equal(shouldBeCalled, preFetchDateTime < MessageUtils.GetDateTimeFromSecureStorageForKey(SecureStorageKeys.LAST_SENT_NOTIFICATION_UTC_KEY, ""));
+            Assert.Equal(shouldBeCalled,
+                preFetchDateTime <
+                MessageUtils.GetDateTimeFromSecureStorageForKey(SecureStorageKeys.LAST_SENT_NOTIFICATION_UTC_KEY, ""));
             Assert.Equal(shouldBeCalled, LocalNotificationsManager.HasBeenCalled[NotificationsEnum.NewMessageReceived]);
 
             SystemTime.ResetDateTime();

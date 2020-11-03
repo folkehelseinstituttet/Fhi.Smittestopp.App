@@ -42,6 +42,20 @@ namespace NDB.Covid19.Enums
                             "NOTIFICATION_iOS_UPDATE_DESCRIPTION" :
                             "NOTIFICATION_ANDROID_UPDATE_DESCRIPTION").Translate()
                     };
+                case NotificationsEnum.ConsentNeeded:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.ConsentNeeded,
+                        Title = "NOTIFICATION_UPDATE_HEADER".Translate(),
+                        Body = "NOTIFICATION_CONSENT_DESCRIPTION".Translate()
+                    };
+                case NotificationsEnum.ReApproveConsents:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.ReApproveConsents,
+                        Title = "NOTIFICATION_CONSENT_HEADER".Translate(),
+                        Body = "NOTIFICATION_CONSENT_DESCRIPTION".Translate()
+                    };
                 case NotificationsEnum.BackgroundFetch:
                     return new NotificationViewModel
                     {

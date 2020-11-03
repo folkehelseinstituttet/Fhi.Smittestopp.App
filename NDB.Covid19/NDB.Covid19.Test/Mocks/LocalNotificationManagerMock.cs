@@ -2,13 +2,14 @@
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 
 namespace NDB.Covid19.Test.Mocks
 {
-    class LocalNotificationManagerMock: ILocalNotificationsManager
+    class LocalNotificationManagerMock : ILocalNotificationsManager
     {
         public Dictionary<NotificationsEnum, bool> HasBeenCalled { get; set; } = new Dictionary<NotificationsEnum, bool>();
 
@@ -26,6 +27,7 @@ namespace NDB.Covid19.Test.Mocks
 
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
         {
+            LocalPreferencesHelper.TermsNotificationWasShown = true;
             GenerateLocalNotification(viewModel, 0);
         }
 
@@ -38,5 +40,4 @@ namespace NDB.Covid19.Test.Mocks
         {
             HasBeenCalled.Clear();
         }
-    }
-}
+    }}
