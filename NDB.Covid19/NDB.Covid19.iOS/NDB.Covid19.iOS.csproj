@@ -677,6 +677,7 @@
     <Folder Include="Assets.xcassets\CheckboxUnchecked.imageset\" />
     <Folder Include="Assets.xcassets\logo_small_da.imageset\" />
     <Folder Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\" />
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -874,24 +875,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Fonts\Raleway-BlackItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-Black.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-ExtraBoldItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-ExtraBold.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-BoldItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-Bold.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-SemiBoldItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-SemiBold.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-MediumItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-Medium.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-Italic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-Regular.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-LightItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-Light.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-ExtraLightItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-ExtraLight.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-ThinItalic.ttf" />
-    <BundleResource Include="Resources\Fonts\Raleway-Thin.ttf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-Black.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-BlackItalic.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-Bold.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-BoldItalic.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-Light.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-LightItalic.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-Medium.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-MediumItalic.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-Regular.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-RegularItalic.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-Thin.otf" />
+    <BundleResource Include="Resources\Fonts\BrandonText-ThinItalic.otf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

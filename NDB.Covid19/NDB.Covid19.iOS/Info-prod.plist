@@ -62,10 +62,18 @@
 	<string>Bluetooth skal være slået til, for at smitte|stop fungerer. Enheden udsender og opsamler tilfældige Bluetooth-ID&apos;er til at finde ud af, om du har været tæt på nogen, som har oplyst, at de har COVID-19.</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/Raleway-Bold.ttf</string>
-		<string>Fonts/Raleway-Regular.ttf</string>
-		<string>Fonts/Raleway-SemiBold.ttf</string>
-		<string>Fonts/Raleway-Medium.ttf</string>
+		<string>Fonts/BrandonText-Bold.otf</string>
+		<string>Fonts/BrandonText-Regular.otf</string>
+		<string>Fonts/BrandonText-BlackItalic.otf</string>
+		<string>Fonts/BrandonText-BoldItalic.otf</string>
+		<string>Fonts/BrandonText-Black.otf</string>
+		<string>Fonts/BrandonText-Light.otf</string>
+		<string>Fonts/BrandonText-LightItalic.otf</string>
+		<string>Fonts/BrandonText-Medium.otf</string>
+		<string>Fonts/BrandonText-MediumItalic.otf</string>
+		<string>Fonts/BrandonText-RegularItalic.otf</string>
+		<string>Fonts/BrandonText-Thin.otf</string>
+		<string>Fonts/BrandonText-ThinItalic.otf</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>

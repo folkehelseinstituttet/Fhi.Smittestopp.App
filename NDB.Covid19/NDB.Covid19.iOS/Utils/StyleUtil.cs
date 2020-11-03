@@ -7,11 +7,13 @@ namespace NDB.Covid19.iOS.Utils
 {
     public static class StyleUtil
     {
-        public static string FontRegularName => "Raleway-Regular";
-        public static string FontBoldName => "Raleway-Bold";
-        public static string FontSemiBoldkName => "Raleway-SemiBold";
-        public static string FontMediumkName => "Raleway-Medium";
+        public static string FontRegularName => "Brandon Text Regular";
+        public static string FontBoldName => "Brandon Text Bold";
+        public static string FontSemiBoldkName => "Brandon Text Regular"; // TODO: Semibold text might be redundant
+        public static string FontMediumkName => "Brandon Text Medium";
         public static string FontMonospacedName => "Menlo-Regular";
+
+        //TODO: Add more fonts if needed. All available are included in info plist and Fonts/
 
         public enum FontType
         {

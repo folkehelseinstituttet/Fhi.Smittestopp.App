@@ -17,16 +17,12 @@ namespace NDB.Covid19.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            SetGradientBackground();
+            SetBackgroundColor();
         }
 
-        void SetGradientBackground()
+        void SetBackgroundColor()
         {
-            CAGradientLayer gradientLayer = new CAGradientLayer();
-            gradientLayer.Frame = View.Bounds;
-            gradientLayer.Colors = new CGColor[] { "#245C89".ToUIColor().CGColor, "#002034".ToUIColor().CGColor };
-
-            View.Layer.InsertSublayer(gradientLayer, 0);
+            View.BackgroundColor = "#E1EAED".ToUIColor();
         }
 
         public override void ViewWillAppear(bool animated)
