@@ -6,7 +6,9 @@
 trigger:
 - '*' # execute on all branches
 
-pool: 'Default'
+pool:
+  name: Azure Pipelines
+  vmImage: windows-latest
 
 variables:
   solution: '**/*.sln'
