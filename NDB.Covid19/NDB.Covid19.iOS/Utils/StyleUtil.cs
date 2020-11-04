@@ -63,7 +63,7 @@ namespace NDB.Covid19.iOS.Utils
             btn.BackgroundColor = UIColor.Clear;
             btn.Layer.BorderWidth = 1;
             btn.Layer.BorderColor = UIColor.White.CGColor;
-            btn.Layer.CornerRadius = btn.Layer.Frame.Height / 2;
+            btn.Layer.CornerRadius = btn.Layer.Frame.Height / 4;
             btn.Font = Font(FontType.FontSemiBold, 18f, 24f);
             btn.SetTitleColor(UIColor.White, UIControlState.Normal);
         }
@@ -79,6 +79,10 @@ namespace NDB.Covid19.iOS.Utils
             btn.Font = Font(FontType.FontSemiBold, 18f, 24f);
             btn.SetTitleColor(UIColor.White, UIControlState.Normal);
             btn.SetTitle(text, UIControlState.Normal);
+            btn.Layer.CornerRadius = btn.Layer.Frame.Height / 4;
+            btn.BackgroundColor = UIColor.Clear;
+            btn.Layer.BorderWidth = 1;
+            btn.Layer.BorderColor = UIColor.White.CGColor;
         }
 
         /// <summary>

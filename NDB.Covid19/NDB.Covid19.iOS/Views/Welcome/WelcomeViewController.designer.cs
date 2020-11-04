@@ -52,13 +52,21 @@ namespace NDB.Covid19.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton PreviousBtn { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton SkipBtn { get; set; }
+
 
         [Action ("GetStartedButton_TouchUpInside:")]
         partial void GetStartedButton_TouchUpInside (UIKit.UIButton sender);
 
+
         [Action ("PreviousBtn_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
         partial void PreviousBtn_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("SkipBtn_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void SkipBtn_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -90,6 +98,11 @@ namespace NDB.Covid19.iOS
             if (PreviousBtn != null) {
                 PreviousBtn.Dispose ();
                 PreviousBtn = null;
+            }
+
+            if (SkipBtn != null) {
+                SkipBtn.Dispose ();
+                SkipBtn = null;
             }
         }
     }

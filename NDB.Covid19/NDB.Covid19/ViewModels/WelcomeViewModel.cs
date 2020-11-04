@@ -7,6 +7,7 @@ namespace NDB.Covid19.ViewModels
     {
         public static string NEXT_PAGE_BUTTON_TEXT => "WELCOME_PAGE_NEXT_BUTTON_TEXT".Translate();
         public static string PREVIOUS_PAGE_BUTTON_TEXT => "WELCOME_PAGE_PREVIOUS_BUTTON_TEXT".Translate();
+        public static string SKIP_PAGE_BUTTON_TEXT => "WELCOME_PAGE_SKIP_BUTTON_TEXT".Translate();
 
         public static string WELCOME_PAGE_ONE_TITLE => "WELCOME_PAGE_ONE_TITLE".Translate();
         public static string WELCOME_PAGE_ONE_BODY_ONE => "WELCOME_PAGE_ONE_BODY_ONE".Translate();

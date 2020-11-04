@@ -29,13 +29,13 @@ namespace NDB.Covid19.iOS
 
         protected void InitTitle(UILabel label, string text)
         {
-            InitLabelWithSpacing(label, FontType.FontBold, text, 1.14, 24, 26);
+            InitLabelWithSpacing(label, FontType.FontBold, text, 1.14, 32, 34);
             label.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(text);
         }
 
         protected void InitBodyText(UILabel label, string text)
         {
-            InitLabelWithSpacing(label, FontType.FontRegular, text, 1.28, 16, 22);
+            InitLabelWithSpacing(label, FontType.FontRegular, text, 1.28, 18, 20);
             label.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(text);
         }
 

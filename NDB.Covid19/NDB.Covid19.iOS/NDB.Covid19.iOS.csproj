@@ -249,6 +249,19 @@
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\CheckMark.imageset\Checkmark%403x.png">
       <Visible>false</Visible>
+        </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CheckShield.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CheckShield.imageset\Check_shield_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CheckShield.imageset\Check_shield_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CheckShield.imageset\Check_shield_3x.png">
+      <Visible>false</Visible>        
+            
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\WorkingScheme.imageset\Contents.json">
       <Visible>false</Visible>
@@ -638,6 +651,7 @@
     <Folder Include="Assets.xcassets\BluetoothOnIcon.imageset\" />
     <Folder Include="Assets.xcassets\CheckCircle.imageset\" />
     <Folder Include="Assets.xcassets\CheckMark.imageset\" />
+    <Folder Include="Assets.xcassets\CheckShield.imageset\" />
     <Folder Include="Assets.xcassets\chevronWhite.imageset\" />
     <Folder Include="Assets.xcassets\CloseWhite.imageset\" />
     <Folder Include="Assets.xcassets\covidIcon.imageset\" />

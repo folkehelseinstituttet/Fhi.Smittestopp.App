@@ -12,6 +12,7 @@
   "WELCOME_PAGE_ONE_BODY_ONE": "You will receive an alert if you have been in close contact with a person who has COVID-19 - also if that person uses a COVID-19 app from another EU country ",
   "WELCOME_PAGE_ONE_BODY_TWO": "If you become infected with COVID-19, you can share this with other app users so that everyone can take better care of those they are in close contact with",
   "WELCOME_PAGE_NEXT_BUTTON_TEXT": "Next",
+  "WELCOME_PAGE_SKIP_BUTTON_TEXT": "Skip", //TODO: Next text. Pending approval.
   "WELCOME_PAGE_ACCESSIBILITY_ANNOUNCEMENT_PAGE_CHANGED_TO_ONE": "Page 1 of 4",
   "WELCOME_PAGE_TWO_TITLE": "How smitte\u2060|\u2060stop works",
   "WELCOME_PAGE_TWO_BODY_ONE": "Smitte\u2060|\u2060stop registers other users of the app you have been in close contact with",

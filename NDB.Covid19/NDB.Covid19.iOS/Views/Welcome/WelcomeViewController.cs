@@ -71,17 +71,33 @@ namespace NDB.Covid19.iOS
             StyleUtil.InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
             StyleUtil.InitButtonSecondaryStyling(PreviousBtn, WelcomeViewModel.PREVIOUS_PAGE_BUTTON_TEXT);
             SetPreviousButtonHidden(true);
+            StyleUtil.InitButtonSecondaryStyling(SkipBtn, WelcomeViewModel.SKIP_PAGE_BUTTON_TEXT);
+
 
             PageControl.UserInteractionEnabled = false;
             PageControl.PageIndicatorTintColor = UIColor.White;
-            PageControl.CurrentPageIndicatorTintColor = "#FADC5D".ToUIColor();
+            PageControl.CurrentPageIndicatorTintColor = "#32345C".ToUIColor();
             PageControl.IsAccessibilityElement = false;
+
+            NextBtn.BackgroundColor = "#32345C".ToUIColor();
+            NextBtn.SetTitleColor("#E1EAED".ToUIColor(), UIControlState.Normal);
+
+            PreviousBtn.SetTitleColor("#32345C".ToUIColor(), UIControlState.Normal);
+            PreviousBtn.Layer.BorderColor = "#32345C".ToUIColor().CGColor;
+
+            SkipBtn.SetTitleColor("#32345C".ToUIColor(), UIControlState.Normal);
+            SkipBtn.Layer.BorderColor = "#E1EAED".ToUIColor().CGColor;
+
         }
 
         void SetPreviousButtonHidden(bool hide)
         {
             PreviousBtn.Alpha = hide ? 0 : 1;
             ButtonsWidthConstraint.Constant = 320;
+            if (_currentPageIndex == 0)
+            {
+                PreviousBtn.RemoveFromSuperview();
+            }
         }
 
         private void NextBtn_TouchUpInside(object sender, EventArgs e)
@@ -135,6 +151,11 @@ namespace NDB.Covid19.iOS
         ~WelcomeViewController()
         {  
             _singleClick = null;
+        }
+
+        partial void SkipBtn_TouchUpInside(UIButton sender)
+        {
+            GoToConsentPage();
         }
     }
 }

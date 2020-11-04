@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="395">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="395">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,28 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1664" misplaced="YES">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1664">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="357.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="1682" kind="embed" identifier="PageViewSegue" id="1714"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-eT-Ck7">
-                                <rect key="frame" x="0.0" y="500" width="320" height="48"/>
+                                <rect key="frame" x="0.0" y="452" width="320" height="48"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2057">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2057">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="48"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="PreviousBtn_TouchUpInside:" destination="395" eventType="touchUpInside" id="2104"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1671">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1671">
                                         <rect key="frame" x="160" y="0.0" width="160" height="48"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <state key="normal" title="Button"/>
-                                        <connections/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -45,13 +46,21 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3032">
-                                <rect key="frame" x="288" y="514" width="20" height="20"/>
+                                <rect key="frame" x="288" y="466" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2561">
-                                <rect key="frame" x="16" y="463" width="288" height="37"/>
+                                <rect key="frame" x="16" y="392.5" width="288" height="27.5"/>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-I7-UXF">
+                                <rect key="frame" x="122" y="520" width="76" height="38"/>
+                                <state key="normal" title="SkipButton"/>
+                                <connections>
+                                    <action selector="SkipBtn_TouchUpInside:" destination="395" eventType="touchUpInside" id="4685"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="b5X-h4-uWc"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1664" firstAttribute="leading" secondItem="b5X-h4-uWc" secondAttribute="leading" id="1676"/>
@@ -59,14 +68,16 @@
                             <constraint firstItem="2561" firstAttribute="trailing" secondItem="396" secondAttribute="trailingMargin" id="2562"/>
                             <constraint firstItem="2561" firstAttribute="leading" secondItem="396" secondAttribute="leadingMargin" id="2563"/>
                             <constraint firstItem="8JH-eT-Ck7" firstAttribute="centerX" secondItem="b5X-h4-uWc" secondAttribute="centerX" id="3454"/>
+                            <constraint firstItem="Ypn-I7-UXF" firstAttribute="top" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="20" id="2rR-gr-unY"/>
                             <constraint firstItem="3032" firstAttribute="centerY" secondItem="1671" secondAttribute="centerY" id="7pz-ZJ-6WW"/>
-                            <constraint firstItem="2561" firstAttribute="top" secondItem="1664" secondAttribute="bottom" constant="8" id="DEB-Ok-sdX"/>
-                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="20" id="Swg-cu-uvp"/>
+                            <constraint firstItem="2561" firstAttribute="top" secondItem="1664" secondAttribute="bottom" constant="35" id="DEB-Ok-sdX"/>
+                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="Ypn-I7-UXF" secondAttribute="bottom" constant="10" id="Eh9-yo-7Lh"/>
+                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="68" id="Swg-cu-uvp"/>
                             <constraint firstItem="3032" firstAttribute="trailing" secondItem="1671" secondAttribute="trailing" constant="-12" id="jYQ-ui-kDH"/>
-                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="top" secondItem="2561" secondAttribute="bottom" id="mH5-VK-bQM"/>
+                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="top" secondItem="2561" secondAttribute="bottom" constant="32" id="mH5-VK-bQM"/>
+                            <constraint firstItem="Ypn-I7-UXF" firstAttribute="centerX" secondItem="8JH-eT-Ck7" secondAttribute="centerX" id="pvu-Wv-MVL"/>
                             <constraint firstItem="1664" firstAttribute="top" secondItem="b5X-h4-uWc" secondAttribute="top" id="zsf-Xn-PIv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="b5X-h4-uWc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="616"/>
                     <connections>
@@ -76,11 +87,12 @@
                         <outlet property="NextBtn" destination="1671" id="name-outlet-1671"/>
                         <outlet property="PageControl" destination="2561" id="name-outlet-2561"/>
                         <outlet property="PreviousBtn" destination="2057" id="name-outlet-2057"/>
+                        <outlet property="SkipBtn" destination="Ypn-I7-UXF" id="name-outlet-Ypn-I7-UXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="397" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="208.6956" y="-64.95536"/>
+            <point key="canvasLocation" x="208.69560000000001" y="-64.955359999999999"/>
         </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="1681">
@@ -91,4 +103,9 @@
             <point key="canvasLocation" x="1053" y="25"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

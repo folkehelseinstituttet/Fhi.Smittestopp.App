@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="713">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="713">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,9 +26,9 @@
                                                 <rect key="frame" x="24" y="48" width="366" height="770"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmj-ld-CVD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="127"/>
                                                         <subviews>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg5-6b-P0W">
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg5-6b-P0W">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="Mdc-v0-7RX"/>
@@ -40,18 +41,21 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="766">
-                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="84"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="112"/>
                                                                 <string key="text">Thank
 You
-For contribution</string>
+For contribution</string>
                                                                 <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
-                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="766" secondAttribute="bottom" constant="15" id="riZ-1I-H42"/>
+                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-OM-2Yo">
-                                                        <rect key="frame" x="0.0" y="120" width="366" height="650"/>
+                                                        <rect key="frame" x="0.0" y="163" width="366" height="607"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wyY-fx-694">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
@@ -59,8 +63,8 @@ For contribution</string>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzO-wa-6Xb">
                                                                         <rect key="frame" x="0.0" y="0.0" width="21" height="50"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="fxL-em-IQp">
-                                                                                <rect key="frame" x="0.0" y="5" width="21" height="21"/>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckShield" translatesAutoresizingMaskIntoConstraints="NO" id="fxL-em-IQp">
+                                                                                <rect key="frame" x="0.0" y="10" width="21" height="21"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="21" id="JHW-1y-mEB"/>
                                                                                     <constraint firstAttribute="height" constant="21" id="sSC-vt-kdf"/>
@@ -68,7 +72,7 @@ For contribution</string>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <constraints>
-                                                                            <constraint firstItem="fxL-em-IQp" firstAttribute="top" secondItem="mzO-wa-6Xb" secondAttribute="top" constant="5" id="6Mm-bx-iUm"/>
+                                                                            <constraint firstItem="fxL-em-IQp" firstAttribute="top" secondItem="mzO-wa-6Xb" secondAttribute="top" constant="10" id="6Mm-bx-iUm"/>
                                                                             <constraint firstAttribute="trailing" secondItem="fxL-em-IQp" secondAttribute="trailing" id="ClW-Zh-6VR"/>
                                                                             <constraint firstItem="fxL-em-IQp" firstAttribute="leading" secondItem="mzO-wa-6Xb" secondAttribute="leading" id="tdM-gH-bF0"/>
                                                                             <constraint firstAttribute="width" constant="21" id="wx7-63-Xca"/>
@@ -79,7 +83,7 @@ For contribution</string>
                                                                         <string key="text">Label
 line 2</string>
                                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -90,8 +94,8 @@ line 2</string>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUF-6J-Ekb">
                                                                         <rect key="frame" x="0.0" y="0.0" width="21" height="50"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="762">
-                                                                                <rect key="frame" x="0.0" y="5" width="21" height="21"/>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckShield" translatesAutoresizingMaskIntoConstraints="NO" id="762">
+                                                                                <rect key="frame" x="0.0" y="10" width="21" height="21"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="21" id="763"/>
                                                                                     <constraint firstAttribute="height" constant="21" id="764"/>
@@ -102,7 +106,7 @@ line 2</string>
                                                                             <constraint firstItem="762" firstAttribute="leading" secondItem="BUF-6J-Ekb" secondAttribute="leading" id="ORE-4I-U6x"/>
                                                                             <constraint firstAttribute="width" constant="21" id="WQ7-de-1gQ"/>
                                                                             <constraint firstAttribute="trailing" secondItem="762" secondAttribute="trailing" id="bZb-Va-Vb5"/>
-                                                                            <constraint firstItem="762" firstAttribute="top" secondItem="BUF-6J-Ekb" secondAttribute="top" constant="5" id="o4L-8G-l05"/>
+                                                                            <constraint firstItem="762" firstAttribute="top" secondItem="BUF-6J-Ekb" secondAttribute="top" constant="10" id="o4L-8G-l05"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="759">
@@ -111,13 +115,13 @@ line 2</string>
 line 3
 line 4</string>
                                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-I2-mbE">
-                                                                <rect key="frame" x="0.0" y="173" width="366" height="477"/>
+                                                                <rect key="frame" x="0.0" y="173" width="366" height="434"/>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
@@ -144,6 +148,7 @@ line 4</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="711"/>
                         <color key="backgroundColor" red="0.00079774268669999997" green="0.1262318194" blue="0.20241960880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="754" firstAttribute="top" secondItem="711" secondAttribute="top" id="804"/>
@@ -151,7 +156,6 @@ line 4</string>
                             <constraint firstItem="754" firstAttribute="bottom" secondItem="711" secondAttribute="bottom" id="806"/>
                             <constraint firstItem="754" firstAttribute="leading" secondItem="711" secondAttribute="leading" id="807"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="711"/>
                     </view>
                     <connections>
                         <outlet property="BackArrow" destination="tg5-6b-P0W" id="name-outlet-tg5-6b-P0W"/>
@@ -167,6 +171,6 @@ line 4</string>
     </scenes>
     <resources>
         <image name="BackButton" width="22" height="22"/>
-        <image name="CheckMark" width="23" height="22.5"/>
+        <image name="CheckShield" width="25" height="30"/>
     </resources>
 </document>
