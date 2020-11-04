@@ -64,7 +64,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
             InitButtonSecondaryStyling(BackBtn, WelcomeViewModel.PREVIOUS_PAGE_BUTTON_TEXT);
 
-            WarningLbl.Font = StyleUtil.Font(FontType.FontRegular, 12, 16);
+            WarningLbl.Font = StyleUtil.Font(FontType.FontRegular, 18, 24);
             WarningLbl.Text = ConsentViewModel.CONSENT_REQUIRED;
 
             AcceptSwitchBtn.AccessibilityLabel = ConsentViewModel.SWITCH_ACCESSIBILITY_CONSENT_SWITCH_DESCRIPTOR;

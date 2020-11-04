@@ -124,10 +124,6 @@ namespace NDB.Covid19.iOS.Views.ConsentView
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton PrivacyPolicy { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView WarningIcon { get; set; }
-
 
         [Action ("AcceptSwitched:")]
         partial void AcceptSwitched (UIKit.UISwitch sender);
@@ -153,11 +149,6 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             if (PrivacyPolicy != null) {
                 PrivacyPolicy.Dispose ();
                 PrivacyPolicy = null;
-            }
-
-            if (WarningIcon != null) {
-                WarningIcon.Dispose ();
-                WarningIcon = null;
             }
         }
     }

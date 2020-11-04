@@ -20,6 +20,7 @@ namespace NDB.Covid19.iOS.Utils
             FontRegular,
             FontBold,
             FontSemiBold,
+            FontMedium,
             FontMonospaced
         }
 
@@ -29,6 +30,8 @@ namespace NDB.Covid19.iOS.Utils
             {
                 case FontType.FontBold:
                     return FontBoldName;
+                case FontType.FontMedium:
+                    return FontMediumkName;
                 case FontType.FontSemiBold:
                     return FontSemiBoldkName;
                 case FontType.FontMonospaced:
@@ -60,11 +63,9 @@ namespace NDB.Covid19.iOS.Utils
             btn.TitleLabel.AdjustsFontSizeToFitWidth = true;
             btn.SetTitle(text, UIControlState.Normal);
             btn.Superview.SetNeedsLayout();
-            btn.BackgroundColor = UIColor.Clear;
-            btn.Layer.BorderWidth = 1;
-            btn.Layer.BorderColor = UIColor.White.CGColor;
-            btn.Layer.CornerRadius = btn.Layer.Frame.Height / 4;
-            btn.Font = Font(FontType.FontSemiBold, 18f, 24f);
+            btn.BackgroundColor = "#32345c".ToUIColor();
+            btn.Layer.CornerRadius = 10;
+            btn.Font = Font(FontType.FontMedium, 18f, 24f);
             btn.SetTitleColor(UIColor.White, UIControlState.Normal);
         }
 
@@ -76,13 +77,13 @@ namespace NDB.Covid19.iOS.Utils
         public static void InitButtonSecondaryStyling(UIButton btn, string text)
         {
             btn.BackgroundColor = UIColor.Clear;
-            btn.Font = Font(FontType.FontSemiBold, 18f, 24f);
-            btn.SetTitleColor(UIColor.White, UIControlState.Normal);
+            btn.Font = Font(FontType.FontMedium, 18f, 24f);
+            btn.SetTitleColor("#32345c".ToUIColor(), UIControlState.Normal);
             btn.SetTitle(text, UIControlState.Normal);
-            btn.Layer.CornerRadius = btn.Layer.Frame.Height / 4;
+            btn.Layer.CornerRadius = 10;
             btn.BackgroundColor = UIColor.Clear;
             btn.Layer.BorderWidth = 1;
-            btn.Layer.BorderColor = UIColor.White.CGColor;
+            btn.Layer.BorderColor = "#32345c".ToUIColor().CGColor;
         }
 
         /// <summary>
@@ -223,7 +224,7 @@ namespace NDB.Covid19.iOS.Utils
 
             //Ensuring text is resiezed correctly when font size is increased
             InitLabekWithSpacingAndHTMLFormatting(label, FontType.FontRegular, attributedString, 1.28, 16, 22);
-            label.TextColor = UIColor.White;
+            label.TextColor = "#32345C".ToUIColor();
         }
 
 
