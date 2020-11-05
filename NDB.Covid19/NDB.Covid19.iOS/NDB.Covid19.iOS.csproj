@@ -476,6 +476,18 @@
     <ImageAsset Include="Assets.xcassets\BluetoothIcon.imageset\bluetooth%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\BluetoothIconNorway.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\BluetoothIconNorway.imageset\BluetoothlogoNO%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\BluetoothIconNorway.imageset\BluetoothlogoNO%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\BluetoothIconNorway.imageset\BluetoothlogoNO%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\onboarding02left.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -657,6 +669,7 @@
     <Folder Include="Assets.xcassets\Bluetooth.imageset\" />
     <Folder Include="Assets.xcassets\BlueToothOffIcon.imageset\" />
     <Folder Include="Assets.xcassets\BluetoothOnIcon.imageset\" />
+    <Folder Include="Assets.xcassets\BluetoothIconNorway.imageset\" />
     <Folder Include="Assets.xcassets\CheckCircle.imageset\" />
     <Folder Include="Assets.xcassets\CheckMark.imageset\" />
     <Folder Include="Assets.xcassets\CheckShield.imageset\" />
