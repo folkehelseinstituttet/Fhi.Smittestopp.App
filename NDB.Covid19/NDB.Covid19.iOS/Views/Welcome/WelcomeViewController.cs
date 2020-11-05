@@ -71,6 +71,7 @@ namespace NDB.Covid19.iOS
             StyleUtil.InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
             StyleUtil.InitButtonSecondaryStyling(PreviousBtn, WelcomeViewModel.PREVIOUS_PAGE_BUTTON_TEXT);
             SetPreviousButtonHidden(true);
+            SetNextBtnSize(true);
             StyleUtil.InitButtonSecondaryStyling(SkipBtn, WelcomeViewModel.SKIP_PAGE_BUTTON_TEXT);
 
 
@@ -94,9 +95,17 @@ namespace NDB.Covid19.iOS
         {
             PreviousBtn.Alpha = hide ? 0 : 1;
             ButtonsWidthConstraint.Constant = 320;
+        }
+
+        void SetNextBtnSize (bool resize)
+        {
             if (_currentPageIndex == 0)
             {
-                PreviousBtn.RemoveFromSuperview();
+                NextBtnWidthConstraint.Constant = 160;
+            }
+            if (_currentPageIndex != 0)
+            {
+                NextBtnWidthConstraint.Constant = 0;
             }
         }
 
@@ -130,6 +139,8 @@ namespace NDB.Covid19.iOS
         void UpdateLayout()
         {
             SetPreviousButtonHidden(_currentPageIndex == 0);
+            SetNextBtnSize(_currentPageIndex == 0);
+            SetNextBtnSize(_currentPageIndex != 0);
             PageControl.CurrentPage = _currentPageIndex;
             PageControl.UpdateCurrentPageDisplay();
 

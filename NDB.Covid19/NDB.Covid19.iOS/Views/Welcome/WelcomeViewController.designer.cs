@@ -46,6 +46,10 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.NSLayoutConstraint NextBtnWidthConstraint { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIPageControl PageControl { get; set; }
 
         [Outlet]
@@ -88,6 +92,11 @@ namespace NDB.Covid19.iOS
             if (NextBtn != null) {
                 NextBtn.Dispose ();
                 NextBtn = null;
+            }
+
+            if (NextBtnWidthConstraint != null) {
+                NextBtnWidthConstraint.Dispose ();
+                NextBtnWidthConstraint = null;
             }
 
             if (PageControl != null) {
