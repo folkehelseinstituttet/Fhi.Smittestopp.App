@@ -24,6 +24,10 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel InitializerAppName { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton StartButton { get; set; }
 
         [Action ("StartButton_TouchUpInside:")]
@@ -40,6 +44,11 @@ namespace NDB.Covid19.iOS
             if (ContinueInEnStackView != null) {
                 ContinueInEnStackView.Dispose ();
                 ContinueInEnStackView = null;
+            }
+
+            if (InitializerAppName != null) {
+                InitializerAppName.Dispose ();
+                InitializerAppName = null;
             }
 
             if (StartButton != null) {

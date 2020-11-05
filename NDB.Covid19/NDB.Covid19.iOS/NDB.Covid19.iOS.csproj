@@ -636,6 +636,14 @@
     <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en.png" />
     <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-1.png" />
     <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-2.png" />
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white.png" />
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white_2x.png" />
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white_3x.png" />
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right.png" />
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right_2x.png" />
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -692,6 +700,8 @@
     <Folder Include="Assets.xcassets\logo_small_da.imageset\" />
     <Folder Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\" />
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="Assets.xcassets\FHILogo.imageset\" />
+    <Folder Include="Assets.xcassets\ArrowRightCircle.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -736,6 +746,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="SceneDelegate.cs" />
     <Compile Include="IOSDependencyInjectionConfig.cs" />
+    <Compile Include="Utils\ColorHelper.cs" />
     <Compile Include="Views\MessagePage\MessagePageCell.cs" />
     <Compile Include="Views\MessagePage\MessagePageCell.designer.cs" />
     <Compile Include="Views\MessagePage\MessagePageViewController.cs" />

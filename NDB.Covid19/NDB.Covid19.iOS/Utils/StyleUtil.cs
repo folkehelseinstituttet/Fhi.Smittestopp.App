@@ -63,10 +63,13 @@ namespace NDB.Covid19.iOS.Utils
             btn.TitleLabel.AdjustsFontSizeToFitWidth = true;
             btn.SetTitle(text, UIControlState.Normal);
             btn.Superview.SetNeedsLayout();
-            btn.BackgroundColor = "#32345c".ToUIColor();
+            btn.BackgroundColor = ColorHelper.PRIMARY_COLOR;
             btn.Layer.CornerRadius = 10;
             btn.Font = Font(FontType.FontMedium, 18f, 24f);
-            btn.SetTitleColor(UIColor.White, UIControlState.Normal);
+            nfloat verticalSpacing = 8;
+            nfloat horizontalSpacing = 24;
+            btn.ContentEdgeInsets = new UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing);
+            btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
         }
 
         /// <summary>
@@ -78,12 +81,12 @@ namespace NDB.Covid19.iOS.Utils
         {
             btn.BackgroundColor = UIColor.Clear;
             btn.Font = Font(FontType.FontMedium, 18f, 24f);
-            btn.SetTitleColor("#32345c".ToUIColor(), UIControlState.Normal);
+            btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
             btn.SetTitle(text, UIControlState.Normal);
             btn.Layer.CornerRadius = 10;
             btn.BackgroundColor = UIColor.Clear;
             btn.Layer.BorderWidth = 1;
-            btn.Layer.BorderColor = "#32345c".ToUIColor().CGColor;
+            btn.Layer.BorderColor = ColorHelper.TEXT_COLOR_ON_PRIMARY.CGColor;
         }
 
         /// <summary>
@@ -224,7 +227,7 @@ namespace NDB.Covid19.iOS.Utils
 
             //Ensuring text is resiezed correctly when font size is increased
             InitLabekWithSpacingAndHTMLFormatting(label, FontType.FontRegular, attributedString, 1.28, 16, 22);
-            label.TextColor = "#32345C".ToUIColor();
+            label.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
         }
 
 

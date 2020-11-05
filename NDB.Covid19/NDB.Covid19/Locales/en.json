@@ -1,6 +1,7 @@
 {
   "LAUNCHER_PAGE_START_BTN": "Start",
   "LAUNCHER_PAGE_CONTINUE_IN_ENG": "Continue in English",
+  "LAUNCHER_PAGE_TITLE": "Smittestopp", // NEW STRING ADDED - ADD TO SPREADSHEET
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Smitte\u2060|\u2060stop only functions if your iOS device is running 13.5 or later updates. Please update to a later version than your current one. You do this in your phone's Settings -> General -> Software Update. ",
   "BASE_ERROR_TITLE": "ERROR",
   "BASE_ERROR_MESSAGE": "An error occurred. Please try again later.",

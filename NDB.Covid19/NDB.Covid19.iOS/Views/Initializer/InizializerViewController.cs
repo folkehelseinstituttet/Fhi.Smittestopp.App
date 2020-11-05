@@ -21,12 +21,20 @@ namespace NDB.Covid19.iOS
         {
         }
 
+        public override UIStatusBarStyle PreferredStatusBarStyle()
+        {
+            return UIStatusBarStyle.LightContent;
+        }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
             StyleUtil.InitButtonStyling(StartButton, InitializerViewModel.LAUNCHER_PAGE_START_BTN);
-            StyleUtil.InitLabel(ContinueInEnLbl, StyleUtil.FontType.FontRegular, InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG, 12, 20);
+            StyleUtil.InitLabel(ContinueInEnLbl, StyleUtil.FontType.FontSemiBold, InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG, 16, 24);
+            ContinueInEnLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            StyleUtil.InitLabel(InitializerAppName, StyleUtil.FontType.FontBold, InitializerViewModel.LAUNCHER_PAGE_TITLE, 50, 50);
+            InitializerAppName.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+                
         }
 
         public override void ViewDidAppear(bool animated)
