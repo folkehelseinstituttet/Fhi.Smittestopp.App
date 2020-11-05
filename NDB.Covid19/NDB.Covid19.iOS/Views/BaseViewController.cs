@@ -37,6 +37,11 @@ namespace NDB.Covid19.iOS.Views
             base.ViewWillDisappear(animated);
         }
 
+        public override UIStatusBarStyle PreferredStatusBarStyle()
+        {
+            return UIStatusBarStyle.DarkContent;
+        }
+
         void ShowForceUpdatePage(object _)
         {
             InvokeOnMainThread(() =>
