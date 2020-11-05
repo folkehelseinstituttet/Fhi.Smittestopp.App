@@ -81,12 +81,12 @@ namespace NDB.Covid19.iOS.Utils
         {
             btn.BackgroundColor = UIColor.Clear;
             btn.Font = Font(FontType.FontMedium, 18f, 24f);
-            btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
+            btn.SetTitleColor(ColorHelper.PRIMARY_COLOR, UIControlState.Normal);
             btn.SetTitle(text, UIControlState.Normal);
             btn.Layer.CornerRadius = 10;
             btn.BackgroundColor = UIColor.Clear;
             btn.Layer.BorderWidth = 1;
-            btn.Layer.BorderColor = ColorHelper.TEXT_COLOR_ON_PRIMARY.CGColor;
+            btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
         }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace NDB.Covid19.iOS.Utils
 
             //Ensuring text is resiezed correctly when font size is increased
             InitLabekWithSpacingAndHTMLFormatting(label, FontType.FontRegular, attributedString, 1.28, 16, 22);
-            label.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+            label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
 
