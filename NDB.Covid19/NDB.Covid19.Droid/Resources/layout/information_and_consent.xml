@@ -21,7 +21,7 @@
 			app:layout_constraintRight_toRightOf="parent"
 			app:layout_constraintTop_toTopOf="parent">
 			<ImageView
-				android:src="@drawable/ic_close_white"
+				android:src="@drawable/ic_close_blue"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"/>
 		</RelativeLayout>
@@ -75,7 +75,7 @@
                     style="@style/Checkmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/checkmark"/>
+                    android:src="@drawable/check_shield"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     style="@style/Checkmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/checkmark"/>
+                    android:src="@drawable/check_shield"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,7 +125,6 @@
         android:layout_height="wrap_content"
         android:singleLine="false"
         android:drawablePadding="7dp"
-        android:drawableLeft="@drawable/ic_nemid_white"
 	    android:id="@+id/information_consent_nemid_button"
         style="@style/NemIDButton"/>
 	<ProgressBar
