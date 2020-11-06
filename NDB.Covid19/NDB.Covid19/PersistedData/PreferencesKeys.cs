@@ -35,17 +35,5 @@ namespace NDB.Covid19.Config
         public static readonly string LOW_ATTENUATION_DURATION_MULTIPLIER = "LOW_ATTENUATION_DURATION_MULTIPLIER";
         public static readonly string MIDDLE_ATTENUATION_DURATION_MULTIPLIER = "MIDDLE_ATTENUATION_DURATION_MULTIPLIER";
         public static readonly string HIGH_ATTENUATION_DURATION_MULTIPLIER = "HIGH_ATTENUATION_DURATION_MULTIPLIER";
-
-        //Deprecated. Only used in migrations:
-        [Obsolete]
-        public static readonly string LAST_DOWNLOAD_ZIPS_CALL_UTC_PREF = "LAST_DOWNLOAD_ZIPS_CALL_UTC_PREF";
-        [Obsolete]
-        public static readonly string LAST_DOWNLOAD_ZIPS_CALL_UTC_DATETIME_PREF = "LAST_DOWNLOAD_ZIPS_CALL_UTC_DATETIME_PREF";
-        [Obsolete]
-        public static readonly string CURRENT_DAY_TO_DOWNLOAD_KEYS_FOR_UTC_DATETIME_PREF = "CURRENT_DAY_TO_DOWNLOAD_KEYS_FOR_UTC_DATETIME_PREF";
-        [Obsolete]
-        public static readonly string CURRENT_DAY_TO_DOWNLOAD_KEYS_FOR_UTC_PREF = "CURRENT_DAY_TO_DOWNLOAD_KEYS_FOR_UTC_PREF";
-        [Obsolete]
-        public static readonly string CURRENT_DOWNLOAD_DAY_BATCH_PREF = "CURRENT_DOWNLOAD_DAY_BATCH_PREF";
     }
 }

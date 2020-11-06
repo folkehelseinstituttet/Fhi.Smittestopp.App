@@ -6,6 +6,7 @@ using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
 using CommonServiceLocator;
 using System;
+using NDB.Covid19.Config;
 using UIKit;
 using Xamarin.Essentials;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
@@ -82,13 +83,18 @@ namespace NDB.Covid19.iOS
             {
                 _viewModel.SetSelection(SettingsLanguageSelection.English);
             }
+            else if (appLanguage == "nn")
+            {
+                _viewModel.SetSelection(SettingsLanguageSelection.Nynorsk);
+            }
             else
             {
-                _viewModel.SetSelection(SettingsLanguageSelection.Danish);
+                _viewModel.SetSelection(SettingsLanguageSelection.Bokmal);
             }
 
-            RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Danish;
+            RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
             RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
+            // TODO: add new radio button for nynorsk
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)
@@ -129,16 +135,20 @@ namespace NDB.Covid19.iOS
         {
             if (SettingsGeneralViewModel.Selection == selection)
             {
-                RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Danish;
+                RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
                 RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
                 return;
             }
 
             switch (selection)
             {
-                case SettingsLanguageSelection.Danish:
+                case SettingsLanguageSelection.Bokmal:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel, (Action) => { });
-                    LocalPreferencesHelper.SetAppLanguage("da");
+                    LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
+                    break;
+                case SettingsLanguageSelection.Nynorsk:
+                    DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel, (Action) => { });
+                    LocalPreferencesHelper.SetAppLanguage("nn");
                     break;
                 case SettingsLanguageSelection.English:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel, (Action) => { });
@@ -152,12 +162,14 @@ namespace NDB.Covid19.iOS
 
         partial void RadioButton1_TouchUpInside(RadioButton sender)
         {
-            HandleRadioBtnChange(SettingsLanguageSelection.Danish, sender);
+            HandleRadioBtnChange(SettingsLanguageSelection.Bokmal, sender);
         }
 
         partial void RadioButton2_TouchUpInside(RadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.English, sender);
         }
+
+        // TODO: add new radio button for nynorsk
     }
 }

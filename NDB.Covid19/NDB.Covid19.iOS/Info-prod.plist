@@ -98,7 +98,7 @@
 			<string>Smittestop url scheme</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.netcompany.smittestop</string>
+				<string>no.fhi.smittestopp-exposure-notification</string>
 			</array>
 		</dict>
 	</array>

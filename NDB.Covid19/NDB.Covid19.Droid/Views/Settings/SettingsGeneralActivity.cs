@@ -6,6 +6,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
 using AndroidX.ConstraintLayout.Widget;
+using NDB.Covid19.Config;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
@@ -103,10 +104,11 @@ namespace NDB.Covid19.Droid.Views.Settings
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("en");
                         break;
-                    case Resource.Id.settings_general_danish:
+                    case Resource.Id.settings_general_danish: // TODO: rework to Norwegian bokmal
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
-                        LocalPreferencesHelper.SetAppLanguage("da");
+                        LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
                         break;
+                    // TODO: add Nynorsk
                 }
                 LocalesService.SetInternationalization();
             }

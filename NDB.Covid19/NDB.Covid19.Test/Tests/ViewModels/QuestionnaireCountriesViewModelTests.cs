@@ -11,7 +11,6 @@ using NDB.Covid19.WebServices;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using Xunit;
-using NDB.Covid19.Models.DTOsForServer;
 
 namespace NDB.Covid19.Test.Tests.ViewModels
 {
@@ -42,9 +41,10 @@ namespace NDB.Covid19.Test.Tests.ViewModels
                 {
                     new CountryDetailsDTO
                     {
-                        Name_DA = "Danmark",
-                        Name_EN = "Denmark",
-                        Code = "dk",
+                        Name_NB = "Norge",
+                        Name_NN = "Noreg",
+                        Name_EN = "Norway",
+                        Code = "no"
                     }
                 }
             };
@@ -62,7 +62,7 @@ namespace NDB.Covid19.Test.Tests.ViewModels
             Assert.True(response.IsSuccessfull);
             Assert.Equal(mockedData.CountryCollection.Count, response.Data.CountryCollection.Count);
             Assert.Equal(mockedData.CountryCollection[0].Code, response.Data.CountryCollection[0].Code);
-            Assert.Equal(mockedData.CountryCollection[0].Name_DA, response.Data.CountryCollection[0].Name_DA);
+            Assert.Equal(mockedData.CountryCollection[0].Name_NB, response.Data.CountryCollection[0].Name_NB);
             Assert.Equal(mockedData.CountryCollection[0].Name_EN, response.Data.CountryCollection[0].Name_EN);
         }
 
@@ -118,22 +118,22 @@ namespace NDB.Covid19.Test.Tests.ViewModels
             {
                 new object[]
                 {
-                    new CountryDetailsViewModel{Checked = true, Code = "dk", Name = "Denmark"}
+                    new CountryDetailsViewModel{Checked = true, Code = "nb", Name = "Denmark"}
                 },
                 new object[]
                 {
-                    new CountryDetailsViewModel{Checked = true, Code = "dk", Name = "Denmark"},
+                    new CountryDetailsViewModel{Checked = true, Code = "nb", Name = "Denmark"},
                     new CountryDetailsViewModel{Checked = true, Code = "en", Name = "England"}
                 },
                 new object[]
                 {
-                    new CountryDetailsViewModel{Checked = true, Code = "dk", Name = "Denmark"},
+                    new CountryDetailsViewModel{Checked = true, Code = "nb", Name = "Denmark"},
                     new CountryDetailsViewModel{Checked = true, Code = "en", Name = "England"},
                     new CountryDetailsViewModel{Checked = true, Code = "pl", Name = "Poland"}
                 },
                 new object[]
                 {
-                    new CountryDetailsViewModel{Checked = true, Code = "dk", Name = "Denmark"},
+                    new CountryDetailsViewModel{Checked = true, Code = "nb", Name = "Denmark"},
                     new CountryDetailsViewModel{Checked = true, Code = "en", Name = "England"},
                     new CountryDetailsViewModel{Checked = true, Code = "pl", Name = "Poland"},
                     new CountryDetailsViewModel{Checked = true, Code = "de", Name = "Germany"},

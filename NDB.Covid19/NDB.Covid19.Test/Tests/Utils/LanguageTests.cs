@@ -40,8 +40,8 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Theory]
-        [InlineData("da")]
-        [InlineData("da-DK")]
+        [InlineData("nb")]
+        [InlineData("nb-NO")]
         [InlineData("en")]
         [InlineData("en-US")]
         [InlineData("en-GB")]
@@ -62,9 +62,10 @@ namespace NDB.Covid19.Test.Tests.Utils
         {
             CountryDetailsDTO country = new CountryDetailsDTO()
             {
-                Code = "da",
-                Name_DA = "Danmark",
-                Name_EN = "Denmark"
+                Name_NB = "Norge",
+                Name_NN = "Noreg",
+                Name_EN = "Norway",
+                Code = "no"
             };
 
             Assert.NotNull(country.GetName());
@@ -72,13 +73,14 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Theory]
-        [InlineData("da", "Danmark", "Denmark", "Danmark")]
-        [InlineData("en", "England", "England", "England")]
-        [InlineData("da", "Name_DA", "Name_EN", "Name_DA")]
-        [InlineData("en", "Name_DA", "Name_EN", "Name_EN")]
-        [InlineData("pl", "Name_DA", "Name_EN", "Name_DA")]
-        [InlineData("es", "Name_DA", "Name_EN", "Name_DA")]
-        public void CountryDetailsDTO_GetName_ReturnsCorrect(string code, string da, string en, string result)
+        [InlineData("nb", "Norge", "Noreg", "Norway", "Norge")]
+        [InlineData("en", "England", "England", "England", "England")]
+        [InlineData("nb", "Name_NB", "Name_NN", "Name_EN", "Name_NB")]
+        [InlineData("nn", "Name_NB", "Name_NN", "Name_EN", "Name_NN")]
+        [InlineData("en", "Name_NB", "Name_NN", "Name_EN", "Name_EN")]
+        [InlineData("pl", "Name_NB", "Name_NN", "Name_EN", "Name_NB")]
+        [InlineData("es", "Name_NB", "Name_NN", "Name_EN", "Name_NB")]
+        public void CountryDetailsDTO_GetName_ReturnsCorrect(string code, string nb, string nn, string en, string result)
         {
             CultureInfo initialCulture = CultureInfo.CurrentCulture;
 
@@ -86,9 +88,10 @@ namespace NDB.Covid19.Test.Tests.Utils
 
             CountryDetailsDTO country = new CountryDetailsDTO()
             {
-                Code = code,
-                Name_DA = da,
-                Name_EN = en
+                Name_NB = nb,
+                Name_NN = nn,
+                Name_EN = en,
+                Code = code
             };
 
             Assert.Equal(result, country.GetName());

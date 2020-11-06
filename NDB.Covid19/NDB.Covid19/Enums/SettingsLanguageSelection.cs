@@ -2,7 +2,8 @@
 {
     public enum SettingsLanguageSelection
     {
-        Danish,
+        Bokmal,
+        Nynorsk,
         English
     }
 }

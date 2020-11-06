@@ -29,7 +29,7 @@ namespace NDB.Covid19.Utils
                         ? CultureInfo.CurrentCulture.Calendar
                         : new GregorianCalendar());
                 dateString = calenderDateTime.ToString(dateFormat, currentCultureIsSupported ? cultureInfo : defaultCultureInfo);
-                return dateString.Replace("-", "/");
+                return dateString.Replace("-", ".");
             }
             else
             {

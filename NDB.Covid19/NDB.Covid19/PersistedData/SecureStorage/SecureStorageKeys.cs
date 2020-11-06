@@ -13,9 +13,6 @@ namespace NDB.Covid19.PersistedData.SecureStorage
         public static readonly string LAST_SENT_NOTIFICATION_UTC_KEY = "LAST_SENT_NOTIFICATION_UTC_KEY";
         public static readonly string LAST_SUMMARY_KEY = "LAST_SUMMARY_KEY";
 
-        [Obsolete]
-        public static readonly string LAST_MEDIUM_RISK_ALERT_UTC_KEY = "LAST_MEDIUM_RISK_ALERT_UTC_KEY";
-
         public static IEnumerable<string> GetAllKeysForCleaningDevice()
         {
             IEnumerable<object> fieldValues = typeof(SecureStorageKeys).GetFields().Select(field => field.GetValue(typeof(SecureStorageKeys)));

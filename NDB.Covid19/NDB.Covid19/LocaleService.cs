@@ -16,7 +16,7 @@ namespace NDB.Covid19
             if (I18N.Current?.Locale == null)
             {
                 I18N.Current
-                .SetNotFoundSymbol("$") // Optional: when a key is not found, it will appear as $key$ (defaults to "$")
+                ?.SetNotFoundSymbol("$") // Optional: when a key is not found, it will appear as $key$ (defaults to "$")
                 .SetFallbackLocale(Conf.DEFAULT_LANGUAGE) // Optional but recommended: locale to load in case the system locale is not supported
                 .AddLocaleReader(new JsonKvpReader(), ".json") //Use the json parser
                 .Init(typeof(LocalesService).GetTypeInfo().Assembly);

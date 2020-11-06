@@ -5,7 +5,8 @@ namespace NDB.Covid19.Models.DTOsForServer
 {
     public class CountryDetailsDTO
     {
-        public string Name_DA { get; set; }
+        public string Name_NB { get; set; }
+        public string Name_NN { get; set; }
         public string Name_EN { get; set; }
         public string Code { get; set; }
 
@@ -15,15 +16,14 @@ namespace NDB.Covid19.Models.DTOsForServer
 
             switch (language)
             {
-                case "da":
-                    return Name_DA;
-                    break;
+                case "nb":
+                    return Name_NB;
+                case "nn":
+                    return Name_NN;
                 case "en":
                     return Name_EN;
-                    break;
                 default:
-                    return Name_DA;
-                    break;
+                    return Name_EN;
             }
         }
     }

@@ -7,17 +7,6 @@ namespace NDB.Covid19.iOS.Utils
 {
     public static class DialogHelper
     {
-        [Obsolete("Use ShowDialog() that takes a DialogViewModel as parameter. That method can also handle if a Cancel-button is needed.")]
-        public static void ShowDialog(UIViewController parent, string title, string message, string okBtnText, Action<UIAlertAction> onOKClicked)
-        {
-            parent.InvokeOnMainThread(() =>
-            {
-                UIAlertController controller = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
-                controller.AddAction(UIAlertAction.Create(okBtnText, UIAlertActionStyle.Default, onOKClicked));
-                parent.PresentViewController(controller, true, null);
-            });
-        }
-
         public static void ShowDialog(UIViewController parent, DialogViewModel viewModel, Action<UIAlertAction> onOKTapped, UIAlertActionStyle OkBtnStyle = UIAlertActionStyle.Default, Action<UIAlertAction> OnCancelTapped = null)
         {
             parent.InvokeOnMainThread(() =>
@@ -72,6 +61,5 @@ namespace NDB.Covid19.iOS.Utils
                         NavigationHelper.GoToSettings();
                     });
         }
-        
     }
 }

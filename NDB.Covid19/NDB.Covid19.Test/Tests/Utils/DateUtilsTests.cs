@@ -30,17 +30,35 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Fact]
-        public void GetDateFromDateTime_CultureIsSupported_Da()
+        public void GetDateFromDateTime_CultureIsSupported_Nb()
         {
 
             //Arrange
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("da-DK");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("nb-NO");
             DateTimeFormatInfo dateTimeFormat = Thread.CurrentThread.CurrentCulture.DateTimeFormat; // Expected format to follow
 
             // Act
-            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = dd/mm/yyyy hh:mm:ss with da-DK culture (default language)
-            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ".")
-                ? "15.07.2020 13.37.00"
+            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = dd.mm.yyyy hh:mm:ss with nb-NO culture (default language)
+            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
+                ? "15.07.2020 13:37:00"
+                : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void GetDateFromDateTime_CultureIsSupported_Nn()
+        {
+
+            //Arrange
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("nn-NO");
+            DateTimeFormatInfo dateTimeFormat = Thread.CurrentThread.CurrentCulture.DateTimeFormat; // Expected format to follow
+
+            // Act
+            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = dd.mm.yyyy hh:mm:ss with nb-NO culture (default language)
+            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
+                ? "15.07.2020 13:37:00"
                 : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
 
             // Assert
@@ -75,8 +93,8 @@ namespace NDB.Covid19.Test.Tests.Utils
 
             // Act
             string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with da-DK culture (default language)
-            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ".")
-                ? "15.07.2020 13.37.00"
+            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
+                ? "15.07.2020 13:37:00"
                 : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
 
             // Assert
@@ -94,8 +112,8 @@ namespace NDB.Covid19.Test.Tests.Utils
 
             // Act
             string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with da-DK culture (default language)
-            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ".")
-                ? "15.07.2020 13.37.00"
+            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
+                ? "15.07.2020 13:37:00"
                 : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
 
             // Assert

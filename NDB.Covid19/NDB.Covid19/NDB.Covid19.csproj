@@ -86,5 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Locales\en.json" />
+    <EmbeddedResource Include="Locales\nb.json" />
+    <EmbeddedResource Include="Locales\nn.json" />
   </ItemGroup>
 </Project>

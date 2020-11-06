@@ -8,6 +8,7 @@ using Android.Content.PM;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using I18NPortable;
+using NDB.Covid19.Config;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 
@@ -65,7 +66,7 @@ namespace NDB.Covid19.Droid.Views
 
         private void LauncherButton_Click(object sender, EventArgs e)
         {
-            LocalPreferencesHelper.SetAppLanguage("da");
+            LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
             LocalesService.Initialize();
             Continue();
         }

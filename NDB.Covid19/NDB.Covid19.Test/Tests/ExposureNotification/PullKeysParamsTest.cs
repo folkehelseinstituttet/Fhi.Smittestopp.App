@@ -202,33 +202,5 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             SystemTime.ResetDateTime();
             
         }
-
-        [Theory]
-        [InlineData(0, 0)]
-        [InlineData(-2, -2)]
-        [InlineData(-16, -13)]
-        public async void PullKeysParams_AfterMigrationFromR1_1(int daysSinceLastPull, int nextPullDaysAgo)
-        {
-            //Given the user updated from R1.1
-            DateTime oldSavedDateInPreferences = SystemTime.Now().AddDays(daysSinceLastPull).Date;
-            _preferences.Set(PreferencesKeys.CURRENT_DAY_TO_DOWNLOAD_KEYS_FOR_UTC_DATETIME_PREF, oldSavedDateInPreferences);
-            _preferences.Set(PreferencesKeys.MIGRATION_COUNT, 1);
-
-            //And migrated
-            MigrationService migrationService = new MigrationService();
-            migrationService.CurrentMigrationVersion = 2;
-            migrationService.Migrate();
-
-            //When pulling the next time
-            PullKeysParams nextRequest = PullKeysParams.GenerateParams();
-
-            //Then it will pull from the last successful pull date from migrations (But max 14 days)
-            DateTime expectedNextPullDate = SystemTime.Now().AddDays(nextPullDaysAgo).Date;
-            Assert.Equal(expectedNextPullDate, nextRequest.Date);
-
-            Assert.Equal(1, nextRequest.BatchNumber);
-            Assert.Equal(BatchType.DK, nextRequest.BatchType);
-        }
-
     }
 }

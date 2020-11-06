@@ -1,6 +1,7 @@
 using System;
 using CommonServiceLocator;
 using I18NPortable;
+using NDB.Covid19.Config;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS;
 using NDB.Covid19.iOS.Utils;
@@ -72,7 +73,7 @@ namespace NDB.Covid19.iOS
 
         partial void StartButton_TouchUpInside(UIButton sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("da");
+            LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
             LocalesService.Initialize();
             Continue();
         }
