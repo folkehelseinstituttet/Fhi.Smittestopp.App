@@ -1,12 +1,12 @@
 using System;
-using NDB.Covid19.ViewModels;
+using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
-using NDB.Covid19.Interfaces;
+using NDB.Covid19.ViewModels;
 using UIKit;
 using Xamarin.Essentials;
 
-namespace NDB.Covid19.iOS.Views.UploadCompleted
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     public partial class UploadCompletedViewController : BaseViewController
     {

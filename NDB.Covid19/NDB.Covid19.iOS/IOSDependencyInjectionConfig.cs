@@ -3,8 +3,8 @@ using NDB.Covid19.WebServices.ErrorHandlers;
 using Unity;
 using Unity.ServiceLocation;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.iOS.Managers;
 using Unity.Lifetime;
-using NDB.Covid19.Managers;
 
 namespace NDB.Covid19.iOS
 {

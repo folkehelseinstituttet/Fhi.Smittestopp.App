@@ -6,7 +6,7 @@ using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
 using Uri = Android.Net.Uri;

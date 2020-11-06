@@ -1,7 +1,6 @@
 ﻿using NDB.Covid19.OAuth2;
-using NDB.Covid19.WebServices.Utils;
 
-namespace NDB.Covid19.WebServices
+namespace NDB.Covid19.WebServices.Utils
 {
     public static class HeaderUtils
     {

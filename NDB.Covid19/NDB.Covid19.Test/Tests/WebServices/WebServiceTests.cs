@@ -2,7 +2,6 @@
 using FluentAssertions;
 using Moq;
 using NDB.Covid19.Models;
-using NDB.Covid19.SecureStorage;
 using NDB.Covid19.Test.Helpers;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Interfaces;
@@ -10,6 +9,7 @@ using NDB.Covid19.WebServices;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using NDB.Covid19.PersistedData.SecureStorage;
 using Unity;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;

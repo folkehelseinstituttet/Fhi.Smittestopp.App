@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings
 {
     [Register ("SettingsItemCell")]
     partial class SettingsItemCell

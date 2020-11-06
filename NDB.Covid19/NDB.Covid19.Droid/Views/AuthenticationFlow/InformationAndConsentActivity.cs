@@ -1,16 +1,12 @@
 using System;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.Gms.Extensions;
-using Android.Gms.SafetyNet;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
-using NDB.Covid19.Config;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.Droid.Utils;

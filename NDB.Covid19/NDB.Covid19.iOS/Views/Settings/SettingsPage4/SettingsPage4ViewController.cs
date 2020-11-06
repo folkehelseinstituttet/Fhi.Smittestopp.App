@@ -1,9 +1,8 @@
-using NDB.Covid19.iOS.Views;
-using NDB.Covid19.ViewModels;
 using System;
+using NDB.Covid19.ViewModels;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
 {
     public partial class SettingsPage4ViewController : BaseViewController
     {

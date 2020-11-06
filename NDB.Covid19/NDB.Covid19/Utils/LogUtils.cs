@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;

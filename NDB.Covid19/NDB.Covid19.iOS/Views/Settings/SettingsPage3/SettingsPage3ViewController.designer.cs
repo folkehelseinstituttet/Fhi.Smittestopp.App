@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 {
     [Register ("SettingsPage3ViewController")]
     partial class SettingsPage3ViewController
@@ -24,7 +24,7 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.DefaultBorderButton DeleteConsentBtn { get; set; }
+        Views.CustomSubclasses.DefaultBorderButton DeleteConsentBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -32,7 +32,7 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SetttingsPageTitleLabel PageTitle { get; set; }
+        Views.CustomSubclasses.SetttingsPageTitleLabel PageTitle { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -48,7 +48,7 @@ namespace NDB.Covid19.iOS
 
         [Action ("DeleteConsentBtn_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void DeleteConsentBtn_TouchUpInside (NDB.Covid19.iOS.DefaultBorderButton sender);
+        partial void DeleteConsentBtn_TouchUpInside (Views.CustomSubclasses.DefaultBorderButton sender);
 
         void ReleaseDesignerOutlets ()
         {

@@ -4,17 +4,17 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using NDB.Covid19.Utils;
 using CommonServiceLocator;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
-using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Models.SQLite;
-using NDB.Covid19.PersistedData;
 using NDB.Covid19.Models.UserDefinedExceptions;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
+using NDB.Covid19.Utils;
+using NDB.Covid19.Utils.DeveloperTools;
 
-namespace NDB.Covid19.ExposureNotification.Helpers.FetchExposureKeys
+namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 {
     public class FetchExposureKeysHelper
     {

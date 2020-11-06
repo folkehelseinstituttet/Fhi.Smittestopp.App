@@ -1,5 +1,5 @@
 ﻿using I18NPortable;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Interfaces;
 
 namespace NDB.Covid19.ViewModels

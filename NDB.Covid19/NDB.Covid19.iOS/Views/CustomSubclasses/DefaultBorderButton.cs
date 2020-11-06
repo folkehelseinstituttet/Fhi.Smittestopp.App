@@ -1,9 +1,9 @@
-using NDB.Covid19.iOS.Utils;
 using System;
+using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
     public partial class DefaultBorderButton : UIButton, IDisposable
     {

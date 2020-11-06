@@ -52,7 +52,6 @@
                 android:clickable="true"
                 android:autoLink="web"/>
             <ImageView
-                android:contentDescription="sundhed.dk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/sundhedlogo"

@@ -2,14 +2,13 @@ using System;
 using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.Enums;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.iOS.Views;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 {
     public partial class ENDeveloperToolsViewController : BaseViewController
     {
@@ -140,7 +139,7 @@ namespace NDB.Covid19.iOS
         void ShowModalAlertView(string title, string message)
         {
             UIAlertController alert = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
-            string region = "dk";
+            string region = "no";
             alert.AddTextField(textField => { region = textField.Text; });
             alert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, obj => { }));
             alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, async obj =>

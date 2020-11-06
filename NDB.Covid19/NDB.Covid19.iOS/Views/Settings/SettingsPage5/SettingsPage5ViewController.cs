@@ -1,12 +1,11 @@
+using System;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
 using NDB.Covid19.ViewModels;
-using System;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
 {
     public partial class SettingsPage5ViewController : BaseViewController
     {

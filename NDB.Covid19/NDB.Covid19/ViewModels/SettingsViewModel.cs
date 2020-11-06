@@ -2,8 +2,7 @@
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using I18NPortable;
-using System.Linq;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 
 namespace NDB.Covid19.ViewModels
 {

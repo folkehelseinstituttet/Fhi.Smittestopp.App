@@ -1,9 +1,7 @@
 using System;
-using System.Diagnostics;
 using UIKit;
 
-
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
     public partial class RadioButtonOverlayButton : UIButton, IDisposable
     {

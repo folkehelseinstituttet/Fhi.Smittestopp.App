@@ -9,7 +9,7 @@ using Plugin.SecureStorage;
 using UIKit;
 using UserNotifications;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.Managers;
+using NDB.Covid19.iOS.Managers;
 
 namespace NDB.Covid19.iOS
 {

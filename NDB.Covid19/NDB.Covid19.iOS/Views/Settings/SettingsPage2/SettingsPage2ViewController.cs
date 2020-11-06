@@ -1,17 +1,15 @@
+using System;
 using Foundation;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.iOS.Utils; 
-using NDB.Covid19.iOS.Views;
+using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
-using System;
 using UIKit;
 using Xamarin.Essentials;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
-using NDB.Covid19.iOS.Utils;
 
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
 {
     public partial class SettingsPage2ViewController : BaseViewController
     {

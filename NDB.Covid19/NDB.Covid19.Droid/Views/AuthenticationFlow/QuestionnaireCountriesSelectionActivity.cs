@@ -11,7 +11,6 @@ using AndroidX.RecyclerView.Widget;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters;
 using NDB.Covid19.Enums;
-using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 

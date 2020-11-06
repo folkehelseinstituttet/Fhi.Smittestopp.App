@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using NDB.Covid19.SecureStorage;
+using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Test.Mocks;
 using Xunit;
 

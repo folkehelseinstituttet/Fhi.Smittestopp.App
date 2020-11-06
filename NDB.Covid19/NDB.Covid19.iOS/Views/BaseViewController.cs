@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using CoreAnimation;
-using CoreGraphics;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using UIKit;

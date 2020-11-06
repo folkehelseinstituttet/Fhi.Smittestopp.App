@@ -4,13 +4,11 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using NDB.Covid19.iOS.Views.ENDeveloperTools;
-using System;
-using System.CodeDom.Compiler;
-using UIKit;
 
-namespace NDB.Covid19.iOS
+using System.CodeDom.Compiler;
+using Foundation;
+
+namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 {
     [Register ("ENDeveloperToolsViewController")]
     partial class ENDeveloperToolsViewController

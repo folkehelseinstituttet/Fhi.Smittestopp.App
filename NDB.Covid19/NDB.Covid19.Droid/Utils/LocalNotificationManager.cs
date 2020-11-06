@@ -9,7 +9,6 @@ using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
-using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using XamarinShortcutBadger;
 using static Plugin.CurrentActivity.CrossCurrentActivity;

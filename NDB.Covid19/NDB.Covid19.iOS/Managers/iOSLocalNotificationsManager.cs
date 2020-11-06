@@ -2,14 +2,13 @@
 using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.iOS;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using UserNotifications;
 
-namespace NDB.Covid19.Managers
+namespace NDB.Covid19.iOS.Managers
 {
     public class iOSLocalNotificationsManager : UNUserNotificationCenterDelegate, ILocalNotificationsManager
     {

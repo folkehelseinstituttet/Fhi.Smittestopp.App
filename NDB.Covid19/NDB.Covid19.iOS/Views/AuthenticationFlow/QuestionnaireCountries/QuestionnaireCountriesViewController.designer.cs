@@ -4,12 +4,11 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
-using UIKit;
 
-namespace NDB.Covid19.iOS
+using System.CodeDom.Compiler;
+using Foundation;
+
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
     [Register ("QuestionnaireCountriesViewController")]
     partial class QuestionnaireCountriesViewController
@@ -32,7 +31,7 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.DefaultBorderButton NextBtn { get; set; }
+        CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -48,7 +47,7 @@ namespace NDB.Covid19.iOS
 
         [Action ("NextBtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void NextBtnTapped (NDB.Covid19.iOS.DefaultBorderButton sender);
+        partial void NextBtnTapped (CustomSubclasses.DefaultBorderButton sender);
 
         [Action ("OnCloseBtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Android.Content;
 using AndroidX.Work;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using Xamarin.Essentials;

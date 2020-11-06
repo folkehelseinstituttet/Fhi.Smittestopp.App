@@ -4,13 +4,13 @@ using System.Reflection;
 using CommonServiceLocator;
 using FluentAssertions;
 using NDB.Covid19.Models.SQLite;
-using NDB.Covid19.SecureStorage;
 using NDB.Covid19.Test.Helpers;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Utils;
 using Xunit;
 using Xunit.Sdk;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
+using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.PersistedData.SQLite;
 
 namespace NDB.Covid19.Test.Tests.Utils

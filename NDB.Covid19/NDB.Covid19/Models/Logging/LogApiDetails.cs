@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Models.Logging

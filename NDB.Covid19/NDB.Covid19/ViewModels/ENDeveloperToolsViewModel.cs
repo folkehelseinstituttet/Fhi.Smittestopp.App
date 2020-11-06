@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.Models;
 using NDB.Covid19.PersistedData.SecureStorage;
-using NDB.Covid19.SecureStorage;
 using NDB.Covid19.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -12,12 +11,12 @@ using NDB.Covid19.WebServices.ExposureNotification;
 using System.Collections.Generic;
 using Xamarin.ExposureNotifications;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.ExposureNotification;
-using NDB.Covid19.ExposureNotification.Helpers.ExposureDetected;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.Enums;
-using NDB.Covid19.PersistedData;
+using NDB.Covid19.ExposureNotifications;
+using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
+using NDB.Covid19.Utils.DeveloperTools;
 using EN = Xamarin.ExposureNotifications;
 using Debug = System.Diagnostics.Debug;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
@@ -151,7 +150,7 @@ namespace NDB.Covid19.ViewModels
             {
                 if (string.IsNullOrEmpty(region))
                 {
-                    region = "dk";
+                    region = "no";
                 }
 
                 return await FakeGatewayUtils.PostKeysToFakeGateway(region);

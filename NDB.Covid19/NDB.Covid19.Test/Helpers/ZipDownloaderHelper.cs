@@ -5,19 +5,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Moq;
-using MoreLinq;
-using NDB.Covid19.ExposureNotification.Helpers.FetchExposureKeys;
-using NDB.Covid19.WebServices;
 using NDB.Covid19.Models;
 using System.Collections.Generic;
 using NDB.Covid19.WebServices.ExposureNotification;
-using CSScriptLib;
-using Microsoft.Extensions.Primitives;
 using System.Net.Http.Headers;
 using System.Net.Http;
-using NDB.Covid19.Config;
 using NDB.Covid19.Interfaces;
 using CommonServiceLocator;
+using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19.Test.Helpers
@@ -115,7 +110,7 @@ namespace NDB.Covid19.Test.Helpers
 
         public PullKeysMockData(DateTime date, int requestBatchNumber)
         {
-            RequestString = GetRequest(date, requestBatchNumber, BatchType.DK);
+            RequestString = GetRequest(date, requestBatchNumber, BatchType.NO);
         }
 
         public PullKeysMockData HttpStatusCode(int statusCode)
@@ -136,7 +131,7 @@ namespace NDB.Covid19.Test.Helpers
             return this;
         }
 
-        string GetRequest(DateTime date, int batchNum, BatchType batchType = BatchType.DK)
+        string GetRequest(DateTime date, int batchNum, BatchType batchType = BatchType.NO)
         {
             return new PullKeysParams
             {

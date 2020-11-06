@@ -1,7 +1,4 @@
-﻿using System;
-using NDB.Covid19.Config;
-using NDB.Covid19.ExposureNotification.Helpers;
-using NDB.Covid19.Interfaces;
+﻿using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19

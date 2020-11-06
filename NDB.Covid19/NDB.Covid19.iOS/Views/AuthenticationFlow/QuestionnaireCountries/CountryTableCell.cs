@@ -1,11 +1,10 @@
-using Foundation;
 using System;
-using UIKit;
+using Foundation;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.ViewModels;
+using UIKit;
 
-namespace NDB.Covid19.iOS.Views.AuthenticationFlow
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
     public partial class CountryTableCell : UITableViewCell
     {

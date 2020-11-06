@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
 {
     [Register ("SettingsPage5ViewController")]
     partial class SettingsPage5ViewController
@@ -28,7 +28,7 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SetttingsPageTitleLabel HeaderLabel { get; set; }
+        Views.CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
 
         [Action ("BackButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]

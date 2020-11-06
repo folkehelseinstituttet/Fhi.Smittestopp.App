@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using Newtonsoft.Json;
 using Xamarin.ExposureNotifications;
 
-namespace NDB.Covid19.ExposureNotification.Helpers.ExposureDetected
+namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
 {
     public abstract class ExposureInfoJsonHelper
     {

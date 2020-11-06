@@ -4,11 +4,10 @@ using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
-using NDB.Covid19.SecureStorage;
 using NDB.Covid19.Utils;
 using Xamarin.ExposureNotifications;
 
-namespace NDB.Covid19.ExposureNotification.Helpers.ExposureDetected
+namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
 {
     public abstract class ExposureDetectedHelper
     {

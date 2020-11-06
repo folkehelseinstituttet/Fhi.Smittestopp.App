@@ -2,7 +2,7 @@
 using Plugin.SecureStorage;
 using Plugin.SecureStorage.Abstractions;
 
-namespace NDB.Covid19.SecureStorage
+namespace NDB.Covid19.PersistedData.SecureStorage
 {
     public class SecureStorageService : Interfaces.ISecureStorageService
     {

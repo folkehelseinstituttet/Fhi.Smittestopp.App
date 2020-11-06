@@ -1,11 +1,9 @@
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.PersistedData.SQLite;
-using NDB.Covid19.SecureStorage;
-using NDB.Covid19.Utils;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Implementation;
-using NDB.Covid19.WebServices;
-using NDB.Covid19.WebServices.Utils;
+using NDB.Covid19.PersistedData.SecureStorage;
+using NDB.Covid19.Utils.DeveloperTools;
 using Unity;
 
 namespace NDB.Covid19

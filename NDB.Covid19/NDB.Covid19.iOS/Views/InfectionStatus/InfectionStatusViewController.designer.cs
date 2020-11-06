@@ -4,12 +4,11 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
-using UIKit;
 
-namespace NDB.Covid19.iOS
+using System.CodeDom.Compiler;
+using Foundation;
+
+namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
     [Register ("InfectionStatusViewController")]
     partial class InfectionStatusViewController

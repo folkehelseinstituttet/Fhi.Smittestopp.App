@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using NDB.Covid19.ViewModels;
 using UIKit;
-using static NDB.Covid19.ViewModels.ConsentViewModel;
+using static NDB.Covid19.Models.ConsentViewModel;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
 namespace NDB.Covid19.iOS.Utils
@@ -19,7 +20,7 @@ namespace NDB.Covid19.iOS.Utils
                 titleLbl.TextColor = UIColor.White;
                 titleLbl.Lines = 0;
 
-                StyleUtil.InitLabel(titleLbl, FontType.FontBold, obj.Title, 16, 22);
+                InitLabel(titleLbl, FontType.FontBold, obj.Title, 16, 22);
 
                 stackView.AddArrangedSubview(titleLbl);
 
@@ -27,16 +28,16 @@ namespace NDB.Covid19.iOS.Utils
                 paragrapLbl.TranslatesAutoresizingMaskIntoConstraints = false;
                 paragrapLbl.TextColor = UIColor.White;
                 paragrapLbl.Lines = 100;
-                StyleUtil.InitLabelWithHTMLFormat(paragrapLbl, obj.Paragraph);
+                InitLabelWithHTMLFormat(paragrapLbl, obj.Paragraph);
 
                 if (obj.ParagraphAccessibilityText != null)
                 {
-                    StyleUtil.InitLabelAccessibilityTextWithHTMLFormat(paragrapLbl, obj.ParagraphAccessibilityText);
+                    InitLabelAccessibilityTextWithHTMLFormat(paragrapLbl, obj.ParagraphAccessibilityText);
                 }
 
                 stackView.AddArrangedSubview(paragrapLbl);
 
-                if (obj.Title == CONSENT_SEVEN_TITLE)
+                if (obj.Title == ConsentViewModel.CONSENT_SEVEN_TITLE)
                 {
                     stackView.AddArrangedSubview(privacyPolicyButton);
                 }

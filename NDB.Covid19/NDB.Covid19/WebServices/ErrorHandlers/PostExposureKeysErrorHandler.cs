@@ -1,6 +1,5 @@
 ﻿using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
-using NDB.Covid19.WebServices.ErrorHandlers;
 
 namespace NDB.Covid19.WebServices.ErrorHandlers
 {

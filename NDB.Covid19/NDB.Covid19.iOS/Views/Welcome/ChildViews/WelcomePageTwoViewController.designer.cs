@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
     [Register ("WelcomePageTwoViewController")]
     partial class WelcomePageTwoViewController

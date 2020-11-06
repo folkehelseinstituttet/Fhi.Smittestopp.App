@@ -13,8 +13,8 @@ using Xamarin.ExposureNotifications;
 using Newtonsoft.Json;
 using static NDB.Covid19.Utils.Anonymizer;
 using NDB.Covid19.WebServices;
-using NDB.Covid19.Config;
 using System.Net.Http;
+using NDB.Covid19.Configuration;
 
 namespace NDB.Covid19.Test.Tests.Utils
 {

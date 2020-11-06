@@ -1,17 +1,16 @@
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.iOS.Permissions;
-using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
-using NDB.Covid19.Utils;
-using UIKit;
-using NDB.Covid19.iOS.Views.InfectionStatus;
+using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using NDB.Covid19.iOS.Views.MessagePage;
+using NDB.Covid19.iOS.Views.Settings;
+using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
 
     public partial class InfectionStatusViewController : BaseViewController

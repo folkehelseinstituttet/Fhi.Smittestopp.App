@@ -1,8 +1,8 @@
-using NDB.Covid19.iOS.Utils;
 using System;
+using NDB.Covid19.iOS.Utils;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.HelpText
 {
     public partial class HelpTextViewController : UIViewController
     {

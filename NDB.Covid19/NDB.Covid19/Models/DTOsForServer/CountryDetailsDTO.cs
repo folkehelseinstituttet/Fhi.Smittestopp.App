@@ -1,7 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
-
-namespace NDB.Covid19.Models.DTOsForServer
+﻿namespace NDB.Covid19.Models.DTOsForServer
 {
     public class CountryDetailsDTO
     {

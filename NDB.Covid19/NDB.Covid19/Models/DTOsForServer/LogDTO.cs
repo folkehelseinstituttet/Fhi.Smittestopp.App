@@ -1,5 +1,4 @@
 ﻿using System;
-using CommonServiceLocator;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.Utils;
 

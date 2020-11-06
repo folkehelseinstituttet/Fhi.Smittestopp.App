@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using CommonServiceLocator;
 using Foundation;
 using NDB.Covid19.Enums;
-using NDB.Covid19.PersistedData;
+using NDB.Covid19.iOS.Views.InfectionStatus;
+using NDB.Covid19.iOS.Views.Welcome;
 using NDB.Covid19.Utils;
 using UIKit;
 
@@ -33,7 +33,7 @@ namespace NDB.Covid19.iOS.Utils
 
         public static void GoToHelpTextViewController(UIViewController fromController, string title, string body, string okBtnText)
         {
-            HelpTextViewController vc = ViewControllerByStoryboardName("HelpText") as HelpTextViewController;
+            Views.HelpText.HelpTextViewController vc = ViewControllerByStoryboardName("HelpText") as Views.HelpText.HelpTextViewController;
             vc.TitleText = title;
             vc.Content = body;
             vc.OkBtnText = okBtnText;

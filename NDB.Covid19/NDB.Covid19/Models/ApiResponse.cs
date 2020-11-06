@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 
 namespace NDB.Covid19.Models
 {
@@ -27,7 +27,7 @@ namespace NDB.Covid19.Models
                 string endpoint = Endpoint;
                 if (endpoint.EndsWith(".zip"))
                 {
-                    //Remove the last part e.g. "2020-09-03:1.dk.zip", so it can be summarized in logs with a generic message
+                    //Remove the last part e.g. "2020-09-03:1.no.zip", so it can be summarized in logs with a generic message
                     int index = endpoint.IndexOf(endpoint.Split('/').Last());
                     if (index > 1)
                     {

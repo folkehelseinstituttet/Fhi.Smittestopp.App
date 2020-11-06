@@ -2,7 +2,6 @@
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.ViewModels;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters

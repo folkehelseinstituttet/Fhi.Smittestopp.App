@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using I18NPortable;
 using I18NPortable.JsonReader;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19

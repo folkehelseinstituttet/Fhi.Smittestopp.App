@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using NDB.Covid19.ExposureNotification.Helpers;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Models;
 using Xamarin.ExposureNotifications;
 using Xunit;

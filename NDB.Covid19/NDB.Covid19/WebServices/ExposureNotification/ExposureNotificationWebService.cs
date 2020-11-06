@@ -1,18 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.WebServices.ErrorHandlers;
 using NDB.Covid19.WebServices.Helpers;
-using Xamarin.ExposureNotifications;
 
-namespace NDB.Covid19.WebServices
+namespace NDB.Covid19.WebServices.ExposureNotification
 {
     public class ExposureNotificationWebService : BaseWebService
     {
@@ -48,7 +46,7 @@ namespace NDB.Covid19.WebServices
             return response.IsSuccessfull;
         }
         
-        public async Task<Configuration> GetExposureConfiguration()
+        public async Task<Xamarin.ExposureNotifications.Configuration> GetExposureConfiguration()
         {
             ApiResponse<AttenuationBucketsConfigurationDTO> response = await Get<AttenuationBucketsConfigurationDTO>(Conf.URL_GET_EXPOSURE_CONFIGURATION);
             HandleErrorsSilently(response);

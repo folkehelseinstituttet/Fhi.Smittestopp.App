@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.PersistedData;
@@ -46,7 +45,7 @@ namespace NDB.Covid19.ViewModels
         public void OnCheckedChange(bool isChecked) => LocalPreferencesHelper.SetIsDownloadWithMobileDataEnabled(isChecked);
 
         /// <summary>
-        /// Opens the smittestop.dk link in an in-app browser.
+        /// Opens the link in an in-app browser.
         /// </summary>
         public static void OpenSmitteStopLink()
         {
@@ -56,7 +55,7 @@ namespace NDB.Covid19.ViewModels
             }
             catch (Exception e)
             {
-                LogUtils.LogException(Enums.LogSeverity.ERROR, e, "Failed to open smittestop.dk link on general settings page");
+                LogUtils.LogException(Enums.LogSeverity.ERROR, e, "Failed to open link on general settings page");
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http.Headers;
 using CommonServiceLocator;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Interfaces;
 using Xamarin.Essentials;

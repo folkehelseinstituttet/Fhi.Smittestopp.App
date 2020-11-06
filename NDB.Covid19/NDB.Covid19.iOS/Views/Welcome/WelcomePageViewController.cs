@@ -1,9 +1,10 @@
 using NDB.Covid19.iOS.Utils;
 using System;
 using System.Collections.Generic;
+using NDB.Covid19.iOS.Views.Welcome.ChildViews;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Welcome
 {
     public partial class WelcomePageViewController : UIPageViewController
     {

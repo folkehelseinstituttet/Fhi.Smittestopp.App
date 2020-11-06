@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Foundation;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
+using NDB.Covid19.ViewModels;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StressUtils;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Welcome
 {
     public partial class WelcomeViewController : BaseViewController
     {

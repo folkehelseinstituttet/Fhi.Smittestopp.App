@@ -1,18 +1,14 @@
+using System;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
-using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
-using CommonServiceLocator;
-using System;
-using NDB.Covid19.Config;
 using UIKit;
-using Xamarin.Essentials;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 {
     public partial class SettingsPageGeneralSettingsViewController : BaseViewController
     {
@@ -160,12 +156,12 @@ namespace NDB.Covid19.iOS
             SetupRadioButtons();
         }
 
-        partial void RadioButton1_TouchUpInside(RadioButton sender)
+        partial void RadioButton1_TouchUpInside(Views.CustomSubclasses.RadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Bokmal, sender);
         }
 
-        partial void RadioButton2_TouchUpInside(RadioButton sender)
+        partial void RadioButton2_TouchUpInside(Views.CustomSubclasses.RadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.English, sender);
         }

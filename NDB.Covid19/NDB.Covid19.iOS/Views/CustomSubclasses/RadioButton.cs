@@ -1,9 +1,8 @@
-using CoreGraphics;
 using System;
-using System.Diagnostics;
+using CoreGraphics;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
     public partial class RadioButton : UIButton, IDisposable
     {

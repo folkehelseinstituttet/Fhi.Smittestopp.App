@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 using System.Linq;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.Utils
@@ -60,8 +60,6 @@ namespace NDB.Covid19.Utils
                     break;
             }
 
-            //A witdh of 750 is the width of an iPhone 6, 7, 8 or SE (2nd gen)
-            //String replace is necessary as the standard format returned, with a danish phone, is the following format dd-mm-yyyy and not the desired dd/mm/yyyy
             if (DeviceDisplay.MainDisplayInfo.Width <= 750 && insertNewline)
             {
                 text = ReplaceLastOccurrence(text.Replace("-", "/"), "/", "/" + Environment.NewLine);

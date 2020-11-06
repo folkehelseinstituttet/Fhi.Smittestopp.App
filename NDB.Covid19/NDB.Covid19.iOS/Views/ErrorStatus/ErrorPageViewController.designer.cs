@@ -23,7 +23,7 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsContentTextView ErrorMessageLabel { get; set; }
+        CustomSubclasses.SettingsContentTextView ErrorMessageLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

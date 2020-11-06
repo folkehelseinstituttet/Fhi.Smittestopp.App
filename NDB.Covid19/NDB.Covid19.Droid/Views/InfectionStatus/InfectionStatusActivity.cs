@@ -13,7 +13,6 @@ using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Droid.Utils;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using NDB.Covid19.Droid.Views.AuthenticationFlow;
-using Xamarin.ExposureNotifications;
 using Android.Views.Animations;
 using NDB.Covid19.Droid.Services;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;

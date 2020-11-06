@@ -1,7 +1,6 @@
 ﻿using Android.Views;
 using Android.Widget;
 using NDB.Covid19.Droid.Views.Welcome;
-using NDB.Covid19.Droid.Utils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 
 namespace NDB.Covid19.Droid.Utils

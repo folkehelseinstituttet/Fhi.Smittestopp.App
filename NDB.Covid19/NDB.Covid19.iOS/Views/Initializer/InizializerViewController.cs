@@ -1,17 +1,14 @@
 using System;
-using CommonServiceLocator;
 using I18NPortable;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
-using NDB.Covid19.iOS;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
-using NDB.Covid19.PersistedData;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Initializer
 {
     public partial class InizializerViewController : BaseViewController
     {

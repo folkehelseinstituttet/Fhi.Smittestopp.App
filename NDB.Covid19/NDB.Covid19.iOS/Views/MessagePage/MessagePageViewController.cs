@@ -5,9 +5,8 @@ using NDB.Covid19.ViewModels;
 using System;
 using System.Collections.Generic;
 using UIKit;
-using NDB.Covid19.Config;
 using System.Threading.Tasks;
-using NDB.Covid19.PersistedData;
+using NDB.Covid19.Configuration;
 using UserNotifications;
 
 namespace NDB.Covid19.iOS.Views.MessagePage

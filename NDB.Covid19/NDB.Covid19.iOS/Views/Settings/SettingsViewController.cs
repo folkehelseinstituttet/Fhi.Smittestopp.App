@@ -1,12 +1,10 @@
+using System;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
-using NDB.Covid19.iOS.Views.Settings;
 using NDB.Covid19.ViewModels;
-using System;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings
 {
     public partial class SettingsViewController : BaseViewController
     {
@@ -14,14 +12,8 @@ namespace NDB.Covid19.iOS
 
         SettingsTableViewSource _tableSource
         {
-            get
-            {
-                return (SettingsTableViewSource)SettingsItemsTable.Source;
-            }
-            set
-            {
-                SettingsItemsTable.Source = value;
-            }
+            get => (SettingsTableViewSource)SettingsItemsTable.Source;
+            set => SettingsItemsTable.Source = value;
         }
 
         public static SettingsViewController Create()

@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
 {
     [Register ("SettingsPage2ViewController")]
     partial class SettingsPage2ViewController
@@ -28,7 +28,7 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SetttingsPageTitleLabel HeaderLabel { get; set; }
+        Views.CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

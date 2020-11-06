@@ -1,5 +1,4 @@
-﻿using System;
-namespace NDB.Covid19.Enums
+﻿namespace NDB.Covid19.Enums
 {
     public enum ENOperation {
         PUSH,

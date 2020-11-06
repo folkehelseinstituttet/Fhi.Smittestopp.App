@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using NDB.Covid19.Models.DTOsForServer;
 

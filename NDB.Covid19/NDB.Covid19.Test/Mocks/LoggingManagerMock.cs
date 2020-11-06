@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData.SQLite;

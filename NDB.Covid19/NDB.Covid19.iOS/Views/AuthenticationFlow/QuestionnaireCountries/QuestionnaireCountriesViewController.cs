@@ -1,18 +1,13 @@
-using Foundation;
-using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
-using NDB.Covid19.iOS.Views.AuthenticationFlow;
-using NDB.Covid19.Utils;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.WebServices.ErrorHandlers;
 using System;
 using System.Collections.Generic;
-using UIKit;
-using NDB.Covid19.Models.DTOsForServer;
-using NDB.Covid19.Enums;
 using System.Linq;
+using NDB.Covid19.Enums;
+using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
     public partial class QuestionnaireCountriesViewController : BaseViewController
     {
@@ -104,7 +99,7 @@ namespace NDB.Covid19.iOS
 
         
 
-        partial void NextBtnTapped(DefaultBorderButton sender)
+        partial void NextBtnTapped(CustomSubclasses.DefaultBorderButton sender)
         {
             NextBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
             _viewModel.InvokeNextButtonClick(OnSuccess, OnFail, _countryList);

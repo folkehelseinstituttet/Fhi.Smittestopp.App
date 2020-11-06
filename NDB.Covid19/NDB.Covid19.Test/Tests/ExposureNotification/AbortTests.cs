@@ -5,12 +5,13 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Moq;
-using NDB.Covid19.ExposureNotification.Helpers.FetchExposureKeys;
+using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Models;
 using NDB.Covid19.Test.Helpers;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices;
+using NDB.Covid19.WebServices.ExposureNotification;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification

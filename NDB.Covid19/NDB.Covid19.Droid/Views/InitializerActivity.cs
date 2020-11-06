@@ -8,7 +8,7 @@ using Android.Content.PM;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using I18NPortable;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 

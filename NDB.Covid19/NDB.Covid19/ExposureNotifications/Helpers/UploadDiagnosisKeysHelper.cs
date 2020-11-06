@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using Xamarin.ExposureNotifications;
 
-namespace NDB.Covid19.ExposureNotification.Helpers
+namespace NDB.Covid19.ExposureNotifications.Helpers
 {
     public abstract class UploadDiagnosisKeysHelper
     {

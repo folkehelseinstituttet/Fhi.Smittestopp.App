@@ -224,7 +224,6 @@
                     android:drawableEnd="@drawable/ic_arrow_back_right"
                     android:drawablePadding="5dp"
                     android:gravity="center_vertical"
-                    android:text="smittestop.dk"
                     android:textAppearance="@style/MessageListItemDescriptionText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

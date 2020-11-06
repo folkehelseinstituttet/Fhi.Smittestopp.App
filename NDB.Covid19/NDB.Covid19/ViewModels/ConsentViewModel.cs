@@ -1,14 +1,15 @@
+using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using CommonServiceLocator;
 using I18NPortable;
-using NDB.Covid19.Utils;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
-using System;
+using NDB.Covid19.Utils;
+using static NDB.Covid19.Models.ConsentViewModel;
 
 namespace NDB.Covid19.ViewModels
 {
-    public partial class ConsentViewModel
+    public class ConsentViewModel
     {
         //CONSENT PAGE TEXTS
         public static string WELCOME_PAGE_CONSENT_TITLE => "WELCOME_PAGE_FIVE_TITLE".Translate();
@@ -62,14 +63,14 @@ namespace NDB.Covid19.ViewModels
             }
             catch (Exception e)
             {
-                LogUtils.LogException(Enums.LogSeverity.ERROR, e, "Failed to open Privacy policy");
+                LogUtils.LogException(LogSeverity.ERROR, e, "Failed to open Privacy policy");
             }
         }
 
         /// <returns>The list of texts needed in the consents section in the right order</returns>
         public List<ConsentSectionTexts> GetConsentSectionsTexts()
         {
-            return new List<ConsentSectionTexts>()
+            return new List<ConsentSectionTexts>
             {
                 new ConsentSectionTexts(CONSENT_ONE_TITLE, CONSENT_ONE_PARAGRAPH, null),
                 new ConsentSectionTexts(CONSENT_TWO_TITLE, CONSENT_TWO_PARAGRAPH, null),

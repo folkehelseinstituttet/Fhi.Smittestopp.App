@@ -4,11 +4,11 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
 
-namespace NDB.Covid19.iOS.Views.UploadCompleted
+using System.CodeDom.Compiler;
+using Foundation;
+
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     [Register ("UploadCompletedViewController")]
     partial class UploadCompletedViewController
@@ -19,7 +19,7 @@ namespace NDB.Covid19.iOS.Views.UploadCompleted
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel BoxTitleLabel { get; set; }
+        CustomSubclasses.SettingsPageContentLabel BoxTitleLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -31,11 +31,11 @@ namespace NDB.Covid19.iOS.Views.UploadCompleted
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel ContentLabelOne { get; set; }
+        CustomSubclasses.SettingsPageContentLabel ContentLabelOne { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel ContentLabelTwo { get; set; }
+        CustomSubclasses.SettingsPageContentLabel ContentLabelTwo { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -47,7 +47,7 @@ namespace NDB.Covid19.iOS.Views.UploadCompleted
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SetttingsPageTitleLabel TitleLabel { get; set; }
+        CustomSubclasses.SetttingsPageTitleLabel TitleLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]

@@ -240,7 +240,7 @@
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\CheckMark.imageset\Checkmark%403x.png">
       <Visible>false</Visible>
-        </ImageAsset>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\CheckShield.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -251,8 +251,7 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\CheckShield.imageset\Check_shield_3x.png">
-      <Visible>false</Visible>        
-            
+      <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\WorkingScheme.imageset\Contents.json">
       <Visible>false</Visible>
@@ -617,48 +616,132 @@
     <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en.png" />
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-1.png" />
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-2.png" />
-    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white.png" />
-    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white_2x.png" />
-    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white_3x.png" />
-    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right.png" />
-    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right_2x.png" />
-    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right_3x.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x-1.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%403x-1.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x-2.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x-2.png" />
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%403x.png" />
-    <ImageAsset Include="Assets.xcassets\bellicon.imageset\notification icon_inactive%401x.png" />
-    <ImageAsset Include="Assets.xcassets\bellicon.imageset\notification icon_inactive%402x.png" />
-    <ImageAsset Include="Assets.xcassets\bellicon.imageset\notification icon_inactive%403x.png" />
-    <ImageAsset Include="Assets.xcassets\covidIcon.imageset\covid-19 icon%401x.png" />
-    <ImageAsset Include="Assets.xcassets\covidIcon.imageset\covid-19 icon%402x.png" />
-    <ImageAsset Include="Assets.xcassets\covidIcon.imageset\covid-19 icon%403x.png" />
-    <ImageAsset Include="Assets.xcassets\notification_active.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\notification_active.imageset\notification icon_active%401x.png" />
-    <ImageAsset Include="Assets.xcassets\notification_active.imageset\notification icon_active%402x.png" />
-    <ImageAsset Include="Assets.xcassets\notification_active.imageset\notification icon_active%403x.png" />
-    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\notification icon_inactive%401x.png" />
-    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\notification icon_inactive%402x.png" />
-    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\notification icon_inactive%403x.png" />
-    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\right%401x.png" />
-    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\right%402x.png" />
-    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\right%403x.png" />
-    <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%401x.png" />
-    <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%402x.png" />
-    <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%403x.png" />
+    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\FHILogo.imageset\logo_fhi_white_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%403x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bellicon.imageset\notification icon_inactive%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bellicon.imageset\notification icon_inactive%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bellicon.imageset\notification icon_inactive%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\covidIcon.imageset\covid-19 icon%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\covidIcon.imageset\covid-19 icon%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\covidIcon.imageset\covid-19 icon%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_active.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_active.imageset\notification icon_active%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_active.imageset\notification icon_active%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_active.imageset\notification icon_active%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\notification icon_inactive%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\notification icon_inactive%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\notification_inactive.imageset\notification icon_inactive%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\right%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\right%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow_right.imageset\right%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />

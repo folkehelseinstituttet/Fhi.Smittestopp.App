@@ -1,8 +1,7 @@
 ﻿using System;
 using CommonServiceLocator;
-using NDB.Covid19.Config;
-using NDB.Covid19.Enums;
-using NDB.Covid19.ExposureNotification.Helpers;
+using NDB.Covid19.Configuration;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.WebServices.ExposureNotification;
 
@@ -74,7 +73,7 @@ namespace NDB.Covid19.PersistedData
         //The last pulled batch type, which is needed to know when to reset the batch number to 1 after approving the terms. See PullKeysParams.cs
         public static BatchType LastPulledBatchType
         {
-            get => _preferences.Get(PreferencesKeys.LAST_PULLED_BATCH_TYPE, "dk").ToBatchType();
+            get => _preferences.Get(PreferencesKeys.LAST_PULLED_BATCH_TYPE, "no").ToBatchType();
             set => _preferences.Set(PreferencesKeys.LAST_PULLED_BATCH_TYPE, value.ToTypeString());
         }
 

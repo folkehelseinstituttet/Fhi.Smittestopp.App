@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Globalization;
-using CommonServiceLocator;
 using NDB.Covid19.Enums;
-using NDB.Covid19.ExposureNotification.Helpers;
-using NDB.Covid19.Interfaces;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 
@@ -21,7 +19,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
         /// <summary>
         /// The app will request a file with the following format.
         /// </summary>
-        /// <returns>"[date]_[batchnumber]_[dk/all].zip", e.g. "2020-08-13_1_dk.zip"</returns>
+        /// <returns>"[date]_[batchnumber]_[no/all].zip", e.g. "2020-08-13_1_no.zip"</returns>
         public string ToBatchFileRequest()
         {
             return $"{Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)}" +
@@ -40,7 +38,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             //BatchType: We will pull all EU keys if consent is given to do so.
             bool consentToPullEUKeysIsGiven = OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted;
 
-            BatchType batchType = consentToPullEUKeysIsGiven ? BatchType.ALL : BatchType.DK;
+            BatchType batchType = consentToPullEUKeysIsGiven ? BatchType.ALL : BatchType.NO;
 
             //Date: Request data for the last successful background task
             DateTime lastPullDate = LocalPreferencesHelper.GetLastPullKeysSucceededDateTime();
@@ -60,8 +58,8 @@ namespace NDB.Covid19.WebServices.ExposureNotification
                 num = 1;
             }
 
-            //If terms were just approved and last pull was DK keys, then start over for today with EU keys.
-            if (consentToPullEUKeysIsGiven && LocalPreferencesHelper.LastPulledBatchType == BatchType.DK)
+            //If terms were just approved and last pull was NO keys, then start over for today with EU keys.
+            if (consentToPullEUKeysIsGiven && LocalPreferencesHelper.LastPulledBatchType == BatchType.NO)
             {
                 batchType = BatchType.ALL;
                 num = 1;

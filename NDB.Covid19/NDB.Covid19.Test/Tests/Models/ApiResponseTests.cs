@@ -3,8 +3,8 @@ using Xunit;
 using NDB.Covid19.Models;
 using System.Net;
 using NDB.Covid19.Test.Tests.Models.utils;
-using NDB.Covid19.Config;
 using System.Net.Http;
+using NDB.Covid19.Configuration;
 
 namespace NDB.Covid19.Test.Tests.Models
 {
@@ -75,7 +75,7 @@ namespace NDB.Covid19.Test.Tests.Models
         [InlineData("encounters/average")]
         [InlineData("profiles/withdrawconsent")]
         [InlineData("logging/logMessages")]
-        [InlineData("diagnostickeys/2020-09-03_1_dk.zip")]
+        [InlineData("diagnostickeys/2020-09-03_1_no.zip")]
         public void ApiResponse_CalculateEndpoint(string endpoint)
         {
             string completeUrl = $"{Conf.URL_PREFIX}{endpoint}";
@@ -88,7 +88,7 @@ namespace NDB.Covid19.Test.Tests.Models
         [Theory]
         [InlineData("profiles/register", "profiles/register")]
         [InlineData("diagnostickeys", "diagnostickeys")]
-        [InlineData("diagnostickeys/2020-09-03_1_dk.zip", "diagnostickeys")]
+        [InlineData("diagnostickeys/2020-09-03_1_no.zip", "diagnostickeys")]
         public void ApiResponse_ErrorLogMessage(string endpoint, string expectedEndpointInMessage)
         {
             string completeUrl = $"{Conf.URL_PREFIX}{endpoint}";

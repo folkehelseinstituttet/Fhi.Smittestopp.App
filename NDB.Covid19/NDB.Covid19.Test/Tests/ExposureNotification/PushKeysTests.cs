@@ -4,12 +4,12 @@ using System.Linq;
 using Castle.Core.Internal;
 using CommonServiceLocator;
 using Moq;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
-using NDB.Covid19.Utils;
-using NDB.Covid19.WebServices;
 using NDB.Covid19.Test.Helpers;
 using NDB.Covid19.Test.Tests.Utils;
+using NDB.Covid19.Utils.DeveloperTools;
+using NDB.Covid19.WebServices.ExposureNotification;
 using Newtonsoft.Json;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
@@ -134,9 +134,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         }
 
         [Theory]
-        [InlineData("dk")]
-        [InlineData("dk", "en")]
-        [InlineData("dk", "en", "pl")]
+        [InlineData("no")]
+        [InlineData("no", "en")]
+        [InlineData("no", "en", "pl")]
         public async void LastKeyUploadInfoIsUpdated_withListOfCountries(params string[] countriesArray)
         {
             //Given
@@ -202,12 +202,12 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         }
 
         [Theory]
-        [InlineData(0, "dk")]
-        [InlineData(7, "dk")]
-        [InlineData(14, "dk")]
-        [InlineData(0, "dk", "en")]
-        [InlineData(7, "dk", "en")]
-        [InlineData(14, "dk", "en")]
+        [InlineData(0, "no")]
+        [InlineData(7, "no")]
+        [InlineData(14, "no")]
+        [InlineData(0, "no", "en")]
+        [InlineData(7, "no", "en")]
+        [InlineData(14, "no", "en")]
         public async void LastKeyUploadInfoIsUpdated_withListOfCountries_And_DaysSinceSymptoms(int daysSinceSymptoms, params string[] countriesArray)
         {
             //Given

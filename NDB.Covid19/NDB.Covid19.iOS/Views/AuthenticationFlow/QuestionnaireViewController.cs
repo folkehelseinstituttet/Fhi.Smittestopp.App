@@ -1,18 +1,15 @@
+using System;
 using Foundation;
 using I18NPortable;
+using NDB.Covid19.Enums;
+using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
-using NDB.Covid19.Enums;
-using NDB.Covid19.iOS;
-using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
 using NDB.Covid19.WebServices.ErrorHandlers;
-using System;
-using System.Diagnostics;
-using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using UIKit;
 
-namespace NDB.Covid19.iOS.Views
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     public partial class QuestionnaireViewController : BaseViewController
     {
@@ -148,7 +145,7 @@ namespace NDB.Covid19.iOS.Views
             UpdateUIWhenSelectionChanges();
         }
 
-        partial void NextBtnTapped(DefaultBorderButton sender)
+        partial void NextBtnTapped(CustomSubclasses.DefaultBorderButton sender)
         {
             NextBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
             _viewModel.InvokeNextButtonClick(OnSuccess, OnFail, OnValidationFail,
@@ -228,7 +225,7 @@ namespace NDB.Covid19.iOS.Views
 
         partial void InfoButton_TouchUpInside(UIButton sender)
         {
-            HelpCustomView.Create(View, QuestionnaireViewModel.REGISTER_QUESTIONAIRE_SYMPTOMONSET_HELP, "ERROR_OK_BTN".Translate(), sender);
+            HelpCustomView.HelpCustomView.Create(View, QuestionnaireViewModel.REGISTER_QUESTIONAIRE_SYMPTOMONSET_HELP, "ERROR_OK_BTN".Translate(), sender);
         }
     }
 }

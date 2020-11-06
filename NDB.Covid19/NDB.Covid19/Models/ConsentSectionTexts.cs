@@ -1,4 +1,4 @@
-﻿namespace NDB.Covid19.ViewModels
+﻿namespace NDB.Covid19.Models
 {
     public partial class ConsentViewModel
     {

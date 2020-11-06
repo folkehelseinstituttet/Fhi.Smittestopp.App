@@ -1,24 +1,25 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
-using Xamarin.Essentials;
-using Xamarin.ExposureNotifications;
-using Newtonsoft.Json;
+using System.Threading.Tasks;
 using CommonServiceLocator;
+using NDB.Covid19.ExposureNotifications.Helpers;
+using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
+using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.Utils;
-using NDB.Covid19.ExposureNotification.Helpers;
-using NDB.Covid19.ExposureNotification.Helpers.ExposureDetected;
-using NDB.Covid19.OAuth2;
-using NDB.Covid19.WebServices;
-using NDB.Covid19.ExposureNotification.Helpers.FetchExposureKeys;
 using NDB.Covid19.Models;
 using NDB.Covid19.Models.UserDefinedExceptions;
-using System.Diagnostics;
+using NDB.Covid19.OAuth2;
+using NDB.Covid19.Utils;
+using NDB.Covid19.Utils.DeveloperTools;
+using NDB.Covid19.WebServices.ExposureNotification;
+using Newtonsoft.Json;
+using Xamarin.Essentials;
+using Xamarin.ExposureNotifications;
 
-namespace NDB.Covid19.ExposureNotification
+namespace NDB.Covid19.ExposureNotifications
 {
     public class ExposureNotificationHandler : IExposureNotificationHandler
     {
@@ -27,13 +28,13 @@ namespace NDB.Covid19.ExposureNotification
 
         private ExposureNotificationWebService exposureNotificationWebService = new ExposureNotificationWebService();
 
-        public Task<Configuration> GetConfigurationAsync()
+        public Task<Xamarin.ExposureNotifications.Configuration> GetConfigurationAsync()
         {
             Debug.Print("Fetching configuration");
 
             return Task.Run(async () =>
             {
-                Configuration configuration = await exposureNotificationWebService.GetExposureConfiguration();
+                Xamarin.ExposureNotifications.Configuration configuration = await exposureNotificationWebService.GetExposureConfiguration();
                 if (configuration == null)
                 {
                     throw new FailedToFetchConfigurationException("Aborting pull because configuration was not fetched from server. See corresponding server error log");
@@ -70,15 +71,15 @@ namespace NDB.Covid19.ExposureNotification
             {
                 if (ServiceLocator.Current.GetInstance<IDeviceInfo>().Platform == DevicePlatform.iOS)
                 {
-                    if (await Xamarin.ExposureNotifications.ExposureNotification.IsEnabledAsync())
+                    if (await ExposureNotification.IsEnabledAsync())
                     {
-                        await Xamarin.ExposureNotifications.ExposureNotification.StopAsync();
-                        await Xamarin.ExposureNotifications.ExposureNotification.StartAsync();
+                        await ExposureNotification.StopAsync();
+                        await ExposureNotification.StartAsync();
                     }
                     else
                     {
-                        await Xamarin.ExposureNotifications.ExposureNotification.StartAsync();
-                        await Xamarin.ExposureNotifications.ExposureNotification.StopAsync();
+                        await ExposureNotification.StartAsync();
+                        await ExposureNotification.StopAsync();
                     }
                 }
             }

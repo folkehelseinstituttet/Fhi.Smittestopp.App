@@ -19,15 +19,11 @@ namespace NDB.Covid19.Droid.Views.Welcome
         }
         public override bool OnTouchEvent(MotionEvent e)
         {
-            return IsEnabled
-                ? base.OnTouchEvent(e)
-                : false;
+            return IsEnabled && base.OnTouchEvent(e);
         }
         public override bool OnInterceptTouchEvent(MotionEvent ev)
         {
-            return IsEnabled
-                ? base.OnInterceptTouchEvent(ev)
-                : false;
+            return IsEnabled && base.OnInterceptTouchEvent(ev);
         }
         public void SetPagingEnabled(bool enabled)
         {

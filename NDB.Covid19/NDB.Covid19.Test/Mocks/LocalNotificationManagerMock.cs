@@ -1,4 +1,4 @@
-﻿using NDB.Covid19.ExposureNotification.Helpers;
+﻿using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils;

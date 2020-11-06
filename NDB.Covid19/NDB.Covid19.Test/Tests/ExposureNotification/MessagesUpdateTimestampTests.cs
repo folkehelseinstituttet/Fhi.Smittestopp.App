@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using CommonServiceLocator;
 using Moq;
 using NDB.Covid19.ViewModels;
-using NDB.Covid19.WebServices;
 using NDB.Covid19.Models;
-using NDB.Covid19.SecureStorage;
 using NDB.Covid19.Test.Mocks;
 using Xunit;
 using System.Net.Http;
+using NDB.Covid19.PersistedData.SecureStorage;
+using NDB.Covid19.WebServices.ExposureNotification;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
 {

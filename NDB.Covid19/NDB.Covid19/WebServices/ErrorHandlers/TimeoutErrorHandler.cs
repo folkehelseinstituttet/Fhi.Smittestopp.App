@@ -1,8 +1,6 @@
-﻿using System.IO;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using I18NPortable;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
 

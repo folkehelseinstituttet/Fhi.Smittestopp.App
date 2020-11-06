@@ -1,10 +1,8 @@
 ﻿using System;
 using CommonServiceLocator;
-using NDB.Covid19.ExposureNotification.Helpers;
-using NDB.Covid19.ExposureNotification.Helpers.ExposureDetected;
+using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData.SecureStorage;
-using NDB.Covid19.SecureStorage;
 using NDB.Covid19.Test.Mocks;
 using Xamarin.ExposureNotifications;
 using Xunit;

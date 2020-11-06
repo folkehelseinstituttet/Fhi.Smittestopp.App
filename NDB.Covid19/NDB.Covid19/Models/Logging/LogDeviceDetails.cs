@@ -1,6 +1,6 @@
 using System;
 using CommonServiceLocator;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;

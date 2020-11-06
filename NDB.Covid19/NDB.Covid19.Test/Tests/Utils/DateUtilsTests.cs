@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Utils;
 
 using Xunit;
@@ -20,7 +20,7 @@ namespace NDB.Covid19.Test.Tests.Utils
         public void GetDateFromDateTime_DateTimeNull()
         {
             //Arrange
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("da-DK");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("nn-NO");
 
             // Act
             string actual = DateUtils.GetDateFromDateTime(null, "d");
@@ -92,7 +92,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             DateTimeFormatInfo dateTimeFormat = defaultCultureInfo.DateTimeFormat; // Expected format to use based Conf.DEFAULT_LANGUAGE
 
             // Act
-            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with da-DK culture (default language)
+            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with nn-NO culture (default language)
             string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
                 ? "15.07.2020 13:37:00"
                 : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
@@ -111,7 +111,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             DateTimeFormatInfo dateTimeFormat = defaultCultureInfo.DateTimeFormat; // Expected format to use based Conf.DEFAULT_LANGUAGE
 
             // Act
-            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with da-DK culture (default language)
+            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with nn-NO culture (default language)
             string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
                 ? "15.07.2020 13:37:00"
                 : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture

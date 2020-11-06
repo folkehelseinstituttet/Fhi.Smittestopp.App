@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.IO.Compression;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.ProtoModels;
 
-namespace NDB.Covid19.ExposureNotification.Helpers
+namespace NDB.Covid19.ExposureNotifications.Helpers
 {
     public abstract class BatchFileHelper
     {

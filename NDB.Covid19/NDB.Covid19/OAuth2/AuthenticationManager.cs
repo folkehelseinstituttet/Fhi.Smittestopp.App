@@ -2,14 +2,13 @@
 using System.Security.Cryptography.X509Certificates;
 using JWT.Algorithms;
 using JWT.Builder;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xamarin.Auth;
-using Xamarin.Auth.Presenters;
 
 namespace NDB.Covid19.OAuth2
 {

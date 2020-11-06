@@ -2,7 +2,6 @@ using Foundation;
 using System;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views.UploadCompleted;
 using NDB.Covid19.Utils;
 using UIKit;
 

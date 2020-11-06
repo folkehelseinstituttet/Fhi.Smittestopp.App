@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NDB.Covid19.ExposureNotification.Helpers
+namespace NDB.Covid19.ExposureNotifications.Helpers
 {
     /// <summary>
     /// This is a wrapper for DateTime.Now to be able to mock it in unittests.

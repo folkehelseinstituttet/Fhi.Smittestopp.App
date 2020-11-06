@@ -1,10 +1,9 @@
-using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using System;
 using NDB.Covid19.PersistedData;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
     public partial class WelcomePageOneViewController : PageViewController
     {

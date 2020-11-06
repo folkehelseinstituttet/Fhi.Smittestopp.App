@@ -1,6 +1,4 @@
-﻿using NDB.Covid19.Enums;
-using NDB.Covid19.Models;
-using NDB.Covid19.Utils;
+﻿using NDB.Covid19.Models;
 
 namespace NDB.Covid19.OAuth2
 {

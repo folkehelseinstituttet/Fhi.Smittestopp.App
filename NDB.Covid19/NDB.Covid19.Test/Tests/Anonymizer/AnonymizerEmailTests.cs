@@ -47,10 +47,10 @@ namespace NDB.Covid19.Test.Tests.Anonymizer
         }
 
         [Fact]
-        public void DanishEmailShouldBeHidden()
+        public void NorwegianEmailShouldBeHidden()
         {
-            string testEmail = "test@denmark.gov.dk";
-            ReplaceEmailAddress(testEmail).Should().Be($"****@*******.gov.dk");
+            string testEmail = "test@denmark.gov.no";
+            ReplaceEmailAddress(testEmail).Should().Be($"****@*******.gov.no");
         }
 
         [Fact]

@@ -4,11 +4,11 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
 
-namespace NDB.Covid19.iOS.Views
+using System.CodeDom.Compiler;
+using Foundation;
+
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     [Register ("QuestionnaireViewController")]
     partial class QuestionnaireViewController
@@ -39,67 +39,67 @@ namespace NDB.Covid19.iOS.Views
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.DefaultBorderButton NextBtn { get; set; }
+        CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButton NoBtn { get; set; }
+        CustomSubclasses.RadioButton NoBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButtonOverlayButton NoLargeBtn { get; set; }
+        CustomSubclasses.RadioButtonOverlayButton NoLargeBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel NoLbl { get; set; }
+        CustomSubclasses.SettingsPageContentLabel NoLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButton SkipBtn { get; set; }
+        CustomSubclasses.RadioButton SkipBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButtonOverlayButton SkipLargeBtn { get; set; }
+        CustomSubclasses.RadioButtonOverlayButton SkipLargeBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel SkipLbl { get; set; }
+        CustomSubclasses.SettingsPageContentLabel SkipLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel SubtitleLbl { get; set; }
+        CustomSubclasses.SettingsPageContentLabel SubtitleLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SetttingsPageTitleLabel TitleLbl { get; set; }
+        CustomSubclasses.SetttingsPageTitleLabel TitleLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButton YesButBtn { get; set; }
+        CustomSubclasses.RadioButton YesButBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButtonOverlayButton YesButLargeBtn { get; set; }
+        CustomSubclasses.RadioButtonOverlayButton YesButLargeBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel YesButLbl { get; set; }
+        CustomSubclasses.SettingsPageContentLabel YesButLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel YesLbl { get; set; }
+        CustomSubclasses.SettingsPageContentLabel YesLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButton YesSinceBtn { get; set; }
+        CustomSubclasses.RadioButton YesSinceBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButtonOverlayButton YesSinceLargeBtn { get; set; }
+        CustomSubclasses.RadioButtonOverlayButton YesSinceLargeBtn { get; set; }
 
 
         [Action ("NextBtnTapped:")]
-        partial void NextBtnTapped (NDB.Covid19.iOS.DefaultBorderButton sender);
+        partial void NextBtnTapped (CustomSubclasses.DefaultBorderButton sender);
 
 
         [Action ("OnCloseBtnTapped:")]
@@ -107,7 +107,7 @@ namespace NDB.Covid19.iOS.Views
 
 
         [Action ("OnNoBtnTapped:")]
-        partial void OnNoBtnTapped (NDB.Covid19.iOS.RadioButton sender);
+        partial void OnNoBtnTapped (CustomSubclasses.RadioButton sender);
 
 
         [Action ("OnNoLayoutTapped:")]
@@ -115,7 +115,7 @@ namespace NDB.Covid19.iOS.Views
 
 
         [Action ("OnSkipBtnTapped:")]
-        partial void OnSkipBtnTapped (NDB.Covid19.iOS.RadioButton sender);
+        partial void OnSkipBtnTapped (CustomSubclasses.RadioButton sender);
 
 
         [Action ("OnSkipLayoutTapped:")]
@@ -123,7 +123,7 @@ namespace NDB.Covid19.iOS.Views
 
 
         [Action ("OnYesButBtnTapped:")]
-        partial void OnYesButBtnTapped (NDB.Covid19.iOS.RadioButton sender);
+        partial void OnYesButBtnTapped (CustomSubclasses.RadioButton sender);
 
 
         [Action ("OnYesButLayoutTapped:")]
@@ -131,7 +131,7 @@ namespace NDB.Covid19.iOS.Views
 
 
         [Action ("OnYesSinceBtnTapped:")]
-        partial void OnYesSinceBtnTapped (NDB.Covid19.iOS.RadioButton sender);
+        partial void OnYesSinceBtnTapped (CustomSubclasses.RadioButton sender);
 
 
         [Action ("OnYesSinceLayoutTapped:")]

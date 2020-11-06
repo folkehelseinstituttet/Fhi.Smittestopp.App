@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.Enums;
-using NDB.Covid19.Models;
-using NDB.Covid19.Utils;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.WebServices;
-using NDB.Covid19.WebServices.ExposureNotification;
-using System.Net.Http.Headers;
-using System.Linq;
+using NDB.Covid19.Models;
 using NDB.Covid19.PersistedData;
+using NDB.Covid19.Utils;
+using NDB.Covid19.Utils.DeveloperTools;
+using NDB.Covid19.WebServices.ExposureNotification;
 
-namespace NDB.Covid19.ExposureNotification.Helpers.FetchExposureKeys
+namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 {
     public class ZipDownloader
     {

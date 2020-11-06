@@ -1,6 +1,6 @@
 using System;
 
-namespace NDB.Covid19.Config
+namespace NDB.Covid19.Configuration
 {
     public class Conf
     {

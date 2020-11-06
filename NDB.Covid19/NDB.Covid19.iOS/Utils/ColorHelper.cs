@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Utils

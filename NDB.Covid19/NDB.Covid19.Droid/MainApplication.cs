@@ -134,7 +134,7 @@ namespace NDB.Covid19.Droid
         void ManualGarbageCollectionTool()
         {
             #region MANUALLY GC
-            // TODO: For memory management purpose this is saved to incomment when needing constantly garbage collection
+            // TODO: For memory management purpose this is saved to uncomment when needing constantly garbage collection
             //var constantGC = new System.Timers.Timer()
             //{
             //    Interval = 1000,

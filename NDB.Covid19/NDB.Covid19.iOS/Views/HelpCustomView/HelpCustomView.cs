@@ -1,12 +1,11 @@
+using System;
+using System.Linq;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
 using ObjCRuntime;
-using System;
-using System.Diagnostics;
-using System.Linq;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.HelpCustomView
 {
     public partial class HelpCustomView : UIView
     {
@@ -112,7 +111,7 @@ namespace NDB.Covid19.iOS
 
         void RemoveGestureRecognizers()
         {
-            if (BackgroundView.GestureRecognizers != null && BackgroundView.GestureRecognizers.Any())
+            if (BackgroundView.GestureRecognizers != null && Enumerable.Any<UIGestureRecognizer>(BackgroundView.GestureRecognizers))
             {
                 foreach (UIGestureRecognizer gesture in BackgroundView.GestureRecognizers)
                 {

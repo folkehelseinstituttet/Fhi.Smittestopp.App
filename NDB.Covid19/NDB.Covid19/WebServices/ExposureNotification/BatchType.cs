@@ -1,10 +1,9 @@
-﻿using System;
-namespace NDB.Covid19.WebServices.ExposureNotification
+﻿namespace NDB.Covid19.WebServices.ExposureNotification
 {
     public enum BatchType
     {
         ALL,
-        DK
+        NO
     }
 
     public static class BatchTypeExtensions
@@ -17,7 +16,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             }
             else
             {
-                return "dk";
+                return "no";
             }
         }
 
@@ -29,7 +28,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             }
             else
             {
-                return BatchType.DK;
+                return BatchType.NO;
             }
         }
     }

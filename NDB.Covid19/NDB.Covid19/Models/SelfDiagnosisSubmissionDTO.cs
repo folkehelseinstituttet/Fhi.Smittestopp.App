@@ -4,8 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using CommonServiceLocator;
-using MoreLinq;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Interfaces;
 using static NDB.Covid19.OAuth2.AuthenticationState;
 

@@ -6,7 +6,6 @@ using Android.Net;
 using Android.OS;
 using Android.Text;
 using Android.Text.Style;
-using Android.Text.Util;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;

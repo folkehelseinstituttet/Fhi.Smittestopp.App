@@ -1,9 +1,9 @@
 ﻿using System;
-using UIKit;
 using NDB.Covid19.iOS.Utils;
+using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
     public abstract class PageViewController : UIViewController
     {

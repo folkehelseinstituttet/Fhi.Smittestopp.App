@@ -1,13 +1,12 @@
-using Foundation;
-using NDB.Covid19.Config;
-using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
-using NDB.Covid19.ViewModels;
 using System;
+using Foundation;
+using NDB.Covid19.Configuration;
+using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.ForceUpdate
 {
     public partial class ForceUpdateViewController : BaseViewController
     {

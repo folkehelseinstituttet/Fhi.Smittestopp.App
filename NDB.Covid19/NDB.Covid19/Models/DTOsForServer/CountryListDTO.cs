@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NDB.Covid19.Models.DTOsForServer;
+﻿using System.Collections.Generic;
 
 namespace NDB.Covid19.Models.DTOsForServer
 {

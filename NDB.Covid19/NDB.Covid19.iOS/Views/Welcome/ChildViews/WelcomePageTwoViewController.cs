@@ -4,7 +4,7 @@ using NDB.Covid19.ViewModels;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.iOS.Utils;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
     public partial class WelcomePageTwoViewController : PageViewController
     {

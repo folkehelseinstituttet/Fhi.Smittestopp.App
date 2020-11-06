@@ -3,7 +3,7 @@ using Foundation;
 using NDB.Covid19.iOS.Utils;
 using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings
 {
     public partial class SettingsItemCell : UITableViewCell
     {

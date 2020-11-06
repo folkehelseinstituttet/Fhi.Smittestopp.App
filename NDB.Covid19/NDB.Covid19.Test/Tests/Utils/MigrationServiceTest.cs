@@ -1,12 +1,7 @@
 using System;
-using System.Globalization;
-using System.Threading;
 using CommonServiceLocator;
-
-using NDB.Covid19.Config;
-using NDB.Covid19.ExposureNotification.Helpers;
-using NDB.Covid19.Utils;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.Utils

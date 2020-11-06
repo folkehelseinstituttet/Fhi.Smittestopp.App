@@ -4,12 +4,11 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
-using UIKit;
 
-namespace NDB.Covid19.iOS
+using System.CodeDom.Compiler;
+using Foundation;
+
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 {
     [Register ("SettingsPageGeneralSettingsViewController")]
     partial class SettingsPageGeneralSettingsViewController
@@ -44,7 +43,7 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButton RadioButton1 { get; set; }
+        Views.CustomSubclasses.RadioButton RadioButton1 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -52,7 +51,7 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.RadioButton RadioButton2 { get; set; }
+        Views.CustomSubclasses.RadioButton RadioButton2 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -80,11 +79,11 @@ namespace NDB.Covid19.iOS
 
         [Action ("RadioButton1_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void RadioButton1_TouchUpInside (NDB.Covid19.iOS.RadioButton sender);
+        partial void RadioButton1_TouchUpInside (Views.CustomSubclasses.RadioButton sender);
 
         [Action ("RadioButton2_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void RadioButton2_TouchUpInside (NDB.Covid19.iOS.RadioButton sender);
+        partial void RadioButton2_TouchUpInside (Views.CustomSubclasses.RadioButton sender);
 
         void ReleaseDesignerOutlets ()
         {

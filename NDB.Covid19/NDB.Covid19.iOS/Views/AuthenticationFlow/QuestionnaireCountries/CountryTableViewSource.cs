@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
-using UIKit;
-using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.ViewModels;
+using UIKit;
 
-namespace NDB.Covid19.iOS.Views.AuthenticationFlow
+namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
     public class CountryTableViewSource : UITableViewSource
     {

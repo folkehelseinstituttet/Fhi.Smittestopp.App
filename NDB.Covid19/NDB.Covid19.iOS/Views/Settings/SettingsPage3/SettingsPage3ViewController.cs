@@ -1,15 +1,11 @@
 using System;
-using System.Threading.Tasks;
-using CommonServiceLocator;
 using CoreGraphics;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views;
-using UIKit;
-using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using UIKit;
 
-namespace NDB.Covid19.iOS
+namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 {
     public partial class SettingsPage3ViewController : BaseViewController
     {
@@ -58,7 +54,7 @@ namespace NDB.Covid19.iOS
         }
 
 
-        partial void DeleteConsentBtn_TouchUpInside(DefaultBorderButton sender)
+        partial void DeleteConsentBtn_TouchUpInside(Views.CustomSubclasses.DefaultBorderButton sender)
         {
             CreateDeleteWarning();
         }

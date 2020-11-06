@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using NDB.Covid19.ProtoModels;
-using NDB.Covid19.WebServices.ExposureNotification;
 using Xamarin.ExposureNotifications;
 
-namespace NDB.Covid19.Utils
+namespace NDB.Covid19.Utils.DeveloperTools
 {
     /// <summary>
     /// This class runs in Release mode. If anything is added to DeveloperToolsService, it should also be added to this method.

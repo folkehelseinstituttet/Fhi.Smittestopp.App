@@ -1,7 +1,4 @@
-using System;
-using MoreLinq.Extensions;
-
-namespace NDB.Covid19.Config
+namespace NDB.Covid19.PersistedData
 {
     public class PreferencesKeys
     {

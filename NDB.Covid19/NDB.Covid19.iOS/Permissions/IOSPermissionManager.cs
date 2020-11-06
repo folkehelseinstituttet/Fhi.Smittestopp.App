@@ -7,12 +7,12 @@ namespace NDB.Covid19.iOS.Permissions
         
         public async Task<bool> PermissionUnknown()
         {
-            return await Xamarin.ExposureNotifications.ExposureNotification.GetStatusAsync() == Status.Unknown;
+            return await ExposureNotification.GetStatusAsync() == Status.Unknown;
         }
 
         public async Task<bool> PoweredOff()
         {
-            return await Xamarin.ExposureNotifications.ExposureNotification.GetStatusAsync() == Status.BluetoothOff;
+            return await ExposureNotification.GetStatusAsync() == Status.BluetoothOff;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace NDB.Covid19.iOS.Permissions
         /// <returns></returns>
         public async Task<bool> PoweredOn()
         {
-            Status status = await Xamarin.ExposureNotifications.ExposureNotification.GetStatusAsync();
+            Status status = await ExposureNotification.GetStatusAsync();
             return status == Status.Active || status == Status.Disabled; 
         }
     }

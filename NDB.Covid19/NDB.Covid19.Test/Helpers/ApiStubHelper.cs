@@ -1,4 +1,4 @@
-﻿using NDB.Covid19.Config;
+﻿using NDB.Covid19.Configuration;
 using WireMock.Server;
 using WireMock.Settings;
 

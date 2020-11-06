@@ -15,11 +15,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel BodyOneLabel { get; set; }
+        CustomSubclasses.SettingsPageContentLabel BodyOneLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel BodyTwoLabel { get; set; }
+        CustomSubclasses.SettingsPageContentLabel BodyTwoLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -27,23 +27,23 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel DescriptionLabel { get; set; }
+        CustomSubclasses.SettingsPageContentLabel DescriptionLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel DescriptionOneLabel { get; set; }
+        CustomSubclasses.SettingsPageContentLabel DescriptionOneLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SetttingsPageTitleLabel HeaderLabel { get; set; }
+        CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.DefaultBorderButton LoginNemIDBtn { get; set; }
+        CustomSubclasses.DefaultBorderButton LoginNemIDBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.SettingsPageContentLabel TitleLabel { get; set; }
+        CustomSubclasses.SettingsPageContentLabel TitleLabel { get; set; }
 
         [Action ("OnCloseBtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -51,7 +51,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Action ("OnLoginBtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void OnLoginBtnTapped (NDB.Covid19.iOS.DefaultBorderButton sender);
+        partial void OnLoginBtnTapped (CustomSubclasses.DefaultBorderButton sender);
 
         void ReleaseDesignerOutlets ()
         {
