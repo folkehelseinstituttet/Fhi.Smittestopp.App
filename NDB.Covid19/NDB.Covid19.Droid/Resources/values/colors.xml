@@ -34,8 +34,13 @@
     <color name="ic_launcher_background">#FFFFFF</color>
     <color name="dividerBlue">#3498db</color>
     <color name="dividerWhite">#FFFFFF</color>
-    <color name="selectedDot">#FADC5D</color>
-    <color name="unselectedDot">#FFFFFF</color>
+    
+    <!-- Modified  -->
+    <color name="selectedDot">#32345C</color>
+    <color name="unselectedDot">#E1EAED</color>
+    <color name="unselectedDotBorder">#32345C</color>
+    
+    <!-- Unmodified  -->
     <color name="switchSelectedTrack">#088e79</color>
     <color name="switchUnselectedTrack">#405564</color>
     <color name="switchSelectedThumb">#01d79c</color>

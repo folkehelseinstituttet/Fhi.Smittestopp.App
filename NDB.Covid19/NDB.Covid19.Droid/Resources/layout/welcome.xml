@@ -38,7 +38,7 @@
 />
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonPlane"
         android:layout_alignParentBottom="true"
@@ -55,16 +55,18 @@
             android:layout_centerHorizontal="true"
         />
         <Button
+            android:layout_weight="1"
             android:text="Previous"
             android:id="@+id/buttonPrev"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             style="@style/DefaultButtonNoBorder"
             android:visibility="invisible"
     />
         <Button
+            android:layout_weight="1"
             android:text="Klik her for at starte"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:id="@+id/buttonGetStarted"
             style="@style/DefaultButton"

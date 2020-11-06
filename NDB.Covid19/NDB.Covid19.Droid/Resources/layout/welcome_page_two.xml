@@ -14,7 +14,7 @@
             android:orientation="horizontal"
             android:id="@+id/welcome_page_two_title_layout"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="48dp">
+            android:layout_marginBottom="32dp">
             <Button
                 android:id="@+id/arrow_back"
                 android:layout_width="24dp"
@@ -35,29 +35,19 @@
                 />
         </LinearLayout>
 
-        <ImageView
-            android:src="@drawable/working_schema_ag_api"
-            android:layout_width="match_parent"
-            android:layout_height="82dp"
-            android:id="@+id/working_schema"
-            android:layout_below="@+id/welcome_page_two_title_layout"
-            android:layout_marginBottom="29dp"/>
-
-
-
         <LinearLayout
             android:id="@+id/welcome_page_two_bullet_one_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             style="@style/CheckmarkContainer"
-            android:layout_below="@id/working_schema">
+            android:layout_below="@+id/welcome_page_two_title_layout">
 
             <ImageView 
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/checkmark"/>
+                android:src="@drawable/check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_two_body_one"
@@ -81,7 +71,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/checkmark"/>
+                android:src="@drawable/check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_two_body_two"

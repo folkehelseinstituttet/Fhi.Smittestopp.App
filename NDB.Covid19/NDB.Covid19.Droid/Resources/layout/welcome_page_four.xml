@@ -36,31 +36,20 @@
                 android:accessibilityTraversalBefore="@id/welcome_page_four_body_one"
                 android:layout_alignParentTop="true" />
         </LinearLayout>
-
-        <ImageView
-            android:src="@drawable/anonymus"
-            android:layout_width="87dp"
-            android:layout_height="115dp"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="32dp"
-            android:id="@+id/anonymus"
-            android:layout_below="@+id/welcome_page_four_title_layout"
-            android:layout_centerHorizontal="true" />
-
-
+        
         <LinearLayout
             android:id="@+id/welcome_page_four_bullet_one_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             style="@style/CheckmarkContainer"
-            android:layout_below="@id/anonymus">
+            android:layout_below="@+id/welcome_page_four_title_layout">
 
             <ImageView 
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/checkmark"/>
+                android:src="@drawable/check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_four_body_one"
@@ -83,7 +72,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/checkmark"/>
+                android:src="@drawable/check_shield"/>
 
             <TextView
             android:id="@+id/welcome_page_four_body_two"
@@ -105,7 +94,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/checkmark"/>
+                android:src="@drawable/check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_four_body_three"

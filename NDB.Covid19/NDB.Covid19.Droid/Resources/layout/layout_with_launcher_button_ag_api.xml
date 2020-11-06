@@ -39,6 +39,7 @@
 		style="@style/PrimaryTextBold"
 		android:textSize="50dp"
 		android:layout_marginTop="80dp"
+		android:paddingBottom="40dp"
 	/>
 	<Button
 		android:text="Start"

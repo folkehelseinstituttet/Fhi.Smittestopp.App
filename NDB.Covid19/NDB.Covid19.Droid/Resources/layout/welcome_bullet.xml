@@ -8,7 +8,7 @@
 	tools:showIn="@layout/welcome_what_is_new">
 
 	<CheckBox
-		android:button="@drawable/checkmark"
+		android:button="@drawable/check_shield"
 		android:clickable="false"
 		android:enabled="false"
 		android:gravity="top"

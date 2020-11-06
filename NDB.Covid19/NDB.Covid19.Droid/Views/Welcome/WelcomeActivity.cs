@@ -60,7 +60,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _button.Text = WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT;
             _button.Click += new SingleClick(GetNextButton_Click, 500).Run;
             _previousButton.Click += new SingleClick(GetPreviousButton_Click, 500).Run;
-            _previousButton.Visibility = ViewStates.Invisible;
+            _previousButton.Visibility = ViewStates.Gone;
 
             WelcomePagerAdapter adapter = new WelcomePagerAdapter(SupportFragmentManager, _pages);
             _pager = FindViewById<NonSwipeableViewPager>(Resource.Id.fragment);
@@ -151,7 +151,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
         public void OnPageSelected(int position)
         {
             ScrollToTop();
-            _previousButton.Visibility = position == 0 ? ViewStates.Invisible : ViewStates.Visible;
+            _previousButton.Visibility = position == 0 ? ViewStates.Gone : ViewStates.Visible;
         }
 
         private void ScrollToTop()
