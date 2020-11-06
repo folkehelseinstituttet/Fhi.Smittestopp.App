@@ -20,10 +20,6 @@ namespace NDB.Covid19.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel ActivityStatusLbl { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel AreYouInfectetLbl { get; set; }
 
         [Outlet]
@@ -37,6 +33,10 @@ namespace NDB.Covid19.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton MenuIcon { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView MessageIcon { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -62,6 +62,18 @@ namespace NDB.Covid19.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView OnOffBtnContainer { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView StatusContainer { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel StatusHeader { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel StatusText { get; set; }
+
         [Action ("OnMenubtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void OnMenubtnTapped (UIKit.UIButton sender);
@@ -75,11 +87,6 @@ namespace NDB.Covid19.iOS
             if (ActivityExplainerLbl != null) {
                 ActivityExplainerLbl.Dispose ();
                 ActivityExplainerLbl = null;
-            }
-
-            if (ActivityStatusLbl != null) {
-                ActivityStatusLbl.Dispose ();
-                ActivityStatusLbl = null;
             }
 
             if (AreYouInfectetLbl != null) {
@@ -100,6 +107,11 @@ namespace NDB.Covid19.iOS
             if (MenuIcon != null) {
                 MenuIcon.Dispose ();
                 MenuIcon = null;
+            }
+
+            if (MessageIcon != null) {
+                MessageIcon.Dispose ();
+                MessageIcon = null;
             }
 
             if (MessageLbl != null) {
@@ -130,6 +142,21 @@ namespace NDB.Covid19.iOS
             if (OnOffBtnContainer != null) {
                 OnOffBtnContainer.Dispose ();
                 OnOffBtnContainer = null;
+            }
+
+            if (StatusContainer != null) {
+                StatusContainer.Dispose ();
+                StatusContainer = null;
+            }
+
+            if (StatusHeader != null) {
+                StatusHeader.Dispose ();
+                StatusHeader = null;
+            }
+
+            if (StatusText != null) {
+                StatusText.Dispose ();
+                StatusText = null;
             }
         }
     }

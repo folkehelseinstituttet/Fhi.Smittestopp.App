@@ -8,6 +8,8 @@ namespace NDB.Covid19.iOS.Utils
         public static readonly UIColor PRIMARY_COLOR = UIColor.Clear.FromHex(0x32345C);
         public static readonly UIColor TEXT_COLOR_ON_PRIMARY = UIColor.Clear.FromHex(0xffffff);
         public static readonly UIColor TEXT_COLOR_ON_BACKGROUND = UIColor.Clear.FromHex(0x32345C);
+        public static readonly UIColor STATUS_ACTIVE = UIColor.FromRGB(217, 240, 212);
+        public static readonly UIColor STATUS_INACTIVE = UIColor.FromRGB(253, 144, 133);
 
         public static UIColor FromHex(this UIColor color,int hexValue)
         {

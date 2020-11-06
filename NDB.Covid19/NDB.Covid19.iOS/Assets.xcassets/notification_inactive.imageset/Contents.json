@@ -4,17 +4,17 @@
       "idiom": "universal"
     },
     {
-      "filename": "hamburgermenuicon@1x.png",
+      "filename": "notification icon_inactive@1x.png",
       "scale": "1x",
       "idiom": "universal"
     },
     {
-      "filename": "hamburgermenuicon@2x.png",
+      "filename": "notification icon_inactive@2x.png",
       "scale": "2x",
       "idiom": "universal"
     },
     {
-      "filename": "hamburgermenuicon@3x.png",
+      "filename": "notification icon_inactive@3x.png",
       "scale": "3x",
       "idiom": "universal"
     },
@@ -50,13 +50,11 @@
       "idiom": "ipad"
     },
     {
-      "idiom": "watch",
-      "screen-width": ">183"
+      "idiom": "watch"
     },
     {
       "scale": "2x",
-      "idiom": "watch",
-      "screen-width": ">183"
+      "idiom": "watch"
     },
     {
       "screenWidth": "{130,145}",
@@ -225,8 +223,7 @@
         }
       ],
       "scale": "2x",
-      "idiom": "watch",
-      "screen-width": ">145"
+      "idiom": "watch"
     },
     {
       "screenWidth": "{130,145}",
@@ -443,8 +440,7 @@
         }
       ],
       "scale": "2x",
-      "idiom": "watch",
-      "screen-width": ">145"
+      "idiom": "watch"
     },
     {
       "screenWidth": "{130,145}",

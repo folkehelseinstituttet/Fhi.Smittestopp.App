@@ -128,78 +128,78 @@ namespace NDB.Covid19.iOS
         {
             _areYouInfectedBtn.AccessibilityLabel = _viewModel.NewRegistrationAccessibilityText;
             _messageViewBtn.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(_viewModel.NewMessageAccessibilityText);
-            ActivityStatusLbl.Text = await _viewModel.StatusTxt();
             ActivityExplainerLbl.Text = await _viewModel.StatusTxtDescription();
             SetOnOffBtnState(await _viewModel.IsRunning());
+            SetStatusContainerState(await _viewModel.IsRunning());
             UpdateNewIndicatorView();
+        }
+
+        async void SetStatusContainerState(bool isRunning)
+        {
+            StatusContainer.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+            StatusText.Text = await _viewModel.StatusTxt();
         }
 
         void SetOnOffBtnState(bool isRunning)
         {
-            if (_pulseAnimationView == null)
-            {
-                CreatePulseAnimation(OnOffBtn);
-            }
-
             if (isRunning)
             {
-                OnOffBtn.BackgroundColor = UIColor.FromRGB(86, 197, 104);
-                OnOffBtn.SetImage(UIImage.FromBundle("pauseIcon"), UIControlState.Normal);
                 string text = InfectionStatusViewModel.INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT;
                 OnOffBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(text);
-                OnOffBtn.ImageEdgeInsets = new UIEdgeInsets(0, 0, 0, 0);
-                _pulseAnimationView.Hidden = false;
+                OnOffBtn.BackgroundColor = UIColor.Clear;
+                OnOffBtn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+                OnOffBtn.Layer.BorderWidth = 1;
+                OnOffBtn.SetTitleColor(ColorHelper.PRIMARY_COLOR, UIControlState.Normal);
+                OnOffBtn.SetTitle(text, UIControlState.Normal);
             }
             else
             {
-                OnOffBtn.BackgroundColor = UIColor.FromRGB(235, 87, 87);
-                OnOffBtn.SetImage(UIImage.FromBundle("playIcon"), UIControlState.Normal);
                 string text = InfectionStatusViewModel.INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT;
                 OnOffBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(text);
-                OnOffBtn.ImageEdgeInsets = new UIEdgeInsets(0, 5, 0, 0);
-                _pulseAnimationView.Hidden = true;
+                OnOffBtn.BackgroundColor = ColorHelper.PRIMARY_COLOR;
+                OnOffBtn.Layer.BorderColor = UIColor.Clear.CGColor;
+                OnOffBtn.Layer.BorderWidth = 0;
+                OnOffBtn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
+                OnOffBtn.SetTitle(text, UIControlState.Normal);
             }
-        }
-
-        void CreatePulseAnimation(UIView view)
-        {
-            _pulseAnimationView = new PulseAnimationView();
-            OnOffBtnContainer.InsertSubview(_pulseAnimationView, 0);
-            _pulseAnimationView.TranslatesAutoresizingMaskIntoConstraints = false;
-            _pulseAnimationView.TopAnchor.ConstraintEqualTo(view.TopAnchor).Active = true;
-            _pulseAnimationView.BottomAnchor.ConstraintEqualTo(view.BottomAnchor).Active = true;
-            _pulseAnimationView.LeadingAnchor.ConstraintEqualTo(view.LeadingAnchor).Active = true;
-            _pulseAnimationView.TrailingAnchor.ConstraintEqualTo(view.TrailingAnchor).Active = true;
-            _pulseAnimationView.BackgroundColor = UIColor.FromRGB(86, 197, 104);
         }
 
         void SetupStyling()
         {
             NewIndicatorView.Layer.CornerRadius = NewIndicatorView.Layer.Frame.Height / 2;
-
-            OnOffBtn.Layer.CornerRadius = OnOffBtn.Layer.Frame.Width / 2;
-
-            ActivityStatusLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 17, 24);
-
-            ActivityExplainerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 20);
+            ActivityExplainerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
             ActivityExplainerLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT;
             MenuIcon.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
+            MenuIcon.TitleEdgeInsets = new UIEdgeInsets(0, -8, 0, 0);
+            MenuIcon.SetTitle(InfectionStatusViewModel.INFECTION_STATUS_MENU_TEXT, UIControlState.Normal);
+            MenuIcon.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 18f, 18f);
+            MenuIcon.SizeToFit();
+            StyleUtil.InitLabel(StatusHeader, StyleUtil.FontType.FontBold, InfectionStatusViewModel.INFECTION_STATUS_PAGE_TITLE, 22f, 26f);
+            StatusText.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 16f, 20f);
+            OnOffBtn.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 22f, 28f);
+            OnOffBtn.ContentEdgeInsets = new UIEdgeInsets(12, 12, 12, 12);
+            OnOffBtn.Layer.CornerRadius = 8;
+
             SetupEncounterAndInfectedButtons();
         }
 
         void SetupEncounterAndInfectedButtons()
         {
             MessageView.Subviews[0].Layer.CornerRadius = 12;
+            MessageView.Subviews[0].Layer.BorderWidth = 1;
+            MessageView.Subviews[0].Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
             AreYouInfectetView.Subviews[0].Layer.CornerRadius = 12;
+            AreYouInfectetView.Subviews[0].Layer.BorderWidth = 1;
+            AreYouInfectetView.Subviews[0].Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
 
-            MessageLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 16, 20);
+            MessageLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             MessageLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_MESSAGE_HEADER_TEXT;
-            NewRegistrationLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 12, 16);
+            NewRegistrationLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;
 
-            AreYouInfectetLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 16, 20);
+            AreYouInfectetLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             AreYouInfectetLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
-            LogInAndRegisterLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 12, 16);
+            LogInAndRegisterLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             LogInAndRegisterLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
 
             // We take the fairly complicated UIViews from the storyboard and embed them into UIButtons
@@ -218,6 +218,7 @@ namespace NDB.Covid19.iOS
             InvokeOnMainThread(() =>
             {
                 NewIndicatorView.Hidden = !_viewModel.ShowNewMessageIcon;
+                MessageIcon.Image = _viewModel.ShowNewMessageIcon ? UIImage.FromBundle("notification_active") : UIImage.FromBundle("notification_inactive");
                 NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;
                 _messageViewBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(_viewModel.NewMessageAccessibilityText);
             });
