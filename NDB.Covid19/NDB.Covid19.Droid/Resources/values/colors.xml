@@ -41,10 +41,10 @@
     <color name="unselectedDotBorder">#32345C</color>
     
     <!-- Unmodified  -->
-    <color name="switchSelectedTrack">#088e79</color>
-    <color name="switchUnselectedTrack">#405564</color>
-    <color name="switchSelectedThumb">#01d79c</color>
-    <color name="switchUnselectedThumb">#ffffff</color>
+    <color name="switchSelectedTrack">#32345C</color>
+    <color name="switchUnselectedTrack">#E1EAED</color>
+    <color name="switchSelectedThumb">#FFFFFF</color>
+    <color name="switchUnselectedThumb">#32335F</color>
 	<color name="linkColor">#FFFF00</color>
     <color name="infectionStatusButtonOnGreen">#56c568</color>
     <color name="infectionStatusButtonOffRed">#eb5757</color>

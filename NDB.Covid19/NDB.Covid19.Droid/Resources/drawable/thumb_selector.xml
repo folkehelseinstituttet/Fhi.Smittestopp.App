@@ -13,7 +13,7 @@
             <solid android:color="@color/switchSelectedThumb" />
             <corners android:radius="20dp" />
             <size android:width="40dp" android:height="40dp" />
-            <stroke android:width="4dp" android:color="#01d79c" />
+            <stroke android:width="4dp" android:color="#0000ffff" />
         </shape>
     </item>
 </selector>
