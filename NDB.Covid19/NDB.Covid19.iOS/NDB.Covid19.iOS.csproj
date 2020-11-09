@@ -127,6 +127,18 @@
     <ImageAsset Include="Assets.xcassets\CloseWhite.imageset\close_white%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CloseBlue.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CloseBlue.imageset\exit%401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CloseBlue.imageset\exit%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\CloseBlue.imageset\exit%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\HealthDepartLogoWhite.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -761,6 +773,7 @@
     <Folder Include="Assets.xcassets\CheckShield.imageset\" />
     <Folder Include="Assets.xcassets\chevronWhite.imageset\" />
     <Folder Include="Assets.xcassets\CloseWhite.imageset\" />
+    <Folder Include="Assets.xcassets\CloseBlue.imageset\" />
     <Folder Include="Assets.xcassets\covidIcon.imageset\" />
     <Folder Include="Assets.xcassets\HandAndHeart.imageset\" />
     <Folder Include="Assets.xcassets\HealthAuthoritiesLogo.imageset\" />

@@ -38,7 +38,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError);
             _viewModel.Init();
             CloseBtn.AccessibilityLabel = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
-
             HeaderLabel.SetAttributedText(InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT);
             DescriptionLabel.SetAttributedText(InformationAndConsentViewModel.INFORMATION_CONSENT_CONTENT_TEXT);
             TitleLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_TITLE, StyleUtil.FontType.FontBold);
@@ -46,6 +45,19 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             BodyTwoLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_BODY_TWO);
             DescriptionOneLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION_ONE);
             StyleUtil.InitButtonStyling(LoginNemIDBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_NEMID_BUTTON_TEXT);
+
+            SetupStyling();
+
+        }
+
+        public void SetupStyling()
+        {
+            HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            DescriptionLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            TitleLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            BodyOneLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            BodyTwoLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            DescriptionOneLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         public override void ViewWillDisappear(bool animated)
