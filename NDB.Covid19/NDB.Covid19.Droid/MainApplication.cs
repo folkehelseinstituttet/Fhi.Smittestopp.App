@@ -22,12 +22,10 @@ namespace NDB.Covid19.Droid
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
             : base(handle, transer)
         {
-            Init();
         }
 
         public MainApplication()
         {
-            Init();
         }
 
         void Init()
@@ -78,6 +76,7 @@ namespace NDB.Covid19.Droid
         public override void OnCreate()
         {
             base.OnCreate();
+            Init();
             RegisterActivityLifecycleCallbacks(this);
             ManualGarbageCollectionTool();
             RegisterReceiver(_permissionsBroadcastReceiver, _filter);
