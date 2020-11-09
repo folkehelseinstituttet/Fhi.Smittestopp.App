@@ -1,9 +1,11 @@
 using System;
 using CoreGraphics;
+using Foundation;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
+    [Register ("RadioButton")]
     public partial class RadioButton : UIButton, IDisposable
     {
         const int _borderWidth = 2;
