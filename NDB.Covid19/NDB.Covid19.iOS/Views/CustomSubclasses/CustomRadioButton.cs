@@ -5,8 +5,8 @@ using UIKit;
 
 namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
-    [Register ("RadioButton")]
-    public partial class RadioButton : UIButton, IDisposable
+    [Register("CustomRadioButton")]
+    public partial class CustomRadioButton : UIButton, IDisposable
     {
         const int _borderWidth = 2;
         int _padding => _borderWidth * 3;
@@ -23,7 +23,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
             }
         }
 
-        public RadioButton(IntPtr handle) : base(handle)
+        public CustomRadioButton(IntPtr handle) : base(handle)
         {
             BackgroundColor = UIColor.Clear;
             Layer.BorderWidth = _borderWidth;

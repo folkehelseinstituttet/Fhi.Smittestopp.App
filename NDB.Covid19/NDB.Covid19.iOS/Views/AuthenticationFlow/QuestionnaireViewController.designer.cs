@@ -43,7 +43,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButton NoBtn { get; set; }
+        CustomSubclasses.CustomRadioButton NoBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -55,7 +55,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButton SkipBtn { get; set; }
+        CustomSubclasses.CustomRadioButton SkipBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -75,7 +75,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButton YesButBtn { get; set; }
+        CustomSubclasses.CustomRadioButton YesButBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -91,7 +91,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButton YesSinceBtn { get; set; }
+        CustomSubclasses.CustomRadioButton YesSinceBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -107,7 +107,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
 
         [Action ("OnNoBtnTapped:")]
-        partial void OnNoBtnTapped (CustomSubclasses.RadioButton sender);
+        partial void OnNoBtnTapped (CustomSubclasses.CustomRadioButton sender);
 
 
         [Action ("OnNoLayoutTapped:")]
@@ -115,7 +115,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
 
         [Action ("OnSkipBtnTapped:")]
-        partial void OnSkipBtnTapped (CustomSubclasses.RadioButton sender);
+        partial void OnSkipBtnTapped (CustomSubclasses.CustomRadioButton sender);
 
 
         [Action ("OnSkipLayoutTapped:")]
@@ -123,7 +123,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
 
         [Action ("OnYesButBtnTapped:")]
-        partial void OnYesButBtnTapped (CustomSubclasses.RadioButton sender);
+        partial void OnYesButBtnTapped (CustomSubclasses.CustomRadioButton sender);
 
 
         [Action ("OnYesButLayoutTapped:")]
@@ -131,7 +131,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
 
         [Action ("OnYesSinceBtnTapped:")]
-        partial void OnYesSinceBtnTapped (CustomSubclasses.RadioButton sender);
+        partial void OnYesSinceBtnTapped (CustomSubclasses.CustomRadioButton sender);
 
 
         [Action ("OnYesSinceLayoutTapped:")]

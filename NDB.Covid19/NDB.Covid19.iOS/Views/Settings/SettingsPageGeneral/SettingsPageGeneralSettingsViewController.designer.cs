@@ -43,7 +43,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Views.CustomSubclasses.RadioButton RadioButton1 { get; set; }
+        Views.CustomSubclasses.CustomRadioButton RadioButton1 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -51,7 +51,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Views.CustomSubclasses.RadioButton RadioButton2 { get; set; }
+        Views.CustomSubclasses.CustomRadioButton RadioButton2 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -79,11 +79,11 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Action ("RadioButton1_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void RadioButton1_TouchUpInside (Views.CustomSubclasses.RadioButton sender);
+        partial void RadioButton1_TouchUpInside (Views.CustomSubclasses.CustomRadioButton sender);
 
         [Action ("RadioButton2_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void RadioButton2_TouchUpInside (Views.CustomSubclasses.RadioButton sender);
+        partial void RadioButton2_TouchUpInside (Views.CustomSubclasses.CustomRadioButton sender);
 
         void ReleaseDesignerOutlets ()
         {

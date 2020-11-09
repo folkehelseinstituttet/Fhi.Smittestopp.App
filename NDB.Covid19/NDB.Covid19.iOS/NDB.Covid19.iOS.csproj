@@ -936,10 +936,6 @@
     <Compile Include="Views\CustomSubclasses\DefaultBorderButton.designer.cs">
       <DependentUpon>..\..\..\NDB.Covid19.iOS.Shared\Views\CustomSubclasses\DefaultBorderButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CustomSubclasses\RadioButton.cs" />
-    <Compile Include="Views\CustomSubclasses\RadioButton.designer.cs">
-      <DependentUpon>..\..\..\NDB.Covid19.iOS.Shared\Views\CustomSubclasses\RadioButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\CustomSubclasses\RadioButtonOverlayButton.cs" />
     <Compile Include="Views\CustomSubclasses\RadioButtonOverlayButton.designer.cs">
       <DependentUpon>..\..\..\NDB.Covid19.iOS.Shared\Views\CustomSubclasses\RadioButtonOverlayButton.cs</DependentUpon>
@@ -1008,6 +1004,7 @@
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewViewController.designer.cs">
       <DependentUpon>WelcomePageWhatIsNewViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomSubclasses\CustomRadioButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">

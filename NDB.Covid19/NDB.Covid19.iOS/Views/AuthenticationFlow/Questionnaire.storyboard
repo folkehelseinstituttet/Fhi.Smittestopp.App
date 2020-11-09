@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,7 +61,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="c4e-Yi-fXu">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="231" height="203.5"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ4-yv-5KT" userLabel="Yes Since Bullet Btn" customClass="RadioButton">
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQ4-yv-5KT" userLabel="Yes Since Bullet Btn" customClass="CustomRadioButton">
                                                                                         <rect key="frame" x="0.0" y="87" width="30" height="30"/>
                                                                                         <accessibility key="accessibilityConfiguration">
                                                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
@@ -103,7 +105,7 @@
                                                                                                         </subviews>
                                                                                                     </stackView>
                                                                                                 </subviews>
-                                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="trailing" secondItem="crw-U1-0s3" secondAttribute="trailing" constant="5" id="2H3-rH-aBh"/>
                                                                                                     <constraint firstAttribute="bottom" secondItem="crw-U1-0s3" secondAttribute="bottom" constant="5" id="3WY-JU-KA1"/>
@@ -118,7 +120,7 @@
                                                                                     <constraint firstItem="UtJ-UM-dic" firstAttribute="width" secondItem="aQ4-yv-5KT" secondAttribute="width" id="wHY-sT-bue"/>
                                                                                 </constraints>
                                                                             </stackView>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3U-ZQ-zWi" customClass="RadioButtonOverlayButton">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3U-ZQ-zWi" customClass="RadioButtonOverlayButton">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="231" height="203.5"/>
                                                                                 <connections>
                                                                                     <action selector="OnYesSinceLayoutTapped:" destination="493" eventType="touchUpInside" id="Ljb-Qq-eKY"/>
@@ -137,7 +139,7 @@
                                                                             <constraint firstAttribute="bottom" secondItem="q3U-ZQ-zWi" secondAttribute="bottom" id="upc-Yy-Psw"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTT-nU-pSh" userLabel="Info Button">
+                                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTT-nU-pSh" userLabel="Info Button">
                                                                         <rect key="frame" x="237" y="0.0" width="35" height="203.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -161,7 +163,7 @@
                                                                         </date>
                                                                     </datePicker>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="6938" secondAttribute="bottom" id="GqI-js-vIt"/>
                                                                     <constraint firstItem="6938" firstAttribute="leading" secondItem="6nX-Uu-obQ" secondAttribute="leading" id="MQP-jp-k0w"/>
@@ -177,7 +179,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JEC-EA-1wD">
                                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="50"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="991" customClass="RadioButton">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="991" customClass="CustomRadioButton">
                                                                         <rect key="frame" x="0.0" y="10" width="30" height="30"/>
                                                                         <accessibility key="accessibilityConfiguration">
                                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
@@ -196,7 +198,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPJ-Ht-Flu" customClass="RadioButtonOverlayButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPJ-Ht-Flu" customClass="RadioButtonOverlayButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="50"/>
                                                                 <connections>
                                                                     <action selector="OnYesButLayoutTapped:" destination="493" eventType="touchUpInside" id="WS4-hy-ipG"/>
@@ -221,7 +223,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YBb-AW-plN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCO-6k-XEB" customClass="RadioButton">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCO-6k-XEB" customClass="CustomRadioButton">
                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                         <accessibility key="accessibilityConfiguration">
                                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
@@ -240,7 +242,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syx-Nm-SFB" customClass="RadioButtonOverlayButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syx-Nm-SFB" customClass="RadioButtonOverlayButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
                                                                 <connections>
                                                                     <action selector="OnNoLayoutTapped:" destination="493" eventType="touchUpInside" id="bAx-px-tTd"/>
@@ -266,7 +268,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ChU-0z-pa4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbz-ud-a1i" customClass="RadioButton">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbz-ud-a1i" customClass="CustomRadioButton">
                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                         <accessibility key="accessibilityConfiguration">
                                                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
@@ -286,7 +288,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SX7-3p-hok" customClass="RadioButtonOverlayButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SX7-3p-hok" customClass="RadioButtonOverlayButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
                                                                 <connections>
                                                                     <action selector="OnSkipLayoutTapped:" destination="493" eventType="touchUpInside" id="fGG-MI-Q25"/>
@@ -309,7 +311,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Sbr-fo-GY1">
                                                         <rect key="frame" x="0.0" y="766.5" width="272" height="50"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-PR-xY8" customClass="DefaultBorderButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-PR-xY8" customClass="DefaultBorderButton">
                                                                 <rect key="frame" x="73" y="0.0" width="126" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="2l2-Kq-Idw"/>
@@ -341,6 +343,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="HDG-7A-fsZ"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3372" firstAttribute="top" secondItem="HDG-7A-fsZ" secondAttribute="top" constant="35" id="9sk-Ng-mXk"/>
@@ -351,7 +354,6 @@
                             <constraint firstItem="gGD-Le-Cw4" firstAttribute="top" secondItem="3372" secondAttribute="bottom" constant="22" id="gW5-lb-8Vf"/>
                             <constraint firstItem="HDG-7A-fsZ" firstAttribute="bottom" secondItem="gGD-Le-Cw4" secondAttribute="bottom" id="kC7-RB-JAa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="HDG-7A-fsZ"/>
                     </view>
                     <connections>
                         <outlet property="CloseButton" destination="3372" id="name-outlet-3372"/>
@@ -384,7 +386,10 @@
     </scenes>
     <resources>
         <image name="CloseWhite" width="19" height="18.5"/>
-        <image name="HelpIcon2" width="128" height="128"/>
+        <image name="HelpIcon2" width="20" height="20"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

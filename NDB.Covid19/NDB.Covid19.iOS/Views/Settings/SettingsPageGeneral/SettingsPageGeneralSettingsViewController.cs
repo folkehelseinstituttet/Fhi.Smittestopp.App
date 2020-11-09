@@ -156,12 +156,12 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             SetupRadioButtons();
         }
 
-        partial void RadioButton1_TouchUpInside(Views.CustomSubclasses.RadioButton sender)
+        partial void RadioButton1_TouchUpInside(Views.CustomSubclasses.CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Bokmal, sender);
         }
 
-        partial void RadioButton2_TouchUpInside(Views.CustomSubclasses.RadioButton sender)
+        partial void RadioButton2_TouchUpInside(Views.CustomSubclasses.CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.English, sender);
         }
