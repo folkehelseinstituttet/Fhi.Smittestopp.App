@@ -32,7 +32,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
             ContinueInEnLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             StyleUtil.InitLabel(InitializerAppName, StyleUtil.FontType.FontBold, InitializerViewModel.LAUNCHER_PAGE_TITLE, 50, 50);
             InitializerAppName.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-                
+            HeaderView.SizeToFit();
         }
 
         public override void ViewDidAppear(bool animated)

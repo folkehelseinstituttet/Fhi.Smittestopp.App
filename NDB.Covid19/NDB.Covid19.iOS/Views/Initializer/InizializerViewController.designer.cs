@@ -24,6 +24,10 @@ namespace NDB.Covid19.iOS.Views.Initializer
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView HeaderView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel InitializerAppName { get; set; }
 
         [Outlet]
@@ -44,6 +48,11 @@ namespace NDB.Covid19.iOS.Views.Initializer
             if (ContinueInEnStackView != null) {
                 ContinueInEnStackView.Dispose ();
                 ContinueInEnStackView = null;
+            }
+
+            if (HeaderView != null) {
+                HeaderView.Dispose ();
+                HeaderView = null;
             }
 
             if (InitializerAppName != null) {

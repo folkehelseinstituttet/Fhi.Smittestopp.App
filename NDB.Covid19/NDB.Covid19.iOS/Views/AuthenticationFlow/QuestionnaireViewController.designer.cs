@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -39,63 +39,63 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.CustomRadioButton NoBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton NoBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButtonOverlayButton NoLargeBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton NoLargeBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel NoLbl { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel NoLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.CustomRadioButton SkipBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton SkipBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButtonOverlayButton SkipLargeBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton SkipLargeBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel SkipLbl { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel SkipLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel SubtitleLbl { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel SubtitleLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SetttingsPageTitleLabel TitleLbl { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel TitleLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.CustomRadioButton YesButBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton YesButBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButtonOverlayButton YesButLargeBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton YesButLargeBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel YesButLbl { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel YesButLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel YesLbl { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel YesLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.CustomRadioButton YesSinceBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton YesSinceBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.RadioButtonOverlayButton YesSinceLargeBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton YesSinceLargeBtn { get; set; }
 
 
         [Action ("NextBtnTapped:")]

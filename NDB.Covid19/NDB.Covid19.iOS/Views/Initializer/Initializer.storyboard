@@ -109,7 +109,7 @@
                         <outlet property="ContinueInEnStackView" destination="a81-44-fu9" id="name-outlet-a81-44-fu9"/>
                         <outlet property="InitializerAppName" destination="GLY-sV-lQp" id="name-outlet-GLY-sV-lQp"/>
                         <outlet property="StartButton" destination="835" id="name-outlet-835"/>
-                        <outlet property="view" destination="l9g-iF-9gb" id="L1M-jl-6fe"/>
+                        <outlet property="HeaderView" destination="l9g-iF-9gb" id="name-outlet-l9g-iF-9gb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="271" userLabel="First Responder" sceneMemberID="firstResponder"/>
