@@ -14,12 +14,15 @@ namespace NDB.Covid19.iOS.Views.Settings
         public override void AwakeFromNib()
         {
             TextLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 24, 34);
+            TextLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         public void SetData(string text)
         {
-            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };  
             UIStringAttributes attributes = new UIStringAttributes {ParagraphStyle = paragraphStyle};
+            attributes.UnderlineColor = ColorHelper.BURGERMENU_UNDERLINE_COLOR;
+            attributes.UnderlineStyle = NSUnderlineStyle.Thick;
             TextLbl.AttributedText = new NSMutableAttributedString(text, attributes);
         }
     }
