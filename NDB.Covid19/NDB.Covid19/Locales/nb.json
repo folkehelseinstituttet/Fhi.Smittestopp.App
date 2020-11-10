@@ -1,6 +1,7 @@
 ﻿{
   "LAUNCHER_PAGE_START_BTN": "Start",
   "LAUNCHER_PAGE_CONTINUE_IN_ENG": "Continue in English",
+  "LAUNCHER_PAGE_TITLE": "Smittestopp", // NEW STRING ADDED - ADD TO SPREADSHEET
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Smittestopp fungerer bare med minst iOS 13.5. Oppdater til en nyere versjon. Det gjør du på mobilen din under Innstillinger -> Generelt -> Programvareoppdatering. ",
   "BASE_ERROR_TITLE": "FEIL",
   "BASE_ERROR_MESSAGE": "Det oppsto en feil. Prøv igjen senere.",
@@ -125,6 +126,10 @@
   "WELCOME_PAGE_WHATS_NEW_BULLET_THREE": "Smittestopp finnes nå på engelsk",
   "WELCOME_PAGE_WHATS_NEW_BUTTON": "Neste",
   "WELCOME_PAGE_WHATS_NEW_FOOTER": "De nye funksjonene betyr at du må godkjenne samtykket igjen på neste side",
+  "SMITTESPORING_APP_NAME": "Smittestopp", // NEW STRING ADDED - ADD TO SPREADSHEET
+  "SMITTESPORING_MENU_TEXT": "Meny", // NEW STRING ADDED - ADD TO SPREADSHEET
+  "SMITTESPORING_START_BUTTON_TEXT": "Aktiver", // NEW STRING ADDED - ADD TO SPREADSHEET
+  "SMITTESPORING_STOP_BUTTON_TEXT": "Skru av", // NEW STRING ADDED - ADD TO SPREADSHEET
   "SMITTESPORING_ACTIVE_HEADER": "Aktiv",
   "SMITTESPORING_INACTIVE_HEADER": "Ikke aktiv",
   "SMITTESPORING_ACTIVE_DESCRIPTION": "Du bidrar nå til å stoppe spredning av koronavirus.",

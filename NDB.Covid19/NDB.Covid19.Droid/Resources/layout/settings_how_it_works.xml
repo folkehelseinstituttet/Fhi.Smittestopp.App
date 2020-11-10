@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="14dp"
-                    android:drawableEnd="@drawable/ic_arrow_back_right"
+                    android:drawableEnd="@drawable/ic_arrow_right"
                     android:drawablePadding="13dp"
                     android:gravity="center_vertical"/>
 

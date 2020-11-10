@@ -133,7 +133,7 @@
             <Button
                     android:layout_weight="1"
                     android:id="@+id/welcome_page_five_prev_button"
-                    style="@style/DefaultButtonNoBorder"
+                    style="@style/SecondaryButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Prev"/>

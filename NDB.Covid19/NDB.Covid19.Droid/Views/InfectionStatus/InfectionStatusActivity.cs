@@ -16,6 +16,9 @@ using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using Android.Views.Animations;
 using NDB.Covid19.Droid.Services;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using AndroidX.Core.Content;
+using Android.Graphics;
+using Android.Graphics.Drawables;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -30,12 +33,15 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         TextView _messageSubHeader;
         TextView _registrationHeader;
         TextView _registrationSubheader;
-        ImageButton _onOffButton;
+        TextView _menuText;
+        TextView _appTitleText;
+        Button _onOffButton;
         ImageView _notificationDot;
         RelativeLayout _messageRelativeLayout;
         RelativeLayout _registrationRelativeLayout;
+        LinearLayout _toolbarLinearLayout;
+        LinearLayout _statusLinearLayout;
         ImageButton _menuIcon;
-        ImageView _buttonBackgroundAnimated;
         Button _messageCoverButton;
         Button _registrationCoverButton;
 
@@ -99,7 +105,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
         async void InitLayout()
         {
+            // Header
+            _toolbarLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_toolbar_layout);
+            _statusLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_status_layout);
+
             //TextViews
+            _appTitleText = FindViewById<TextView>(Resource.Id.infection_status_activity_title_textView);
             _activityStatusText = FindViewById<TextView>(Resource.Id.infection_status_activity_status_textView);
             _activityStatusDescription =
                 FindViewById<TextView>(Resource.Id.infection_status_activivity_status_description_textView);
@@ -108,9 +119,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationHeader = FindViewById<TextView>(Resource.Id.infection_status_registration_text_textView);
             _registrationSubheader =
                 FindViewById<TextView>(Resource.Id.infection_status_registration_login_text_textView);
+            _menuText = FindViewById<TextView>(Resource.Id.infection_status_menu_text_view);
 
             //Buttons
-            _onOffButton = FindViewById<ImageButton>(Resource.Id.infection_status_on_off_button);
+            _onOffButton = FindViewById<Button>(Resource.Id.infection_status_on_off_button);
             _messageRelativeLayout =
                 FindViewById<RelativeLayout>(Resource.Id.infection_status_messages_button_relativeLayout);
             _registrationRelativeLayout =
@@ -122,7 +134,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 FindViewById<Button>(Resource.Id.infection_status_registration_button_relativeLayout_button);
 
             //ImageViews
-            _notificationDot = FindViewById<ImageView>(Resource.Id.infection_status_message_new_message_imageView);
+            _notificationDot = FindViewById<ImageView>(Resource.Id.infection_status_message_bell_imageView);
 
             //Text initialization
             _activityStatusText.Text = INFECTION_STATUS_ACTIVE_TEXT;
@@ -131,6 +143,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _messageSubHeader.Text = INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT;
             _registrationHeader.Text = INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
             _registrationSubheader.Text = INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
+            _appTitleText.Text = INFECTION_STATUS_APP_TITLE_TEXT;
+            _menuText.Text = INFECTION_STATUS_MENU_TEXT;
 
             //Accessibility
             _menuIcon.ContentDescription = INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
@@ -147,8 +161,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationRelativeLayout.Click += new SingleClick(RegistrationLayoutButton_Click, 500).Run;
             _registrationCoverButton.Click += new SingleClick(RegistrationLayoutButton_Click, 500).Run;
             _menuIcon.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
-
-            _buttonBackgroundAnimated = FindViewById<ImageView>(Resource.Id.infection_status_background);
+            _menuText.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
             if (!await _viewModel.IsRunning())
             {
                 _onOffButton.PerformClick();
@@ -158,24 +171,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             FlightModeHandlerBroadcastReceiver.OnFlightModeChange += UpdateUI;
         }
 
-        private void CreatePulseAnimation(ImageView buttonBackgroundAnimated, bool isRunning)
-        {
-            RunOnUiThread(() =>
-            {
-                if (isRunning)
-                {
-                    Animation animation = AnimationUtils.LoadAnimation(this, Resource.Animation.background_circle_anim);
-                    buttonBackgroundAnimated.Visibility = ViewStates.Visible;
-                    buttonBackgroundAnimated.StartAnimation(animation);
-                }
-                else
-                {
-                    buttonBackgroundAnimated.Visibility = ViewStates.Invisible;
-                    buttonBackgroundAnimated.ClearAnimation();
-                }
-            });
-        }
-
         void UpdateUI()
         {
             RunOnUiThread(async () =>
@@ -183,14 +178,25 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 bool isRunning = await _viewModel.IsRunning();
                 _activityStatusText.Text = await _viewModel.StatusTxt();
                 _activityStatusDescription.Text = await _viewModel.StatusTxtDescription();
-                _onOffButton.SetBackgroundResource(isRunning
-                    ? Resource.Drawable.infection_status_on_off_button_green
-                    : Resource.Drawable.Infection_status_on_off_button_red);
-                _onOffButton.SetImageResource(isRunning ? Resource.Drawable.ic_pause : Resource.Drawable.ic_play);
-                _onOffButton.ContentDescription = isRunning
-                    ? INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT
-                    : INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT;
-                CreatePulseAnimation(_buttonBackgroundAnimated, isRunning);
+                
+                Color enabledColor = new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOnGreen));
+                Color disabledColor = new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOffRed));
+                _statusLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
+
+                if (isRunning)
+                {
+                    _onOffButton.Text = INFECTION_STATUS_STOP_BUTTON_TEXT;
+                    _onOffButton.ContentDescription = INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT;
+                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.secondary_button);
+                    _onOffButton.SetTextColor(new Color(ContextCompat.GetColor(this, Resource.Color.primaryText)));
+                }
+                else
+                {
+                    _onOffButton.Text = INFECTION_STATUS_START_BUTTON_TEXT;
+                    _onOffButton.ContentDescription = INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT;
+                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.default_button);
+                    _onOffButton.SetTextColor(new Color(ContextCompat.GetColor(this, Resource.Color.secondaryText)));
+                }
             });
         }
 
@@ -198,7 +204,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             RunOnUiThread(() =>
             {
-                _notificationDot.Visibility = (_viewModel.ShowNewMessageIcon ? ViewStates.Visible : ViewStates.Gone);
+                _notificationDot.SetImageDrawable(
+                    _viewModel.ShowNewMessageIcon
+                    ? ContextCompat.GetDrawable(this, Resource.Drawable.ic_notification_active)
+                    : ContextCompat.GetDrawable(this, Resource.Drawable.ic_notification_inactive)
+                );
+
                 _messageSubHeader.Text = _viewModel.NewMessageSubheaderTxt;
                 _messageCoverButton.ContentDescription =
                     $"{INFECTION_STATUS_MESSAGE_HEADER_TEXT} {_viewModel.NewMessageSubheaderTxt}";

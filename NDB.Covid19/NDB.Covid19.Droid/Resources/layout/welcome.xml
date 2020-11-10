@@ -60,7 +60,7 @@
             android:id="@+id/buttonPrev"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            style="@style/DefaultButtonNoBorder"
+            style="@style/SecondaryButton"
             android:visibility="invisible"
     />
         <Button

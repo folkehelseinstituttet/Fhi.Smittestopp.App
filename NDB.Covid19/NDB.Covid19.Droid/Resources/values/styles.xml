@@ -34,18 +34,16 @@
 		<item name="android:background">@drawable/default_button</item>
 		<item name="android:textColor">@drawable/default_button</item>
 		<item name="android:textAllCaps">false</item>
-		<item name="android:width">160dp</item>
 		<item name="android:height">48dp</item>
 		<item name="android:layout_margin">8dp</item>
 		<item name="android:fontFamily">@font/brandontext_bold</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
-	<style name="DefaultButtonNoBorder">
-		<item name="android:background">@drawable/default_button_no_border</item>
+	<style name="SecondaryButton">
+		<item name="android:background">@drawable/secondary_button</item>
 		<item name="android:textColor">@color/primaryText</item>
 		<item name="android:textAllCaps">false</item>
-		<item name="android:width">160dp</item>
 		<item name="android:height">48dp</item>
 		<item name="android:layout_margin">8dp</item>
 		<item name="android:fontFamily">@font/brandontext_bold</item>
@@ -79,6 +77,18 @@
 	<style name="Divider.Horizontal" parent="Divider">
 		<item name="android:layout_width">16dp</item>
 		<item name="android:layout_height">3dp</item>
+	</style>
+
+	<style name="PrimaryTextMainScreenTitle">
+		<item name="android:textColor">@color/primaryText</item>
+		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:textSize">36sp</item>
+	</style>
+
+	<style name="PrimaryTextMainMenu">
+		<item name="android:textColor">@color/primaryText</item>
+		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:textSize">20sp</item>
 	</style>
 
 	<style name="PrimaryText">
