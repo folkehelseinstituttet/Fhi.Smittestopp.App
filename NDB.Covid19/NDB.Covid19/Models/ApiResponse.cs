@@ -53,7 +53,7 @@ namespace NDB.Covid19.Models
             HttpMethod = method;
             try
             {
-                Endpoint = url.Split(new string[] { Conf.BaseUrl }, StringSplitOptions.None).Last();
+                Endpoint = url.Split(new string[] { Conf.BASE_URL }, StringSplitOptions.None).Last();
             }
             catch { }
         }

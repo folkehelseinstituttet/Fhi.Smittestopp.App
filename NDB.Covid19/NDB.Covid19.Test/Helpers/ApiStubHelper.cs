@@ -11,7 +11,7 @@ namespace NDB.Covid19.Test.Helpers
 
         public static void StartServer()
         {
-            StubServerUrl = Conf.BaseUrl.Remove(Conf.BaseUrl.Length - 1, 1);
+            StubServerUrl = Conf.BASE_URL.Remove(Conf.BASE_URL.Length - 1, 1);
             StubServer = WireMockServer.Start(new FluentMockServerSettings()
             {
                 Urls = new string[] { StubServerUrl }

@@ -856,6 +856,7 @@
     </None>
     <None Include="Entitlements.plist" />
     <None Include="Entitlements-prod.plist" />
+    <None Include="appcenter-pre-build.sh" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

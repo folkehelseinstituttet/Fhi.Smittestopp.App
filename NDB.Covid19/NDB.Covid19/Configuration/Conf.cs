@@ -4,40 +4,14 @@ namespace NDB.Covid19.Configuration
 {
     public class Conf
     {
-#if TEST
-        public static readonly string BaseUrl = "BaseUrl_TEST"; // TODO
-        public static string AuthorizationHeader => "AuthorizationHeader"; // TODO
-        public static bool UseDeveloperTools => true;
+        public static readonly string BASE_URL = "http://localhost:9095/";
+        public static string AUTHORIZATION_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
+        public static bool UseDeveloperTools => true; // TODO: Inject bool here
+
         // Minimum hours between pulling keys
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(0);
+        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(0); // TODO: Inject int here
 
-#elif UNIT_TEST
-        public static readonly string BaseUrl = "http://localhost:9095/"; // TODO
-        public static string AuthorizationHeader => "AuthorizationHeader"; // TODO
-        public static bool UseDeveloperTools => true;
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(120);
-
-#elif APPCENTER
-        //TEST
-        public static readonly string BaseUrl = "BaseUrl_TEST"; // TODO
-        public static string AuthorizationHeader => "AuthorizationHeader"; // TODO
-
-        //PREPROD
-        //public static readonly string BaseUrl = "BaseUrl_PREPROD"; // TODO
-        //public static string AuthorizationHeader => "AuthorizationHeader"; // TODO
-
-        //Both
-        public static bool UseDeveloperTools => true;
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(2);
-
-#elif RELEASE
-        public static readonly string BaseUrl = "BaseUrl_PROD"; // TODO
-        public static string AuthorizationHeader => "AuthorizationHeader"; // TODO
-        public static bool UseDeveloperTools => false;
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(120);
-#endif
-
-        public static readonly int APIVersion = 2;
+        public static readonly int APIVersion = 3;
 
         //It takes around 25 seconds to download a zip file with 100.000 keys if you have 3G connection.
         //The timeout value takes this into consideration.
@@ -52,7 +26,7 @@ namespace NDB.Covid19.Configuration
         public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND = 21;
 
         // --- Urls ---
-        public static string URL_PREFIX => $"{BaseUrl}v{APIVersion}/";
+        public static string URL_PREFIX => $"{BASE_URL}v{APIVersion}/";
         public static string URL_LOG_MESSAGE => URL_PREFIX + "logging/logMessages";
         public static string URL_PUT_UPLOAD_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
@@ -83,9 +57,6 @@ namespace NDB.Covid19.Configuration
             Tuple.Create(9, 10),                      // For array index 7
             Tuple.Create(11, 12)                      // For array index 8
         };
-
-        // Any ExposureDetectionSummary whose MaximumRiskScore is >= this value will be counted as having "high infection risk"
-        public static readonly int RISK_SCORE_THRESHOLD_FOR_HIGH_RISK = 512;
 
         // Parameters for setting meaningful attenuation bucket weights
         // Multiplier (weight) of each minute in the low attenuation bucket
