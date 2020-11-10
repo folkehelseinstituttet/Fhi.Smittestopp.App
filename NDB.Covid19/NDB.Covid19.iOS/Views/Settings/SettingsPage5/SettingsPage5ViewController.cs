@@ -22,10 +22,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             HeaderLabel.SetAttributedText(SettingsPage5ViewModel.SETTINGS_PAGE_5_HEADER);
 
             StyleUtil.InitTextViewWithSpacing(ContentText, FontType.FontRegular, contentText, 1.28, 16, 22);
-            ContentText.TextColor = UIColor.White;
 
             //ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
-            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, "#FADC5D".ToUIColor(), UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 
             StyleUtil.InitLabelWithSpacing(BuildVersionLbl, FontType.FontRegular, SettingsPage5ViewModel.GetVersionInfo(), 1.14, 14, 16);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
@@ -33,6 +32,15 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             ContentText.AccessibilityIdentifier = "contentTextIdentifier";
             ContentText.IsAccessibilityElement = true;
             ContentText.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(contentText);
+
+            SetupStyling();
+        }
+
+        public void SetupStyling()
+        {
+            HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            ContentText.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            BuildVersionLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)

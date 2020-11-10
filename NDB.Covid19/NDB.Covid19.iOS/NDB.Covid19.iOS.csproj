@@ -664,6 +664,18 @@
     <ImageAsset Include="Assets.xcassets\ArrowRightCircle.imageset\circle_arrow_right_3x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowLeftCircle.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowLeftCircle.imageset\circle_arrow_left%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowLeftCircle.imageset\circle_arrow_left%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\ArrowLeftCircle.imageset\circle_arrow_left%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -813,6 +825,7 @@
     <Folder Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\" />
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Assets.xcassets\FHILogo.imageset\" />
+    <Folder Include="Assets.xcassets\ArrowLeftCircle.imageset\" />
     <Folder Include="Assets.xcassets\ArrowRightCircle.imageset\" />
     <Folder Include="Assets.xcassets\fhi_logo_short.imageset\" />
     <Folder Include="Assets.xcassets\notification_active.imageset\" />
