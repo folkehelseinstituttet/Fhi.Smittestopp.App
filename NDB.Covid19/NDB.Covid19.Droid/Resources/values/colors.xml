@@ -45,7 +45,7 @@
     <color name="switchUnselectedTrack">#E1EAED</color>
     <color name="switchSelectedThumb">#FFFFFF</color>
     <color name="switchUnselectedThumb">#32335F</color>
-	<color name="linkColor">#FFFF00</color>
+	<color name="linkColor">#32345C</color>
     <color name="infectionStatusButtonOnGreen">#56c568</color>
     <color name="infectionStatusButtonOffRed">#eb5757</color>
     <color name="infectionStatusBackgroundGreen">#8056c568</color>

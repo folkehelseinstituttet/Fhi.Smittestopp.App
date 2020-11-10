@@ -181,13 +181,13 @@
 
 	<style name="settings" parent="PrimaryTextBold">
 		<item name="android:textSize">24sp</item>
-		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textColor">@color/primaryText</item>
 		<item name="android:translationY">-1.91sp</item>
 	</style>
 
 	<style name="settings_general" parent="PrimaryTextRegular">
 		<item name="android:textSize">16sp</item>
-		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textColor">@color/primaryText</item>
 		<item name="android:translationY">-1.91sp</item>
 	</style>
 
