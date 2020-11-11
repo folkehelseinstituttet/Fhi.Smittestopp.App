@@ -17,10 +17,10 @@ namespace NDB.Covid19.Droid
             unityContainer = new UnityContainer();
             unityContainer.RegisterType<IApiDataHelper, DroidApiDataHelperHandler>();
             unityContainer.RegisterType<IDialogService, DroidDialogService>();
-            unityContainer.RegisterSingleton<PermissionUtils>();
             unityContainer.RegisterType<ILocalNotificationsManager, LocalNotificationsManager>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterSingleton<IResetViews, DroidResetViews>();
-            
+            unityContainer.RegisterType<IPermissionsHelper, PermissionUtils>();
+
             CommonDependencyInjectionConfig.Init(unityContainer);
             UnityServiceLocator unityServiceLocalter = new UnityServiceLocator(unityContainer);
             CommonServiceLocator.ServiceLocator.SetLocatorProvider(() => unityServiceLocalter);

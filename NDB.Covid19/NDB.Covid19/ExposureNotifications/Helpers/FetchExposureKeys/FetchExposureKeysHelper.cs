@@ -30,6 +30,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 
             SendReApproveConsentsNotificationIfNeeded();
             ResendMessageIfNeeded();
+            CreatePermissionsNotificationIfNeeded();
 
             if (_pullRules.ShouldAbortPull())
             {
@@ -45,6 +46,9 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             }
             DeleteZips(zipsLocation);
         }
+
+        private void CreatePermissionsNotificationIfNeeded() =>
+            NotificationsHelper.CreatePermissionsNotification();
 
         private async void ResendMessageIfNeeded()
         {

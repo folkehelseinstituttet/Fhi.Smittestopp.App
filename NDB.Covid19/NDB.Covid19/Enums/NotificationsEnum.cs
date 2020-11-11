@@ -13,7 +13,11 @@ namespace NDB.Covid19.Enums
         ApiDeprecated,
         ConsentNeeded,
         ReApproveConsents,
-        BackgroundFetch
+        BackgroundFetch,
+        BluetoothAndLocationOff,
+        BluetoothOff,
+        LocationOff,
+        NoNotification
     }
 
     public static class NotificationsEnumExtensions 
@@ -44,6 +48,27 @@ namespace NDB.Covid19.Enums
                         Type = NotificationsEnum.BackgroundFetch,
                         Title = "NOTIFICATION_BACKGROUND_FETCH_HEADER".Translate(),
                         Body = "NOTIFICATION_BACKGROUND_FETCH_DESCRIPTION".Translate()
+                    };
+                case NotificationsEnum.LocationOff:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.LocationOff,
+                        Title = "NOTIFICATION_LOCATION_OFF_TITLE".Translate(),
+                        Body = "NOTIFICATION_LOCATION_OFF_DESCRIPTION".Translate()
+                    };
+                case NotificationsEnum.BluetoothOff:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.BluetoothOff,
+                        Title = "NOTIFICATION_BLUETOOTH_OFF_TITLE".Translate(),
+                        Body = "NOTIFICATION_BLUETOOTH_OFF_DESCRIPTION".Translate()
+                    };
+                case NotificationsEnum.BluetoothAndLocationOff:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.BluetoothAndLocationOff,
+                        Title = "NOTIFICATION_BLUETOOTH_AND_LOCATION_OFF_TITLE".Translate(),
+                        Body = "NOTIFICATION_BLUETOOTH_AND_LOCATION_OFF_DESCRIPTION".Translate()
                     };
                 default:
                     throw new InvalidEnumArgumentException("Notification type does not exist");
