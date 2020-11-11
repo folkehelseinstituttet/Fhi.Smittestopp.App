@@ -32,7 +32,7 @@
                 android:layout_alignParentBottom="true"
                 android:gravity="top"
                 android:lineSpacingExtra="4sp"
-                android:textColorLink="@color/warningColor"
+                android:textColorLink="@color/linkColor"
                 android:textAppearance="@style/settings_general"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -51,14 +51,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:clickable="true"
                 android:autoLink="web"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/sundhedlogo"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_help_text">
-            </ImageView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
