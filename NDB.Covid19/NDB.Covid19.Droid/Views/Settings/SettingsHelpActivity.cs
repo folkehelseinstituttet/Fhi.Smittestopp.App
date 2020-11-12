@@ -36,19 +36,27 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             titleField.Text = HEADER;
             textField.TextFormatted =
-                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"https://{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>" +
-                                    $"{EMAIL_TEXT} <a href=\"mailto:{EMAIL}\">{EMAIL}</a> {PHONE_NUM_Text} <a href=\"tel:{PHONE_NUM}\">{PHONE_NUM}</a>.<br><br>" +
-                                    $"{PHONE_OPEN_TEXT}<br><br>" +
-                                    $"{PHONE_OPEN_MON_THU}<br>" +
-                                    $"{PHONE_OPEN_FRE}<br><br>" +
-                                    $"{PHONE_OPEN_SAT_SUN_HOLY}", HtmlCompat.FromHtmlModeLegacy);
+                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"https://{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
+            /* Note:
+            This functionality is not planned for release 1.0. Kept for future use.
+                                    //$"{EMAIL_TEXT} <a href=\"mailto:{EMAIL}\">{EMAIL}</a> {PHONE_NUM_Text} <a href=\"tel:{PHONE_NUM}\">{PHONE_NUM}</a>.<br><br>" +
+                                    //$"{PHONE_OPEN_TEXT}<br><br>" +
+                                    //$"{PHONE_OPEN_MON_THU}<br>" +
+                                    //$"{PHONE_OPEN_FRE}<br><br>" +
+                                    //$"{PHONE_OPEN_SAT_SUN_HOLY}"
+            */
+                                    , HtmlCompat.FromHtmlModeLegacy);
             textField.ContentDescriptionFormatted =
-                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"https://{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>" +
-                                    $"{EMAIL_TEXT} <a href=\"mailto:{EMAIL}\">{EMAIL}</a> {PHONE_NUM_Text} <a href=\"tel:{PHONE_NUM}\">{PHONE_NUM_ACCESSIBILITY}</a>.<br><br>" +
-                                    $"{PHONE_OPEN_TEXT}<br><br>" +
-                                    $"{PHONE_OPEN_MON_THU_ACCESSIBILITY}<br>" +
-                                    $"{PHONE_OPEN_FRE_ACCESSIBILITY}<br><br>" +
-                                    $"{PHONE_OPEN_SAT_SUN_HOLY}", HtmlCompat.FromHtmlModeLegacy);
+                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"https://{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
+            /* Note:
+            This functionality is not planned for release 1.0. Kept for future use.
+                                    //$"{EMAIL_TEXT} <a href=\"mailto:{EMAIL}\">{EMAIL}</a> {PHONE_NUM_Text} <a href=\"tel:{PHONE_NUM}\">{PHONE_NUM_ACCESSIBILITY}</a>.<br><br>" +
+                                    //$"{PHONE_OPEN_TEXT}<br><br>" +
+                                    //$"{PHONE_OPEN_MON_THU_ACCESSIBILITY}<br>" +
+                                    //$"{PHONE_OPEN_FRE_ACCESSIBILITY}<br><br>" +
+                                    //$"{PHONE_OPEN_SAT_SUN_HOLY}"
+            */
+                                    , HtmlCompat.FromHtmlModeLegacy);
             textField.MovementMethod = LinkMovementMethod.Instance;
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
 

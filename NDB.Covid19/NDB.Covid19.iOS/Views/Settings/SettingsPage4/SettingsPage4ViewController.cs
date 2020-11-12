@@ -16,24 +16,29 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
         {
             base.ViewDidLoad();
 
+            /* Note:
+            This functionality is not planned for release 1.0. Kept for future use.
+
             //Line with email and phone number
-            string mail = SettingsPage4ViewModel.EMAIL_TEXT + " " + SettingsPage4ViewModel.EMAIL;
-            string phoneNum = SettingsPage4ViewModel.PHONE_NUM_Text + " " + SettingsPage4ViewModel.PHONE_NUM;
+            //string mail = SettingsPage4ViewModel.EMAIL_TEXT + " " + SettingsPage4ViewModel.EMAIL;
+            //string phoneNum = SettingsPage4ViewModel.PHONE_NUM_Text + " " + SettingsPage4ViewModel.PHONE_NUM;
 
             //Opening hours
-            string monThu = "•  " + SettingsPage4ViewModel.PHONE_OPEN_MON_THU;
-            string fri = "•  " + SettingsPage4ViewModel.PHONE_OPEN_FRE;
-            string sunHoly = SettingsPage4ViewModel.PHONE_OPEN_SAT_SUN_HOLY;
-            string openingHours = SettingsPage4ViewModel.PHONE_OPEN_TEXT + "<br><br>" + monThu + "<br>" + fri + "<br><br>" + sunHoly;
+            //string monThu = "•  " + SettingsPage4ViewModel.PHONE_OPEN_MON_THU;
+            //string fri = "•  " + SettingsPage4ViewModel.PHONE_OPEN_FRE;
+            //string sunHoly = SettingsPage4ViewModel.PHONE_OPEN_SAT_SUN_HOLY;
+            //string openingHours = SettingsPage4ViewModel.PHONE_OPEN_TEXT + "<br><br>" + monThu + "<br>" + fri + "<br><br>" + sunHoly;
 
             //Contract info section
-            string contactsInfo = "<br><br>" + mail + "<br>" + phoneNum + ".<br><br>" + openingHours;
+            //string contactsInfo = "<br><br>" + mail + "<br>" + phoneNum + ".<br><br>" + openingHours;
+
+            */
 
             //Support url and associated text
             string urlStringAndText = SettingsPage4ViewModel.CONTENT_TEXT_BEFORE_SUPPORT_LINK + " " + "<a href=https://" + SettingsPage4ViewModel.SUPPORT_LINK + ">" + SettingsPage4ViewModel.SUPPORT_LINK_SHOWN_TEXT + "</a>";
 
             //Concatenation the content
-            string content = urlStringAndText + contactsInfo;
+            string content = urlStringAndText; // + contactsInfo;
 
             ContentText.SetAttributedText(content);
             ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
