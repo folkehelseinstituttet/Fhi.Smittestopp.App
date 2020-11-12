@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-	<solid android:color="@android:color/white"/>
-	<corners android:radius="10dp"/>
-	<padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="0dp" />
-</shape>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+	   android:insetLeft="32dp"
+	   android:insetTop="40dp"
+	   android:insetRight="32dp"
+	   android:insetBottom="40dp">
+	<shape xmlns:android="http://schemas.android.com/apk/res/android">
+		<solid android:color="@android:color/white"/>
+		<corners android:radius="12dp"/>
+		<padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="0dp" />
+	</shape>
+</inset>

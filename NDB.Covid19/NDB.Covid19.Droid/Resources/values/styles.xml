@@ -150,11 +150,11 @@
 		<item name="android:fontFamily">@font/brandontext_medium</item>
 		<item name="android:textSize">14dp</item>
 	</style>
-
+	
 	<style name="BubbleText">
 		<item name="android:textColor">@android:color/black</item>
 		<item name="android:fontFamily">@font/brandontext_regular</item>
-		<item name="android:textSize">14sp</item>
+		<item name="android:textSize">13sp</item>
 	</style>
 
 	<style name="TopbarText">

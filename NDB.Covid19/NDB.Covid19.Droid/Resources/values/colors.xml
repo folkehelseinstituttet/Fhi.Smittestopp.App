@@ -10,7 +10,7 @@
     <color name="primaryText">#32345C</color>
     <color name="secondaryText">#ffffff</color>
     
-    <color name="divider">#32345C</color>
+    <color name="divider">#C6C6C8</color>
     <color name="activated_color">#E8E8E8</color>
     <color name="colorControlActivated">#FFFFFF</color>
     <color name="splashBackground">#FBFBFB</color>

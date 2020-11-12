@@ -61,7 +61,7 @@ namespace NDB.Covid19.Droid.Utils
                 return tcs.Task;
             }
 
-            var dialog = new AlertDialog.Builder(activity, Android.Resource.Style.ThemeDeviceDefaultDialog)
+            var dialog = new AlertDialog.Builder(activity, Android.Resource.Style.ThemeDeviceDefaultLightDialog)
               .SetTitle(title)
               .SetMessage(message)
               .SetCancelable(false);
