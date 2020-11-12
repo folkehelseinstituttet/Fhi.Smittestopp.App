@@ -1,4 +1,6 @@
 using System;
+using Foundation;
+using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 
@@ -34,12 +36,21 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
             string content = urlStringAndText + contactsInfo;
 
             ContentText.SetAttributedText(content);
+            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 
             //Ensuring text is resiezed correctly when font size is increased
             HeaderLabel.SetAttributedText(SettingsPage4ViewModel.HEADER);
             ContentText.TranslatesAutoresizingMaskIntoConstraints = true;
             ContentText.SizeToFit();
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+
+            SetupStyling();
+        }
+
+        public void SetupStyling()
+        {
+            HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            ContentText.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)

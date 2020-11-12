@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="584">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="584">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,53 +17,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="I0h-YT-WTT">
-                                <rect key="frame" x="13" y="64" width="388" height="35"/>
+                                <rect key="frame" x="13" y="64" width="388" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1169">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1169">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="8Ek-1D-s6c"/>
+                                            <constraint firstAttribute="height" constant="30" id="8Ek-1D-s6c"/>
                                             <constraint firstAttribute="width" constant="30" id="CBq-gt-rna"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="BackButton"/>
+                                        <color key="tintColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="ArrowLeftCircle"/>
                                         <connections>
                                             <action selector="BackButton_TouchUpInside:" destination="584" eventType="touchUpInside" id="2060"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1170" customClass="SetttingsPageTitleLabel">
-                                        <rect key="frame" x="35" y="0.0" width="353" height="20.5"/>
+                                        <rect key="frame" x="35" y="0.0" width="353" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="1169" firstAttribute="centerY" secondItem="1170" secondAttribute="centerY" id="Joe-Yb-5qN"/>
+                                </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqm-Qq-zTy">
-                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="782"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQF-u3-KHz">
-                                        <rect key="frame" x="24" y="0.0" width="342" height="320"/>
+                                        <rect key="frame" x="24" y="0.0" width="342" height="200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6SL-nv-F5M">
-                                                <rect key="frame" x="0.0" y="0.0" width="342" height="320"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="200"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" indicatorStyle="white" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1171" customClass="SettingsContentTextView">
                                                         <rect key="frame" x="0.0" y="0.0" width="342" height="200"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                                     </textView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SundhedDK" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1172">
-                                                        <rect key="frame" x="0.0" y="200" width="342" height="120"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="120" id="RGB-AC-NlL"/>
-                                                        </constraints>
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
-                                                    </imageView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="1171" firstAttribute="centerX" secondItem="6SL-nv-F5M" secondAttribute="centerX" id="g61-qO-BeW"/>
@@ -96,6 +93,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="CZ0-4X-qcf"/>
                         <color key="backgroundColor" white="0.66666666666666696" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EQF-u3-KHz" firstAttribute="width" secondItem="CZ0-4X-qcf" secondAttribute="width" constant="-72" id="04w-go-rrn"/>
@@ -107,7 +105,6 @@
                             <constraint firstItem="oqm-Qq-zTy" firstAttribute="leading" secondItem="CZ0-4X-qcf" secondAttribute="leading" id="qXn-dC-DuR"/>
                             <constraint firstItem="CZ0-4X-qcf" firstAttribute="trailing" secondItem="oqm-Qq-zTy" secondAttribute="trailing" id="siM-0t-Ywo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="CZ0-4X-qcf"/>
                     </view>
                     <connections>
                         <outlet property="BackButton" destination="1169" id="name-outlet-1169"/>
@@ -123,7 +120,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="128" height="128"/>
-        <image name="SundhedDK" width="128" height="128"/>
+        <image name="ArrowLeftCircle" width="34" height="34"/>
     </resources>
 </document>
