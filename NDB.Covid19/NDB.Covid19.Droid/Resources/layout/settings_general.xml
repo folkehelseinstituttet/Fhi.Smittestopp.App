@@ -1,44 +1,57 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/settings_general_text_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menu"
-    android:layout_marginTop="44dp">
+    android:layout_marginTop="44dp"
+    android:background="@color/backgroundColor">
 
-    <Button
-        android:id="@+id/arrow_back_general"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/ic_back_arrow"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/settings_general_title"
-        style="@style/HeaderText"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_menu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="24dp"
-        android:lineSpacingExtra="4sp"
-        android:text="Indstillinger"
-        android:textAlignment="viewStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/arrow_back_general"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginHorizontal="24dp"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <Button
+            android:id="@+id/arrow_back_general"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/circle_arrow_right"
+            android:rotation="180"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/settings_general_title"
+            style="@style/HeaderText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:lineSpacingExtra="4sp"
+            android:paddingVertical="5dp"
+            app:layout_constraintVertical_weight="1"
+            android:text="Indstillinger"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/arrow_back_general"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:id="@+id/settings_general_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/settings_general_title"
-        app:layout_constraintTop_toBottomOf="@+id/settings_general_title">
+        app:layout_constraintStart_toStartOf="@+id/header_menu"
+        app:layout_constraintTop_toBottomOf="@+id/header_menu">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/settings_general_main_content_layout"
@@ -56,9 +69,20 @@
                 android:paddingTop="32dp"
                 android:paddingBottom="34dp"
                 android:text="Her kan du redigere dine indstillinger"
-                android:textAppearance="@style/settings_general"
+                style="@style/PrimaryTextBold"
+                android:textSize="29sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/settings_general_divider_top"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="24dp"
+                android:background="@color/primaryText"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/settings_general_explanation_two" />
 
             <TextView
                 android:id="@+id/settings_general_explanation_two"
@@ -66,23 +90,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:lineSpacingExtra="4sp"
-                android:paddingBottom="17dp"
+                android:paddingVertical="14dp"
+                style="@style/PrimaryText"
                 android:text="Explanation of the settings"
-                android:textAppearance="@style/settings_general"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/settings_general_explanation" />
 
-            <View
-                android:id="@+id/settings_general_divider_top"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginHorizontal="-24dp"
-                android:background="#C5E2FC"
-                app:layout_constraintBottom_toTopOf="@id/settings_general_mobile_data_layout"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/settings_general_mobile_data_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,70 +108,67 @@
 
                 <TextView
                     android:id="@+id/settings_general_mobile_data_header"
-                    android:layout_width="match_parent"
+                    style="@style/PrimaryTextBold"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@id/settings_general_switch"
-                    android:paddingTop="13dp"
-                    android:paddingBottom="13dp"
+                    android:paddingVertical="5dp"
                     android:text="Mobildata"
-                    android:textAppearance="@style/HeaderSmallText" />
+                    android:textAppearance="@style/PrimaryTextBold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/settings_general_switch"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/settings_general_switch"
-                    android:layout_width="52dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:gravity="center_vertical"
-                    app:thumbTint="@drawable/switch_thumb"
-                    app:trackTint="@drawable/switch_track" />
-            </RelativeLayout>
-
-            <View
-                android:id="@+id/settings_general_divider_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginHorizontal="-24dp"
-                android:background="#C5E2FC"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_mobile_data_layout" />
+                    android:layout_gravity="center_vertical"
+                    android:buttonTint="#1AB759"
+                    android:gravity="center"
+                    android:importantForAccessibility="yes"
+                    android:thumb="@drawable/thumb_selector"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/settings_general_mobile_data_header"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:track="@drawable/track_selector" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/settings_general_mobile_data_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
-                android:paddingTop="14dp"
-                android:paddingBottom="46dp"
+                android:paddingVertical="14dp"
                 android:text="DummyText"
-                android:textAppearance="@style/MessageListItemDescriptionText"
+                style="@style/PrimaryText"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_divider_bottom" />
+                app:layout_constraintTop_toBottomOf="@id/settings_general_mobile_data_layout" />
+
+            <View
+                android:id="@+id/settings_general_select_lang_divider_top"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="24dp"
+                android:background="@color/primaryText"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_mobile_data_desc" />
 
             <TextView
                 android:id="@+id/settings_general_select_lang_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
-                android:paddingBottom="13dp"
+                android:paddingVertical="14dp"
                 android:text="Choose language"
-                android:textAppearance="@style/settings_general"
+                style="@style/PrimaryText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_mobile_data_desc" />
-
-            <View
-                android:id="@+id/settings_general_select_lang_divider_top"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginHorizontal="-24dp"
-                android:background="#C5E2FC"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_header" />
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_top" />
 
             <RadioGroup
                 android:id="@+id/settings_general_select_lang_radio_group"
@@ -165,37 +176,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:dividerPadding="23dp"
-                android:paddingVertical="14dp"
+                android:paddingVertical="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_top">
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_header">
 
                 <RadioButton
-                    android:id="@+id/settings_general_danish"
-                    style="@style/HeaderSmallText"
+                    android:id="@+id/settings_general_bokmal"
+                    style="@style/PrimaryTextBold"
+                    android:paddingHorizontal="14dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/primaryText"
-                    android:text="Dansk" />
+                    android:text="Bokmal" />
+
+                <RadioButton
+                    android:id="@+id/settings_general_nynorsk"
+                    style="@style/PrimaryTextBold"
+                    android:paddingHorizontal="14dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/primaryText"
+                    android:text="Nynorsk" />
 
                 <RadioButton
                     android:id="@+id/settings_general_english"
-                    style="@style/HeaderSmallText"
+                    style="@style/PrimaryTextBold"
+                    android:paddingHorizontal="14dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/primaryText"
                     android:text="English" />
             </RadioGroup>
-
-            <View
-                android:id="@+id/settings_general_select_lang_divider_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginHorizontal="-24dp"
-                android:background="#C5E2FC"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_radio_group" />
 
             <TextView
                 android:id="@+id/settings_general_select_lang_desc_one"
@@ -204,39 +216,38 @@
                 android:layout_marginHorizontal="24dp"
                 android:paddingVertical="14dp"
                 android:text="Restart to see your language setting"
-                android:textAppearance="@style/MessageListItemDescriptionText"
+                android:textAppearance="@style/PrimaryText"
+                android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_bottom" />
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_radio_group" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <View
+                android:id="@+id/settings_general_select_lang_divider_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0.5dp"
                 android:layout_marginHorizontal="24dp"
+                android:background="@color/primaryText"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one" />
+
+            <TextView
+                android:id="@+id/settings_general_link"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableEnd="@drawable/circle_arrow_right"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                style="@style/PrimaryText"
+                android:textSize="14sp"
+                android:text="Test text"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one">
+                app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one" />
 
-                <TextView
-                    android:id="@+id/settings_general_link"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:drawableEnd="@drawable/ic_arrow_right"
-                    android:drawablePadding="5dp"
-                    android:gravity="center_vertical"
-                    android:textAppearance="@style/MessageListItemDescriptionText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Space
-                    android:id="@+id/spacer"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/settings_general_link"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

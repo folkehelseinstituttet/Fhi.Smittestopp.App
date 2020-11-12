@@ -23,6 +23,9 @@ namespace NDB.Covid19.ViewModels
         public static string SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT = "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT".Translate();
         public static string SETTINGS_GENERAL_DA = "SETTINGS_GENERAL_DA".Translate();
         public static string SETTINGS_GENERAL_EN = "SETTINGS_GENERAL_EN".Translate();
+        public static string SETTINGS_GENERAL_NN = "SETTINGS_GENERAL_NN".Translate();
+        public static string SETTINGS_GENERAL_NB = "SETTINGS_GENERAL_NB".Translate();
+
         public static SettingsLanguageSelection Selection { get; private set; }
 
         public static DialogViewModel AreYouSureDialogViewModel = new DialogViewModel

@@ -5,7 +5,6 @@ using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
-using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
@@ -62,10 +61,13 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.settings_general_select_lang_radio_group);
             RadioButton englishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_english);
-            RadioButton danishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_danish);
+            RadioButton bokmalRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_bokmal);
+            RadioButton nynorskRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_nynorsk);
+
 
             englishRadioButton.Text = SETTINGS_GENERAL_EN;
-            danishRadioButton.Text = SETTINGS_GENERAL_DA;
+            bokmalRadioButton.Text = SETTINGS_GENERAL_NB;
+            nynorskRadioButton.Text = SETTINGS_GENERAL_NN;
 
             string appLanguage = LocalesService.GetLanguage();
 
@@ -73,9 +75,12 @@ namespace NDB.Covid19.Droid.Views.Settings
             {
                 englishRadioButton.Checked = true;
             }
-            else
+            else if (appLanguage == "nn")
             {
-                danishRadioButton.Checked = true;
+                nynorskRadioButton.Checked = true;
+            } else
+            {
+                bokmalRadioButton.Checked = true;
             }
 
             radioGroup.SetOnCheckedChangeListener(new OnCheckedChangeListener(this));
@@ -103,11 +108,14 @@ namespace NDB.Covid19.Droid.Views.Settings
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("en");
                         break;
-                    case Resource.Id.settings_general_danish: // TODO: rework to Norwegian bokmal
+                    case Resource.Id.settings_general_bokmal:
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
-                        LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
+                        LocalPreferencesHelper.SetAppLanguage("nb");
                         break;
-                    // TODO: add Nynorsk
+                    case Resource.Id.settings_general_nynorsk:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("nn");
+                        break;
                 }
                 LocalesService.SetInternationalization();
             }
