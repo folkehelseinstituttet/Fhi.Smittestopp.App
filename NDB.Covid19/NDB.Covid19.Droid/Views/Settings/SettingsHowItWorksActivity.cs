@@ -87,7 +87,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             public override void UpdateDrawState (TextPaint ds) {
                 base.UpdateDrawState (ds);
                 ds.UnderlineText = false;
-                ds.Color = Color.White;
+                ds.Color = "#32345C".ToColor();
             }
         }
     }

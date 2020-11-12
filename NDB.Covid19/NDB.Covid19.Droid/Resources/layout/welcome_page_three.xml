@@ -21,7 +21,7 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="13dp"
-                android:background="@drawable/ic_back_arrow"
+                android:background="@drawable/circle_arrow_left"
                 android:visibility="visible"/>
 
             <TextView
