@@ -24,6 +24,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             base.ViewDidLoad();
             _consentViewModel = new ConsentViewModel();
             SetTexts();
+            SetupStyling();
         }
 
         public override void ViewWillAppear(bool animated)
@@ -88,7 +89,13 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             ContentText.IsAccessibilityElement = true;
         }
 
-        partial void BackButton_TouchUpInside(UIButton sender)
+    public void SetupStyling()
+    {
+        HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+        ContentText.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+    }
+
+    partial void BackButton_TouchUpInside(UIButton sender)
         {
             LeaveController();
         }
