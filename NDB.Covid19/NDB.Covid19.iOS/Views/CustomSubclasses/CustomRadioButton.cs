@@ -1,6 +1,7 @@
 using System;
 using CoreGraphics;
 using Foundation;
+using NDB.Covid19.iOS.Utils;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.CustomSubclasses
@@ -27,7 +28,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
         {
             BackgroundColor = UIColor.Clear;
             Layer.BorderWidth = _borderWidth;
-            Layer.BorderColor = UIColor.White.CGColor;
+            Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
             TouchUpInside += OnTouchUpInside;
 
             AddInnerView();
@@ -81,7 +82,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
             
             _innerView.TranslatesAutoresizingMaskIntoConstraints = false;
 
-            _innerView.BackgroundColor = UIColor.White;
+            _innerView.BackgroundColor = ColorHelper.PRIMARY_COLOR;
             _innerView.UserInteractionEnabled = false;
 
             AddSubview(_innerView);

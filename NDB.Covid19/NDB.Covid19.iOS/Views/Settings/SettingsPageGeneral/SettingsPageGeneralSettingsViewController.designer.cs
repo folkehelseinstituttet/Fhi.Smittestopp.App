@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 {
@@ -43,7 +43,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Views.CustomSubclasses.CustomRadioButton RadioButton1 { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton1 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -51,11 +51,19 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Views.CustomSubclasses.CustomRadioButton RadioButton2 { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton2 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel RadioButton2Lbl { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton3 { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel RadioButton3Lbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -79,11 +87,15 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Action ("RadioButton1_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void RadioButton1_TouchUpInside (Views.CustomSubclasses.CustomRadioButton sender);
+        partial void RadioButton1_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
         [Action ("RadioButton2_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void RadioButton2_TouchUpInside (Views.CustomSubclasses.CustomRadioButton sender);
+        partial void RadioButton2_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+
+        [Action ("RadioButton3_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void RadioButton3_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -140,6 +152,16 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             if (RadioButton2Lbl != null) {
                 RadioButton2Lbl.Dispose ();
                 RadioButton2Lbl = null;
+            }
+
+            if (RadioButton3 != null) {
+                RadioButton3.Dispose ();
+                RadioButton3 = null;
+            }
+
+            if (RadioButton3Lbl != null) {
+                RadioButton3Lbl.Dispose ();
+                RadioButton3Lbl = null;
             }
 
             if (RestartAppLabl != null) {

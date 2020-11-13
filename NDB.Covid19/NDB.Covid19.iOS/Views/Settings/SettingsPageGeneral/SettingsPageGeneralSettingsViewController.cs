@@ -1,5 +1,5 @@
 using System;
-using NDB.Covid19.Configuration;
+using CoreGraphics;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.PersistedData;
@@ -24,16 +24,18 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             base.ViewDidLoad();
 
             InitLabel(Header, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_TITLE, 24, 28);
-            InitLabel(HeaderLabel, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_EXPLANATION_ONE, 16, 28);
-            InitLabel(ContentLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_MOBILE_DATA_HEADER, 16, 28);
+            InitLabel(HeaderLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EXPLANATION_ONE, 26, 28);
+            InitLabel(ContentLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_MOBILE_DATA_HEADER, 18, 28);
             InitLabel(ContentLabelOne, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_EXPLANATION_TWO, 16, 28);
-            InitLabel(DescriptionLabel, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_MOBILE_DATA_DESC, 12, 28);
+            InitLabel(DescriptionLabel, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_MOBILE_DATA_DESC, 14, 28);
             InitLabel(ChooseLanguageHeaderLbl, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER, 16, 28);
-            InitLabel(RadioButton1Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_DA, 16, 28);
-            InitLabel(RadioButton2Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EN, 16, 28);
-            InitLabel(RestartAppLabl, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 12, 28);
-            InitLabel(SmittestopLinkButtionLbl, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT, 12, 28);
+            InitLabel(RadioButton1Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NB, 16, 28);
+            InitLabel(RadioButton2Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NN, 16, 28);
+            InitLabel(RadioButton3Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EN, 16, 28);
 
+            InitLabel(RestartAppLabl, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 14, 28);
+            InitLabel(SmittestopLinkButtionLbl, FontType.FontRegular, SettingsGeneralViewModel.SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT, 16, 28);
+            
             //Implemented for correct voiceover due to Back button 
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
@@ -89,7 +91,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             }
 
             RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
-            RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
+            RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
+            RadioButton3.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)
@@ -97,6 +100,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             LeaveController();
             RadioButton1.Enabled = false;
             RadioButton2.Enabled = false;
+            RadioButton3.Enabled = false;
         }
 
         public void SwitchValueChanged(object sender, EventArgs e)
@@ -131,7 +135,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             if (SettingsGeneralViewModel.Selection == selection)
             {
                 RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
-                RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
+                RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
+                RadioButton3.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
                 return;
             }
 
@@ -139,7 +144,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             {
                 case SettingsLanguageSelection.Bokmal:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel, (Action) => { });
-                    LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
+                    LocalPreferencesHelper.SetAppLanguage("nb");
                     break;
                 case SettingsLanguageSelection.Nynorsk:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel, (Action) => { });
@@ -155,12 +160,17 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             SetupRadioButtons();
         }
 
-        partial void RadioButton1_TouchUpInside(Views.CustomSubclasses.CustomRadioButton sender)
+        partial void RadioButton1_TouchUpInside(CustomSubclasses.CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Bokmal, sender);
         }
 
-        partial void RadioButton2_TouchUpInside(Views.CustomSubclasses.CustomRadioButton sender)
+        partial void RadioButton2_TouchUpInside(CustomSubclasses.CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Nynorsk, sender);
+        }
+
+        partial void RadioButton3_TouchUpInside(CustomSubclasses.CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.English, sender);
         }
