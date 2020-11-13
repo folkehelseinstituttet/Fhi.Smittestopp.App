@@ -147,6 +147,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\logo_fhi_blue.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_hamburger_menu_icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\logo_fhi_blue.png" />
+    <AndroidResource Include="Resources\drawable\shadow_gradient_border.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png">
       <SubType>
       </SubType>

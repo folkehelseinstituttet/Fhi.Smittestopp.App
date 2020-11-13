@@ -20,24 +20,26 @@
 
      <Button
         android:id="@+id/arrow_back"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/circle_arrow_left"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="49dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/ic_back_arrow"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-		android:text="Title"
-        android:paddingTop="44dp"
-		android:id="@+id/welcome_page_five_title"
+        app:layout_constraintTop_toTopOf="@id/welcome_page_five_title"
+        app:layout_constraintBottom_toBottomOf="@id/welcome_page_five_title"
+         />
+    <TextView 
+        android:text="This is a really long long long title that ideally should span multiple lines. Hihi :)" 
+        android:paddingTop="44dp" 
+        android:id="@+id/welcome_page_five_title"
 		android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="44dp"
+        android:layout_marginLeft="76dp"
         android:layout_marginRight="24dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -46,14 +48,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
     <ScrollView
+        android:id="@+id/settings_consent_scrollview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         app:layout_constraintLeft_toLeftOf="@id/welcome_page_five_title"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_page_five_title"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_page_five_title"
+        app:layout_constraintBottom_toTopOf="@id/settings_consent_reset_consent_button_container"
         android:scrollbars="vertical"
         android:paddingTop="30dp"
         >
@@ -73,19 +76,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                
                 />
-
-            <Button
-                android:id="@+id/buttonResetConsents"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/consent_info"
-                android:text="Træk samtykke tilbage"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/consent_info"
-                style="@style/ConsentButton"/>
-
+            
             <ProgressBar
                 android:id="@+id/consentActivityIndicator"
                 android:layout_width="wrap_content"
@@ -99,4 +90,39 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@drawable/shadow_gradient_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/settings_consent_reset_consent_button_container"/>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_consent_reset_consent_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_consent_scrollview"
+        android:paddingTop="32dp"
+        android:paddingBottom="8dp"
+    >
+        <Button
+                android:id="@+id/buttonResetConsents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/consent_info"
+                android:text="Træk samtykke tilbage"
+                android:visibility="visible"
+                android:layout_marginHorizontal="@dimen/buttonToScreenEdgeMarginHorizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/ConsentButton"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    
+    
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
