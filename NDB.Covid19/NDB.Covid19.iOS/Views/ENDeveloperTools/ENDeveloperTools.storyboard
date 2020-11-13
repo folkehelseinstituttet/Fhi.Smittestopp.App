@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,14 +28,14 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev Tools Output" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5939" customClass="ENDeveloperToolsOutputData">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2400">
                                                         <rect key="frame" x="0.0" y="36.5" width="335" height="30"/>
                                                         <state key="normal" title="Pull Keys">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevPullKeys_TouchUpInside:" destination="2348" eventType="touchUpInside" id="2853"/>
@@ -44,7 +44,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11955">
                                                         <rect key="frame" x="0.0" y="82.5" width="335" height="30"/>
                                                         <state key="normal" title="Pull Keys And Save ExposureInfos">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevPullKeysAndGetExposureInfo_TouchUpInside:" destination="2348" eventType="touchUpInside" id="11957"/>
@@ -53,7 +53,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8304">
                                                         <rect key="frame" x="0.0" y="128.5" width="335" height="30"/>
                                                         <state key="normal" title="Show Summary">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevShowSummaryBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="8306"/>
@@ -62,7 +62,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11958">
                                                         <rect key="frame" x="0.0" y="174.5" width="335" height="30"/>
                                                         <state key="normal" title="Show ExposureInfos">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevShowExposureInfoBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="11959"/>
@@ -71,7 +71,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2404">
                                                         <rect key="frame" x="0.0" y="220.5" width="335" height="30"/>
                                                         <state key="normal" title="Retrieve Last Sent Key Information">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevPushKeys_TouchUpInside:" destination="2348" eventType="touchUpInside" id="2854"/>
@@ -83,7 +83,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6427">
                                                                 <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
                                                                 <state key="normal" title="Date-">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="ENDevSendExposureDateDecrease_TouchUpInside:" destination="2348" eventType="touchUpInside" id="6529"/>
@@ -92,7 +92,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2398">
                                                                 <rect key="frame" x="81.5" y="0.0" width="169" height="30"/>
                                                                 <state key="normal" title="Send Exposure Message">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="ENDevSendExposureMessage_TouchUpInside:" destination="2348" eventType="touchUpInside" id="2876"/>
@@ -101,7 +101,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6429">
                                                                 <rect key="frame" x="293" y="0.0" width="42" height="30"/>
                                                                 <state key="normal" title="Date+">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="ENDevSendExposureDateIncrease_TouchUpInside:" destination="2348" eventType="touchUpInside" id="6530"/>
@@ -112,7 +112,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4939">
                                                         <rect key="frame" x="0.0" y="312.5" width="335" height="30"/>
                                                         <state key="normal" title="Send Exposure Message After 10 sec">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevSenExposureMessageAfter10SecBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="5405"/>
@@ -121,7 +121,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9193">
                                                         <rect key="frame" x="0.0" y="358.5" width="335" height="30"/>
                                                         <state key="normal" title="Last Used Exp. Configutation">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevLastUsedConfigurationBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="9194"/>
@@ -130,7 +130,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2394">
                                                         <rect key="frame" x="0.0" y="404.5" width="335" height="30"/>
                                                         <state key="normal" title="Fetch Exposure Configuration">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevExposureHistoryBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="2857"/>
@@ -139,7 +139,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3758">
                                                         <rect key="frame" x="0.0" y="450.5" width="335" height="30"/>
                                                         <state key="normal" title="Toggle Message Retention Length">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevToggleMessageRetentionBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="4477"/>
@@ -148,7 +148,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3759">
                                                         <rect key="frame" x="0.0" y="496.5" width="335" height="30"/>
                                                         <state key="normal" title="Print Last SymptomOnsetDate">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevPrintLastSymptomOnsetDateBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="4478"/>
@@ -157,7 +157,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3760">
                                                         <rect key="frame" x="0.0" y="542.5" width="335" height="30"/>
                                                         <state key="normal" title="Print Last Keys Pulled &amp; Timestamp">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevPrintLastKeysAndTimestampBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="4479"/>
@@ -166,7 +166,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10113">
                                                         <rect key="frame" x="0.0" y="588.5" width="335" height="30"/>
                                                         <state key="normal" title="Show Latest Pull Keys Times And Statuses">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevShowLatestPullKeysTimesAndStatusesBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="11034"/>
@@ -175,7 +175,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4940">
                                                         <rect key="frame" x="0.0" y="634.5" width="335" height="30"/>
                                                         <state key="normal" title="Reset Device">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevResetDeviceBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="5406"/>
@@ -184,7 +184,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14102">
                                                         <rect key="frame" x="0.0" y="680.5" width="335" height="30"/>
                                                         <state key="normal" title="Fake Gateway">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevFakeGatewayBtn_TounchInside:" destination="2348" eventType="touchUpInside" id="14603"/>
@@ -193,7 +193,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-Or-fCU">
                                                         <rect key="frame" x="0.0" y="726.5" width="335" height="30"/>
                                                         <state key="normal" title="Print Preferences">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="ENDevPrintPreferencesBtn_TounchInside:" destination="2348" eventType="touchUpInside" id="15782"/>
@@ -205,7 +205,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bf-wL-ohh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
                                                                 <state key="normal" title="NoConsent">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="NoConsentButton_TouchUpInside:" destination="2348" eventType="touchUpInside" id="14962"/>
@@ -214,7 +214,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPT-Ru-OSp">
                                                                 <rect key="frame" x="125" y="0.0" width="48" height="30"/>
                                                                 <state key="normal" title="V1Only">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="V1OnlyButton_TouchUpInside:" destination="2348" eventType="touchUpInside" id="15237"/>
@@ -223,7 +223,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5t-5v-aVx">
                                                                 <rect key="frame" x="221" y="0.0" width="114" height="30"/>
                                                                 <state key="normal" title="AllConsentGiven">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="AllConsentGivenButton_TouchUpInside:" destination="2348" eventType="touchUpInside" id="15238"/>
@@ -234,23 +234,23 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-Ui-5IF" userLabel="Pull with 10 sec delay">
                                                         <rect key="frame" x="0.0" y="818.5" width="335" height="30"/>
                                                         <state key="normal" title="Pull with 10 sec delay">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="PullWithDelay_TouchUpInside:" destination="2348" id="17981" eventType="touchUpInside"/>
+                                                            <action selector="PullWithDelay_TouchUpInside:" destination="2348" eventType="touchUpInside" id="17981"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12904">
-                                                <rect key="frame" x="20" y="0.0" width="46" height="30"/>
+                                                <rect key="frame" x="20" y="0.0" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="46" id="12905"/>
+                                                    <constraint firstAttribute="width" constant="30" id="12905"/>
                                                     <constraint firstAttribute="height" constant="30" id="12906"/>
                                                 </constraints>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="BackButton">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <state key="normal" image="ArrowLeftCircle">
+                                                    <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="BackButton_TouchUpInside:" destination="2348" eventType="touchUpInside" id="12949"/>
@@ -278,7 +278,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sw8-h8-lMy"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sw8-h8-lMy" firstAttribute="bottom" secondItem="5SG-YM-g58" secondAttribute="bottom" id="7Ib-qt-Kw2"/>
                             <constraint firstItem="5SG-YM-g58" firstAttribute="width" secondItem="2349" secondAttribute="width" id="Dbu-b9-Rbb"/>
@@ -311,16 +311,16 @@
                         <outlet property="ENDevShowSummaryBtn" destination="8304" id="name-outlet-8304"/>
                         <outlet property="ENDevToggleMessageRetentionBtn" destination="3758" id="name-outlet-3758"/>
                         <outlet property="NoConsentButton" destination="7Bf-wL-ohh" id="name-outlet-7Bf-wL-ohh"/>
-                        <outlet property="V1OnlyConsentButton" destination="JPT-Ru-OSp" id="name-outlet-JPT-Ru-OSp"/>
                         <outlet property="PullWithDelay" destination="7vw-Ui-5IF" id="name-outlet-7vw-Ui-5IF"/>
+                        <outlet property="V1OnlyConsentButton" destination="JPT-Ru-OSp" id="name-outlet-JPT-Ru-OSp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2350" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333.75" y="-124.6479"/>
+            <point key="canvasLocation" x="333.60000000000002" y="-125.03748125937032"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="22" height="22"/>
+        <image name="ArrowLeftCircle" width="34" height="34"/>
     </resources>
 </document>

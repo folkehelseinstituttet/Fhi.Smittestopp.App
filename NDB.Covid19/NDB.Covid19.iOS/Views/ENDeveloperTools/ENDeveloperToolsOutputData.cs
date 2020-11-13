@@ -11,7 +11,6 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
         {
             Lines = 100;
             TranslatesAutoresizingMaskIntoConstraints = false;
-            TextColor = UIColor.White;
             StyleUtil.InitLabelWithSpacing(this, FontType.FontRegular, Text ?? "", 1.28, 16, 22);
         }
     }
