@@ -90,7 +90,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
             RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
             RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
-            // TODO: add new radio button for nynorsk
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)
@@ -165,7 +164,5 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         {
             HandleRadioBtnChange(SettingsLanguageSelection.English, sender);
         }
-
-        // TODO: add new radio button for nynorsk
     }
 }

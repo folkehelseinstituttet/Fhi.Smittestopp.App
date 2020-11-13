@@ -35,7 +35,6 @@ namespace NDB.Covid19.Test
             unityContainer.RegisterSingleton<IAppInfo, TestsAppInfoMocks>();
             unityContainer.RegisterSingleton<IFileSystem, TestsFileSystemMocks>();
 
-            // TODO Those implementation may be wrong for our tests and may need refactoring
             unityContainer.RegisterSingleton<IBrowser, BrowserImplementation>();
             unityContainer.RegisterSingleton<IClipboard, ClipboardImplementation>();
             unityContainer.RegisterSingleton<IDeviceInfo, DeviceInfoImplementation>();
