@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="395">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -7,7 +7,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Title-->
@@ -19,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1664">
-                                <rect key="frame" x="0.0" y="20" width="320" height="328"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="387.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="1682" kind="embed" identifier="PageViewSegue" id="1714"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-eT-Ck7">
-                                <rect key="frame" x="4" y="452" width="312" height="48"/>
+                                <rect key="frame" x="4" y="482" width="312" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2057">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="48"/>
@@ -48,19 +47,12 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3032">
-                                <rect key="frame" x="284" y="466" width="20" height="20"/>
+                                <rect key="frame" x="284" y="496" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2561">
-                                <rect key="frame" x="16" y="383" width="288" height="37"/>
+                                <rect key="frame" x="16" y="422.5" width="288" height="27.5"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-I7-UXF">
-                                <rect key="frame" x="122" y="520" width="76" height="38"/>
-                                <state key="normal" title="SkipButton"/>
-                                <connections>
-                                    <action selector="SkipBtn_TouchUpInside:" destination="395" eventType="touchUpInside" id="4685"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b5X-h4-uWc"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,14 +62,11 @@
                             <constraint firstItem="2561" firstAttribute="trailing" secondItem="396" secondAttribute="trailingMargin" id="2562"/>
                             <constraint firstItem="2561" firstAttribute="leading" secondItem="396" secondAttribute="leadingMargin" id="2563"/>
                             <constraint firstItem="8JH-eT-Ck7" firstAttribute="centerX" secondItem="b5X-h4-uWc" secondAttribute="centerX" id="3454"/>
-                            <constraint firstItem="Ypn-I7-UXF" firstAttribute="top" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="20" id="2rR-gr-unY"/>
                             <constraint firstItem="3032" firstAttribute="centerY" secondItem="1671" secondAttribute="centerY" id="7pz-ZJ-6WW"/>
                             <constraint firstItem="2561" firstAttribute="top" secondItem="1664" secondAttribute="bottom" constant="35" id="DEB-Ok-sdX"/>
-                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="Ypn-I7-UXF" secondAttribute="bottom" constant="10" id="Eh9-yo-7Lh"/>
-                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="68" id="Swg-cu-uvp"/>
+                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="38" id="Swg-cu-uvp"/>
                             <constraint firstItem="3032" firstAttribute="trailing" secondItem="1671" secondAttribute="trailing" constant="-12" id="jYQ-ui-kDH"/>
                             <constraint firstItem="8JH-eT-Ck7" firstAttribute="top" secondItem="2561" secondAttribute="bottom" constant="32" id="mH5-VK-bQM"/>
-                            <constraint firstItem="Ypn-I7-UXF" firstAttribute="centerX" secondItem="8JH-eT-Ck7" secondAttribute="centerX" id="pvu-Wv-MVL"/>
                             <constraint firstItem="1664" firstAttribute="top" secondItem="b5X-h4-uWc" secondAttribute="top" id="zsf-Xn-PIv"/>
                         </constraints>
                     </view>
@@ -87,15 +76,14 @@
                         <outlet property="ButtonsWidthConstraint" destination="3453" id="name-outlet-3453"/>
                         <outlet property="ContainerView" destination="1664" id="name-outlet-1664"/>
                         <outlet property="NextBtn" destination="1671" id="name-outlet-1671"/>
+                        <outlet property="NextBtnWidthConstraint" destination="n0e-Rb-BJn" id="name-outlet-n0e-Rb-BJn"/>
                         <outlet property="PageControl" destination="2561" id="name-outlet-2561"/>
                         <outlet property="PreviousBtn" destination="2057" id="name-outlet-2057"/>
-                        <outlet property="SkipBtn" destination="Ypn-I7-UXF" id="name-outlet-Ypn-I7-UXF"/>
-                        <outlet property="NextBtnWidthConstraint" destination="n0e-Rb-BJn" id="name-outlet-n0e-Rb-BJn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="397" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="208.6956" y="-64.95536"/>
+            <point key="canvasLocation" x="208.69560000000001" y="-64.955359999999999"/>
         </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="1681">
@@ -106,4 +94,9 @@
             <point key="canvasLocation" x="1053" y="25"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -72,8 +72,6 @@ namespace NDB.Covid19.iOS.Views.Welcome
             StyleUtil.InitButtonSecondaryStyling(PreviousBtn, WelcomeViewModel.PREVIOUS_PAGE_BUTTON_TEXT);
             SetPreviousButtonHidden(true);
             SetNextBtnSize(true);
-            StyleUtil.InitButtonSecondaryStyling(SkipBtn, WelcomeViewModel.SKIP_PAGE_BUTTON_TEXT);
-            SetSkipButtonHidden(true);
 
 
             PageControl.UserInteractionEnabled = false;
@@ -87,23 +85,12 @@ namespace NDB.Covid19.iOS.Views.Welcome
             PreviousBtn.SetTitleColor("#32345C".ToUIColor(), UIControlState.Normal);
             PreviousBtn.Layer.BorderColor = "#32345C".ToUIColor().CGColor;
 
-            SkipBtn.SetTitleColor("#32345C".ToUIColor(), UIControlState.Normal);
-            SkipBtn.Layer.BorderColor = "#E1EAED".ToUIColor().CGColor;
-
         }
 
         void SetPreviousButtonHidden(bool hide)
         {
             PreviousBtn.Alpha = hide ? 0 : 1;
             ButtonsWidthConstraint.Constant = 320;
-        }
-
-        void SetSkipButtonHidden(bool hide)
-        {
-            if (LocalPreferencesHelper.IsOnboardingCompleted == true)
-            {
-                SkipBtn.Alpha = hide ? 0 : 1;
-            }
         }
 
         void SetNextBtnSize (bool resize)
@@ -147,8 +134,6 @@ namespace NDB.Covid19.iOS.Views.Welcome
 
         void UpdateLayout()
         {
-            SetSkipButtonHidden(_currentPageIndex == 0);
-            SetSkipButtonHidden(_currentPageIndex != 0);
             SetPreviousButtonHidden(_currentPageIndex == 0);
             SetNextBtnSize(_currentPageIndex == 0);
             SetNextBtnSize(_currentPageIndex != 0);
@@ -173,11 +158,6 @@ namespace NDB.Covid19.iOS.Views.Welcome
         ~WelcomeViewController()
         {  
             _singleClick = null;
-        }
-
-        partial void SkipBtn_TouchUpInside(UIButton sender)
-        {
-            GoToConsentPage();
         }
     }
 }
