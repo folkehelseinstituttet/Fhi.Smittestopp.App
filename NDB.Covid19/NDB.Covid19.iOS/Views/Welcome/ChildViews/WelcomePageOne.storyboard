@@ -29,13 +29,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="127"/>
                                                         <subviews>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg5-6b-P0W">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="Mdc-v0-7RX"/>
-                                                                    <constraint firstAttribute="height" constant="35" id="q6Q-p0-h9c"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="q6Q-p0-h9c"/>
                                                                 </constraints>
-                                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <state key="normal" image="BackButton"/>
+                                                                <color key="tintColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <state key="normal" image="ArrowLeftCircle"/>
                                                                 <connections>
                                                                     <action selector="BackArrowBtn_TouchUpInside:" destination="713" eventType="touchUpInside" id="1731"/>
                                                                 </connections>
@@ -46,11 +46,12 @@
 You
 For contribution</string>
                                                                 <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="24"/>
-                                                                <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="tg5-6b-P0W" firstAttribute="baseline" secondItem="766" secondAttribute="firstBaseline" constant="8" id="c1E-Dz-juI"/>
                                                             <constraint firstAttribute="bottom" secondItem="766" secondAttribute="bottom" constant="15" id="riZ-1I-H42"/>
                                                         </constraints>
                                                     </stackView>
@@ -170,7 +171,7 @@ line 4</string>
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="22" height="22"/>
+        <image name="ArrowLeftCircle" width="34" height="34"/>
         <image name="CheckShield" width="25" height="30"/>
     </resources>
 </document>

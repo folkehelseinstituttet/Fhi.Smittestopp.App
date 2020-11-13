@@ -5,6 +5,7 @@ using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StressUtils;
+using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19.iOS.Views.Welcome
 {
@@ -72,6 +73,7 @@ namespace NDB.Covid19.iOS.Views.Welcome
             SetPreviousButtonHidden(true);
             SetNextBtnSize(true);
             StyleUtil.InitButtonSecondaryStyling(SkipBtn, WelcomeViewModel.SKIP_PAGE_BUTTON_TEXT);
+            SetSkipButtonHidden(true);
 
 
             PageControl.UserInteractionEnabled = false;
@@ -94,6 +96,14 @@ namespace NDB.Covid19.iOS.Views.Welcome
         {
             PreviousBtn.Alpha = hide ? 0 : 1;
             ButtonsWidthConstraint.Constant = 320;
+        }
+
+        void SetSkipButtonHidden(bool hide)
+        {
+            if (LocalPreferencesHelper.IsOnboardingCompleted == true)
+            {
+                SkipBtn.Alpha = hide ? 0 : 1;
+            }
         }
 
         void SetNextBtnSize (bool resize)
@@ -137,6 +147,8 @@ namespace NDB.Covid19.iOS.Views.Welcome
 
         void UpdateLayout()
         {
+            SetSkipButtonHidden(_currentPageIndex == 0);
+            SetSkipButtonHidden(_currentPageIndex != 0);
             SetPreviousButtonHidden(_currentPageIndex == 0);
             SetNextBtnSize(_currentPageIndex == 0);
             SetNextBtnSize(_currentPageIndex != 0);

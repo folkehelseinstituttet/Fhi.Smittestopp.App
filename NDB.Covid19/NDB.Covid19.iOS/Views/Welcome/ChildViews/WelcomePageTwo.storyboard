@@ -30,13 +30,13 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-mX-Yqm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="35" id="ehI-CM-VpQ"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="ehI-CM-VpQ"/>
                                                                     <constraint firstAttribute="width" constant="30" id="hjq-ih-IwY"/>
                                                                 </constraints>
-                                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <state key="normal" image="BackButton"/>
+                                                                <color key="tintColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <state key="normal" image="ArrowLeftCircle"/>
                                                                 <connections>
                                                                     <action selector="BackArrowBtn_TouchUpInside:" destination="16111" eventType="touchUpInside" id="25087"/>
                                                                 </connections>
@@ -50,6 +50,7 @@
                                                         </subviews>
                                                         <viewLayoutGuide key="safeArea" id="59f-Ab-0z7"/>
                                                         <constraints>
+                                                            <constraint firstItem="uGP-mX-Yqm" firstAttribute="baseline" secondItem="18249" secondAttribute="firstBaseline" constant="8" id="FhR-IH-Ksk"/>
                                                             <constraint firstAttribute="bottom" secondItem="18249" secondAttribute="top" constant="70" id="ckI-fm-801"/>
                                                         </constraints>
                                                     </stackView>
@@ -169,7 +170,7 @@ line 2</string>
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="22" height="22"/>
+        <image name="ArrowLeftCircle" width="34" height="34"/>
         <image name="CheckShield" width="25" height="30"/>
     </resources>
 </document>
