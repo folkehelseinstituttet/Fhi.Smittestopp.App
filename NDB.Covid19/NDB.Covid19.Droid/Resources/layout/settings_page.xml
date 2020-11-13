@@ -28,6 +28,16 @@
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent">
 
+			<ImageView 
+		android:src="@drawable/logo_fhi_blue_short"
+		android:layout_width="60dp"
+		android:layout_height="60dp"
+		android:id="@+id/settings_icon_imageview"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true"
+		android:paddingBottom="12dp"
+		android:layout_margin="24dp"/>
+
 			<RelativeLayout
 				android:id="@+id/ic_close_white"
 				android:layout_width="48dp"
@@ -39,7 +49,7 @@
 				app:layout_constraintTop_toTopOf="parent"
 				android:importantForAccessibility="yes">
 				<ImageView
-					android:src="@drawable/ic_close_white"
+					android:src="@drawable/ic_close_blue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 			</RelativeLayout>
@@ -49,7 +59,7 @@
 				android:layout_height="wrap_content"
 				android:id="@+id/settings_intro_frame"
 				android:accessibilityTraversalBefore="@id/settings_saddan_frame"
-				android:layout_marginTop="79dp"
+				android:layout_marginTop="99dp"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"/>
@@ -57,7 +67,7 @@
 			<include layout="@layout/settings_link"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="52dp"
+				android:layout_marginTop="36dp"
 				android:id="@+id/settings_saddan_frame"
 				android:accessibilityTraversalBefore="@id/settings_behandling_frame"
 				app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +94,7 @@
 			<include layout="@layout/settings_link"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="52dp"
+				android:layout_marginTop="36dp"
 				android:id="@+id/om_frame"
 				android:accessibilityTraversalBefore="@id/general_settings"
 				app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +103,7 @@
 			<include layout="@layout/settings_link"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:layout_marginTop="52dp"
+			    android:layout_marginTop="36dp"
 			    android:id="@+id/general_settings"
 			    android:accessibilityTraversalBefore="@id/test_frame"
 			    app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +112,7 @@
 			<include layout="@layout/settings_link"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="52dp"
+				android:layout_marginTop="36dp"
 				android:id="@+id/test_frame"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@id/general_settings"

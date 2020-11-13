@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+<declare-styleable name="UnderlinedTextView">
+    <attr name="underlineColor" format="color" />
+    <attr name="underlineWidth" format="dimension" />
+    <attr name="underlineMarginTop" format="dimension" />
+</declare-styleable>
+</resources>

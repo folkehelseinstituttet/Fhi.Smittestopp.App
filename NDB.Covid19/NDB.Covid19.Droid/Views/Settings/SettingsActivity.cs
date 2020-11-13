@@ -35,13 +35,13 @@ namespace NDB.Covid19.Droid.Views.Settings
             ConstraintLayout deploymentLayout = FindViewById<ConstraintLayout>(Resource.Id.test_frame);
             ConstraintLayout generalLayout = FindViewById<ConstraintLayout>(Resource.Id.general_settings);
 
-            Button settingsIntroButton = settingsIntroLayout.FindViewById<Button>(Resource.Id.settings_link_text);
-            Button howItWorksButton = howItWorksLayout.FindViewById<Button>(Resource.Id.settings_link_text);
-            Button gdprButton = gdprLayout.FindViewById<Button>(Resource.Id.settings_link_text);
-            Button helpButton = helpLayout.FindViewById<Button>(Resource.Id.settings_link_text);
-            Button aboutButton = aboutLayout.FindViewById<Button>(Resource.Id.settings_link_text);
-            Button generalButton = generalLayout.FindViewById<Button>(Resource.Id.settings_link_text);
-            Button deploymentButton = deploymentLayout.FindViewById<Button>(Resource.Id.settings_link_text);
+            TextView settingsIntroButton = settingsIntroLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
+            TextView howItWorksButton = howItWorksLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
+            TextView gdprButton = gdprLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
+            TextView helpButton = helpLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
+            TextView aboutButton = aboutLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
+            TextView generalButton = generalLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
+            TextView deploymentButton = deploymentLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
 
             settingsIntroButton.Text = _settingsViewModel.SettingItemList[0].Text;
             howItWorksButton.Text = _settingsViewModel.SettingItemList[1].Text;

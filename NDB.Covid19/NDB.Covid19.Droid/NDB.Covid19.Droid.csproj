@@ -105,6 +105,7 @@
     <Compile Include="Utils\LocalNotificationManager.cs" />
     <Compile Include="Views\Settings\SettingsGeneralActivity.cs" />
     <Compile Include="Views\Settings\SettingsWithdrawConsentsActivity.cs" />
+    <Compile Include="Views\Settings\UnderlinedTextView.cs" />
     <Compile Include="Views\Welcome\NonSwipeableViewPager.cs" />
     <Compile Include="Views\Settings\ConsentSettingPageFragment.cs" />
     <Compile Include="Views\Welcome\WelcomeActivity.cs" />
@@ -982,6 +983,18 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\logo_fhi_blue_short.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_fhi_blue_short.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\logo_fhi_blue_short.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\drawable-hdpi\circle_arrow_right.png">
       <SubType></SubType>
       <Generator></Generator>
@@ -1131,6 +1144,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\infection_status.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\attrs.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

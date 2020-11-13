@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     tools:showIn="@layout/settings_page">
 
-    <Button
+    <ndb.covid19.droid.views.settings.UnderlinedTextView
         android:id="@+id/settings_link_text"
         android:background="@android:color/transparent"
         android:layout_width="0dp"
@@ -22,7 +22,11 @@
         android:translationY="-1.91sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/arrow_back_1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:underlineColor="#fe7668"
+        app:underlineWidth="2dp"
+        app:underlineMarginTop="2dp"
+        />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/arrow_back_1"
         android:layout_width="24dp"
@@ -33,19 +37,5 @@
         app:layout_constraintLeft_toRightOf="@id/settings_link_text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
-
-        <View
-            android:id="@+id/arrow_back_1_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/ic_back_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
