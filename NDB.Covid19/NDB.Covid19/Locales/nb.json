@@ -180,7 +180,7 @@
   "INFOCONSENT_DESCRIPTION_ONE": "Delingen din kan være med på å bryte smittekjeder. Takk for det. ",
   "INFOCONSENT_LOGIN": "Logg deg inn via ID-porten",
   "REGISTER_ERROR_NOMATCH_HEADER": "Testresultatet ditt ble ikke funnet",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Det kan skyldes at testresultatet ikke er registrert ennå. </p><br><p>Det kan også skyldes en systemfeil – i så fall beklager vi. <p/><p>Prøv gjerne igjen senere hvis du kan. </p>",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "Det kan skyldes at testresultatet ikke er registrert ennå.\n\nDet kan også skyldes en systemfeil – i så fall beklager vi.\n\nPrøv gjerne igjen senere hvis du kan.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "Testresultatet ditt er allerede delt i Smittestopp",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "Du kan bare registrere deg som smittet én gang i Smittestopp. ",
   "REGISTER_ERROR_HEADER": "Det oppsto en feil",

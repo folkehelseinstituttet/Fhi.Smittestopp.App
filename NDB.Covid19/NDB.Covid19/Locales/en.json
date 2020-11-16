@@ -180,7 +180,7 @@
   "INFOCONSENT_DESCRIPTION_ONE": "By sharing your test result, you help to break the infection chain. Thank you for sharing. ",
   "INFOCONSENT_LOGIN": "Log in via the ID portal",
   "REGISTER_ERROR_NOMATCH_HEADER": "Your test result was not found",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>This may be because your test result has not been registered yet. </p><br><p>It may also be due to a system error – in which case we apologise sincerely. <p/><p>Please try again later on if you can. </p>",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "This may be because your test result has not been registered yet.\n\nIt may also be due to a system error – in which case we apologise sincerely.\n\nPlease try again later on if you can.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "Your test result has already been shared in Smittestopp",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "It is only possible to register as infected once in Smittestopp. ",
   "REGISTER_ERROR_HEADER": "An error occurred",
