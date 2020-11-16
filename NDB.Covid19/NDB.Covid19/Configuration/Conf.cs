@@ -9,7 +9,7 @@ namespace NDB.Covid19.Configuration
         public static bool UseDeveloperTools => true; // TODO: Inject bool here
 
         // Minimum hours between pulling keys
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(0); // TODO: Inject int here
+        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(2); // TODO: Inject int here
 
         public static readonly int APIVersion = 3;
 

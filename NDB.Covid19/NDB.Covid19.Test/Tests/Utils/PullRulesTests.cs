@@ -119,7 +119,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             SystemTime.ResetDateTime();
 
             // When
-            _preferences.Set(PreferencesKeys.LAST_PULL_KEYS_SUCCEEDED_DATE_TIME, SystemTime.Now().AddMinutes(-10));
+            _preferences.Set(PreferencesKeys.LAST_PULL_KEYS_SUCCEEDED_DATE_TIME, SystemTime.Now().AddMinutes(-1));
             bool lastDownloadZipsTooRecent = pullRules.LastDownloadZipsTooRecent();
 
             // Then

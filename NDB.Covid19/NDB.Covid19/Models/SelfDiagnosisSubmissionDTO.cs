@@ -20,8 +20,7 @@ namespace NDB.Covid19.Models
         public string Padding { get; set; }
 
         // For unit testing
-        // Moq library requires public constructor and we need to mock DeviceVerificationPayload
-        // that is overwritten by parametrized constructor
+        // Moq library requires public constructor that is overwritten by parametrized constructor
         public SelfDiagnosisSubmissionDTO()
         {
             AppPackageName = ServiceLocator.Current.GetInstance<IAppInfo>().PackageName;

@@ -99,7 +99,7 @@ namespace NDB.Covid19.ExposureNotifications
 
             if (AuthenticationState.PersonalData?.Access_token == null)
             {
-                throw new AccessTokenMissingFromNemIDException("The token from NemID is not set");
+                throw new AccessTokenMissingFromIDPortenException("The token from ID Porten is not set");
             }
 
             if (AuthenticationState.PersonalData?.VisitedCountries == null)

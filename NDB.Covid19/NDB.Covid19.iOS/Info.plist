@@ -58,8 +58,6 @@
 		<string>fetch</string>
 		<string>processing</string>
 	</array>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Bluetooth skal være slået til, for at smitte|stop fungerer. Enheden udsender og opsamler tilfældige Bluetooth-ID&apos;er til at finde ud af, om du har været tæt på nogen, som har oplyst, at de har COVID-19.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Fonts/BrandonText-Bold.otf</string>
@@ -81,8 +79,6 @@
 	<string>Assets.xcassets/AppIconEN.appiconset</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Bluetooth skal være slået til, for at smitte|stop fungerer. Enheden udsender og opsamler tilfældige Bluetooth-ID&apos;er til at finde ud af, om du har været tæt på nogen, som har oplyst, at de har COVID-19.</string>
 	<key>CFBundleName</key>
 	<string>Smittestopp</string>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
@@ -111,6 +107,8 @@
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
+		<string>nb</string>
+		<string>nn</string>
 	</array>
 	<key>ENDeveloperRegion</key>
 	<string>NO</string>

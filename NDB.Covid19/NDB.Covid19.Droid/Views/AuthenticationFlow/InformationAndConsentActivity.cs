@@ -28,7 +28,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         TextView _bodyTwoText;
         TextView _contentTwoText;
         TextView _contentText;
-        Button _nemIdButton;
+        Button _idPortenButton;
         InformationAndConsentViewModel _viewModel;
 
         ProgressBar _progressBar;
@@ -59,7 +59,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             //Buttons
             _closeButton = FindViewById<ViewGroup>(Resource.Id.close_cross_btn);
-            _nemIdButton = FindViewById<Button>(Resource.Id.information_consent_nemid_button);
+            _idPortenButton = FindViewById<Button>(Resource.Id.information_consent_idporten_button);
 
             //TextViews
             _header = FindViewById<TextView>(Resource.Id.information_consent_header_textView);
@@ -70,7 +70,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _contentTwoText = FindViewById<TextView>(Resource.Id.information_consent_content_two_textView);
 
             //Text initialization
-            _nemIdButton.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_NEMID_BUTTON_TEXT;
+            _idPortenButton.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT;
             _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
             _contentText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFORMATION_CONSENT_CONTENT_TEXT}", HtmlCompat.FromHtmlModeLegacy);
             _subtitleText.Text = InformationAndConsentViewModel.INFOCONSENT_TITLE;
@@ -83,15 +83,15 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             //Button click events
             _closeButton.Click += new SingleClick((sender, e) => Finish(), 500).Run;
-            _nemIdButton.Click += new SingleClick(NemIdButton_Click, 500).Run;
+            _idPortenButton.Click += new SingleClick(LogInWithIDPortenButton_Click, 500).Run;
 
             //Progress bar
             _progressBar = FindViewById<ProgressBar>(Resource.Id.information_consent_progress_bar);
         }
 
-        private async void NemIdButton_Click(object sender, EventArgs e)
+        private async void LogInWithIDPortenButton_Click(object sender, EventArgs e)
         {
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with nemid");
+            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with ID porten");
             Intent browserIntent = AuthenticationState.Authenticator.GetUI(this);
             StartActivity(browserIntent);
         }
@@ -112,7 +112,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                         AuthErrorUtils.GoToNotInfectedError(this, LogSeverity.WARNING, null, "User is not infected");
                         break;
                     case AuthErrorType.Unknown:
-                        AuthErrorUtils.GoToTechnicalError(this, Enums.LogSeverity.WARNING, null, "User sees Technical error page after NemID login: Unknown auth error or user press backbtn");
+                        AuthErrorUtils.GoToTechnicalError(this, Enums.LogSeverity.WARNING, null, "User sees Technical error page after ID Porten login: Unknown auth error or user press backbtn");
                         break;
                 }
 
@@ -136,14 +136,14 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             if (show)
             {
-                _nemIdButton.Enabled = false;
-                _nemIdButton.Visibility = ViewStates.Invisible;
+                _idPortenButton.Enabled = false;
+                _idPortenButton.Visibility = ViewStates.Invisible;
                 _progressBar.Visibility = ViewStates.Visible;
             }
             else
             {
-                _nemIdButton.Enabled = true;
-                _nemIdButton.Visibility = ViewStates.Visible;
+                _idPortenButton.Enabled = true;
+                _idPortenButton.Visibility = ViewStates.Visible;
                 _progressBar.Visibility = ViewStates.Gone;
             }
         }

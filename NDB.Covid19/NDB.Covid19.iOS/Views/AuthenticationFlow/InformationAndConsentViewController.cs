@@ -44,7 +44,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             BodyOneLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_BODY_ONE);
             BodyTwoLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_BODY_TWO);
             DescriptionOneLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION_ONE);
-            StyleUtil.InitButtonStyling(LoginNemIDBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_NEMID_BUTTON_TEXT);
+            StyleUtil.InitButtonStyling(LogInWithIDPortenBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT);
 
             SetupStyling();
 
@@ -64,7 +64,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             base.ViewWillDisappear(animated);
 
-            LoginNemIDBtn.HideSpinner();
+            LogInWithIDPortenBtn.HideSpinner();
         }
 
         void OnAuthError(object sender, AuthErrorType authErrorType)
@@ -72,7 +72,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             _viewModel.Cleanup();
 
             Debug.Print("OnAuthError");
-            LoginNemIDBtn.HideSpinner();
+            LogInWithIDPortenBtn.HideSpinner();
             Utils.AuthErrorUtils.GoToErrorPageForAuthErrorType(this, authErrorType);
             _authViewController.DismissViewController(true, null);
         }
@@ -80,7 +80,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         void OnAuthSuccess(object sender, EventArgs e)
         {
             Debug.Print("OnAuthSuccess");
-            LoginNemIDBtn.HideSpinner();
+            LogInWithIDPortenBtn.HideSpinner();
             GoToQuestionnairePage();
             _authViewController.DismissViewController(true, null);
         }
@@ -89,10 +89,10 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             InvokeOnMainThread(() =>
             {
-                LoginNemIDBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
+                LogInWithIDPortenBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
             });
 
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with nemid");
+            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Started login with ID Porten");
             _authViewController = AuthenticationState.Authenticator.GetUI();
             PresentViewController(_authViewController, true, null);
         }
@@ -109,25 +109,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             _viewModel.Cleanup();
             NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
-        }
-
-        public Task<string> GetDeviceVerificationToken()
-        {
-            TaskCompletionSource<string> tcs = new TaskCompletionSource<string>();
-            DCDevice.CurrentDevice.GenerateToken((NSData token, NSError error) =>
-            {
-                if (error == null)
-                {
-                    Debug.WriteLine("Successfully obtained the device token from DeviceCheck");
-                    tcs.SetResult(token.GetBase64EncodedString(NSDataBase64EncodingOptions.None));
-                }
-                else
-                {
-                    Debug.WriteLine("Failed to obtaine the device token from DeviceCheck");
-                    tcs.SetException(new DeviceVerificationException("Failed to obtain the device token from DeviceCheck API"));
-                }
-            });
-            return tcs.Task;
         }
     }
 }

@@ -864,9 +864,7 @@
     <InterfaceDefinition Include="Views\Welcome\WelcomePageWhatIsNew.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info-prod.plist">
-      <LogicalName>Info.plist</LogicalName>
-    </None>
+    <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="Entitlements-prod.plist" />
     <None Include="appcenter-pre-build.sh" />

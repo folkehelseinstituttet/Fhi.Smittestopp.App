@@ -12,7 +12,7 @@ namespace NDB.Covid19.ViewModels
     {
         public static string INFORMATION_CONSENT_HEADER_TEXT => "INFOCONSENT_HEADER".Translate();
         public static string INFORMATION_CONSENT_CONTENT_TEXT => "INFOCONSENT_DESCRIPTION".Translate();
-        public static string INFORMATION_CONSENT_NEMID_BUTTON_TEXT => "INFOCONSENT_LOGIN".Translate();
+        public static string INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT => "INFOCONSENT_LOGIN".Translate();
 
         public static string CLOSE_BUTTON_ACCESSIBILITY_LABEL => "SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON".Translate();
 
@@ -72,7 +72,7 @@ namespace NDB.Covid19.ViewModels
             System.Diagnostics.Debug.Print("Authenticated: " + e.IsAuthenticated);
             if ((e?.IsAuthenticated ?? false) && e.Account?.Properties != null && e.Account.Properties.ContainsKey("access_token"))
             {
-                LogUtils.LogMessage(Enums.LogSeverity.INFO, errorMsgPrefix + "User returned from NemID after authentication and access_token exists.");
+                LogUtils.LogMessage(Enums.LogSeverity.INFO, errorMsgPrefix + "User returned from ID Porten after authentication and access_token exists.");
 
                 //Access_token
                 string token = e.Account?.Properties["access_token"];

@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -15,11 +15,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel BodyOneLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel BodyOneLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel BodyTwoLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel BodyTwoLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -27,23 +27,23 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel DescriptionLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel DescriptionLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel DescriptionOneLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel DescriptionOneLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.DefaultBorderButton LoginNemIDBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton LogInWithIDPortenBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel TitleLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel TitleLabel { get; set; }
 
         [Action ("OnCloseBtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -51,7 +51,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Action ("OnLoginBtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void OnLoginBtnTapped (CustomSubclasses.DefaultBorderButton sender);
+        partial void OnLoginBtnTapped (NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -85,9 +85,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 HeaderLabel = null;
             }
 
-            if (LoginNemIDBtn != null) {
-                LoginNemIDBtn.Dispose ();
-                LoginNemIDBtn = null;
+            if (LogInWithIDPortenBtn != null) {
+                LogInWithIDPortenBtn.Dispose ();
+                LogInWithIDPortenBtn = null;
             }
 
             if (TitleLabel != null) {

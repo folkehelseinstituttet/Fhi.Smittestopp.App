@@ -77,7 +77,7 @@ namespace NDB.Covid19.iOS
                 AuthenticationState.Authenticator.OnPageLoading(uri_netfx);
             }
             catch (Exception e) {
-                LogUtils.LogException(Enums.LogSeverity.WARNING, e, $"{nameof(SceneDelegate)}.{nameof(OpenUrlContexts)}: Failed to redirect the user to the app after NemID flow in browser");
+                LogUtils.LogException(Enums.LogSeverity.WARNING, e, $"{nameof(SceneDelegate)}.{nameof(OpenUrlContexts)}: Failed to redirect the user to the app ID Porten login in browser");
             }
         }
 

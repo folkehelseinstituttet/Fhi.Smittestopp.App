@@ -43,7 +43,7 @@ namespace NDB.Covid19.iOS.Utils
                     GoToNotInfectedError(parent, LogSeverity.WARNING, authException, "User is not infected");
                     break;
                 case AuthErrorType.Unknown:
-                    GoToTechnicalError(parent, LogSeverity.WARNING, authException, "User sees Technical error page after NemID login: Unknown auth error or user press backbtn");
+                    GoToTechnicalError(parent, LogSeverity.WARNING, authException, "User sees Technical error page after ID Porten login: Unknown auth error or user press backbtn");
                     break;
             }
         }

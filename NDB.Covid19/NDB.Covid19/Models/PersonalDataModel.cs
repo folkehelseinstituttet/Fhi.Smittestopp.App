@@ -7,7 +7,7 @@ namespace NDB.Covid19.Models
 {
     public class PersonalDataModel
     {
-        //Set by NemId authentication
+        //Set by ID Porten authentication
         public string Covid19_smitte_start { get; set; }
         public string Covid19_blokeret { get; set; }
         public string Covid19_smitte_stop { get; set; }

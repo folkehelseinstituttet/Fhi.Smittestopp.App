@@ -125,8 +125,8 @@
         android:layout_height="wrap_content"
         android:singleLine="false"
         android:drawablePadding="7dp"
-	    android:id="@+id/information_consent_nemid_button"
-        style="@style/NemIDButton"/>
+	    android:id="@+id/information_consent_idporten_button"
+        style="@style/IDPortenButton"/>
 	<ProgressBar
         android:layout_marginTop="24dp"
         android:layout_marginLeft="24dp"

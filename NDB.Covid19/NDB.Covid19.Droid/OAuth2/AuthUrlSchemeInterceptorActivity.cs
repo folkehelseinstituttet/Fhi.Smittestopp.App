@@ -10,7 +10,7 @@ using NDB.Covid19.Utils;
 namespace NDB.Covid19.Droid.OAuth2
 {
     /// <summary>
-    /// This Activity is hit when redirecting from NemId in the browser
+    /// This Activity is hit when redirecting from ID Porten in the browser
     /// </summary>
     [Activity(
         Label = "AuthUrlSchemeInterceptorActivity",
@@ -62,7 +62,7 @@ namespace NDB.Covid19.Droid.OAuth2
                     "Intent was null" :
                     (Intent.Data == null ? "Intent.Data was null" : "Intent.Data: " + Intent.Data.ToString());
 
-                LogUtils.LogException(Enums.LogSeverity.WARNING, e, nameof(AuthUrlSchemeInterceptorActivity) + " " + nameof(OnCreate) + " error when redirectin to app after NemID validation", error);
+                LogUtils.LogException(Enums.LogSeverity.WARNING, e, nameof(AuthUrlSchemeInterceptorActivity) + " " + nameof(OnCreate) + " error when redirectin to app after ID Porten validation", error);
 
                 // Redirect and hit OnAuthError
                 AuthenticationState.Authenticator.OnPageLoading(new Uri("no.fhi.smittestopp:/oauth2redirect"));
