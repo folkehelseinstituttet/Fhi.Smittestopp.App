@@ -8,7 +8,6 @@
 		<item name="colorAccent">@color/colorAccent</item>
 		<item name="android:fontFamily">@font/brandontext_regular</item>
 		<item name="android:colorBackground">@color/backgroundColor</item>
-		<item name="android:windowBackground">@drawable/gradientbackground</item>
 		<item name="colorPrimaryDark">@color/topbar</item>
 		<item name="android:navigationBarColor">@android:color/transparent</item>
 		<item name="android:statusBarColor">@color/topbar</item>
@@ -20,7 +19,6 @@
 		<item name="windowActionBar">false</item>
 		<item name="windowNoTitle">true</item>
 		<item name="android:colorBackground">@color/backgroundColor</item>
-		<item name="android:windowBackground">@drawable/gradientbackground</item>
 		<!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
 		<item name="colorPrimaryDark">@color/topbar</item>
 		<item name="android:navigationBarColor">@android:color/transparent</item>
