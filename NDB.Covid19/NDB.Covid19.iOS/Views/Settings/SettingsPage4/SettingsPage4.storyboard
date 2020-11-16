@@ -32,14 +32,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1170" customClass="SetttingsPageTitleLabel">
-                                        <rect key="frame" x="35" y="0.0" width="353" height="30"/>
+                                        <rect key="frame" x="35" y="0.0" width="353" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1169" firstAttribute="centerY" secondItem="1170" secondAttribute="centerY" id="Joe-Yb-5qN"/>
+                                    <constraint firstItem="1169" firstAttribute="baseline" secondItem="1170" secondAttribute="firstBaseline" constant="5" id="APV-9x-ngS"/>
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqm-Qq-zTy">
