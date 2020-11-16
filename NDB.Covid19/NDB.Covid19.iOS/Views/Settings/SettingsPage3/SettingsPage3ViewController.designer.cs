@@ -1,4 +1,4 @@
-// WARNING
+﻿// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -7,7 +7,6 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 {
@@ -15,8 +14,15 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
     partial class SettingsPage3ViewController
     {
         [Outlet]
+        UIKit.UIView BottomView { get; set; }
+
+        [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton BackButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIStackView BottomStackView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -24,7 +30,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Views.CustomSubclasses.DefaultBorderButton DeleteConsentBtn { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton DeleteConsentBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -32,7 +38,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Views.CustomSubclasses.SetttingsPageTitleLabel PageTitle { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel PageTitle { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -42,19 +48,24 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIStackView TitleStackView { get; set; }
 
+
         [Action ("BackButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
         partial void BackButton_TouchUpInside (UIKit.UIButton sender);
 
+
         [Action ("DeleteConsentBtn_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void DeleteConsentBtn_TouchUpInside (Views.CustomSubclasses.DefaultBorderButton sender);
+        partial void DeleteConsentBtn_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton sender);
 
         void ReleaseDesignerOutlets ()
         {
             if (BackButton != null) {
                 BackButton.Dispose ();
                 BackButton = null;
+            }
+
+            if (BottomStackView != null) {
+                BottomStackView.Dispose ();
+                BottomStackView = null;
             }
 
             if (DeleteBtnWidthConstraint != null) {

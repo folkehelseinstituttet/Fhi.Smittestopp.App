@@ -1,6 +1,7 @@
 using System;
 using CoreGraphics;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.iOS.Views.CustomSubclasses;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
@@ -38,6 +39,11 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
             StyleUtil.InitButtonStyling(DeleteConsentBtn, ConsentViewModel.WITHDRAW_CONSENT_BUTTON_TEXT);
             PageTitle.SetAttributedText(ConsentViewModel.WELCOME_PAGE_CONSENT_TITLE);
             StyleUtil.InitButtonStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
+            BottomStackView.Layer.MasksToBounds = false;
+            BottomStackView.Layer.ShadowColor = UIColor.Gray.CGColor;
+            BottomStackView.Layer.ShadowOffset = new CGSize(0f, 10f);
+            BottomStackView.Layer.ShadowOpacity = 1;
+            BottomStackView.Layer.ShadowRadius = 9;
         }
 
         void InitPrivacyPolicyButton()
@@ -54,7 +60,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
         }
 
 
-        partial void DeleteConsentBtn_TouchUpInside(Views.CustomSubclasses.DefaultBorderButton sender)
+        partial void DeleteConsentBtn_TouchUpInside(DefaultBorderButton sender)
         {
             CreateDeleteWarning();
         }
@@ -102,7 +108,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
             View.Add(spinner);
 
             // Pin the spinner to the center of the DeleteConsentBtn
-            NSLayoutConstraint.ActivateConstraints(new NSLayoutConstraint[] {
+            NSLayoutConstraint.ActivateConstraints(new[] {
                 spinner.CenterXAnchor.ConstraintEqualTo(DeleteConsentBtn.CenterXAnchor),
                 spinner.CenterYAnchor.ConstraintEqualTo(DeleteConsentBtn.CenterYAnchor)
             });

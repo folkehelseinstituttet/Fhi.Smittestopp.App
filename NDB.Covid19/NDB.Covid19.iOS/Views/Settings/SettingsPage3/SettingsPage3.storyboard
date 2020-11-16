@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="632">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="632">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,36 +17,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1031">
-                                <rect key="frame" x="0.0" y="95" width="414" height="781"/>
+                                <rect key="frame" x="0.0" y="142.5" width="414" height="631"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdh-ph-nBx">
-                                        <rect key="frame" x="24" y="0.0" width="366" height="781"/>
+                                        <rect key="frame" x="24" y="0.0" width="366" height="631"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Uzn-YX-awd">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="781"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="631"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ayS-tk-90N">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="681"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="631"/>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ea-bc-qn7" customClass="DefaultBorderButton">
-                                                        <rect key="frame" x="121" y="731" width="124" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="124" id="DSO-mb-IAL"/>
-                                                            <constraint firstAttribute="height" constant="50" id="NpN-Q8-iPD"/>
-                                                            <constraint firstAttribute="width" constant="250" id="WCB-b0-Ity"/>
-                                                        </constraints>
-                                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                                        <state key="normal" title="Delete consent"/>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="DSO-mb-IAL"/>
-                                                                <exclude reference="WCB-b0-Ity"/>
-                                                            </mask>
-                                                        </variation>
-                                                        <connections>
-                                                            <action selector="DeleteConsentBtn_TouchUpInside:" destination="632" eventType="touchUpInside" id="1704"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="ayS-tk-90N" secondAttribute="trailing" id="cTz-a1-6or"/>
@@ -53,7 +35,6 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Uzn-YX-awd" firstAttribute="top" secondItem="Pdh-ph-nBx" secondAttribute="top" id="IQg-mg-y0w"/>
                                             <constraint firstItem="Uzn-YX-awd" firstAttribute="leading" secondItem="Pdh-ph-nBx" secondAttribute="leading" id="gmE-DQ-tpj"/>
@@ -71,44 +52,100 @@
                                     <constraint firstItem="Pdh-ph-nBx" firstAttribute="top" secondItem="1031" secondAttribute="top" id="sH8-lr-GbI"/>
                                 </constraints>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1O-pC-n5q">
-                                <rect key="frame" x="13" y="40" width="353" height="35"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1O-pC-n5q">
+                                <rect key="frame" x="24" y="64" width="342" height="58.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="692">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="692">
+                                        <rect key="frame" x="0.0" y="14" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="0LR-ij-UGK"/>
-                                            <constraint firstAttribute="height" constant="35" id="esE-yM-wtJ"/>
+                                            <constraint firstAttribute="height" constant="30" id="esE-yM-wtJ"/>
                                         </constraints>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="BackButton"/>
+                                        <color key="tintColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <state key="normal" image="ArrowLeftCircle"/>
                                         <connections>
                                             <action selector="BackButton_TouchUpInside:" destination="632" eventType="touchUpInside" id="1705"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBn-mf-h6U" userLabel="Spacer">
+                                        <rect key="frame" x="35" y="29" width="8" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="P8x-Gu-KJY"/>
+                                            <constraint firstAttribute="width" constant="8" id="yEi-1G-KMq"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consents" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="838" customClass="SetttingsPageTitleLabel">
-                                        <rect key="frame" x="35" y="0.0" width="318" height="20.5"/>
+                                        <rect key="frame" x="48" y="19" width="294" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DXn-IY-jpf" userLabel="Bottom Stack View">
+                                <rect key="frame" x="0.0" y="773.5" width="414" height="122.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1d-2f-1aT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="122.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ea-bc-qn7" customClass="DefaultBorderButton">
+                                                <rect key="frame" x="24" y="36" width="366" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="124" id="DSO-mb-IAL"/>
+                                                    <constraint firstAttribute="height" constant="50" id="NpN-Q8-iPD"/>
+                                                    <constraint firstAttribute="width" constant="250" id="WCB-b0-Ity"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Delete consent"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="DSO-mb-IAL"/>
+                                                        <exclude reference="WCB-b0-Ity"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="DeleteConsentBtn_TouchUpInside:" destination="632" eventType="touchUpInside" id="1704"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.88235294117647056" green="0.91764705882352937" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="8Ea-bc-qn7" secondAttribute="trailing" constant="24" id="25d-Gt-Ldu"/>
+                                            <constraint firstItem="8Ea-bc-qn7" firstAttribute="leading" secondItem="h1d-2f-1aT" secondAttribute="leading" constant="24" id="5x9-9c-jNt"/>
+                                            <constraint firstItem="8Ea-bc-qn7" firstAttribute="centerY" secondItem="h1d-2f-1aT" secondAttribute="centerY" id="IiH-hn-Yq8"/>
+                                            <constraint firstItem="8Ea-bc-qn7" firstAttribute="centerX" secondItem="h1d-2f-1aT" secondAttribute="centerX" id="tKY-WY-2f3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="h1d-2f-1aT" firstAttribute="leading" secondItem="DXn-IY-jpf" secondAttribute="leading" id="B7P-jL-hNO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="EuJ-8D-IFD"/>
+                                    <constraint firstAttribute="trailing" secondItem="h1d-2f-1aT" secondAttribute="trailing" id="LUz-lq-siJ"/>
+                                    <constraint firstItem="h1d-2f-1aT" firstAttribute="top" secondItem="DXn-IY-jpf" secondAttribute="top" id="XX3-8h-MrY"/>
+                                    <constraint firstAttribute="bottom" secondItem="h1d-2f-1aT" secondAttribute="bottom" id="Zqt-4V-BTD"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0061712670139968395" green="0.09414171427488327" blue="0.15225142240524292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="RHP-9H-xBd"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z1O-pC-n5q" firstAttribute="top" secondItem="RHP-9H-xBd" secondAttribute="top" constant="20" id="7FH-TV-RLU"/>
+                            <constraint firstItem="DXn-IY-jpf" firstAttribute="leading" secondItem="RHP-9H-xBd" secondAttribute="leading" id="9Jb-lf-blR"/>
                             <constraint firstItem="RHP-9H-xBd" firstAttribute="trailing" secondItem="1031" secondAttribute="trailing" id="Ekh-SC-LAg"/>
-                            <constraint firstItem="Z1O-pC-n5q" firstAttribute="leading" secondItem="RHP-9H-xBd" secondAttribute="leading" constant="13" id="POU-Er-sMx"/>
-                            <constraint firstItem="RHP-9H-xBd" firstAttribute="bottom" secondItem="1031" secondAttribute="bottom" constant="20" id="awf-7F-Lb5"/>
+                            <constraint firstItem="DXn-IY-jpf" firstAttribute="bottom" secondItem="633" secondAttribute="bottom" id="LSL-dv-eCZ"/>
+                            <constraint firstItem="Z1O-pC-n5q" firstAttribute="leading" secondItem="RHP-9H-xBd" secondAttribute="leading" constant="24" id="POU-Er-sMx"/>
+                            <constraint firstItem="RHP-9H-xBd" firstAttribute="trailing" secondItem="DXn-IY-jpf" secondAttribute="trailing" id="QSt-ql-fHV"/>
+                            <constraint firstItem="DXn-IY-jpf" firstAttribute="height" secondItem="RHP-9H-xBd" secondAttribute="height" multiplier="0.15" id="UPT-rp-cR9"/>
+                            <constraint firstItem="DXn-IY-jpf" firstAttribute="top" secondItem="1031" secondAttribute="bottom" id="awf-7F-Lb5"/>
                             <constraint firstItem="1031" firstAttribute="leading" secondItem="RHP-9H-xBd" secondAttribute="leading" id="jWR-ee-o0o"/>
                             <constraint firstItem="1031" firstAttribute="top" secondItem="Z1O-pC-n5q" secondAttribute="bottom" constant="20" id="kK9-IF-Bnx"/>
                             <constraint firstItem="RHP-9H-xBd" firstAttribute="trailing" secondItem="Z1O-pC-n5q" secondAttribute="trailing" constant="48" id="xG9-ef-U3Y"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="RHP-9H-xBd"/>
                     </view>
                     <connections>
                         <outlet property="BackButton" destination="692" id="name-outlet-692"/>
+                        <outlet property="BottomStackView" destination="DXn-IY-jpf" id="name-outlet-DXn-IY-jpf"/>
+                        <outlet property="BottomView" destination="h1d-2f-1aT" id="name-outlet-h1d-2f-1aT"/>
                         <outlet property="DeleteBtnWidthConstraint" destination="DSO-mb-IAL" id="name-outlet-DSO-mb-IAL"/>
                         <outlet property="DeleteConsentBtn" destination="8Ea-bc-qn7" id="name-outlet-8Ea-bc-qn7"/>
                         <outlet property="LabelStackView" destination="ayS-tk-90N" id="name-outlet-ayS-tk-90N"/>
@@ -119,10 +156,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="634" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366.6667" y="8.705358"/>
+            <point key="canvasLocation" x="366.66669999999999" y="8.7053580000000004"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="22" height="22"/>
+        <image name="ArrowLeftCircle" width="34" height="34"/>
     </resources>
 </document>

@@ -15,19 +15,23 @@ namespace NDB.Covid19.iOS.Utils
             // We add each label manually to the stackView
             foreach (ConsentSectionTexts obj in sections)
             {
-                UILabel titleLbl = new UILabel();
-                titleLbl.TranslatesAutoresizingMaskIntoConstraints = false;
-                titleLbl.TextColor = UIColor.White;
-                titleLbl.Lines = 0;
+                UILabel titleLbl = new UILabel
+                {
+                    TranslatesAutoresizingMaskIntoConstraints = false,
+                    Lines = 0,
+                    TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND
+                };
 
                 InitLabel(titleLbl, FontType.FontBold, obj.Title, 16, 22);
 
                 stackView.AddArrangedSubview(titleLbl);
 
-                UILabel paragrapLbl = new UILabel();
-                paragrapLbl.TranslatesAutoresizingMaskIntoConstraints = false;
-                paragrapLbl.TextColor = UIColor.White;
-                paragrapLbl.Lines = 100;
+                UILabel paragrapLbl = new UILabel
+                {
+                    TranslatesAutoresizingMaskIntoConstraints = false,
+                    Lines = 0,
+                    TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND
+                };
                 InitLabelWithHTMLFormat(paragrapLbl, obj.Paragraph);
 
                 if (obj.ParagraphAccessibilityText != null)

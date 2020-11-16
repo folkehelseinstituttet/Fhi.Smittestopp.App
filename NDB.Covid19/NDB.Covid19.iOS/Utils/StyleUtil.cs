@@ -120,6 +120,7 @@ namespace NDB.Covid19.iOS.Utils
             text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
             text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
             label.AttributedText = text;
+            label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         public static void InitMonospacedLabel(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize, UITextAlignment alignment = UITextAlignment.Left)
