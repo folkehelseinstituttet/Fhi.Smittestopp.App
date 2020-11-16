@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.ConstraintLayout.Widget;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Interfaces;
 using Xamarin.Essentials;
@@ -38,9 +39,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             TextView registeredDescription = FindViewById<TextView>(Resource.Id.registered_description);
             TextView recipeHeader = FindViewById<TextView>(Resource.Id.recipe_header);
             TextView recipeSmallText = FindViewById<TextView>(Resource.Id.recipe_small_text);
-
-            SetLogoBasedOnAppLanguage();
-
+            
             registeredTitle.Text = REGISTER_QUESTIONAIRE_RECEIPT_HEADER;
             registeredTickText.Text = REGISTER_QUESTIONAIRE_RECEIPT_TEXT;
             registeredDescription.Text = REGISTER_QUESTIONAIRE_RECEIPT_DESCRIPTION;
@@ -58,18 +57,13 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             button.ContentDescription = REGISTER_QUESTIONAIRE_RECEIPT_DISMISS;
             button.Click += new SingleClick((o, ev) => GoToInfectionStatusActivity()).Run;
 
-            FindViewById<RelativeLayout>(Resource.Id.recipe_small_text_layout).Click +=
-                async (sender, args) => await CommonServiceLocator.ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(REGISTER_QUESTIONAIRE_RECEIPT_LINK, BrowserLaunchMode.SystemPreferred);
+            FindViewById<ConstraintLayout>(Resource.Id.explanation_link).Click +=
+                async (sender, args) =>
+                    await CommonServiceLocator.ServiceLocator.Current.GetInstance<IBrowser>()
+                        .OpenAsync(
+                            REGISTER_QUESTIONAIRE_RECEIPT_LINK,
+                            BrowserLaunchMode.SystemPreferred);
             LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys");
-        }
-
-        private void SetLogoBasedOnAppLanguage()
-        {
-            ImageView logo = FindViewById<ImageView>(Resource.Id.recipe_logo);
-            string appLanguage = LocalesService.GetLanguage();
-            logo?.SetBackgroundResource(appLanguage != null && appLanguage.ToLower() == "en"
-                ? Resource.Drawable.logo_small_en
-                : Resource.Drawable.logo_small);
         }
 
         public override void OnBackPressed() => GoToInfectionStatusActivity();

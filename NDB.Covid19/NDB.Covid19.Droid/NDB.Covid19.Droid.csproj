@@ -142,11 +142,15 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_hamburger_menu_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logoKortBl.png" />
     <AndroidResource Include="Resources\drawable-hdpi\logo_fhi_blue.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_hamburger_menu_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logoKortBl.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\logo_fhi_blue.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_hamburger_menu_icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\logo_fhi_blue.png" />
+    <AndroidResource Include="Resources\drawable\calendar_border.xml" />
+    <AndroidResource Include="Resources\drawable\logoKortBl.png" />
     <AndroidResource Include="Resources\drawable\shadow_gradient_border.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png">
       <SubType>

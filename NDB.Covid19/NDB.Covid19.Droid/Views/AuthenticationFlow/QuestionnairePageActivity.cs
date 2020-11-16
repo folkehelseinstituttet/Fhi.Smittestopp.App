@@ -234,7 +234,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private void OnNextButtonClick(object o, EventArgs args)
         {
             _questionnaireViewModel.InvokeNextButtonClick(
-                GoToQuestionnaireCountriesSelectionPage, null, null);
+                GoToLoadingPage, null, null);
         }
 
         private void OnInfoButtonPressed(object o, EventArgs args)
@@ -242,9 +242,13 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             DialogUtils.DisplayBubbleDialog(this, REGISTER_QUESTIONAIRE_SYMPTOMONSET_HELP, "ERROR_OK_BTN".Translate());
         }
 
+        // Left for future release when we will support other countries
         private void GoToQuestionnaireCountriesSelectionPage() =>
             StartActivity(new Intent(this, typeof(QuestionnaireCountriesSelectionActivity)));
 
+        private void GoToLoadingPage() =>
+            StartActivity(new Intent(this, typeof(LoadingPageActivity)));
+        
         private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
     }
 }

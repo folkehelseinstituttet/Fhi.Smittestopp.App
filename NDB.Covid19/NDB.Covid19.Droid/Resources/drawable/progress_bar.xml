@@ -5,7 +5,7 @@
 			android:innerRadiusRatio="3"
 			android:shape="ring"
 			android:useLevel="false">
-			<solid android:color="#FFFFFF" />
+			<solid android:color="@color/primaryText" />
 		</shape>
 	</item>
 	<item>
@@ -15,7 +15,7 @@
 				android:innerRadiusRatio="3"
 				android:shape="ring"
 				android:useLevel="true">
-				<solid android:color="#979797" />
+				<solid android:color="@color/backgroundColor" />
 			</shape>
 		</rotate>
 	</item>
