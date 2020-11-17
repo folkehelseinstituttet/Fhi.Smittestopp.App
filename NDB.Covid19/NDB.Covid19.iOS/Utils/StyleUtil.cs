@@ -239,6 +239,7 @@ namespace NDB.Covid19.iOS.Utils
         {
             UIActivityIndicatorView spinner = AddSpinnerToView(parentView, style);
             CenterView(spinner, parentView);
+            spinner.Color = ColorHelper.PRIMARY_COLOR;
             spinner.StartAnimating();
 
             return spinner;
