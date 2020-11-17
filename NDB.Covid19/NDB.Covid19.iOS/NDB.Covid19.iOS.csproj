@@ -1024,19 +1024,5 @@
       <Name>NDB.Covid19</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Fonts\BrandonText-Black.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-BlackItalic.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-Bold.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-BoldItalic.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-Light.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-LightItalic.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-Medium.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-MediumItalic.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-Regular.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-RegularItalic.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-Thin.otf" />
-    <BundleResource Include="Resources\Fonts\BrandonText-ThinItalic.otf" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
