@@ -16,11 +16,6 @@ namespace NDB.Covid19.ViewModels
 
         public static string CLOSE_BUTTON_ACCESSIBILITY_LABEL => "SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON".Translate();
 
-        public static string INFOCONSENT_TITLE => "INFOCONSENT_TITLE".Translate();
-        public static string INFOCONSENT_BODY_ONE => "INFOCONSENT_BODY_ONE".Translate();
-        public static string INFOCONSENT_BODY_TWO => "INFOCONSENT_BODY_TWO".Translate();
-        public static string INFOCONSENT_DESCRIPTION_ONE => "INFOCONSENT_DESCRIPTION_ONE".Translate();
-
         public static string INFOCONSENT_LOOKUP_HEADER => "INFOCONSENT_LOOKUP_HEADER".Translate();
         public static string INFOCONSENT_LOOKUP_TEXT => "INFOCONSENT_LOOKUP_TEXT".Translate();
         public static string INFOCONSENT_NOTIFICATION_HEADER => "INFOCONSENT_NOTIFICATION_HEADER".Translate();
@@ -93,7 +88,8 @@ namespace NDB.Covid19.ViewModels
                 else
                 {
                     //Expiration time
-                    if (e.Account.Properties.TryGetValue("expires_in", out string expires)) {
+                    if (e.Account.Properties.TryGetValue("expires_in", out string expires))
+                    {
                         int.TryParse(expires, out int expiresSeconds);
                         if (expiresSeconds > 0)
                         {
