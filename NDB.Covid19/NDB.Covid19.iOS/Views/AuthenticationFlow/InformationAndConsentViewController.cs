@@ -15,7 +15,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     public partial class InformationAndConsentViewController : BaseViewController
     {
-        public InformationAndConsentViewController (IntPtr handle) : base (handle)
+        public InformationAndConsentViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -45,7 +45,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             Notification_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER, StyleUtil.FontType.FontBold);
             Notification_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT);
             Consent_BeAware_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT, StyleUtil.FontType.FontBold);
-            Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT);
+            Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
 
             StyleUtil.InitButtonStyling(LogInWithIDPortenBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT);
 

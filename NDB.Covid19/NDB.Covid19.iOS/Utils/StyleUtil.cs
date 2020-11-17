@@ -11,6 +11,7 @@ namespace NDB.Covid19.iOS.Utils
         public static string FontSemiBoldkName => "Brandon Text Regular";
         public static string FontMediumkName => "Brandon Text Medium";
         public static string FontMonospacedName => "Menlo-Regular";
+        public static string FontItalicName => "Brandon Text Medium Italic";
 
         public enum FontType
         {
@@ -18,7 +19,8 @@ namespace NDB.Covid19.iOS.Utils
             FontBold,
             FontSemiBold,
             FontMedium,
-            FontMonospaced
+            FontMonospaced,
+            FontItalic
         }
 
         public static string GetFontName(FontType fontType)
@@ -33,6 +35,8 @@ namespace NDB.Covid19.iOS.Utils
                     return FontSemiBoldkName;
                 case FontType.FontMonospaced:
                     return FontMonospacedName;
+                case FontType.FontItalic:
+                    return FontItalicName;
                 default:
                     return FontRegularName;
             }
@@ -300,5 +304,5 @@ namespace NDB.Covid19.iOS.Utils
 
             stackView.SetNeedsLayout();
         }
-    } 
+    }
 }
