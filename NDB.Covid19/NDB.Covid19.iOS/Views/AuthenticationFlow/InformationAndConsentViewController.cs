@@ -39,11 +39,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             _viewModel.Init();
             CloseBtn.AccessibilityLabel = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
             HeaderLabel.SetAttributedText(InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT);
-            DescriptionLabel.SetAttributedText(InformationAndConsentViewModel.INFORMATION_CONSENT_CONTENT_TEXT);
-            TitleLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_TITLE, StyleUtil.FontType.FontBold);
-            BodyOneLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_BODY_ONE);
-            BodyTwoLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_BODY_TWO);
-            DescriptionOneLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION_ONE);
+            DescriptionLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION);
+            LookUp_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER, StyleUtil.FontType.FontBold);
+            LookUp_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT);
+            Notification_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER, StyleUtil.FontType.FontBold);
+            Notification_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT);
+            Consent_BeAware_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT, StyleUtil.FontType.FontBold);
+            Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT);
+
             StyleUtil.InitButtonStyling(LogInWithIDPortenBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT);
 
             SetupStyling();
@@ -54,10 +57,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             DescriptionLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            TitleLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            BodyOneLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            BodyTwoLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            DescriptionOneLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            LookUp_Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            LookUp_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            Notification_Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            Notification_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            Consent_BeAware_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            Consent_Explanation_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         public override void ViewWillDisappear(bool animated)
@@ -92,7 +97,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 LogInWithIDPortenBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
             });
 
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Started login with ID Porten");
+            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with nemid");
             _authViewController = AuthenticationState.Authenticator.GetUI();
             PresentViewController(_authViewController, true, null);
         }

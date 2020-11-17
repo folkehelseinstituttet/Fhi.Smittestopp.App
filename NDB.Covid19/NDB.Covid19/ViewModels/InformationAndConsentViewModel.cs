@@ -11,7 +11,7 @@ namespace NDB.Covid19.ViewModels
     public class InformationAndConsentViewModel
     {
         public static string INFORMATION_CONSENT_HEADER_TEXT => "INFOCONSENT_HEADER".Translate();
-        public static string INFORMATION_CONSENT_CONTENT_TEXT => "INFOCONSENT_DESCRIPTION".Translate();
+        public static string INFOCONSENT_DESCRIPTION => "INFOCONSENT_DESCRIPTION".Translate();
         public static string INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT => "INFOCONSENT_LOGIN".Translate();
 
         public static string CLOSE_BUTTON_ACCESSIBILITY_LABEL => "SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON".Translate();
@@ -20,6 +20,14 @@ namespace NDB.Covid19.ViewModels
         public static string INFOCONSENT_BODY_ONE => "INFOCONSENT_BODY_ONE".Translate();
         public static string INFOCONSENT_BODY_TWO => "INFOCONSENT_BODY_TWO".Translate();
         public static string INFOCONSENT_DESCRIPTION_ONE => "INFOCONSENT_DESCRIPTION_ONE".Translate();
+
+        public static string INFOCONSENT_LOOKUP_HEADER => "INFOCONSENT_LOOKUP_HEADER".Translate();
+        public static string INFOCONSENT_LOOKUP_TEXT => "INFOCONSENT_LOOKUP_TEXT".Translate();
+        public static string INFOCONSENT_NOTIFICATION_HEADER => "INFOCONSENT_NOTIFICATION_HEADER".Translate();
+        public static string INFOCONSENT_NOTIFICATION_TEXT => "INFOCONSENT_NOTIFICATION_TEXT".Translate();
+        public static string INFOCONSENT_CONSENT_BEAWARE_TEXT => "INFOCONSENT_CONSENT_BEAWARE_TEXT".Translate();
+        public static string INFOCONSENT_CONSENT_EXPLANATION_TEXT => "INFOCONSENT_CONSENT_EXPLANATION_TEXT".Translate();
+        public static string INFOCONSENT_CONSENTSWITCH_LABEL => "INFOCONSENT_CONSENTSWITCH_LABEL".Translate();
 
         AuthenticationManager _authManager;
         public event EventHandler<AuthErrorType> OnError;

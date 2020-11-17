@@ -19,15 +19,7 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.NSLayoutConstraint DeleteBtnWidthConstraint { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsContentTextView ErrorMessageLabel { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel ErrorSubtitleLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsContentTextView ErrorMessageLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -52,19 +44,9 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
                 BackButton = null;
             }
 
-            if (DeleteBtnWidthConstraint != null) {
-                DeleteBtnWidthConstraint.Dispose ();
-                DeleteBtnWidthConstraint = null;
-            }
-
             if (ErrorMessageLabel != null) {
                 ErrorMessageLabel.Dispose ();
                 ErrorMessageLabel = null;
-            }
-
-            if (ErrorSubtitleLabel != null) {
-                ErrorSubtitleLabel.Dispose ();
-                ErrorSubtitleLabel = null;
             }
 
             if (ErrorTitleLabel != null) {

@@ -15,23 +15,19 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel BodyOneLabel { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel BodyTwoLabel { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton CloseBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel DescriptionLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Consent_BeAware_Text { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel DescriptionOneLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Consent_Explanation_Text { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel DescriptionLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -43,7 +39,19 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel TitleLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel LookUp_Header { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel LookUp_Text { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Notification_Header { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Notification_Text { get; set; }
 
         [Action ("OnCloseBtnTapped:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -55,29 +63,24 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void ReleaseDesignerOutlets ()
         {
-            if (BodyOneLabel != null) {
-                BodyOneLabel.Dispose ();
-                BodyOneLabel = null;
-            }
-
-            if (BodyTwoLabel != null) {
-                BodyTwoLabel.Dispose ();
-                BodyTwoLabel = null;
-            }
-
             if (CloseBtn != null) {
                 CloseBtn.Dispose ();
                 CloseBtn = null;
             }
 
+            if (Consent_BeAware_Text != null) {
+                Consent_BeAware_Text.Dispose ();
+                Consent_BeAware_Text = null;
+            }
+
+            if (Consent_Explanation_Text != null) {
+                Consent_Explanation_Text.Dispose ();
+                Consent_Explanation_Text = null;
+            }
+
             if (DescriptionLabel != null) {
                 DescriptionLabel.Dispose ();
                 DescriptionLabel = null;
-            }
-
-            if (DescriptionOneLabel != null) {
-                DescriptionOneLabel.Dispose ();
-                DescriptionOneLabel = null;
             }
 
             if (HeaderLabel != null) {
@@ -90,9 +93,24 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 LogInWithIDPortenBtn = null;
             }
 
-            if (TitleLabel != null) {
-                TitleLabel.Dispose ();
-                TitleLabel = null;
+            if (LookUp_Header != null) {
+                LookUp_Header.Dispose ();
+                LookUp_Header = null;
+            }
+
+            if (LookUp_Text != null) {
+                LookUp_Text.Dispose ();
+                LookUp_Text = null;
+            }
+
+            if (Notification_Header != null) {
+                Notification_Header.Dispose ();
+                Notification_Header = null;
+            }
+
+            if (Notification_Text != null) {
+                Notification_Text.Dispose ();
+                Notification_Text = null;
             }
         }
     }

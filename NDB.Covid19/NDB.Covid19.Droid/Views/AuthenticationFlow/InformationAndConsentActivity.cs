@@ -72,7 +72,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             //Text initialization
             _idPortenButton.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT;
             _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
-            _contentText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFORMATION_CONSENT_CONTENT_TEXT}", HtmlCompat.FromHtmlModeLegacy);
+            _contentText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
             _subtitleText.Text = InformationAndConsentViewModel.INFOCONSENT_TITLE;
             _bodyOneText.Text = InformationAndConsentViewModel.INFOCONSENT_BODY_ONE;
             _bodyTwoText.Text = InformationAndConsentViewModel.INFOCONSENT_BODY_TWO;
