@@ -21,26 +21,26 @@ namespace NDB.Covid19.iOS.Utils
             FontMonospaced
         }
 
-        public static string GetFontName(FontType fontType)
+        public static UIFontWeight GetFontWeight(FontType fontType)
         {
             switch (fontType)
             {
                 case FontType.FontBold:
-                    return FontBoldName;
+                    return UIFontWeight.Bold;
                 case FontType.FontMedium:
-                    return FontMediumkName;
+                    return UIFontWeight.Medium;
                 case FontType.FontSemiBold:
-                    return FontSemiBoldkName;
+                    return UIFontWeight.Semibold;
                 case FontType.FontMonospaced:
-                    return FontMonospacedName;
+                    return UIFontWeight.Regular;
                 default:
-                    return FontRegularName;
+                    return UIFontWeight.Regular;
             }
         }
 
         public static UIFont Font(FontType fontType = FontType.FontRegular, float fontSize = 14, float? maxFontSize = null)
         {
-            UIFont font = UIFont.FromName(GetFontName(fontType), fontSize);
+            UIFont font = UIFont.SystemFontOfSize(fontSize, GetFontWeight(fontType));
 
             if (!UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
             {
