@@ -91,7 +91,7 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE": "Smittestopp in other countries<br>",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "Smittestopp cooperates with other EU/EEA countries that have developed COVID-19 apps based on Apple’s and Google’s technology. \n\nThat means that Smittestopp works when you visit a number of EU/EEA countries and if you meet EU/EEA citizens with a COVID-19 app in Norway. It remains the case that no one will know who you are or where you are from. \n\nYou can see the list of countries that are cooperating at [link].",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK_TEXT": "Go to helsenorge.no/en/smittestopp",
-  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK": "[link]",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK": "https://www.helsenorge.no/en/smittestopp",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Withdraw consent",
   "CONSENT_REMOVE_TITLE": "The app cannot be used without consent",
   "CONSENT_REMOVE_MESSAGE": "Are you sure you want to withdraw your consent? All your alerts in Smittestopp will be deleted. ",
