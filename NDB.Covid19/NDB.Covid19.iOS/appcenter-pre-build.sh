@@ -91,6 +91,12 @@ then
     exit
 fi
 
+if [ -z "APPCENTER_DIAGNOSTICS_TOKEN" ]
+then
+    echo "You need define the APPCENTER_DIAGNOSTICS_TOKEN variable in App Center"
+    exit
+fi
+
 CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/Conf.cs
 OAUTH_CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/OAuthConf.cs
 
@@ -102,6 +108,9 @@ then
     echo "Updating AUTHORIZATION_HEADER to $AUTHORIZATION_HEADER in Conf.cs"
     sed -i '' 's#AUTHORIZATION_HEADER = "[-A-Za-z0-9:_./]*"#AUTHORIZATION_HEADER = "'$AUTHORIZATION_HEADER'"#' $CONF_FILE
 
+    echo "Updating APPCENTER_DIAGNOSTICS_TOKEN to $APPCENTER_DIAGNOSTICS_TOKEN in Conf.cs"
+    sed -i '' 's#APPCENTER_DIAGNOSTICS_TOKEN = "[-A-Za-z0-9:_./]*"#APPCENTER_DIAGNOSTICS_TOKEN = "'$APPCENTER_DIAGNOSTICS_TOKEN'"#' $CONF_FILE
+    
     echo "File content:"
     cat $CONF_FILE
     echo "Finished updating $CONF_FILE"
