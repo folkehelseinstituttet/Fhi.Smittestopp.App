@@ -31,7 +31,8 @@ namespace NDB.Covid19.Droid.Views
             base.OnCreate(savedInstanceState);
 
 
-            if (OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+            if (!Conf.IsReleaseOne &&
+                OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
             {
                 NavigationHelper.GoToWelcomeWhatsNewPage(this);
                 Finish();

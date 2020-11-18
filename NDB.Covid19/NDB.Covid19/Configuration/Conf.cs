@@ -76,5 +76,6 @@ namespace NDB.Covid19.Configuration
         public static string GooglePlayAppLink = ""; // TODO
         public static string IOSAppstoreAppLink = ""; // TODO
 
+        public static bool IsReleaseOne = APIVersion == 3;
     }
 }

@@ -1,5 +1,6 @@
 using Android.App;
 using Android.Content;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Views.ENDeveloperTools;
 using NDB.Covid19.Droid.Views.InfectionStatus;
@@ -96,7 +97,9 @@ namespace NDB.Covid19.Droid.Utils
 
         public static void GoToStartPageIfIsOnboarded(Activity parent)
         {
-            if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
+            if ((Conf.IsReleaseOne &&
+                 OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted) ||
+                OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
             {
                 GoToResultPageAndClearTop(parent);
             }

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Foundation;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Views.InfectionStatus;
 using NDB.Covid19.iOS.Views.Welcome;
@@ -125,7 +126,9 @@ namespace NDB.Covid19.iOS.Utils
 
         public static void GoToResultPageIfOnboarded(UIViewController parent)
         {
-            if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
+            if ((Conf.IsReleaseOne &&
+                 OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted) ||
+                OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
             {
                 GoToResultPage(parent, false);
             }

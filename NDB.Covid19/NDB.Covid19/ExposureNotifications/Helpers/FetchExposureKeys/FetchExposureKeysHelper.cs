@@ -84,6 +84,11 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 
         private void SendReApproveConsentsNotificationIfNeeded()
         {
+            if (Conf.IsReleaseOne)
+            {
+                return;
+            }
+            
             if (OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted &&
                 !LocalPreferencesHelper.TermsNotificationWasShown)
             {

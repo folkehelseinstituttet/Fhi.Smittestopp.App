@@ -41,7 +41,8 @@ namespace NDB.Covid19.iOS.Views.Initializer
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(13, 5))
             {
-                if (OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+                if (!Conf.IsReleaseOne &&
+                    OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
                 {
                     NavigationHelper.GoToWelcomeWhatsNewPage(this);
                     return;
