@@ -1,6 +1,6 @@
-#Smittestopp Mobile Application
+# Smittestopp Mobile Application
 
-##Licence
+## Licence
 Copyright (c) 2020 Agency for Digitisation (Denmark), 2020 Norwegian Institute of Public Health (Norway), 2020 Netcompany Group AS
 
 This program is free software; you can redistribute it and/or modify
