@@ -42,15 +42,13 @@ namespace NDB.Covid19.Enums
                     return new NotificationViewModel
                     {
                         Type = NotificationsEnum.ConsentNeeded,
-                        Title = "NOTIFICATION_UPDATE_HEADER".Translate(),
-                        Body = "NOTIFICATION_CONSENT_DESCRIPTION".Translate()
+                        Title = "NOTIFICATION_UPDATE_HEADER".Translate()
                     };
                 case NotificationsEnum.ReApproveConsents:
                     return new NotificationViewModel
                     {
                         Type = NotificationsEnum.ReApproveConsents,
-                        Title = "NOTIFICATION_CONSENT_HEADER".Translate(),
-                        Body = "NOTIFICATION_CONSENT_DESCRIPTION".Translate()
+                        Title = "NOTIFICATION_CONSENT_HEADER".Translate()
                     };
                 case NotificationsEnum.BackgroundFetch:
                     return new NotificationViewModel
