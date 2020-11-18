@@ -1,14 +1,14 @@
 ﻿<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:gravity="center_horizontal">
 
 	<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		android:gravity="end">
 		<RelativeLayout
@@ -25,115 +25,121 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"/>
 		</RelativeLayout>
-	</LinearLayout>>
-
+	</LinearLayout>
 	<ScrollView
-        android:fillViewport="true"
+		android:fillViewport="true"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-        android:layout_weight="1"
-		android:id="@+id/information_consent_scrollView" >
+		android:layout_weight="1"
+		android:id="@+id/information_consent_scrollView">
 		<RelativeLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/information_consent_relativeLayout" >
+			android:id="@+id/information_consent_relativeLayout">
 			<TextView
 				android:text="Header"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-                android:layout_margin="24dp"
+				android:layout_margin="24dp"
 				android:id="@+id/information_consent_header_textView"
-                style="@style/HeaderText"/>
+				style="@style/HeaderText"/>
 			<TextView
-				android:text="Content"
+				android:text="Consent description"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-               	android:textSize="16sp" 
-                android:layout_below="@id/information_consent_header_textView"
-                android:id="@+id/information_consent_content_textView"
-                style="@style/PrimaryTextRegular"/>
-            <TextView
-				android:text="Header"
+				android:layout_marginLeft="24dp"
+				android:layout_marginRight="24dp"
+				android:textSize="16sp"
+				android:layout_below="@id/information_consent_header_textView"
+				android:id="@+id/information_consent_contentDescription_textView"
+				style="@style/PrimaryTextRegular"/>
+			<TextView
+				android:text="LookUp header"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-                android:layout_margin="24dp"
-                android:textSize="16sp" 
-                android:layout_below="@id/information_consent_content_textView"
-                android:id="@+id/information_consent_subtitle_textView"
-                style="@style/PrimaryTextBold"/>
-			<LinearLayout
-				android:orientation="horizontal"
+				android:paddingLeft="24dp"
+				android:paddingRight="24dp"
+				android:paddingTop="24dp"
+				android:textSize="16sp"
+				android:layout_below="@id/information_consent_contentDescription_textView"
+				android:id="@+id/information_consent_lookup_header_textview"
+				style="@style/PrimaryTextBold"/>
+			<TextView
+				android:text="LookUp text"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:layout_below="@id/information_consent_subtitle_textView"
-				android:id="@+id/information_consent_body_one_bullet_linearLayout">
-                <ImageView 
-                    style="@style/Checkmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/check_shield"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Body one"
-                    android:id="@+id/information_consent_body_one_textView"
-                    android:accessibilityTraversalBefore="@id/information_consent_body_two_textView"
-                    style="@style/CheckmarkText"/>
-            </LinearLayout>
-            <LinearLayout
-				android:orientation="horizontal"
+				android:paddingLeft="24dp"
+				android:paddingRight="24dp"
+				android:textSize="16sp"
+				android:layout_below="@id/information_consent_lookup_header_textview"
+				android:id="@+id/information_consent_lookup_text_textview"
+				style="@style/PrimaryTextRegular"/>
+			<TextView
+				android:text="Notification header"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:layout_below="@id/information_consent_body_one_bullet_linearLayout"
-				android:id="@+id/information_consent_body_two_bullet_linearLayout">
-                <ImageView 
-                    style="@style/Checkmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/check_shield"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Body two"
-                    android:id="@+id/information_consent_body_two_textView"
-                    style="@style/CheckmarkText"/>
-            </LinearLayout>
-            <TextView
-				android:text="Content"
+				android:paddingLeft="24dp"
+				android:paddingRight="24dp"
+				android:paddingTop="24dp"
+				android:textSize="16sp"
+				android:layout_below="@id/information_consent_lookup_text_textview"
+				android:id="@+id/information_consent_notification_header_textview"
+				style="@style/PrimaryTextBold"/>
+			<TextView
+				android:text="Notification text"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-                android:layout_margin="24dp"
-                android:textSize="16sp" 
-                android:layout_below="@id/information_consent_body_two_bullet_linearLayout"
-                android:id="@+id/information_consent_content_two_textView"
-                style="@style/PrimaryTextRegular"/>
-        </RelativeLayout>
+				android:paddingLeft="24dp"
+				android:paddingRight="24dp"
+				android:textSize="16sp"
+				android:layout_below="@id/information_consent_notification_header_textview"
+				android:id="@+id/information_consent_notification_text_textview"
+				style="@style/PrimaryTextRegular"/>
+			<TextView
+				android:text="Be aware text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingTop="48dp"
+				android:paddingLeft="24dp"
+				android:paddingRight="24dp"
+				android:textSize="16sp"
+				android:layout_below="@id/information_consent_notification_text_textview"
+				android:id="@+id/information_consent_beAware_text_textview"
+				style="@style/PrimaryTextBold"/>
+			<TextView
+				android:text="Notification text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingTop="24dp"
+				android:paddingLeft="24dp"
+				android:paddingRight="24dp"
+				android:paddingBottom="24dp"
+				android:textSize="16sp"
+				android:layout_below="@id/information_consent_beAware_text_textview"
+				android:id="@+id/information_consent_explanation_text_textview"
+				style="@style/PrimaryTextItalic"/>
+			<Button
+				android:text="Consent Button"
+				android:layout_marginTop="24dp"
+				android:layout_marginLeft="24dp"
+				android:layout_marginRight="24dp"
+				android:layout_marginBottom="36dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:singleLine="false"
+				android:drawablePadding="7dp"
+				android:layout_below="@id/information_consent_explanation_text_textview"
+				android:id="@+id/information_consent_idporten_button"
+				style="@style/IDPortenButton"/>
+			<ProgressBar
+				android:layout_marginTop="24dp"
+				android:layout_marginLeft="24dp"
+				android:layout_marginRight="24dp"
+				android:layout_marginBottom="36dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:id="@+id/information_consent_progress_bar"/>
+		</RelativeLayout>
 	</ScrollView>
-    <Button
-	    android:text="Button"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="36dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="false"
-        android:drawablePadding="7dp"
-	    android:id="@+id/information_consent_idporten_button"
-        style="@style/IDPortenButton"/>
-	<ProgressBar
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="36dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:visibility="gone"
-	    android:id="@+id/information_consent_progress_bar"/>
 </LinearLayout>
