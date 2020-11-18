@@ -33,16 +33,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             SetupLearnMoreButton();
             SetAccessibilityAttributes();
-            SetLogoBasedOnAppLanguage();
             LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys");
-        }
-
-        private void SetLogoBasedOnAppLanguage()
-        {
-            string appLanguage = LocalesService.GetLanguage();
-            HealthAuthoritiesLogo.Image = appLanguage != null && appLanguage.ToLower() == "en"
-                ? UIImage.FromBundle("HealthAuthoritiesLogo_En")
-                : UIImage.FromBundle("HealthAuthoritiesLogo");
         }
 
         public override void ViewWillAppear(bool animated)
@@ -61,6 +52,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         private void SetStyling()
         {
+            CloseButton.TintColor = ColorHelper.PRIMARY_COLOR;
             TitleLabel.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_HEADER);
             TitleLabel.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_RECEIPT_HEADER;
             ContentLabelOne.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_TEXT);
@@ -72,11 +64,17 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void SetupLearnMoreButton()
         {
-            BoxView.Subviews[0].Layer.CornerRadius = 12;
+            UIView stackView = BoxView.Subviews[0];
+            stackView.Layer.CornerRadius = 12;
+            stackView.Layer.MasksToBounds = true;
+            stackView.Layer.BackgroundColor = ColorHelper.INFO_BUTTON_BACKGROUND.CGColor;
+            stackView.Layer.BorderWidth = 1;
+            stackView.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            
             _learnMoreViewBtn = new UIButton();
             _learnMoreViewBtn.TranslatesAutoresizingMaskIntoConstraints = false;
             _learnMoreViewBtn.AccessibilityTraits = UIAccessibilityTrait.Link;
-            StyleUtil.EmbedViewInsideButton(LearnMoreView, _learnMoreViewBtn);
+            StyleUtil.EmbedViewInsideButton(BoxView, _learnMoreViewBtn);
         }        
 
         void SetAccessibilityAttributes()
