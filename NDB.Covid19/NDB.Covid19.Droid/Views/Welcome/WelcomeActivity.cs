@@ -42,7 +42,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             IsOnBoarding = Intent.GetBooleanExtra(DroidRequestCodes.isOnBoardinIntentExtra, false);
 
-            if (IsOnBoarding && OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+            if (IsOnBoarding && ConsentsHelper.IsNotFullyOnboarded)
             {
                 GoToConsents();
                 return;
