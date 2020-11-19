@@ -54,6 +54,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             base.ViewWillAppear(animated);
 
             switchButton.ValueChanged += SwitchValueChanged;
+            SetupSwitchButton();
             SetupLinkButton();
             SetupRadioButtons();
         }
@@ -64,6 +65,11 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
             switchButton.ValueChanged -= SwitchValueChanged;
             SmittestopLinkButtonStackView.RemoveGestureRecognizer(_gestureRecognizer);
+        }
+        
+        void SetupSwitchButton()
+        {
+            switchButton.On = LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
         }
 
         void SetupLinkButton()
@@ -122,6 +128,10 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                         switchButton.On = true;
                         _viewModel.OnCheckedChange(switchButton.On);
                     });
+            }
+            else
+            {
+                _viewModel.OnCheckedChange(switchButton.On);
             }
         }
 
