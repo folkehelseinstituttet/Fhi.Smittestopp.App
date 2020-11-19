@@ -232,6 +232,7 @@
   "MESSAGES_LAST_UPDATED_LABEL": "Last updated on {0} at {1}",
   "MESSAGES_RECOMMENDATIONS_": "Important – read about what you now need to do",
   "MESSAGES_NOMESSAGES_HEADER": "You have no alerts",
+  "MESSAGES_NEW_MESSAGES_HEADER": "You have new alerts",
   "MESSAGES_NOMESSAGES_LABEL": "If you have been in close contact with a person infected with COVID-19 who also uses the app, you will automatically receive an alert here.",
   "MESSAGES_LINK": "[link]",
   "MESSAGES_ACCESSIBILITY_CLOSE_BUTTON": "Close",
