@@ -79,12 +79,6 @@ then
     exit
 fi
 
-if [ -z "OAUTH2_SCOPE" ]
-then
-    echo "You need define the OAUTH2_SCOPE variable in App Center"
-    exit
-fi
-
 if [ -z "OAUTH2_REDIRECT_URL" ]
 then
     echo "You need define the OAUTH2_REDIRECT_URL variable in App Center"
@@ -131,9 +125,6 @@ then
 
     echo "Updating OAUTH2_CLIENT_ID to $OAUTH2_CLIENT_ID in OAuthConf.cs"
     sed -i '' 's#OAUTH2_CLIENT_ID = "[-A-Za-z0-9:_./]*"#OAUTH2_CLIENT_ID = "'$OAUTH2_CLIENT_ID'"#' $OAUTH_CONF_FILE
-
-    echo "Updating OAUTH2_SCOPE to $OAUTH2_SCOPE in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_SCOPE = "[-A-Za-z0-9:_./]*"#OAUTH2_SCOPE = "'$OAUTH2_SCOPE'"#' $OAUTH_CONF_FILE
 
     echo "Updating OAUTH2_REDIRECT_URL to $OAUTH2_REDIRECT_URL in OAuthConf.cs"
     sed -i '' 's#OAUTH2_REDIRECT_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_REDIRECT_URL = "'$OAUTH2_REDIRECT_URL'"#' $OAUTH_CONF_FILE
