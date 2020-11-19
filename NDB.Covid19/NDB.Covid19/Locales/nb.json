@@ -46,7 +46,7 @@
   "CONSENT_SIX_TITLE": "6. Når sletter appen registreringer av personer du har vært i nærheten av?",
   "CONSENT_SIX_PARAGRAPH": "Opplysningene om registreringer av personer du har vært i nærheten av som er eldre enn 14 dager, blir fortløpende slettet fra mobilen din. <br><br>Lagringsteknologien og de registrerte og lagrede opplysningene slettes fra mobilen din hvis du trekker samtykket, eller hvis du sletter appen.",
   "CONSENT_SEVEN_TITLE": "7. Behandling av personopplysninger",
-  "CONSENT_SEVEN_PARAGRAPH": "Når du bruker Smittestopp-appen, behandler vi personopplysninger om deg. Du kan lese mer om dette her: LENKE",
+  "CONSENT_SEVEN_PARAGRAPH": "Når du bruker Smittestopp-appen, behandler vi personopplysninger om deg. Du kan lese mer om dette her: www.fhi.no/om/smittestopp/personvern/",
   "CONSENT_SEVEN_BUTTON_TEXT": "Åpne personvernerklæringen",
   "CONSENT_SEVEN_BUTTON_URL": "www.fhi.no/om/smittestopp/personvern/",
   "CONSENT_EIGHT_TITLE": "8. Har du spørsmål om behandlingen av opplysninger på appen?",
@@ -88,6 +88,10 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE": "Teknologien bak<br>",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT": "Appen bruker Bluetooth og er basert på en innebygd teknologi som er utviklet av Apple og Google. Teknologien er et system for varsling av smittekontakt. Du kan slå av og på denne varslingen under innstillingene på mobilen din. <br><br>Mobilen din lager en tilfeldig Bluetooth-ID hvert 15. minutt. Når to mobiler er i nærheten av hverandre, utveksler de ID-er.<br><br> Les mer om Smittestopp-appen på www.helsenorge.no/smittestopp.<br><br>",
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Tilbake",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE": "Smittestopp og utlandet<br>",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "Smittestopp samarbeider med andre EU- og EØS-land som har en app som baserer seg på teknologien fra Google og Apple. \n\nDet vil si at Smittestopp fungerer når du er i mange EU- og EØS-land, og hvis du møter andre EU-borgere med en covid-19-app i Norge. Det er fortsatt ingen som kan se hvem du er, eller hvor du kommer fra. \n\nDu kan se hvilke land som er med i samarbeidet, på helsenorge.no/smittestopp",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK_TEXT": "Gå til helsenorge.no/smittestopp",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK": "https://www.helsenorge.no/smittestopp",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Trekk tilbake samtykket",
   "CONSENT_REMOVE_TITLE": "Appen kan ikke brukes uten samtykke",
   "CONSENT_REMOVE_MESSAGE": "Er du sikker på at du vil trekke samtykket? Alle Smittestopp-meldingene dine vil bli slettet. ",
@@ -253,7 +257,7 @@
   "SETTINGS_GENERAL_NN": "Nynorsk",
   "SETTINGS_GENERAL_EN": "English",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Start appen på nytt for å se språkvalget ditt / Restart the app to see your language setting",
-  "SETTINGS_GENERAL_MORE_INFO_LINK": "[lenke]",
+  "SETTINGS_GENERAL_MORE_INFO_LINK": "www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på www.fhi.no/om/smittestopp/tekster-pa-andre-sprak.",
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på www.fhi.no/om/smittestopp/tekster-pa-andre-sprak"
 }

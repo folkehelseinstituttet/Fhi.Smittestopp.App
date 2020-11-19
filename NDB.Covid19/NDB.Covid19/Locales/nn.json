@@ -88,6 +88,10 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE": "Teknologien bak<br>",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT": "E",
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Tilbake",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE": "Smittestopp og utlandet<br>",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "Smittestopp samarbeider med andre EU- og EØS-land som har ein app basert på teknologien til Apple og Google. \n\nDet inneber at Smittestopp fungerer når du er i mange EU- og EØS-land, og dersom du møter andre EU- og EØS-borgarar med ein covid-19-app i Noreg. Det er framleis ingen som kan sjå kven du er, eller kvar du kjem frå. \n\nDu kan sjå kva land som er med i samarbeidet, på helsenorge.no/smittestopp",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK_TEXT": "Gå til helsenorge.no/smittestopp",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK": "https://www.helsenorge.no/smittestopp",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Trekk tilbake samtykke",
   "CONSENT_REMOVE_TITLE": "Appen kan ikkje brukast utan samtykke",
   "CONSENT_REMOVE_MESSAGE": "Er du sikker på at du vil trekke tilbake samtykket ditt? Alle Smittestopp-meldingane dine vil bli sletta. ",
@@ -253,7 +257,7 @@
   "SETTINGS_GENERAL_NN": "Nynorsk",
   "SETTINGS_GENERAL_EN": "English",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Start appen på nytt for å sjå språket du har valt / Restart the app to see your language setting",
-  "SETTINGS_GENERAL_MORE_INFO_LINK": "LENKE",
+  "SETTINGS_GENERAL_MORE_INFO_LINK": "www.fhi.no/om/smittestopp/tekster-pa-andre-sprak-nynorsk",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på www.fhi.no/om/smittestopp/tekster-pa-andre-sprak-nynorsk",
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på fhi.no/om/smittestopp/tekster-pa-andre-sprak"
 }
