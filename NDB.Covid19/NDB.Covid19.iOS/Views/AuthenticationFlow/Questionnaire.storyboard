@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" constant="25" id="9QL-rR-Ouk"/>
                                     <constraint firstAttribute="height" constant="25" id="fmm-uu-kSN"/>
                                 </constraints>
-                                <state key="normal" image="CloseWhite"/>
+                                <state key="normal" image="CloseBlue"/>
                                 <connections>
                                     <action selector="OnCloseBtnTapped:" destination="493" eventType="touchUpInside" id="3577"/>
                                 </connections>
@@ -40,13 +40,13 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question and Symptoms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Tv-Lp-8Ci" customClass="SetttingsPageTitleLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="272" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have or have had symptooms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne0-aQ-9fU" customClass="SettingsPageContentLabel">
                                                         <rect key="frame" x="0.0" y="44.5" width="272" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Go2-vO-NSL" userLabel="Yes from ca Stack View">
@@ -122,6 +122,9 @@
                                                                             </stackView>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3U-ZQ-zWi" customClass="RadioButtonOverlayButton">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="231" height="203.5"/>
+                                                                                <state key="normal">
+                                                                                    <color key="titleColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                </state>
                                                                                 <connections>
                                                                                     <action selector="OnYesSinceLayoutTapped:" destination="493" eventType="touchUpInside" id="Ljb-Qq-eKY"/>
                                                                                 </connections>
@@ -385,7 +388,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CloseWhite" width="19" height="18.5"/>
+        <image name="CloseBlue" width="21" height="21"/>
         <image name="HelpIcon2" width="20" height="20"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
