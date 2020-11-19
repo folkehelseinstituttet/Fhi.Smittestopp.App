@@ -149,7 +149,7 @@
                                                                             <constraint firstAttribute="width" constant="35" id="IcC-SW-SJd"/>
                                                                         </constraints>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" image="HelpIcon2"/>
+                                                                        <state key="normal" image="InformationIcon"/>
                                                                         <connections>
                                                                             <action selector="InfoButton_TouchUpInside:" destination="493" eventType="touchUpInside" id="9926"/>
                                                                         </connections>
@@ -389,7 +389,7 @@
     </scenes>
     <resources>
         <image name="CloseBlue" width="21" height="21"/>
-        <image name="HelpIcon2" width="20" height="20"/>
+        <image name="InformationIcon" width="26" height="26"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
