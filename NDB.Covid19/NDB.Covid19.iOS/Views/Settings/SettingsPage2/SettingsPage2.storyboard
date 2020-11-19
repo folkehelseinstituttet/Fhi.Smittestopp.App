@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="555">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="555">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,10 +48,10 @@
                                 <rect key="frame" x="0.0" y="114" width="414" height="728"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JdS-CA-THG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="294.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="166.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BNz-hS-KBv">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="294.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="166.5"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2619">
                                                         <rect key="frame" x="0.0" y="0.0" width="410.5" height="166.5"/>
@@ -62,40 +62,6 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <dataDetectorType key="dataDetectorTypes" calendarEvent="YES"/>
                                                     </textView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXD-MM-Eog">
-                                                        <rect key="frame" x="0.0" y="166.5" width="414" height="128"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQz-tc-mfG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="154" height="128"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTe-ld-wvO">
-                                                                        <rect key="frame" x="25" y="0.0" width="104" height="128"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstItem="CTe-ld-wvO" firstAttribute="leading" secondItem="YQz-tc-mfG" secondAttribute="leading" constant="25" id="25609"/>
-                                                                    <constraint firstItem="CTe-ld-wvO" firstAttribute="top" secondItem="YQz-tc-mfG" secondAttribute="top" id="25610"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="CTe-ld-wvO" secondAttribute="bottom" id="4A7-CN-amd"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="CTe-ld-wvO" secondAttribute="trailing" constant="25" id="mrh-vI-5TN"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="7545">
-                                                                <rect key="frame" x="154" y="0.0" width="20" height="128"/>
-                                                                <color key="tintColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="20" id="bxF-8c-Rcg"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZP-Wa-c2e">
-                                                                <rect key="frame" x="174" y="0.0" width="240" height="128"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </view>
-                                                        </subviews>
-                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -132,10 +98,8 @@
                     </view>
                     <connections>
                         <outlet property="BackButton" destination="Wes-6w-9yE" id="name-outlet-Wes-6w-9yE"/>
-                        <outlet property="ButtonView" destination="YQz-tc-mfG" id="name-outlet-YQz-tc-mfG"/>
                         <outlet property="ContentText" destination="2619" id="name-outlet-2619"/>
                         <outlet property="HeaderLabel" destination="e1O-e9-6PB" id="name-outlet-e1O-e9-6PB"/>
-                        <outlet property="UrlLabel" destination="CTe-ld-wvO" id="name-outlet-CTe-ld-wvO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="557" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,6 +109,5 @@
     </scenes>
     <resources>
         <image name="ArrowLeftCircle" width="34" height="34"/>
-        <image name="arrow_right" width="19" height="15"/>
     </resources>
 </document>

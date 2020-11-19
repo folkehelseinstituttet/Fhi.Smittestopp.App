@@ -36,15 +36,9 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             TextView textField = FindViewById<TextView>(Resource.Id.settings_how_it_works_text);
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_how_it_works_title);
-            TextView linkField = FindViewById<TextView>(Resource.Id.settings_how_it_works_link);
 
             titleField.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER;
             textField.TextFormatted = HtmlCompat.FromHtml(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT, HtmlCompat.FromHtmlModeLegacy);
-
-            string linkString = $"<a href=\"{SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK}\">{SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK_TEXT}</a>";
-            linkField.TextFormatted = HtmlCompat.FromHtml(linkString, HtmlCompat.FromHtmlModeLegacy);
-            FormatLink(linkField);
-            linkField.SetOnClickListener(new OnClickListener(this, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK));
 
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
         }
