@@ -1,7 +1,6 @@
 using System;
 using I18NPortable;
 using NDB.Covid19.Configuration;
-using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
@@ -41,8 +40,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(13, 5))
             {
-                if (!Conf.IsReleaseOne &&
-                    OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+                if (ConsentsHelper.IsNotFullyOnboarded)
                 {
                     NavigationHelper.GoToWelcomeWhatsNewPage(this);
                     return;

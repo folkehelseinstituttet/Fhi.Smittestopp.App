@@ -8,7 +8,6 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.ViewPager.Widget;
 using Google.Android.Material.Tabs;
-using NDB.Covid19.Configuration;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.Droid.Utils;
 using static NDB.Covid19.Droid.Utils.StressUtils;
@@ -43,9 +42,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             IsOnBoarding = Intent.GetBooleanExtra(DroidRequestCodes.isOnBoardinIntentExtra, false);
 
-            if (!Conf.IsReleaseOne &&
-                IsOnBoarding &&
-                OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+            if (IsOnBoarding && ConsentsHelper.IsNotFullyOnboarded)
             {
                 GoToConsents();
                 return;

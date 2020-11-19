@@ -84,12 +84,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 
         private void SendReApproveConsentsNotificationIfNeeded()
         {
-            if (Conf.IsReleaseOne)
-            {
-                return;
-            }
-            
-            if (OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted &&
+            if (ConsentsHelper.IsNotFullyOnboarded &&
                 !LocalPreferencesHelper.TermsNotificationWasShown)
             {
                 NotificationsHelper.CreateNotificationOnlyIfInBackground(NotificationsEnum.ReApproveConsents);

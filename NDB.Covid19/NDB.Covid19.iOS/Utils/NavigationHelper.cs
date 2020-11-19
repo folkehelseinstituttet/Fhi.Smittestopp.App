@@ -1,7 +1,5 @@
 using System.Diagnostics;
 using Foundation;
-using NDB.Covid19.Configuration;
-using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Views.InfectionStatus;
 using NDB.Covid19.iOS.Views.Welcome;
 using NDB.Covid19.Utils;
@@ -126,12 +124,7 @@ namespace NDB.Covid19.iOS.Utils
 
         public static void GoToResultPageIfOnboarded(UIViewController parent)
         {
-            if ((Conf.IsReleaseOne &&
-                 OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted) ||
-                OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
-            {
-                GoToResultPage(parent, false);
-            }
+            ConsentsHelper.DoActionWhenOnboarded(() => GoToResultPage(parent, false));
         }
 
         //NavigationController needs to have all viewcontrollers inside dismissed in order to go to result page

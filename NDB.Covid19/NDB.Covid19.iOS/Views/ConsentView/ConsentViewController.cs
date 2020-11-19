@@ -1,7 +1,6 @@
 using System;
 using CoreGraphics;
 using Foundation;
-using NDB.Covid19.Configuration;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.Enums;
@@ -136,9 +135,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             SetWarningViewVisibility();
             if (_consentViewModel.ConsentIsGiven)
             {
-                OnboardingStatusHelper.Status = Conf.IsReleaseOne ?
-                    OnboardingStatus.OnlyMainOnboardingCompleted :
-                    OnboardingStatus.CountriesOnboardingCompleted;
+                OnboardingStatusHelper.Status = ConsentsHelper.GetStatusDependingOnRelease();
                 GoToResultPage();
             }
             else
