@@ -48,7 +48,7 @@
   "CONSENT_SEVEN_TITLE": "7. Behandling av personopplysninger",
   "CONSENT_SEVEN_PARAGRAPH": "Når du bruker Smittestopp-appen, behandler vi personopplysninger om deg. Du kan lese mer om dette her: www.fhi.no/om/smittestopp/personvern/",
   "CONSENT_SEVEN_BUTTON_TEXT": "Åpne personvernerklæringen",
-  "CONSENT_SEVEN_BUTTON_URL": "www.fhi.no/om/smittestopp/personvern/",
+  "CONSENT_SEVEN_BUTTON_URL": "https://www.fhi.no/om/smittestopp/personvern/",
   "CONSENT_EIGHT_TITLE": "8. Har du spørsmål om behandlingen av opplysninger på appen?",
   "CONSENT_EIGHT_PARAGRAPH": "Det er Folkehelseinstituttet som er ansvarlig for denne appen. Hvis du har spørsmål om behandlingen av opplysninger i appen, kontakt oss på denne adressen: <br><br>Folkehelseinstituttet <br>Postboks 222 Skøyen <br>0213 Oslo <br>E-post: folkehelseinstituttet@fhi.no <br>Telefonnummer: [telefonnummer]",
   "CONSENT_NINE_TITLE": "9. Endringer",
