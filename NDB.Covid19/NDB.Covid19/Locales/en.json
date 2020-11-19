@@ -88,6 +88,8 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE": "The technology<br>",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT": "The app uses Bluetooth and is based on built-in technology developed by Apple and Google. It comprises a system for logging exposure. You can turn this on or off in your phone’s settings.<br><br>Your phone generates a random Bluetooth ID every 15 minutes. When two phones are close to each other, they exchange IDs.<br><br> Read more about the Smittestopp app at www.helsenorge.no/en/smittestopp.<br><br>",
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Back",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK_TEXT": "Go to helsenorge.no/en/smittestopp",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK": "https://www.helsenorge.no/en/smittestopp",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Withdraw consent",
   "CONSENT_REMOVE_TITLE": "The app cannot be used without consent",
   "CONSENT_REMOVE_MESSAGE": "Are you sure you want to withdraw your consent? All your alerts in Smittestopp will be deleted. ",
@@ -253,7 +255,7 @@
   "SETTINGS_GENERAL_NN": "Nynorsk",
   "SETTINGS_GENERAL_EN": "English",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Restart the app to see your language setting / Start appen på nytt for å se språkvalget ditt ",
-  "SETTINGS_GENERAL_MORE_INFO_LINK": "[link]",
+  "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/en/about/smittestopp/text-in-other-languages",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at www.fhi.no/en/about/smittestopp/text-in-other-languages",
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at fhi.no/en/about/smittestopp/text-in-other-languages"
 }

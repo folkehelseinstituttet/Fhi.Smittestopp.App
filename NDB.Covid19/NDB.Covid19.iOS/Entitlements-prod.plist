@@ -4,7 +4,7 @@
 <dict>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.netcompany.smittestop-exposure-notification</string>
+		<string>$(AppIdentifierPrefix)no.fhi.smittestopp-exposure-notification</string>
 	</array>
 	<key>com.apple.developer.exposure-notification</key>
 	<true/>
