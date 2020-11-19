@@ -5,7 +5,6 @@ using NDB.Covid19.Droid.Views.ENDeveloperTools;
 using NDB.Covid19.Droid.Views.InfectionStatus;
 using NDB.Covid19.Droid.Views.Settings;
 using NDB.Covid19.Droid.Views.Welcome;
-using NDB.Covid19.Enums;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 
@@ -96,11 +95,7 @@ namespace NDB.Covid19.Droid.Utils
 
         public static void GoToStartPageIfIsOnboarded(Activity parent)
         {
-            if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
-            {
-                GoToResultPageAndClearTop(parent);
-            }
+            ConsentsHelper.DoActionWhenOnboarded(() => GoToResultPageAndClearTop(parent));
         }
-
     }
 }

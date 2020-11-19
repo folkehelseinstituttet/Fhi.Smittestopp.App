@@ -10,7 +10,6 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
 using AndroidX.Core.Text;
-using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Droid.Views.Welcome
@@ -164,7 +163,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
         
         private void PreviousButtonPressed(object sender, EventArgs eventArgs)
         {
-            if (OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+            if (ConsentsHelper.IsNotFullyOnboarded)
             {
                 OnBackPressed();
                 return;
@@ -176,7 +175,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
         {
             if (IsChecked())
             {
-                OnboardingStatusHelper.Status = OnboardingStatus.CountriesOnboardingCompleted;
+                OnboardingStatusHelper.Status = ConsentsHelper.GetStatusDependingOnRelease();
                 NavigationHelper.GoToResultPageAndClearTop(this);
             }
             else
@@ -187,7 +186,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
         public override void OnBackPressed()
         {
-            if (OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+            if (ConsentsHelper.IsNotFullyOnboarded)
             {
                 NavigationHelper.GoToWelcomeWhatsNewPage(this);
                 return;

@@ -9,7 +9,6 @@ using NDB.Covid19.ViewModels;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using I18NPortable;
 using NDB.Covid19.Configuration;
-using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Droid.Views
@@ -31,7 +30,7 @@ namespace NDB.Covid19.Droid.Views
             base.OnCreate(savedInstanceState);
 
 
-            if (OnboardingStatusHelper.Status == OnboardingStatus.OnlyMainOnboardingCompleted)
+            if (ConsentsHelper.IsNotFullyOnboarded)
             {
                 NavigationHelper.GoToWelcomeWhatsNewPage(this);
                 Finish();

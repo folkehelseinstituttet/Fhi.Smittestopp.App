@@ -135,7 +135,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             SetWarningViewVisibility();
             if (_consentViewModel.ConsentIsGiven)
             {
-                OnboardingStatusHelper.Status = OnboardingStatus.CountriesOnboardingCompleted;
+                OnboardingStatusHelper.Status = ConsentsHelper.GetStatusDependingOnRelease();
                 GoToResultPage();
             }
             else
