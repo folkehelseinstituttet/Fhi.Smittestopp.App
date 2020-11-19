@@ -94,7 +94,6 @@ fi
 if [ -z "APPCENTER_DIAGNOSTICS_TOKEN" ]
 then
     echo "You need define the APPCENTER_DIAGNOSTICS_TOKEN variable in App Center"
-    exit
 fi
 
 CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/Conf.cs

@@ -5,8 +5,9 @@ namespace NDB.Covid19.Configuration
     public class Conf
     {
         public static readonly string BASE_URL = "http://localhost:9095/";
+#if APPCENTER
         public static readonly string APPCENTER_DIAGNOSTICS_TOKEN = "";
-        
+#endif
         public static string AUTHORIZATION_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
         public static bool UseDeveloperTools => true; // TODO: Inject bool here
 
