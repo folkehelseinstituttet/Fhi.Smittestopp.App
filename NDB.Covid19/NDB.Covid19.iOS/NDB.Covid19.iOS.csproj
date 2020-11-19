@@ -757,6 +757,18 @@
     <ImageAsset Include="Assets.xcassets\arrow_right.imageset\right%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\InformationIcon.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\InformationIcon.imageset\informationIcon1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\InformationIcon.imageset\informationIcon2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\InformationIcon.imageset\informationIcon3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%401x.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -831,6 +843,7 @@
     <Folder Include="Assets.xcassets\notification_active.imageset\" />
     <Folder Include="Assets.xcassets\notification_inactive.imageset\" />
     <Folder Include="Assets.xcassets\arrow_right.imageset\" />
+    <Folder Include="Assets.xcassets\InformationIcon.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
