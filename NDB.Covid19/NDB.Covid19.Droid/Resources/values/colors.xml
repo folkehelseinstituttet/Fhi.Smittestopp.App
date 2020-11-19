@@ -33,7 +33,7 @@
     <color name="unselectedDot">#E1EAED</color>
     <color name="unselectedDotBorder">#32345C</color>
     <color name="switchSelectedTrack">#32345C</color>
-    <color name="switchUnselectedTrack">#E1EAED</color>
+    <color name="switchUnselectedTrack">#F2F9FB</color>
     <color name="switchSelectedThumb">#FFFFFF</color>
     <color name="switchUnselectedThumb">#32335F</color>
 	<color name="linkColor">#32345C</color>
