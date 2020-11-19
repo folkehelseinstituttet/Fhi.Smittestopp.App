@@ -255,7 +255,7 @@
   "SETTINGS_GENERAL_NN": "Nynorsk",
   "SETTINGS_GENERAL_EN": "English",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Start appen på nytt for å se språkvalget ditt / Restart the app to see your language setting",
-  "SETTINGS_GENERAL_MORE_INFO_LINK": "www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
+  "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på www.fhi.no/om/smittestopp/tekster-pa-andre-sprak.",
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på www.fhi.no/om/smittestopp/tekster-pa-andre-sprak"
 }
