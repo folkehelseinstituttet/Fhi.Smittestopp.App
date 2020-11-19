@@ -88,8 +88,6 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE": "The technology<br>",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT": "The app uses Bluetooth and is based on built-in technology developed by Apple and Google. It comprises a system for logging exposure. You can turn this on or off in your phone’s settings.<br><br>Your phone generates a random Bluetooth ID every 15 minutes. When two phones are close to each other, they exchange IDs.<br><br> Read more about the Smittestopp app at www.helsenorge.no/en/smittestopp.<br><br>",
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Back",
-  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE": "Smittestopp in other countries<br>",
-  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "Smittestopp cooperates with other EU/EEA countries that have developed COVID-19 apps based on Apple’s and Google’s technology. \n\nThat means that Smittestopp works when you visit a number of EU/EEA countries and if you meet EU/EEA citizens with a COVID-19 app in Norway. It remains the case that no one will know who you are or where you are from. \n\nYou can see the list of countries that are cooperating at helsenorge.no/en/smittestopp.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK_TEXT": "Go to helsenorge.no/en/smittestopp",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_LINK": "https://www.helsenorge.no/en/smittestopp",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Withdraw consent",
