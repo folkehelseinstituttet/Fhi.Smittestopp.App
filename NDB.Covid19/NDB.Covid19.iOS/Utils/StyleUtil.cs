@@ -300,5 +300,17 @@ namespace NDB.Covid19.iOS.Utils
 
             stackView.SetNeedsLayout();
         }
+
+        public static void FlashScrollIndicatorsInSubScrollViews(UIView[] subviews)
+        {
+            foreach (var view in subviews)
+            {
+                if (view is UIScrollView)
+                {
+                    var scrollView = view as UIScrollView;
+                    scrollView.FlashScrollIndicators();
+                }
+            }
+        }
     } 
 }
