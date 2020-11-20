@@ -5,6 +5,7 @@
 [![Build Status](https://fhi.visualstudio.com/Fhi.Smittestopp/_apis/build/status/folkehelseinstituttet.Fhi.Smittestopp.App?branchName=dev)](https://fhi.visualstudio.com/Fhi.Smittestopp/_build/latest?definitionId=268&branchName=dev)
 
 ### App Center builds
+
 |            | iOS | Android |
 |------------|-----|---------|
 | Alpha (Dev)      |[![Build status](https://build.appcenter.ms/v0.1/apps/792affd9-35ea-4b53-8b32-b3a62c760300/branches/dev/badge)](https://appcenter.ms)     |   [![Build status](https://build.appcenter.ms/v0.1/apps/08d51545-9c04-43e2-a2a2-a2ef34cd87df/branches/dev/badge)](https://appcenter.ms)      |
