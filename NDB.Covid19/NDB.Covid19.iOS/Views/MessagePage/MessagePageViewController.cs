@@ -80,15 +80,6 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_TITLE, 1.14, 16, 18);
             StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.14, 12, 14, UITextAlignment.Left);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
-            SetLogoBasedOnAppLanguage();
-        }
-
-        private void SetLogoBasedOnAppLanguage()
-        {
-            string appLanguage = LocalesService.GetLanguage();
-            AuthorityImageView.Image = appLanguage != null && appLanguage.ToLower() == "en"
-                ? UIImage.FromBundle("logo_SFP_en")
-                : UIImage.FromBundle("logo_SFP_da");
         }
 
         public override void ViewDidDisappear(bool animated)
