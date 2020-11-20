@@ -20,19 +20,11 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView ButtonView { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextView ContentText { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        Views.CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel UrlLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
 
         [Action ("BackButton_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -45,11 +37,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
                 BackButton = null;
             }
 
-            if (ButtonView != null) {
-                ButtonView.Dispose ();
-                ButtonView = null;
-            }
-
             if (ContentText != null) {
                 ContentText.Dispose ();
                 ContentText = null;
@@ -58,11 +45,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             if (HeaderLabel != null) {
                 HeaderLabel.Dispose ();
                 HeaderLabel = null;
-            }
-
-            if (UrlLabel != null) {
-                UrlLabel.Dispose ();
-                UrlLabel = null;
             }
         }
     }
