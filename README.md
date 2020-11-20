@@ -1,8 +1,14 @@
 # Smittestopp Mobile Application
+[![GitHub last commit](https://img.shields.io/github/last-commit/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/commits)
+[![Open pull requests](https://img.shields.io/github/issues-pr/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/pulls)
+[![Open issues](https://img.shields.io/github/issues/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/issues)
 
-### Azure Pipelines build and test status
+## Azure Pipelines status (build and test)
 
-[![Build Status](https://fhi.visualstudio.com/Fhi.Smittestopp/_apis/build/status/folkehelseinstituttet.Fhi.Smittestopp.App?branchName=dev)](https://fhi.visualstudio.com/Fhi.Smittestopp/_build/latest?definitionId=268&branchName=dev)
+|    Branch    | Status  |
+|--------|---|
+| master | [![Build Status](https://fhi.visualstudio.com/Fhi.Smittestopp/_apis/build/status/folkehelseinstituttet.Fhi.Smittestopp.App?branchName=master)](https://fhi.visualstudio.com/Fhi.Smittestopp/_build/latest?definitionId=268&branchName=master)  |
+| dev    | [![Build Status](https://fhi.visualstudio.com/Fhi.Smittestopp/_apis/build/status/folkehelseinstituttet.Fhi.Smittestopp.App?branchName=dev)](https://fhi.visualstudio.com/Fhi.Smittestopp/_build/latest?definitionId=268&branchName=dev)  |
 
 ### App Center builds
 
