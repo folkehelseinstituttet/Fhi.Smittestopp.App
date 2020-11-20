@@ -75,10 +75,10 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         private void SetStyling()
         {
-            StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 1.14, 24, 36);
+            StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 1.14, 22, 34);
             StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 12, 14, UITextAlignment.Left);
-            StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_TITLE, 1.14, 16, 18);
-            StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.14, 12, 14, UITextAlignment.Left);
+            StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontBold, MESSAGES_NO_ITEMS_TITLE, 1.25, 32, 34);
+            StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.25, 18, 20, UITextAlignment.Left);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
         }
 
