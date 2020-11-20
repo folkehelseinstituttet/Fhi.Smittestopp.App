@@ -2,6 +2,7 @@ using NDB.Covid19.ViewModels;
 using System;
 using NDB.Covid19.PersistedData;
 using UIKit;
+using NDB.Covid19.iOS.Utils;
 
 namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
@@ -19,6 +20,12 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
             UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
             BackArrow.Hidden = !LocalPreferencesHelper.IsOnboardingCompleted;
             BackArrow.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            StyleUtil.FlashScrollIndicatorsInSubScrollViews(View.Subviews);
         }
 
         partial void BackArrowBtn_TouchUpInside(UIButton sender)
