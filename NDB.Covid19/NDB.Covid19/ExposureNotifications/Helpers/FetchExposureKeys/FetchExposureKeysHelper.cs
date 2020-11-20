@@ -61,7 +61,8 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             if (lastReceivedMessageDateTimeUtc < todayUtc &&
                 nowLocal.Date.Subtract(lastReceivedMessageDateTimeLocal.Date).TotalHours >= Conf.HOURS_UNTIL_RESEND_MESSAGES)
             {
-                if (nowLocal.Hour >= Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND)
+                if (nowLocal.Hour >= Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN &&
+                    nowLocal.Hour <= Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END)
                 {
                     List<MessageSQLiteModel> unreadMessages = await MessageUtils.GetAllUnreadMessages();
                     List<MessageSQLiteModel> unreadMessagesNotOlderThanMsgRetentionTime =
