@@ -28,14 +28,7 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-            foreach (var v in View.Subviews)
-            {
-                if (v is UIScrollView)
-                {
-                    var scrollView = v as UIScrollView;
-                    scrollView.FlashScrollIndicators();
-                }
-            }
+            StyleUtil.FlashScrollIndicatorsInSubScrollViews(View.Subviews);
         }
 
         partial void BackArrowBtn_TouchUpInside(UIButton sender)

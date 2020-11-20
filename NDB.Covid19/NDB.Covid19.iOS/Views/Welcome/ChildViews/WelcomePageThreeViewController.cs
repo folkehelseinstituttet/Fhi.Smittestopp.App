@@ -2,6 +2,7 @@ using NDB.Covid19.ViewModels;
 using System;
 using NDB.Covid19.PersistedData;
 using UIKit;
+using NDB.Covid19.iOS.Utils;
 
 namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
@@ -24,14 +25,7 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-            foreach (var v in View.Subviews)
-            {
-                if (v is UIScrollView)
-                {
-                    var scrollView = v as UIScrollView;
-                    scrollView.FlashScrollIndicators();
-                }
-            }
+            StyleUtil.FlashScrollIndicatorsInSubScrollViews(View.Subviews);
         }
 
         partial void BackArrowBtn_TouchUpInside(UIButton sender)
