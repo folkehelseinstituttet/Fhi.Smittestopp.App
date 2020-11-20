@@ -25,15 +25,6 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             return vc;
         }
 
-        public static UINavigationController GetMessagePageControllerInNavigationController()
-        {
-            UIViewController vc = MessagePageViewController.Create();
-            UINavigationController navigationController = new UINavigationController(vc);
-            navigationController.SetNavigationBarHidden(true, false);
-            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-            return navigationController;
-        }
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
