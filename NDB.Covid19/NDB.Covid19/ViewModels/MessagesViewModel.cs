@@ -15,6 +15,7 @@ namespace NDB.Covid19.ViewModels
         public static string MESSAGES_NO_ITEMS_DESCRIPTION => "MESSAGES_NOMESSAGES_LABEL".Translate();
         public static string MESSAGES_LAST_UPDATED_LABEL => "MESSAGES_LAST_UPDATED_LABEL".Translate();
         public static string MESSAGES_ACCESSIBILITY_CLOSE_BUTTON => "MESSAGES_ACCESSIBILITY_CLOSE_BUTTON".Translate();
+        public static string MESSAGES_NEW_ITEM => "MESSAGES_NEW_ITEM".Translate();
 
         public static DateTime LastUpdateDateTime => LocalPreferencesHelper.GetUpdatedDateTime().ToLocalTime();
 

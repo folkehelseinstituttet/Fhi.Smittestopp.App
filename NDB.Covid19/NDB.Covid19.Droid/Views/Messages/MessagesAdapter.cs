@@ -32,6 +32,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         {
             View view = convertView ?? _context.LayoutInflater.Inflate(Resource.Layout.messages_list_element, null);
             view.FindViewById<TextView>(Resource.Id.messages_item_title).Text = _items[position].Title;
+            view.FindViewById<TextView>(Resource.Id.new_item).Text = MessagesViewModel.MESSAGES_NEW_ITEM;
             view.FindViewById<TextView>(Resource.Id.messages_item_date).Text = _items[position].DayAndMonthString;
             view.FindViewById<TextView>(Resource.Id.messages_item_description).Text = MessageItemViewModel.MESSAGES_RECOMMENDATIONS;
             view.FindViewById<LinearLayout>(Resource.Id.dot_layout).Visibility =
