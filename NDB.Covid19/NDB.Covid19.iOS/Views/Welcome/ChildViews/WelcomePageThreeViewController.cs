@@ -21,6 +21,19 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
             BackArrow.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
         }
 
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            foreach (var v in View.Subviews)
+            {
+                if (v is UIScrollView)
+                {
+                    var scrollView = v as UIScrollView;
+                    scrollView.FlashScrollIndicators();
+                }
+            }
+        }
+
         partial void BackArrowBtn_TouchUpInside(UIButton sender)
         {
             NavigationController.PopViewController(true);
