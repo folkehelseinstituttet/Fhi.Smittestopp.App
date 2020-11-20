@@ -16,10 +16,6 @@ namespace NDB.Covid19.iOS.Views.MessagePage
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView AuthorityImageView { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton BackButton { get; set; }
 
         [Outlet]
@@ -52,11 +48,6 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         void ReleaseDesignerOutlets ()
         {
-            if (AuthorityImageView != null) {
-                AuthorityImageView.Dispose ();
-                AuthorityImageView = null;
-            }
-
             if (BackButton != null) {
                 BackButton.Dispose ();
                 BackButton = null;
