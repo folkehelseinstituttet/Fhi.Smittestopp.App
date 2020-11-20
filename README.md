@@ -1,6 +1,6 @@
 # Smittestopp Mobile Application
 
-## Azure pipelines build and test status
+## Azure Pipelines build and test status
 
 [![Build Status](https://fhi.visualstudio.com/Fhi.Smittestopp/_apis/build/status/folkehelseinstituttet.Fhi.Smittestopp.App?branchName=dev)](https://fhi.visualstudio.com/Fhi.Smittestopp/_build/latest?definitionId=268&branchName=dev)
 
