@@ -25,15 +25,6 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             return vc;
         }
 
-        public static UINavigationController GetMessagePageControllerInNavigationController()
-        {
-            UIViewController vc = MessagePageViewController.Create();
-            UINavigationController navigationController = new UINavigationController(vc);
-            navigationController.SetNavigationBarHidden(true, false);
-            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-            return navigationController;
-        }
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -75,20 +66,11 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         private void SetStyling()
         {
-            StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 1.14, 24, 36);
+            StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 1.14, 22, 34);
             StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 12, 14, UITextAlignment.Left);
-            StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_TITLE, 1.14, 16, 18);
-            StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.14, 12, 14, UITextAlignment.Left);
+            StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontBold, MESSAGES_NO_ITEMS_TITLE, 1.25, 32, 34);
+            StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.25, 18, 20, UITextAlignment.Left);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
-            SetLogoBasedOnAppLanguage();
-        }
-
-        private void SetLogoBasedOnAppLanguage()
-        {
-            string appLanguage = LocalesService.GetLanguage();
-            AuthorityImageView.Image = appLanguage != null && appLanguage.ToLower() == "en"
-                ? UIImage.FromBundle("logo_SFP_en")
-                : UIImage.FromBundle("logo_SFP_da");
         }
 
         public override void ViewDidDisappear(bool animated)
