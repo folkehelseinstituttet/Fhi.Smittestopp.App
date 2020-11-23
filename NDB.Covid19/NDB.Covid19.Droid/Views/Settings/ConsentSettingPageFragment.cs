@@ -29,7 +29,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             View view = inflater.Inflate(Resource.Layout.consent_settings_page_body, container, false);
 
             RelativeLayout RelativeLayout4 = view.FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
-            TextView consentFourTitle = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_title);
+            TextView consentFourParagraph = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_title);
             RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
 
             //ABOUT
@@ -68,6 +68,12 @@ namespace NDB.Covid19.Droid.Views.Settings
             Button policyLinkBtn = view.FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
             policyLinkBtn.Text = ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT;
             policyLinkBtn.Click += PolicyLinkBtn_Click;
+
+            // CONTENT DESCRIPTIONS OF HEADER
+            _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
+            _howitworksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
+            _samtykkebottomHeader.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
+
 
             return view;
         }
