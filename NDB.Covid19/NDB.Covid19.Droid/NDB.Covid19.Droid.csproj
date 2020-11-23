@@ -151,6 +151,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\logo_fhi_blue.png" />
     <AndroidResource Include="Resources\drawable\calendar_border.xml" />
     <AndroidResource Include="Resources\drawable\logoKortBl.png" />
+    <AndroidResource Include="Resources\drawable\messages_border.xml" />
     <AndroidResource Include="Resources\drawable\shadow_gradient_border.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png">
       <SubType>
@@ -1247,9 +1248,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\message_title.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\infection_status_layout_button.xml">
       <SubType>
       </SubType>

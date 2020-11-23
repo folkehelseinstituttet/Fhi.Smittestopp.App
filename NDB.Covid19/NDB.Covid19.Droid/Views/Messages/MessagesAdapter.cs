@@ -9,8 +9,8 @@ namespace NDB.Covid19.Droid.Views.Messages
 {
     class MessagesAdapter : BaseAdapter<MessageItemViewModel>
     {
-        private Activity _context;
-        private List<MessageItemViewModel> _items;
+        private readonly Activity _context;
+        private readonly List<MessageItemViewModel> _items;
 
         public MessagesAdapter(Activity context, MessageItemViewModel[] items)
         {
@@ -31,17 +31,14 @@ namespace NDB.Covid19.Droid.Views.Messages
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             View view = convertView ?? _context.LayoutInflater.Inflate(Resource.Layout.messages_list_element, null);
-            view.FindViewById<TextView>(Resource.Id.messages_item_tile).Text = _items[position].Title;
+            view.FindViewById<TextView>(Resource.Id.messages_item_title).Text = _items[position].Title;
+            view.FindViewById<TextView>(Resource.Id.new_item).Text = MessagesViewModel.MESSAGES_NEW_ITEM;
             view.FindViewById<TextView>(Resource.Id.messages_item_date).Text = _items[position].DayAndMonthString;
             view.FindViewById<TextView>(Resource.Id.messages_item_description).Text = MessageItemViewModel.MESSAGES_RECOMMENDATIONS;
-            view.FindViewById<View>(Resource.Id.ellipsis).Visibility =
+            view.FindViewById<LinearLayout>(Resource.Id.dot_layout).Visibility =
                 _items[position].IsRead
-                    ? ViewStates.Invisible
+                    ? ViewStates.Gone
                     : ViewStates.Visible;
-
-            view.SetBackgroundResource(_items[position].IsRead
-                ? Resource.Drawable.message_item_normal
-                : Resource.Drawable.message_item_pressed);
 
             return view;
         }

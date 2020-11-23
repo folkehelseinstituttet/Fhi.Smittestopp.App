@@ -28,7 +28,7 @@ namespace NDB.Covid19.Droid.OAuth2
                 },
         DataSchemes = new[]
                 {
-                    "no.fhi.smittestopp"
+                    "no.fhi.smittestopp-exposure-notification"
                 },
         DataPath = "/oauth2redirect"
     )

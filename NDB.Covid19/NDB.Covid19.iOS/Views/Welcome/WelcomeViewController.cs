@@ -5,7 +5,6 @@ using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StressUtils;
-using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19.iOS.Views.Welcome
 {

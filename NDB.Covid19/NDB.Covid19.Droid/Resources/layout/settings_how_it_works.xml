@@ -75,17 +75,6 @@
                     android:gravity="top"
                     android:lineSpacingExtra="4sp"
                     android:textAppearance="@style/settings_general" />
-
-                <TextView
-                    android:id="@+id/settings_how_it_works_link"
-                    style="@style/PrimaryText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="14dp"
-                    android:drawableEnd="@drawable/ic_arrow_right"
-                    android:drawablePadding="13dp"
-                    android:gravity="center_vertical"/>
-
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@drawable/ic_back_arrow"
+        android:background="@drawable/circle_arrow_left"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +72,7 @@
                         android:layout_width="match_parent"
                         android:padding="1dp"
                         android:text="Output Text"
-                        android:textColor="@android:color/white"
+                        style="@style/PrimaryText"
                         android:layout_height="wrap_content"/>
                 </androidx.core.widget.NestedScrollView>
 
@@ -301,7 +301,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:text="Set consents with app restart:"
-	                android:textColor="@android:color/white"/>
+	                style="@style/PrimaryText"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -331,7 +331,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:text="Set consents without app restart:"
-	                android:textColor="@android:color/white"/>
+	                style="@style/PrimaryText"/>
 
                 <LinearLayout
 	                android:layout_width="match_parent"

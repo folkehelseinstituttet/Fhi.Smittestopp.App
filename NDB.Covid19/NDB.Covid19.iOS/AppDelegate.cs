@@ -11,6 +11,12 @@ using UserNotifications;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
 
+#if APPCENTER
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+#endif
+
 namespace NDB.Covid19.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -26,7 +32,13 @@ namespace NDB.Covid19.iOS
 
         [Export("application:didFinishLaunchingWithOptions:")]
         public bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
-        {   
+        {
+#if APPCENTER
+            AppCenter.Start(
+                Configuration.Conf.APPCENTER_DIAGNOSTICS_TOKEN,
+                typeof(Analytics), typeof(Crashes));
+#endif
+
             IOSDependencyInjectionConfig.Init();
             LocalesService.Initialize();
             UIApplication.SharedApplication.SetMinimumBackgroundFetchInterval(UIApplication.BackgroundFetchIntervalMinimum);
@@ -80,8 +92,8 @@ namespace NDB.Covid19.iOS
                 return;
             }
 
-            UINavigationController vc = MessagePageViewController.GetMessagePageControllerInNavigationController();
-            topController.PresentViewController(vc, true, null);
+            UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("MessagePage");
+            topController.NavigationController?.PushViewController(vc, true);
         }
 
         [Export("applicationDidEnterBackground:")]

@@ -143,23 +143,25 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             if (isRunning)
             {
-                string text = InfectionStatusViewModel.INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT;
-                OnOffBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(text);
+                string accessibilityText = InfectionStatusViewModel.INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT;
+                string buttonText = InfectionStatusViewModel.INFECTION_STATUS_STOP_BUTTON_TEXT;
+                OnOffBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(accessibilityText);
                 OnOffBtn.BackgroundColor = UIColor.Clear;
                 OnOffBtn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
                 OnOffBtn.Layer.BorderWidth = 1;
                 OnOffBtn.SetTitleColor(ColorHelper.PRIMARY_COLOR, UIControlState.Normal);
-                OnOffBtn.SetTitle(text, UIControlState.Normal);
+                OnOffBtn.SetTitle(buttonText, UIControlState.Normal);
             }
             else
             {
-                string text = InfectionStatusViewModel.INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT;
-                OnOffBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(text);
+                string accessibilityText = InfectionStatusViewModel.INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT;
+                string buttonText = InfectionStatusViewModel.INFECTION_STATUS_START_BUTTON_TEXT;
+                OnOffBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(accessibilityText);
                 OnOffBtn.BackgroundColor = ColorHelper.PRIMARY_COLOR;
                 OnOffBtn.Layer.BorderColor = UIColor.Clear.CGColor;
                 OnOffBtn.Layer.BorderWidth = 0;
                 OnOffBtn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
-                OnOffBtn.SetTitle(text, UIControlState.Normal);
+                OnOffBtn.SetTitle(buttonText, UIControlState.Normal);
             }
         }
 
@@ -314,8 +316,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OpenMessagesPage()
         {
-            UINavigationController vc = MessagePageViewController.GetMessagePageControllerInNavigationController();
-            PresentViewController(vc, true, null);
+            UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("MessagePage");
+            NavigationController?.PushViewController(vc, true);
         }
     }
 }

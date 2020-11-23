@@ -23,11 +23,13 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
     {
         ViewGroup _closeButton;
         TextView _header;
-        TextView _subtitleText;
-        TextView _bodyOneText;
-        TextView _bodyTwoText;
-        TextView _contentTwoText;
-        TextView _contentText;
+        TextView _consentDescriptionText;
+        TextView _lookupHeader;
+        TextView _lookupText;
+        TextView _notificationHeader;
+        TextView _notificationText;
+        TextView _beAwareText;
+        TextView _consentExplanationText;
         Button _idPortenButton;
         InformationAndConsentViewModel _viewModel;
 
@@ -63,20 +65,24 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             //TextViews
             _header = FindViewById<TextView>(Resource.Id.information_consent_header_textView);
-            _contentText = FindViewById<TextView>(Resource.Id.information_consent_content_textView);
-            _subtitleText = FindViewById<TextView>(Resource.Id.information_consent_subtitle_textView);
-            _bodyOneText = FindViewById<TextView>(Resource.Id.information_consent_body_one_textView);
-            _bodyTwoText = FindViewById<TextView>(Resource.Id.information_consent_body_two_textView);
-            _contentTwoText = FindViewById<TextView>(Resource.Id.information_consent_content_two_textView);
+            _consentDescriptionText = FindViewById<TextView>(Resource.Id.information_consent_contentDescription_textView);
+            _lookupHeader = FindViewById<TextView>(Resource.Id.information_consent_lookup_header_textview);
+            _lookupText = FindViewById<TextView>(Resource.Id.information_consent_lookup_text_textview);
+            _notificationHeader = FindViewById<TextView>(Resource.Id.information_consent_notification_header_textview);
+            _notificationText = FindViewById<TextView>(Resource.Id.information_consent_notification_text_textview);
+            _beAwareText = FindViewById<TextView>(Resource.Id.information_consent_beAware_text_textview);
+            _consentExplanationText = FindViewById<TextView>(Resource.Id.information_consent_explanation_text_textview);
 
             //Text initialization
             _idPortenButton.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT;
             _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
-            _contentText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
-            _subtitleText.Text = InformationAndConsentViewModel.INFOCONSENT_TITLE;
-            _bodyOneText.Text = InformationAndConsentViewModel.INFOCONSENT_BODY_ONE;
-            _bodyTwoText.Text = InformationAndConsentViewModel.INFOCONSENT_BODY_TWO;
-            _contentTwoText.Text = InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION_ONE;
+            _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
+            _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER;
+            _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT;
+            _notificationHeader.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER;
+            _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT;
+            _beAwareText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT;
+            _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT;
 
             ////Accessibility
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
@@ -106,7 +112,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 switch (error)
                 {
                     case AuthErrorType.MaxTriesExceeded:
-                        AuthErrorUtils.GoToManyTriesError(this, LogSeverity.WARNING,null, "Max number of tries was exceeded");
+                        AuthErrorUtils.GoToManyTriesError(this, LogSeverity.WARNING, null, "Max number of tries was exceeded");
                         break;
                     case AuthErrorType.NotInfected:
                         AuthErrorUtils.GoToNotInfectedError(this, LogSeverity.WARNING, null, "User is not infected");
@@ -129,7 +135,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 Intent intent = new Intent(this, typeof(QuestionnairePageActivity));
                 StartActivity(intent);
             });
-           
+
         }
 
         private void ShowSpinner(bool show)

@@ -6,7 +6,7 @@
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="windowNoTitle">true</item>
 		<item name="colorAccent">@color/colorAccent</item>
-		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:fontFamily">sans-serif</item>
 		<item name="android:colorBackground">@color/backgroundColor</item>
 		<item name="colorPrimaryDark">@color/topbar</item>
 		<item name="android:navigationBarColor">@android:color/transparent</item>
@@ -34,7 +34,7 @@
 		<item name="android:textAllCaps">false</item>
 		<item name="android:height">48dp</item>
 		<item name="android:layout_margin">8dp</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
@@ -44,7 +44,7 @@
 		<item name="android:textAllCaps">false</item>
 		<item name="android:height">48dp</item>
 		<item name="android:layout_margin">8dp</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
@@ -54,7 +54,7 @@
 		<item name="android:textAllCaps">false</item>
 		<item name="android:width">200dp</item>
 		<item name="android:height">40dp</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
@@ -64,7 +64,7 @@
 		<item name="android:textAllCaps">false</item>
 		<item name="android:width">200dp</item>
 		<item name="android:height">40dp</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
@@ -79,104 +79,104 @@
 
 	<style name="PrimaryTextMainScreenTitle">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">36sp</item>
 	</style>
 
 	<style name="PrimaryTextMainMenu">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:fontFamily">sans_serif</item>
 		<item name="android:textSize">20sp</item>
 	</style>
 
 	<style name="PrimaryText">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:fontFamily">sans_serif</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
 	<style name="PrimaryTextRegular">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:fontFamily">sans_serif</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 
 	<style name="PrimaryTextBold">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 
 	<style name="PrimaryTextSemiBold">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_medium</item>
+		<item name="android:fontFamily">sans_serif_medium</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 
 	<style name="PrimaryTextItalic">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_mediumitalic</item>
+		<item name="android:fontFamily">sans_serif_mediumitalic</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 
 	<style name="PrimaryTextLight">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">@font/brandontext_thin</item>
+		<item name="android:fontFamily">sans_serif_thin</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 
 	<style name="SecondaryText">
 		<item name="android:textColor">@color/secondaryText</item>
-		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:fontFamily">sans_serif</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 
 	<style name="HelpText">
 		<item name="android:textColor">#747474</item>
-		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:fontFamily">sans_serif</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
 	<style name="ErrorText">
 		<item name="android:textColor">#CC0000</item>
-		<item name="android:fontFamily">@font/brandontext_medium</item>
+		<item name="android:fontFamily">sans_serif_medium</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
 	<style name="WarningText">
 		<item name="android:textColor">@android:color/black</item>
-		<item name="android:fontFamily">@font/brandontext_medium</item>
+		<item name="android:fontFamily">sans_serif_medium</item>
 		<item name="android:textSize">14dp</item>
 	</style>
 	
 	<style name="BubbleText">
 		<item name="android:textColor">@android:color/black</item>
-		<item name="android:fontFamily">@font/brandontext_regular</item>
+		<item name="android:fontFamily">sans_serif</item>
 		<item name="android:textSize">13sp</item>
 	</style>
 
 	<style name="TopbarText">
 		<item name="android:textColor">@android:color/white</item>
-		<item name="android:fontFamily">@font/brandontext_medium</item>
+		<item name="android:fontFamily">sans_serif_medium</item>
 		<item name="android:textSize">16sp</item>
 	</style>
 
 	<style name="LauncherAppName">
 		<item name="android:textColor">@android:color/white</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">24sp</item>
 	</style>
 
 	<style name="LauncherHealthAuth">
 		<item name="android:textColor">@android:color/white</item>
-		<item name="android:fontFamily">@font/brandontext_medium</item>
+		<item name="android:fontFamily">sans_serif_medium</item>
 		<item name="android:textSize">20sp</item>
 		<item name="android:textAllCaps">true</item>
 	</style>
 
 	<style name="LauncherSubtitle">
 		<item name="android:textColor">@android:color/white</item>
-		<item name="android:fontFamily">@font/brandontext_medium</item>
+		<item name="android:fontFamily">sans_serif_medium</item>
 		<item name="android:textSize">14sp</item>
 		<item name="android:alpha">0.74</item>
 	</style>
@@ -184,7 +184,7 @@
 	<style name="ExplanationTextHeader">
 		<item name="android:textColor">@color/primaryText</item>
 		<item name="android:textSize">16sp</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 	</style>
 
 	<style name="settings" parent="PrimaryTextBold">
@@ -210,7 +210,7 @@
 		<item name="android:background">@drawable/default_button</item>
 		<item name="android:textColor">@drawable/default_button</item>
 		<item name="android:textAllCaps">false</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">16sp</item>
 		<item name="android:padding">16dp</item>
 	</style>
@@ -220,7 +220,7 @@
 		<item name="android:background">#F3F9FB</item>
 		<item name="android:textColor">#32345C</item>
 		<item name="android:textAllCaps">false</item>
-		<item name="android:fontFamily">@font/brandontext_bold</item>
+		<item name="android:fontFamily">sans_serif_black</item>
 		<item name="android:textSize">16sp</item>
 		<item name="android:paddingHorizontal">50dip</item>
 		<item name="android:paddingVertical">5dip</item>

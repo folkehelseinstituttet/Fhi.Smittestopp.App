@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -19,7 +19,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel BoxTitleLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel BoxTitleLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -31,11 +31,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel ContentLabelOne { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel ContentLabelOne { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SettingsPageContentLabel ContentLabelTwo { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel ContentLabelTwo { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -43,11 +43,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView LearnMoreView { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.SetttingsPageTitleLabel TitleLabel { get; set; }
+        NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel TitleLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -96,11 +92,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             if (HealthAuthoritiesLogo != null) {
                 HealthAuthoritiesLogo.Dispose ();
                 HealthAuthoritiesLogo = null;
-            }
-
-            if (LearnMoreView != null) {
-                LearnMoreView.Dispose ();
-                LearnMoreView = null;
             }
 
             if (TitleLabel != null) {
