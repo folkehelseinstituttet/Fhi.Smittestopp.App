@@ -1,23 +1,20 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.Content.PM;
-using Android.Graphics;
-using Android.Net;
 using Android.OS;
 using Android.Text;
 using Android.Text.Style;
-using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
 using Java.Lang;
+using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
-        Theme = "@style/AppTheme", 
+        Theme = "@style/AppTheme",
         ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     class SettingsHowItWorksActivity : AppCompatActivity
     {
@@ -38,49 +35,44 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_how_it_works_title);
 
             titleField.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER;
-            textField.TextFormatted = HtmlCompat.FromHtml(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT, HtmlCompat.FromHtmlModeLegacy);
+            textField.TextFormatted = HtmlCompat.FromHtml(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT,
+                HtmlCompat.FromHtmlModeLegacy);
+            LinkUtil.LinkifyTextView(textField);
+            FormatLink(textField);
 
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
         }
 
-        private void FormatLink (TextView textView) {
-            SpannableStringBuilder spannable = new SpannableStringBuilder (textView.TextFormatted);
-            Object[] spans = spannable.GetSpans (0, spannable.Length (), Class.FromType (typeof (URLSpan)));
-            foreach (URLSpan span in spans) {
-                int start = spannable.GetSpanStart (span);
-                int end = spannable.GetSpanEnd (span);
+        private void FormatLink(TextView textView)
+        {
+            SpannableStringBuilder spannable = new SpannableStringBuilder(textView.TextFormatted);
+            Object[] spans =
+                spannable.GetSpans(
+                    0,
+                    spannable.Length(),
+                    Class.FromType(typeof(URLSpan)));
+            foreach (URLSpan span in spans)
+            {
+                int start = spannable.GetSpanStart(span);
+                int end = spannable.GetSpanEnd(span);
                 spannable.RemoveSpan(span);
-                URLSpanNoUnderline newSpan = new URLSpanNoUnderline (span.URL);
+                URLSpanWithUnderline newSpan = new URLSpanWithUnderline(span.URL);
                 spannable.SetSpan(newSpan, start, end, 0);
             }
+
             textView.TextFormatted = spannable;
         }
 
-        class OnClickListener : Object, View.IOnClickListener
+        private class URLSpanWithUnderline : URLSpan
         {
-            private SettingsHowItWorksActivity _self;
-            private string _link;
-
-            public OnClickListener(SettingsHowItWorksActivity self, string link)
+            public URLSpanWithUnderline(string url) : base(url)
             {
-                _self = self;
-                _link = link;
             }
-            public void OnClick(View v)
+
+            public override void UpdateDrawState(TextPaint ds)
             {
-                Intent browserIntent = new Intent(Intent.ActionView);
-                browserIntent.SetData(Uri.Parse(_link));
-                _self.StartActivity(browserIntent);
-            }
-        }
-
-        private class URLSpanNoUnderline : URLSpan {
-            public URLSpanNoUnderline (string url) : base (url) {
-            }
-
-            public override void UpdateDrawState (TextPaint ds) {
-                base.UpdateDrawState (ds);
-                ds.UnderlineText = false;
+                base.UpdateDrawState(ds);
+                ds.UnderlineText = true;
                 ds.Color = "#32345C".ToColor();
             }
         }
