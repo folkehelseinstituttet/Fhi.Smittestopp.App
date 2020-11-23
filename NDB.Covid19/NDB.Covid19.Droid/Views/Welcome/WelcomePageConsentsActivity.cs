@@ -105,6 +105,11 @@ namespace NDB.Covid19.Droid.Views.Welcome
             Button policyLinkBtn = FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
             policyLinkBtn.Text = ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT;
             policyLinkBtn.Click += PolicyLinkBtn_Click;
+
+            // CONTENT DESCRIPTIONS OF HEADER
+            _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
+            _howitworksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
+            _samtykkebottomHeader.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
         }
 
         private void PolicyLinkBtn_Click(object sender, EventArgs e)
