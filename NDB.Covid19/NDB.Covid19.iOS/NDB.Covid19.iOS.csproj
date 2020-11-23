@@ -888,6 +888,7 @@
     <Compile Include="SceneDelegate.cs" />
     <Compile Include="IOSDependencyInjectionConfig.cs" />
     <Compile Include="Utils\ColorHelper.cs" />
+    <Compile Include="Utils\RestartUtils.cs" />
     <Compile Include="Views\MessagePage\MessagePageCell.cs" />
     <Compile Include="Views\MessagePage\MessagePageCell.designer.cs" />
     <Compile Include="Views\MessagePage\MessagePageViewController.cs" />

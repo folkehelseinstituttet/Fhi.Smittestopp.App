@@ -118,6 +118,7 @@ namespace NDB.Covid19.Droid.Views.Settings
                         break;
                 }
                 LocalesService.SetInternationalization();
+                NavigationHelper.RestartApp(_self);
             }
         }
 

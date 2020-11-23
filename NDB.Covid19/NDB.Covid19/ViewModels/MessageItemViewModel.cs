@@ -7,8 +7,8 @@ namespace NDB.Covid19.ViewModels
 {
     public class MessageItemViewModel
     {
-        public static readonly string MESSAGES_RECOMMENDATIONS = "MESSAGES_RECOMMENDATIONS_".Translate();
-        public static readonly string MESSAGES_MESSAGE_HEADER = "MESSAGES_MESSAGE_HEADER".Translate();
+        public static string MESSAGES_RECOMMENDATIONS => "MESSAGES_RECOMMENDATIONS_".Translate();
+        public static string MESSAGES_MESSAGE_HEADER => "MESSAGES_MESSAGE_HEADER".Translate();
 
         private bool _isRead;
         public int ID { get; }
