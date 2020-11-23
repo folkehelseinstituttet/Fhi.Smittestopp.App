@@ -227,6 +227,7 @@
   "MESSAGES_NOMESSAGES_LABEL": "If you have been in close contact with a person infected with COVID-19 who also uses the app, you will automatically receive a message here.",
   "MESSAGES_LINK": "https://www.fhi.no/en/about/smittestopp/warning-about-risk-of-infection",
   "MESSAGES_ACCESSIBILITY_CLOSE_BUTTON": "Close",
+  "MESSAGES_NEW_ITEM": "New",
   "NOTIFICATION_HEADER": "You have received a new message in Smittestopp.",
   "NOTIFICATION_DESCRIPTION": "Open the app to read the message.",
   "NOTIFICATION_UPDATE_HEADER": "Smittestopp has stopped working. Please update the app to get back up and running ",

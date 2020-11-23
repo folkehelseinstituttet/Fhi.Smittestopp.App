@@ -10,6 +10,8 @@ namespace NDB.Covid19.ViewModels
     public class MessagesViewModel
     {
         public static string MESSAGES_HEADER => "MESSAGES_HEADER".Translate();
+        public static string MESSAGES_NEW_MESSAGES_HEADER => "MESSAGES_NEW_MESSAGES_HEADER".Translate();
+        public static string MESSAGES_NEW_ITEM => "MESSAGES_NEW_ITEM".Translate();
         public static string MESSAGES_NO_ITEMS_TITLE => "MESSAGES_NOMESSAGES_HEADER".Translate();
         public static string MESSAGES_NO_ITEMS_DESCRIPTION => "MESSAGES_NOMESSAGES_LABEL".Translate();
         public static string MESSAGES_LAST_UPDATED_LABEL => "MESSAGES_LAST_UPDATED_LABEL".Translate();
