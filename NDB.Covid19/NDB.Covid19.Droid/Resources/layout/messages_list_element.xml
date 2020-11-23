@@ -1,84 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
-    <RelativeLayout
-        android:id="@+id/message_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:orientation="vertical">
 
-        <View
-            android:id="@+id/ellipsis"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/ellipse"
-            />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/message_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ellipsis"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/messages_item_date"
-                style="@style/MessageListItemDateText"
-                android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="24dp"
+            android:background="@drawable/messages_border">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:lineSpacingExtra="2sp"
-                android:text="Dummy date" />
-            <TextView
-                android:id="@+id/messages_item_tile"
-                style="@style/MessageListItemTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:lineSpacingExtra="5sp"
-                android:paddingBottom="8dp"
-                android:text="Dummy title" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:paddingStart="24dp"
+                android:paddingVertical="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/item_arrow">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/date_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/messages_item_title">
+
+                <LinearLayout
+                        android:id="@+id/dot_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                            android:id="@+id/ellipsis"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_centerVertical="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/calendar_border"
+                            android:tint="@android:color/holo_red_dark"/>
+
+                    <TextView
+                            android:id="@+id/new_item"
+                            android:textAppearance="@style/PrimaryText"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="8dp"
+                            android:text="Ulest"/>
+                </LinearLayout>
+
                 <TextView
-                    android:id="@+id/messages_item_description"
-                    style="@style/MessageListItemDescriptionText"
+                        android:id="@+id/messages_item_date"
+                        style="@style/PrimaryText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="27.September 2020"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/dot_layout"
+                        app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                    android:id="@+id/messages_item_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:lineSpacingExtra="2sp"
-                    android:text="Dummy subtitle" />
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"/>
-                <View
-                    android:layout_width="7dp"
-                    android:layout_height="12dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/ic_back_icon"/>
-            </LinearLayout>
+                    android:textAppearance="@style/PrimaryText"
+                    android:textStyle="bold"
+                    android:paddingVertical="8dp"
+                    android:text="Du har været tæt på en med COVID-19 og er muligvis blevet smittet"
+                    app:layout_constraintTop_toBottomOf="@id/date_layout"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-        </LinearLayout>
-    </RelativeLayout>
-    <View
-        android:id="@+id/messages_devider"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/lightBlueDivider"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/message_layout" />
+            <TextView
+                    android:id="@+id/messages_item_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/PrimaryText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/messages_item_title"
+                    android:text="Viktig - les hvordan du skal forholde deg"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+                android:id="@+id/item_arrow"
+                android:src="@drawable/ic_back_arrow"
+                android:tint="@color/primaryText"
+                android:rotation="180"
+                android:paddingHorizontal="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

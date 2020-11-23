@@ -15,7 +15,7 @@ namespace NDB.Covid19.ViewModels
         public string Title { get; }
         public DateTime TimeStamp { get; }
         public string MessageLink { get; }
-        public string DayAndMonthString => $"{DateUtils.GetDateFromDateTime(TimeStamp, "d. MMMMM")}";
+        public string DayAndMonthString => $"{DateUtils.GetDateFromDateTime(TimeStamp, "d. MMMMM yyyy")}";
 
         public bool IsRead
         {
