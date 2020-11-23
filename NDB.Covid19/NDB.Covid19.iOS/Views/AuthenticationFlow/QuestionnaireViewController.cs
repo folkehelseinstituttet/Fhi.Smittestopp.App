@@ -172,7 +172,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         void OnSuccess()
         {
             NextBtn.HideSpinner();
+            // TODO Not relevant for release 1. Left for the future release
+            /*
             NavigationController?.PushViewController(QuestionnaireCountriesViewController.Create(), true);
+            */
+            NavigationController?.PushViewController(LoadingPageViewController.Create(), true);
         }
 
         void DatePickerChanged(object sender, EventArgs e)
