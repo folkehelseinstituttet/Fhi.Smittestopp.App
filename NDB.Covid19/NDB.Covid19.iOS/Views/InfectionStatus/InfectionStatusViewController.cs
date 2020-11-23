@@ -316,8 +316,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OpenMessagesPage()
         {
-            UINavigationController vc = MessagePageViewController.GetMessagePageControllerInNavigationController();
-            PresentViewController(vc, true, null);
+            UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("MessagePage");
+            NavigationController?.PushViewController(vc, true);
         }
     }
 }

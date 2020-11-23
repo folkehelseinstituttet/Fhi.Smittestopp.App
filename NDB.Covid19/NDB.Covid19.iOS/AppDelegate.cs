@@ -92,8 +92,8 @@ namespace NDB.Covid19.iOS
                 return;
             }
 
-            UINavigationController vc = MessagePageViewController.GetMessagePageControllerInNavigationController();
-            topController.PresentViewController(vc, true, null);
+            UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("MessagePage");
+            topController.NavigationController?.PushViewController(vc, true);
         }
 
         [Export("applicationDidEnterBackground:")]
