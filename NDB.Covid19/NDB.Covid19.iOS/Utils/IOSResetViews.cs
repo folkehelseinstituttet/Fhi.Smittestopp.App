@@ -1,10 +1,11 @@
+using NDB.Covid19.Interfaces;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Utils
 {
-    public static class RestartUtils
+    public class IOSResetViews: IResetViews
     {
-        public static void RestartApp()
+        public void ResetViews()
         {
             UIView.Transition(
                 withView: UIApplication.SharedApplication.KeyWindow,

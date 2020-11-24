@@ -5,7 +5,9 @@ using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
+using CommonServiceLocator;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.ViewModels.SettingsGeneralViewModel;
@@ -20,7 +22,8 @@ namespace NDB.Covid19.Droid.Views.Settings
     class SettingsGeneralActivity : AppCompatActivity
     {
         private readonly SettingsGeneralViewModel _viewModel = new SettingsGeneralViewModel();
-        
+        private readonly IResetViews _resetViews = ServiceLocator.Current.GetInstance<IResetViews>();
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -118,7 +121,7 @@ namespace NDB.Covid19.Droid.Views.Settings
                         break;
                 }
                 LocalesService.SetInternationalization();
-                NavigationHelper.RestartApp(_self);
+                _self._resetViews.ResetViews();
             }
         }
 

@@ -1,6 +1,8 @@
 using System;
 using System.Diagnostics;
+using CommonServiceLocator;
 using NDB.Covid19.Enums;
+using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.CustomSubclasses;
 using NDB.Covid19.PersistedData;
@@ -13,9 +15,10 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 {
     public partial class SettingsPageGeneralSettingsViewController : BaseViewController
     {
-        SettingsGeneralViewModel _viewModel;
-        UITapGestureRecognizer _gestureRecognizer;
-
+        private SettingsGeneralViewModel _viewModel;
+        private UITapGestureRecognizer _gestureRecognizer;
+        private readonly IResetViews _resetViews = ServiceLocator.Current.GetInstance<IResetViews>();
+        
         public SettingsPageGeneralSettingsViewController(IntPtr handle) : base(handle)
         {
         }
@@ -161,17 +164,17 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             {
                 case SettingsLanguageSelection.Bokmal:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action => RestartUtils.RestartApp());
+                        Action => _resetViews.ResetViews());
                     LocalPreferencesHelper.SetAppLanguage("nb");
                     break;
                 case SettingsLanguageSelection.Nynorsk:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action => RestartUtils.RestartApp());
+                        Action => _resetViews.ResetViews());
                     LocalPreferencesHelper.SetAppLanguage("nn");
                     break;
                 case SettingsLanguageSelection.English:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action => RestartUtils.RestartApp());
+                        Action => _resetViews.ResetViews());
                     LocalPreferencesHelper.SetAppLanguage("en");
                     break;
             }
