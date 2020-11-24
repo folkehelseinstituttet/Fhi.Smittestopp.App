@@ -135,6 +135,7 @@ namespace NDB.Covid19.OAuth2
             query["nonce"] = Guid.NewGuid().ToString("N");
             query["code_challenge"] = CreateChallenge(_codeVerifier);
             query["code_challenge_method"] = "S256";
+            query["prompt"] = "login";
 
             base.OnCreatingInitialUrl(query);
         }
