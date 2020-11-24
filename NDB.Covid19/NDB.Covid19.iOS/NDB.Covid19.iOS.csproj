@@ -1038,5 +1038,15 @@
       <Name>NDB.Covid19</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fonts\OFL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\PTSans-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PTSans-BoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PTSans-Caption-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PTSans-Italic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\PTSans-Regular.ttf" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
