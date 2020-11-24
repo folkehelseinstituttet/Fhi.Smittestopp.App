@@ -61,10 +61,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Fonts/PTSans-Bold.ttf</string>
-		<string>Fonts/PTSans-Regular.ttf</string>
 		<string>Fonts/PTSans-BoldItalic.ttf</string>
-		<string>Fonts/PTSans-Italic.ttf</string>
 		<string>Fonts/PTSans-Caption-Regular.ttf</string>
+		<string>Fonts/PTSans-Italic.ttf</string>
+		<string>Fonts/PTSans-Regular.ttf</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
