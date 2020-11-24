@@ -19,11 +19,10 @@
 
             <RelativeLayout
 		        android:id="@+id/close_cross_btn"
-		        android:layout_width="48dp"
-		        android:layout_height="48dp"
-		        android:layout_alignParentTop="true"
-		        android:layout_alignParentRight="true"
-		        android:padding="12dp"
+		        android:layout_width="24dp"
+		        android:layout_height="24dp"
+                android:layout_marginEnd="@dimen/defaultHorizontalMargin"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
 		        app:layout_constraintRight_toRightOf="parent"
 		        app:layout_constraintTop_toTopOf="parent">
 		        <ImageView
@@ -36,12 +35,11 @@
                 android:id="@+id/error_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="62dp"
-                android:paddingBottom="24dp"
+                android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
+                android:paddingBottom="@dimen/defaultVerticalMargin"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/close_cross_btn"
                 android:text="Dummy title"
                 style="@style/HeaderText"/>
 
@@ -52,8 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 app:layout_goneMarginBottom="0dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                 android:visibility="gone"
                 android:text="Dummy subtitle"
                 app:layout_constraintBottom_toTopOf="@id/error_description"
@@ -67,9 +64,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dummy description"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                android:layout_marginBottom="@dimen/defaultVerticalMargin"
                 app:layout_constraintBottom_toTopOf="@id/error_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/error_subtitle" />
@@ -83,8 +79,7 @@
         android:id="@+id/error_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="57dp"
-		android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="@dimen/defaultVerticalMargin"
+		android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
         android:text="Dummy Button"/>
 </LinearLayout>

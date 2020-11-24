@@ -4,14 +4,14 @@
     android:id="@+id/settings_general_text_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/defaultVerticalMargin"
     android:background="@color/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="24dp"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
         app:layout_constraintVertical_weight="2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:lineSpacingExtra="4sp"
+            android:paddingVertical="5dp"
             app:layout_constraintVertical_weight="1"
             android:text="Indstillinger"
             android:textAlignment="viewStart"
@@ -55,8 +56,8 @@
             android:id="@+id/settings_general_main_content_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
             android:clipToPadding="false"
-            android:layout_marginHorizontal="16dp"
             android:paddingBottom="70dp">
 
             <TextView
@@ -64,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4sp"
+                android:paddingTop="32dp"
                 android:paddingBottom="34dp"
                 android:text="Her kan du redigere dine indstillinger"
                 style="@style/PrimaryTextBold"
@@ -107,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:paddingVertical="5dp"
                     android:text="Mobildata"
+                    android:layout_marginEnd="8dp"
                     android:textAppearance="@style/PrimaryTextBold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/settings_general_switch"

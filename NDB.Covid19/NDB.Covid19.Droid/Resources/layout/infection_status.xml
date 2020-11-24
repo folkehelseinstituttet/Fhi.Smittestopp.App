@@ -34,7 +34,7 @@
 	<ImageButton
 		android:layout_width="26dp"
 		android:layout_height="18dp"
-			android:layout_margin="16dp"
+		android:layout_margin="@dimen/defaultHorizontalMargin"
 		android:background="@drawable/ic_hamburger_menu_icon"
 		android:id="@+id/infection_status_menu_icon_relativeLayout" />
 	</LinearLayout>
@@ -73,8 +73,6 @@
 				android:layout_height="wrap_content"
 				android:id="@+id/infection_status_activity_status_textView"
 				style="@style/PrimaryTextBold" />
-
-
 
 				</LinearLayout>
 

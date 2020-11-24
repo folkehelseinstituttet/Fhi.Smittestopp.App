@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="24dp"
-    android:layout_marginHorizontal="16dp">
+    android:layout_marginVertical="@dimen/defaultVerticalMargin"
+    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp">
+        android:layout_marginBottom="@dimen/defaultVerticalMargin">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/settings_links_layout"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/settings_intro_frame"
                 android:accessibilityTraversalBefore="@id/settings_saddan_frame"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/settings_icon_imageview"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -56,7 +56,7 @@
                 layout="@layout/settings_link"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
                 android:accessibilityTraversalBefore="@id/settings_behandling_frame"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +67,7 @@
                 layout="@layout/settings_link"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
                 android:accessibilityTraversalBefore="@id/settings_hjaelp_frame"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +78,7 @@
                 layout="@layout/settings_link"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
                 android:accessibilityTraversalBefore="@id/om_frame"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
                 layout="@layout/settings_link"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
                 android:accessibilityTraversalBefore="@id/general_settings"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
                 layout="@layout/settings_link"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
                 android:accessibilityTraversalBefore="@id/test_frame"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +111,7 @@
                 layout="@layout/settings_link"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

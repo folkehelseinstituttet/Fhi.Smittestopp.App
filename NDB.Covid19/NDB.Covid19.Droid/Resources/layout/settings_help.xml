@@ -8,8 +8,8 @@
         android:id="@+id/header_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="24dp"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="@dimen/defaultVerticalMargin"
+        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,10 +18,9 @@
             android:id="@+id/arrow_back_help"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:background="@drawable/circle_arrow_right"
+            android:background="@drawable/circle_arrow_left"
             android:clickable="true"
             android:focusable="true"
-            android:rotation="180"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
