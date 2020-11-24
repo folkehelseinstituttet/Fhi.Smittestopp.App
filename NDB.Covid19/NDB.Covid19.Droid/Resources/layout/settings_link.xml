@@ -6,36 +6,17 @@
     android:layout_height="wrap_content"
     tools:showIn="@layout/settings_page">
 
-    <ndb.covid19.droid.views.settings.UnderlinedTextView
+    <Button
         android:id="@+id/settings_link_text"
-        android:background="@android:color/transparent"
-        android:layout_width="0dp"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:gravity="top"
-        android:lineSpacingExtra="4sp"
         style="@style/settings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="start"
+        android:text="test text fsafasfsafsafsafsafsaasfsafsa"
         android:textAppearance="@style/settings"
-        android:translationY="-1.91sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/arrow_back_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:underlineColor="#fe7668"
-        app:underlineWidth="2dp"
-        app:underlineMarginTop="2dp"
-        />
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/arrow_back_1"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/settings_link_text"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,9 +16,10 @@
         app:layout_constraintTop_toTopOf="parent">
         <Button
             android:id="@+id/arrow_back"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/circle_arrow_left"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/circle_arrow_right"
+            android:rotation="180"
             android:layout_alignParentTop="true"
             android:clickable="true"
             android:focusable="true"
@@ -45,23 +46,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_bar"
         app:layout_constraintBottom_toTopOf="@id/button_container"
         android:scrollbars="vertical"
+        android:paddingTop="24dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/consent_text_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="24dp"
+            android:paddingBottom="24dp"
             >
 
             <fragment
                 android:name="NDB.Covid19.Droid.Views.Settings.ConsentSettingPageFragment"
                 android:id="@+id/consent_info"
-                android:layout_marginHorizontal="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="false"
@@ -81,19 +83,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="6dp"
-        android:background="@drawable/shadow_gradient_border"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_container"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/button_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
+        android:background="@color/backgroundColor"
+        android:elevation="12dp"
+        android:translationZ="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
