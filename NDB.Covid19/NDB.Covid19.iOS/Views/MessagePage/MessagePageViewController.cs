@@ -64,11 +64,22 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
         }
 
-        private void SetStyling()
+        private async void SetStyling()
         {
             StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 1.14, 22, 34);
             StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 12, 14, UITextAlignment.Left);
-            StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontBold, MESSAGES_NO_ITEMS_TITLE, 1.25, 32, 34);
+            int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
+            int messages = (await MessageUtils.GetMessages()).Count;
+            string headerText = MESSAGES_NO_ITEMS_TITLE;
+            if (unreadMessages > 0)
+            {
+                headerText = MESSAGES_NEW_MESSAGES_HEADER;
+            }
+            else if (messages > 0)
+            {
+                headerText = MESSAGES_NO_NEW_MESSAGES_HEADER;
+            }
+            StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontBold, headerText, 1.25, 32, 34);
             StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.25, 18, 20, UITextAlignment.Left);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
         }
@@ -97,7 +108,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             LabelLastUpdate.Text = LastUpdateString;
             List<MessageItemViewModel> listReversed = list;
             InvokeOnMainThread(() =>
-            {
+            {   
                 NoItemsView.Hidden = list.Count > 0;
                 MessageTable.Hidden = list.Count <= 0;
                 (MessageTable.Source as MessageTableViewSource).Update(listReversed);
