@@ -115,7 +115,7 @@
 
 	<style name="PrimaryTextItalic">
 		<item name="android:textColor">@color/primaryText</item>
-		<item name="android:fontFamily">sans_serif_mediumitalic</item>
+		<item name="android:fontFamily">@font/ptsans_italic</item>
 		<item name="android:textSize">14sp</item>
 	</style>
 

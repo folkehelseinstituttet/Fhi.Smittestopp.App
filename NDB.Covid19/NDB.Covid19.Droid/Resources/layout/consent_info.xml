@@ -12,13 +12,14 @@
         android:text="Header, about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         style="@style/PrimaryTextBold"
         android:id="@+id/consent1_about_header"/>
     <TextView
         android:text="About text, section1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_about_text_section1"
         android:layout_below="@+id/consent1_about_header"
         android:layout_marginBottom="16dp" />
@@ -26,7 +27,7 @@
         android:text="About text, section2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_about_text_section2"
         android:layout_below="@+id/consent1_about_text_section1"
         android:layout_marginBottom="24dp" />
@@ -35,6 +36,7 @@
         android:text="Header, how it works"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
         style="@style/PrimaryTextBold"
         android:id="@+id/consent1_howitworks_header"
         android:layout_below="@+id/consent1_about_text_section2"/>
@@ -42,7 +44,7 @@
         android:text="About text, section1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_howitworks_text_section1"
         android:layout_below="@+id/consent1_howitworks_header"
         android:layout_marginBottom="16dp" />
@@ -50,7 +52,7 @@
         android:text="About text, section2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_howitworks_text_section2"
         android:layout_below="@+id/consent1_howitworks_text_section1"
         android:layout_marginBottom="16dp" />
@@ -59,7 +61,7 @@
         android:text="Samtykke text, section1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_samtykke_text_section1"
         android:layout_below="@+id/consent1_howitworks_text_section2"
         android:layout_marginBottom="16dp" />
@@ -67,7 +69,7 @@
         android:text="Samtykke text, section2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_samtykke_text_section2"
         android:layout_below="@+id/consent1_samtykke_text_section1"
         android:layout_marginBottom="16dp" />
@@ -83,7 +85,7 @@
         android:text="Behandling af personopl., section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_behandlingafpersonopl_text"
         android:layout_below="@+id/consent_paragraph_hvordan_accepterer"
         android:layout_marginBottom="16dp" />
@@ -103,6 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
+        android:textSize="16sp"
         style="@style/PrimaryTextBold"
         android:id="@+id/consent1_samtykkebottom_header"
         android:layout_below="@+id/consent_paragraph_policy_btn"/>
@@ -110,7 +113,7 @@
         android:text="Samtykke bottom, section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextItalic"
         android:id="@+id/consent1_samtykkebottom_text"
         android:layout_below="@+id/consent1_samtykkebottom_header"
         android:layout_marginBottom="16dp" />
