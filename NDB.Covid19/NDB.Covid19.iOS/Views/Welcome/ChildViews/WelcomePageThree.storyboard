@@ -22,7 +22,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3824">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="wJw-lM-ZFa">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wJw-lM-ZFa">
                                                 <rect key="frame" x="24" y="48" width="366" height="770"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZzF-3E-nm2">
@@ -53,7 +53,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="f7X-20-bjP">
-                                                        <rect key="frame" x="0.0" y="67" width="366" height="50"/>
+                                                        <rect key="frame" x="0.0" y="55" width="366" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2B1-9B-vpN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="21" height="50"/>
@@ -84,7 +84,7 @@ line 2</string>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GXc-TR-edu">
-                                                        <rect key="frame" x="0.0" y="141" width="366" height="57.5"/>
+                                                        <rect key="frame" x="0.0" y="117" width="366" height="50"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNX-cg-Le7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="21" height="50"/>
@@ -105,7 +105,7 @@ line 2</string>
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14345">
-                                                                <rect key="frame" x="37" y="0.0" width="329" height="37.5"/>
+                                                                <rect key="frame" x="37" y="0.0" width="329" height="40"/>
                                                                 <string key="text">Label
 line 2</string>
                                                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
@@ -114,11 +114,11 @@ line 2</string>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="14345" secondAttribute="bottom" constant="20" id="62J-ae-6cx"/>
+                                                            <constraint firstAttribute="bottom" secondItem="14345" secondAttribute="bottom" constant="10" id="62J-ae-6cx"/>
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbx-HB-rtD">
-                                                        <rect key="frame" x="0.0" y="222.5" width="366" height="107"/>
+                                                        <rect key="frame" x="0.0" y="179" width="366" height="107"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4739">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="113"/>
@@ -163,7 +163,7 @@ line 3</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="SF7-wl-LRP">
-                                                        <rect key="frame" x="0.0" y="353.5" width="366" height="416.5"/>
+                                                        <rect key="frame" x="0.0" y="298" width="366" height="472"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
