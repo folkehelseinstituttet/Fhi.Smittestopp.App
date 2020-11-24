@@ -29,6 +29,10 @@ namespace NDB.Covid19.iOS.Views.MessagePage
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel Label3 { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel UnreadLabel { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (IndicatorView != null) {
@@ -49,6 +53,11 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             if (Label3 != null) {
                 Label3.Dispose ();
                 Label3 = null;
+            }
+
+            if (UnreadLabel != null) {
+                UnreadLabel.Dispose ();
+                UnreadLabel = null;
             }
         }
     }
