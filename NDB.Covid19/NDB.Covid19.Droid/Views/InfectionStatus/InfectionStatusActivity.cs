@@ -182,6 +182,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 Color enabledColor = new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOnGreen));
                 Color disabledColor = new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOffRed));
                 _statusLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
+                _toolbarLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
 
                 if (isRunning)
                 {
