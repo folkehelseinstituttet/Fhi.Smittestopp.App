@@ -38,7 +38,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
             DeleteBtnWidthConstraint.Active = false;
             StyleUtil.InitButtonStyling(DeleteConsentBtn, ConsentViewModel.WITHDRAW_CONSENT_BUTTON_TEXT);
             PageTitle.SetAttributedText(ConsentViewModel.WELCOME_PAGE_CONSENT_TITLE);
-            StyleUtil.InitButtonStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
+            StyleUtil.InitButtonSecondaryStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
             BottomStackView.Layer.MasksToBounds = false;
             BottomStackView.Layer.ShadowColor = UIColor.Gray.CGColor;
             BottomStackView.Layer.ShadowOffset = new CGSize(0f, 10f);
