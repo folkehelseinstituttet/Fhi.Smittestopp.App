@@ -60,18 +60,11 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/BrandonText-Bold.otf</string>
-		<string>Fonts/BrandonText-Regular.otf</string>
-		<string>Fonts/BrandonText-BlackItalic.otf</string>
-		<string>Fonts/BrandonText-BoldItalic.otf</string>
-		<string>Fonts/BrandonText-Black.otf</string>
-		<string>Fonts/BrandonText-Light.otf</string>
-		<string>Fonts/BrandonText-LightItalic.otf</string>
-		<string>Fonts/BrandonText-Medium.otf</string>
-		<string>Fonts/BrandonText-MediumItalic.otf</string>
-		<string>Fonts/BrandonText-RegularItalic.otf</string>
-		<string>Fonts/BrandonText-Thin.otf</string>
-		<string>Fonts/BrandonText-ThinItalic.otf</string>
+		<string>Fonts/PTSans-Bold.ttf</string>
+		<string>Fonts/PTSans-Regular.ttf</string>
+		<string>Fonts/PTSans-BoldItalic.ttf</string>
+		<string>Fonts/PTSans-Italic.ttf</string>
+		<string>Fonts/PTSans-Caption-Regular.ttf</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
