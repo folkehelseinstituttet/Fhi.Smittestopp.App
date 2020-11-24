@@ -60,7 +60,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
         style="@style/PrimaryTextLight"
-        android:fontFamily="sans-serif"
 		android:paddingHorizontal="24dp"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintBottom_toBottomOf="parent"/>

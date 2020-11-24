@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="subtitle text"
         android:id="@+id/consent_page_text"
-        style="@style/PrimaryText"
+        style="@style/PrimaryTextRegular"
         />
 
 </RelativeLayout>

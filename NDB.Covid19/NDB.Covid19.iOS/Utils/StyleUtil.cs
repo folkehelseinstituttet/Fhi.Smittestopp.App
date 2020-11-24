@@ -6,11 +6,12 @@ namespace NDB.Covid19.iOS.Utils
 {
     public static class StyleUtil
     {
-        public static string FontRegularName => "Brandon Text Regular";
-        public static string FontBoldName => "Brandon Text Bold";
-        public static string FontSemiBoldkName => "Brandon Text Regular";
-        public static string FontMediumkName => "Brandon Text Medium";
+        public static string FontRegularName => "PT Sans";
+        public static string FontBoldName => "PT Sans Bold";
+        public static string FontSemiBoldkName => "PT Sans";
+        public static string FontMediumkName => "PT Sans Caption";
         public static string FontMonospacedName => "Menlo-Regular";
+        public static string FontItalicName => "PR Sans Italic";
 
         public enum FontType
         {
@@ -18,29 +19,32 @@ namespace NDB.Covid19.iOS.Utils
             FontBold,
             FontSemiBold,
             FontMedium,
-            FontMonospaced
+            FontMonospaced,
+            FontItalic
         }
 
-        public static UIFontWeight GetFontWeight(FontType fontType)
+        public static string GetFontName(FontType fontType)
         {
             switch (fontType)
             {
                 case FontType.FontBold:
-                    return UIFontWeight.Bold;
+                    return FontBoldName;
                 case FontType.FontMedium:
-                    return UIFontWeight.Medium;
+                    return FontMediumkName;
                 case FontType.FontSemiBold:
-                    return UIFontWeight.Semibold;
+                    return FontSemiBoldkName;
                 case FontType.FontMonospaced:
-                    return UIFontWeight.Regular;
+                    return FontMonospacedName;
+                case FontType.FontItalic:
+                    return FontItalicName;
                 default:
-                    return UIFontWeight.Regular;
+                    return FontRegularName;
             }
         }
 
         public static UIFont Font(FontType fontType = FontType.FontRegular, float fontSize = 14, float? maxFontSize = null)
         {
-            UIFont font = UIFont.SystemFontOfSize(fontSize, GetFontWeight(fontType));
+            UIFont font = UIFont.FromName(GetFontName(fontType), fontSize);
 
             if (!UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
             {
