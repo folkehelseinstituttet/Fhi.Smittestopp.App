@@ -35,7 +35,7 @@
                 android:lineSpacingExtra="4sp"
 				android:autoLink="web"
                 android:textColorLink="@color/linkColor"
-                android:textAppearance="@style/settings_general"
+                android:textAppearance="@style/PrimaryText"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             <TextView
