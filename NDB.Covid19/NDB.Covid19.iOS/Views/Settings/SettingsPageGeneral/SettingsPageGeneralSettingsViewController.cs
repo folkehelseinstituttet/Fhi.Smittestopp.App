@@ -124,8 +124,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         public void SwitchValueChanged(object sender, EventArgs e)
         {
-            Debug.Print("Switch clicked. Is on " + switchButton.On);
-
             if (!switchButton.On)
             {
                 DialogHelper.ShowDialog(
