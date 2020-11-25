@@ -1123,6 +1123,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <None Include="appcenter-pre-build.sh" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />

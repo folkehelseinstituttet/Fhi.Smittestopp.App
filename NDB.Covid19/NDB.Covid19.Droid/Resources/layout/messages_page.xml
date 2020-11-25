@@ -48,23 +48,34 @@
             android:gravity="center_vertical"
             android:lineSpacingExtra="4sp"
             android:layout_marginTop="@dimen/defaultVerticalMargin"
-            android:paddingBottom="@dimen/defaultVerticalMargin"
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/header_layout"
             android:text="Du har ingen beskede"/>
 
     <TextView
-            android:id="@+id/no_items_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:lineSpacingExtra="10sp"
-            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/messages_page_sub_header"
-            style="@style/PrimaryText"
-            android:text="Dummy text"/>
+        android:id="@+id/last_updated"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Last updated"
+        android:textAppearance="@style/PrimaryText"
+        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+        android:paddingBottom="@dimen/defaultVerticalMargin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/messages_page_sub_header" />
+
+    <TextView
+        android:id="@+id/no_items_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:lineSpacingExtra="10sp"
+        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/last_updated"
+        style="@style/PrimaryText"
+        android:text="Dummy text" />
 
     <ListView
             android:id="@+id/messages_list"
@@ -76,5 +87,4 @@
             app:layout_constraintTop_toTopOf="@id/no_items_description"
             app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="invisible"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
