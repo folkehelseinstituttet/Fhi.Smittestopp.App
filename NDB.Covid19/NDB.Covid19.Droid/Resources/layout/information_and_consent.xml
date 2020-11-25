@@ -49,7 +49,6 @@
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="24dp"
 				android:layout_marginRight="24dp"
-				android:textSize="16sp"
 				android:layout_below="@id/information_consent_header_textView"
 				android:id="@+id/information_consent_contentDescription_textView"
 				style="@style/PrimaryTextRegular"/>
@@ -70,7 +69,6 @@
 				android:layout_height="wrap_content"
 				android:paddingLeft="24dp"
 				android:paddingRight="24dp"
-				android:textSize="16sp"
 				android:layout_below="@id/information_consent_lookup_header_textview"
 				android:id="@+id/information_consent_lookup_text_textview"
 				style="@style/PrimaryTextRegular"/>
@@ -91,7 +89,6 @@
 				android:layout_height="wrap_content"
 				android:paddingLeft="24dp"
 				android:paddingRight="24dp"
-				android:textSize="16sp"
 				android:layout_below="@id/information_consent_notification_header_textview"
 				android:id="@+id/information_consent_notification_text_textview"
 				style="@style/PrimaryTextRegular"/>
@@ -102,10 +99,9 @@
 				android:paddingTop="48dp"
 				android:paddingLeft="24dp"
 				android:paddingRight="24dp"
-				android:textSize="16sp"
 				android:layout_below="@id/information_consent_notification_text_textview"
 				android:id="@+id/information_consent_beAware_text_textview"
-				style="@style/PrimaryTextBold"/>
+				style="@style/PrimaryTextRegular"/>
 			<TextView
 				android:text="Notification text"
 				android:layout_width="wrap_content"
@@ -114,7 +110,6 @@
 				android:paddingLeft="24dp"
 				android:paddingRight="24dp"
 				android:paddingBottom="24dp"
-				android:textSize="16sp"
 				android:layout_below="@id/information_consent_beAware_text_textview"
 				android:id="@+id/information_consent_explanation_text_textview"
 				style="@style/PrimaryTextItalic"/>

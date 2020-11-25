@@ -18,7 +18,8 @@ namespace NDB.Covid19.iOS
             unityContainer.RegisterType<IDialogService, IOSDialogService>();
             unityContainer.RegisterType<ILocalNotificationsManager, iOSLocalNotificationsManager>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<IApiDataHelper, IOSApiDataHelperHandler>();
-
+            unityContainer.RegisterSingleton<IResetViews, IOSResetViews>();
+            
             CommonDependencyInjectionConfig.Init(unityContainer);
            
             UnityServiceLocator unityServiceLocalter = new UnityServiceLocator(unityContainer);
