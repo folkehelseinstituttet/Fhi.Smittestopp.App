@@ -28,10 +28,6 @@ namespace NDB.Covid19.iOS.Views.Initializer
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel InitializerAppName { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton StartButton { get; set; }
 
         [Action ("StartButton_TouchUpInside:")]
@@ -53,11 +49,6 @@ namespace NDB.Covid19.iOS.Views.Initializer
             if (HeaderView != null) {
                 HeaderView.Dispose ();
                 HeaderView = null;
-            }
-
-            if (InitializerAppName != null) {
-                InitializerAppName.Dispose ();
-                InitializerAppName = null;
             }
 
             if (StartButton != null) {

@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -63,11 +63,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView StatusContainer { get; set; }
+        UIKit.UIView ScrollDownBackgroundView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel StatusHeader { get; set; }
+        UIKit.UIView StatusContainer { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -143,14 +143,14 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 OnOffBtnContainer = null;
             }
 
+            if (ScrollDownBackgroundView != null) {
+                ScrollDownBackgroundView.Dispose ();
+                ScrollDownBackgroundView = null;
+            }
+
             if (StatusContainer != null) {
                 StatusContainer.Dispose ();
                 StatusContainer = null;
-            }
-
-            if (StatusHeader != null) {
-                StatusHeader.Dispose ();
-                StatusHeader = null;
             }
 
             if (StatusText != null) {
