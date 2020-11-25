@@ -7,36 +7,37 @@
 
 	<LinearLayout
 		android:id="@+id/infection_status_activity_toolbar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
 		android:orientation="horizontal"
-		android:gravity="center">
-
-	<ImageView
-		android:src="@drawable/logo_fhi_blue"
-		android:layout_width="56dp"
-		android:layout_height="24dp"
-		android:layout_marginLeft="16dp"
-		android:importantForAccessibility="no"
-		android:id="@+id/infection_status_app_icon_imageView" />
-
-	<TextView
-		android:text="Menu"
-		android:textAlignment="textEnd"
-		android:layout_width="0dp"
-		android:layout_height="32dp"
-		android:layout_weight="1"
 		android:gravity="center"
-		android:importantForAccessibility="no"
-		android:id="@+id/infection_status_menu_text_view"
-		style="@style/PrimaryTextMainMenu" />
+		android:background="@color/infectionStatusButtonOnGreen">
 
-	<ImageButton
-		android:layout_width="26dp"
-		android:layout_height="18dp"
-		android:layout_margin="@dimen/defaultHorizontalMargin"
-		android:background="@drawable/ic_hamburger_menu_icon"
-		android:id="@+id/infection_status_menu_icon_relativeLayout" />
+		<ImageView
+			android:src="@drawable/logo_fhi_blue"
+			android:layout_width="56dp"
+			android:layout_height="24dp"
+			android:importantForAccessibility="no"
+			android:layout_marginStart="@dimen/defaultHorizontalMargin"
+			android:id="@+id/infection_status_app_icon_imageView" />
+
+		<TextView
+			android:text="Menu"
+			android:textAlignment="textEnd"
+			android:layout_width="0dp"
+			android:layout_height="32dp"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:importantForAccessibility="no"
+			android:id="@+id/infection_status_menu_text_view"
+			style="@style/PrimaryTextMainMenu" />
+
+		<ImageButton
+			android:layout_width="26dp"
+			android:layout_height="18dp"
+			android:layout_margin="@dimen/defaultHorizontalMargin"
+			android:background="@drawable/ic_hamburger_menu_icon"
+			android:id="@+id/infection_status_menu_icon_relativeLayout" />
 	</LinearLayout>
 
 	<ScrollView
@@ -51,30 +52,30 @@
 			android:id="@+id/infection_status_relativeLayout">
 
 			<LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
 				android:id="@+id/infection_status_activity_status_layout"
 				android:orientation="vertical"
 				android:gravity="center"
-				android:padding="24dp"
+				android:paddingTop="36dp"
+				android:paddingBottom="24dp"
 				android:background="@color/infectionStatusButtonOnGreen"
 				>
 
-				<TextView
-				android:text="Title"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:id="@+id/infection_status_activity_title_textView"
-				style="@style/PrimaryTextMainScreenTitle" />
+				<ImageView
+					android:src="@drawable/app_logo"
+					android:layout_width="250dp"
+					android:layout_height="100dp"
+					android:id="@+id/infection_status_app_logo"
+				/>
 
 				<TextView
-				android:text="State"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:id="@+id/infection_status_activity_status_textView"
-				style="@style/PrimaryTextBold" />
-
-				</LinearLayout>
+					android:text="State"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:id="@+id/infection_status_activity_status_textView"
+					style="@style/PrimaryTextBold" />
+			</LinearLayout>
 
 			<TextView
 				android:text="Description"
@@ -89,8 +90,8 @@
 				android:gravity="center"
 				android:id="@+id/infection_status_activivity_status_description_textView"
 				style="@style/PrimaryTextRegular" />
-			
-			<Button 
+
+			<Button
 				android:text="Start/Stop"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
@@ -99,7 +100,7 @@
 				android:layout_below="@+id/infection_status_activivity_status_description_textView"
 				android:id="@+id/infection_status_on_off_button"
 				style="@style/DefaultButton" />
-			
+
 			<RelativeLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
