@@ -1,8 +1,9 @@
 using System;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.iOS.Utils;
-using UIKit;
+using System.Diagnostics;
 using Foundation;
+using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.ViewModels;
+using UIKit;
 
 namespace NDB.Covid19.iOS.Views.ErrorStatus
 {
@@ -38,32 +39,40 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 			ErrorTitleLabel.Text = ErrorTitle;
 			ErrorTitleLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
-			// Ensure the linespacing is set correctly to the UITextView ErrorMessageLabel.
-			var AttributedErrorMessage = new NSMutableAttributedString(ErrorMessage); 
-			NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
-			paragraphStyle.LineSpacing = 0;
-			AttributedErrorMessage.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, new NSRange(0, ErrorMessage.Length));
-
-			ErrorMessageLabel.AttributedText = AttributedErrorMessage;
+			NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes
+			{
+				DocumentType = NSDocumentType.HTML,
+				StringEncoding = NSStringEncoding.UTF8
+			};
+			NSError error = null;
+			NSAttributedString attributedString = new NSAttributedString(
+				NSData.FromString(ErrorMessage, NSStringEncoding.UTF8),
+				documentAttributes,
+				ref error);
+			if (error != null)
+			{
+				Debug.Print(error.LocalizedDescription);
+			}
+			ErrorMessageLabel.AttributedText = attributedString;
 			ErrorMessageLabel.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 20, 24);
 			ErrorMessageLabel.Editable = false;
 			ErrorMessageLabel.Selectable = true;
 			ErrorMessageLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-
+		
 			StyleUtil.InitButtonStyling(OkButton, ErrorViewModel.REGISTER_ERROR_DISMISS);
 
 			BackButton.AccessibilityLabel = ErrorViewModel.REGISTER_ERROR_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
 			BackButton.TintColor = ColorHelper.PRIMARY_COLOR;
 
-			ErrorTitleLabel.IsAccessibilityElement = ErrorTitle == "" ? false : true;
-			ErrorMessageLabel.IsAccessibilityElement = ErrorMessage == "" ? false : true;
+			ErrorTitleLabel.IsAccessibilityElement = ErrorTitle != "";
+			ErrorMessageLabel.IsAccessibilityElement = ErrorMessage != "";
 
-            if (ErrorTitleLabel.IsAccessibilityElement == true && ErrorTitle == ErrorViewModel.REGISTER_ERROR_TOOMANYTRIES_HEADER)
+            if (ErrorTitleLabel.IsAccessibilityElement && ErrorTitle == ErrorViewModel.REGISTER_ERROR_TOOMANYTRIES_HEADER)
             {
 				ErrorTitleLabel.AccessibilityLabel = ErrorViewModel.REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_HEADER;
             }
 
-            if (ErrorMessageLabel.IsAccessibilityElement == true && ErrorMessage == ErrorViewModel.REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION)
+            if (ErrorMessageLabel.IsAccessibilityElement && ErrorMessage == ErrorViewModel.REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION)
             {
                 ErrorMessageLabel.AccessibilityLabel = ErrorViewModel.REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION;
             }
