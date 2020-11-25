@@ -19,10 +19,13 @@ namespace NDB.Covid19.iOS.Views.Settings
 
         public void SetData(string text)
         {
-            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };  
-            UIStringAttributes attributes = new UIStringAttributes {ParagraphStyle = paragraphStyle};
-            attributes.UnderlineColor = ColorHelper.BURGERMENU_UNDERLINE_COLOR;
-            attributes.UnderlineStyle = NSUnderlineStyle.Thick;
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };
+            UIStringAttributes attributes = new UIStringAttributes
+            {
+                ParagraphStyle = paragraphStyle,
+                UnderlineColor = ColorHelper.BURGERMENU_UNDERLINE_COLOR,
+                UnderlineStyle = NSUnderlineStyle.Single
+            };
             TextLbl.AttributedText = new NSMutableAttributedString(text, attributes);
         }
     }
