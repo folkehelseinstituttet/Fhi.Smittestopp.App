@@ -8,6 +8,7 @@ using UIKit;
 using System.Threading.Tasks;
 using NDB.Covid19.Configuration;
 using UserNotifications;
+using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19.iOS.Views.MessagePage
 {
@@ -67,7 +68,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
         private async void SetStyling()
         {
             StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 1.14, 22, 34);
-            StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 12, 14, UITextAlignment.Left);
+            StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 15, 17, UITextAlignment.Left);
             int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
             int messages = (await MessageUtils.GetMessages()).Count;
             string headerText = MESSAGES_NO_ITEMS_TITLE;
