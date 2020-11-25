@@ -58,7 +58,7 @@
 				android:orientation="vertical"
 				android:gravity="center"
 				android:paddingTop="36dp"
-				android:paddingBottom="24dp"
+				android:paddingBottom="@dimen/defaultVerticalMargin"
 				android:background="@color/infectionStatusButtonOnGreen"
 				>
 
