@@ -57,17 +57,17 @@
 				android:id="@+id/infection_status_activity_status_layout"
 				android:orientation="vertical"
 				android:gravity="center"
-				android:paddingTop="72dp"
+				android:paddingTop="36dp"
 				android:paddingBottom="24dp"
 				android:background="@color/infectionStatusButtonOnGreen"
 				>
 
-				<TextView
-					android:text="Title"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:id="@+id/infection_status_activity_title_textView"
-					style="@style/PrimaryTextMainScreenTitle" />
+				<ImageView
+					android:src="@drawable/app_logo"
+					android:layout_width="250dp"
+					android:layout_height="100dp"
+					android:id="@+id/infection_status_app_logo"
+				/>
 
 				<TextView
 					android:text="State"

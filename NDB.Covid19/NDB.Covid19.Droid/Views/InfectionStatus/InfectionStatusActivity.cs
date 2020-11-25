@@ -34,7 +34,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         TextView _registrationHeader;
         TextView _registrationSubheader;
         TextView _menuText;
-        TextView _appTitleText;
         Button _onOffButton;
         ImageView _notificationDot;
         RelativeLayout _messageRelativeLayout;
@@ -51,7 +50,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            this.Title = INFECTION_STATUS_PAGE_TITLE;
             SetContentView(Resource.Layout.infection_status);
             _viewModel = new InfectionStatusViewModel();
             InitLayout();
@@ -110,7 +108,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _statusLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_status_layout);
 
             //TextViews
-            _appTitleText = FindViewById<TextView>(Resource.Id.infection_status_activity_title_textView);
             _activityStatusText = FindViewById<TextView>(Resource.Id.infection_status_activity_status_textView);
             _activityStatusDescription =
                 FindViewById<TextView>(Resource.Id.infection_status_activivity_status_description_textView);
@@ -143,7 +140,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _messageSubHeader.Text = INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT;
             _registrationHeader.Text = INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
             _registrationSubheader.Text = INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
-            _appTitleText.Text = INFECTION_STATUS_APP_TITLE_TEXT;
             _menuText.Text = INFECTION_STATUS_MENU_TEXT;
 
             //Accessibility
