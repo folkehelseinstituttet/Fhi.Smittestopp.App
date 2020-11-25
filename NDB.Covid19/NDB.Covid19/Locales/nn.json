@@ -154,7 +154,6 @@
   "SETTINGS_ITEM_MESSAGES": "Meldingar",
   "SETTINGS_ITEM_GENERAL": "Innstillingar",
   "SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON": "Lukk",
-  "SMITTESPORING_PAGE_TITLE": "Smittestopp-framside",
   "SMITTESPORING_MESSAGE_HEADER_ACCESSIBILITY": "Smittestopp-meldingar",
   "LAUNCHER_PAGE_GPS_VERSION_DIALOG_MESSAGE_ANDROID": "Smittestopp er avhengig av Google Play Services for å kunne fungere. Google Play Services-versjonen på mobilen må oppdaterast for at Smittestopp skal fungere.",
   "SMITTESPORING_APP_NAME": "Smittestopp",
