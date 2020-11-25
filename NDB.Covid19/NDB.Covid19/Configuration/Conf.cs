@@ -27,8 +27,8 @@ namespace NDB.Covid19.Configuration
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_LONG => 14 * 24 * 60;
         public static int MAX_MESSAGE_RETENTION_TIME_IN_MINUTES = MESSAGE_RETENTION_TIME_IN_MINUTES_LONG;
         public static int HOURS_UNTIL_RESEND_MESSAGES = 48;
-        public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN = 9;
-        public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END = 21;
+        public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN = 8;
+        public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END = 22;
 
         // --- Urls ---
         public static string URL_PREFIX => $"{BASE_URL}v{APIVersion}/";

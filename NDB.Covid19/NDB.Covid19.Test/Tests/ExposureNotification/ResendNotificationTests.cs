@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using CommonServiceLocator;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Enums;
@@ -31,34 +32,35 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
         [Theory]
         // Today
-        [InlineData(0, -1, false)] // Before 9AM
-        [InlineData(0, 1, false)] // After 9AM
-        [InlineData(0, 0, false)] // Equal 9AM
+        [InlineData(0, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(0, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(0, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
         // Next day
-        [InlineData(1, -1, false)] // Before 9AM
-        [InlineData(1, 1, false)] // After 9AM
-        [InlineData(1, 0, false)] // Equal 9AM
+        [InlineData(1, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(1, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(1, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
         // After 48 hours
-        [InlineData(2, -1, false)] // Before 9AM
-        [InlineData(2, 1, true)] // After 9AM
-        [InlineData(2, 0, true)] // Equal 9AM
+        [InlineData(2, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(2, 1, true)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(2, 0, true)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
         // After 48hours but odd day
-        [InlineData(3, -1, false)] // Before 9AM
-        [InlineData(3, 1, false)] // After 9AM
-        [InlineData(3, 0, false)] // Equal 9AM
+        [InlineData(3, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(3, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(3, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
         // After 48h but even day
-        [InlineData(4, -1, false)] // Before 9AM
-        [InlineData(4, 1, true)] // After 9AM
-        [InlineData(4, 0, true)] // Equal 9AM
+        [InlineData(4, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(4, 1, true)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(4, 0, true)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
         // Older than 14 days
-        [InlineData(14, -1, false)] // Before 9AM
-        [InlineData(14, 1, false)] // After 9AM
-        [InlineData(14, 0, false)] // Equal 9AM
+        [InlineData(14, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(14, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(14, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
         public async void ShouldUpdateLastMessageDate(int daysOfTimeShift, int minutesOfTimeShift, bool shouldBeCalled)
         {
             ResetData();
 
-            SystemTime.SetDateTime(DateTime.Now.Date.AddHours(8).ToUniversalTime());
+            SystemTime.SetDateTime(
+                DateTime.Now.Date.AddHours(Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN - 1).ToUniversalTime());
             await ServiceLocator.Current.GetInstance<IMessagesManager>().SaveNewMessage(new MessageSQLiteModel()
             {
                 TimeStamp = SystemTime.Now(),
@@ -81,8 +83,15 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 {
                     LocalNotificationsManager.HasBeenCalled[NotificationsEnum.NewMessageReceived] = false;
                 }
-                preFetchDateTime = MessageUtils.GetDateTimeFromSecureStorageForKey(SecureStorageKeys.LAST_SENT_NOTIFICATION_UTC_KEY, "");
-                SystemTime.SetDateTime(DateTime.Now.Date.AddDays(i).AddHours(9).AddMinutes(minutesOfTimeShift).ToUniversalTime());
+                preFetchDateTime =
+                    MessageUtils.GetDateTimeFromSecureStorageForKey(
+                        SecureStorageKeys.LAST_SENT_NOTIFICATION_UTC_KEY, "");
+                SystemTime.SetDateTime(
+                    DateTime.Now.Date.
+                        AddDays(i).
+                        AddHours(Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN).
+                        AddMinutes(minutesOfTimeShift).
+                        ToUniversalTime());
 
                 try
                 {
