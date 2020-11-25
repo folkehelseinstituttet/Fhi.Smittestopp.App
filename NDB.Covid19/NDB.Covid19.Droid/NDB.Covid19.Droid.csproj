@@ -89,6 +89,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BackgroundFetchScheduler.cs" />
+    <Compile Include="Utils\DroidResetViews.cs" />
     <Compile Include="Views\AuthenticationFlow\QuestionnaireAdapters\QuestionnaireCountriesSelectionAdapter.cs" />
     <Compile Include="Views\AuthenticationFlow\QuestionnaireCountriesSelectionActivity.cs" />
     <Compile Include="Views\Messages\MessagesActivity.cs" />
@@ -153,6 +154,11 @@
     <AndroidResource Include="Resources\drawable\logoKortBl.png" />
     <AndroidResource Include="Resources\drawable\messages_border.xml" />
     <AndroidResource Include="Resources\drawable\shadow_gradient_border.xml" />
+    <AndroidResource Include="Resources\font\ptsans_bold.ttf" />
+    <AndroidResource Include="Resources\font\ptsans_bolditalic.ttf" />
+    <AndroidResource Include="Resources\font\ptsans_italic.ttf" />
+    <AndroidResource Include="Resources\font\ptsans_narrow_regular.ttf" />
+    <AndroidResource Include="Resources\font\ptsans_regular.ttf" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png">
       <SubType>
       </SubType>
@@ -1097,6 +1103,26 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\font\ofl.txt">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\font\ptsans_caption_regular.ttf">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\app_logo.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\app_logo.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\app_logo.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
@@ -1491,6 +1517,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\logo_small_en.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\font\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

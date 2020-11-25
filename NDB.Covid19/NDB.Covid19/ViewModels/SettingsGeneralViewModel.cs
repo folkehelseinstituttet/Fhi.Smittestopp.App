@@ -10,21 +10,19 @@ namespace NDB.Covid19.ViewModels
 {
     public class SettingsGeneralViewModel
     {
-        public static string SETTINGS_GENERAL_TITLE = "SETTINGS_GENERAL_TITLE".Translate();
-        public static string SETTINGS_GENERAL_EXPLANATION_ONE = "SETTINGS_GENERAL_EXPLANATION_ONE".Translate();
-        public static string SETTINGS_GENERAL_EXPLANATION_TWO = "SETTINGS_GENERAL_EXPLANATION_TWO".Translate();
-        public static string SETTINGS_GENERAL_EXPLANATION => SETTINGS_GENERAL_EXPLANATION_ONE + "\n\n" + SETTINGS_GENERAL_EXPLANATION_TWO;
-        public static string SETTINGS_GENERAL_MOBILE_DATA_HEADER = "SETTINGS_GENERAL_MOBILE_DATA_HEADER".Translate();
-        public static string SETTINGS_GENERAL_MOBILE_DATA_DESC = "SETTINGS_GENERAL_MOBILE_DATA_DESC".Translate();
-        public static string SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER = "SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER".Translate();
-        public static string SETTINGS_GENERAL_RESTART_REQUIRED_TEXT = "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT".Translate();
-        public static string SETTINGS_GENERAL_MORE_INFO_LINK = "SETTINGS_GENERAL_MORE_INFO_LINK".Translate();
-        public static string SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT = "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT".Translate();
-        public static string SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT = "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT".Translate();
-        public static string SETTINGS_GENERAL_DA = "SETTINGS_GENERAL_DA".Translate();
-        public static string SETTINGS_GENERAL_EN = "SETTINGS_GENERAL_EN".Translate();
-        public static string SETTINGS_GENERAL_NN = "SETTINGS_GENERAL_NN".Translate();
-        public static string SETTINGS_GENERAL_NB = "SETTINGS_GENERAL_NB".Translate();
+        public static string SETTINGS_GENERAL_TITLE => "SETTINGS_GENERAL_TITLE".Translate();
+        public static string SETTINGS_GENERAL_EXPLANATION_ONE => "SETTINGS_GENERAL_EXPLANATION_ONE".Translate();
+        public static string SETTINGS_GENERAL_EXPLANATION_TWO => "SETTINGS_GENERAL_EXPLANATION_TWO".Translate();
+        public static string SETTINGS_GENERAL_MOBILE_DATA_HEADER => "SETTINGS_GENERAL_MOBILE_DATA_HEADER".Translate();
+        public static string SETTINGS_GENERAL_MOBILE_DATA_DESC => "SETTINGS_GENERAL_MOBILE_DATA_DESC".Translate();
+        public static string SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER => "SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER".Translate();
+        public static string SETTINGS_GENERAL_RESTART_REQUIRED_TEXT => "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT".Translate();
+        public static string SETTINGS_GENERAL_MORE_INFO_LINK => "SETTINGS_GENERAL_MORE_INFO_LINK".Translate();
+        public static string SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT => "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT".Translate();
+        public static string SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT => "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT".Translate();
+        public static string SETTINGS_GENERAL_EN => "SETTINGS_GENERAL_EN".Translate();
+        public static string SETTINGS_GENERAL_NN => "SETTINGS_GENERAL_NN".Translate();
+        public static string SETTINGS_GENERAL_NB => "SETTINGS_GENERAL_NB".Translate();
 
         public static SettingsLanguageSelection Selection { get; private set; }
 
