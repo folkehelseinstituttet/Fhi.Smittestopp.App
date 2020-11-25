@@ -11,7 +11,7 @@ namespace NDB.Covid19.iOS.Utils
         public static string FontSemiBoldkName => "PT Sans";
         public static string FontMediumkName => "PT Sans Caption";
         public static string FontMonospacedName => "Menlo-Regular";
-        public static string FontItalicName => "PR Sans Italic";
+        public static string FontItalicName => "PTSans-Italic";
 
         public enum FontType
         {
