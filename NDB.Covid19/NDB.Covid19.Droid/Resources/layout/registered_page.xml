@@ -1,131 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/backgroundColor">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor">
 
     <Button
-        android:id="@+id/close_cross_btn"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="@dimen/defaultVerticalMargin"
-        android:layout_marginEnd="@dimen/defaultHorizontalMargin"
-        android:background="@drawable/ic_close_blue"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/close_cross_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="@dimen/defaultVerticalMargin"
+            android:layout_marginEnd="@dimen/defaultHorizontalMargin"
+            android:background="@drawable/ic_close_blue"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/registered_title"
-        style="@style/HeaderText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-        android:layout_marginVertical="@dimen/defaultVerticalMargin"
-        android:paddingBottom="@dimen/defaultVerticalMargin"
-        android:text="Dummy text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/close_cross_btn" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-        android:layout_marginBottom="@dimen/defaultVerticalMargin"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/registered_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registered_title">
-
-        <LinearLayout
-            android:id="@+id/registered_content"
+            android:id="@+id/registered_title"
+            style="@style/HeaderText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+            android:layout_marginVertical="@dimen/defaultVerticalMargin"
+            android:paddingBottom="@dimen/defaultVerticalMargin"
+            android:text="Dummy text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/close_cross_btn"/>
 
-            <TextView
-                android:id="@+id/registered_tick_text"
-                style="@style/PrimaryText"
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+            android:layout_marginBottom="@dimen/defaultVerticalMargin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/registered_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registered_title">
+
+        <LinearLayout
+                android:id="@+id/registered_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/check_shield"
-                android:drawablePadding="19dp"
-                android:gravity="center_vertical"
-                android:text="Dummy text" />
+                android:orientation="vertical">
 
             <TextView
-                android:id="@+id/registered_description"
-                style="@style/PrimaryText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                android:text="Dummy text" />
+                    android:id="@+id/registered_tick_text"
+                    style="@style/PrimaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/check_shield"
+                    android:drawablePadding="19dp"
+                    android:gravity="center_vertical"
+                    android:text="Dummy text"/>
+
+            <TextView
+                    android:id="@+id/registered_description"
+                    style="@style/PrimaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    android:text="Dummy text"/>
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/explanation_link"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/defaultVerticalMargin"
-                android:background="@drawable/calendar_border">
+                    android:id="@+id/explanation_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin"
+                    android:background="@drawable/calendar_border">
 
                 <ImageView
-                    android:id="@+id/arrow_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-                    android:rotation="180"
-                    android:src="@drawable/ic_back_arrow"
-                    android:tint="@color/primaryText"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                        android:id="@+id/arrow_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                        android:rotation="180"
+                        android:src="@drawable/ic_back_arrow"
+                        android:tint="@color/primaryText"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                 <ImageView
-                    android:id="@+id/recipe_logo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/logoKortBl"
-                    android:maxWidth="104dp"
-                    android:maxHeight="32dp"
-                    app:layout_constraintEnd_toStartOf="@id/arrow_right"
-                    app:layout_constraintHeight_default="wrap"
-                    app:layout_constraintHeight_max="32dp"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_default="wrap"
-                    app:layout_constraintWidth_max="104dp" />
+                        android:id="@+id/recipe_logo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/logoKortBl"
+                        android:maxWidth="104dp"
+                        android:maxHeight="32dp"
+                        app:layout_constraintEnd_toStartOf="@id/arrow_right"
+                        app:layout_constraintHeight_default="wrap"
+                        app:layout_constraintHeight_max="32dp"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_default="wrap"
+                        app:layout_constraintWidth_max="104dp"/>
 
                 <TextView
-                    android:id="@+id/recipe_header"
-                    style="@style/PrimaryTextBold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-                    android:layout_marginTop="8.5dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Dummy text"
-                    app:layout_constraintEnd_toStartOf="@id/arrow_right"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_logo" />
+                        android:id="@+id/recipe_header"
+                        style="@style/PrimaryTextBold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                        android:layout_marginTop="8.5dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="Dummy text"
+                        app:layout_constraintEnd_toStartOf="@id/arrow_right"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recipe_logo"/>
 
                 <TextView
-                    android:id="@+id/recipe_small_text"
-                    style="@style/MessageListItemDateText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/defaultHorizontalMargin"
-                    android:gravity="center_vertical"
-                    android:paddingBottom="16dp"
-                    android:text="Dummy text"
-                    app:layout_constraintEnd_toStartOf="@id/arrow_right"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_header" />
+                        android:id="@+id/recipe_small_text"
+                        style="@style/MessageListItemDateText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/defaultHorizontalMargin"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="16dp"
+                        android:text="Dummy text"
+                        app:layout_constraintEnd_toStartOf="@id/arrow_right"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recipe_header"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,14 +134,14 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/registered_button"
-        style="@style/ConsentButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-        android:layout_marginBottom="@dimen/defaultVerticalMargin"
-        android:text="Dummy text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            android:id="@+id/registered_button"
+            style="@style/ConsentButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+            android:layout_marginBottom="@dimen/defaultVerticalMargin"
+            android:text="Dummy text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

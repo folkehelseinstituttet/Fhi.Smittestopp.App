@@ -1,114 +1,115 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/settings_consents_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/backgroundColor">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/settings_consents_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/header_bar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-        android:layout_marginTop="@dimen/defaultVerticalMargin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/arrow_back"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/circle_arrow_left"
-            android:clickable="true"
-            android:focusable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/welcome_page_five_title"
-            style="@style/HeaderText"
+            android:id="@+id/header_bar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:lineSpacingExtra="4sp"
-            android:text="This is a really long long long title that ideally should span multiple lines. Hihi :)"
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+            android:layout_marginTop="@dimen/defaultVerticalMargin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/arrow_back"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+                android:id="@+id/arrow_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/circle_arrow_left"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/welcome_page_five_title"
+                style="@style/HeaderText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:lineSpacingExtra="4sp"
+                android:text="This is a really long long long title that ideally should span multiple lines. Hihi :)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/arrow_back"
+                app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <ScrollView
-        android:id="@+id/settings_consent_scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@id/button_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_bar">
+            android:id="@+id/settings_consent_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toTopOf="@id/button_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_bar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/consent_text_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-            android:paddingVertical="@dimen/defaultVerticalMargin">
-
-            <fragment
-                android:id="@+id/consent_info"
-                android:name="NDB.Covid19.Droid.Views.Settings.ConsentSettingPageFragment"
+                android:id="@+id/consent_text_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="false"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                android:paddingVertical="@dimen/defaultVerticalMargin">
+
+            <fragment
+                    android:id="@+id/consent_info"
+                    android:name="NDB.Covid19.Droid.Views.Settings.ConsentSettingPageFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <ProgressBar
-                android:id="@+id/consentActivityIndicator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/consent_info"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/consent_info" />
+                    android:id="@+id/consentActivityIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/consent_info"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/consent_info"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <View
-        android:layout_width="0dp"
-        android:layout_height="6dp"
-        android:background="@drawable/shadow_gradient_border"
-        app:layout_constraintBottom_toTopOf="@id/button_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:background="@drawable/shadow_gradient_border"
+            app:layout_constraintBottom_toTopOf="@id/button_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/button_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/backgroundColor"
-        android:elevation="12dp"
-        android:padding="@dimen/defaultHorizontalMargin"
-        android:translationZ="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/buttonResetConsents"
-            style="@style/ConsentButton"
+            android:id="@+id/button_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Træk samtykke tilbage"
-            android:visibility="visible"
+            android:background="@color/backgroundColor"
+            android:elevation="12dp"
+            android:padding="@dimen/defaultHorizontalMargin"
+            android:translationZ="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+                android:id="@+id/buttonResetConsents"
+                style="@style/ConsentButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Træk samtykke tilbage"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

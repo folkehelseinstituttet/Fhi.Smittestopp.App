@@ -1,8 +1,9 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/backgroundColor">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor">
 
     <Button
             android:id="@+id/close_cross_btn"
@@ -15,7 +16,7 @@
             android:clickable="true"
             android:focusable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <ScrollView
             android:id="@+id/radio_scroll"
@@ -43,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/defaultVerticalMargin"
                     android:text="Dummy title"
-                    android:textColor="@color/primaryText" />
+                    android:textColor="@color/primaryText"/>
 
             <TextView
                     android:id="@+id/questionnaire_subtitle"
@@ -51,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="40dp"
-                    android:text="Dummy question?" />
+                    android:text="Dummy question?"/>
 
             <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
@@ -77,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="9dp"
                             android:buttonTint="@color/primaryText"
-                            android:text="1st" />
+                            android:text="1st"/>
 
                     <TextView
                             android:id="@+id/date_picker"
@@ -109,7 +110,7 @@
                         android:scaleType="fitCenter"
                         android:background="@android:color/transparent"
                         android:src="@android:drawable/ic_dialog_info"
-                        android:tint="@color/primaryText" />
+                        android:tint="@color/primaryText"/>
 
             </com.google.android.flexbox.FlexboxLayout>
 
@@ -120,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:text="2nd" />
+                    android:text="2nd"/>
 
             <RadioButton
                     android:id="@+id/thirdRadioButton"
@@ -129,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:text="3rd" />
+                    android:text="3rd"/>
 
             <RadioButton
                     android:id="@+id/fourthRadioButton"
@@ -138,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:text="4th" />
+                    android:text="4th"/>
         </LinearLayout>
     </ScrollView>
 
@@ -152,5 +153,5 @@
             android:text="Dummy Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

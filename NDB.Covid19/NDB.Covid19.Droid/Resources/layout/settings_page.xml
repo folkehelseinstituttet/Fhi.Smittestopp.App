@@ -1,121 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginVertical="@dimen/defaultVerticalMargin"
-    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/defaultVerticalMargin">
+        android:layout_marginVertical="@dimen/defaultVerticalMargin"
+        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/defaultVerticalMargin">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/settings_links_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+                android:id="@+id/settings_links_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageView
-                android:id="@+id/settings_icon_imageview"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/logo_fhi_blue_short"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                    android:id="@+id/settings_icon_imageview"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/logo_fhi_blue_short"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
             <RelativeLayout
-                android:id="@+id/ic_close_white"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:importantForAccessibility="yes">
+                    android:id="@+id/ic_close_white"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:importantForAccessibility="yes">
                 <ImageView
-                    android:src="@drawable/ic_close_blue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                        android:src="@drawable/ic_close_blue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
             </RelativeLayout>
 
             <include layout="@layout/settings_link"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/settings_intro_frame"
-                android:accessibilityTraversalBefore="@id/settings_saddan_frame"
-                android:layout_marginTop="@dimen/defaultVerticalMargin"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_icon_imageview"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/settings_intro_frame"
+                     android:accessibilityTraversalBefore="@id/settings_saddan_frame"
+                     android:layout_marginTop="@dimen/defaultVerticalMargin"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toBottomOf="@id/settings_icon_imageview"
+                     app:layout_constraintEnd_toEndOf="parent"/>
 
             <include
-                android:id="@+id/settings_saddan_frame"
-                layout="@layout/settings_link"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/defaultVerticalMargin"
-                android:accessibilityTraversalBefore="@id/settings_behandling_frame"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_intro_frame" />
+                    android:id="@+id/settings_saddan_frame"
+                    layout="@layout/settings_link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:accessibilityTraversalBefore="@id/settings_behandling_frame"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_intro_frame"/>
 
             <include
-                android:id="@+id/settings_behandling_frame"
-                layout="@layout/settings_link"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/defaultVerticalMargin"
-                android:accessibilityTraversalBefore="@id/settings_hjaelp_frame"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_saddan_frame" />
+                    android:id="@+id/settings_behandling_frame"
+                    layout="@layout/settings_link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:accessibilityTraversalBefore="@id/settings_hjaelp_frame"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_saddan_frame"/>
 
             <include
-                android:id="@+id/settings_hjaelp_frame"
-                layout="@layout/settings_link"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/defaultVerticalMargin"
-                android:accessibilityTraversalBefore="@id/om_frame"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_behandling_frame" />
+                    android:id="@+id/settings_hjaelp_frame"
+                    layout="@layout/settings_link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:accessibilityTraversalBefore="@id/om_frame"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_behandling_frame"/>
 
             <include
-                android:id="@+id/om_frame"
-                layout="@layout/settings_link"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/defaultVerticalMargin"
-                android:accessibilityTraversalBefore="@id/general_settings"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/settings_hjaelp_frame" />
+                    android:id="@+id/om_frame"
+                    layout="@layout/settings_link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:accessibilityTraversalBefore="@id/general_settings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_hjaelp_frame"/>
 
             <include
-                android:id="@+id/general_settings"
-                layout="@layout/settings_link"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/defaultVerticalMargin"
-                android:accessibilityTraversalBefore="@id/test_frame"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/om_frame" />
+                    android:id="@+id/general_settings"
+                    layout="@layout/settings_link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:accessibilityTraversalBefore="@id/test_frame"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/om_frame"/>
 
             <include
-                android:id="@+id/test_frame"
-                layout="@layout/settings_link"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/defaultVerticalMargin"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/general_settings" />
+                    android:id="@+id/test_frame"
+                    layout="@layout/settings_link"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/general_settings"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
