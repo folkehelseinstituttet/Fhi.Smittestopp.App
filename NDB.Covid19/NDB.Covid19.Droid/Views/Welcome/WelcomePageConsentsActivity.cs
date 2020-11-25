@@ -99,7 +99,6 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
 
             RelativeLayout RelativeLayout4 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
-            TextView consentFourTitle = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_title);
             RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
 
             Button policyLinkBtn = FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
