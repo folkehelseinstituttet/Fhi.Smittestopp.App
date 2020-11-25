@@ -1,56 +1,50 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/backgroundColor">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor">
 
     <Button
             android:id="@+id/close_cross_btn"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="27dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="@dimen/defaultVerticalMargin"
+            android:layout_marginEnd="@dimen/defaultHorizontalMargin"
             android:background="@drawable/ic_close_blue"
             android:textColor="@color/primaryText"
             android:clickable="true"
             android:focusable="true"
-            android:padding="13dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <ScrollView
             android:id="@+id/radio_scroll"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+            android:layout_marginBottom="@dimen/defaultVerticalMargin"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@id/questionnaire_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/close_cross_btn">
 
         <LinearLayout
                 android:id="@+id/radio_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:isScrollContainer="true"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:orientation="vertical">
 
             <TextView
                     android:id="@+id/questionnaire_title"
                     style="@style/HeaderText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="62dp"
-                    android:paddingBottom="24dp"
+                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
                     android:text="Dummy title"
-                    android:textColor="@color/primaryText"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textColor="@color/primaryText"/>
 
             <TextView
                     android:id="@+id/questionnaire_subtitle"
@@ -58,18 +52,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="40dp"
-                    android:text="Dummy question?" />
+                    android:text="Dummy question?"/>
 
             <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     app:flexWrap="wrap"
                     app:alignItems="center"
                     android:layout_gravity="center_vertical"
-                    app:justifyContent="space_between"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:justifyContent="space_between">
 
                 <com.google.android.flexbox.FlexboxLayout
                         android:layout_width="wrap_content"
@@ -86,7 +78,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="9dp"
                             android:buttonTint="@color/primaryText"
-                            android:text="1st" />
+                            android:text="1st"/>
 
                     <TextView
                             android:id="@+id/date_picker"
@@ -118,7 +110,7 @@
                         android:scaleType="fitCenter"
                         android:background="@android:color/transparent"
                         android:src="@android:drawable/ic_dialog_info"
-                        android:tint="@color/primaryText" />
+                        android:tint="@color/primaryText"/>
 
             </com.google.android.flexbox.FlexboxLayout>
 
@@ -127,27 +119,27 @@
                     style="@style/ExplanationTextHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:text="2nd" />
+                    android:text="2nd"/>
 
             <RadioButton
                     android:id="@+id/thirdRadioButton"
                     style="@style/ExplanationTextHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:text="3rd" />
+                    android:text="3rd"/>
 
             <RadioButton
                     android:id="@+id/fourthRadioButton"
                     style="@style/ExplanationTextHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:text="4th" />
+                    android:text="4th"/>
         </LinearLayout>
     </ScrollView>
 
@@ -156,10 +148,10 @@
             style="@style/ConsentButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="57dp"
-            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="@dimen/defaultVerticalMargin"
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
             android:text="Dummy Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

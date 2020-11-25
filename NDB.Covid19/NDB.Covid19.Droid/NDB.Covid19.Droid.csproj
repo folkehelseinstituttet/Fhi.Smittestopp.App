@@ -1221,9 +1221,6 @@
     <AndroidResource Include="Resources\layout\activity_feed_list_item.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\proximity_status.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_warning_orange.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1249,11 +1246,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles_resultpage.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\proximity_sublayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
