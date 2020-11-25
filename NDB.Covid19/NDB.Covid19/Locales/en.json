@@ -220,6 +220,8 @@
   "MESSAGES_LAST_UPDATED_LABEL": "Last updated on {0} at {1}",
   "MESSAGES_RECOMMENDATIONS_": "Important – read what you should do",
   "MESSAGES_NOMESSAGES_HEADER": "You have no messages",
+  "MESSAGES_NEW_MESSAGES_HEADER": "You have one new message",
+  "MESSAGES_NO_NEW_MESSAGES_HEADER": "No new messages",
   "MESSAGES_NOMESSAGES_LABEL": "If you have been nearby someone with COVID-19 who also uses the app, you will automatically receive a message here.",
   "MESSAGES_LINK": "https://www.fhi.no/en/about/smittestopp/warning-about-risk-of-infection",
   "MESSAGES_ACCESSIBILITY_CLOSE_BUTTON": "Close",
