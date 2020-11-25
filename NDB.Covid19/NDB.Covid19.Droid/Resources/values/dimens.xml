@@ -3,5 +3,6 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="button_radius">12dip</dimen>
     <dimen name="buttonToScreenEdgeMarginHorizontal">24dp</dimen>
-    
+    <dimen name="defaultHorizontalMargin">16dp</dimen>
+    <dimen name="defaultVerticalMargin">24dp</dimen>
 </resources>
