@@ -220,6 +220,8 @@
   "MESSAGES_LAST_UPDATED_LABEL": "Sist oppdatert {0} kl. {1}",
   "MESSAGES_RECOMMENDATIONS_": "Viktig – les kva du skal gjere",
   "MESSAGES_NOMESSAGES_HEADER": "Du har ingen meldingar",
+  "MESSAGES_NEW_MESSAGES_HEADER": "Du har ei ny melding",
+  "MESSAGES_NO_NEW_MESSAGES_HEADER": "Ingen nye meldingar",
   "MESSAGES_NOMESSAGES_LABEL": "Dersom du har vore i nærleiken av ein person med covid-19 som òg bruker appen, blir du automatisk varsla om det her.",
   "MESSAGES_LINK": "https://www.fhi.no/om/smittestopp/varsel-om-smitterisiko-nynorsk",
   "MESSAGES_ACCESSIBILITY_CLOSE_BUTTON": "Lukk",
