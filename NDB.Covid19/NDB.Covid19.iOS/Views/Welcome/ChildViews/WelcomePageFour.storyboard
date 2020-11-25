@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="522">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="522">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,19 +20,19 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LP2-fJ-c5c">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="349"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="324"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="BpJ-J8-tvd">
-                                                <rect key="frame" x="24" y="48" width="366" height="301"/>
+                                                <rect key="frame" x="24" y="23" width="366" height="301"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AvD-Dc-OYG">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="73"/>
                                                         <subviews>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz9-iL-mJ1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="ocE-Oy-5hS"/>
-                                                                    <constraint firstAttribute="width" constant="30" id="xHf-Em-EGO"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="ocE-Oy-5hS"/>
+                                                                    <constraint firstAttribute="width" constant="34" id="xHf-Em-EGO"/>
                                                                 </constraints>
                                                                 <color key="tintColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <state key="normal" image="ArrowLeftCircle"/>
@@ -147,7 +147,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="BpJ-J8-tvd" secondAttribute="trailing" constant="24" id="36h-Yf-lWN"/>
-                                            <constraint firstItem="BpJ-J8-tvd" firstAttribute="top" secondItem="LP2-fJ-c5c" secondAttribute="top" constant="48" id="i86-Sy-WTn"/>
+                                            <constraint firstItem="BpJ-J8-tvd" firstAttribute="top" secondItem="LP2-fJ-c5c" secondAttribute="top" constant="23" id="i86-Sy-WTn"/>
                                             <constraint firstItem="BpJ-J8-tvd" firstAttribute="leading" secondItem="LP2-fJ-c5c" secondAttribute="leading" constant="24" id="jrC-xj-h7d"/>
                                             <constraint firstAttribute="bottom" secondItem="BpJ-J8-tvd" secondAttribute="bottom" id="thd-Ac-hgy"/>
                                         </constraints>

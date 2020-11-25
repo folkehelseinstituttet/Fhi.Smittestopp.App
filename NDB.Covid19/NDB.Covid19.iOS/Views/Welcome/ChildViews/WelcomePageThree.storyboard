@@ -23,16 +23,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="wJw-lM-ZFa">
-                                                <rect key="frame" x="24" y="48" width="366" height="770"/>
+                                                <rect key="frame" x="24" y="23" width="366" height="795"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZzF-3E-nm2">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="43"/>
                                                         <subviews>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP1-Ee-h4f">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="8N4-Gc-wlO"/>
-                                                                    <constraint firstAttribute="width" constant="30" id="dRV-qE-ftF"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="8N4-Gc-wlO"/>
+                                                                    <constraint firstAttribute="width" constant="34" id="dRV-qE-ftF"/>
                                                                 </constraints>
                                                                 <color key="tintColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <state key="normal" image="ArrowLeftCircle"/>
@@ -163,7 +163,7 @@ line 3</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="SF7-wl-LRP">
-                                                        <rect key="frame" x="0.0" y="298" width="366" height="472"/>
+                                                        <rect key="frame" x="0.0" y="298" width="366" height="497"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -173,7 +173,7 @@ line 3</string>
                                             <constraint firstAttribute="bottom" secondItem="wJw-lM-ZFa" secondAttribute="bottom" id="60C-5r-jGf"/>
                                             <constraint firstAttribute="trailing" secondItem="wJw-lM-ZFa" secondAttribute="trailing" constant="24" id="D7q-Qc-35a"/>
                                             <constraint firstItem="wJw-lM-ZFa" firstAttribute="leading" secondItem="3824" secondAttribute="leading" constant="24" id="KzG-Rd-4zm"/>
-                                            <constraint firstItem="wJw-lM-ZFa" firstAttribute="top" secondItem="3824" secondAttribute="top" constant="48" id="hmm-uQ-sVL"/>
+                                            <constraint firstItem="wJw-lM-ZFa" firstAttribute="top" secondItem="3824" secondAttribute="top" constant="23" id="hmm-uQ-sVL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
