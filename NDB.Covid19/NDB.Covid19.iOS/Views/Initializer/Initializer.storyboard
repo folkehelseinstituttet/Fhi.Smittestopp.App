@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="835">
-                                <rect key="frame" x="188" y="432.66666666666669" width="52" height="32"/>
+                                <rect key="frame" x="188" y="510.66666666666674" width="52" height="32"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bw1-Ly-oxk"/>
@@ -79,8 +79,8 @@
                                     <constraint firstAttribute="bottom" secondItem="Gil-5J-kHn" secondAttribute="bottom" constant="24" id="tS5-ez-lbi"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHILogo" translatesAutoresizingMaskIntoConstraints="NO" id="qFb-h4-Zt8" userLabel="AppLogoImage">
-                                <rect key="frame" x="156" y="332.66666666666669" width="116" height="56"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHISmittestoppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qFb-h4-Zt8" userLabel="AppLogoImage">
+                                <rect key="frame" x="42.666666666666657" y="321.66666666666669" width="342.66666666666674" height="157"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tNV-6d-3I6"/>
@@ -88,13 +88,14 @@
                         <constraints>
                             <constraint firstItem="a81-44-fu9" firstAttribute="centerX" secondItem="tNV-6d-3I6" secondAttribute="centerX" id="1kB-G3-kMn"/>
                             <constraint firstItem="qFb-h4-Zt8" firstAttribute="centerX" secondItem="tNV-6d-3I6" secondAttribute="centerX" id="4Ge-nY-4gh"/>
-                            <constraint firstItem="qFb-h4-Zt8" firstAttribute="top" secondItem="l9g-iF-9gb" secondAttribute="bottom" constant="55" id="Rfg-Ca-WnR"/>
+                            <constraint firstItem="qFb-h4-Zt8" firstAttribute="width" secondItem="270" secondAttribute="width" multiplier="0.8" id="J2e-mR-PkB"/>
+                            <constraint firstItem="qFb-h4-Zt8" firstAttribute="top" secondItem="l9g-iF-9gb" secondAttribute="bottom" constant="44" id="Rfg-Ca-WnR"/>
                             <constraint firstItem="l9g-iF-9gb" firstAttribute="height" secondItem="270" secondAttribute="height" multiplier="0.3" id="WRg-hC-nie"/>
                             <constraint firstItem="835" firstAttribute="centerX" secondItem="270" secondAttribute="centerX" id="dWp-g2-SVM"/>
                             <constraint firstItem="l9g-iF-9gb" firstAttribute="leading" secondItem="tNV-6d-3I6" secondAttribute="leading" id="kIi-Eu-oHY"/>
                             <constraint firstItem="a81-44-fu9" firstAttribute="bottom" secondItem="tNV-6d-3I6" secondAttribute="bottom" constant="-60" id="sdk-eb-cLc"/>
                             <constraint firstItem="l9g-iF-9gb" firstAttribute="top" secondItem="270" secondAttribute="top" id="tBz-Ib-lFj"/>
-                            <constraint firstItem="835" firstAttribute="top" secondItem="qFb-h4-Zt8" secondAttribute="bottom" constant="44" id="xmR-eD-gn4"/>
+                            <constraint firstItem="835" firstAttribute="top" secondItem="qFb-h4-Zt8" secondAttribute="bottom" constant="32" id="xmR-eD-gn4"/>
                             <constraint firstItem="l9g-iF-9gb" firstAttribute="trailing" secondItem="tNV-6d-3I6" secondAttribute="trailing" id="zPI-P3-SNB"/>
                         </constraints>
                     </view>
@@ -113,6 +114,7 @@
     <resources>
         <image name="ArrowRightCircle" width="34" height="34"/>
         <image name="FHILogo" width="116" height="56"/>
+        <image name="FHISmittestoppLogo" width="285" height="157"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

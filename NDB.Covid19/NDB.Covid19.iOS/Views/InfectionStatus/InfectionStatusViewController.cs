@@ -139,6 +139,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
 
+            ScrollDownBackgroundView.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+
             StatusContainer.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             StatusText.Text = await _viewModel.StatusTxt();
         }
@@ -179,7 +181,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             MenuIcon.SetTitle(InfectionStatusViewModel.INFECTION_STATUS_MENU_TEXT, UIControlState.Normal);
             MenuIcon.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 18f, 18f);
             MenuIcon.SizeToFit();
-            StatusText.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 16f, 20f);
+            StatusText.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 16f, 20f);
             OnOffBtn.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 22f, 28f);
             OnOffBtn.ContentEdgeInsets = new UIEdgeInsets(12, 12, 12, 12);
             OnOffBtn.Layer.CornerRadius = 8;
