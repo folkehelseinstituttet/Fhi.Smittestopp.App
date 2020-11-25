@@ -32,7 +32,6 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             TextView textField = FindViewById<TextView>(Resource.Id.settings_help_text);
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_help_title);
-            TextView hiddenLink = FindViewById<TextView>(Resource.Id.settings_help_link);
 
             titleField.Text = HEADER;
             textField.TextFormatted =
@@ -59,11 +58,6 @@ namespace NDB.Covid19.Droid.Views.Settings
                                     , HtmlCompat.FromHtmlModeLegacy);
             textField.MovementMethod = LinkMovementMethod.Instance;
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
-
-            hiddenLink.Text = SUPPORT_LINK;
-            hiddenLink.ContentDescription = SUPPORT_LINK_SHOWN_TEXT;
-
-            LinkUtil.LinkifyTextView(hiddenLink);
         }
     }
 }
