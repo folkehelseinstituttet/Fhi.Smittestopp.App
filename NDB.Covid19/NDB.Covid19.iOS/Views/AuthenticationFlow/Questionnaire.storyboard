@@ -163,10 +163,10 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nX-Uu-obQ">
                                                                 <rect key="frame" x="0.0" y="215.5" width="386" height="256"/>
                                                                 <subviews>
-                                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="6938">
+                                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="6938">
                                                                         <rect key="frame" x="0.0" y="0.0" width="386" height="256"/>
-                                                                        <date key="minimumDate" timeIntervalSinceReferenceDate="599529600">
-                                                                            <!--2020-01-01 00:00:00 +0000-->
+                                                                        <date key="minimumDate" timeIntervalSinceReferenceDate="625881600">
+                                                                            <!--2020-11-01 00:00:00 +0000-->
                                                                         </date>
                                                                     </datePicker>
                                                                 </subviews>
