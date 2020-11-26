@@ -10,12 +10,12 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
     public class TransmissionRiskCalculationTest
     {
         // 00:00 1 June 2020 UTC
-        private readonly DateTimeOffset june1 = DateTimeOffset.FromUnixTimeSeconds(1590969600);
+        private readonly DateTimeOffset june1 = DateTimeOffset.FromUnixTimeSeconds(1590969600).ToUniversalTime();
 
-        private DateTime MiBaDate => new DateTime(2020, 6, 2);
+        private DateTime MiBaDate => new DateTime(2020, 6, 2).ToUniversalTime();
 
         private ExposureKeyModel TEK(int days) =>
-            new ExposureKeyModel(new byte[1], june1.AddDays(days), TimeSpan.FromDays(1), RiskLevel.Invalid);
+            new ExposureKeyModel(new byte[1], june1.AddDays(days).ToUniversalTime(), TimeSpan.FromDays(1), RiskLevel.Invalid);
 
         [Fact]
         public void calculateTransmissionRiskBasedOnDateDifference()
