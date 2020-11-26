@@ -72,6 +72,14 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
             _messageViewBtn.TouchUpInside -= OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside -= OnAreYouInfectedBtnTapped;
+            ResetStatusBar();
+        }
+
+        private void ResetStatusBar()
+        {
+            UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
+            statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
         }
 
         void OnAppReturnsFromBackground(object obj)
