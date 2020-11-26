@@ -12,25 +12,27 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
     public class TransmissionRiskCalculationTest
     {
         private readonly ITestOutputHelper output;
+
         public TransmissionRiskCalculationTest(ITestOutputHelper output)
         {
             this.output = output;
         }
-        
+
         // 00:00 1 June 2020 UTC
         private readonly DateTimeOffset june1 = DateTimeOffset.FromUnixTimeSeconds(1590969600).ToUniversalTime();
 
         private DateTime MiBaDate => new DateTime(2020, 6, 2).ToUniversalTime();
 
         private ExposureKeyModel TEK(int days) =>
-            new ExposureKeyModel(new byte[1], june1.AddDays(days).ToUniversalTime(), TimeSpan.FromDays(1), RiskLevel.Invalid);
+            new ExposureKeyModel(new byte[1], june1.AddDays(days).ToUniversalTime(), TimeSpan.FromDays(1),
+                RiskLevel.Invalid);
 
         [Fact]
-        public void calculateTransmissionRiskBasedOnDateDifference()
+        public void calculateTransmissionRiskBasedOnDateDifferencePositive()
         {
             output.WriteLine("june1: {0}", june1.ToString());
             output.WriteLine("Mibadate, {0}", MiBaDate.ToString());
-            
+
             // Create keys with different dates
             IEnumerable<ExposureKeyModel> temporaryExposureKeys =
                 new List<ExposureKeyModel>
@@ -48,14 +50,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                     TEK(12)
                 };
 
-            IEnumerable<ExposureKeyModel> negativeDifferenceExposureKeys =
-                new List<ExposureKeyModel>
-                {
-                    TEK(-3),
-                    TEK(-2),
-                    TEK(-1)
-                };
-
             // Process a list of copies
             IEnumerable<ExposureKeyModel> processedKeys =
                 CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
@@ -66,16 +60,35 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             output.WriteLine("processedKeys {0}", processedKeys.Count());
             output.WriteLine("validKeys {0}", validKeys.Count());
             output.WriteLine("resultKeys {0}", resultKeys.Count());
-            
+
             for (int i = 0; i < resultKeys.Count; ++i)
             {
                 output.WriteLine("tek[{0}] DaysSinceOnsetOfSymptoms, {1}", i, resultKeys[i].DaysSinceOnsetOfSymptoms);
                 output.WriteLine("tek[{0}] RollingDuration, {1}", i, resultKeys[i].RollingDuration.ToString());
                 output.WriteLine("tek[{0}] RollingStart, {1}", i, resultKeys[i].RollingStart.ToString());
-                output.WriteLine("tek[{0}] TransmissionRiskLevel, {1}", i, resultKeys[i].TransmissionRiskLevel.ToString());
+                output.WriteLine("tek[{0}] TransmissionRiskLevel, {1}", i,
+                    resultKeys[i].TransmissionRiskLevel.ToString());
             }
-            output.WriteLine("**************************");
 
+            AssertPositiveDaysTEKS(resultKeys);
+        }
+
+        [Fact]
+        public void calculateTransmissionRiskBasedOnDateDifferenceNegative()
+        {
+            output.WriteLine("june1: {0}", june1.ToString());
+            output.WriteLine("Mibadate, {0}", MiBaDate.ToString());
+
+            // Create keys with different dates
+            IEnumerable<ExposureKeyModel> negativeDifferenceExposureKeys =
+                new List<ExposureKeyModel>
+                {
+                    TEK(-3),
+                    TEK(-2),
+                    TEK(-1)
+                };
+
+            // Process a list of copies
             IEnumerable<ExposureKeyModel> processedNegativeDifferenceExposureKeys =
                 CreateAValidListOfTemporaryExposureKeys(negativeDifferenceExposureKeys);
             List<ExposureKeyModel> validNegativeDifferenceExposureKeys =
@@ -84,19 +97,23 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             List<ExposureKeyModel> resultKeysNegativeDifference =
                 SetTransmissionRiskLevel(validNegativeDifferenceExposureKeys, MiBaDate);
 
-            output.WriteLine("processedNegativeDifferenceExposureKeys {0}", processedNegativeDifferenceExposureKeys.Count());
+            output.WriteLine("processedNegativeDifferenceExposureKeys {0}",
+                processedNegativeDifferenceExposureKeys.Count());
             output.WriteLine("validNegativeDifferenceExposureKeys {0}", validNegativeDifferenceExposureKeys.Count());
             output.WriteLine("resultKeysNegativeDifference {0}", resultKeysNegativeDifference.Count());
-            
+
             for (int i = 0; i < resultKeysNegativeDifference.Count; ++i)
             {
-                output.WriteLine("ntek[{0}] DaysSinceOnsetOfSymptoms, {1}", i, resultKeys[i].DaysSinceOnsetOfSymptoms);
-                output.WriteLine("ntek[{0}] RollingDuration, {1}", i, resultKeys[i].RollingDuration.ToString());
-                output.WriteLine("ntek[{0}] RollingStart, {1}", i, resultKeys[i].RollingStart.ToString());
-                output.WriteLine("ntek[{0}] TransmissionRiskLevel, {1}", i, resultKeys[i].TransmissionRiskLevel.ToString());
+                output.WriteLine("ntek[{0}] DaysSinceOnsetOfSymptoms, {1}", i,
+                    resultKeysNegativeDifference[i].DaysSinceOnsetOfSymptoms);
+                output.WriteLine("ntek[{0}] RollingDuration, {1}", i,
+                    resultKeysNegativeDifference[i].RollingDuration.ToString());
+                output.WriteLine("ntek[{0}] RollingStart, {1}", i,
+                    resultKeysNegativeDifference[i].RollingStart.ToString());
+                output.WriteLine("ntek[{0}] TransmissionRiskLevel, {1}", i,
+                    resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
             }
-            
-            AssertPositiveDaysTEKS(resultKeys);
+
             AssertNegativeDaysTEKS(resultKeysNegativeDifference);
         }
 
