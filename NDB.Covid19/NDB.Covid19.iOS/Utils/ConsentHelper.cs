@@ -15,16 +15,19 @@ namespace NDB.Covid19.iOS.Utils
             // We add each label manually to the stackView
             foreach (ConsentSectionTexts obj in sections)
             {
-                UILabel titleLbl = new UILabel
+                if (obj.Title != null)
                 {
-                    TranslatesAutoresizingMaskIntoConstraints = false,
-                    Lines = 0,
-                    TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND
-                };
+                    UILabel titleLbl = new UILabel
+                    {
+                        TranslatesAutoresizingMaskIntoConstraints = false,
+                        Lines = 0,
+                        TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND
+                    };
 
-                InitLabel(titleLbl, FontType.FontBold, obj.Title, 16, 22);
+                    InitLabel(titleLbl, FontType.FontBold, obj.Title, 16, 22);
 
-                stackView.AddArrangedSubview(titleLbl);
+                    stackView.AddArrangedSubview(titleLbl);
+                }
 
                 UILabel paragrapLbl = new UILabel
                 {
@@ -41,7 +44,7 @@ namespace NDB.Covid19.iOS.Utils
 
                 stackView.AddArrangedSubview(paragrapLbl);
 
-                if (obj.Title == ConsentViewModel.CONSENT_SEVEN_TITLE)
+                if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
                 {
                     stackView.AddArrangedSubview(privacyPolicyButton);
                 }

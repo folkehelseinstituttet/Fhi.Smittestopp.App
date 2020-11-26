@@ -23,6 +23,17 @@ namespace NDB.Covid19.Droid.Views.Welcome
         private SwitchCompat _switchCustom;
         private LinearLayout _consentWarning;
         private TextView _consentWarningTextView;
+        TextView _aboutHeader;
+        TextView _aboutText1;
+        TextView _aboutText2;
+        TextView _howitworksHeader;
+        TextView _howitworksText1;
+        TextView _howitworksText2;
+        TextView _samtykkeText1;
+        TextView _samtykkeText2;
+        TextView _behandlingafpersonoplysningerText;
+        TextView _samtykkebottomHeader;
+        TextView _samtykkebottomText;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -54,59 +65,50 @@ namespace NDB.Covid19.Droid.Views.Welcome
             consentTextView.Text = ConsentViewModel.GIVE_CONSENT_TEXT;
             consentTextView.LabelFor = _switchCustom.Id;
 
-            RelativeLayout RelativeLayout1 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_frivillig_brug);
-            RelativeLayout RelativeLayout2 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_sadan_fungerer_appen);
-            RelativeLayout RelativeLayout3 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvad_registreres);
+            //ABOUT
+            _aboutHeader = FindViewById<TextView>(Resource.Id.consent1_about_header);
+            _aboutHeader.Text = ConsentViewModel.CONSENT_ONE_TITLE;
+            _aboutText1 = FindViewById<TextView>(Resource.Id.consent1_about_text_section1);
+            _aboutText1.Text = ConsentViewModel.CONSENT_ONE_PARAGRAPH_SECTION_ONE;
+            _aboutText2 = FindViewById<TextView>(Resource.Id.consent1_about_text_section2);
+            _aboutText2.Text = ConsentViewModel.CONSENT_ONE_PARAGRAPH_SECTION_TWO;
+
+            //HOW IT WORKS
+            _howitworksHeader = FindViewById<TextView>(Resource.Id.consent1_howitworks_header);
+            _howitworksHeader.Text = ConsentViewModel.CONSENT_TWO_TITLE;
+            _howitworksText1 = FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section1);
+            _howitworksText1.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_ONE;
+            _howitworksText2 = FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section2);
+            _howitworksText2.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_TWO;
+
+            //SAMTYKKE
+            _samtykkeText1 = FindViewById<TextView>(Resource.Id.consent1_samtykke_text_section1);
+            _samtykkeText1.Text = ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE;
+            _samtykkeText2 = FindViewById<TextView>(Resource.Id.consent1_samtykke_text_section2);
+            _samtykkeText2.Text = ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO;
+
+            //BEHANDLING AF PERSONOPLYSNINGWER
+            _behandlingafpersonoplysningerText = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text);
+            _behandlingafpersonoplysningerText.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH;
+
+            //SAMTYKKE, BOTTOM
+            _samtykkebottomHeader = FindViewById<TextView>(Resource.Id.consent1_samtykkebottom_header);
+            _samtykkebottomHeader.Text = ConsentViewModel.CONSENT_SIX_TITLE;
+            _samtykkebottomText = FindViewById<TextView>(Resource.Id.consent1_samtykkebottom_text);
+            _samtykkebottomText.Text = ConsentViewModel.CONSENT_SIX_PARAGRAPH;
+
+
             RelativeLayout RelativeLayout4 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
-            RelativeLayout RelativeLayout5 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_ret);
-            RelativeLayout RelativeLayout6 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_kontaktregistringer);
-            RelativeLayout RelativeLayout7 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_mere);
-            RelativeLayout RelativeLayout8 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_behandlingen);
-            RelativeLayout RelativeLayout9 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_aendringer);
-
-            TextView consentOneTitle = RelativeLayout1.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentTwoTitle = RelativeLayout2.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentThreeTitle = RelativeLayout3.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentFourTitle = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentFiveTitle = RelativeLayout5.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentSixTitle = RelativeLayout6.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentSevenTitle = RelativeLayout7.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentEightTitle = RelativeLayout8.FindViewById<TextView>(Resource.Id.consent_page_title);
-            TextView consentNineTitle = RelativeLayout9.FindViewById<TextView>(Resource.Id.consent_page_title);
-
-            consentOneTitle.Text = ConsentViewModel.CONSENT_ONE_TITLE;
-            consentTwoTitle.Text = ConsentViewModel.CONSENT_TWO_TITLE;
-            consentThreeTitle.Text = ConsentViewModel.CONSENT_THREE_TITLE;
-            consentFourTitle.Text = ConsentViewModel.CONSENT_FOUR_TITLE;
-            consentFiveTitle.Text = ConsentViewModel.CONSENT_FIVE_TITLE;
-            consentSixTitle.Text = ConsentViewModel.CONSENT_SIX_TITLE;
-            consentSevenTitle.Text = ConsentViewModel.CONSENT_SEVEN_TITLE;
-            consentEightTitle.Text = ConsentViewModel.CONSENT_EIGHT_TITLE;
-            consentNineTitle.Text = ConsentViewModel.CONSENT_NINE_TITLE;
-
-            consentOneTitle.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
-            consentTwoTitle.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
-            consentThreeTitle.ContentDescription = ConsentViewModel.CONSENT_THREE_TITLE.ToLower();
-            consentFourTitle.ContentDescription = ConsentViewModel.CONSENT_FOUR_TITLE.ToLower();
-            consentFiveTitle.ContentDescription = ConsentViewModel.CONSENT_FIVE_TITLE.ToLower();
-            consentSixTitle.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
-            consentSevenTitle.ContentDescription = ConsentViewModel.CONSENT_SEVEN_TITLE.ToLower();
-            consentEightTitle.ContentDescription = ConsentViewModel.CONSENT_EIGHT_TITLE.ToLower();
-            consentNineTitle.ContentDescription = ConsentViewModel.CONSENT_NINE_TITLE.ToLower();
-
-            RelativeLayout1.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_ONE_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
-            RelativeLayout2.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_TWO_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
-            RelativeLayout3.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_THREE_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
             RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
-            RelativeLayout5.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FIVE_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
-            RelativeLayout6.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_SIX_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
-            RelativeLayout7.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_SEVEN_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
-            RelativeLayout8.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_EIGHT_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
-            RelativeLayout9.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_NINE_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
 
             Button policyLinkBtn = FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
             policyLinkBtn.Text = ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT;
             policyLinkBtn.Click += PolicyLinkBtn_Click;
+
+            // CONTENT DESCRIPTIONS OF HEADER
+            _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
+            _howitworksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
+            _samtykkebottomHeader.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
         }
 
         private void PolicyLinkBtn_Click(object sender, EventArgs e)

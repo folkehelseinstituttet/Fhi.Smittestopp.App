@@ -778,6 +778,10 @@
     <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png" />
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png" />
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -844,6 +848,7 @@
     <Folder Include="Assets.xcassets\notification_inactive.imageset\" />
     <Folder Include="Assets.xcassets\arrow_right.imageset\" />
     <Folder Include="Assets.xcassets\InformationIcon.imageset\" />
+    <Folder Include="Assets.xcassets\FHISmittestoppLogo.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -888,6 +893,7 @@
     <Compile Include="SceneDelegate.cs" />
     <Compile Include="IOSDependencyInjectionConfig.cs" />
     <Compile Include="Utils\ColorHelper.cs" />
+    <Compile Include="Utils\IOSResetViews.cs" />
     <Compile Include="Views\MessagePage\MessagePageCell.cs" />
     <Compile Include="Views\MessagePage\MessagePageCell.designer.cs" />
     <Compile Include="Views\MessagePage\MessagePageViewController.cs" />
@@ -1036,6 +1042,14 @@
       <Project>{BA22DA02-405B-4356-9FBB-646B0F5E31B9}</Project>
       <Name>NDB.Covid19</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fonts\OFL.txt" />
+    <BundleResource Include="Resources\Fonts\PTSans-Regular.ttf" />
+    <BundleResource Include="Resources\Fonts\PTSans-Italic.ttf" />
+    <BundleResource Include="Resources\Fonts\PTSans-Caption-Regular.ttf" />
+    <BundleResource Include="Resources\Fonts\PTSans-BoldItalic.ttf" />
+    <BundleResource Include="Resources\Fonts\PTSans-Bold.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

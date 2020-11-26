@@ -31,6 +31,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         private ListView _messagesList;
         private MessagesAdapter _adapterMessages;
         private TextView _noItemsTextView;
+        private TextView _lastUpdatedTextView;
         private ImageView _closeButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -82,6 +83,7 @@ namespace NDB.Covid19.Droid.Views.Messages
             
             _messagesList = FindViewById<ListView>(Resource.Id.messages_list);
             _noItemsTextView = FindViewById<TextView>(Resource.Id.no_items_description);
+            _lastUpdatedTextView = FindViewById<TextView>(Resource.Id.last_updated);
 
             _messagesList.Divider = null;
             _messagesList.DividerHeight = 0;
@@ -93,7 +95,18 @@ namespace NDB.Covid19.Droid.Views.Messages
                 (await MessageUtils.GetAllUnreadMessages()).Count > 0 ?
                     MessagesViewModel.MESSAGES_NEW_MESSAGES_HEADER :
                     MessagesViewModel.MESSAGES_NO_ITEMS_TITLE;
-            
+
+            string lastUpdatedString = MessagesViewModel.LastUpdateString;
+            if (lastUpdatedString == "")
+            {
+                _lastUpdatedTextView.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                _lastUpdatedTextView.Visibility = ViewStates.Visible;
+                _lastUpdatedTextView.Text = MessagesViewModel.LastUpdateString;
+            }
+
             _noItemsTextView.Text = MessagesViewModel.MESSAGES_NO_ITEMS_DESCRIPTION;
 
             _closeButton = FindViewById<ImageView>(Resource.Id.arrow_back);
