@@ -54,10 +54,11 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitBodyText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH);
             InitSubTitle(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
             InitBodyText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH);
+            SamtykkeBottom_section.Font = Font(FontType.FontItalic);
             InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
             InitButtonSecondaryStyling(BackBtn, WelcomeViewModel.PREVIOUS_PAGE_BUTTON_TEXT);
 
-            WarningLbl.Font = StyleUtil.Font(FontType.FontRegular, 18, 24);
+            WarningLbl.Font = Font(FontType.FontRegular, 18, 24);
             WarningLbl.Text = ConsentViewModel.CONSENT_REQUIRED;
 
             AcceptSwitchBtn.AccessibilityLabel = ConsentViewModel.SWITCH_ACCESSIBILITY_CONSENT_SWITCH_DESCRIPTOR;
