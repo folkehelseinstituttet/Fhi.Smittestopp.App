@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using NDB.Covid19.iOS.Permissions;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
-using NDB.Covid19.iOS.Views.MessagePage;
 using NDB.Covid19.iOS.Views.Settings;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
