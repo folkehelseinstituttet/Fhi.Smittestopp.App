@@ -82,6 +82,7 @@
     <PackageReference Include="Google.Protobuf" Version="3.12.3" />
     <PackageReference Include="Xamarin.ExposureNotification" Version="0.13.0-preview" />
     <PackageReference Include="PCLCrypto" Version="2.0.147" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Locales\en.json" />
