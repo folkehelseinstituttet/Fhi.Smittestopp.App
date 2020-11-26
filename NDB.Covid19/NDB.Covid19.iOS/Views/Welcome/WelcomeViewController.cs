@@ -70,8 +70,6 @@ namespace NDB.Covid19.iOS.Views.Welcome
             StyleUtil.InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
             StyleUtil.InitButtonSecondaryStyling(PreviousBtn, WelcomeViewModel.PREVIOUS_PAGE_BUTTON_TEXT);
             SetPreviousButtonHidden(true);
-            SetNextBtnSize(true);
-
 
             PageControl.UserInteractionEnabled = false;
             PageControl.PageIndicatorTintColor = UIColor.White;
@@ -88,19 +86,32 @@ namespace NDB.Covid19.iOS.Views.Welcome
 
         void SetPreviousButtonHidden(bool hide)
         {
-            PreviousBtn.Alpha = hide ? 0 : 1;
-            ButtonsWidthConstraint.Constant = 320;
-        }
-
-        void SetNextBtnSize (bool resize)
-        {
-            if (_currentPageIndex == 0)
+            if (hide)
             {
-                NextBtnWidthConstraint.Constant = 160;
+                NSLayoutConstraint nextBtnLeadingConstraint = null;
+                foreach (NSLayoutConstraint constraint in ButtonsView.Constraints)
+                {
+                    if (constraint.SecondItem == NextBtn && constraint.SecondAttribute == NSLayoutAttribute.Leading)
+                    {
+                        nextBtnLeadingConstraint = constraint;
+                        break;
+                    }
+                }
+                if (nextBtnLeadingConstraint == null)
+                {
+                    ButtonsView.LeadingAnchor.ConstraintEqualTo(NextBtn.LeadingAnchor, 0).Active = true;
+                }
             }
-            if (_currentPageIndex != 0)
+            else
             {
-                NextBtnWidthConstraint.Constant = 0;
+                foreach (NSLayoutConstraint constraint in ButtonsView.Constraints)
+                {
+                    if (constraint.SecondItem == NextBtn && constraint.SecondAttribute == NSLayoutAttribute.Leading)
+                    {
+                        ButtonsView.RemoveConstraint(constraint);
+                        break;
+                    }
+                }
             }
         }
 
@@ -134,8 +145,6 @@ namespace NDB.Covid19.iOS.Views.Welcome
         void UpdateLayout()
         {
             SetPreviousButtonHidden(_currentPageIndex == 0);
-            SetNextBtnSize(_currentPageIndex == 0);
-            SetNextBtnSize(_currentPageIndex != 0);
             PageControl.CurrentPage = _currentPageIndex;
             PageControl.UpdateCurrentPageDisplay();
 
