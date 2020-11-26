@@ -32,11 +32,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             _gestureRecognizer = new UITapGestureRecognizer();
         }
 
-        public override void ViewWillDisappear(bool animated)
-        {
-            base.ViewWillDisappear(animated);
-        }
-
         void SetTexts()
         {
             string intro = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_INTRO;
@@ -67,6 +62,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             text.Append(ApplyStylingToText(par2Content, FontType.FontRegular));
             text.Append(ApplyStylingToText(par3Title, FontType.FontBold));
             text.Append(ApplyStylingToText(par3Content, FontType.FontRegular));
+            ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             ContentText.AttributedText = text;
             ContentText.WeakLinkTextAttributes =
                 new NSDictionary(
