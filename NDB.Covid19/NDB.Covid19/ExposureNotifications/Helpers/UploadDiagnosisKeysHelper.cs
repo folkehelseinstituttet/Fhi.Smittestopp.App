@@ -4,7 +4,6 @@ using System.Linq;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using Xamarin.ExposureNotifications;
-using Xunit.Abstractions;
 
 namespace NDB.Covid19.ExposureNotifications.Helpers
 {
@@ -105,11 +104,9 @@ namespace NDB.Covid19.ExposureNotifications.Helpers
 		/// <param name="keys"></param>
 		/// <param name="symptomsDate"></param>
 		/// <returns></returns>
-		public static List<ExposureKeyModel> SetTransmissionRiskLevel(List<ExposureKeyModel> keys, DateTime symptomsDate, ITestOutputHelper output = null)
+		public static List<ExposureKeyModel> SetTransmissionRiskLevel(List<ExposureKeyModel> keys, DateTime symptomsDate)
 		{
 			DateTimeOffset dateTimeOffsetForSymptomDate = new DateTimeOffset(symptomsDate);
-			output?.WriteLine("symptomsDate: {0}", symptomsDate.ToString());
-			output?.WriteLine("dateTimeOffsetForSymptomDate: {0}", dateTimeOffsetForSymptomDate.ToString());
 			foreach (ExposureKeyModel key in keys)
 			{
 				TimeSpan timeSpanBetweenSymptomOnsetAndKey = key.RollingStart - dateTimeOffsetForSymptomDate;

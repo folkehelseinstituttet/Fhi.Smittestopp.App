@@ -93,7 +93,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 CreateAValidListOfTemporaryExposureKeys(
                     processedNegativeDifferenceExposureKeys);
             List<ExposureKeyModel> resultKeysNegativeDifference =
-                SetTransmissionRiskLevel(validNegativeDifferenceExposureKeys, MiBaDate, output);
+                SetTransmissionRiskLevel(validNegativeDifferenceExposureKeys, MiBaDate);
 
             output.WriteLine("processedNegativeDifferenceExposureKeys {0}",
                 processedNegativeDifferenceExposureKeys.Count());
