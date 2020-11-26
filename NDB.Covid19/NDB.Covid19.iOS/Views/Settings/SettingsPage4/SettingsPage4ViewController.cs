@@ -41,6 +41,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
             string content = urlStringAndText; // + contactsInfo;
 
             ContentText.SetAttributedText(content);
+            ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 
             //Ensuring text is resiezed correctly when font size is increased
