@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
