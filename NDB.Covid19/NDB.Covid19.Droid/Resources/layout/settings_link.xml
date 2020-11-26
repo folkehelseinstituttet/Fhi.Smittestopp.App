@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         tools:showIn="@layout/settings_page">
 
-    <Button
+    <ndb.covid19.droid.views.settings.UnderlinedTextView
             android:id="@+id/settings_link_text"
             style="@style/settings"
             android:layout_width="0dp"
@@ -19,5 +19,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:underlineColor="#fe7668"
+            app:underlineWidth="2dp"
+            app:underlineMarginTop="2dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
