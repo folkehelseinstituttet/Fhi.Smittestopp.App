@@ -30,8 +30,8 @@
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-pE-NTM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="677.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="842"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="874"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-Ew-Iyy" userLabel="Status View">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
@@ -304,7 +304,17 @@
                                                             <constraint firstItem="9yc-jF-FcE" firstAttribute="leading" secondItem="6Ug-II-NMf" secondAttribute="leading" constant="16" id="tFl-vu-hNV"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-37-3XW">
+                                                        <rect key="frame" x="0.0" y="850" width="375" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="NAS-98-7at"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="mW4-37-3XW" firstAttribute="leading" secondItem="duW-YJ-e0x" secondAttribute="leading" id="RcL-CD-2VS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mW4-37-3XW" secondAttribute="trailing" id="aMy-HI-C1G"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
