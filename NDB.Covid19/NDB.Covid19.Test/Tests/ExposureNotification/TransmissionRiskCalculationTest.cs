@@ -19,18 +19,17 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         }
 
         // 00:00 1 June 2020 UTC
-        private readonly DateTimeOffset june1 = DateTimeOffset.FromUnixTimeSeconds(1590969600).ToUniversalTime();
-
-        private DateTime MiBaDate => new DateTime(2020, 6, 2).ToUniversalTime();
+        private readonly DateTime today = DateTime.Today.ToUniversalTime();
+        private DateTime MiBaDate => today.AddDays(1).ToUniversalTime();
 
         private ExposureKeyModel TEK(int days) =>
-            new ExposureKeyModel(new byte[1], june1.AddDays(days).ToUniversalTime(), TimeSpan.FromDays(1),
+            new ExposureKeyModel(new byte[1], today.AddDays(days).ToUniversalTime(), TimeSpan.FromDays(1),
                 RiskLevel.Invalid);
 
         [Fact]
         public void calculateTransmissionRiskBasedOnDateDifferencePositive()
         {
-            output.WriteLine("june1: {0}", june1.ToString());
+            output.WriteLine("june1: {0}", today.ToString());
             output.WriteLine("Mibadate, {0}", MiBaDate.ToString());
 
             // Create keys with different dates
@@ -76,7 +75,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         [Fact]
         public void calculateTransmissionRiskBasedOnDateDifferenceNegative()
         {
-            output.WriteLine("june1: {0}", june1.ToString());
+            output.WriteLine("june1: {0}", today.ToString());
             output.WriteLine("Mibadate, {0}", MiBaDate.ToString());
 
             // Create keys with different dates
@@ -154,17 +153,17 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             {
                 if (i == 0)
                 {
-                    Assert.Equal("Medium", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("MediumLow", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
 
                 if (i == 1)
                 {
-                    Assert.Equal("MediumLow", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("Low", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
 
                 if (i == 2)
                 {
-                    Assert.Equal("Low", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("Lowest", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
             }
         }
