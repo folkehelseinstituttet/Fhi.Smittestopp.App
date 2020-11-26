@@ -28,6 +28,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         [Fact]
         public void calculateTransmissionRiskBasedOnDateDifference()
         {
+            output.WriteLine("june1: {0}", june1.ToString());
+            output.WriteLine("Mibadate, {0}", MiBaDate.ToString());
+            
             // Create keys with different dates
             IEnumerable<ExposureKeyModel> temporaryExposureKeys =
                 new List<ExposureKeyModel>
@@ -64,7 +67,14 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             output.WriteLine("validKeys {0}", validKeys.Count());
             output.WriteLine("resultKeys {0}", resultKeys.Count());
             
-            AssertPositiveDaysTEKS(resultKeys);
+            for (int i = 0; i < resultKeys.Count; ++i)
+            {
+                output.WriteLine("tek[{0}] DaysSinceOnsetOfSymptoms, {1}", i, resultKeys[i].DaysSinceOnsetOfSymptoms);
+                output.WriteLine("tek[{0}] RollingDuration, {1}", i, resultKeys[i].RollingDuration.ToString());
+                output.WriteLine("tek[{0}] RollingStart, {1}", i, resultKeys[i].RollingStart.ToString());
+                output.WriteLine("tek[{0}] TransmissionRiskLevel, {1}", i, resultKeys[i].TransmissionRiskLevel.ToString());
+            }
+            output.WriteLine("**************************");
 
             IEnumerable<ExposureKeyModel> processedNegativeDifferenceExposureKeys =
                 CreateAValidListOfTemporaryExposureKeys(negativeDifferenceExposureKeys);
@@ -78,6 +88,15 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             output.WriteLine("validNegativeDifferenceExposureKeys {0}", validNegativeDifferenceExposureKeys.Count());
             output.WriteLine("resultKeysNegativeDifference {0}", resultKeysNegativeDifference.Count());
             
+            for (int i = 0; i < resultKeysNegativeDifference.Count; ++i)
+            {
+                output.WriteLine("ntek[{0}] DaysSinceOnsetOfSymptoms, {1}", i, resultKeys[i].DaysSinceOnsetOfSymptoms);
+                output.WriteLine("ntek[{0}] RollingDuration, {1}", i, resultKeys[i].RollingDuration.ToString());
+                output.WriteLine("ntek[{0}] RollingStart, {1}", i, resultKeys[i].RollingStart.ToString());
+                output.WriteLine("ntek[{0}] TransmissionRiskLevel, {1}", i, resultKeys[i].TransmissionRiskLevel.ToString());
+            }
+            
+            AssertPositiveDaysTEKS(resultKeys);
             AssertNegativeDaysTEKS(resultKeysNegativeDifference);
         }
 
