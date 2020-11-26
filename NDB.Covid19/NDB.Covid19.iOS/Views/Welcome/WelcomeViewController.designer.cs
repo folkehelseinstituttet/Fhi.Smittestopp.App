@@ -34,7 +34,7 @@ namespace NDB.Covid19.iOS.Views.Welcome
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.NSLayoutConstraint ButtonsWidthConstraint { get; set; }
+        UIKit.UIStackView ButtonsView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -43,10 +43,6 @@ namespace NDB.Covid19.iOS.Views.Welcome
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton NextBtn { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.NSLayoutConstraint NextBtnWidthConstraint { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -71,9 +67,9 @@ namespace NDB.Covid19.iOS.Views.Welcome
                 ActivityIndicator = null;
             }
 
-            if (ButtonsWidthConstraint != null) {
-                ButtonsWidthConstraint.Dispose ();
-                ButtonsWidthConstraint = null;
+            if (ButtonsView != null) {
+                ButtonsView.Dispose ();
+                ButtonsView = null;
             }
 
             if (ContainerView != null) {
@@ -84,11 +80,6 @@ namespace NDB.Covid19.iOS.Views.Welcome
             if (NextBtn != null) {
                 NextBtn.Dispose ();
                 NextBtn = null;
-            }
-
-            if (NextBtnWidthConstraint != null) {
-                NextBtnWidthConstraint.Dispose ();
-                NextBtnWidthConstraint = null;
             }
 
             if (PageControl != null) {

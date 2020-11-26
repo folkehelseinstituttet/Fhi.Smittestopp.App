@@ -25,29 +25,29 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-eT-Ck7">
-                                <rect key="frame" x="4" y="482" width="312" height="48"/>
+                                <rect key="frame" x="25" y="482" width="270" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2057">
-                                        <rect key="frame" x="0.0" y="0.0" width="152" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="PreviousBtn_TouchUpInside:" destination="395" eventType="touchUpInside" id="2104"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1671">
-                                        <rect key="frame" x="160" y="0.0" width="152" height="48"/>
+                                        <rect key="frame" x="139" y="0.0" width="131" height="48"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="312" id="3453"/>
-                                    <constraint firstItem="1671" firstAttribute="width" secondItem="8JH-eT-Ck7" secondAttribute="width" multiplier="0.487179" id="n0e-Rb-BJn"/>
+                                    <constraint firstItem="2057" firstAttribute="leading" secondItem="8JH-eT-Ck7" secondAttribute="leading" id="AIy-ge-pfk"/>
+                                    <constraint firstAttribute="trailing" secondItem="1671" secondAttribute="trailing" id="FNT-9f-sa0"/>
                                     <constraint firstAttribute="height" constant="48" id="nMy-oM-zWq"/>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3032">
-                                <rect key="frame" x="284" y="496" width="20" height="20"/>
+                                <rect key="frame" x="263" y="496" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2561">
@@ -61,10 +61,11 @@
                             <constraint firstItem="b5X-h4-uWc" firstAttribute="trailing" secondItem="1664" secondAttribute="trailing" id="1677"/>
                             <constraint firstItem="2561" firstAttribute="trailing" secondItem="396" secondAttribute="trailingMargin" id="2562"/>
                             <constraint firstItem="2561" firstAttribute="leading" secondItem="396" secondAttribute="leadingMargin" id="2563"/>
-                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="centerX" secondItem="b5X-h4-uWc" secondAttribute="centerX" id="3454"/>
                             <constraint firstItem="3032" firstAttribute="centerY" secondItem="1671" secondAttribute="centerY" id="7pz-ZJ-6WW"/>
                             <constraint firstItem="2561" firstAttribute="top" secondItem="1664" secondAttribute="bottom" constant="15" id="DEB-Ok-sdX"/>
+                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="leading" secondItem="b5X-h4-uWc" secondAttribute="leading" constant="25" id="EbP-25-C7h"/>
                             <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="38" id="Swg-cu-uvp"/>
+                            <constraint firstItem="b5X-h4-uWc" firstAttribute="trailing" secondItem="8JH-eT-Ck7" secondAttribute="trailing" constant="25" id="Way-cp-y45"/>
                             <constraint firstItem="3032" firstAttribute="trailing" secondItem="1671" secondAttribute="trailing" constant="-12" id="jYQ-ui-kDH"/>
                             <constraint firstItem="8JH-eT-Ck7" firstAttribute="top" secondItem="2561" secondAttribute="bottom" constant="32" id="mH5-VK-bQM"/>
                             <constraint firstItem="1664" firstAttribute="top" secondItem="b5X-h4-uWc" secondAttribute="top" id="zsf-Xn-PIv"/>
@@ -73,10 +74,9 @@
                     <navigationItem key="navigationItem" title="Title" id="616"/>
                     <connections>
                         <outlet property="ActivityIndicator" destination="3032" id="name-outlet-3032"/>
-                        <outlet property="ButtonsWidthConstraint" destination="3453" id="name-outlet-3453"/>
+                        <outlet property="ButtonsView" destination="8JH-eT-Ck7" id="name-outlet-8JH-eT-Ck7"/>
                         <outlet property="ContainerView" destination="1664" id="name-outlet-1664"/>
                         <outlet property="NextBtn" destination="1671" id="name-outlet-1671"/>
-                        <outlet property="NextBtnWidthConstraint" destination="n0e-Rb-BJn" id="name-outlet-n0e-Rb-BJn"/>
                         <outlet property="PageControl" destination="2561" id="name-outlet-2561"/>
                         <outlet property="PreviousBtn" destination="2057" id="name-outlet-2057"/>
                     </connections>
