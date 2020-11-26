@@ -18,12 +18,11 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             this.output = output;
         }
 
-        // 00:00 1 June 2020 UTC
-        private readonly DateTime today = DateTime.Today.ToUniversalTime();
-        private DateTime MiBaDate => today.AddDays(1).ToUniversalTime();
+        private readonly DateTime today = DateTime.Today;
+        private DateTime MiBaDate => today.AddDays(1);
 
         private ExposureKeyModel TEK(int days) =>
-            new ExposureKeyModel(new byte[1], today.AddDays(days).ToUniversalTime(), TimeSpan.FromDays(1),
+            new ExposureKeyModel(new byte[1], today.AddDays(days), TimeSpan.FromDays(1),
                 RiskLevel.Invalid);
 
         [Fact]
