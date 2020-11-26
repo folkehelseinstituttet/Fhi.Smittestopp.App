@@ -12,6 +12,7 @@ namespace NDB.Covid19.iOS.Utils
         public static readonly UIColor BURGERMENU_UNDERLINE_COLOR = UIColor.Clear.FromHex(0xF37668);
         public static readonly UIColor INFO_BUTTON_BACKGROUND = UIColor.Clear.FromHex(0xF3F9FB);
         public static readonly UIColor MESSAGE_BORDER_COLOR = UIColor.FromRGB(91, 93, 125);
+        public static readonly UIColor DEFAULT_BACKGROUND_COLOR = UIColor.FromRGB(225, 234, 237);
 
         public static UIColor FromHex(this UIColor color,int hexValue)
         {
