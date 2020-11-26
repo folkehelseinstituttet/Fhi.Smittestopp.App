@@ -32,30 +32,52 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
         [Theory]
         // Today
-        [InlineData(0, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(0, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(0, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(0, -1, false)] // Before lower bound
+        [InlineData(0, 0, false)] // Equal lower bound
+        [InlineData(0, 1, false)] // After lower bound
+        [InlineData(0, -1, false, true)] // Before upper bound
+        [InlineData(0, 0, false, true)] // Equal upper bound
+        [InlineData(0, 1, false, true)] // After upper bound
         // Next day
-        [InlineData(1, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(1, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(1, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(1, -1, false)] // Before lower bound
+        [InlineData(1, 0, false)] // Equal lower bound
+        [InlineData(1, 1, false)] // After lower bound
+        [InlineData(1, -1, false, true)] // Before upper bound
+        [InlineData(1, 0, false, true)] // Equal upper bound
+        [InlineData(1, 1, false, true)] // After upper bound
         // After 48 hours
-        [InlineData(2, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(2, 1, true)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(2, 0, true)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(2, -1, false)] // Before lower bound
+        [InlineData(2, 0, true)] // Equal lower bound
+        [InlineData(2, 1, true)] // After lower bound
+        [InlineData(2, -1, true, true)] // Before upper bound
+        [InlineData(2, 0, true, true)] // Equal upper bound
+        [InlineData(2, 1, false, true)] // After upper bound
         // After 48hours but odd day
-        [InlineData(3, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(3, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(3, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(3, -1, false)] // Before lower bound
+        [InlineData(3, 0, false)] // Equal lower bound
+        [InlineData(3, 1, false)] // After lower bound
+        [InlineData(3, -1, false, true)] // Before upper bound
+        [InlineData(3, 0, false, true)] // Equal upper bound
+        [InlineData(3, 1, false, true)] // After upper bound
         // After 48h but even day
-        [InlineData(4, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(4, 1, true)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(4, 0, true)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
+        [InlineData(4, -1, false)] // Before lower bound
+        [InlineData(4, 0, true)] // Equal lower bound
+        [InlineData(4, 1, true)] // After lower bound
+        [InlineData(4, -1, true, true)] // Before upper bound
+        [InlineData(4, 0, true, true)] // Equal upper bound
+        [InlineData(4, 1, false, true)] // After upper bound
         // Older than 14 days
-        [InlineData(14, -1, false)] // Before HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(14, 1, false)] // After HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        [InlineData(14, 0, false)] // Equal HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN
-        public async void ShouldUpdateLastMessageDate(int daysOfTimeShift, int minutesOfTimeShift, bool shouldBeCalled)
+        [InlineData(14, -1, false)] // Before lower bound
+        [InlineData(14, 0, false)] // Equal lower bound
+        [InlineData(14, 1, false)] // After lower bound
+        [InlineData(14, -1, false, true)] // Before upper bound
+        [InlineData(14, 0, false, true)] // Equal upper bound
+        [InlineData(14, 1, false, true)] // After upper bound
+        public async void ShouldUpdateLastMessageDate(
+            int daysOfTimeShift,
+            int minutesOfTimeShift,
+            bool shouldBeCalled = false,
+            bool isUpperBound = false)
         {
             ResetData();
 
@@ -89,7 +111,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 SystemTime.SetDateTime(
                     DateTime.Now.Date.
                         AddDays(i).
-                        AddHours(Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN).
+                        AddHours(isUpperBound ?
+                            Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END :
+                            Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN).
                         AddMinutes(minutesOfTimeShift).
                         ToUniversalTime());
 
