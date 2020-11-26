@@ -20,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:underlineColor="#fe7668"
+            app:underlineColor="@color/settingsUnderlineColor"
             app:underlineWidth="2dp"
             app:underlineMarginTop="2dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

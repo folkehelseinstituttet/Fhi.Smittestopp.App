@@ -37,6 +37,7 @@
     <color name="switchSelectedThumb">#FFFFFF</color>
     <color name="switchUnselectedThumb">#32335F</color>
 	<color name="linkColor">#32345C</color>
+    <color name="settingsUnderlineColor">#fe7668</color>
     
     <color name="infectionStatusButtonOnGreen">#D9F0D4</color>
     <color name="infectionStatusButtonOffRed">#FD9085</color>
