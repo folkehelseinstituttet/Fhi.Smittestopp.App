@@ -59,7 +59,7 @@ namespace NDB.Covid19.ViewModels
         static DateTime _selectedDateUTC { get; set; }
         static DateTime _localSelectedDate => DateTime.SpecifyKind(_selectedDateUTC, DateTimeKind.Utc).ToLocalTime();
         public static QuestionaireSelection Selection { get; private set; } = QuestionaireSelection.Skip;
-        public DateTime MinimumDate { get; private set; } = new DateTime(2020, 1, 1, 0, 0, 0).ToUniversalTime();
+        public DateTime MinimumDate { get; private set; } = new DateTime(2020, 11, 1, 0, 0, 0).ToUniversalTime();
         public DateTime MaximumDate { get; private set; } = DateTime.Today.ToUniversalTime();
 
         public string RadioButtonAccessibilityDatepicker => REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES + ". " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_DATEPICKER_TEXT + ". " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_1_TEXT;
