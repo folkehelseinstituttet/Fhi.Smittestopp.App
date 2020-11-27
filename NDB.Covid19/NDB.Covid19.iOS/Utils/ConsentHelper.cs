@@ -29,24 +29,54 @@ namespace NDB.Covid19.iOS.Utils
                     stackView.AddArrangedSubview(titleLbl);
                 }
 
-                UILabel paragrapLbl = new UILabel
+                if (obj.Paragraph == ConsentViewModel.CONSENT_SIX_PARAGRAPH)
                 {
-                    TranslatesAutoresizingMaskIntoConstraints = false,
-                    Lines = 0,
-                    TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND
-                };
-                InitLabelWithHTMLFormat(paragrapLbl, obj.Paragraph);
+                    UILabel italic_paragraph = new UILabel
+                    {
+                        TranslatesAutoresizingMaskIntoConstraints = false,
+                        Lines = 0,
+                        TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND
+                    };
 
-                if (obj.ParagraphAccessibilityText != null)
-                {
-                    InitLabelAccessibilityTextWithHTMLFormat(paragrapLbl, obj.ParagraphAccessibilityText);
+                    InitLabel(italic_paragraph, FontType.FontItalic, obj.Paragraph, 16, 22);
+
+                    stackView.AddArrangedSubview(italic_paragraph);
+
+                    if (obj.ParagraphAccessibilityText != null)
+                    {
+                        InitLabelAccessibilityTextWithHTMLFormat(italic_paragraph, obj.ParagraphAccessibilityText);
+                    }
+
+                    stackView.AddArrangedSubview(italic_paragraph);
+
+                    if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
+                    {
+                        stackView.AddArrangedSubview(privacyPolicyButton);
+                    }
                 }
 
-                stackView.AddArrangedSubview(paragrapLbl);
 
-                if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
+                if (obj.Paragraph != ConsentViewModel.CONSENT_SIX_PARAGRAPH)
                 {
-                    stackView.AddArrangedSubview(privacyPolicyButton);
+                    UILabel paragrapLbl = new UILabel
+                    {
+                        TranslatesAutoresizingMaskIntoConstraints = false,
+                        Lines = 0,
+                        TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND
+                    };
+                    InitLabelWithHTMLFormat(paragrapLbl, obj.Paragraph);
+
+                    if (obj.ParagraphAccessibilityText != null)
+                    {
+                        InitLabelAccessibilityTextWithHTMLFormat(paragrapLbl, obj.ParagraphAccessibilityText);
+                    }
+
+                    stackView.AddArrangedSubview(paragrapLbl);
+
+                    if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
+                    {
+                        stackView.AddArrangedSubview(privacyPolicyButton);
+                    }
                 }
             }
         }
