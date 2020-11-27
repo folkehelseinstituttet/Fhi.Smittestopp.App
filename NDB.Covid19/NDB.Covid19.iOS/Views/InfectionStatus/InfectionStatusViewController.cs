@@ -84,6 +84,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OnAppReturnsFromBackground(object obj)
         {
+            _viewModel.CheckIfAppIsRestricted(UpdateUI);
             Task.Run(async () =>
             {
                 await Task.Delay(1000); // Wait 1 sec before update the notification to wait for any status change
@@ -251,7 +252,19 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         async partial void OnOffBtnTapped(UIButton sender)
         {
-            if (await _viewModel.IsRunning())
+            if (_viewModel.IsAppRestricted)
+            {
+                DialogHelper.ShowDialog(
+                    this,
+                    _viewModel.PermissionViewModel,
+                    (UIAlertAction action) =>
+                    {
+                        NavigationHelper.GoToAppSettings();
+                    }
+                    );
+                return;
+            }
+            if (await _viewModel.IsRunning() && await _viewModel.IsEnabled())
             {
                 DialogHelper.ShowDialog(
                     this,
