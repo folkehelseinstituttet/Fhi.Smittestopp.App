@@ -69,7 +69,7 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIconEN.appiconset</string>
+	<string>Assets.xcassets/AppIconNO.appiconset</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>CFBundleName</key>
