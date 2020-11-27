@@ -1142,6 +1142,11 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
+        
+    <AndroidResource Include="Resources\mipmap-mdpi\app_logoNO.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\app_logoNO.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\app_logoNO.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\app_logoNO.png" />
     <AndroidResource Include="Resources\layout\activity_feed.axml">
       <SubType>
       </SubType>
