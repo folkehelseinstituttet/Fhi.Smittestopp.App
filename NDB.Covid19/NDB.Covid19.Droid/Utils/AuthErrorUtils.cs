@@ -2,9 +2,6 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-#if APPCENTER
-using Microsoft.AppCenter.Crashes;
-#endif
 using NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
@@ -16,35 +13,23 @@ namespace NDB.Covid19.Droid.Utils
     {
         public static void GoToNotInfectedError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
-            GoToErrorPage(parent, REGISTER_ERROR_NOMATCH_HEADER, REGISTER_ERROR_NOMATCH_DESCRIPTION,
-                REGISTER_ERROR_DISMISS);
+            GoToErrorPage(parent, REGISTER_ERROR_NOMATCH_HEADER, REGISTER_ERROR_NOMATCH_DESCRIPTION, REGISTER_ERROR_DISMISS);
             LogUtils.LogException(severity, e, errorMessage);
-#if APPCENTER
-            Crashes.TrackError(e);
-#endif
         }
 
         public static void GoToManyTriesError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
-            GoToErrorPage(parent, REGISTER_ERROR_TOOMANYTRIES_HEADER, REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION,
-                REGISTER_ERROR_DISMISS);
+            GoToErrorPage(parent, REGISTER_ERROR_TOOMANYTRIES_HEADER, REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION, REGISTER_ERROR_DISMISS);
             LogUtils.LogException(severity, e, errorMessage);
-#if APPCENTER
-            Crashes.TrackError(e);
-#endif
         }
 
         public static void GoToTechnicalError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
             GoToErrorPage(parent, REGISTER_ERROR_HEADER, REGISTER_ERROR_DESCRIPTION, REGISTER_ERROR_DISMISS);
             LogUtils.LogException(severity, e, errorMessage);
-#if APPCENTER
-            Crashes.TrackError(e);
-#endif
         }
 
-        public static void GoToErrorPage(Activity parent, string title, string description, string button,
-            string subtitle = null)
+        public static void GoToErrorPage(Activity parent, string title, string description, string button, string subtitle = null)
         {
             Intent intent = new Intent(parent, typeof(GeneralErrorActivity));
             Bundle bundle = new Bundle();
@@ -55,7 +40,6 @@ namespace NDB.Covid19.Droid.Utils
             {
                 bundle.PutString("subtitle", subtitle);
             }
-
             intent.PutExtras(bundle);
             parent.StartActivity(intent);
         }
