@@ -6,10 +6,10 @@ namespace NDB.Covid19.iOS.Utils
 {
     public static class StyleUtil
     {
-        public static string FontRegularName => "PT Sans";
-        public static string FontBoldName => "PT Sans Bold";
-        public static string FontSemiBoldkName => "PT Sans";
-        public static string FontMediumkName => "PT Sans Caption";
+        public static string FontRegularName => "PTSans-Regular";
+        public static string FontBoldName => "PTSans-Bold";
+        public static string FontSemiBoldkName => "PTSans-Regular";
+        public static string FontMediumkName => "PTSans-Caption";
         public static string FontMonospacedName => "Menlo-Regular";
         public static string FontItalicName => "PTSans-Italic";
 

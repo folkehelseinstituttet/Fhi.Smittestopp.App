@@ -87,6 +87,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             DateContainer.Layer.BorderColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND.CGColor;
 
             DatePicker.Superview.Layer.CornerRadius = 6;
+            DatePicker.PreferredDatePickerStyle = UIDatePickerStyle.Wheels;
             DatePicker.MinimumDate = (NSDate)DateTime.SpecifyKind(_viewModel.MinimumDate, DateTimeKind.Utc);
             DatePicker.MaximumDate = (NSDate)DateTime.SpecifyKind(_viewModel.MaximumDate, DateTimeKind.Utc);
 

@@ -30,8 +30,8 @@
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-pE-NTM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="677.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="842"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="874"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-Ew-Iyy" userLabel="Status View">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
@@ -116,7 +116,6 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="uaW-Ad-6eY" secondAttribute="bottom" constant="32" id="8WN-A5-T4b"/>
                                                             <constraint firstItem="uaW-Ad-6eY" firstAttribute="top" secondItem="y9k-ec-FSe" secondAttribute="top" constant="32" id="WDw-Zx-vrz"/>
@@ -305,10 +304,19 @@
                                                             <constraint firstItem="9yc-jF-FcE" firstAttribute="leading" secondItem="6Ug-II-NMf" secondAttribute="leading" constant="16" id="tFl-vu-hNV"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-37-3XW">
+                                                        <rect key="frame" x="0.0" y="850" width="375" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="NAS-98-7at"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="mW4-37-3XW" firstAttribute="leading" secondItem="duW-YJ-e0x" secondAttribute="leading" id="RcL-CD-2VS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mW4-37-3XW" secondAttribute="trailing" id="aMy-HI-C1G"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="duW-YJ-e0x" firstAttribute="leading" secondItem="5I2-pE-NTM" secondAttribute="leading" id="CH5-Nc-Fss"/>
                                             <constraint firstItem="duW-YJ-e0x" firstAttribute="top" secondItem="5I2-pE-NTM" secondAttribute="top" id="Mxd-Sc-cXJ"/>
@@ -317,7 +325,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="5I2-pE-NTM" secondAttribute="bottom" id="5q5-HU-HUa"/>
                                     <constraint firstItem="hfb-Su-BUZ" firstAttribute="width" secondItem="5FM-IV-ZSI" secondAttribute="width" id="DwJ-a0-3pK"/>
@@ -330,7 +337,6 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AvV-Sr-vLn"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="AvV-Sr-vLn" secondAttribute="top" id="HF6-lP-dkU"/>
                             <constraint firstItem="5I2-pE-NTM" firstAttribute="width" secondItem="AvV-Sr-vLn" secondAttribute="width" id="T4K-Jx-8fm"/>
