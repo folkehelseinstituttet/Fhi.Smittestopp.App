@@ -121,7 +121,8 @@ namespace NDB.Covid19.Droid.Views.Settings
                         break;
                 }
                 LocalesService.SetInternationalization();
-                _self._resetViews.ResetViews();
+                // TODO Client do not want reset feature for now. Left for future release. 
+                //_self._resetViews.ResetViews();
             }
         }
 
