@@ -28,7 +28,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m4U-yP-Obl">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="56"/>
                                                         <subviews>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-mX-Yqm">
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-mX-Yqm" customClass="CustomBackButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="34" id="ehI-CM-VpQ"/>
