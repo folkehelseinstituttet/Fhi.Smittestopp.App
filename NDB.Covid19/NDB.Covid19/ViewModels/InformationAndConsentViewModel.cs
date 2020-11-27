@@ -1,5 +1,8 @@
 using System;
 using I18NPortable;
+#if APPCENTER
+using Microsoft.AppCenter.Crashes;
+#endif
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.OAuth2;
@@ -63,6 +66,9 @@ namespace NDB.Covid19.ViewModels
 
         void OnAuthError(object sender, AuthenticatorErrorEventArgs e)
         {
+#if APPCENTER
+            Crashes.TrackError(e.Exception);
+#endif
             System.Diagnostics.Debug.Print("Auth errored");
             System.Diagnostics.Debug.Print(e.Message);
             System.Diagnostics.Debug.Print(e.Exception?.ToString());
