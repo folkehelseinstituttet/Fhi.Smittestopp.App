@@ -161,17 +161,29 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             {
                 case SettingsLanguageSelection.Bokmal:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action => _resetViews.ResetViews());
+                        Action =>
+                        {
+                            // TODO Client do not want reset feature for now. Left for future release. 
+                            //_resetViews.ResetViews();
+                        });
                     LocalPreferencesHelper.SetAppLanguage("nb");
                     break;
                 case SettingsLanguageSelection.Nynorsk:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action => _resetViews.ResetViews());
+                        Action =>
+                        {
+                            // TODO Client do not want reset feature for now. Left for future release. 
+                            //_resetViews.ResetViews();
+                        });
                     LocalPreferencesHelper.SetAppLanguage("nn");
                     break;
                 case SettingsLanguageSelection.English:
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action => _resetViews.ResetViews());
+                        Action =>
+                        {
+                            // TODO Client do not want reset feature for now. Left for future release. 
+                            //_resetViews.ResetViews();
+                        });
                     LocalPreferencesHelper.SetAppLanguage("en");
                     break;
             }
