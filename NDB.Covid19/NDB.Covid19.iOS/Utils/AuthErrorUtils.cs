@@ -1,4 +1,8 @@
 using System;
+
+#if APPCENTER
+using Microsoft.AppCenter.Crashes;
+#endif
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Views.ErrorStatus;
@@ -14,6 +18,9 @@ namespace NDB.Covid19.iOS.Utils
         {
             UIViewController newVC = ErrorPageViewController.Create(ErrorViewModel.REGISTER_ERROR_NOMATCH_HEADER, errorMessageTxt: ErrorViewModel.REGISTER_ERROR_NOMATCH_DESCRIPTION);
             LogUtils.LogException(severity, e, printMessage);
+#if APPCENTER
+            Crashes.TrackError(e);
+#endif
             GoToVC(parent, newVC);
         }
 
@@ -21,6 +28,9 @@ namespace NDB.Covid19.iOS.Utils
         {
             UIViewController newVC = ErrorPageViewController.Create(ErrorViewModel.REGISTER_ERROR_TOOMANYTRIES_HEADER, errorMessageTxt: ErrorViewModel.REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION);
             LogUtils.LogException(severity, e, printMessage);
+#if APPCENTER
+            Crashes.TrackError(e);
+#endif
             GoToVC(parent, newVC);
         }
 
@@ -28,6 +38,9 @@ namespace NDB.Covid19.iOS.Utils
         {
             UIViewController newVC = ErrorPageViewController.Create(ErrorViewModel.REGISTER_ERROR_HEADER, errorMessageTxt: ErrorViewModel.REGISTER_ERROR_DESCRIPTION);
             LogUtils.LogException(severity, e, errorMessage);
+#if APPCENTER
+            Crashes.TrackError(e);
+#endif
             GoToVC(parent, newVC);
         }
 
