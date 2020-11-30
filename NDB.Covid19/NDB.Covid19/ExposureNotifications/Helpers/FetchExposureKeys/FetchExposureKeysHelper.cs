@@ -13,6 +13,9 @@ using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
+#if APPCENTER
+using Microsoft.AppCenter.Crashes;
+#endif
 
 namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 {
@@ -134,6 +137,9 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             }
             catch (Exception e)
             {
+#if APPCENTER
+                Crashes.TrackError(e);
+#endif
                 string errorMessage = "submitBatches() failed when submitting the files to the EN API";
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e,
                     $"{_logPrefix}.{nameof(SubmitZips)}: {errorMessage}");
