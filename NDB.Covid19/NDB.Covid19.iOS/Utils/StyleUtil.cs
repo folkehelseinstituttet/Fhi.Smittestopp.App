@@ -220,7 +220,7 @@ namespace NDB.Covid19.iOS.Utils
         /// </summary>
         /// <param name="label"></param>
         /// <param name="rawText"></param>
-        public static void InitLabelWithHTMLFormat(UILabel label, string rawText)
+        public static void InitLabelWithHTMLFormat(UILabel label, string rawText, FontType fontType = FontType.FontRegular)
         {
             NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.HTML };
             documentAttributes.StringEncoding = NSStringEncoding.UTF8;
@@ -228,7 +228,7 @@ namespace NDB.Covid19.iOS.Utils
             NSAttributedString attributedString = new NSAttributedString(NSData.FromString(rawText, NSStringEncoding.UTF8), documentAttributes, ref error);
 
             //Ensuring text is resiezed correctly when font size is increased
-            InitLabekWithSpacingAndHTMLFormatting(label, FontType.FontRegular, attributedString, 1.28, 16, 22);
+            InitLabekWithSpacingAndHTMLFormatting(label, fontType, attributedString, 1.28, 16, 22);
             label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
