@@ -231,6 +231,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             InvokeOnMainThread(() =>
             {
                 NewIndicatorView.Hidden = !_viewModel.ShowNewMessageIcon;
+
+                UIApplication.SharedApplication.ApplicationIconBadgeNumber = NewIndicatorView.Hidden ? 0 : 1;
+
                 MessageIcon.Image = _viewModel.ShowNewMessageIcon ? UIImage.FromBundle("notification_active") : UIImage.FromBundle("notification_inactive");
                 NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;
                 _messageViewBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(_viewModel.NewMessageAccessibilityText);
