@@ -9,6 +9,11 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 using NDB.Covid19.Droid.Services;
+#if APPCENTER
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+#endif
 
 namespace NDB.Covid19.Droid
 {
@@ -37,7 +42,12 @@ namespace NDB.Covid19.Droid
             AppDomain.CurrentDomain.UnhandledException += LogUtils.OnUnhandledException;
             AndroidEnvironment.UnhandledExceptionRaiser += OnUnhandledAndroidException;
 
-            
+#if APPCENTER
+            AppCenter.Start(
+                Configuration.Conf.APPCENTER_DIAGNOSTICS_TOKEN,
+                typeof(Analytics), typeof(Crashes));
+#endif
+
             DroidDependencyInjectionConfig.Init();
             Xamarin.Essentials.Platform.Init(this);
             Current.Init(this);
