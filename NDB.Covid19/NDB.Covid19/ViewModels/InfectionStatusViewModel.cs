@@ -41,7 +41,8 @@ namespace NDB.Covid19.ViewModels
         private DateTime _latestMessageDateTime = DateTime.Today;
         public bool ShowNewMessageIcon { get; private set; }
         public EventHandler NewMessagesIconVisibilityChanged { get; set; }
-
+        public bool IsAppRestricted { get; set; }
+        
         public string NewMessageSubheaderTxt =>
             ShowNewMessageIcon
                 ? $"{INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT} {DateUtils.GetDateFromDateTime(_latestMessageDateTime, "d. MMMMM")}"
@@ -103,9 +104,13 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> IsRunning()
         {
+            if (IsAppRestricted)
+            {
+                return false;
+            }
             try
             {
-                return (await Xamarin.ExposureNotifications.ExposureNotification.GetStatusAsync() == Status.Active);
+                return (await ExposureNotification.GetStatusAsync() == Status.Active);
             }
             catch (Exception e)
             {
@@ -121,7 +126,7 @@ namespace NDB.Covid19.ViewModels
         {
             try
             {
-                return await Xamarin.ExposureNotifications.ExposureNotification.IsEnabledAsync();
+                return await ExposureNotification.IsEnabledAsync();
             }
             catch (Exception e)
             {
@@ -135,9 +140,13 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> StartENService()
         {
+            if (IsAppRestricted)
+            {
+                return false;
+            }
             try
             {
-                await Xamarin.ExposureNotifications.ExposureNotification.StartAsync();
+                await ExposureNotification.StartAsync();
             }
             catch (Exception e)
             {
@@ -152,9 +161,13 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> StopENService()
         {
+            if (IsAppRestricted)
+            {
+                return false;
+            }
             try
             {
-                await Xamarin.ExposureNotifications.ExposureNotification.StopAsync();
+                await ExposureNotification.StopAsync();
             }
             catch (Exception e)
             {
@@ -166,6 +179,30 @@ namespace NDB.Covid19.ViewModels
             return await IsRunning();
         }
 
+        public async void CheckIfAppIsRestricted(Action action = null)
+        {
+            try
+            {
+                if (await IsEnabled())
+                {
+                    if (await IsRunning())
+                    {
+                        await ExposureNotification.StartAsync();
+                    }
+                    else
+                    {
+                        await ExposureNotification.StopAsync();
+                    }
+                }
+                IsAppRestricted = false;
+            }
+            catch (Exception e)
+            {
+                IsAppRestricted = true;
+            }
+            action?.Invoke();
+        }
+        
         async Task NewMessagesFetched()
         {
             List<MessageItemViewModel> orderedMessages =
