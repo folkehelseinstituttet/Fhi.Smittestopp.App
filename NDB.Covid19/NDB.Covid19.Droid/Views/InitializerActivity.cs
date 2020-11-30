@@ -16,10 +16,11 @@ namespace NDB.Covid19.Droid.Views
     [Activity(MainLauncher = true, Theme = "@style/AppTheme.Launcher", ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     public class InitializerActivity : Activity
     {
-        Button _launcherButton;
+        Button _launcherButtonNb;
+        Button _launcherButtonNn;
         TextView _continueInEnTextView;
         RelativeLayout _continueInEnRelativeLayoutButton;
-
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             if (!IsTaskRoot)
@@ -38,20 +39,23 @@ namespace NDB.Covid19.Droid.Views
             }
 
             SetContentView(Resource.Layout.layout_with_launcher_button_ag_api);
-            _launcherButton = FindViewById<Button>(Resource.Id.launcher_button);
+            _launcherButtonNb = FindViewById<Button>(Resource.Id.launcher_button);
+            _launcherButtonNn = FindViewById<Button>(Resource.Id.launcher_button_nynorsk);
             _continueInEnRelativeLayoutButton = FindViewById<RelativeLayout>(Resource.Id.continue_in_en_layout);
             _continueInEnTextView = FindViewById<TextView>(Resource.Id.continue_in_en_text);
 
-            _launcherButton.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN_NB;
+            _launcherButtonNb.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN_NB;
+            _launcherButtonNn.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN_NN;
             _continueInEnTextView.Text = InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG;
+            
+            _launcherButtonNb.Click += new SingleClick(LauncherButtonNb_Click).Run;
+            _launcherButtonNn.Click += new SingleClick(LauncherButtonNn_Click).Run;
+            _continueInEnRelativeLayoutButton.Click += new SingleClick(CountinueInEnButton_Click).Run;
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-
-            _launcherButton.Click += new SingleClick(LauncherButton_Click).Run;
-            _continueInEnRelativeLayoutButton.Click += new SingleClick(CountinueInEnButton_Click).Run;
 
             if (PlayServicesVersionUtils.PlayServicesVersionNumberIsLargeEnough(PackageManager))
             {
@@ -63,9 +67,16 @@ namespace NDB.Covid19.Droid.Views
             }
         }
 
-        private void LauncherButton_Click(object sender, EventArgs e)
+        private void LauncherButtonNb_Click(object sender, EventArgs e)
         {
             LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
+            LocalesService.Initialize();
+            Continue();
+        }
+        
+        private void LauncherButtonNn_Click(object sender, EventArgs e)
+        {
+            LocalPreferencesHelper.SetAppLanguage("nn");
             LocalesService.Initialize();
             Continue();
         }
