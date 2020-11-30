@@ -27,12 +27,11 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzr-6E-Fbv">
                                                         <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
-                                                        <color key="backgroundColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="IEB-vw-cL1"/>
                                                             <constraint firstAttribute="width" constant="34" id="sYd-g5-lHi"/>
                                                         </constraints>
-                                                        <state key="normal" image="BackButton"/>
+                                                        <state key="normal" image="ArrowLeftCircle"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="17"/>
@@ -150,6 +149,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="22" height="22"/>
+        <image name="ArrowLeftCircle" width="34" height="34"/>
     </resources>
 </document>
