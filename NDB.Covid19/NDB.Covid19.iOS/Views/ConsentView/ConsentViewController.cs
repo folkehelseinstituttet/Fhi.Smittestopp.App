@@ -53,7 +53,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitBodyText(ContactInformation_section, ConsentViewModel.CONSENT_FOUR_PARAGRAPH);
             InitBodyText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH);
             InitSubTitle(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
-            InitBodyText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH);
+            InitBodyText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH, FontType.FontItalic);
             InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
             InitButtonSecondaryStyling(BackBtn, WelcomeViewModel.PREVIOUS_PAGE_BUTTON_TEXT);
 
@@ -99,9 +99,9 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitLabelWithSpacing(label, FontType.FontBold, text, 1.14, 24, 26);
         }
 
-        protected void InitBodyText(UILabel label, string text)
+        protected void InitBodyText(UILabel label, string text, FontType fontType = FontType.FontRegular)
         {
-            InitLabelWithHTMLFormat(label, text);
+            InitLabelWithHTMLFormat(label, text, fontType);
         }
 
         protected void InitBoxText(UILabel label, string text)

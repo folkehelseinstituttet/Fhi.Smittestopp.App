@@ -48,4 +48,5 @@
     <color name="infectionStatusLayoutButtonArrowBackground">#33071F32</color>
     <color name="lightBlueDivider">#C5E2FC</color>
     <color name="infectionStatusButtonMark">#32071F32</color>
+    <color name="infectionStatusTileColor">#F3F9FB</color>
 </resources>
