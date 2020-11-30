@@ -73,6 +73,14 @@ namespace NDB.Covid19.iOS.Utils
             btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
         }
 
+        public static void InitStartPageButtonStyling(UIButton btn)
+        {
+            btn.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            btn.Layer.BorderWidth = 1;
+            btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIControlState.Normal);
+        }
+
         /// <summary>
         /// The button needs a height constraint of 30 in the storyboard.
         /// </summary>

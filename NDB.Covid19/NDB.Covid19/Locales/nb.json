@@ -1,5 +1,6 @@
 ﻿{
-  "LAUNCHER_PAGE_START_BTN": "Start",
+  "LAUNCHER_PAGE_START_BTN_NB": "Start på bokmål",
+  "LAUNCHER_PAGE_START_BTN_NN": "Start på nynorsk",
   "LAUNCHER_PAGE_CONTINUE_IN_ENG": "Continue in English",
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Smittestopp fungerer bare med minst iOS 13.6. Oppdater til en nyere versjon. Det gjør du på mobilen din under Innstillinger -> Generelt -> Programvareoppdatering. ",
   "BASE_ERROR_TITLE": "FEIL",
