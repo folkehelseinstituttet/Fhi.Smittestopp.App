@@ -511,6 +511,12 @@
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\40.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\48.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\55.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\58-1.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -541,6 +547,12 @@
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\87.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\88.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\100.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\120_3x.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -556,16 +568,31 @@
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\167.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\172.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\180-1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\180.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\196.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\216.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\1024-1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Spotlight.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Spotlight2x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\Contents.json">
