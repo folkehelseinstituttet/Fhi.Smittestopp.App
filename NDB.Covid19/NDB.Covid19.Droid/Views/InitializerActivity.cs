@@ -42,7 +42,7 @@ namespace NDB.Covid19.Droid.Views
             _continueInEnRelativeLayoutButton = FindViewById<RelativeLayout>(Resource.Id.continue_in_en_layout);
             _continueInEnTextView = FindViewById<TextView>(Resource.Id.continue_in_en_text);
 
-            _launcherButton.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN;
+            _launcherButton.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN_NB;
             _continueInEnTextView.Text = InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG;
         }
 
