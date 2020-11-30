@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,11 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l50-5L-Sdj" userLabel="Top Stack View">
-                                <rect key="frame" x="25" y="67" width="389" height="34"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="l50-5L-Sdj" userLabel="Top Stack View">
+                                <rect key="frame" x="0.0" y="67" width="414" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-7T-Q35">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ix-aQ-A4r" userLabel="Spacer">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="8hl-Vz-rHL"/>
+                                            <constraint firstAttribute="width" constant="25" id="amx-hg-PXn"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-7T-Q35" customClass="CustomBackButton">
+                                        <rect key="frame" x="25" y="0.0" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="BPd-yK-LkH"/>
                                             <constraint firstAttribute="height" constant="34" id="R3a-hN-r4h"/>
@@ -33,26 +42,27 @@
                                             <action selector="BackButton_TouchUpInside:" destination="dIo-uC-Pf8" eventType="touchUpInside" id="1032"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3C-vk-GrE" userLabel="Spacer">
-                                        <rect key="frame" x="34" y="0.0" width="15" height="34"/>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3C-vk-GrE" userLabel="Spacer">
+                                        <rect key="frame" x="59" y="0.0" width="15" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="9kY-0w-536"/>
+                                            <constraint firstAttribute="height" id="Gb1-xK-FZo"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4744">
-                                        <rect key="frame" x="49" y="0.0" width="340" height="34"/>
+                                        <rect key="frame" x="74" y="0.0" width="340" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.19607843137254902" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HSr-7T-Q35" secondAttribute="bottom" constant="46" id="QYH-8R-geg"/>
                                     <constraint firstItem="4744" firstAttribute="centerY" secondItem="HSr-7T-Q35" secondAttribute="centerY" id="Y91-JY-IvZ"/>
-                                    <constraint firstItem="HSr-7T-Q35" firstAttribute="centerY" secondItem="l50-5L-Sdj" secondAttribute="centerY" id="YzS-P6-71T"/>
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOZ-87-Hz4">
-                                <rect key="frame" x="0.0" y="121" width="414" height="741"/>
+                                <rect key="frame" x="0.0" y="147" width="414" height="715"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="ySE-4i-zZd">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="531"/>
@@ -280,8 +290,8 @@
                         <color key="backgroundColor" red="0.88235294117647056" green="0.91764705882352937" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sOZ-87-Hz4" firstAttribute="leading" secondItem="1v0-ri-VsV" secondAttribute="leading" id="Cg5-aM-C5G"/>
-                            <constraint firstItem="sOZ-87-Hz4" firstAttribute="top" secondItem="l50-5L-Sdj" secondAttribute="bottom" constant="20" id="GGu-TB-qaL"/>
-                            <constraint firstItem="l50-5L-Sdj" firstAttribute="leading" secondItem="1v0-ri-VsV" secondAttribute="leading" constant="25" id="MrT-Oy-Tzf"/>
+                            <constraint firstItem="sOZ-87-Hz4" firstAttribute="top" secondItem="l50-5L-Sdj" secondAttribute="bottom" id="GGu-TB-qaL"/>
+                            <constraint firstItem="l50-5L-Sdj" firstAttribute="leading" secondItem="1v0-ri-VsV" secondAttribute="leading" id="MrT-Oy-Tzf"/>
                             <constraint firstItem="sOZ-87-Hz4" firstAttribute="bottom" secondItem="1v0-ri-VsV" secondAttribute="bottom" id="X2v-VS-V0s"/>
                             <constraint firstItem="1v0-ri-VsV" firstAttribute="trailing" secondItem="sOZ-87-Hz4" secondAttribute="trailing" id="oIK-h0-1yM"/>
                             <constraint firstItem="1v0-ri-VsV" firstAttribute="trailing" secondItem="l50-5L-Sdj" secondAttribute="trailing" id="r3v-Nb-FTh"/>
@@ -316,5 +326,8 @@
     <resources>
         <image name="ArrowLeftCircle" width="34" height="34"/>
         <image name="ArrowRightCircle" width="34" height="34"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

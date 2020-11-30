@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:background="@color/infectionStatusButtonOnGreen">
 
         <ImageView
@@ -112,7 +112,8 @@
                         android:layout_height="wrap_content"
                         android:importantForAccessibility="no"
                         android:id="@+id/infection_status_messages_button_relativeLayout_inner"
-                        style="@style/InfectionStatusLayoutButton">
+                        style="@style/InfectionStatusLayoutButton"
+                        android:background="@drawable/infection_status_tile_border">
                     <ImageView
                             android:src="@drawable/ic_notification_inactive"
                             android:layout_width="36dp"
@@ -176,7 +177,8 @@
                         android:layout_height="wrap_content"
                         android:importantForAccessibility="no"
                         android:id="@+id/infection_status_registration_button_relativeLayout_inner"
-                        style="@style/InfectionStatusLayoutButton">
+                        style="@style/InfectionStatusLayoutButton"
+                        android:background="@drawable/infection_status_tile_border">
                     <ImageView
                             android:src="@drawable/ic_covid_19"
                             android:layout_width="36dp"
