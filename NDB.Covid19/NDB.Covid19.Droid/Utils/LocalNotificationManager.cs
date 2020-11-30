@@ -84,7 +84,7 @@ namespace NDB.Covid19.Droid.Utils
                 builder.SetColor(Resource.Color.colorPrimary);
             }
 
-            builder.SetSmallIcon(Resource.Drawable.ic_smittestop);
+            builder.SetSmallIcon(Resource.Drawable.ic_notification);
 
             Notification notification = builder.Build();
 
