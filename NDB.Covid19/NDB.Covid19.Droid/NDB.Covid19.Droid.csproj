@@ -151,6 +151,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_hamburger_menu_icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\logo_fhi_blue.png" />
     <AndroidResource Include="Resources\drawable\calendar_border.xml" />
+    <AndroidResource Include="Resources\drawable\infection_status_tile_border.xml" />
     <AndroidResource Include="Resources\drawable\logoKortBl.png" />
     <AndroidResource Include="Resources\drawable\messages_border.xml" />
     <AndroidResource Include="Resources\drawable\shadow_gradient_border.xml" />
