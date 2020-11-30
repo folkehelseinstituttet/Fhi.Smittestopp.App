@@ -17,11 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZa-VB-E56" userLabel="Title Stack View">
-                                <rect key="frame" x="25" y="67" width="389" height="34"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZa-VB-E56" userLabel="Title Stack View">
+                                <rect key="frame" x="0.0" y="67" width="414" height="72"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wes-6w-9yE">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEs-sl-k73" userLabel="Spacer">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="Fdg-iB-wQF"/>
+                                            <constraint firstAttribute="height" id="qst-hW-Y41"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wes-6w-9yE" customClass="CustomBackButton">
+                                        <rect key="frame" x="25" y="0.0" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="3j3-vZ-5YL"/>
                                             <constraint firstAttribute="height" constant="34" id="ULZ-Vb-vKA"/>
@@ -34,8 +42,8 @@
                                             <action selector="BackButton_TouchUpInside:" destination="555" eventType="touchUpInside" id="27033"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GjL-6J-p5a" userLabel="Spacer">
-                                        <rect key="frame" x="39" y="0.0" width="15" height="0.0"/>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GjL-6J-p5a" userLabel="Spacer">
+                                        <rect key="frame" x="59" y="0.0" width="15" height="0.0"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="qQ2-uq-nAh"/>
@@ -43,18 +51,21 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is how it works" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1O-e9-6PB" customClass="SetttingsPageTitleLabel">
-                                        <rect key="frame" x="59" y="0.0" width="330" height="34"/>
+                                        <rect key="frame" x="74" y="0.0" width="340" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="e1O-e9-6PB" firstAttribute="leading" secondItem="GjL-6J-p5a" secondAttribute="trailing" id="Jjs-GR-tKN"/>
+                                    <constraint firstItem="Wes-6w-9yE" firstAttribute="leading" secondItem="pZa-VB-E56" secondAttribute="leading" constant="25" id="X3S-aT-TCj"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wes-6w-9yE" secondAttribute="bottom" constant="38" id="fhG-Uh-xsD"/>
                                     <constraint firstItem="e1O-e9-6PB" firstAttribute="centerY" secondItem="Wes-6w-9yE" secondAttribute="centerY" id="hBi-Bj-EGU"/>
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYh-1x-HqT">
-                                <rect key="frame" x="0.0" y="121" width="414" height="721"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="703"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JdS-CA-THG">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="166.5"/>
@@ -96,12 +107,12 @@
                         <viewLayoutGuide key="safeArea" id="lRK-Ep-Hgw"/>
                         <color key="backgroundColor" red="0.60271537303924561" green="0.60271537303924561" blue="0.60271537303924561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pZa-VB-E56" firstAttribute="leading" secondItem="lRK-Ep-Hgw" secondAttribute="leading" constant="25" id="IGR-wu-Y2q"/>
+                            <constraint firstItem="pZa-VB-E56" firstAttribute="leading" secondItem="lRK-Ep-Hgw" secondAttribute="leading" id="IGR-wu-Y2q"/>
                             <constraint firstItem="lRK-Ep-Hgw" firstAttribute="bottom" secondItem="tYh-1x-HqT" secondAttribute="bottom" constant="20" id="bu0-zl-cAX"/>
                             <constraint firstItem="lRK-Ep-Hgw" firstAttribute="leading" secondItem="tYh-1x-HqT" secondAttribute="leading" id="cnf-Fm-sj4"/>
                             <constraint firstItem="pZa-VB-E56" firstAttribute="top" secondItem="lRK-Ep-Hgw" secondAttribute="top" constant="23" id="lY7-zL-qve"/>
                             <constraint firstItem="lRK-Ep-Hgw" firstAttribute="trailing" secondItem="pZa-VB-E56" secondAttribute="trailing" id="ugD-SA-z3e"/>
-                            <constraint firstItem="tYh-1x-HqT" firstAttribute="top" secondItem="pZa-VB-E56" secondAttribute="bottom" constant="20" id="vkC-zh-en2"/>
+                            <constraint firstItem="tYh-1x-HqT" firstAttribute="top" secondItem="pZa-VB-E56" secondAttribute="bottom" id="vkC-zh-en2"/>
                             <constraint firstItem="tYh-1x-HqT" firstAttribute="trailing" secondItem="lRK-Ep-Hgw" secondAttribute="trailing" id="zmZ-SI-Pd2"/>
                         </constraints>
                     </view>
