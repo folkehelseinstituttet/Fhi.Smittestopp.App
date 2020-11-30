@@ -17,9 +17,10 @@ namespace NDB.Covid19.Droid.Views
     public class InitializerActivity : Activity
     {
         Button _launcherButton;
+        Button _launcherButtonNynorsk;
         TextView _continueInEnTextView;
         RelativeLayout _continueInEnRelativeLayoutButton;
-
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             if (!IsTaskRoot)
@@ -39,19 +40,22 @@ namespace NDB.Covid19.Droid.Views
 
             SetContentView(Resource.Layout.layout_with_launcher_button_ag_api);
             _launcherButton = FindViewById<Button>(Resource.Id.launcher_button);
+            _launcherButtonNynorsk = FindViewById<Button>(Resource.Id.launcher_button_nynorsk);
             _continueInEnRelativeLayoutButton = FindViewById<RelativeLayout>(Resource.Id.continue_in_en_layout);
             _continueInEnTextView = FindViewById<TextView>(Resource.Id.continue_in_en_text);
 
             _launcherButton.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN;
+            _launcherButtonNynorsk.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN_NYNORSK;
             _continueInEnTextView.Text = InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG;
+            
+            _launcherButton.Click += new SingleClick(LauncherButton_Click).Run;
+            _launcherButtonNynorsk.Click += new SingleClick(LauncherButtonNynorsk_Click).Run;
+            _continueInEnRelativeLayoutButton.Click += new SingleClick(CountinueInEnButton_Click).Run;
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-
-            _launcherButton.Click += new SingleClick(LauncherButton_Click).Run;
-            _continueInEnRelativeLayoutButton.Click += new SingleClick(CountinueInEnButton_Click).Run;
 
             if (PlayServicesVersionUtils.PlayServicesVersionNumberIsLargeEnough(PackageManager))
             {
@@ -66,6 +70,13 @@ namespace NDB.Covid19.Droid.Views
         private void LauncherButton_Click(object sender, EventArgs e)
         {
             LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
+            LocalesService.Initialize();
+            Continue();
+        }
+        
+        private void LauncherButtonNynorsk_Click(object sender, EventArgs e)
+        {
+            LocalPreferencesHelper.SetAppLanguage("nn");
             LocalesService.Initialize();
             Continue();
         }
