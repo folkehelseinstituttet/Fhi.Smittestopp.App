@@ -28,11 +28,19 @@ namespace NDB.Covid19.iOS.Views.Initializer
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton StartButton { get; set; }
+        UIKit.UIButton StartButtonNB { get; set; }
 
-        [Action ("StartButton_TouchUpInside:")]
+        [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void StartButton_TouchUpInside (UIKit.UIButton sender);
+        UIKit.UIButton StartButtonNN { get; set; }
+
+        [Action ("StartButtonNB_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void StartButtonNB_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("StartButtonNN_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void StartButtonNN_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -51,9 +59,14 @@ namespace NDB.Covid19.iOS.Views.Initializer
                 HeaderView = null;
             }
 
-            if (StartButton != null) {
-                StartButton.Dispose ();
-                StartButton = null;
+            if (StartButtonNB != null) {
+                StartButtonNB.Dispose ();
+                StartButtonNB = null;
+            }
+
+            if (StartButtonNN != null) {
+                StartButtonNN.Dispose ();
+                StartButtonNN = null;
             }
         }
     }

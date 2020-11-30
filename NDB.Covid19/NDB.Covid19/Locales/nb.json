@@ -1,5 +1,6 @@
 ﻿{
-  "LAUNCHER_PAGE_START_BTN": "Start",
+  "LAUNCHER_PAGE_START_BTN_NB": "Start på bokmål",
+  "LAUNCHER_PAGE_START_BTN_NN": "Start på nynorsk",
   "LAUNCHER_PAGE_CONTINUE_IN_ENG": "Continue in English",
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Smittestopp fungerer bare med minst iOS 13.6. Oppdater til en nyere versjon. Det gjør du på mobilen din under Innstillinger -> Generelt -> Programvareoppdatering. ",
   "BASE_ERROR_TITLE": "FEIL",
@@ -8,7 +9,6 @@
   "CONNECTION_ERROR_TITLE": "Internett",
   "BAD_CONNECTION_ERROR_MESSAGE": "Det er ingen eller dårlig forbindelse til nettverket. Prøv igjen senere.",
   "NO_INTERNET_ERROR_MESSAGE": "Det er ingen forbindelse til Internett.",
-  "LAUNCHER_PAGE_TITLE": "Smittestopp",
   "WELCOME_PAGE_ONE_TITLE": "Takk for at du bidrar til å stoppe spredning av koronavirus",
   "WELCOME_PAGE_ONE_BODY_ONE": "Du får beskjed hvis du har vært i nærheten av en person med covid-19.",
   "WELCOME_PAGE_ONE_BODY_TWO": "Du gir beskjed til andre brukere av appen hvis du får covid-19. Slik kan vi bedre passe på dem vi er i nærheten av.",
