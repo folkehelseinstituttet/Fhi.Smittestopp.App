@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CommonServiceLocator;
 using Foundation;
+using I18NPortable;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.Interfaces;
 using UIKit;
@@ -62,7 +63,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-           ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_models[indexPath.Section].MessageLink, BrowserLaunchMode.SystemPreferred);
+           ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_models[indexPath.Section].MessageLink.Translate(), BrowserLaunchMode.SystemPreferred);
            _models[indexPath.Section].IsRead = true;
             tableView.ReloadData();
         }

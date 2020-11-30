@@ -20,8 +20,8 @@ namespace NDB.Covid19.Utils
 
         static IMessagesManager _manager => ServiceLocator.Current.GetInstance<IMessagesManager>();
 
-        static string DEFAULT_MESSAGE_TITLE => "MESSAGES_MESSAGE_HEADER".Translate();
-        static string DEFAULT_MESSAGE_LINK => "MESSAGES_LINK".Translate();
+        static string DEFAULT_MESSAGE_TITLE => "MESSAGES_MESSAGE_HEADER";
+        static string DEFAULT_MESSAGE_LINK => "MESSAGES_LINK";
 
         private static async Task CreateAndSaveNewMessage(object Sender, DateTime? customTime = null, int triggerAfterNSec = 0)
         {
