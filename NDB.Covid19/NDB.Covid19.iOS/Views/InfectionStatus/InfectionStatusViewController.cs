@@ -51,10 +51,21 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
             SetupStyling();
-
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
         }
 
+        public override void ViewDidUnload()
+        {
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
+            base.ViewDidUnload();
+        }
+
+        private void OnMessageStatusChanged(object _ = null)
+        {
+            InvokeOnMainThread(() => _viewModel.UpdateNotificationDot());
+        }
+        
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
@@ -93,12 +104,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OnAppReturnsFromBackground(object obj)
         {
-            Task.Run(async () =>
-            {
-                await Task.Delay(1000); // Wait 1 sec before update the notification to wait for any status change
-                BeginInvokeOnMainThread(_viewModel.UpdateNotificationDot);
-            });
+            _viewModel.CheckIfAppIsRestricted(UpdateUI);
             UpdateUI();
+            OnMessageStatusChanged();
         }
 
         void SetPermissionManager()
@@ -263,7 +271,19 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         async partial void OnOffBtnTapped(UIButton sender)
         {
-            if (await _viewModel.IsRunning())
+            if (_viewModel.IsAppRestricted)
+            {
+                DialogHelper.ShowDialog(
+                    this,
+                    _viewModel.PermissionViewModel,
+                    (UIAlertAction action) =>
+                    {
+                        NavigationHelper.GoToAppSettings();
+                    }
+                    );
+                return;
+            }
+            if (await _viewModel.IsRunning() && await _viewModel.IsEnabled())
             {
                 DialogHelper.ShowDialog(
                     this,

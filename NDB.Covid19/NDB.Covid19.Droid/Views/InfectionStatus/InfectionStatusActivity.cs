@@ -15,6 +15,7 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using Android.Views.Animations;
 using NDB.Covid19.Droid.Services;
+using NDB.Covid19.Utils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using AndroidX.Core.Content;
 using Android.Graphics;
@@ -54,6 +55,18 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _viewModel = new InfectionStatusViewModel();
             InitLayout();
             UpdateMessagesStatus();
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
+        }
+
+        protected override void OnDestroy()
+        {
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
+            base.OnDestroy();
+        }
+
+        private void OnMessageStatusChanged(object _ = null)
+        {
+            RunOnUiThread(() => _viewModel.UpdateNotificationDot());
         }
 
         protected override void OnResume()
@@ -65,14 +78,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
 
-            Task.Run(async () =>
-            {
-                await Task.Delay(1000);
-                RunOnUiThread(() => _viewModel.UpdateNotificationDot());
-            });
             UpdateUI();
 
             _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;
+            OnMessageStatusChanged();
         }
 
         private void ShowPermissionsDialogIfTheyHavChangedWhileInIdle() =>

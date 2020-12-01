@@ -26,7 +26,10 @@ namespace NDB.Covid19.iOS.Views.Initializer
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            StyleUtil.InitButtonStyling(StartButton, InitializerViewModel.LAUNCHER_PAGE_START_BTN);
+            StyleUtil.InitButtonStyling(StartButtonNB, InitializerViewModel.LAUNCHER_PAGE_START_BTN_NB);
+            StyleUtil.InitButtonStyling(StartButtonNN, InitializerViewModel.LAUNCHER_PAGE_START_BTN_NN);
+            StyleUtil.InitStartPageButtonStyling(StartButtonNB);
+            StyleUtil.InitStartPageButtonStyling(StartButtonNN);
             StyleUtil.InitLabel(ContinueInEnLbl, StyleUtil.FontType.FontSemiBold, InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG, 16, 24);
             ContinueInEnLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             HeaderView.SizeToFit();
@@ -65,9 +68,16 @@ namespace NDB.Covid19.iOS.Views.Initializer
             ContinueInEnStackView.RemoveGestureRecognizer(_gestureRecognizer);
         }
 
-        partial void StartButton_TouchUpInside(UIButton sender)
+        partial void StartButtonNB_TouchUpInside(UIButton sender)
         {
-            LocalPreferencesHelper.SetAppLanguage(Conf.DEFAULT_LANGUAGE);
+            LocalPreferencesHelper.SetAppLanguage("nb");
+            LocalesService.Initialize();
+            Continue();
+        }
+
+        partial void StartButtonNN_TouchUpInside(UIButton sender)
+        {
+            LocalPreferencesHelper.SetAppLanguage("nn");
             LocalesService.Initialize();
             Continue();
         }
