@@ -9,6 +9,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.App;
 using CommonServiceLocator;
+using I18NPortable;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.InfectionStatus;
@@ -147,7 +148,7 @@ namespace NDB.Covid19.Droid.Views.Messages
 
             public async void OnItemClick(AdapterView parent, View view, int position, long id)
             {
-                await ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_adapterMessages[position].MessageLink, BrowserLaunchMode.SystemPreferred);
+                await ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_adapterMessages[position].MessageLink.Translate(), BrowserLaunchMode.SystemPreferred);
                 _adapterMessages[position].IsRead = true;
                 _adapterMessages.NotifyDataSetChanged();
             }
