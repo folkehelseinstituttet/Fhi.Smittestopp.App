@@ -42,10 +42,21 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
             SetupStyling();
-
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
         }
 
+        public override void ViewDidUnload()
+        {
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
+            base.ViewDidUnload();
+        }
+
+        private void OnMessageStatusChanged(object _ = null)
+        {
+            InvokeOnMainThread(() => _viewModel.UpdateNotificationDot());
+        }
+        
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
@@ -85,12 +96,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         void OnAppReturnsFromBackground(object obj)
         {
             _viewModel.CheckIfAppIsRestricted(UpdateUI);
-            Task.Run(async () =>
-            {
-                await Task.Delay(1000); // Wait 1 sec before update the notification to wait for any status change
-                BeginInvokeOnMainThread(_viewModel.UpdateNotificationDot);
-            });
             UpdateUI();
+            OnMessageStatusChanged();
         }
 
         void SetPermissionManager()
