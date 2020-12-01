@@ -74,9 +74,6 @@ namespace NDB.Covid19.Droid.Utils
 
         public class SingleClick : SingleAction<EventArgs>
         {
-            private bool _hasClicked;
-            private readonly Action<object, EventArgs> _setOnClick;
-
             public SingleClick(Action<object, EventArgs> setOnAction, int delayMilliseconds = 1000) : base(setOnAction, delayMilliseconds)
             {
             }

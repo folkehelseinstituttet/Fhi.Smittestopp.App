@@ -36,7 +36,6 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private Button _buttonToggleMessageRetentionLength;
         private Button _buttonPrintLastSymptomOnsetDate;
         private Button _buttonPrintLastKeysPulledAndTimestamp;
-        private Button _buttonPrintLastUploadedKeys;
         private Button _buttonSendExposureMessageAfter10Sec;
         private Button _buttonShowLastSummary;
         private Button _buttonShowLastExposureInfo;
