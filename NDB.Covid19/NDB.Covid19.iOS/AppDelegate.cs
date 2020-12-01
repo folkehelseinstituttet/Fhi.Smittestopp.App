@@ -132,7 +132,7 @@ namespace NDB.Covid19.iOS
         }
 
         [Export("application:performFetchWithCompletionHandler:")]
-        public async void PerformFetch(UIApplication application, System.Action<UIBackgroundFetchResult> completionHandler)
+        public void PerformFetch(UIApplication application, System.Action<UIBackgroundFetchResult> completionHandler)
         {
             completionHandler(UIBackgroundFetchResult.NewData);
         }
