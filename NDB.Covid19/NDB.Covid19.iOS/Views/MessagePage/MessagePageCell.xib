@@ -82,7 +82,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="ContentView" destination="tyN-fm-Fsc" id="name-outlet-tyN-fm-Fsc"/>
                 <outlet property="IndicatorView" destination="2gQ-cC-lVS" id="name-outlet-2gQ-cC-lVS"/>
                 <outlet property="Label1" destination="pVf-e0-5wb" id="name-outlet-pVf-e0-5wb"/>
                 <outlet property="Label2" destination="09m-xU-NEE" id="name-outlet-09m-xU-NEE"/>
