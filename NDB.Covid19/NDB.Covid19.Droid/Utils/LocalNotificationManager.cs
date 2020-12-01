@@ -60,11 +60,11 @@ namespace NDB.Covid19.Droid.Utils
             {
                 NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
                 await Task.Delay(triggerInSeconds * 1000);
-                notificationManagerCompat.Notify(NotificationId, await CreateNotification(notificationViewModel));
+                notificationManagerCompat.Notify(NotificationId, CreateNotification(notificationViewModel));
             });
         }
 
-        public async Task<Notification> CreateNotification(NotificationViewModel notificationViewModel)
+        public Notification CreateNotification(NotificationViewModel notificationViewModel)
         {
             PendingIntent resultPendingIntent = InitResultIntentBasingOnViewModel(notificationViewModel);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(Current.Activity, _channelId)
