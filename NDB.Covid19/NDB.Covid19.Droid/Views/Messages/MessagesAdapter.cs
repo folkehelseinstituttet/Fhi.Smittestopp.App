@@ -3,6 +3,7 @@ using System.Linq;
 using Android.App;
 using Android.Views;
 using Android.Widget;
+using I18NPortable;
 using NDB.Covid19.ViewModels;
 
 namespace NDB.Covid19.Droid.Views.Messages
@@ -31,7 +32,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             View view = convertView ?? _context.LayoutInflater.Inflate(Resource.Layout.messages_list_element, null);
-            view.FindViewById<TextView>(Resource.Id.messages_item_title).Text = _items[position].Title;
+            view.FindViewById<TextView>(Resource.Id.messages_item_title).Text = _items[position].Title.Translate();
             view.FindViewById<TextView>(Resource.Id.new_item).Text = MessagesViewModel.MESSAGES_NEW_ITEM;
             view.FindViewById<TextView>(Resource.Id.messages_item_date).Text = _items[position].DayAndMonthString;
             view.FindViewById<TextView>(Resource.Id.messages_item_description).Text = MessageItemViewModel.MESSAGES_RECOMMENDATIONS;
