@@ -24,6 +24,8 @@ namespace NDB.Covid19.ViewModels
             ? string.Format(MESSAGES_LAST_UPDATED_LABEL, $"{DateUtils.GetDateFromDateTime(LastUpdateDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateDateTime, "t")}")
             : "";
 
+        private static readonly object Subscriber = new object();
+
         public static void SubscribeMessages(object subscriber, Action<List<MessageItemViewModel>> action)
         {
             MessagingCenter.Subscribe<object>(
@@ -31,6 +33,7 @@ namespace NDB.Covid19.ViewModels
                 MessagingCenterKeys.KEY_MESSAGE_RECEIVED, async obj =>
                 {
                     action?.Invoke(await GetMessages());
+                    MessagingCenter.Send(Subscriber, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
                 });
         }
 
@@ -54,6 +57,7 @@ namespace NDB.Covid19.ViewModels
                     message.IsRead = true;
                 }
             }
+            MessagingCenter.Send(Subscriber, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
         }
     }
 }
