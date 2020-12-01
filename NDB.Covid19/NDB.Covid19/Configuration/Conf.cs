@@ -19,7 +19,7 @@ namespace NDB.Covid19.Configuration
 
         // Minimum hours between pulling keys
         // Different intervals are automatically injected for test and production builds by App Center
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(0);
+        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(2);
 
         public static readonly int APIVersion = 3;
 
