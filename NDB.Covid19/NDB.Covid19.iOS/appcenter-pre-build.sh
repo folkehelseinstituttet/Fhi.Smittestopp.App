@@ -61,6 +61,12 @@ then
     exit
 fi
 
+if [ -z "FETCH_MIN_HOURS_BETWEEN_PULL" ]
+then
+    echo "You need define the FETCH_MIN_HOURS_BETWEEN_PULL variable in App Center"
+    exit
+fi
+
 if [ -z "OAUTH2_AUTHORISE_URL" ]
 then
     echo "You need define the OAUTH2_AUTHORISE_URL variable in App Center"
@@ -109,6 +115,9 @@ then
 
     echo "Updating USER_AGENT_HEADER to $USER_AGENT_HEADER in Conf.cs"
     sed -i '' 's#USER_AGENT_HEADER => "[-A-Za-z0-9:_./]*"#USER_AGENT_HEADER => "'$USER_AGENT_HEADER'"#' $CONF_FILE
+
+    echo "Updating FETCH_MIN_HOURS_BETWEEN_PULL to $FETCH_MIN_HOURS_BETWEEN_PULL in Conf.cs"
+    sed -i '' 's#FETCH_MIN_HOURS_BETWEEN_PULL = "[-A-Za-z0-9:_./]*"#FETCH_MIN_HOURS_BETWEEN_PULL = "'$FETCH_MIN_HOURS_BETWEEN_PULL'"#' $CONF_FILE
 
     echo "Updating APPCENTER_DIAGNOSTICS_TOKEN to $APPCENTER_DIAGNOSTICS_TOKEN in Conf.cs"
     sed -i '' 's#APPCENTER_DIAGNOSTICS_TOKEN = "[-A-Za-z0-9:_./]*"#APPCENTER_DIAGNOSTICS_TOKEN = "'$APPCENTER_DIAGNOSTICS_TOKEN'"#' $CONF_FILE
