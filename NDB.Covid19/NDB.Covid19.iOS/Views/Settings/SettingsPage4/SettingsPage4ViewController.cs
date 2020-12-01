@@ -35,7 +35,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
             */
 
             //Support url and associated text
-            string urlStringAndText = SettingsPage4ViewModel.CONTENT_TEXT_BEFORE_SUPPORT_LINK + " " + "<a href=https://" + SettingsPage4ViewModel.SUPPORT_LINK + ">" + SettingsPage4ViewModel.SUPPORT_LINK_SHOWN_TEXT + "</a>";
+            string urlStringAndText = SettingsPage4ViewModel.CONTENT_TEXT_BEFORE_SUPPORT_LINK + " " + "<a href=" + SettingsPage4ViewModel.SUPPORT_LINK + ">" + SettingsPage4ViewModel.SUPPORT_LINK_SHOWN_TEXT + "</a>";
 
             //Concatenation the content
             string content = urlStringAndText; // + contactsInfo;
