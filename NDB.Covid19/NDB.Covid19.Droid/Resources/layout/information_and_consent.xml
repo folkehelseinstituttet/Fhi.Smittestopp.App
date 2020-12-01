@@ -35,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                 android:layout_marginVertical="@dimen/defaultVerticalMargin"
+                android:paddingBottom="@dimen/defaultVerticalMargin"
                 android:id="@+id/information_consent_relativeLayout">
             <TextView
                     android:text="Header"
