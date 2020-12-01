@@ -151,7 +151,14 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         async void SetStatusContainerState(bool isRunning)
         {
             UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
-            statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+            if (NavigationController.TopViewController is InfectionStatusViewController)
+            {
+                statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+            }
+            else
+            {
+                statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            }
             UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
 
             ScrollDownBackgroundView.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
