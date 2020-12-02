@@ -8,14 +8,17 @@ using Android.OS;
 using Android.Provider;
 using I18NPortable;
 using NDB.Covid19.Droid.Utils.MessagingCenter;
+using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using Xamarin.ExposureNotifications;
 using static NDB.Covid19.Droid.Utils.DroidRequestCodes;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
+using static Xamarin.ExposureNotifications.ExposureNotification;
 
 namespace NDB.Covid19.Droid.Utils
 {
-    public class PermissionUtils
+    public class PermissionUtils : IPermissionsHelper
     {
         private TaskCompletionSource<bool> _tcs = new TaskCompletionSource<bool>();
 
@@ -28,6 +31,7 @@ namespace NDB.Covid19.Droid.Utils
             {
                 _tcs.TrySetResult(true);
             }
+
             bool finalResult = await _tcs.Task;
             PermissionsMessagingCenter.PermissionsChanged = false;
             return finalResult;
@@ -53,9 +57,7 @@ namespace NDB.Covid19.Droid.Utils
             PermissionsMessagingCenter.Unsubscribe(subscriber);
         }
 
-        public bool HasPermissionsWithoutDialogs() => BluetoothAdapter.DefaultAdapter != null
-                                                      && BluetoothAdapter.DefaultAdapter.IsEnabled
-                                                      && IsLocationEnabled();
+        public bool HasPermissionsWithoutDialogs() => IsBluetoothEnabled() && IsLocationEnabled();
 
         public async Task<bool> HasBluetoothSupportAsync()
         {
@@ -103,6 +105,7 @@ namespace NDB.Covid19.Droid.Utils
             {
                 return true;
             }
+
             await DialogUtils.DisplayDialogAsync(
                 Current.Activity,
                 new DialogViewModel()
@@ -116,17 +119,27 @@ namespace NDB.Covid19.Droid.Utils
             return false;
         }
 
+        public bool IsBluetoothEnabled()
+        {
+            return BluetoothAdapter.DefaultAdapter?.IsEnabled == true;
+        }
+
         public bool IsLocationEnabled()
         {
             if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
             {
-                LocationManager lm = (LocationManager)Current.AppContext.GetSystemService(Context.LocationService);
+                LocationManager lm = (LocationManager) Current.AppContext.GetSystemService(Context.LocationService);
                 return lm.IsLocationEnabled;
             }
 
             int mode = Settings.Secure.GetInt(Current.AppContext.ContentResolver, Settings.Secure.LocationMode,
-                (int)SecurityLocationMode.Off);
-            return (mode != (int)SecurityLocationMode.Off);
+                (int) SecurityLocationMode.Off);
+            return (mode != (int) SecurityLocationMode.Off);
+        }
+
+        public bool AreAllPermissionsGranted()
+        {
+            return HasPermissionsWithoutDialogs();
         }
 
         private void CancelTask()
@@ -141,9 +154,10 @@ namespace NDB.Covid19.Droid.Utils
                 Current.Activity.StartActivityForResult(new Intent().SetAction(Settings.ActionBluetoothSettings),
                     BluetoothRequestCode);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                LogUtils.LogException(Enums.LogSeverity.WARNING, e, $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings");
+                LogUtils.LogException(Enums.LogSeverity.WARNING, e,
+                    $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings");
             }
         }
 
@@ -151,7 +165,8 @@ namespace NDB.Covid19.Droid.Utils
         {
             try
             {
-                Current.Activity.StartActivityForResult(new Intent().SetAction(Settings.ActionLocationSourceSettings), LocationRequestCode);
+                Current.Activity.StartActivityForResult(new Intent().SetAction(Settings.ActionLocationSourceSettings),
+                    LocationRequestCode);
             }
             catch (Exception e)
             {
@@ -161,7 +176,8 @@ namespace NDB.Covid19.Droid.Utils
 
         public void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            if ((requestCode == BluetoothRequestCode || requestCode == LocationRequestCode) && resultCode != Result.FirstUser)
+            if ((requestCode == BluetoothRequestCode || requestCode == LocationRequestCode) &&
+                resultCode != Result.FirstUser)
             {
                 _tcs.TrySetResult(HasPermissionsWithoutDialogs());
             }

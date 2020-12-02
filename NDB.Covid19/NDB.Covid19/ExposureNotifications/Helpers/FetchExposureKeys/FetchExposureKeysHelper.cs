@@ -33,6 +33,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 
             SendReApproveConsentsNotificationIfNeeded();
             ResendMessageIfNeeded();
+            CreatePermissionsNotificationIfNeeded();
 
             if (_pullRules.ShouldAbortPull())
             {
@@ -49,6 +50,9 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             DeleteZips(zipsLocation);
         }
 
+        private void CreatePermissionsNotificationIfNeeded() =>
+            NotificationsHelper.CreatePermissionsNotification();
+
         private async void ResendMessageIfNeeded()
         {
             DateTime nowLocal = TimeZoneInfo.ConvertTimeFromUtc(SystemTime.Now(), TimeZoneInfo.Local);
@@ -60,7 +64,21 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             if (lastReceivedMessageDateTimeUtc < todayUtc &&
                 nowLocal.Date.Subtract(lastReceivedMessageDateTimeLocal.Date).TotalHours >= Conf.HOURS_UNTIL_RESEND_MESSAGES)
             {
-                if (nowLocal.Hour >= Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND)
+                DateTime lowerBoundDateTime = new DateTime(
+                    nowLocal.Year,
+                    nowLocal.Month,
+                    nowLocal.Day,
+                    Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN,
+                    0,
+                    0);
+                DateTime upperBoundDateTime = new DateTime(
+                    nowLocal.Year,
+                    nowLocal.Month,
+                    nowLocal.Day,
+                    Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END,
+                    0,
+                    0);
+                if (nowLocal >= lowerBoundDateTime && nowLocal <= upperBoundDateTime)
                 {
                     List<MessageSQLiteModel> unreadMessages = await MessageUtils.GetAllUnreadMessages();
                     List<MessageSQLiteModel> unreadMessagesNotOlderThanMsgRetentionTime =

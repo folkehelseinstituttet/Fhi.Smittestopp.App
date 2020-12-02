@@ -23,6 +23,7 @@ namespace NDB.Covid19.Test
             unityContainer.RegisterSingleton<IMessagesManager, MessagesManager>();
             unityContainer.RegisterSingleton<ILocalNotificationsManager, LocalNotificationManagerMock>();
             unityContainer.RegisterSingleton<IDeveloperToolsService, DeveloperToolsService>();
+            unityContainer.RegisterSingleton<IPermissionsHelper, PermissionsMock>();
             XamarinEssentialsRegister(unityContainer);
             UnityServiceLocator unityServiceLocalter = new UnityServiceLocator(unityContainer);
             CommonServiceLocator.ServiceLocator.SetLocatorProvider(() => unityServiceLocalter);

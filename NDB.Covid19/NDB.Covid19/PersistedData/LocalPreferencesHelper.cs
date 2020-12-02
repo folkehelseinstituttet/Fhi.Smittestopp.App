@@ -7,7 +7,7 @@ using NDB.Covid19.WebServices.ExposureNotification;
 
 namespace NDB.Covid19.PersistedData
 {
-    public class LocalPreferencesHelper
+    public static class LocalPreferencesHelper
     {
         static IPreferences _preferences => ServiceLocator.Current.GetInstance<IPreferences>();
 
@@ -111,6 +111,12 @@ namespace NDB.Covid19.PersistedData
         {
             get => _preferences.Get(PreferencesKeys.HIGH_ATTENUATION_DURATION_MULTIPLIER, Conf.HIGH_ATTENUATION_DURATION_MULTIPLIER);
             set => _preferences.Set(PreferencesKeys.HIGH_ATTENUATION_DURATION_MULTIPLIER, value);
+        }
+
+        public static DateTime LastPermissionsNotificationDateTimeUtc
+        {
+            get => _preferences.Get(PreferencesKeys.LAST_PERMISSIONS_NOTIFICATION_DATE_TIME, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.LAST_PERMISSIONS_NOTIFICATION_DATE_TIME, value);
         }
     }
 }

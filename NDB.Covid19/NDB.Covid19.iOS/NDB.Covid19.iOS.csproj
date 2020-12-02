@@ -989,6 +989,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Permissions\IOSPermissionsHelper.cs" />
     <Compile Include="SceneDelegate.cs" />
     <Compile Include="IOSDependencyInjectionConfig.cs" />
     <Compile Include="Utils\ColorHelper.cs" />
