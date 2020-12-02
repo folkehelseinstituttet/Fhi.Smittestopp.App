@@ -27,6 +27,15 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             return vc;
         }
 
+        public static UINavigationController GetInfectionSatusPageControllerInNavigationController()
+        {
+            UIViewController vc = InfectionStatusViewController.Create(false);
+            UINavigationController navigationController = new UINavigationController(vc);
+            navigationController.SetNavigationBarHidden(true, false);
+            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+            return navigationController;
+        }
+
         bool _comingFromOnboarding;
 
         InfectionStatusViewModel _viewModel;
@@ -42,10 +51,21 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
             SetupStyling();
-
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
         }
 
+        public override void ViewDidUnload()
+        {
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
+            base.ViewDidUnload();
+        }
+
+        private void OnMessageStatusChanged(object _ = null)
+        {
+            InvokeOnMainThread(() => _viewModel.UpdateNotificationDot());
+        }
+        
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
@@ -85,12 +105,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         void OnAppReturnsFromBackground(object obj)
         {
             _viewModel.CheckIfAppIsRestricted(UpdateUI);
-            Task.Run(async () =>
-            {
-                await Task.Delay(1000); // Wait 1 sec before update the notification to wait for any status change
-                BeginInvokeOnMainThread(_viewModel.UpdateNotificationDot);
-            });
             UpdateUI();
+            OnMessageStatusChanged();
         }
 
         void SetPermissionManager()
@@ -144,7 +160,14 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         async void SetStatusContainerState(bool isRunning)
         {
             UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
-            statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+            if (NavigationController.TopViewController is InfectionStatusViewController)
+            {
+                statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+            }
+            else
+            {
+                statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            }
             UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
 
             ScrollDownBackgroundView.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;

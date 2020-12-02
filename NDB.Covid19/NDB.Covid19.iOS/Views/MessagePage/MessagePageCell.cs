@@ -1,5 +1,6 @@
 using System;
 using Foundation;
+using I18NPortable;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
@@ -24,7 +25,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         public void Update(MessageItemViewModel message)
         {
-            StyleUtil.InitLabelWithSpacing(Label1, StyleUtil.FontType.FontMedium, message.Title, 1.14, 18, 28);
+            StyleUtil.InitLabelWithSpacing(Label1, StyleUtil.FontType.FontMedium, message.Title.Translate(), 1.14, 18, 28);
             StyleUtil.InitLabelWithSpacing(Label2, StyleUtil.FontType.FontRegular, DateUtils.GetDateFromDateTime(message.TimeStamp, "d. MMMMM"), 1.14, 15, 17);
             StyleUtil.InitLabelWithSpacing(Label3, StyleUtil.FontType.FontRegular, MessageItemViewModel.MESSAGES_RECOMMENDATIONS, 1.14, 15, 17);
             StyleUtil.InitLabelWithSpacing(UnreadLabel, StyleUtil.FontType.FontBold, MessagesViewModel.MESSAGES_NEW_ITEM, 1.14, 15, 17);
