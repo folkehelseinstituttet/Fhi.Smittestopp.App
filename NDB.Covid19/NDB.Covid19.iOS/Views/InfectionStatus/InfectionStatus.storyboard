@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FM-IV-ZSI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfb-Su-BUZ" userLabel="ScrollDownBackgroundView">
                                         <rect key="frame" x="0.0" y="-250" width="375" height="250"/>
@@ -27,8 +27,8 @@
                                             <constraint firstAttribute="height" constant="250" id="2tX-xe-Iqd"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-pE-NTM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="677.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-pE-NTM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="874"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="874"/>
@@ -71,8 +71,8 @@
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHISmittestoppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2Lh-4t-IDu" userLabel="App Logo">
                                                                 <rect key="frame" x="75" y="71.5" width="225" height="157"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-7p-6vm">
-                                                                <rect key="frame" x="40" y="60.5" width="295" height="35.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-7p-6vm">
+                                                                <rect key="frame" x="40" y="212.5" width="295" height="60.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9k-ec-FSe">
                                                         <rect key="frame" x="0.0" y="313" width="375" height="251"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uaW-Ad-6eY">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uaW-Ad-6eY">
                                                                 <rect key="frame" x="40" y="32" width="295" height="187"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When Smitte | Stop is running you contributes to stop then Covid-19 spread in Denmark" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZp-jv-Ckr">
@@ -338,7 +338,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AvV-Sr-vLn"/>
                         <constraints>
-                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="AvV-Sr-vLn" secondAttribute="top" id="HF6-lP-dkU"/>
+                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="AvV-Sr-vLn" secondAttribute="top" constant="-1" id="HF6-lP-dkU"/>
                             <constraint firstItem="5I2-pE-NTM" firstAttribute="width" secondItem="AvV-Sr-vLn" secondAttribute="width" id="T4K-Jx-8fm"/>
                             <constraint firstItem="AvV-Sr-vLn" firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="Uzr-5N-pbi"/>
                             <constraint firstItem="5FM-IV-ZSI" firstAttribute="leading" secondItem="AvV-Sr-vLn" secondAttribute="leading" id="dLH-ji-tcG"/>
