@@ -67,7 +67,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         private async void SetStyling()
         {
-            StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 1.14, 22, 34);
+            StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 0.9, 22, 34);
             StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 15, 17, UITextAlignment.Left);
             int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
             int messages = (await MessageUtils.GetMessages()).Count;
