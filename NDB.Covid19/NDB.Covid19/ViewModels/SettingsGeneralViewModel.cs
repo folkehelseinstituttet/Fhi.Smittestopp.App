@@ -17,9 +17,6 @@ namespace NDB.Covid19.ViewModels
         public static string SETTINGS_GENERAL_MOBILE_DATA_DESC => "SETTINGS_GENERAL_MOBILE_DATA_DESC".Translate();
         public static string SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER => "SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER".Translate();
         public static string SETTINGS_GENERAL_RESTART_REQUIRED_TEXT => "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT".Translate();
-        public static string SETTINGS_GENERAL_MORE_INFO_LINK => "SETTINGS_GENERAL_MORE_INFO_LINK".Translate();
-        public static string SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT => "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT".Translate();
-        public static string SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT => "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT".Translate();
         public static string SETTINGS_GENERAL_EN => "SETTINGS_GENERAL_EN".Translate();
         public static string SETTINGS_GENERAL_NN => "SETTINGS_GENERAL_NN".Translate();
         public static string SETTINGS_GENERAL_NB => "SETTINGS_GENERAL_NB".Translate();
@@ -44,21 +41,6 @@ namespace NDB.Covid19.ViewModels
         public bool GetStoredCheckedState() => LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
 
         public void OnCheckedChange(bool isChecked) => LocalPreferencesHelper.SetIsDownloadWithMobileDataEnabled(isChecked);
-
-        /// <summary>
-        /// Opens the link in an in-app browser.
-        /// </summary>
-        public static void OpenSmitteStopLink()
-        {
-            try
-            {
-                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(SETTINGS_GENERAL_MORE_INFO_LINK);
-            }
-            catch (Exception e)
-            {
-                LogUtils.LogException(Enums.LogSeverity.ERROR, e, "Failed to open link on general settings page");
-            }
-        }
 
         public void SetSelection(SettingsLanguageSelection selection)
         {

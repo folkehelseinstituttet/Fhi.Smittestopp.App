@@ -17,7 +17,7 @@
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin">
         <ImageView
                 android:id="@+id/arrow_back"
-                android:src="@drawable/circle_arrow_left"
+                android:src="@drawable/ic_circle_arrow_left"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 app:layout_constraintTop_toTopOf="parent"
