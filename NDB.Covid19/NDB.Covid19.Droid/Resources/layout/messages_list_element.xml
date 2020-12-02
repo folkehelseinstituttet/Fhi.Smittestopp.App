@@ -16,7 +16,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginVertical="16dp"
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-            android:background="@drawable/messages_border">
+            android:background="@drawable/ic_messages_border">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
@@ -52,7 +52,7 @@
                             android:layout_height="12dp"
                             android:layout_centerVertical="true"
                             android:scaleType="fitCenter"
-                            android:src="@drawable/calendar_border"
+                            android:src="@drawable/ic_calendar_border"
                             android:tint="@android:color/holo_red_dark"/>
 
                     <TextView
