@@ -71,14 +71,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel SmittestopLinkButtionLbl { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIStackView SmittestopLinkButtonStackView { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UISwitch switchButton { get; set; }
 
         [Action ("BackButton_TouchUpInside:")]
@@ -167,16 +159,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             if (RestartAppLabl != null) {
                 RestartAppLabl.Dispose ();
                 RestartAppLabl = null;
-            }
-
-            if (SmittestopLinkButtionLbl != null) {
-                SmittestopLinkButtionLbl.Dispose ();
-                SmittestopLinkButtionLbl = null;
-            }
-
-            if (SmittestopLinkButtonStackView != null) {
-                SmittestopLinkButtonStackView.Dispose ();
-                SmittestopLinkButtonStackView = null;
             }
 
             if (switchButton != null) {
