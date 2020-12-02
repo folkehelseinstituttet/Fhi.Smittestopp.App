@@ -19,7 +19,7 @@
                 android:id="@+id/arrow_back_general"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/circle_arrow_left"
+                android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
                 android:focusable="true"
                 app:layout_constraintVertical_weight="1"
@@ -125,12 +125,12 @@
                         android:buttonTint="#1AB759"
                         android:gravity="center"
                         android:importantForAccessibility="yes"
-                        android:thumb="@drawable/thumb_selector"
+                        android:thumb="@drawable/ic_thumb_selector"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/settings_general_mobile_data_header"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:track="@drawable/track_selector"/>
+                        app:track="@drawable/ic_track_selector"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
@@ -213,6 +213,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_radio_group"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
