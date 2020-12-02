@@ -91,11 +91,21 @@ namespace NDB.Covid19.Droid.Views.Messages
             
             FindViewById<TextView>(Resource.Id.messages_page_title).Text =
                 MessagesViewModel.MESSAGES_HEADER;
-            
-            FindViewById<TextView>(Resource.Id.messages_page_sub_header).Text =
-                (await MessageUtils.GetAllUnreadMessages()).Count > 0 ?
-                    MessagesViewModel.MESSAGES_NEW_MESSAGES_HEADER :
-                    MessagesViewModel.MESSAGES_NO_ITEMS_TITLE;
+
+            string headerText = MessagesViewModel.MESSAGES_NO_ITEMS_TITLE;
+            int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
+            int messages = (await MessageUtils.GetMessages()).Count;
+
+            if (unreadMessages > 0)
+            {
+                headerText = MessagesViewModel.MESSAGES_NEW_MESSAGES_HEADER;
+            }
+            else if (messages > 0)
+            {
+                headerText = MessagesViewModel.MESSAGES_NO_NEW_MESSAGES_HEADER;
+            }
+
+            FindViewById<TextView>(Resource.Id.messages_page_sub_header).Text = headerText;
 
             string lastUpdatedString = MessagesViewModel.LastUpdateString;
             if (lastUpdatedString == "")
