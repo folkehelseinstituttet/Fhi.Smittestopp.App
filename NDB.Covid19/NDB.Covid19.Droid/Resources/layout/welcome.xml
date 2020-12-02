@@ -25,7 +25,7 @@
         android:layout_height="20dp"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp"
-        app:tabBackground="@drawable/dotselector"
+        app:tabBackground="@drawable/ic_dot_selector"
         android:layout_above="@id/buttonPlane"
         android:focusable="false"
         android:focusableInTouchMode="false"

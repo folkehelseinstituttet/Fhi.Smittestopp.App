@@ -193,14 +193,14 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 {
                     _onOffButton.Text = INFECTION_STATUS_STOP_BUTTON_TEXT;
                     _onOffButton.ContentDescription = INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT;
-                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.secondary_button);
+                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.ic_secondary_button);
                     _onOffButton.SetTextColor(new Color(ContextCompat.GetColor(this, Resource.Color.primaryText)));
                 }
                 else
                 {
                     _onOffButton.Text = INFECTION_STATUS_START_BUTTON_TEXT;
                     _onOffButton.ContentDescription = INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT;
-                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.default_button);
+                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.ic_default_button);
                     _onOffButton.SetTextColor(new Color(ContextCompat.GetColor(this, Resource.Color.secondaryText)));
                 }
             });

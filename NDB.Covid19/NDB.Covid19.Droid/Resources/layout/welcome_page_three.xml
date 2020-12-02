@@ -23,7 +23,7 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="13dp"
-                android:background="@drawable/circle_arrow_left"
+                android:background="@drawable/ic_circle_arrow_left"
                 android:visibility="visible"/>
 
             <TextView
@@ -47,7 +47,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/check_shield"/>
+                android:src="@drawable/ic_check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_three_body_one"
@@ -70,7 +70,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/check_shield"/>
+                android:src="@drawable/ic_check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_three_body_two"
@@ -88,13 +88,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Infobox"
-            android:drawableBottom="@drawable/bluetooth_logo"
+            android:drawableBottom="@drawable/ic_bluetooth_logo"
             android:drawablePadding="8dp"
             android:id="@+id/welcome_page_three_infobox_body"
             style="@style/PrimaryText"
             android:screenReaderFocusable="false"
             android:layout_centerVertical="true"
-            android:background="@drawable/rectangle"
+            android:background="@drawable/ic_rectangle"
             android:layout_below="@id/welcome_page_four_bullet_two_layout"
             />
     </RelativeLayout>

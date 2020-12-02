@@ -114,8 +114,8 @@
 				android:gravity="center"
 				android:layout_gravity="center_vertical"
 				android:importantForAccessibility="yes"
-				android:thumb="@drawable/thumb_selector"
-				app:track="@drawable/track_selector"
+				android:thumb="@drawable/ic_thumb_selector"
+				app:track="@drawable/ic_track_selector"
 
                 />
 
