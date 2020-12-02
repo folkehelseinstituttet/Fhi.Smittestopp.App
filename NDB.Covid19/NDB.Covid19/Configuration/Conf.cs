@@ -10,10 +10,16 @@ namespace NDB.Covid19.Configuration
         public static readonly string BASE_URL = "http://localhost:9095/";
         public static string AUTHORIZATION_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
         public static string USER_AGENT_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
-        public static bool UseDeveloperTools => true; // TODO: Inject bool here
+
+#if RELEASE
+        public static bool UseDeveloperTools => false;
+#else
+        public static bool UseDeveloperTools => true;
+#endif
 
         // Minimum hours between pulling keys
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(2); // TODO: Inject int here
+        // Different intervals are automatically injected for test and production builds by App Center
+        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(2);
 
         public static readonly int APIVersion = 3;
 
