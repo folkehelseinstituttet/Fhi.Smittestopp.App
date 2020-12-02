@@ -61,7 +61,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
             switchButton.ValueChanged += SwitchValueChanged;
             SetupSwitchButton();
-            SetupLinkButton();
             SetupRadioButtons();
         }
 
@@ -75,12 +74,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         void SetupSwitchButton()
         {
             switchButton.On = LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
-        }
-
-        void SetupLinkButton()
-        {
-            _gestureRecognizer = new UITapGestureRecognizer();
-            _gestureRecognizer.AddTarget(() => OnSmittestopLinkButtionStackViewTapped(_gestureRecognizer));
         }
 
         void SetupRadioButtons()
@@ -132,11 +125,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             {
                 _viewModel.OnCheckedChange(switchButton.On);
             }
-        }
-
-        void OnSmittestopLinkButtionStackViewTapped(UITapGestureRecognizer recognizer)
-        {
-            SettingsGeneralViewModel.OpenSmitteStopLink();
         }
 
         void HandleRadioBtnChange(SettingsLanguageSelection selection, UIButton sender)
