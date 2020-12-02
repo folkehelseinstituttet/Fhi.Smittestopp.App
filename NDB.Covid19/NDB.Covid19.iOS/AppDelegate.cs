@@ -10,6 +10,7 @@ using UIKit;
 using UserNotifications;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
+using NDB.Covid19.iOS.Views.InfectionStatus;
 
 #if APPCENTER
 using Microsoft.AppCenter;
@@ -75,7 +76,6 @@ namespace NDB.Covid19.iOS
             // Watch for notifications while the app is active
             UNUserNotificationCenter.Current.Delegate = _notifMgn;
             _notifMgn.OnNotificationTappedHandler += HandleNotificationTapped;
-
         }
 
         /// <summary>
@@ -83,17 +83,24 @@ namespace NDB.Covid19.iOS
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-        void HandleNotificationTapped(object sender, EventArgs e)
+        void HandleNotificationTapped(object sender, string e)
         {
             UIViewController topController = NavigationHelper.TopController();
 
-            if (topController is MessagePageViewController)
+            if (topController is MessagePageViewController && e == iOSLocalNotificationsManager.NewMessageIdentifier)
             {
                 return;
             }
-
-            UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("MessagePage");
-            topController.NavigationController?.PushViewController(vc, true);
+            if (topController is InfectionStatusViewController && e == iOSLocalNotificationsManager.NewNotificationIdentifier)
+            {
+                return;
+            }
+            
+            UINavigationController vc =
+                e == iOSLocalNotificationsManager.NewMessageIdentifier
+                    ? MessagePageViewController.GetMessagePageControllerInNavigationController()
+                    : InfectionStatusViewController.GetInfectionSatusPageControllerInNavigationController();
+            topController.PresentViewController(vc, true, null);
         }
 
         [Export("applicationDidEnterBackground:")]
