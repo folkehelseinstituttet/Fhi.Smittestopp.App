@@ -19,8 +19,11 @@ namespace NDB.Covid19.Droid.Utils
     public class LocalNotificationsManager : ILocalNotificationsManager
     {
         public const int NotificationId = 616;
+        public const int PermissionsNotificationId = 161;
+
         private readonly string _channelId = "Local_Notifications";
         private NotificationChannel _channel;
+
         public LocalNotificationsManager()
         {
             if (Build.VERSION.SdkInt < BuildVersionCodes.O)
@@ -30,6 +33,7 @@ namespace NDB.Covid19.Droid.Utils
                 // channel on older versions of Android.
                 return;
             }
+
             CreateChannel();
         }
 
@@ -141,6 +145,15 @@ namespace NDB.Covid19.Droid.Utils
 
             // Create the PendingIntent with the back stack:
             return stackBuilder.GetPendingIntent(0, (int) PendingIntentFlags.UpdateCurrent);
+        }
+
+        public void GenerateLocalPermissionsNotification(NotificationViewModel viewModel)
+        {
+            Current.Activity.RunOnUiThread(async () =>
+            {
+                NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
+                notificationManagerCompat.Notify(PermissionsNotificationId, await CreateNotification(viewModel));
+            });
         }
     }
 }
