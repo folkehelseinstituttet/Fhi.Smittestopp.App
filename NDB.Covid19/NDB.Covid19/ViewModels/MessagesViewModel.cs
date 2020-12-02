@@ -49,14 +49,7 @@ namespace NDB.Covid19.ViewModels
 
         public static async Task MarkAllMessagesAsRead()
         {
-            var messages = await GetMessages();
-            foreach (var message in messages)
-            {
-                if (message.IsRead == false)
-                {
-                    message.IsRead = true;
-                }
-            }
+            MessageUtils.MarkAllAsRead();
             MessagingCenter.Send(Subscriber, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
         }
     }
