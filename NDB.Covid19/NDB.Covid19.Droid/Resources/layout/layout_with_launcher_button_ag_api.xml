@@ -17,7 +17,7 @@
             android:layout_marginBottom="40dp">
 
         <ImageView
-                android:src="@drawable/logo_fhi_white"
+                android:src="@drawable/ic_logo_fhi_white"
                 android:layout_width="138dp"
                 android:layout_height="69dp"
                 android:id="@+id/launcer_icon_imageview"
@@ -27,7 +27,7 @@
     </RelativeLayout>
 
     <ImageView
-            android:src="@drawable/app_logo"
+            android:src="@drawable/ic_app_logo"
             android:id="@+id/app_logo"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -88,6 +88,6 @@
                 android:layout_marginLeft="8dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/continue_in_en_text"
-                android:background="@drawable/circle_arrow_right"/>
+                android:background="@drawable/ic_circle_arrow_right"/>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
