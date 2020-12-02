@@ -33,12 +33,12 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         }
 
         [Theory]
-        [InlineData(200, false, false)]
-        [InlineData(204, true, false)]
-        [InlineData(404, true, false)]
-        [InlineData(410, true, true)]
-        [InlineData(500, true, false)]
-        public async void DownloadZips_ShouldReturnProperState(int statusCode, bool isAborted, bool isNotificationShown)
+        [InlineData(200, false)]
+        [InlineData(204, false)]
+        [InlineData(404, false)]
+        [InlineData(410, true)]
+        [InlineData(500, false)]
+        public async void DownloadZips_ShouldReturnProperState(int statusCode, bool isNotificationShown)
         {
             _localNotificationsManager.HasBeenCalled = false;
 
