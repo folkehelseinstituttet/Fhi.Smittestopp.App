@@ -64,7 +64,7 @@ fi
 if [ -z "FETCH_MIN_HOURS_BETWEEN_PULL" ]
 then
     echo "You need define the FETCH_MIN_HOURS_BETWEEN_PULL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_AUTHORISE_URL" ]
