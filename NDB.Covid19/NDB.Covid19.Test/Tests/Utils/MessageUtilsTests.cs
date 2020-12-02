@@ -11,6 +11,7 @@ using NDB.Covid19.Utils;
 using Xunit;
 using Xunit.Sdk;
 using NDB.Covid19.Configuration;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.PersistedData.SQLite;
 
@@ -40,7 +41,7 @@ namespace NDB.Covid19.Test.Tests.Utils
                 {
                     IsRead = false,
                     MessageLink = "https://www.netcompany.com",
-                    TimeStamp = DateTime.Now.Subtract(TimeSpan.FromDays(20)),
+                    TimeStamp = SystemTime.Now().Subtract(TimeSpan.FromDays(20)),
                     Title = "Du har opholdt dig på tæt afstand af en COVID - 19 positiv"
                 };
 
@@ -48,7 +49,7 @@ namespace NDB.Covid19.Test.Tests.Utils
                 {
                     IsRead = false,
                     MessageLink = "https://www.netcompany.com",
-                    TimeStamp = DateTime.Now.Subtract(TimeSpan.FromDays(15)),
+                    TimeStamp = SystemTime.Now().Subtract(TimeSpan.FromDays(15)),
                     Title = "Du har opholdt dig på tæt afstand af en COVID - 19 positiv"
                 };
 
@@ -56,7 +57,7 @@ namespace NDB.Covid19.Test.Tests.Utils
                 {
                     IsRead = false,
                     MessageLink = "https://www.netcompany.com",
-                    TimeStamp = DateTime.Now,
+                    TimeStamp = SystemTime.Now(),
                     Title = "Du har opholdt dig på tæt afstand af en COVID - 19 positiv"
                 };
                 ServiceLocator.Current.GetInstance<IMessagesManager>().SaveNewMessage(messageSqLiteModel);
