@@ -46,19 +46,19 @@
 if [ -z "BASE_URL" ]
 then
     echo "You need define the BASE_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "AUTHORIZATION_HEADER" ]
 then
     echo "You need define the AUTHORIZATION_HEADER variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "USER_AGENT_HEADER" ]
 then
     echo "You need define the USER_AGENT_HEADER variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "FETCH_MIN_HOURS_BETWEEN_PULL" ]
@@ -70,31 +70,31 @@ fi
 if [ -z "OAUTH2_AUTHORISE_URL" ]
 then
     echo "You need define the OAUTH2_AUTHORISE_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_ACCESSTOKEN_URL" ]
 then
     echo "You need define the OAUTH2_ACCESSTOKEN_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_VERIFY_TOKEN_PUBLIC_KEY" ]
 then
     echo "You need define the OAUTH2_VERIFY_TOKEN_PUBLIC_KEY variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_CLIENT_ID" ]
 then
     echo "You need define the OAUTH2_CLIENT_ID variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_REDIRECT_URL" ]
 then
     echo "You need define the OAUTH2_REDIRECT_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "APPCENTER_DIAGNOSTICS_TOKEN" ]
@@ -127,7 +127,7 @@ then
     echo "Finished updating $CONF_FILE"
 else
     echo "$CONF_FILE is missing"
-    exit
+    exit 1
 fi
 
 if [ -e "$OAUTH_CONF_FILE" ]
@@ -152,6 +152,5 @@ then
     echo "Finished updating $OAUTH_CONF_FILE"
 else
     echo "$OAUTH_CONF_FILE is missing"
-    exit
+    exit 1
 fi
-

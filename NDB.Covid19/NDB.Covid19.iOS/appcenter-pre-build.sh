@@ -46,19 +46,19 @@
 if [ -z "BASE_URL" ]
 then
     echo "You need define the BASE_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "AUTHORIZATION_HEADER" ]
 then
     echo "You need define the AUTHORIZATION_HEADER variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "USER_AGENT_HEADER" ]
 then
     echo "You need define the USER_AGENT_HEADER variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "FETCH_MIN_HOURS_BETWEEN_PULL" ]
@@ -70,31 +70,31 @@ fi
 if [ -z "OAUTH2_AUTHORISE_URL" ]
 then
     echo "You need define the OAUTH2_AUTHORISE_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_ACCESSTOKEN_URL" ]
 then
     echo "You need define the OAUTH2_ACCESSTOKEN_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_VERIFY_TOKEN_PUBLIC_KEY" ]
 then
     echo "You need define the OAUTH2_VERIFY_TOKEN_PUBLIC_KEY variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_CLIENT_ID" ]
 then
     echo "You need define the OAUTH2_CLIENT_ID variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "OAUTH2_REDIRECT_URL" ]
 then
     echo "You need define the OAUTH2_REDIRECT_URL variable in App Center"
-    exit
+    exit 1
 fi
 
 if [ -z "APPCENTER_DIAGNOSTICS_TOKEN" ]
@@ -120,14 +120,14 @@ then
     sed -i '' 's#FETCH_MIN_HOURS_BETWEEN_PULL = [-A-Za-z0-9:_./()]*#FETCH_MIN_HOURS_BETWEEN_PULL = '$FETCH_MIN_HOURS_BETWEEN_PULL'#' $CONF_FILE
 
     echo "Updating APPCENTER_DIAGNOSTICS_TOKEN to $APPCENTER_DIAGNOSTICS_TOKEN in Conf.cs"
-    sed -i '' 's#APPCENTER_DIAGNOSTICS_TOKEN = "[-A-Za-z0-9:_./]*"#APPCENTER_DIAGNOSTICS_TOKEN = "'$APPCENTER_DIAGNOSTICS_TOKEN'"#' $CONF_FILE
-    
+    sed -i '' 's#APPCENTER_DIAGNOSTICS_TOKEN = "[-A-Za-z0-9:_./]*"#APPCENTER_DIAGNOSTICS_TOKEN = "'$APPCENTER_DIAGNOSTICS_TOKEN'"#' $CONF_FILE 
+   
     echo "File content:"
     cat $CONF_FILE
     echo "Finished updating $CONF_FILE"
 else
     echo "$CONF_FILE is missing"
-    exit
+    exit 1
 fi
 
 if [ -e "$OAUTH_CONF_FILE" ]
@@ -152,6 +152,5 @@ then
     echo "Finished updating $OAUTH_CONF_FILE"
 else
     echo "$OAUTH_CONF_FILE is missing"
-    exit
+    exit 1
 fi
-
