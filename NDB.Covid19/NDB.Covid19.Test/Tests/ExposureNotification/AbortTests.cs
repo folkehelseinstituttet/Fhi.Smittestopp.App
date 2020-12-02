@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Moq;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.Test.Helpers;
 using NDB.Covid19.Test.Mocks;
@@ -40,7 +41,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         [InlineData(500, false)]
         public async void DownloadZips_ShouldReturnProperState(int statusCode, bool isNotificationShown)
         {
-            _localNotificationsManager.HasBeenCalled = false;
+            _localNotificationsManager.HasBeenCalled[NotificationsEnum.ApiDeprecated] = false;
 
             ExposureNotificationWebService exposureNotificationWebService = Mock.Of<ExposureNotificationWebService>(
                 service => service.GetDiagnosisKeys(
@@ -58,9 +59,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             await MockZipDownloader().PullNewKeys(exposureNotificationWebService, CancellationToken.None);
 
-            Assert.Equal(isNotificationShown, _localNotificationsManager.HasBeenCalled);
+            Assert.Equal(isNotificationShown, _localNotificationsManager.HasBeenCalled[NotificationsEnum.ApiDeprecated]);
 
-            _localNotificationsManager.HasBeenCalled = false;
+            _localNotificationsManager.HasBeenCalled[NotificationsEnum.ApiDeprecated] = false;
         }
 
         [Fact]
