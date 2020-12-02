@@ -12,5 +12,7 @@ namespace NDB.Covid19.PersistedData.SQLite
         Task DeleteMessages(List<MessageSQLiteModel> logs);
         Task DeleteAll();
         Task MarkAsRead(MessageSQLiteModel message, bool isRead);
+        Task MarkAllAsRead();
+
     }
 }

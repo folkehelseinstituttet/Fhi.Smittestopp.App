@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CommonServiceLocator;
@@ -161,6 +162,18 @@ namespace NDB.Covid19.Test.Tests.Utils
             messagesAfterMark.Should().HaveCount(2);
 
             messagesAfterMark.All(message => message.IsRead == false).Should().BeTrue();
+        }
+        
+        [Fact]
+        [BeforeAfterAttr]
+        public async void GetMarkAllAsReadShouldMarkAllMessagesAsRead()
+        {
+            MessageUtils.MarkAllAsRead();
+
+            List<MessageSQLiteModel> messagesAfterMark = await MessageUtils.GetAllUnreadMessages();
+            messagesAfterMark.Should().HaveCount(0);
+
+            messagesAfterMark.All(message => message.IsRead).Should().BeTrue();
         }
     }
 }
