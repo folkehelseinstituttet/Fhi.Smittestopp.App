@@ -33,7 +33,8 @@ namespace NDB.Covid19.Configuration
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_LONG => 14 * 24 * 60;
         public static int MAX_MESSAGE_RETENTION_TIME_IN_MINUTES = MESSAGE_RETENTION_TIME_IN_MINUTES_LONG;
         public static int HOURS_UNTIL_RESEND_MESSAGES = 48;
-        public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND = 21;
+        public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN = 8;
+        public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END = 22;
 
         // --- Urls ---
         public static string URL_PREFIX => $"{BASE_URL}v{APIVersion}/";
@@ -50,7 +51,7 @@ namespace NDB.Covid19.Configuration
 
         // Repeat interval of the periodic work request that pulls on Android
         // (The minimum is 15 minutes: PeriodicWorkRequest.MinPeriodicIntervalMillis is 900000)
-        public static readonly TimeSpan BACKGROUND_FETCH_REPEAT_INTERVAL_ANDROID = TimeSpan.FromHours(1);
+        public static readonly TimeSpan BACKGROUND_FETCH_REPEAT_INTERVAL_ANDROID = TimeSpan.FromHours(4);
         
         // For ZipDownloader.RetryIfInvalidResponse
         public static readonly int FETCH_MAX_ATTEMPTS = 1;

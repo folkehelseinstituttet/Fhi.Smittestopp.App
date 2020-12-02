@@ -27,6 +27,15 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             return vc;
         }
 
+        public static UINavigationController GetInfectionSatusPageControllerInNavigationController()
+        {
+            UIViewController vc = InfectionStatusViewController.Create(false);
+            UINavigationController navigationController = new UINavigationController(vc);
+            navigationController.SetNavigationBarHidden(true, false);
+            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+            return navigationController;
+        }
+
         bool _comingFromOnboarding;
 
         InfectionStatusViewModel _viewModel;
