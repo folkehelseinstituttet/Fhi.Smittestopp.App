@@ -8,7 +8,7 @@
     <item name="android:scrollbars">none</item>
   </style>
   <style name="RectangleBox">
-    <item name="android:background">@drawable/rectangle</item>
+    <item name="android:background">@drawable/ic_rectangle</item>
     <item name="android:layout_centerHorizontal">true</item>
   </style>
   <style name="CheckmarkText" parent="PrimaryText">

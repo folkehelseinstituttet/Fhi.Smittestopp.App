@@ -25,7 +25,7 @@
                     android:id="@+id/settings_icon_imageview"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/logo_fhi_blue_short"
+                    android:src="@drawable/ic_logo_fhi_blue_short"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
