@@ -58,7 +58,7 @@ namespace NDB.Covid19.PersistedData.SQLite
             try
             {
                 return await _database.Table<MessageSQLiteModel>()
-                    .Where(message => message.IsRead == false)
+                    .Where(message => !message.IsRead)
                     .ToListAsync();
             }
             catch
@@ -107,6 +107,26 @@ namespace NDB.Covid19.PersistedData.SQLite
             {
                 message.IsRead = isRead;
                 await _database.UpdateAsync(message);
+            }
+            finally
+            {
+                _syncLock.Release();
+            }
+        }
+        
+        public async Task MarkAllAsRead()
+        {
+            await _syncLock.WaitAsync();
+            try
+            {
+                List<MessageSQLiteModel> messages = await _database.Table<MessageSQLiteModel>()
+                    .Where(message => !message.IsRead)
+                    .ToListAsync();
+                foreach (MessageSQLiteModel message in messages)
+                {
+                    message.IsRead = true;
+                }
+                await _database.UpdateAllAsync(messages);
             }
             finally
             {

@@ -4,6 +4,7 @@ using Unity;
 using Unity.ServiceLocation;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
+using NDB.Covid19.iOS.Permissions;
 using Unity.Lifetime;
 
 namespace NDB.Covid19.iOS
@@ -19,7 +20,8 @@ namespace NDB.Covid19.iOS
             unityContainer.RegisterType<ILocalNotificationsManager, iOSLocalNotificationsManager>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<IApiDataHelper, IOSApiDataHelperHandler>();
             unityContainer.RegisterSingleton<IResetViews, IOSResetViews>();
-            
+            unityContainer.RegisterType<IPermissionsHelper, IOSPermissionsHelper>();
+
             CommonDependencyInjectionConfig.Init(unityContainer);
            
             UnityServiceLocator unityServiceLocalter = new UnityServiceLocator(unityContainer);
