@@ -51,7 +51,7 @@
                     style="@style/PrimaryText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/check_shield"
+                    android:drawableStart="@drawable/ic_check_shield"
                     android:drawablePadding="19dp"
                     android:gravity="center_vertical"
                     android:text="Dummy text"/>
@@ -70,7 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin"
-                    android:background="@drawable/calendar_border">
+                    android:background="@drawable/ic_calendar_border">
 
                 <ImageView
                         android:id="@+id/arrow_right"
@@ -90,7 +90,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                         android:layout_marginTop="16dp"
-                        android:background="@drawable/logoKortBl"
+                        android:background="@drawable/ic_logo_fhi_blue"
                         android:maxWidth="104dp"
                         android:maxHeight="32dp"
                         app:layout_constraintEnd_toStartOf="@id/arrow_right"

@@ -92,7 +92,7 @@
 				android:layout_marginTop="0dp"
 				android:layout_marginHorizontal="20dp"
 				android:text="Send logfile"
-				android:background="@drawable/default_button"
+				android:background="@drawable/ic_default_button"
 				style="@style/DefaultButton" />
 			<ListView
 				android:minWidth="25px"
