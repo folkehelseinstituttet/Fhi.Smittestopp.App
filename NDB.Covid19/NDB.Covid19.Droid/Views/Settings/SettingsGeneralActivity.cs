@@ -34,7 +34,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 
         private void Init()
         {
-            Button backButton = FindViewById<Button>(Resource.Id.arrow_back_general);
+            ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back_general);
             backButton.ContentDescription = SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_general_title);
