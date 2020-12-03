@@ -88,6 +88,5 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             // Disabled back button
         }
-
     }
 }
