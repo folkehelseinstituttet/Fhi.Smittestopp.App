@@ -46,8 +46,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         protected override void OnDestroy()
         {
             MessagesViewModel.UnsubscribeMessages(this);
-            Task.Run(async () =>
-                await MessagesViewModel.MarkAllMessagesAsRead());
+            MessagesViewModel.MarkAllMessagesAsRead();
             base.OnDestroy();
         }
 
@@ -130,20 +129,20 @@ namespace NDB.Covid19.Droid.Views.Messages
             ShowList(false);
         }
 
-        async Task HandleBeforeActivityClose()
+        void HandleBeforeActivityClose()
         {
-            await MessagesViewModel.MarkAllMessagesAsRead();
+            MessagesViewModel.MarkAllMessagesAsRead();
         }
 
-        public override async void OnBackPressed()
+        public override void OnBackPressed()
         {
-            await HandleBeforeActivityClose();
+            HandleBeforeActivityClose();
             base.OnBackPressed();
         }
 
-        private async void OnCloseBtnClicked(object arg1, EventArgs arg2)
+        private void OnCloseBtnClicked(object arg1, EventArgs arg2)
         {
-            await HandleBeforeActivityClose();
+            HandleBeforeActivityClose();
             Finish();
         }
 

@@ -47,7 +47,7 @@ namespace NDB.Covid19.ViewModels
             return MessageUtils.ToMessageItemViewModelList(await MessageUtils.GetMessages());
         }
 
-        public static async Task MarkAllMessagesAsRead()
+        public static void MarkAllMessagesAsRead()
         {
             MessageUtils.MarkAllAsRead();
             MessagingCenter.Send(Subscriber, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
