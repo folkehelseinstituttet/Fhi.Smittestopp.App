@@ -27,7 +27,7 @@ namespace NDB.Covid19.ViewModels
                 string endpoint = Conf.BASE_URL;
                 bool isHttps = endpoint.StartsWith("https://");
                 int httpsLength = (isHttps ? "https://" : "http://").Length;
-                int length = endpoint.IndexOf(isHttps? ".ss2np" : ":9095") - httpsLength;
+                int length = endpoint.IndexOf(isHttps? "." : ":9095") - httpsLength;
                 return endpoint.Substring(httpsLength, length);
             }
             catch
