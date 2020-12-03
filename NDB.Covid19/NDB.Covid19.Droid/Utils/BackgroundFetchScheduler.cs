@@ -80,7 +80,7 @@ namespace NDB.Covid19.Droid.Utils
             {
                 return new ForegroundInfo(
                     LocalNotificationsManager.NotificationId + 1,
-                    new LocalNotificationsManager().CreateNotification(NotificationsEnum.BackgroundFetch.Data()).GetAwaiter().GetResult());
+                    new LocalNotificationsManager().CreateNotification(NotificationsEnum.BackgroundFetch.Data()));
             }
 
             private async Task DoAsyncWork()

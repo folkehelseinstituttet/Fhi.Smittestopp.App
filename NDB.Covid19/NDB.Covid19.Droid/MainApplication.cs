@@ -104,15 +104,15 @@ namespace NDB.Covid19.Droid
         {
             AccessibilityUtils.AdjustFontScale(activity);
 
-            MessagingCenter.Subscribe<object>(activity, MessagingCenterKeys.KEY_FORCE_UPDATE, (object obj) =>
-            {
-                OnForceUpdate(activity);
-            });
+            MessagingCenter.Subscribe<object>(
+                activity,
+                MessagingCenterKeys.KEY_FORCE_UPDATE,
+                o => OnForceUpdate(activity));
         }
 
         public void OnActivityDestroyed(Activity activity)
         {
-            MessagingCenter.Unsubscribe<object>(activity, MessagingCenterKeys.KEY_FORCE_UPDATE);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_FORCE_UPDATE);
         }
 
         public void OnActivityPaused(Activity activity)
@@ -153,12 +153,16 @@ namespace NDB.Covid19.Droid
             //constantGC.Elapsed += GarbageCollect;
             #endregion MANUALLY GC
         }
-
-        void OnForceUpdate(Activity fromActivity)
+        
+        void OnForceUpdate(Activity activity)
         {
-            Intent intent = new Intent(fromActivity, typeof(ForceUpdateActivity));
-            intent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
-            fromActivity.StartActivity(intent);
+            activity.RunOnUiThread(() =>
+            {
+                Intent intent = new Intent(this, typeof(ForceUpdateActivity));
+                intent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask | ActivityFlags.ClearTop);
+                StartActivity(intent);
+            });
+            activity.Finish();
         }
     }
 }

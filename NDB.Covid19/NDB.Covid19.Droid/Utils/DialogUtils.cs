@@ -13,19 +13,6 @@ namespace NDB.Covid19.Droid.Utils
     {
         static string _logPrefix = $"Android {nameof(DialogUtils)}: ";
 
-        [Obsolete("Use DisplayDialogAsync instead")]
-        public static void DisplayDialog(Activity current, string title, string message, string okBtnText, Action action = null)
-        {
-            if (current == null || current.IsFinishing) return;
-
-            new AlertDialog.Builder(current, Android.Resource.Style.ThemeDeviceDefaultDialog)
-                .SetTitle(title)
-                .SetMessage(message)
-                .SetPositiveButton(okBtnText, (sender, e) => { action?.Invoke(); })
-                .SetCancelable(false)
-                .Show();
-        }
-
         public static void DisplayBubbleDialog(Activity current, string message, string buttonText)
         {
             if (current == null || current.IsFinishing) return;

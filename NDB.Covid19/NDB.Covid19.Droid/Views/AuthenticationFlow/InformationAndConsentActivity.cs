@@ -95,7 +95,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _progressBar = FindViewById<ProgressBar>(Resource.Id.information_consent_progress_bar);
         }
 
-        private async void LogInWithIDPortenButton_Click(object sender, EventArgs e)
+        private void LogInWithIDPortenButton_Click(object sender, EventArgs e)
         {
             LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with ID porten");
             Intent browserIntent = AuthenticationState.Authenticator.GetUI(this);
