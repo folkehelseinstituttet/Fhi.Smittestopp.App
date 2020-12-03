@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-fB-8jI">
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-fB-8jI">
                                 <rect key="frame" x="0.0" y="67" width="414" height="72"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHg-nd-Qt2" userLabel="Spacer">
@@ -29,7 +29,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1139" customClass="CustomBackButton">
-                                        <rect key="frame" x="30" y="0.0" width="34" height="34"/>
+                                        <rect key="frame" x="25" y="0.0" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="9Vs-Tj-AqT"/>
                                             <constraint firstAttribute="height" constant="34" id="GzZ-KT-DlF"/>
@@ -41,7 +41,7 @@
                                         </connections>
                                     </button>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syc-Hl-i9z" userLabel="Spacer">
-                                        <rect key="frame" x="69" y="0.0" width="15" height="0.0"/>
+                                        <rect key="frame" x="59" y="0.0" width="15" height="0.0"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="kfJ-QJ-dtT"/>
@@ -49,7 +49,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1154" customClass="SetttingsPageTitleLabel">
-                                        <rect key="frame" x="89" y="0.0" width="325" height="34"/>
+                                        <rect key="frame" x="74" y="0.0" width="340" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
