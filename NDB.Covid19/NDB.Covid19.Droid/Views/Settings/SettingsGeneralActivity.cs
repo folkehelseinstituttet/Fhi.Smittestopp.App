@@ -44,9 +44,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView mobileDataDesc = FindViewById<TextView>(Resource.Id.settings_general_mobile_data_desc);
             TextView languageHeader = FindViewById<TextView>(Resource.Id.settings_general_select_lang_header);
             TextView languageDesc = FindViewById<TextView>(Resource.Id.settings_general_select_lang_desc_one);
-            TextView languageLink = FindViewById<TextView>(Resource.Id.settings_general_link);
-
-            TextView linkLayout = FindViewById<TextView>(Resource.Id.settings_general_link);
 
             titleField.Text = SETTINGS_GENERAL_TITLE;
             explanationOne.Text = SETTINGS_GENERAL_EXPLANATION_ONE;
@@ -55,12 +52,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             mobileDataDesc.Text = SETTINGS_GENERAL_MOBILE_DATA_DESC;
             languageHeader.Text = SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER;
             languageDesc.Text = SETTINGS_GENERAL_RESTART_REQUIRED_TEXT;
-            languageLink.Text = SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT;
-            languageLink.ContentDescription = SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT;
-
-            linkLayout.Click +=
-                new StressUtils.SingleClick(
-                    (o, args) => OpenSmitteStopLink()).Run;
 
             RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.settings_general_select_lang_radio_group);
             RadioButton englishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_english);

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <resources>
   <style name="IDPortenButton">
-      <item name="android:background">@drawable/default_button</item>
-      <item name="android:textColor">@drawable/default_button</item>
+      <item name="android:background">@drawable/ic_default_button</item>
+      <item name="android:textColor">@drawable/ic_default_button</item>
       <item name="android:textAllCaps">false</item>
       <item name="android:padding">10dp</item>
       <item name="android:minWidth">320dp</item>
