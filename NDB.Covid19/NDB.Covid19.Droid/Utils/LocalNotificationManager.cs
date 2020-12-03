@@ -149,10 +149,10 @@ namespace NDB.Covid19.Droid.Utils
 
         public void GenerateLocalPermissionsNotification(NotificationViewModel viewModel)
         {
-            Current.Activity.RunOnUiThread(async () =>
+            Current.Activity.RunOnUiThread(() =>
             {
                 NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
-                notificationManagerCompat.Notify(PermissionsNotificationId, await CreateNotification(viewModel));
+                notificationManagerCompat.Notify(PermissionsNotificationId, CreateNotification(viewModel));
             });
         }
     }
