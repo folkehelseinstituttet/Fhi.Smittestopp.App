@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Text;
@@ -66,6 +67,17 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
             }).Run;
 
             this.Title = textFieldsBundle.GetString("title");
+        }
+
+        public override void OnBackPressed()
+        {
+            Intent intent = NavigationHelper.GetStartPageIntent(this);
+
+            if (intent != null)
+            {
+                intent.AddFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
+                StartActivity(intent);
+            }
         }
     }
 }
