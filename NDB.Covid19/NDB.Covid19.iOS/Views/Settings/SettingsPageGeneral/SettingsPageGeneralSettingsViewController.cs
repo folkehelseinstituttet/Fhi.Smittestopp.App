@@ -44,6 +44,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             InitLabel(RestartAppLabl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 14, 28);
 
+            Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+
             //Implemented for correct voiceover due to Back button 
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
