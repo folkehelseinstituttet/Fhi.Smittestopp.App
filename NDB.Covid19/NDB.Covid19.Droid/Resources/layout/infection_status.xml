@@ -14,7 +14,7 @@
             android:background="@color/infectionStatusButtonOnGreen">
 
         <ImageView
-                android:src="@drawable/logo_fhi_blue"
+                android:src="@drawable/ic_logo_fhi_blue"
                 android:layout_width="56dp"
                 android:layout_height="24dp"
                 android:importantForAccessibility="no"
@@ -63,7 +63,7 @@
             >
 
                 <ImageView
-                        android:src="@drawable/app_logo"
+                        android:src="@drawable/ic_app_logo"
                         android:layout_width="250dp"
                         android:layout_height="100dp"
                         android:id="@+id/infection_status_app_logo"
@@ -113,7 +113,7 @@
                         android:importantForAccessibility="no"
                         android:id="@+id/infection_status_messages_button_relativeLayout_inner"
                         style="@style/InfectionStatusLayoutButton"
-                        android:background="@drawable/infection_status_tile_border">
+                        android:background="@drawable/ic_infection_status_tile_border">
                     <ImageView
                             android:src="@drawable/ic_notification_inactive"
                             android:layout_width="36dp"
@@ -178,7 +178,7 @@
                         android:importantForAccessibility="no"
                         android:id="@+id/infection_status_registration_button_relativeLayout_inner"
                         style="@style/InfectionStatusLayoutButton"
-                        android:background="@drawable/infection_status_tile_border">
+                        android:background="@drawable/ic_infection_status_tile_border">
                     <ImageView
                             android:src="@drawable/ic_covid_19"
                             android:layout_width="36dp"
