@@ -21,7 +21,7 @@ namespace NDB.Covid19.WebServices.Utils
             HttpClientHandler handler = new HttpClientHandler();
             handler.CookieContainer = Cookies;
 
-#if (TEST || APPCENTER)
+#if (DEBUG)
             handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
 #endif
