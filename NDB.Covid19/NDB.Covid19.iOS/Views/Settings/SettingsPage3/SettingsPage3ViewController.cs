@@ -38,7 +38,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
             DeleteBtnWidthConstraint.Active = false;
             StyleUtil.InitButtonStyling(DeleteConsentBtn, ConsentViewModel.WITHDRAW_CONSENT_BUTTON_TEXT);
             PageTitle.SetAttributedText(ConsentViewModel.WELCOME_PAGE_CONSENT_TITLE);
-            StyleUtil.InitButtonSecondaryStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
             BottomStackView.Layer.MasksToBounds = false;
             BottomStackView.Layer.ShadowColor = UIColor.Gray.CGColor;
             BottomStackView.Layer.ShadowOffset = new CGSize(0f, 10f);
@@ -48,9 +47,16 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 
         void InitPrivacyPolicyButton()
         {
-            _privacyPolicyButton = new UIButton(new CGRect(0, 0, 0, 50)); // The frame should not be needed here, but it is since the cornerRadius in StyleUtil is set only once, not dynamically updated on redraw.
-            _privacyPolicyButton.TranslatesAutoresizingMaskIntoConstraints = false;
-            _privacyPolicyButton.HeightAnchor.ConstraintEqualTo(50).Active = true;
+            _privacyPolicyButton = new UIButton(new CGRect(0, 0, 0, 50))
+            {
+                TranslatesAutoresizingMaskIntoConstraints = false
+            }; // The frame should not be needed here, but it is since the cornerRadius in StyleUtil is set only once, not dynamically updated on redraw.
+            
+            StyleUtil.InitButtonSecondaryStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
+
+            double height = _privacyPolicyButton.TitleLabel.Frame.Height + _privacyPolicyButton.Font.PointSize * 1.5;
+            _privacyPolicyButton.Frame = new CGRect(0, 0, 0, height); 
+            _privacyPolicyButton.HeightAnchor.ConstraintEqualTo((int) height).Active = true;
             _privacyPolicyButton.TouchUpInside += OnPrivacyPolicyPressed;
         }
 

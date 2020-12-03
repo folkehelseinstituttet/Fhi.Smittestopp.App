@@ -96,6 +96,13 @@ namespace NDB.Covid19.iOS.Utils
             btn.BackgroundColor = UIColor.Clear;
             btn.Layer.BorderWidth = 1;
             btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            btn.TitleLabel.Lines = 0;
+            btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
+            
+            btn.ContentEdgeInsets = new UIEdgeInsets(12, 12, 12, 12);
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };
+            UIStringAttributes attributes = new UIStringAttributes { ParagraphStyle = paragraphStyle };
+            btn.TitleLabel.AttributedText = new NSMutableAttributedString(text, attributes);
         }
 
         /// <summary>
