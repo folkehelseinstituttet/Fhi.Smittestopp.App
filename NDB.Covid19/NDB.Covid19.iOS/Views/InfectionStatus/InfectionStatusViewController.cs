@@ -42,7 +42,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         UIButton _messageViewBtn;
         UIButton _areYouInfectedBtn;
-        PulseAnimationView _pulseAnimationView;
 
         IOSPermissionManager _permissionManager;
 
@@ -82,7 +81,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 StartIfStopped();
                 _comingFromOnboarding = false;
             }
-            _pulseAnimationView?.RestartAnimation();
         }
 
 
@@ -160,7 +158,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         async void SetStatusContainerState(bool isRunning)
         {
             UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
-            if (NavigationController.TopViewController is InfectionStatusViewController)
+            if (NavigationController.TopViewController is InfectionStatusViewController && !ModalInPresentation)
             {
                 statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             }

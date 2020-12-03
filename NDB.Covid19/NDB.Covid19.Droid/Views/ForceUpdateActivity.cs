@@ -36,5 +36,10 @@ namespace NDB.Covid19.Droid.Views
             intent.SetData(Uri.Parse(Conf.GooglePlayAppLink));
             StartActivity(intent);
         }
+
+        public override void OnBackPressed()
+        {
+            // Do not allow user to go back as app should be updated.
+        }
     }
 }
