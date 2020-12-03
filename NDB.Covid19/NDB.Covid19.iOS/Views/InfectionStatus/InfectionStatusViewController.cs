@@ -42,7 +42,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         UIButton _messageViewBtn;
         UIButton _areYouInfectedBtn;
-        PulseAnimationView _pulseAnimationView;
 
         IOSPermissionManager _permissionManager;
 
@@ -82,7 +81,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 StartIfStopped();
                 _comingFromOnboarding = false;
             }
-            _pulseAnimationView?.RestartAnimation();
         }
 
 

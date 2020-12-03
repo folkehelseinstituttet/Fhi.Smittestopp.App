@@ -925,10 +925,10 @@ namespace NDB.Covid19.Implementation
 		Task<IEnumerable<Locale>> ITextToSpeech.GetLocalesAsync()
 		 => Xamarin.Essentials.TextToSpeech.GetLocalesAsync();
 
-        Task ITextToSpeech.SpeakAsync(string text, CancellationToken cancelToken = default)
+        Task ITextToSpeech.SpeakAsync(string text, CancellationToken cancelToken)
 			 => Xamarin.Essentials.TextToSpeech.SpeakAsync(text, cancelToken);
 
-		Task ITextToSpeech.SpeakAsync(string text, SpeechOptions options, CancellationToken cancelToken = default)
+		Task ITextToSpeech.SpeakAsync(string text, SpeechOptions options, CancellationToken cancelToken)
 			 => Xamarin.Essentials.TextToSpeech.SpeakAsync(text, options, cancelToken);
 	}
 	public class VersionTrackingImplementation : IEssentialsImplementation, IVersionTracking

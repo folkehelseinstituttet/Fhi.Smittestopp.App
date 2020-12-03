@@ -29,7 +29,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         InformationAndConsentViewModel _viewModel;
         UIViewController _authViewController;
-        UIActivityIndicatorView _spinner;
 
         public override void ViewDidLoad()
         {
@@ -90,7 +89,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             _authViewController.DismissViewController(true, null);
         }
 
-        async partial void OnLoginBtnTapped(CustomSubclasses.DefaultBorderButton sender)
+        partial void OnLoginBtnTapped(CustomSubclasses.DefaultBorderButton sender)
         {
             InvokeOnMainThread(() =>
             {
