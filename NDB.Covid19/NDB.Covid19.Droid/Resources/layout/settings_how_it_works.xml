@@ -15,14 +15,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <ImageButton
                 android:id="@+id/arrow_back"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:baselineAlignBottom="true"
+                app:layout_constraintBaseline_toBaselineOf="@id/settings_how_it_works_title"
                 android:background="@drawable/ic_circle_arrow_left"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
                 android:id="@+id/settings_how_it_works_title"
@@ -31,8 +31,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="top"
-                android:text="Title"
+                android:text="Title\nTitle"
                 android:lineSpacingExtra="4sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/arrow_back"
                 app:layout_constraintTop_toTopOf="parent"/>
 
