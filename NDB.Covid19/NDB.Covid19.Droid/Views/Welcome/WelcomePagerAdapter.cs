@@ -7,7 +7,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
     {
         List<Fragment> pages;
 
-        public WelcomePagerAdapter(FragmentManager fm, List<Fragment> pages) : base(fm)
+        public WelcomePagerAdapter(FragmentManager fm, List<Fragment> pages) : base(fm, BehaviorResumeOnlyCurrentFragment)
         {
             this.pages = pages;
         }

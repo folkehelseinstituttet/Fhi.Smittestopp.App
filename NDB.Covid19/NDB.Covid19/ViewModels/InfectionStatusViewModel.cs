@@ -196,7 +196,7 @@ namespace NDB.Covid19.ViewModels
                 }
                 IsAppRestricted = false;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 IsAppRestricted = true;
             }

@@ -152,7 +152,7 @@ namespace NDB.Covid19.Test.Mocks
             {
                 return _dictDateTime[key];
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return defaultValue;
             }

@@ -15,17 +15,17 @@
             app:layout_constraintVertical_weight="2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-        <Button
+        <ImageButton
                 android:id="@+id/arrow_back_general"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
                 android:focusable="true"
+                android:baselineAlignBottom="true"
                 app:layout_constraintVertical_weight="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintBaseline_toBaselineOf="@id/settings_general_title"
+                app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
                 android:id="@+id/settings_general_title"
