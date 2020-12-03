@@ -16,7 +16,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <ImageButton
                 android:id="@+id/arrow_back"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -24,9 +24,9 @@
                 android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
                 android:focusable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:baselineAlignBottom="true"
+                app:layout_constraintBaseline_toBaselineOf="@id/welcome_page_five_title"
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
                 android:id="@+id/welcome_page_five_title"
