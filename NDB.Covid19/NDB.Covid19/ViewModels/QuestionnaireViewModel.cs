@@ -2,6 +2,7 @@
 using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices.ErrorHandlers;
 using static NDB.Covid19.OAuth2.AuthenticationState;
@@ -59,7 +60,7 @@ namespace NDB.Covid19.ViewModels
         static DateTime _selectedDateUTC { get; set; }
         static DateTime _localSelectedDate => DateTime.SpecifyKind(_selectedDateUTC, DateTimeKind.Utc).ToLocalTime();
         public static QuestionaireSelection Selection { get; private set; } = QuestionaireSelection.Skip;
-        public DateTime MinimumDate { get; private set; } = new DateTime(2020, 11, 1, 0, 0, 0).ToUniversalTime();
+        public DateTime MinimumDate { get; private set; } = SystemTime.Now().AddDays(-21);
         public DateTime MaximumDate { get; private set; } = DateTime.Today.ToUniversalTime();
 
         public string RadioButtonAccessibilityDatepicker => REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES + ". " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_DATEPICKER_TEXT + ". " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_1_TEXT;
