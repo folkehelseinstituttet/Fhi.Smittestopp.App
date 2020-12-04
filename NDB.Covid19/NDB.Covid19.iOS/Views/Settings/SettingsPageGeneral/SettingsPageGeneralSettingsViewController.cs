@@ -15,7 +15,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
     public partial class SettingsPageGeneralSettingsViewController : BaseViewController
     {
         private SettingsGeneralViewModel _viewModel;
-        private UITapGestureRecognizer _gestureRecognizer;
         private readonly IResetViews _resetViews = ServiceLocator.Current.GetInstance<IResetViews>();
         
         public SettingsPageGeneralSettingsViewController(IntPtr handle) : base(handle)
