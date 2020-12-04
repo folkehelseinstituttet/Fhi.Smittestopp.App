@@ -43,11 +43,17 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
             InitLabel(RestartAppLabl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 14, 28);
+            InitLabel(SmittestopLinkButtonLbl, FontType.FontRegular,
+                SettingsGeneralViewModel.SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT, 16, 28);
 
             Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
             //Implemented for correct voiceover due to Back button 
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+
+            //Implemented for correct voiceover due to last paragraph and link
+            SmittestopLinkButtonLbl.AccessibilityLabel =
+                SettingsGeneralViewModel.SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT;
 
             //Implemented for correct voiceover due to smitte|stop, removing pronunciation of lodretstreg
             ContentLabel.AccessibilityAttributedLabel =
@@ -63,6 +69,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
             switchButton.ValueChanged += SwitchValueChanged;
             SetupSwitchButton();
+            SetupLinkButton();
             SetupRadioButtons();
         }
 
@@ -71,11 +78,19 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             base.ViewWillDisappear(animated);
 
             switchButton.ValueChanged -= SwitchValueChanged;
+            SmittestopLinkButtonStackView.RemoveGestureRecognizer(_gestureRecognizer);
         }
 
         void SetupSwitchButton()
         {
             switchButton.On = LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
+        }
+
+        void SetupLinkButton()
+        {
+            _gestureRecognizer = new UITapGestureRecognizer();
+            _gestureRecognizer.AddTarget(() => OnSmittestopLinkButtonStackViewTapped(_gestureRecognizer));
+            SmittestopLinkButtonStackView.AddGestureRecognizer(_gestureRecognizer);
         }
 
         void SetupRadioButtons()
@@ -127,6 +142,11 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             {
                 _viewModel.OnCheckedChange(switchButton.On);
             }
+        }
+
+        void OnSmittestopLinkButtonStackViewTapped(UITapGestureRecognizer recognizer)
+        {
+            SettingsGeneralViewModel.OpenSmitteStopLink();
         }
 
         void HandleRadioBtnChange(SettingsLanguageSelection selection, UIButton sender)

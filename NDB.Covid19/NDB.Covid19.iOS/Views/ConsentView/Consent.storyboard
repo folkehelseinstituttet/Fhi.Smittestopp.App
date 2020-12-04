@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LMq-La-7KS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GrU-6Y-ZGu" misplaced="YES">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GrU-6Y-ZGu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47p-53-WBz" misplaced="YES">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47p-53-WBz">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ob3-Ud-ZvJ">
@@ -231,7 +231,7 @@
                                         </constraints>
                                     </activityIndicatorView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eIy-LP-ph9">
-                                        <rect key="frame" x="46" y="14" width="209" height="31"/>
+                                        <rect key="frame" x="83" y="14" width="209" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Godkend samtykke" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQu-2i-wXJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="148" height="31"/>
@@ -260,9 +260,9 @@
                                 <viewLayoutGuide key="safeArea" id="OQD-CG-0y7"/>
                                 <color key="backgroundColor" red="0.88235294117647056" green="0.91764705882352937" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="OQD-CG-0y7" firstAttribute="trailing" secondItem="eIy-LP-ph9" secondAttribute="trailing" constant="120" id="5g7-hH-owF"/>
                                     <constraint firstItem="OQD-CG-0y7" firstAttribute="trailing" secondItem="coo-XW-gbG" secondAttribute="trailing" constant="25" id="5nd-b1-BSV"/>
                                     <constraint firstItem="coo-XW-gbG" firstAttribute="leading" secondItem="OQD-CG-0y7" secondAttribute="leading" constant="25" id="7b7-FB-PId"/>
+                                    <constraint firstItem="eIy-LP-ph9" firstAttribute="centerX" secondItem="OQD-CG-0y7" secondAttribute="centerX" id="MxU-dd-FD3"/>
                                     <constraint firstItem="coo-XW-gbG" firstAttribute="top" secondItem="eIy-LP-ph9" secondAttribute="bottom" constant="22" id="OBH-8z-tKa"/>
                                     <constraint firstItem="coo-XW-gbG" firstAttribute="centerX" secondItem="Z6n-P4-w1N" secondAttribute="centerX" id="VZy-bJ-Etc"/>
                                     <constraint firstItem="eIy-LP-ph9" firstAttribute="top" secondItem="OQD-CG-0y7" secondAttribute="top" constant="14" id="X6o-QH-Ffa"/>
@@ -326,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5F-kw-dxa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82.4" y="56.22189"/>
+            <point key="canvasLocation" x="82.400000000000006" y="56.221890000000002"/>
         </scene>
     </scenes>
     <resources>
