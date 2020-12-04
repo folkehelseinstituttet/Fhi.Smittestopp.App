@@ -58,6 +58,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         public override void ViewDidUnload()
         {
             MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED);
             base.ViewDidUnload();
         }
 
