@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using CommonServiceLocator;
 using FluentAssertions;
@@ -28,11 +27,6 @@ namespace NDB.Covid19.Test.Tests.WebServices
         public void Dispose()
         {
             ApiStubHelper.StopServer();
-        }
-
-        class FakeResponse
-        {
-            public List<int> IntegerList;
         }
 
         [Fact]

@@ -30,6 +30,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public void PermissionsNotificationIsGenerated(bool hasBluetooth, bool hasLocation, NotificationsEnum type)
         {
             ResetData();
+            PermissionsHelper.BluetoothEnabled = hasBluetooth;
+            PermissionsHelper.LocationEnabled = hasLocation;
+            
             LocalNotificationsManager.HasBeenCalled[type] = false;
             LocalNotificationsManager.HasBeenCalled[NotificationsEnum.NoNotification] = false;
             try
