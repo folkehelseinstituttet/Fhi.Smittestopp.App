@@ -214,6 +214,33 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_radio_group"/>
 
+            <View
+                    android:id="@+id/settings_general_select_lang_divider_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/primaryText"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one"/>
+
+            <ndb.covid19.droid.views.settings.UnderlinedTextView
+                    android:id="@+id/settings_general_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableEnd="@drawable/ic_circle_arrow_right"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    style="@style/PrimaryText"
+                    android:textSize="14sp"
+                    android:text="Test link here"
+                    app:underlineColor="@color/primaryText"
+                    app:underlineWidth="1dp"
+                    app:underlineMarginTop="2dp"
+                    android:layout_marginVertical="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
