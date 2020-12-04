@@ -14,17 +14,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
+		 
         <Button
                 android:id="@+id/enDeveloperTools_button_back"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/backButton"
+                android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
                 android:focusable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+				app:layout_constraintBaseline_toBaselineOf="@id/enDeveloperTools_textView_hello"
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
                 android:id="@+id/enDeveloperTools_textView_hello"
