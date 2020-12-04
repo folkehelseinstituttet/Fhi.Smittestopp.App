@@ -52,6 +52,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             SetupStyling();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);
         }
 
         public override void ViewDidUnload()
@@ -63,6 +64,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         private void OnMessageStatusChanged(object _ = null)
         {
             InvokeOnMainThread(() => _viewModel.UpdateNotificationDot());
+        }
+
+        private void OnConsentModalIsClosed(object obj)
+        {
+            UpdateUI();
         }
         
         public override void ViewWillAppear(bool animated)
@@ -158,7 +164,12 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         async void SetStatusContainerState(bool isRunning)
         {
             UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
-            if (NavigationController.TopViewController is InfectionStatusViewController && !ModalInPresentation)
+            bool modalClosed = true;
+            if (ModalViewController != null)
+            {
+                modalClosed = ModalViewController.IsBeingDismissed;
+            }
+            if (NavigationController.TopViewController is InfectionStatusViewController && modalClosed)
             {
                 statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             }
