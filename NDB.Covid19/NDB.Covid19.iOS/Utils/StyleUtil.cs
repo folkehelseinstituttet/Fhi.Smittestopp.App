@@ -124,6 +124,22 @@ namespace NDB.Covid19.iOS.Utils
         /// </summary>
         /// <param name="label"></param>
         /// <param name="fontType"></param>
+        /// <param name="text"></param>
+        /// <param name="fontSize"></param>
+        /// <param name="maxFontSize"></param>
+        public static void InitUnderlinedLabel(UILabel label, FontType fontType, string text, float fontSize, float maxFontSize)
+        {
+            var attributedString = new NSMutableAttributedString(text);
+            attributedString.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), new NSRange(0, attributedString.Length));
+            label.AttributedText = attributedString;
+            label.Font = Font(fontType, fontSize, maxFontSize);
+        }
+
+        /// <summary>
+        /// Set maxFontSize for accessibility - large text
+        /// </summary>
+        /// <param name="label"></param>
+        /// <param name="fontType"></param>
         /// <param name="rawText"></param>
         /// <param name="lineHeight"></param>
         /// <param name="fontSize"></param>
