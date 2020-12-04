@@ -139,18 +139,6 @@
     <ImageAsset Include="Assets.xcassets\CloseBlue.imageset\exit%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartLogoWhite.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartLogoWhite.imageset\ic_sst_crown_white.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartLogoWhite.imageset\ic_sst_crown_white%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartLogoWhite.imageset\ic_sst_crown_white%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\HandAndHeart.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -161,9 +149,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\HandAndHeart.imageset\ic_sundsikker%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartmentLogo.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\HelpIcon.imageset\Contents.json">
@@ -190,55 +175,7 @@
     <ImageAsset Include="Assets.xcassets\HelpIcon2.imageset\Vector%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_da.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_en.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_da.imageset\logo_SFP_da.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_da.imageset\logo_SFP_da@2x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_da.imageset\logo_SFP_da@3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_en.imageset\logo_SFP_en.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_en.imageset\logo_SFP_en@2x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_SFP_en.imageset\logo_SFP_en@3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SmitteStopLogo.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SmitteStopLogo.imageset\Group 55.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SmitteStopLogo.imageset\Group 55%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SmitteStopLogo.imageset\Group 55%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logoWTxt.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartmentLogo.imageset\health_department_logo.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartmentLogo.imageset\health_department_logo-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthDepartmentLogo.imageset\health_department_logo-2.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\CheckMark.imageset\Contents.json">
@@ -307,18 +244,6 @@
     <ImageAsset Include="Assets.xcassets\chevronWhite.imageset\chevronWhite%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Background.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Background.imageset\background.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Background.imageset\background%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Background.imageset\background%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\BackButton.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -329,18 +254,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\BackButton.imageset\arrow_back_24px%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SundhedDK.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SundhedDK.imageset\sundhedDK1x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SundhedDK.imageset\sundhedDK3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SundhedDK.imageset\sundhedDK2x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\iPhoneBackgroundLimitations.imageset\Contents.json">
@@ -385,18 +298,6 @@
     <ImageAsset Include="Assets.xcassets\playIcon.imageset\Rectangle 11%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nemIdIcon.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nemIdIcon.imageset\white.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nemIdIcon.imageset\white%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nemIdIcon.imageset\white%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\CheckCircle.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -409,18 +310,6 @@
     <ImageAsset Include="Assets.xcassets\CheckCircle.imageset\check-circle-outline_3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo.imageset\HealthAuthoritiesLogo.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo.imageset\HealthAuthoritiesLogo_2x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo.imageset\HealthAuthoritiesLogo_3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\WorkingScheme.imageset\WorkingScheme.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -428,15 +317,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\WorkingScheme.imageset\WorkingScheme_3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logoWTxt.imageset\logoWT.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logoWTxt.imageset\logoWT_2x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logoWTxt.imageset\logoWT_3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Technology.imageset\Technology.png">
@@ -499,28 +379,7 @@
         <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\40-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\40-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\48.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\55.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\58-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\58-2.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\58.png">
@@ -529,166 +388,19 @@
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\60.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\80-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\80-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\87-1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\87.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\88.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\100.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\120_3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\120-1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\120.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\172.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\180-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\196.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\216.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\1024-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Spotlight.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Spotlight2x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\120-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\40-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\58-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\40-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\80-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\120-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\180-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\48.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\55.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\58-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\87-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\80-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\88.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\100.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\172.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\196.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\216.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconEN.appiconset\1024-1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\InfoCircleRed.imageset\Contents.json">
@@ -725,18 +437,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\logo_small_en-2.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\FHILogo.imageset\Contents.json">
@@ -776,21 +476,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%402x-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%403x-1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\fhi_logo_short.imageset\logo_kort_blå%401x-2.png">
@@ -881,6 +566,8 @@
     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png" />
     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png" />
     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -889,7 +576,6 @@
     <Folder Include="Assets.xcassets\AppIconOld.appiconset\" />
     <Folder Include="Assets.xcassets\arrowBack.imageset\" />
     <Folder Include="Assets.xcassets\BackButton.imageset\" />
-    <Folder Include="Assets.xcassets\Background.imageset\" />
     <Folder Include="Assets.xcassets\bellicon.imageset\" />
     <Folder Include="Assets.xcassets\Bluetooth.imageset\" />
     <Folder Include="Assets.xcassets\BlueToothOffIcon.imageset\" />
@@ -903,9 +589,6 @@
     <Folder Include="Assets.xcassets\CloseBlue.imageset\" />
     <Folder Include="Assets.xcassets\covidIcon.imageset\" />
     <Folder Include="Assets.xcassets\HandAndHeart.imageset\" />
-    <Folder Include="Assets.xcassets\HealthAuthoritiesLogo.imageset\" />
-    <Folder Include="Assets.xcassets\HealthDepartLogoWhite.imageset\" />
-    <Folder Include="Assets.xcassets\HealthDepartmentLogo.imageset\" />
     <Folder Include="Assets.xcassets\HelpIcon.imageset\" />
     <Folder Include="Assets.xcassets\HelpIcon2.imageset\" />
     <Folder Include="Assets.xcassets\HumanIcon.imageset\" />
@@ -914,13 +597,10 @@
     <Folder Include="Assets.xcassets\LogoWhite.imageset\" />
     <Folder Include="Assets.xcassets\LogoWhiteBackground.imageset\" />
     <Folder Include="Assets.xcassets\MenuIcon.imageset\" />
-    <Folder Include="Assets.xcassets\nemIdIcon.imageset\" />
     <Folder Include="Assets.xcassets\pauseIcon.imageset\" />
     <Folder Include="Assets.xcassets\playIcon.imageset\" />
-    <Folder Include="Assets.xcassets\SmitteStopLogo.imageset\" />
     <Folder Include="Assets.xcassets\SplashBackground.imageset\" />
     <Folder Include="Assets.xcassets\SplashImage.imageset\" />
-    <Folder Include="Assets.xcassets\SundhedDK.imageset\" />
     <Folder Include="Assets.xcassets\SundOgsikkerLogo.imageset\" />
     <Folder Include="Assets.xcassets\SundOgSikkerLogoHvid.imageset\" />
     <Folder Include="Assets.xcassets\VelkommenLogo.imageset\" />
@@ -936,8 +616,6 @@
     <Folder Include="Views\AuthenticationFlow\QuestionnaireCountries\" />
     <Folder Include="Assets.xcassets\CheckboxChecked.imageset\" />
     <Folder Include="Assets.xcassets\CheckboxUnchecked.imageset\" />
-    <Folder Include="Assets.xcassets\logo_small_da.imageset\" />
-    <Folder Include="Assets.xcassets\HealthAuthoritiesLogo_En.imageset\" />
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Assets.xcassets\FHILogo.imageset\" />
     <Folder Include="Assets.xcassets\ArrowLeftCircle.imageset\" />
