@@ -10,33 +10,34 @@
         android:paddingEnd="@dimen/defaultHorizontalMargin"
         android:orientation="vertical"
         >
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:id="@+id/welcome_page_one_title_layout"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="@dimen/defaultVerticalMargin">
             <Button
                 android:id="@+id/arrow_back"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="13dp"
+                android:layout_width="@dimen/backButton"
+                android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:visibility="visible"/>
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBaseline_toBaselineOf="@id/welcome_page_one_title"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/welcome_page_one_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:id="@+id/welcome_page_one_title"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/arrow_back"
                 style="@style/HeaderText"
                 android:accessibilityTraversalBefore="@id/welcome_page_one_body_one"
                 />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/welcome_page_one_bullet_one_layout"
