@@ -9,6 +9,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.App;
 using CommonServiceLocator;
+using I18NPortable;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.InfectionStatus;
@@ -45,8 +46,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         protected override void OnDestroy()
         {
             MessagesViewModel.UnsubscribeMessages(this);
-            Task.Run(async () =>
-                await MessagesViewModel.MarkAllMessagesAsRead());
+            MessagesViewModel.MarkAllMessagesAsRead();
             base.OnDestroy();
         }
 
@@ -90,11 +90,21 @@ namespace NDB.Covid19.Droid.Views.Messages
             
             FindViewById<TextView>(Resource.Id.messages_page_title).Text =
                 MessagesViewModel.MESSAGES_HEADER;
-            
-            FindViewById<TextView>(Resource.Id.messages_page_sub_header).Text =
-                (await MessageUtils.GetAllUnreadMessages()).Count > 0 ?
-                    MessagesViewModel.MESSAGES_NEW_MESSAGES_HEADER :
-                    MessagesViewModel.MESSAGES_NO_ITEMS_TITLE;
+
+            string headerText = MessagesViewModel.MESSAGES_NO_ITEMS_TITLE;
+            int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
+            int messages = (await MessageUtils.GetMessages()).Count;
+
+            if (unreadMessages > 0)
+            {
+                headerText = MessagesViewModel.MESSAGES_NEW_MESSAGES_HEADER;
+            }
+            else if (messages > 0)
+            {
+                headerText = MessagesViewModel.MESSAGES_NO_NEW_MESSAGES_HEADER;
+            }
+
+            FindViewById<TextView>(Resource.Id.messages_page_sub_header).Text = headerText;
 
             string lastUpdatedString = MessagesViewModel.LastUpdateString;
             if (lastUpdatedString == "")
@@ -119,20 +129,20 @@ namespace NDB.Covid19.Droid.Views.Messages
             ShowList(false);
         }
 
-        async Task HandleBeforeActivityClose()
+        void HandleBeforeActivityClose()
         {
-            await MessagesViewModel.MarkAllMessagesAsRead();
+            MessagesViewModel.MarkAllMessagesAsRead();
         }
 
-        public override async void OnBackPressed()
+        public override void OnBackPressed()
         {
-            await HandleBeforeActivityClose();
+            HandleBeforeActivityClose();
             base.OnBackPressed();
         }
 
-        private async void OnCloseBtnClicked(object arg1, EventArgs arg2)
+        private void OnCloseBtnClicked(object arg1, EventArgs arg2)
         {
-            await HandleBeforeActivityClose();
+            HandleBeforeActivityClose();
             Finish();
         }
 
@@ -147,7 +157,7 @@ namespace NDB.Covid19.Droid.Views.Messages
 
             public async void OnItemClick(AdapterView parent, View view, int position, long id)
             {
-                await ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_adapterMessages[position].MessageLink, BrowserLaunchMode.SystemPreferred);
+                await ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_adapterMessages[position].MessageLink.Translate(), BrowserLaunchMode.SystemPreferred);
                 _adapterMessages[position].IsRead = true;
                 _adapterMessages.NotifyDataSetChanged();
             }

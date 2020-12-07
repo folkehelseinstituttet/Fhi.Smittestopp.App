@@ -41,10 +41,6 @@ namespace NDB.Covid19.ViewModels
             OkBtnTxt = "SETTINGS_GENERAL_DIALOG_OK".Translate()
         };
 
-        public bool GetStoredCheckedState() => LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
-
-        public void OnCheckedChange(bool isChecked) => LocalPreferencesHelper.SetIsDownloadWithMobileDataEnabled(isChecked);
-
         /// <summary>
         /// Opens the link in an in-app browser.
         /// </summary>
@@ -59,6 +55,10 @@ namespace NDB.Covid19.ViewModels
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e, "Failed to open link on general settings page");
             }
         }
+
+        public bool GetStoredCheckedState() => LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
+
+        public void OnCheckedChange(bool isChecked) => LocalPreferencesHelper.SetIsDownloadWithMobileDataEnabled(isChecked);
 
         public void SetSelection(SettingsLanguageSelection selection)
         {

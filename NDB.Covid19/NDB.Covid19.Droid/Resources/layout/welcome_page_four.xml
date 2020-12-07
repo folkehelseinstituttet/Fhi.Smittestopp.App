@@ -8,34 +8,36 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="@dimen/defaultHorizontalMargin"
+        android:paddingEnd="@dimen/defaultHorizontalMargin"
         android:orientation="vertical">
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:id="@+id/welcome_page_four_title_layout"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="22dp">
+            android:layout_marginBottom="@dimen/defaultVerticalMargin">
             <Button
                 android:id="@+id/arrow_back"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="13dp"
-                android:background="@drawable/circle_arrow_left"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="@dimen/backButton"
+                android:layout_height="@dimen/backButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBaseline_toBaselineOf="@id/welcome_page_four_title"
+                android:background="@drawable/ic_circle_arrow_left"
                 android:visibility="visible"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Title"
                 android:id="@+id/welcome_page_four_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/arrow_back"
                 style="@style/HeaderText"
-                android:accessibilityTraversalBefore="@id/welcome_page_four_body_one"
-                android:layout_alignParentTop="true" />
-        </LinearLayout>
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         
         <LinearLayout
             android:id="@+id/welcome_page_four_bullet_one_layout"
@@ -49,7 +51,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/check_shield"/>
+                android:src="@drawable/ic_check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_four_body_one"
@@ -72,7 +74,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/check_shield"/>
+                android:src="@drawable/ic_check_shield"/>
 
             <TextView
             android:id="@+id/welcome_page_four_body_two"
@@ -94,7 +96,7 @@
                 style="@style/Checkmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/check_shield"/>
+                android:src="@drawable/ic_check_shield"/>
 
             <TextView
                 android:id="@+id/welcome_page_four_body_three"

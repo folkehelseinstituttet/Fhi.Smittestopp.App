@@ -16,7 +16,7 @@ namespace NDB.Covid19.iOS.Permissions
         }
 
         /// <summary>
-        /// Returns true if Status.Active || status == Status.Disabled || status == Status.Restricted.
+        /// Returns true if Status.Active || status == Status.Disabled
         /// Meaning that everything is ready for either starting or stopping the scanner.
         /// </summary>
         /// <returns></returns>

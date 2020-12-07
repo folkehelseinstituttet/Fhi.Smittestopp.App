@@ -12,20 +12,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-            app:layout_constraintVertical_weight="2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-        <Button
+        <ImageButton
                 android:id="@+id/arrow_back_general"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/circle_arrow_left"
+                android:layout_width="@dimen/backButton"
+                android:layout_height="@dimen/backButton"
+                android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
                 android:focusable="true"
-                app:layout_constraintVertical_weight="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintBaseline_toBaselineOf="@id/settings_general_title"
+                app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
                 android:id="@+id/settings_general_title"
@@ -34,10 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:lineSpacingExtra="4sp"
-                android:paddingVertical="5dp"
-                app:layout_constraintVertical_weight="1"
                 android:text="Indstillinger"
-                android:textAlignment="viewStart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/arrow_back_general"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -125,12 +119,12 @@
                         android:buttonTint="#1AB759"
                         android:gravity="center"
                         android:importantForAccessibility="yes"
-                        android:thumb="@drawable/thumb_selector"
+                        android:thumb="@drawable/ic_thumb_selector"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/settings_general_mobile_data_header"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:track="@drawable/track_selector"/>
+                        app:track="@drawable/ic_track_selector"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
@@ -223,16 +217,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one"/>
 
-            <TextView
+            <ndb.covid19.droid.views.settings.UnderlinedTextView
                     android:id="@+id/settings_general_link"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:drawableEnd="@drawable/circle_arrow_right"
+                    android:drawableEnd="@drawable/ic_circle_arrow_right"
                     android:drawablePadding="5dp"
                     android:gravity="center_vertical"
                     style="@style/PrimaryText"
                     android:textSize="14sp"
-                    android:text="Test text"
+                    android:text="Test link here"
+                    app:underlineColor="@color/primaryText"
+                    app:underlineWidth="1dp"
+                    app:underlineMarginTop="2dp"
                     android:layout_marginVertical="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

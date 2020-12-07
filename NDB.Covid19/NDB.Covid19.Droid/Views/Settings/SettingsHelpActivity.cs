@@ -27,7 +27,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 
         void Init()
         {
-            Button backButton = FindViewById<Button>(Resource.Id.arrow_back_help);
+            ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back_help);
             backButton.ContentDescription = ViewModels.SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
             TextView textField = FindViewById<TextView>(Resource.Id.settings_help_text);
@@ -35,7 +35,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             titleField.Text = HEADER;
             textField.TextFormatted =
-                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"https://{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
+                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
             /* Note:
             This functionality is not planned for release 1.0. Kept for future use.
                                     //$"{EMAIL_TEXT} <a href=\"mailto:{EMAIL}\">{EMAIL}</a> {PHONE_NUM_Text} <a href=\"tel:{PHONE_NUM}\">{PHONE_NUM}</a>.<br><br>" +

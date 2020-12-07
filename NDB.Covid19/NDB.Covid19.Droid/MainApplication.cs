@@ -9,6 +9,11 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 using NDB.Covid19.Droid.Services;
+#if APPCENTER
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+#endif
 
 namespace NDB.Covid19.Droid
 {
@@ -37,7 +42,12 @@ namespace NDB.Covid19.Droid
             AppDomain.CurrentDomain.UnhandledException += LogUtils.OnUnhandledException;
             AndroidEnvironment.UnhandledExceptionRaiser += OnUnhandledAndroidException;
 
-            
+#if APPCENTER
+            AppCenter.Start(
+                Configuration.Conf.APPCENTER_DIAGNOSTICS_TOKEN,
+                typeof(Analytics), typeof(Crashes));
+#endif
+
             DroidDependencyInjectionConfig.Init();
             Xamarin.Essentials.Platform.Init(this);
             Current.Init(this);
@@ -94,15 +104,15 @@ namespace NDB.Covid19.Droid
         {
             AccessibilityUtils.AdjustFontScale(activity);
 
-            MessagingCenter.Subscribe<object>(activity, MessagingCenterKeys.KEY_FORCE_UPDATE, (object obj) =>
-            {
-                OnForceUpdate(activity);
-            });
+            MessagingCenter.Subscribe<object>(
+                activity,
+                MessagingCenterKeys.KEY_FORCE_UPDATE,
+                o => OnForceUpdate(activity));
         }
 
         public void OnActivityDestroyed(Activity activity)
         {
-            MessagingCenter.Unsubscribe<object>(activity, MessagingCenterKeys.KEY_FORCE_UPDATE);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_FORCE_UPDATE);
         }
 
         public void OnActivityPaused(Activity activity)
@@ -143,12 +153,16 @@ namespace NDB.Covid19.Droid
             //constantGC.Elapsed += GarbageCollect;
             #endregion MANUALLY GC
         }
-
-        void OnForceUpdate(Activity fromActivity)
+        
+        void OnForceUpdate(Activity activity)
         {
-            Intent intent = new Intent(fromActivity, typeof(ForceUpdateActivity));
-            intent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
-            fromActivity.StartActivity(intent);
+            activity.RunOnUiThread(() =>
+            {
+                Intent intent = new Intent(this, typeof(ForceUpdateActivity));
+                intent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask | ActivityFlags.ClearTop);
+                StartActivity(intent);
+            });
+            activity.Finish();
         }
     }
 }

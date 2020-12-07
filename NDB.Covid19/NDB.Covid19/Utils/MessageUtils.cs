@@ -20,17 +20,18 @@ namespace NDB.Covid19.Utils
 
         static IMessagesManager _manager => ServiceLocator.Current.GetInstance<IMessagesManager>();
 
-        static string DEFAULT_MESSAGE_TITLE => "MESSAGES_MESSAGE_HEADER".Translate();
-        static string DEFAULT_MESSAGE_LINK => "MESSAGES_LINK".Translate();
+        static string DEFAULT_MESSAGE_TITLE => "MESSAGES_MESSAGE_HEADER";
+        static string DEFAULT_MESSAGE_LINK => "MESSAGES_LINK";
 
-        private static async Task CreateAndSaveNewMessage(object Sender, DateTime? customTime = null, int triggerAfterNSec = 0)
+        private static async Task CreateAndSaveNewMessage(object Sender, DateTime? customTime = null,
+            int triggerAfterNSec = 0)
         {
             //When creating a message
             MessageSQLiteModel messageSqLiteModel = new MessageSQLiteModel()
             {
                 IsRead = false,
                 MessageLink = DEFAULT_MESSAGE_LINK,
-                TimeStamp = customTime ?? DateTime.Now,
+                TimeStamp = customTime ?? SystemTime.Now(),
                 Title = DEFAULT_MESSAGE_TITLE
             };
 
@@ -51,7 +52,7 @@ namespace NDB.Covid19.Utils
                     customTime ?? SystemTime.Now(),
                     nameof(CreateAndSaveNewMessage));
             }
-        } 
+        }
 
         public static async Task CreateMessage(object Sender, DateTime? customTime = null, int triggerAfterNSec = 0)
         {
@@ -67,7 +68,7 @@ namespace NDB.Covid19.Utils
         {
             IEnumerable<MessageSQLiteModel> messages =
                 (await _manager.GetMessages())
-                    .OrderByDescending(x => x.TimeStamp);
+                .OrderByDescending(x => x.TimeStamp);
             return messages.ToList();
         }
 
@@ -88,15 +89,20 @@ namespace NDB.Covid19.Utils
 
         public static async Task RemoveAllOlderThan(int minutes)
         {
-            var messages = await GetMessages();
-            var messagesToRemove = messages
-                .FindAll(message => DateTime.Now.Subtract(message.TimeStamp).TotalMinutes >= minutes).ToList();
+            List<MessageSQLiteModel> messages = await GetMessages();
+            List<MessageSQLiteModel> messagesToRemove = messages
+                .FindAll(message => SystemTime.Now().Subtract(message.TimeStamp).TotalMinutes >= minutes).ToList();
             await RemoveMessages(messagesToRemove);
         }
 
         public static void MarkAsRead(MessageItemViewModel message, bool isRead)
         {
             _manager.MarkAsRead(new MessageSQLiteModel(message), isRead);
+        }
+
+        public static void MarkAllAsRead()
+        {
+            _manager.MarkAllAsRead();
         }
 
         public static List<MessageItemViewModel> ToMessageItemViewModelList(List<MessageSQLiteModel> list)
@@ -106,7 +112,8 @@ namespace NDB.Covid19.Utils
 
         public static bool HasCreatedMessageAndNotificationToday()
         {
-            DateTime lastRiskAlertUtc = GetDateTimeFromSecureStorageForKey(SecureStorageKeys.LAST_HIGH_RISK_ALERT_UTC_KEY, nameof(HasCreatedMessageAndNotificationToday));
+            DateTime lastRiskAlertUtc = GetDateTimeFromSecureStorageForKey(
+                SecureStorageKeys.LAST_HIGH_RISK_ALERT_UTC_KEY, nameof(HasCreatedMessageAndNotificationToday));
             return lastRiskAlertUtc.Date == SystemTime.Now().Date;
         }
 
@@ -117,7 +124,8 @@ namespace NDB.Covid19.Utils
         /// <param name="DateTimeToSave"></param>
         /// <param name="CallerMethodToLogError"></param>
         /// <returns></returns>
-        public static void SaveDateTimeToSecureStorageForKey(string SecureStorageKey, DateTime DateTimeToSave, string CallerMethodToLogError)
+        public static void SaveDateTimeToSecureStorageForKey(string SecureStorageKey, DateTime DateTimeToSave,
+            string CallerMethodToLogError)
         {
             try
             {
@@ -135,7 +143,8 @@ namespace NDB.Covid19.Utils
         /// <param name="SecureStorageKey"></param>
         /// <param name="CallerMethodToLogError"></param>
         /// <returns></returns>
-        public static DateTime GetDateTimeFromSecureStorageForKey(string SecureStorageKey, string CallerMethodToLogError)
+        public static DateTime GetDateTimeFromSecureStorageForKey(string SecureStorageKey,
+            string CallerMethodToLogError)
         {
             DateTime DateTimeFromSecureStorage;
             try
@@ -154,6 +163,7 @@ namespace NDB.Covid19.Utils
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.{CallerMethodToLogError}");
                 DateTimeFromSecureStorage = DateTime.UtcNow.AddDays(-100); // Date far in the past
             }
+
             return DateTimeFromSecureStorage;
         }
     }

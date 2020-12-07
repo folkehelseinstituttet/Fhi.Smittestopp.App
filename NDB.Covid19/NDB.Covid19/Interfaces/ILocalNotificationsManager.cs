@@ -6,5 +6,6 @@ namespace NDB.Covid19.Interfaces
     {
         void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds);
         void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel);
+        void GenerateLocalPermissionsNotification(NotificationViewModel viewModel);
     }
 }

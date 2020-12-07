@@ -73,6 +73,14 @@ namespace NDB.Covid19.iOS.Utils
             btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
         }
 
+        public static void InitStartPageButtonStyling(UIButton btn)
+        {
+            btn.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            btn.Layer.BorderWidth = 1;
+            btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIControlState.Normal);
+        }
+
         /// <summary>
         /// The button needs a height constraint of 30 in the storyboard.
         /// </summary>
@@ -88,6 +96,13 @@ namespace NDB.Covid19.iOS.Utils
             btn.BackgroundColor = UIColor.Clear;
             btn.Layer.BorderWidth = 1;
             btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            btn.TitleLabel.Lines = 0;
+            btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
+            
+            btn.ContentEdgeInsets = new UIEdgeInsets(12, 12, 12, 12);
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };
+            UIStringAttributes attributes = new UIStringAttributes { ParagraphStyle = paragraphStyle };
+            btn.TitleLabel.AttributedText = new NSMutableAttributedString(text, attributes);
         }
 
         /// <summary>
@@ -101,6 +116,22 @@ namespace NDB.Covid19.iOS.Utils
         public static void InitLabel(UILabel label, FontType fontType, string text, float fontSize, float maxFontSize)
         {
             label.Text = text;
+            label.Font = Font(fontType, fontSize, maxFontSize);
+        }
+
+        /// <summary>
+        /// Set maxFontSize for accessibility - large text
+        /// </summary>
+        /// <param name="label"></param>
+        /// <param name="fontType"></param>
+        /// <param name="text"></param>
+        /// <param name="fontSize"></param>
+        /// <param name="maxFontSize"></param>
+        public static void InitUnderlinedLabel(UILabel label, FontType fontType, string text, float fontSize, float maxFontSize)
+        {
+            var attributedString = new NSMutableAttributedString(text);
+            attributedString.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), new NSRange(0, attributedString.Length));
+            label.AttributedText = attributedString;
             label.Font = Font(fontType, fontSize, maxFontSize);
         }
 
@@ -220,7 +251,7 @@ namespace NDB.Covid19.iOS.Utils
         /// </summary>
         /// <param name="label"></param>
         /// <param name="rawText"></param>
-        public static void InitLabelWithHTMLFormat(UILabel label, string rawText)
+        public static void InitLabelWithHTMLFormat(UILabel label, string rawText, FontType fontType = FontType.FontRegular)
         {
             NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.HTML };
             documentAttributes.StringEncoding = NSStringEncoding.UTF8;
@@ -228,7 +259,7 @@ namespace NDB.Covid19.iOS.Utils
             NSAttributedString attributedString = new NSAttributedString(NSData.FromString(rawText, NSStringEncoding.UTF8), documentAttributes, ref error);
 
             //Ensuring text is resiezed correctly when font size is increased
-            InitLabekWithSpacingAndHTMLFormatting(label, FontType.FontRegular, attributedString, 1.28, 16, 22);
+            InitLabekWithSpacingAndHTMLFormatting(label, fontType, attributedString, 1.28, 16, 22);
             label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 

@@ -13,16 +13,19 @@ namespace NDB.Covid19.iOS.Managers
     public class iOSLocalNotificationsManager : UNUserNotificationCenterDelegate, ILocalNotificationsManager
     {
         public bool NotificationHasBeenTapped { get; set; }
-        public EventHandler OnNotificationTappedHandler { get; set; }
+        public EventHandler<string> OnNotificationTappedHandler { get; set; }
+        public static string NewMessageIdentifier { get; } = "newMessageNotification";
+        public static string NewNotificationIdentifier { get; } = "newNotification";
 
         const int _notificationDelay = 1;
 
-        public override void WillPresentNotification(UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
+        public override void WillPresentNotification(UNUserNotificationCenter center, UNNotification notification,
+            Action<UNNotificationPresentationOptions> completionHandler)
         {
             // Do something with the notification
             Console.WriteLine("Active Notification: {0}", notification);
 
-            if (notification.Request.Identifier == "newMessageNotification")
+            if (notification.Request.Identifier == NewMessageIdentifier)
             {
                 UIApplication.SharedApplication.ApplicationIconBadgeNumber = 1;
             }
@@ -33,10 +36,11 @@ namespace NDB.Covid19.iOS.Managers
         }
 
         // If we hit this, it means that the app has been styarted from a notification
-        public override void DidReceiveNotificationResponse(UNUserNotificationCenter center, UNNotificationResponse response, Action completionHandler)
-		{
+        public override void DidReceiveNotificationResponse(UNUserNotificationCenter center,
+            UNNotificationResponse response, Action completionHandler)
+        {
             NotificationHasBeenTapped = true;
-            OnNotificationTappedHandler?.Invoke(this, null);
+            OnNotificationTappedHandler?.Invoke(this, response.Notification.Request.Identifier);
         }
 
         public void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds)
@@ -46,7 +50,8 @@ namespace NDB.Covid19.iOS.Managers
 
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
         {
-            if (SceneDelegate.DidEnterBackgroundState || UIApplication.SharedApplication.ApplicationState != UIApplicationState.Active)
+            if (SceneDelegate.DidEnterBackgroundState ||
+                UIApplication.SharedApplication.ApplicationState != UIApplicationState.Active)
             {
                 GenerateLocalNotification(viewModel, 0);
                 LocalPreferencesHelper.TermsNotificationWasShown = true;
@@ -57,12 +62,16 @@ namespace NDB.Covid19.iOS.Managers
         {
             InvokeOnMainThread(() =>
             {
-                string requestID = "newMessageNotification";
+                string requestID =
+                    notificationViewModel.Type == NotificationsEnum.NewMessageReceived
+                        ? NewMessageIdentifier
+                        : NewNotificationIdentifier;
 
                 // For already delivered Notifications, the existing Notification will get updated and promoted to the top
                 // of the list on the Home and Lock screens and in the Notification Center if it has already been read by the user.
 
-                UNUserNotificationCenter.Current.GetNotificationSettings(settings => {
+                UNUserNotificationCenter.Current.GetNotificationSettings(settings =>
+                {
                     bool alertsAllowed = (settings.AlertSetting == UNNotificationSetting.Enabled);
 
                     if (alertsAllowed)
@@ -74,19 +83,29 @@ namespace NDB.Covid19.iOS.Managers
                             Badge = 1
                         };
 
-                        UNTimeIntervalNotificationTrigger trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(timeIntervalTrigger == 0 ? _notificationDelay : timeIntervalTrigger, false);
-                        UNNotificationRequest request = UNNotificationRequest.FromIdentifier(requestID, content, trigger);
+                        UNTimeIntervalNotificationTrigger trigger =
+                            UNTimeIntervalNotificationTrigger.CreateTrigger(
+                                timeIntervalTrigger == 0 ? _notificationDelay : timeIntervalTrigger, false);
+                        UNNotificationRequest request =
+                            UNNotificationRequest.FromIdentifier(requestID, content, trigger);
 
-                        UNUserNotificationCenter.Current.AddNotificationRequest(request, err => {
+                        UNUserNotificationCenter.Current.AddNotificationRequest(request, err =>
+                        {
                             if (err != null)
                             {
                                 NSErrorException e = new NSErrorException(err);
-                                LogUtils.LogException(LogSeverity.ERROR, e, $"{nameof(iOSLocalNotificationsManager)}.{nameof(CreateLocalNotification)} failed");
+                                LogUtils.LogException(LogSeverity.ERROR, e,
+                                    $"{nameof(iOSLocalNotificationsManager)}.{nameof(CreateLocalNotification)} failed");
                             }
                         });
                     }
                 });
             });
+        }
+
+        public void GenerateLocalPermissionsNotification(NotificationViewModel viewModel)
+        {
+            GenerateLocalNotification(viewModel, 0);
         }
     }
 }

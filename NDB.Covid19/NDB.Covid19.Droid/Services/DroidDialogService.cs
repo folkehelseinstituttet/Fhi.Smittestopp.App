@@ -10,7 +10,7 @@ namespace NDB.Covid19.Droid.Services
         public void ShowMessageDialog(string title, string message, string okBtn, PlatformDialogServiceArguments platformArguments = null)
         {
             Activity activity = platformArguments?.Context != null && platformArguments.Context is Activity act ? act : Current.Activity;
-            DialogUtils.DisplayDialog(activity, title, message, okBtn);
+            DialogUtils.DisplayDialogAsync(activity, title, message, okBtn);
         }
     }
 }

@@ -15,6 +15,7 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using Android.Views.Animations;
 using NDB.Covid19.Droid.Services;
+using NDB.Covid19.Utils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using AndroidX.Core.Content;
 using Android.Graphics;
@@ -54,6 +55,18 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _viewModel = new InfectionStatusViewModel();
             InitLayout();
             UpdateMessagesStatus();
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
+        }
+
+        protected override void OnDestroy()
+        {
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
+            base.OnDestroy();
+        }
+
+        private void OnMessageStatusChanged(object _ = null)
+        {
+            RunOnUiThread(() => _viewModel.UpdateNotificationDot());
         }
 
         protected override void OnResume()
@@ -65,14 +78,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
 
-            Task.Run(async () =>
-            {
-                await Task.Delay(1000);
-                RunOnUiThread(() => _viewModel.UpdateNotificationDot());
-            });
             UpdateUI();
 
             _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;
+            OnMessageStatusChanged();
         }
 
         private void ShowPermissionsDialogIfTheyHavChangedWhileInIdle() =>
@@ -184,14 +193,14 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 {
                     _onOffButton.Text = INFECTION_STATUS_STOP_BUTTON_TEXT;
                     _onOffButton.ContentDescription = INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT;
-                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.secondary_button);
+                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.ic_secondary_button);
                     _onOffButton.SetTextColor(new Color(ContextCompat.GetColor(this, Resource.Color.primaryText)));
                 }
                 else
                 {
                     _onOffButton.Text = INFECTION_STATUS_START_BUTTON_TEXT;
                     _onOffButton.ContentDescription = INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT;
-                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.default_button);
+                    _onOffButton.Background = ContextCompat.GetDrawable(this, Resource.Drawable.ic_default_button);
                     _onOffButton.SetTextColor(new Color(ContextCompat.GetColor(this, Resource.Color.secondaryText)));
                 }
             });

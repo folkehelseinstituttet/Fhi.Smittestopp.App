@@ -71,7 +71,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel SmittestopLinkButtionLbl { get; set; }
+        UIKit.UILabel SmittestopLinkButtonLbl { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -169,9 +169,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                 RestartAppLabl = null;
             }
 
-            if (SmittestopLinkButtionLbl != null) {
-                SmittestopLinkButtionLbl.Dispose ();
-                SmittestopLinkButtionLbl = null;
+            if (SmittestopLinkButtonLbl != null) {
+                SmittestopLinkButtonLbl.Dispose ();
+                SmittestopLinkButtonLbl = null;
             }
 
             if (SmittestopLinkButtonStackView != null) {

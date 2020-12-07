@@ -29,8 +29,8 @@
 	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 	<style name="DefaultButton">
-		<item name="android:background">@drawable/default_button</item>
-		<item name="android:textColor">@drawable/default_button</item>
+		<item name="android:background">@drawable/ic_default_button</item>
+		<item name="android:textColor">@drawable/ic_default_button</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:height">48dp</item>
 		<item name="android:layout_margin">8dp</item>
@@ -39,7 +39,7 @@
 	</style>
 
 	<style name="SecondaryButton">
-		<item name="android:background">@drawable/secondary_button</item>
+		<item name="android:background">@drawable/ic_secondary_button</item>
 		<item name="android:textColor">@color/primaryText</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:height">48dp</item>
@@ -47,9 +47,9 @@
 		<item name="android:fontFamily">@font/ptsans_bold</item>
 		<item name="android:textSize">16sp</item>
 	</style>
-
+	
 	<style name="DefaultButtonWhite">
-		<item name="android:background">@drawable/default_button_white</item>
+		<item name="android:background">@drawable/ic_default_button_white</item>
 		<item name="android:textColor">@android:color/black</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:width">200dp</item>
@@ -59,7 +59,7 @@
 	</style>
 
 	<style name="DefaultButtonGreen">
-		<item name="android:background">@drawable/default_button_green</item>
+		<item name="android:background">@drawable/ic_default_button_green</item>
 		<item name="android:textColor">@android:color/black</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:width">200dp</item>
@@ -98,31 +98,23 @@
 	<style name="PrimaryTextRegular">
 		<item name="android:textColor">@color/primaryText</item>
 		<item name="android:fontFamily">@font/ptsans_regular</item>
-		<item name="android:textSize">14sp</item>
+		<item name="android:textSize">16sp</item>
 	</style>
 
-	<style name="PrimaryTextBold">
-		<item name="android:textColor">@color/primaryText</item>
+	<style name="PrimaryTextBold" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">@font/ptsans_bold</item>
-		<item name="android:textSize">14sp</item>
 	</style>
 
-	<style name="PrimaryTextSemiBold">
-		<item name="android:textColor">@color/primaryText</item>
+	<style name="PrimaryTextSemiBold" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">@font/ptsans_caption_regular</item>
-		<item name="android:textSize">14sp</item>
 	</style>
 
-	<style name="PrimaryTextItalic">
-		<item name="android:textColor">@color/primaryText</item>
+	<style name="PrimaryTextItalic" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">@font/ptsans_italic</item>
-		<item name="android:textSize">14sp</item>
 	</style>
 
-	<style name="PrimaryTextLight">
-		<item name="android:textColor">@color/primaryText</item>
+	<style name="PrimaryTextLight" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">sans_serif_thin</item>
-		<item name="android:textSize">14sp</item>
 	</style>
 
 	<style name="SecondaryText">
@@ -207,8 +199,8 @@
 	<style name="ConsentButton">
 		<item name="android:gravity">center</item>
 		<item name="android:layout_centerHorizontal">true</item>
-		<item name="android:background">@drawable/default_button</item>
-		<item name="android:textColor">@drawable/default_button</item>
+		<item name="android:background">@drawable/ic_default_button</item>
+		<item name="android:textColor">@drawable/ic_default_button</item>
 		<item name="android:textAllCaps">false</item>
 		<item name="android:fontFamily">@font/ptsans_bold</item>
 		<item name="android:textSize">16sp</item>

@@ -10,7 +10,7 @@
 		android:id="@+id/progress_bar"
 		android:layout_width="62dp"
 		android:layout_height="62dp"
-		android:indeterminateDrawable="@drawable/progress_bar"
+		android:indeterminateDrawable="@drawable/ic_progress_bar"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"

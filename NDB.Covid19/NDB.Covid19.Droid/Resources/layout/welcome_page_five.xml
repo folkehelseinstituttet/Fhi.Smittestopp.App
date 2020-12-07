@@ -22,6 +22,8 @@
             android:id="@+id/consent_info_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="@dimen/defaultHorizontalMargin"
+            android:paddingEnd="@dimen/defaultHorizontalMargin"
             android:orientation="vertical">
             <include
                 android:id="@+id/consent_header"
@@ -112,8 +114,8 @@
 				android:gravity="center"
 				android:layout_gravity="center_vertical"
 				android:importantForAccessibility="yes"
-				android:thumb="@drawable/thumb_selector"
-				app:track="@drawable/track_selector"
+				android:thumb="@drawable/ic_thumb_selector"
+				app:track="@drawable/ic_track_selector"
 
                 />
 

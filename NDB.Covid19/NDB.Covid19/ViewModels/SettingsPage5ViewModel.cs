@@ -20,14 +20,15 @@ namespace NDB.Covid19.ViewModels
         }
 
         /// <returns>The environment the app runs against to be displayed in the "About" page</returns>
-        public static string GetPartialUrlFromConf()
+        private static string GetPartialUrlFromConf()
         {
             try
             {
-                string endpoint = Conf.URL_PREFIX;
-                int index1 = "Https://".Length;
-                int length = endpoint.IndexOf(".smittestop") - index1;
-                return endpoint.Substring(index1, length);
+                string endpoint = Conf.BASE_URL;
+                bool isHttps = endpoint.StartsWith("https://");
+                int httpsLength = (isHttps ? "https://" : "http://").Length;
+                int length = endpoint.IndexOf(isHttps? "." : ":9095") - httpsLength;
+                return endpoint.Substring(httpsLength, length);
             }
             catch
             {

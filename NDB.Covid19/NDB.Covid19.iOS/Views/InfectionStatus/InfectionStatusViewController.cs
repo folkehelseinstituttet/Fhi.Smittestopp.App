@@ -27,13 +27,21 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             return vc;
         }
 
+        public static UINavigationController GetInfectionSatusPageControllerInNavigationController()
+        {
+            UIViewController vc = InfectionStatusViewController.Create(false);
+            UINavigationController navigationController = new UINavigationController(vc);
+            navigationController.SetNavigationBarHidden(true, false);
+            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+            return navigationController;
+        }
+
         bool _comingFromOnboarding;
 
         InfectionStatusViewModel _viewModel;
 
         UIButton _messageViewBtn;
         UIButton _areYouInfectedBtn;
-        PulseAnimationView _pulseAnimationView;
 
         IOSPermissionManager _permissionManager;
 
@@ -42,10 +50,28 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
             SetupStyling();
-
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);
         }
 
+        public override void ViewDidUnload()
+        {
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED);
+            base.ViewDidUnload();
+        }
+
+        private void OnMessageStatusChanged(object _ = null)
+        {
+            InvokeOnMainThread(() => _viewModel.UpdateNotificationDot());
+        }
+
+        private void OnConsentModalIsClosed(object obj)
+        {
+            UpdateUI();
+        }
+        
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
@@ -62,7 +88,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 StartIfStopped();
                 _comingFromOnboarding = false;
             }
-            _pulseAnimationView?.RestartAnimation();
         }
 
 
@@ -84,12 +109,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OnAppReturnsFromBackground(object obj)
         {
-            Task.Run(async () =>
-            {
-                await Task.Delay(1000); // Wait 1 sec before update the notification to wait for any status change
-                BeginInvokeOnMainThread(_viewModel.UpdateNotificationDot);
-            });
+            _viewModel.CheckIfAppIsRestricted(UpdateUI);
             UpdateUI();
+            OnMessageStatusChanged();
         }
 
         void SetPermissionManager()
@@ -143,7 +165,19 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         async void SetStatusContainerState(bool isRunning)
         {
             UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
-            statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+            bool modalClosed = true;
+            if (ModalViewController != null)
+            {
+                modalClosed = ModalViewController.IsBeingDismissed;
+            }
+            if (NavigationController.TopViewController is InfectionStatusViewController && modalClosed)
+            {
+                statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+            }
+            else
+            {
+                statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            }
             UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
 
             ScrollDownBackgroundView.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
@@ -231,6 +265,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             InvokeOnMainThread(() =>
             {
                 NewIndicatorView.Hidden = !_viewModel.ShowNewMessageIcon;
+
+                UIApplication.SharedApplication.ApplicationIconBadgeNumber = NewIndicatorView.Hidden ? 0 : 1;
+
                 MessageIcon.Image = _viewModel.ShowNewMessageIcon ? UIImage.FromBundle("notification_active") : UIImage.FromBundle("notification_inactive");
                 NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;
                 _messageViewBtn.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(_viewModel.NewMessageAccessibilityText);
@@ -251,7 +288,19 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         async partial void OnOffBtnTapped(UIButton sender)
         {
-            if (await _viewModel.IsRunning())
+            if (_viewModel.IsAppRestricted)
+            {
+                DialogHelper.ShowDialog(
+                    this,
+                    _viewModel.PermissionViewModel,
+                    (UIAlertAction action) =>
+                    {
+                        NavigationHelper.GoToAppSettings();
+                    }
+                    );
+                return;
+            }
+            if (await _viewModel.IsRunning() && await _viewModel.IsEnabled())
             {
                 DialogHelper.ShowDialog(
                     this,
