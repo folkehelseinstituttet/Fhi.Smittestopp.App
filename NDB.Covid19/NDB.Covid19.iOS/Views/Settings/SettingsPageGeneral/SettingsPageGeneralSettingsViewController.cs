@@ -43,7 +43,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
             InitLabel(RestartAppLabl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 14, 28);
-            InitLabel(SmittestopLinkButtonLbl, FontType.FontRegular,
+            InitUnderlinedLabel(SmittestopLinkButtonLbl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT, 16, 28);
 
             Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
