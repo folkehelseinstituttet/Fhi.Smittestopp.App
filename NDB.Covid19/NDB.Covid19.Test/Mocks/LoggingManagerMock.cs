@@ -5,7 +5,6 @@ using NDB.Covid19.PersistedData.SQLite;
 
 namespace NDB.Covid19.Test.Mocks
 {
-
     public class LoggingManagerMock : ILoggingManager
     {
         private List<LogSQLiteModel> _logList;
@@ -15,35 +14,24 @@ namespace NDB.Covid19.Test.Mocks
             _logList = new List<LogSQLiteModel>();
         }
 
-        public async void SaveNewLog(LogSQLiteModel log)
+        public void SaveNewLog(LogSQLiteModel log)
         {
-
             _logList.Add(log);
-
         }
 
         public async Task<List<LogSQLiteModel>> GetLogs(int amount)
         {
-
-            return _logList;
-
+            return await Task.Run(() => _logList);
         }
 
         public async Task DeleteLogs(List<LogSQLiteModel> logs)
         {
-
-            foreach (LogSQLiteModel log in logs)
-            {
-                _logList.Remove(log);
-            }
-
+            await Task.Run(() => _logList.Clear());
         }
 
         public async Task DeleteAll()
         {
-
-            _logList = new List<LogSQLiteModel>();
-
+            await Task.Run(() => _logList = new List<LogSQLiteModel>());
         }
     }
 }

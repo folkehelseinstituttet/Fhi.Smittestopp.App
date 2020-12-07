@@ -113,6 +113,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             _viewModel.Cleanup();
             NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED);
         }
     }
 }

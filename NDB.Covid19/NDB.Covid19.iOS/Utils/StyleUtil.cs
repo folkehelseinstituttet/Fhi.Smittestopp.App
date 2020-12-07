@@ -96,6 +96,13 @@ namespace NDB.Covid19.iOS.Utils
             btn.BackgroundColor = UIColor.Clear;
             btn.Layer.BorderWidth = 1;
             btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            btn.TitleLabel.Lines = 0;
+            btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
+            
+            btn.ContentEdgeInsets = new UIEdgeInsets(12, 12, 12, 12);
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };
+            UIStringAttributes attributes = new UIStringAttributes { ParagraphStyle = paragraphStyle };
+            btn.TitleLabel.AttributedText = new NSMutableAttributedString(text, attributes);
         }
 
         /// <summary>
@@ -109,6 +116,22 @@ namespace NDB.Covid19.iOS.Utils
         public static void InitLabel(UILabel label, FontType fontType, string text, float fontSize, float maxFontSize)
         {
             label.Text = text;
+            label.Font = Font(fontType, fontSize, maxFontSize);
+        }
+
+        /// <summary>
+        /// Set maxFontSize for accessibility - large text
+        /// </summary>
+        /// <param name="label"></param>
+        /// <param name="fontType"></param>
+        /// <param name="text"></param>
+        /// <param name="fontSize"></param>
+        /// <param name="maxFontSize"></param>
+        public static void InitUnderlinedLabel(UILabel label, FontType fontType, string text, float fontSize, float maxFontSize)
+        {
+            var attributedString = new NSMutableAttributedString(text);
+            attributedString.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), new NSRange(0, attributedString.Length));
+            label.AttributedText = attributedString;
             label.Font = Font(fontType, fontSize, maxFontSize);
         }
 

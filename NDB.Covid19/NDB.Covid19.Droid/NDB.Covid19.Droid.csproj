@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,7 +53,7 @@
     <AotAssemblies>true</AotAssemblies>
     <EnableLLVM>true</EnableLLVM>
     <AndroidLinkTool>r8</AndroidLinkTool>
-    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86_64;x86</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
     <AndroidPackageFormat>aab</AndroidPackageFormat>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppCenter|AnyCPU' ">
@@ -577,12 +578,6 @@
       <Generator>
       </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_main.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\bubble_layout.xml">
       <SubType>
       </SubType>
@@ -602,12 +597,6 @@
       </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\consent_settings_page_body.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\content_main.xml">
       <SubType>
       </SubType>
       <Generator>
@@ -921,12 +910,6 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\app_logoNO.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\app_logoNO.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\app_logoNO.png" />
-    <AndroidResource Include="Resources\layout\activity_feed.axml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.CurrentActivity">
@@ -952,7 +935,7 @@
       <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Unity">
-      <Version>5.11.4</Version>
+      <Version>5.11.9</Version>
     </PackageReference>
     <PackageReference Include="sameerIOTApps.Plugin.SecureStorage">
       <Version>2.5.0</Version>
@@ -999,9 +982,6 @@
       <Project>{BA22DA02-405B-4356-9FBB-646B0F5E31B9}</Project>
       <Name>NDB.Covid19</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_feed_list_item.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_warning_orange.png" />
