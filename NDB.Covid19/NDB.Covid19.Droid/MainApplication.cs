@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using AndroidX.LocalBroadcastManager.Content;
 using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
@@ -23,6 +24,7 @@ namespace NDB.Covid19.Droid
         private BroadcastReceiver _permissionsBroadcastReceiver;
         private FlightModeHandlerBroadcastReceiver _flightModeBroadcastReceiver;
         private IntentFilter _filter;
+        private BackgroundNotificationBroadcastReceiver _backgroundNotificationBroadcastReceiver;
 
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
             : base(handle, transer)
@@ -57,6 +59,7 @@ namespace NDB.Covid19.Droid
 
             _permissionsBroadcastReceiver = new PermissionsBroadcastReceiver();
             _flightModeBroadcastReceiver = new FlightModeHandlerBroadcastReceiver();
+            _backgroundNotificationBroadcastReceiver = new BackgroundNotificationBroadcastReceiver();
 
             LogUtils.SendAllLogs();
 
@@ -71,9 +74,9 @@ namespace NDB.Covid19.Droid
             if (e?.Exception != null)
             {
                 string message = $"{nameof(MainApplication)}.{nameof(OnUnhandledAndroidException)}: "
-                    + (!e.Handled
-                    ? "Native unhandled crash"
-                    : "Native unhandled exception - not crashing");
+                                 + (!e.Handled
+                                     ? "Native unhandled crash"
+                                     : "Native unhandled exception - not crashing");
 
                 LogSeverity logLevel = e.Handled
                     ? LogSeverity.WARNING
@@ -91,12 +94,20 @@ namespace NDB.Covid19.Droid
             ManualGarbageCollectionTool();
             RegisterReceiver(_permissionsBroadcastReceiver, _filter);
             RegisterReceiver(_flightModeBroadcastReceiver, new IntentFilter("android.intent.action.AIRPLANE_MODE"));
+            LocalBroadcastManager
+                .GetInstance(ApplicationContext)
+                .RegisterReceiver(
+                    _backgroundNotificationBroadcastReceiver,
+                    new IntentFilter("com.netcompany.smittestop_exposure_notification.background_notification"));
         }
 
         public override void OnTerminate()
         {
             UnregisterReceiver(_permissionsBroadcastReceiver);
             UnregisterReceiver(_flightModeBroadcastReceiver);
+            LocalBroadcastManager
+                .GetInstance(ApplicationContext)
+                .UnregisterReceiver(_backgroundNotificationBroadcastReceiver);
             base.OnTerminate();
         }
 
