@@ -18,19 +18,18 @@
         <ImageView
                 android:id="@+id/arrow_back"
                 android:src="@drawable/ic_circle_arrow_left"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/messages_page_title"/>
+                android:layout_width="@dimen/backButton"
+                android:layout_height="@dimen/backButton"
+                app:layout_constraintBaseline_toBaselineOf="@id/messages_page_title"
+                app:layout_constraintStart_toStartOf="parent"/>
+
         <TextView
-                android:paddingStart="8dp"
                 android:id="@+id/messages_page_title"
                 android:text="Beskeder"
                 style="@style/HeaderText"
                 android:textStyle="bold"
                 android:layout_width="0dp"
+                android:paddingStart="8dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"

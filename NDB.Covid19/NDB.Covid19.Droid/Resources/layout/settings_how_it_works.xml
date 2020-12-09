@@ -17,9 +17,8 @@
 
         <ImageButton
                 android:id="@+id/arrow_back"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:baselineAlignBottom="true"
+                android:layout_width="@dimen/backButton"
+                android:layout_height="@dimen/backButton"
                 app:layout_constraintBaseline_toBaselineOf="@id/settings_how_it_works_title"
                 android:background="@drawable/ic_circle_arrow_left"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -33,6 +32,7 @@
                 android:gravity="top"
                 android:text="Title\nTitle"
                 android:lineSpacingExtra="4sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/arrow_back"
                 app:layout_constraintTop_toTopOf="parent"/>
