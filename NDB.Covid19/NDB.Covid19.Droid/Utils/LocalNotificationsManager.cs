@@ -143,7 +143,7 @@ namespace NDB.Covid19.Droid.Utils
         private static void BroadcastNotification(NotificationViewModel viewModel, NotificationType type)
         {
             Intent intent = new Intent();
-            intent.SetAction("com.netcompany.smittestop_exposure_notification.background_notification");
+            intent.SetAction("no.fhi.smittestopp_exposure_notification.background_notification");
             intent.PutExtra("type", (int) type);
             intent.PutExtra("data", (int) viewModel.Type);
             Current.AppContext.SendBroadcast(intent);

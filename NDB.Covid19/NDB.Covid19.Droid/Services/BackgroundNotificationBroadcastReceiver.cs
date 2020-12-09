@@ -12,7 +12,7 @@ namespace NDB.Covid19.Droid.Services
     [BroadcastReceiver]
     [IntentFilter(new[]
     {
-        "com.netcompany.smittestop_exposure_notification.background_notification"
+        "no.fhi.smittestopp_exposure_notification.background_notification"
     })]
     public class BackgroundNotificationBroadcastReceiver : BroadcastReceiver
     {
