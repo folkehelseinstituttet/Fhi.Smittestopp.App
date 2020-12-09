@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using AndroidX.LocalBroadcastManager.Content;
 using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
@@ -93,15 +94,20 @@ namespace NDB.Covid19.Droid
             ManualGarbageCollectionTool();
             RegisterReceiver(_permissionsBroadcastReceiver, _filter);
             RegisterReceiver(_flightModeBroadcastReceiver, new IntentFilter("android.intent.action.AIRPLANE_MODE"));
-            RegisterReceiver(_backgroundNotificationBroadcastReceiver,
-                new IntentFilter("com.netcompany.smittestop_exposure_notification.background_notification"));
+            LocalBroadcastManager
+                .GetInstance(ApplicationContext)
+                .RegisterReceiver(
+                    _backgroundNotificationBroadcastReceiver,
+                    new IntentFilter("com.netcompany.smittestop_exposure_notification.background_notification"));
         }
 
         public override void OnTerminate()
         {
             UnregisterReceiver(_permissionsBroadcastReceiver);
             UnregisterReceiver(_flightModeBroadcastReceiver);
-            UnregisterReceiver(_backgroundNotificationBroadcastReceiver);
+            LocalBroadcastManager
+                .GetInstance(ApplicationContext)
+                .UnregisterReceiver(_backgroundNotificationBroadcastReceiver);
             base.OnTerminate();
         }
 

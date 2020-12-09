@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.OS;
 using Android.Support.V4.App;
+using AndroidX.LocalBroadcastManager.Content;
 using Java.Lang;
 using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Views.Messages;
@@ -146,7 +147,9 @@ namespace NDB.Covid19.Droid.Utils
             intent.SetAction("no.fhi.smittestopp_exposure_notification.background_notification");
             intent.PutExtra("type", (int) type);
             intent.PutExtra("data", (int) viewModel.Type);
-            Current.AppContext.SendBroadcast(intent);
+            LocalBroadcastManager
+                .GetInstance(Current.Activity ?? Current.AppContext)
+                .SendBroadcast(intent);
         }
     }
 }
