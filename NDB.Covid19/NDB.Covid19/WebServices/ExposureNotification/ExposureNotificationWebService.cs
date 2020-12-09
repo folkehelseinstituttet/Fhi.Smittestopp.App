@@ -51,7 +51,23 @@ namespace NDB.Covid19.WebServices.ExposureNotification
                 // var W = initiator.RandomiseToken(ecParameters, publicKey, P, Q, proofC, proofZ, r);
                 // call /xx/xx on Backend with t and W as payload to verify the token. Response will be true/false.
 
-                return await Task.FromResult(true);
+                ApiResponse response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
+
+                // HandleErrorsSilently happens even if IsSuccessfull is true other places in the code, but here
+                // we have an if-else to avoid having to create the redacted key list if we don't have to
+                if (!response.IsSuccessfull)
+                {
+                    string redactedKeysJson = RedactedTekListHelper.CreateRedactedTekList(temporaryExposureKeys);
+                    HandleErrorsSilently(response, new PostExposureKeysErrorHandler(redactedKeysJson));
+                }
+                else
+                {
+                    HandleErrorsSilently(response);
+                }
+
+                ENDeveloperToolsViewModel.UpdatePushKeysInfo(response, selfDiagnosisSubmissionDTO, JsonSerializerSettings);
+
+                return response.IsSuccessfull;
             }
             else
             {
