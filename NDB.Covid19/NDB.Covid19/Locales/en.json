@@ -170,7 +170,7 @@
   "INFOCONSENT_CONSENT_EXPLANATION_TEXT": "I consent that people who have been nearby me will be notified that they have been nearby someone who is infected with COVID-19. In order to notify others, I also consent to checks being performed in the Norwegian Surveillance System for Communicable Diseases (MSIS). This will enable the Norwegian Institute of Public Health to confirm that I am infected before any messages are sent to other people. The people who are notified will not know that I sent out the infection message.",
   "INFOCONSENT_LOGIN": "I consent ",
   "REGISTER_ERROR_NOMATCH_HEADER": "Your test result was not found",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>This may be because your test result has not been registered yet. </p><br><p>It may also be due to a system error – in which case we apologise sincerely. <p/><p>Please try again later if you can. </p>  If you are below 16 years of age, you cannot register as infected.",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>It may take some time before the result are updated in MSIS. Please try again later. </p> You must be over 16 years old to share your test result with Smittestopp.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "Your test result has already been shared in Smittestopp",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "It is only possible to register as infected once in Smittestopp. ",
   "REGISTER_ERROR_HEADER": "An error occurred",

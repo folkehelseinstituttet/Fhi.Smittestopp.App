@@ -170,7 +170,7 @@
   "INFOCONSENT_CONSENT_EXPLANATION_TEXT": "Jeg samtykker til at personer jeg har vært i nærheten av blir varslet om at de har vært i nærheten av en som er smittet av covid-19. For å varsle, godkjenner jeg også at det gjøres oppslag i Meldingssystem for smittsomme sykdommer (MSIS). Slik kan FHI bekrefte at jeg er smittet før det blir sendt varsel om smitte til andre. De som blir varslet om mulig smitte får ikke vite at det er jeg som har varslet om smitten. ",
   "INFOCONSENT_LOGIN": "Jeg samtykker",
   "REGISTER_ERROR_NOMATCH_HEADER": "Testresultatet ditt ble ikke funnet",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Det kan skyldes at testresultatet ikke er registrert ennå. </p><br><p>Det kan også skyldes en systemfeil – i så fall beklager vi. <p/><p>Prøv gjerne igjen senere hvis du kan. </p> Hvis du er under 16 år kan du ikke registrere deg som smittet. ",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Det kan ta tid før resultatet er oppdatert i MSIS. Vennligst forsøk igjen senere. </p> Du må være over 16 år for å dele testresultatet ditt med Smittestopp.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "Testresultatet ditt er allerede delt i Smittestopp",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "Du kan bare registrere deg som smittet én gang i Smittestopp. ",
   "REGISTER_ERROR_HEADER": "Det oppsto en feil",
