@@ -20,6 +20,7 @@ namespace NDB.Covid19.AnonymousTokens
             var certificate = new X509Certificate2(publicKeyBytes);
 
             var convertedCertificate = DotNetUtilities.FromX509Certificate(certificate);
+
             return Task.FromResult((ECPublicKeyParameters)convertedCertificate.GetPublicKey());
         }
     }

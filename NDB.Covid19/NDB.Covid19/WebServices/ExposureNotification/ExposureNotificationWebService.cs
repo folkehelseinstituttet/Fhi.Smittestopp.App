@@ -1,6 +1,5 @@
 ﻿using AnonymousTokens.Client.Protocol;
 
-using NDB.Covid19.AnonymousTokens;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using NDB.Covid19.OAuth2;
@@ -38,8 +37,8 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             if (AuthenticationState.PersonalData?.AnonymousTokensEnabled == true)
             {
                 var ecParameters = CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1);
-                var publicKeyStore = new PublicKeyStore();
-                var publicKey = await publicKeyStore.GetAsync();
+                //var publicKeyStore = new PublicKeyStore();
+                //var publicKey = await publicKeyStore.GetAsync();
 
                 var initiator = new Initiator();
                 var init = initiator.Initiate(ecParameters.Curve);

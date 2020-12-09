@@ -15,7 +15,7 @@ namespace NDB.Covid19.Test.Tests.AnonymousTokens
             _systemUnderTest = new PublicKeyStore();
         }
 
-        [Fact]
+        [Fact(Skip = "Need clarification of type of key which will be used"]
         public async void GetAsync_GivenABase64EncodedStringAsPublicKey_ReturnsExpectedPublicKey()
         {
             // Arrange
