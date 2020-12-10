@@ -98,7 +98,7 @@ namespace NDB.Covid19.Droid
                 .GetInstance(ApplicationContext)
                 .RegisterReceiver(
                     _backgroundNotificationBroadcastReceiver,
-                    new IntentFilter("com.netcompany.smittestop_exposure_notification.background_notification"));
+                    new IntentFilter(LocalNotificationsManager.BroadcastActionName));
         }
 
         public override void OnTerminate()

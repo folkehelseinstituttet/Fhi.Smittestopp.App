@@ -19,7 +19,7 @@ namespace NDB.Covid19.Droid.Utils
     {
         public const int NotificationId = 616;
         public const int PermissionsNotificationId = 161;
-
+        public const string BroadcastActionName = "no.fhi.smittestopp_exposure_notification.background_notification";
         private readonly string _channelId = "Local_Notifications";
         private NotificationChannel _channel;
         private readonly Context _context;
@@ -144,7 +144,7 @@ namespace NDB.Covid19.Droid.Utils
         private static void BroadcastNotification(NotificationViewModel viewModel, NotificationType type)
         {
             Intent intent = new Intent();
-            intent.SetAction("no.fhi.smittestopp_exposure_notification.background_notification");
+            intent.SetAction(BroadcastActionName);
             intent.PutExtra("type", (int) type);
             intent.PutExtra("data", (int) viewModel.Type);
             LocalBroadcastManager
