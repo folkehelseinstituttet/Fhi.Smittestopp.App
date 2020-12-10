@@ -3,10 +3,8 @@
 using NDB.Covid19.Configuration;
 
 using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Security;
 
-using System;
-using System.Security.Cryptography.X509Certificates;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace NDB.Covid19.AnonymousTokens
@@ -15,13 +13,17 @@ namespace NDB.Covid19.AnonymousTokens
     {
         public Task<ECPublicKeyParameters> GetAsync()
         {
-            var publicKeyBytes = Convert.FromBase64String(OAuthConf.OAUTH2_VERIFY_TOKEN_PUBLIC_KEY);
+            return LoadAsECPublicKey();
+        }
 
-            var certificate = new X509Certificate2(publicKeyBytes);
+        private static Task<ECPublicKeyParameters> LoadAsECPublicKey()
+        {
+            using (var reader = new StringReader(OAuthConf.OAUTH2_VERIFY_TOKEN_PUBLIC_KEY))
+            {
+                var publicKey = (ECPublicKeyParameters)new Org.BouncyCastle.OpenSsl.PemReader(reader).ReadObject();
 
-            var convertedCertificate = DotNetUtilities.FromX509Certificate(certificate);
-
-            return Task.FromResult((ECPublicKeyParameters)convertedCertificate.GetPublicKey());
+                return Task.FromResult(publicKey);
+            }
         }
     }
 }
