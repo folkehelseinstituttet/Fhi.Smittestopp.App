@@ -27,7 +27,7 @@ namespace NDB.Covid19.Test.Tests.AnonymousTokens
                # generate corresponding public key
                openssl ec -in private-key.pem -pubout -out public-key.pem
             */
-            OAuthConf.OAUTH2_VERIFY_TOKEN_PUBLIC_KEY =
+            AnonymousTokensConfig.ANONYMOUS_TOKENS_PUBLIC_KEY =
 @"-----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAESwcNFtWPA+ea0dKLy8qu94az50x9
 3FO39ogmOgWLhpjKc3wvaMXOpHzJq6BR3hIniaqCJ8UKdw0Kd42RBnYghg==

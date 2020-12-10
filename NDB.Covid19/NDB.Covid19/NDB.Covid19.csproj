@@ -52,7 +52,6 @@
     <Folder Include="WebServices\ErrorHandlers\" />
     <Folder Include="Models\DTOsForServer\" />
     <Folder Include="Models\Logging\" />
-    <Folder Include="Configuration\" />
     <Folder Include="ExposureNotifications\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Locales\" />
