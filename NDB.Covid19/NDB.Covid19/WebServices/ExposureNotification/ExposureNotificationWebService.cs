@@ -34,61 +34,50 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 
         public async Task<bool> PostSelvExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
         {
+            ApiResponse response;
             if (AuthenticationState.PersonalData?.AnonymousTokensEnabled == true)
             {
-                var ecParameters = CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1);
-                //var publicKeyStore = new PublicKeyStore();
-                //var publicKey = await publicKeyStore.GetAsync();
-
-                var initiator = new Initiator();
-                var init = initiator.Initiate(ecParameters.Curve);
-                var t = init.t;
-                var r = init.r;
-                var P = init.P;
-
-                // call /api/anonymoustokens on Verification with P as payload to generate token. Response will contain Q, proofC, proofZ.
-                // var W = initiator.RandomiseToken(ecParameters, publicKey, P, Q, proofC, proofZ, r);
-                // call /xx/xx on Backend with t and W as payload to verify the token. Response will be true/false.
-
-                ApiResponse response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
-
-                // HandleErrorsSilently happens even if IsSuccessfull is true other places in the code, but here
-                // we have an if-else to avoid having to create the redacted key list if we don't have to
-                if (!response.IsSuccessfull)
-                {
-                    string redactedKeysJson = RedactedTekListHelper.CreateRedactedTekList(temporaryExposureKeys);
-                    HandleErrorsSilently(response, new PostExposureKeysErrorHandler(redactedKeysJson));
-                }
-                else
-                {
-                    HandleErrorsSilently(response);
-                }
-
-                ENDeveloperToolsViewModel.UpdatePushKeysInfo(response, selfDiagnosisSubmissionDTO, JsonSerializerSettings);
-
-                return response.IsSuccessfull;
+                response = await PostSelvExposureKeysWithAnonTokens(selfDiagnosisSubmissionDTO, temporaryExposureKeys, service);
             }
             else
             {
-                ApiResponse response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
-
-                // HandleErrorsSilently happens even if IsSuccessfull is true other places in the code, but here
-                // we have an if-else to avoid having to create the redacted key list if we don't have to
-                if (!response.IsSuccessfull)
-                {
-                    string redactedKeysJson = RedactedTekListHelper.CreateRedactedTekList(temporaryExposureKeys);
-                    HandleErrorsSilently(response, new PostExposureKeysErrorHandler(redactedKeysJson));
-                }
-                else
-                {
-                    HandleErrorsSilently(response);
-                }
-
-                ENDeveloperToolsViewModel.UpdatePushKeysInfo(response, selfDiagnosisSubmissionDTO, JsonSerializerSettings);
-
-                return response.IsSuccessfull;
+                response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
             }
 
+            // HandleErrorsSilently happens even if IsSuccessfull is true other places in the code, but here
+            // we have an if-else to avoid having to create the redacted key list if we don't have to
+            if (!response.IsSuccessfull)
+            {
+                string redactedKeysJson = RedactedTekListHelper.CreateRedactedTekList(temporaryExposureKeys);
+                HandleErrorsSilently(response, new PostExposureKeysErrorHandler(redactedKeysJson));
+            }
+            else
+            {
+                HandleErrorsSilently(response);
+            }
+
+            ENDeveloperToolsViewModel.UpdatePushKeysInfo(response, selfDiagnosisSubmissionDTO, JsonSerializerSettings);
+
+            return response.IsSuccessfull;
+        }
+
+        private static async Task<ApiResponse> PostSelvExposureKeysWithAnonTokens(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
+        {
+            var ecParameters = CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1);
+            //var publicKeyStore = new PublicKeyStore();
+            //var publicKey = await publicKeyStore.GetAsync();
+
+            var initiator = new Initiator();
+            var init = initiator.Initiate(ecParameters.Curve);
+            var t = init.t;
+            var r = init.r;
+            var P = init.P;
+
+            // call /api/anonymoustokens on Verification with P as payload to generate token. Response will contain Q, proofC, proofZ.
+            // var W = initiator.RandomiseToken(ecParameters, publicKey, P, Q, proofC, proofZ, r);
+            // call /xx/xx on Backend with t and W as payload to verify the token. Response will be true/false.
+
+            return await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
         }
 
         public async Task<Xamarin.ExposureNotifications.Configuration> GetExposureConfiguration()
