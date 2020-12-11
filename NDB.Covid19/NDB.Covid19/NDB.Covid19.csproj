@@ -78,7 +78,7 @@
     <PackageReference Include="Plugin.BLE" Version="2.1.1" />
     <PackageReference Include="morelinq" Version="3.3.2" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
-    <PackageReference Include="JWT" Version="7.2.1" />
+    <PackageReference Include="JWT" Version="7.3.1" />
     <PackageReference Include="Google.Protobuf" Version="3.12.3" />
     <PackageReference Include="Xamarin.ExposureNotification" Version="0.13.0-preview" />
     <PackageReference Include="PCLCrypto" Version="2.1.40-alpha" />
