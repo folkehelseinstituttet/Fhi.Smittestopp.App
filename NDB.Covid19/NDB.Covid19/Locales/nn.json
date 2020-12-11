@@ -169,7 +169,7 @@
   "INFOCONSENT_CONSENT_BEAWARE_TEXT": "Når du først har gitt samtykke til varsling, og varselet er sendt, kan du ikkje trekke tilbake dette samtykket.",
   "INFOCONSENT_CONSENT_EXPLANATION_TEXT": "Eg samtykker i at personar eg har vore i nærleiken av, blir varsla om at dei har vore i nærleiken av ein som er smitta av covid-19. For å varsle samtykker eg òg i at det blir gjort oppslag i Meldingssystem for smittsame sjukdommar (MSIS). Slik kan FHI stadfeste at eg er smitta, før det blir sendt varsel om smitte til andre. Dei som blir varsla om mogleg smitte, får ikkje vite at det er eg som har varsla om smitten.",
   "INFOCONSENT_LOGIN": "Eg samtykker",
-  "REGISTER_ERROR_NOMATCH_HEADER": "Fann ikkje testresultatet ditt",
+  "REGISTER_ERROR_NOMATCH_HEADER": "Testresultatet ditt blei ikkje funne",
   "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Det kan ta tid før resultatet er oppdatert i MSIS. Ver vennleg og forsøk igjen seinare. </p> Du må vere over 16 år for å dele testresultatet ditt med Smittestopp.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "Testresultatet ditt er allereie delt i Smittestopp",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "Du kan berre registrere deg som smitta éin gong i Smittestopp. ",
