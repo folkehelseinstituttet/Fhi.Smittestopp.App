@@ -84,7 +84,7 @@ namespace NDB.Covid19.Configuration
         public static string DB_NAME => "Smittestopp1.db3";
 
         //Links for Apples app store and Googles Play store
-        public static string GooglePlayAppLink = ""; // TODO
-        public static string IOSAppstoreAppLink = ""; // TODO
+        public static string GooglePlayAppLink = "https://play.google.com/store/apps/details?id=no.fhi.smittestopp_exposure_notification";
+        public static string IOSAppstoreAppLink = "itms-apps://itunes.apple.com/app/1540967575";
     }
 }
