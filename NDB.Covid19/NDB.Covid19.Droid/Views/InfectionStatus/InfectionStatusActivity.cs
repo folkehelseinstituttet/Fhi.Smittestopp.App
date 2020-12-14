@@ -182,6 +182,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 bool isRunning = await _viewModel.IsRunning();
                 _activityStatusText.Text = await _viewModel.StatusTxt();
+                _activityStatusText.ContentDescription = SMITTESPORING_APP_TITLE_ACCESSIBILITY + await _viewModel.StatusTxt();
                 _activityStatusDescription.Text = await _viewModel.StatusTxtDescription();
                 
                 Color enabledColor = new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOnGreen));
