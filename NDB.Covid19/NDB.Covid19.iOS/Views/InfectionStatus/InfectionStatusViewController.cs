@@ -184,7 +184,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
             StatusContainer.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             StatusText.Text = await _viewModel.StatusTxt();
-            StatusText.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_APP_TITLE_TEXT + " " + _viewModel.StatusTxt();
+            StatusText.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_APP_TITLE_TEXT + " " + await _viewModel.StatusTxt();
         }
 
         void SetOnOffBtnState(bool isRunning)
