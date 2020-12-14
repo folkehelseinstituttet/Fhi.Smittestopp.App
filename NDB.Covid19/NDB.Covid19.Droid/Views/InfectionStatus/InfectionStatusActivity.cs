@@ -189,6 +189,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 _statusLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
                 _toolbarLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
 
+                //Accessibility
+                _activityStatusText.ContentDescription = SMITTESPORING_APP_TITLE_ACCESSIBILITY + await _viewModel.StatusTxt();
+
                 if (isRunning)
                 {
                     _onOffButton.Text = INFECTION_STATUS_STOP_BUTTON_TEXT;

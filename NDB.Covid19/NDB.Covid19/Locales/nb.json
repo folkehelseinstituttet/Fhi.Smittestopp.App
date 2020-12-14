@@ -99,6 +99,7 @@
   "FORCE_UPDATE_BUTTON_GOOGLE_ANDROID": "Gå til Google Play Butikk",
   "FORCE_UPDATE_BUTTON_HUAWEI_ANDROID": "Gå til AppGallery",
   "FORCE_UPDATE_BUTTON_APPSTORE_IOS": "Gå til App Store",
+  "SMITTESPORING_APP_TITLE_ACCESSIBILITY": "Smittestopp",
   "SMITTESPORING_ACTIVE_HEADER": "er aktiv",
   "SMITTESPORING_INACTIVE_HEADER": "er ikke aktiv",
   "SMITTESPORING_ACTIVE_DESCRIPTION": "Du bidrar nå til å stoppe spredning av koronavirus.",

@@ -99,6 +99,7 @@
   "FORCE_UPDATE_BUTTON_GOOGLE_ANDROID": "Go to Google Play Store",
   "FORCE_UPDATE_BUTTON_HUAWEI_ANDROID": "Go to AppGallery",
   "FORCE_UPDATE_BUTTON_APPSTORE_IOS": "Go to App Store",
+  "SMITTESPORING_APP_TITLE_ACCESSIBILITY": "Smittestopp",
   "SMITTESPORING_ACTIVE_HEADER": "is active",
   "SMITTESPORING_INACTIVE_HEADER": "is inactive",
   "SMITTESPORING_ACTIVE_DESCRIPTION": "You are now helping to prevent the spread of COVID-19",
