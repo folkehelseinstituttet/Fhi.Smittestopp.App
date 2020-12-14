@@ -100,7 +100,7 @@
   "FORCE_UPDATE_BUTTON_HUAWEI_ANDROID": "Gå til AppGallery",
   "FORCE_UPDATE_BUTTON_APPSTORE_IOS": "Gå til App Store",
   "SMITTESPORING_APP_TITLE_ACCESSIBILITY": "Smittestopp",
-  "SMITTESPORING_ACTIVE_HEADER": "Aktiv",
+  "SMITTESPORING_ACTIVE_HEADER": "er aktiv",
   "SMITTESPORING_INACTIVE_HEADER": "er ikkje aktiv",
   "SMITTESPORING_ACTIVE_DESCRIPTION": "Du bidrar no til å stoppe spreiing av koronavirus",
   "SMITTESPORING_INACTIVE_DESCRIPTION": "Aktiver Smittestopp, og bidra til å stoppe spreiing av koronavirus",
