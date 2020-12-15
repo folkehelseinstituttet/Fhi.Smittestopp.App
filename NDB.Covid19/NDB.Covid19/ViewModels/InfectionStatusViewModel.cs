@@ -105,7 +105,6 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> IsRunning()
         {
-            return true;
             if (IsAppRestricted)
             {
                 return false;
@@ -126,7 +125,6 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> IsEnabled()
         {
-            return true;
             try
             {
                 return await ExposureNotification.IsEnabledAsync();
@@ -143,7 +141,6 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> StartENService()
         {
-            return true;
             if (IsAppRestricted)
             {
                 return false;
@@ -165,7 +162,6 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> StopENService()
         {
-            return true;
             if (IsAppRestricted)
             {
                 return false;
