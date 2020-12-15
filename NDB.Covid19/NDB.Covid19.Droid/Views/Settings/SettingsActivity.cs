@@ -43,6 +43,10 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView generalButton = generalLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
             TextView deploymentButton = deploymentLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
 
+            ImageView _fhiLogo;
+            _fhiLogo = FindViewById<ImageView>(Resource.Id.settings_icon_imageview);
+            _fhiLogo.ContentDescription = ViewModels.InfectionStatusViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
+
             settingsIntroButton.Text = _settingsViewModel.SettingItemList[0].Text;
             howItWorksButton.Text = _settingsViewModel.SettingItemList[1].Text;
             gdprButton.Text = _settingsViewModel.SettingItemList[2].Text;
