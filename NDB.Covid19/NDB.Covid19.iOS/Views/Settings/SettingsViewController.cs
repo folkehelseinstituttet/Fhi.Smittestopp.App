@@ -34,6 +34,7 @@ namespace NDB.Covid19.iOS.Views.Settings
             _viewModel = new SettingsViewModel();
             _tableSource = new SettingsTableViewSource(_viewModel.SettingItemList);
             CloseBtn.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
+            fhiLogo.AccessibilityLabel = InfectionStatusViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
 
         }
 
