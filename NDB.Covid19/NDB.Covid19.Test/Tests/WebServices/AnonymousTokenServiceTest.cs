@@ -66,7 +66,7 @@ namespace NDB.Covid19.Test.Tests.WebServices
         private BigInteger GeneratePrivateKey()
         {
             var random = new Random();
-            byte[] data = new byte[256];
+            byte[] data = new byte[32];
             random.NextBytes(data);
             return new BigInteger(data);
         }
