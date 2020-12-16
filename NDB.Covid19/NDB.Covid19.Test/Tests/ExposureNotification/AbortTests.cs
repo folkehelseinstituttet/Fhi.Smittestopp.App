@@ -1,36 +1,32 @@
-﻿using System;
+﻿using Moq;
+
+using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
+using NDB.Covid19.Models;
+using NDB.Covid19.Test.Mocks;
+using NDB.Covid19.Utils;
+using NDB.Covid19.WebServices;
+using NDB.Covid19.WebServices.ExposureNotification;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Moq;
-using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
-using NDB.Covid19.Enums;
-using NDB.Covid19.Models;
-using NDB.Covid19.Test.Helpers;
-using NDB.Covid19.Test.Mocks;
-using NDB.Covid19.Utils;
-using NDB.Covid19.WebServices;
-using NDB.Covid19.WebServices.ExposureNotification;
+
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
-    public class AbortTests : IDisposable
+    public class AbortTests
     {
         private static readonly LocalNotificationManagerMock _localNotificationsManager =
-            (LocalNotificationManagerMock) NotificationsHelper.LocalNotificationsManager;
+            (LocalNotificationManagerMock)NotificationsHelper.LocalNotificationsManager;
 
         public AbortTests()
         {
             DependencyInjectionConfig.Init();
-            ApiStubHelper.StartServer();
-        }
-
-        public void Dispose()
-        {
-            ApiStubHelper.StopServer();
         }
 
         [Theory]
