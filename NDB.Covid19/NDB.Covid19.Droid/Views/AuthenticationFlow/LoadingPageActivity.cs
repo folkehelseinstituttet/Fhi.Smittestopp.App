@@ -48,7 +48,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 LogUtils.LogMessage(LogSeverity.INFO, "Successfully pushed keys to server");
                 OnActivityFinished();
             }
-            catch(Exception e)
+            catch(AccessDeniedException e)
+            {
+                LogUtils.LogException(LogSeverity.WARNING, e, "User permission to upload keys was denied");
+                OnError(e);
+            }
+            catch(System.Exception e)
             {
                 OnError(e);
             }
@@ -69,20 +74,15 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             
         }
 
-        void OnError(Exception e)
+        void OnError(AccessDeniedException e)
         {
-            if (e is AccessDeniedException)
-            {
-                LogUtils.LogMessage(LogSeverity.INFO, "The user refused to share keys", null);
-                RunOnUiThread(() => { GoToInfectionStatusPage(); });
-            }
-            else
-            {
-                RunOnUiThread(() => AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, e, "Pushing keys failed"));
-            }
+             NavigationHelper.GoToResultPageAndClearTop(this);
         }
 
-        private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
+        void OnError(Exception e)
+        {
+            AuthErrorUtils.GoToTechnicalError(this,LogSeverity.ERROR, e, "Pushing keys failed" );
+        }
 
         public override void OnBackPressed()
         {
