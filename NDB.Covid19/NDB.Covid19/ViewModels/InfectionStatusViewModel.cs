@@ -11,6 +11,7 @@ namespace NDB.Covid19.ViewModels
 {
     public class InfectionStatusViewModel
     {
+        public static string SMITTESPORING_FHI_LOGO_ACCESSIBILITY => "SMITTESPORING_FHI_LOGO_ACCESSIBILITY".Translate();
         public static string SMITTESPORING_APP_TITLE_ACCESSIBILITY => "SMITTESPORING_APP_TITLE_ACCESSIBILITY".Translate();
         public static string INFECTION_STATUS_ACTIVE_TEXT => "SMITTESPORING_ACTIVE_HEADER".Translate();
         public static string INFECTION_STATUS_INACTIVE_TEXT => "SMITTESPORING_INACTIVE_HEADER".Translate();
