@@ -16,14 +16,13 @@
 
         <ImageButton
                 android:id="@+id/arrow_back_about"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/backButton"
+                android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
                 android:focusable="true"
                 android:paddingStart="0dp"
                 android:paddingEnd="8dp"
-                android:baselineAlignBottom="true"
                 app:layout_constraintBaseline_toBaselineOf="@id/settings_about_title"
                 app:layout_constraintStart_toStartOf="parent"/>
 
