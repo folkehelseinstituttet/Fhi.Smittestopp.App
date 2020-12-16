@@ -74,7 +74,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             if (e is AccessDeniedException)
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user refused to share keys", null);
-                GoToInfectionStatusPage();
+                RunOnUiThread(() => { GoToInfectionStatusPage(); });
             }
             else
             {
