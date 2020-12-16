@@ -180,6 +180,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         async void UpdateUI()
         {
+            fhiLogo.AccessibilityLabel = InfectionStatusViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
             _areYouInfectedBtn.AccessibilityLabel = _viewModel.NewRegistrationAccessibilityText;
             _messageViewBtn.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(_viewModel.NewMessageAccessibilityText);
             ActivityExplainerLbl.Text = await _viewModel.StatusTxtDescription();

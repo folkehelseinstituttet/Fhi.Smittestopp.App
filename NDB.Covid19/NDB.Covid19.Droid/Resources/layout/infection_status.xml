@@ -17,7 +17,7 @@
                 android:src="@drawable/ic_logo_fhi_blue"
                 android:layout_width="56dp"
                 android:layout_height="24dp"
-                android:importantForAccessibility="no"
+                android:importantForAccessibility="yes"
                 android:layout_marginStart="@dimen/defaultHorizontalMargin"
                 android:id="@+id/infection_status_app_icon_imageView"/>
 
