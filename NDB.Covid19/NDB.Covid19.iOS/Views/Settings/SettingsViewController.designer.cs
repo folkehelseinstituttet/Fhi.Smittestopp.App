@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.Settings
 {
@@ -16,6 +16,10 @@ namespace NDB.Covid19.iOS.Views.Settings
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton CloseBtn { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView fhiLogo { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -30,6 +34,11 @@ namespace NDB.Covid19.iOS.Views.Settings
             if (CloseBtn != null) {
                 CloseBtn.Dispose ();
                 CloseBtn = null;
+            }
+
+            if (fhiLogo != null) {
+                fhiLogo.Dispose ();
+                fhiLogo = null;
             }
 
             if (SettingsItemsTable != null) {
