@@ -54,7 +54,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private void OnAuthSuccess(object sender, EventArgs e)
         {
             LogUtils.LogMessage(Enums.LogSeverity.INFO, $"Successfully authenticated and verified user. Navigation to {nameof(QuestionnairePageActivity)}");
-            GoToQuestionnairePage();
         }
 
         void InitLayout()
