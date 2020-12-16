@@ -45,14 +45,40 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         IOSPermissionManager _permissionManager;
 
+        UIFocusGuide _focusGuide = new UIFocusGuide ();
+        
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
+            View.AddLayoutGuide(_focusGuide);
+            
+            _focusGuide.LeftAnchor.ConstraintEqualTo(MenuIcon.LeftAnchor).Active = true;
+            _focusGuide.RightAnchor.ConstraintEqualTo(MenuIcon.RightAnchor).Active = true;
+            _focusGuide.TopAnchor.ConstraintEqualTo(OnOffBtn.TopAnchor).Active = true;
+            _focusGuide.BottomAnchor.ConstraintEqualTo(OnOffBtn.BottomAnchor).Active = true;
+           
             SetupStyling();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);
+        }
+
+        public override void DidUpdateFocus (UIFocusUpdateContext context, UIFocusAnimationCoordinator coordinator)
+        {
+            base.DidUpdateFocus (context, coordinator);
+
+            UIView nextFocusableItem = context.NextFocusedView;
+
+            if (nextFocusableItem == null) return;
+            
+            if (nextFocusableItem.Equals(OnOffBtn)) {
+                _focusGuide.PreferredFocusedView = MenuIcon;
+            } else if (nextFocusableItem.Equals(MenuIcon)) {
+                _focusGuide.PreferredFocusedView = OnOffBtn;
+            } else {
+                _focusGuide.PreferredFocusedView = null;
+            }
         }
 
         public override void ViewDidUnload()
@@ -154,6 +180,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         async void UpdateUI()
         {
+            fhiLogo.AccessibilityLabel = InfectionStatusViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
             _areYouInfectedBtn.AccessibilityLabel = _viewModel.NewRegistrationAccessibilityText;
             _messageViewBtn.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(_viewModel.NewMessageAccessibilityText);
             ActivityExplainerLbl.Text = await _viewModel.StatusTxtDescription();
