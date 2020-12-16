@@ -4,7 +4,6 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.Utils;
 
@@ -50,9 +49,6 @@ namespace NDB.Covid19.Droid.OAuth2
 
                 // load redirect_url Page for parsing
                 AuthenticationState.Authenticator.OnPageLoading(uri_netfx);
-
-                Intent intent = new Intent(this, typeof(QuestionnairePageActivity));
-                StartActivity(intent);
 
                 this.Finish();
 

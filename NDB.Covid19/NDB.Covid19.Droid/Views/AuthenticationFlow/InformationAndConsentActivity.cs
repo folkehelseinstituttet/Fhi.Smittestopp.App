@@ -54,6 +54,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private void OnAuthSuccess(object sender, EventArgs e)
         {
             LogUtils.LogMessage(Enums.LogSeverity.INFO, $"Successfully authenticated and verified user. Navigation to {nameof(QuestionnairePageActivity)}");
+            GoToQuestionnairePage();
         }
 
         void InitLayout()
@@ -122,6 +123,19 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 }
 
             });
+        }
+
+        //After calling this method you cannot return by going "Back".
+        //OnCreate has to be called again if returning to this page.
+        void GoToQuestionnairePage()
+        {
+            _viewModel.Cleanup();
+            RunOnUiThread(() =>
+            {
+                Intent intent = new Intent(this, typeof(QuestionnairePageActivity));
+                StartActivity(intent);
+            });
+
         }
 
         private void ShowSpinner(bool show)
