@@ -42,7 +42,6 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="WebServices\" />
     <Folder Include="PersistedData\" />
     <Folder Include="PersistedData\SQLite\" />
     <Folder Include="Enums\" />

@@ -18,7 +18,7 @@ namespace NDB.Covid19.WebServices.Utils
         HttpClientManager()
         {
             HttpClientAccessor = new DefaultHttpClientAccessor();
-            HttpClientAccessor.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpClientAccessor.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpClientAccessor.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
             HttpClientAccessor.HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/zip"));
             HttpClientAccessor.HttpClient.DefaultRequestHeaders.Add("Authorization_Mobile", Conf.AUTHORIZATION_HEADER);

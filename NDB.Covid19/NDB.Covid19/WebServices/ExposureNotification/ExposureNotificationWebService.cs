@@ -1,5 +1,4 @@
-﻿using AnonymousTokens.Client.Protocol;
-
+﻿using AnonymousTokens.Core.Services.InMemory;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using NDB.Covid19.OAuth2;
@@ -8,12 +7,13 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.WebServices.ErrorHandlers;
 using NDB.Covid19.WebServices.Helpers;
-
+using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto.EC;
-
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -63,21 +63,23 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 
         private static async Task<ApiResponse> PostSelvExposureKeysWithAnonTokens(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
         {
-            var ecParameters = CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1);
-            //var publicKeyStore = new PublicKeyStore();
-            //var publicKey = await publicKeyStore.GetAsync();
+            var tokenService = new AnonymousTokenService(CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1), new InMemoryPublicKeyStore());
+            var token = await tokenService.GetAnonymousTokenAsync();
 
-            var initiator = new Initiator();
-            var init = initiator.Initiate(ecParameters.Curve);
-            var t = init.t;
-            var r = init.r;
-            var P = init.P;
+            var request = new HttpRequestMessage(HttpMethod.Post, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
+            request.Headers.Add("Authorization", $"Anonymous {token}");
+            string jsonBody = JsonConvert.SerializeObject(selfDiagnosisSubmissionDTO, JsonSerializerSettings);
+            request.Content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+            var response = await new HttpClient().SendAsync(request);
 
-            // call /api/anonymoustokens on Verification with P as payload to generate token. Response will contain Q, proofC, proofZ.
-            // var W = initiator.RandomiseToken(ecParameters, publicKey, P, Q, proofC, proofZ, r);
-            // call /xx/xx on Backend with t and W as payload to verify the token. Response will be true/false.
-
-            return await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
+            var result = new ApiResponse(Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS, HttpMethod.Post);
+            result.StatusCode = (int)response.StatusCode;
+            result.ResponseText = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                result.ResponseText = response.ReasonPhrase;
+            }
+            return result;
         }
 
         public async Task<Xamarin.ExposureNotifications.Configuration> GetExposureConfiguration()
