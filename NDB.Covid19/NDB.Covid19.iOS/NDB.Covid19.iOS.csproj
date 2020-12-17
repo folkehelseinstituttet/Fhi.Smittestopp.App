@@ -568,6 +568,14 @@
     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%402x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%403x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -626,6 +634,8 @@
     <Folder Include="Assets.xcassets\arrow_right.imageset\" />
     <Folder Include="Assets.xcassets\InformationIcon.imageset\" />
     <Folder Include="Assets.xcassets\FHISmittestoppLogo.imageset\" />
+    <Folder Include="Assets.xcassets\checkboxUnfilled.imageset\" />
+    <Folder Include="Assets.xcassets\checkboxFilled.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
