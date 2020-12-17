@@ -55,81 +55,10 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             RunOnUiThread(() => ShowSpinner(true));
 
-            _countries.AddRange(new List<CountryDetailsViewModel>
-            {
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Poland"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "England"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Germany"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Denmark"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Poland"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "England"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Germany"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Denmark"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Poland"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "England"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Germany"
-                },
-                new CountryDetailsViewModel
-                {
-                    Checked = false,
-                    Code = "pl",
-                    Name = "Denmark"
-                }
-            });
+            _countries.AddRange(
+                await _viewModel.GetListOfCountriesAsync() ??
+                new List<CountryDetailsViewModel>());
+            
             if (!_countries.Any())
             {
                 RunOnUiThread(() => ShowSpinner(false));
