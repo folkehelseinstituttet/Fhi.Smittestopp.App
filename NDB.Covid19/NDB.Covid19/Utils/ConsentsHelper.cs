@@ -7,7 +7,7 @@ namespace NDB.Covid19.Utils
 {
     public static class ConsentsHelper
     {
-        private static readonly bool IsReleaseOne = Conf.APIVersion == 3;
+        private static readonly bool IsReleaseOne = false;
 
         public static void DoActionWhenOnboarded(Action action)
         {
