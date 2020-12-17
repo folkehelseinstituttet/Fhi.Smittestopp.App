@@ -51,12 +51,20 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
         void SetStyling()
         {
-            StyleUtil.InitLabelWithSpacing(TitleLbl, StyleUtil.FontType.FontBold, QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT, 1.14, 24, 38);
-            StyleUtil.InitLabelWithSpacing(SubtitleLbl, StyleUtil.FontType.FontRegular, QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_INFORMATION_TEXT, 1.28, 16, 20);
+            StyleUtil.InitLabelWithSpacing(TitleLbl, StyleUtil.FontType.FontBold, QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT, 1.14, 32, 38);
+            StyleUtil.InitLabelWithSpacing(SubtitleLbl, StyleUtil.FontType.FontRegular, QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_INFORMATION_TEXT, 1.28, 20, 22);
             StyleUtil.InitLabelWithSpacing(ListExplainLbl, StyleUtil.FontType.FontRegular, QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_FOOTER, 1.28, 16, 20);
-            NextBtn.SetTitle(QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_BUTTON_TEXT, UIControlState.Normal);
-            ButtonView.Alpha = 0.9f;
-            ButtonView.BackgroundColor = "#001F34".ToUIColor();
+            StyleUtil.InitButtonStyling(NextBtn, QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_BUTTON_TEXT);
+            SetButtonViewStyle();
+        }
+
+        void SetButtonViewStyle()
+        {
+            ButtonView.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            ButtonView.Layer.MasksToBounds = false;
+            ButtonView.Layer.ShadowOffset = new CoreGraphics.CGSize(0, 5);
+            ButtonView.Layer.ShadowRadius = 5;
+            ButtonView.Layer.ShadowOpacity = 1;
         }
 
         async void SetupTableView()

@@ -24,8 +24,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
         public void UpdateCell(CountryDetailsViewModel country)
         {
-            StyleUtil.InitLabelWithSpacing(CountryNameLabel, StyleUtil.FontType.FontRegular, country.Name, 1.14, 16, 28);
-            CheckboxImage.Image = (country.Checked ? UIImage.FromBundle("CheckboxChecked") : UIImage.FromBundle("CheckboxUnchecked"));
+            StyleUtil.InitLabelWithSpacing(CountryNameLabel, StyleUtil.FontType.FontBold, country.Name, 1.14, 20, 28);
+            CheckboxImage.Image = (country.Checked ? UIImage.FromBundle("checkboxFilled") : UIImage.FromBundle("checkboxUnfilled"));
 
             if (country.Checked)
             {
