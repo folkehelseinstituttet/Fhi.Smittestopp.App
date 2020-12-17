@@ -415,30 +415,6 @@
     <ImageAsset Include="Assets.xcassets\InfoCircleRed.imageset\Group 2003%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\checkboxChecked.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\checkboxChecked%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\checkboxChecked%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\FHILogo.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
