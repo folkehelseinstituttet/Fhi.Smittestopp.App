@@ -1,14 +1,17 @@
 ﻿using AnonymousTokens.Client.Protocol;
 using AnonymousTokens.Core.Services;
-using AnonymousTokens.Core.Services.InMemory;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.OAuth2;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto.EC;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
 using Org.BouncyCastle.Utilities.Encoders;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,21 +21,20 @@ namespace NDB.Covid19.WebServices
     public class AnonymousTokenService
     {
         private Initiator _initiator = new Initiator();
-        private X9ECParameters _ecParameters = CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1);
-        private IPublicKeyStore _publicKeyStore = new InMemoryPublicKeyStore();
+        private X9ECParameters _ecParameters;
 
-        public AnonymousTokenService(X9ECParameters ecParameters, IPublicKeyStore publicKeyStore)
+        public AnonymousTokenService(X9ECParameters ecParameters)
         {
             _ecParameters = ecParameters;
-            _publicKeyStore = publicKeyStore;
         }
 
         public async Task<string> GetAnonymousTokenAsync()
         {
             var tokenState = GenerateTokenRequest();
             var tokenResponse = await RequestTokenGeneration(tokenState);
-            var token = await RandomizeToken(tokenState, tokenResponse);
-            return EncodeToken(tokenState, token);
+            var publicKey = await GetPublicKeyAsync(tokenResponse);
+            var token = RandomizeToken(tokenState, tokenResponse, publicKey);
+            return EncodeToken(tokenState, token, tokenResponse.Kid);
         }
 
         public AnonymousTokenState GenerateTokenRequest()
@@ -46,22 +48,19 @@ namespace NDB.Covid19.WebServices
             };
         }
 
-        public async Task<ECPoint> RandomizeToken(AnonymousTokenState state, GenerateTokenResponseModel tokenResponse)
+        public ECPoint RandomizeToken(AnonymousTokenState state, GenerateTokenResponseModel tokenResponse, ECPublicKeyParameters K)
         {
-            var K = await _publicKeyStore.GetAsync();
             var Q = _ecParameters.Curve.DecodePoint(Hex.Decode(tokenResponse.QAsHex));
-            var c = new Org.BouncyCastle.Math.BigInteger(Hex.Decode(tokenResponse.ProofCAsHex));
-            var z = new Org.BouncyCastle.Math.BigInteger(Hex.Decode(tokenResponse.ProofZAsHex));
-
+            var c = new BigInteger(Hex.Decode(tokenResponse.ProofCAsHex));
+            var z = new BigInteger(Hex.Decode(tokenResponse.ProofZAsHex));
             return _initiator.RandomiseToken(_ecParameters, K, state.P, Q, c, z, state.r);
         }
 
-        string EncodeToken(AnonymousTokenState tokenState, ECPoint W)
+        string EncodeToken(AnonymousTokenState tokenState, ECPoint W, string keyId)
         {
             var t = tokenState.t;
-            return Convert.ToBase64String(W.GetEncoded()) + "." + System.Convert.ToBase64String(t);
+            return Convert.ToBase64String(W.GetEncoded()) + "." + Convert.ToBase64String(t) + "." + keyId;
         }
-
 
         private async Task<GenerateTokenResponseModel> RequestTokenGeneration(AnonymousTokenState state)
         {
@@ -75,9 +74,32 @@ namespace NDB.Covid19.WebServices
             var response = await new HttpClient().SendAsync(request);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Call to " + OAuthConf.OAUTH2_ANONTOKEN_URL + " failed " + response);
+                throw new Exception("Call to " + OAuthConf.OAUTH2_ANONTOKEN_URL + " failed: " + response);
             }
             return JsonConvert.DeserializeObject<GenerateTokenResponseModel>(await response.Content.ReadAsStringAsync());
+        }
+
+        private async Task<ECPublicKeyParameters> GetPublicKeyAsync(GenerateTokenResponseModel tokenResponse)
+        {
+            string kid = tokenResponse.Kid;
+            var request = new HttpRequestMessage(HttpMethod.Get, OAuthConf.OAUTH2_ANONTOKEN_URL + "/atks");
+            var response = await new HttpClient().SendAsync(request);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Call to " + OAuthConf.OAUTH2_ANONTOKEN_URL + "/atks failed: " + response);
+            }
+            var anonTokenKeyStoreResponse = JsonConvert.DeserializeObject<AnonymousTokenKeyStoreResponseModel>(await response.Content.ReadAsStringAsync());
+            return DecodePublicKey(anonTokenKeyStoreResponse.Keys.Where(k => k.Kid == kid).Single());
+        }
+
+        private static ECPublicKeyParameters DecodePublicKey(AnonymousTokenKey key)
+        {
+            var curve = CustomNamedCurves.GetByName(key.Crv);
+            var clientSidePublicKeyPoint = curve.Curve.CreatePoint(
+                new BigInteger(Convert.FromBase64String(key.X)),
+                new BigInteger(Convert.FromBase64String(key.Y))
+            );
+            return new ECPublicKeyParameters("ECDSA", clientSidePublicKeyPoint, new ECDomainParameters(curve));
         }
     }
 
@@ -104,5 +126,38 @@ namespace NDB.Covid19.WebServices
 
         [JsonProperty("proofZAsHex")]
         public string ProofZAsHex { get; set; }
+
+        [JsonProperty("kid")]
+        public string Kid { get; set; }
     }
+
+    public class AnonymousTokenKeyStoreResponseModel
+    {
+        public List<AnonymousTokenKey> Keys { get; set; }
+    }
+
+    public class AnonymousTokenKey
+    {
+        [JsonProperty("kid")]
+        public string Kid;
+
+        [JsonProperty("kty")]
+        public string Kty { get; set; }
+        
+        [JsonProperty("crv")]
+        public string Crv { get; set; }
+        
+        [JsonProperty("x")]
+        public string X { get; set; }
+        
+        [JsonProperty("y")]
+        public string Y { get; set; }
+        
+        [JsonProperty("k")]
+        public string K { get; set; }
+
+        [JsonProperty("publicKeyAsHex")]
+        public string PublicKeyAsHex;
+    }
+
 }

@@ -63,7 +63,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 
         private static async Task<ApiResponse> PostSelvExposureKeysWithAnonTokens(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
         {
-            var tokenService = new AnonymousTokenService(CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1), new InMemoryPublicKeyStore());
+            var tokenService = new AnonymousTokenService(CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1));
             var token = await tokenService.GetAnonymousTokenAsync();
 
             var request = new HttpRequestMessage(HttpMethod.Post, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
