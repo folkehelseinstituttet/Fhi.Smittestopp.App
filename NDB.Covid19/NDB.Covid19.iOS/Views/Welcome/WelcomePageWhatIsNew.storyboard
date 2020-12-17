@@ -97,7 +97,7 @@ line 2</string>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10G-Lz-H6o">
-                                <rect key="frame" x="20" y="331" width="374" height="45"/>
+                                <rect key="frame" x="20" y="781" width="374" height="45"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="6Bj-Iu-pJG"/>
@@ -108,7 +108,7 @@ line 2</string>
                         <viewLayoutGuide key="safeArea" id="zGT-Fi-qN5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="10G-Lz-H6o" firstAttribute="top" secondItem="M0i-b0-JUW" secondAttribute="bottom" constant="40" id="Bnw-Xj-uTm"/>
+                            <constraint firstItem="zGT-Fi-qN5" firstAttribute="bottom" secondItem="10G-Lz-H6o" secondAttribute="bottom" constant="36" id="3vk-Ge-zRi"/>
                             <constraint firstItem="zGT-Fi-qN5" firstAttribute="bottom" secondItem="xei-X1-kbo" secondAttribute="bottom" constant="100" id="GZy-U1-6o4"/>
                             <constraint firstItem="10G-Lz-H6o" firstAttribute="centerX" secondItem="zGT-Fi-qN5" secondAttribute="centerX" id="LQL-GC-Wrf"/>
                             <constraint firstItem="10G-Lz-H6o" firstAttribute="leading" secondItem="zGT-Fi-qN5" secondAttribute="leading" constant="20" id="WsP-2J-KrS"/>
