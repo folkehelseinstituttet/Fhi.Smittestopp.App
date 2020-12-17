@@ -139,6 +139,7 @@
     <Compile Include="Services\DroidApiDataHelperHandler.cs" />
     <Compile Include="Services\PermissionsBroadcastReceiver.cs" />
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
+    <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -885,6 +886,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_notification.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\spinner_page.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
