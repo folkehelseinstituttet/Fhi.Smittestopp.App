@@ -23,6 +23,8 @@ namespace NDB.Covid19.Droid.Views.Welcome
             header.Text = WelcomeViewModel.WELCOME_PAGE_THREE_TITLE;
             infoBoxBody.Text = WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY;
 
+            header.SetAccessibilityDelegate(new HeadingAccessibilityDelegate());
+
             infoBoxBody.ContentDescription = WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY;
 
             WelcomePageTools.SetArrowVisibility(view);

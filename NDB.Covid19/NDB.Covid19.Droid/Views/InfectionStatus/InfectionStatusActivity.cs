@@ -154,6 +154,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _menuText.Text = INFECTION_STATUS_MENU_TEXT;
 
             //Accessibility
+            _messageSubHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _messeageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _registrationHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _menuIcon.ContentDescription = INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
             _notificationDot.ContentDescription = INFECTION_STATUS_NEW_MESSAGE_NOTIFICATION_DOT_ACCESSIBILITY_TEXT;
             _messageCoverButton.ContentDescription =
