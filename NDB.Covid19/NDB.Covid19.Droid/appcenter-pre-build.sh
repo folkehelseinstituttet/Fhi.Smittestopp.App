@@ -102,14 +102,8 @@ then
     echo "You need define the APPCENTER_DIAGNOSTICS_TOKEN variable in App Center"
 fi
 
-if [ -z "ANONYMOUS_TOKENS_PUBLIC_KEY" ]
-then
-    echo "You need define the ANONYMOUS_TOKENS_PUBLIC_KEY variable in App Center"
-fi
-
 CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/Conf.cs
 OAUTH_CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/OAuthConf.cs
-ANONYMOUS_TOKENS_CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/AnonymousTokensConfig.cs
 
 if [ -e "$CONF_FILE" ]
 then
@@ -158,18 +152,5 @@ then
     echo "Finished updating $OAUTH_CONF_FILE"
 else
     echo "$OAUTH_CONF_FILE is missing"
-    exit 1
-fi
-
-if [ -e "$ANONYMOUS_TOKENS_CONF_FILE" ]
-then
-    echo "Updating ANONYMOUS_TOKENS_PUBLIC_KEY to $ANONYMOUS_TOKENS_PUBLIC_KEY in AnonymousTokensConfig.cs"
-    sed -i '' 's#ANONYMOUS_TOKENS_PUBLIC_KEY = "[-A-Za-z0-9:_./]*"#ANONYMOUS_TOKENS_PUBLIC_KEY = "'$ANONYMOUS_TOKENS_PUBLIC_KEY'"#' $ANONYMOUS_TOKENS_CONF_FILE
-
-    echo "File content:"
-    cat $ANONYMOUS_TOKENS_CONF_FILE
-    echo "Finished updating $ANONYMOUS_TOKENS_CONF_FILE"
-else
-    echo "$ANONYMOUS_TOKENS_CONF_FILE is missing"
     exit 1
 fi
