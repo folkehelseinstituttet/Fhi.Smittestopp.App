@@ -14,7 +14,6 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 
-
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
@@ -22,19 +21,19 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
     public class QuestionnaireCountriesSelectionActivity : Activity
     {
         private readonly QuestionnaireCountriesViewModel _viewModel = new QuestionnaireCountriesViewModel();
+        private Button _closeButton;
         private List<CountryDetailsViewModel> _countries = new List<CountryDetailsViewModel>();
-        private TextView _title;
-        private TextView _subtitle;
+        private TextView _footer;
         private Button _nextButton;
         private ProgressBar _progressBar;
         private RecyclerView _recyclerView;
-        private Button _closeButton;
-        private TextView _footer;
+        private TextView _subtitle;
+        private TextView _title;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            this.Title = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT;
+            Title = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT;
            
             InitView();
         }
@@ -56,7 +55,10 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             RunOnUiThread(() => ShowSpinner(true));
 
-            _countries.AddRange(await _viewModel.GetListOfCountriesAsync() ?? new List<CountryDetailsViewModel>());
+            _countries.AddRange(
+                await _viewModel.GetListOfCountriesAsync() ??
+                new List<CountryDetailsViewModel>());
+            
             if (!_countries.Any())
             {
                 RunOnUiThread(() => ShowSpinner(false));
@@ -72,11 +74,10 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _subtitle.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_INFORMATION_TEXT;
             _footer.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_FOOTER;
             _nextButton.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_BUTTON_TEXT;
-           
+            
+            QuestionnaireCountriesSelectionAdapter adapter = new QuestionnaireCountriesSelectionAdapter(_countries);
 
-            var adapter = new QuestionnaireCountriesSelectionAdapter(_countries);
-
-            var layoutManager = new LinearLayoutManager(this);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(layoutManager);
 
             _recyclerView.SetAdapter(adapter);
@@ -106,7 +107,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             LogUtils.LogMessage(LogSeverity.ERROR,
                 $"{nameof(QuestionnaireCountriesSelectionActivity)}.{nameof(OnServerError)}: " +
-                $"Skipping language selection because countries failed to be fetched. (Android)");
+                "Skipping language selection because countries failed to be fetched. (Android)");
             _countries = new List<CountryDetailsViewModel>();
             ShowSpinner(false);
             OnNextButtonClick(null, null);
@@ -118,7 +119,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             ShowSpinner(false);
             AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, null,
                 $"{nameof(QuestionnaireCountriesSelectionActivity)}.{nameof(OnFail)}: " +
-                $"AuthenticationState.personaldata was garbage collected (Android)");
+                "AuthenticationState.personaldata was garbage collected (Android)");
         }
 
         private void ShowSpinner(bool show)

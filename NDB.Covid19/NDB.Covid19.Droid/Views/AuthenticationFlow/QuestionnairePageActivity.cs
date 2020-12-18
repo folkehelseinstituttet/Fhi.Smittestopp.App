@@ -27,17 +27,22 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     class QuestionnairePageActivity : AppCompatActivity
     {
+        private Button _closeButton;
         private DatePickerDialog _datePicker;
         private TextView _datePickerTextView;
         private RadioButton _firstRadioButton;
-        private RadioButton _secondRadioButton;
-        private RadioButton _thirdRadioButton;
         private RadioButton _fourthRadioButton;
         private ImageButton _infoButton;
         private bool _isChangedFromDatePicker;
         private Button _questionnaireButton;
-        private Button _closeButton;
         private QuestionnaireViewModel _questionnaireViewModel;
+        private RadioButton _secondRadioButton;
+        private RadioButton _thirdRadioButton;
+
+        ISpanned GetFormattedText =>
+            HtmlCompat.FromHtml(
+                $"{REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES} <input type=\"date\">{_datePickerTextView.ContentDescription}</input>",
+                HtmlCompat.FromHtmlModeLegacy);
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -49,7 +54,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         private void Init()
         {
-
             _questionnaireViewModel = new QuestionnaireViewModel();
 
             TextView questionnaireTitle = FindViewById<TextView>(Resource.Id.questionnaire_title);
@@ -107,36 +111,11 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             {
                 _firstRadioButton, _secondRadioButton, _thirdRadioButton, _fourthRadioButton
             };
-            radioButtons.ForEach(((button, i) => button.SetOnClickListener(new CustomRadioOnClickListener(radioButtons, i, OnCheckChange))));
-            _datePickerTextView.SetOnClickListener(new CustomRadioOnClickListener(radioButtons, 0, OnDateEditTextClick));
+            radioButtons.ForEach((button, i) =>
+                button.SetOnClickListener(new CustomRadioOnClickListener(radioButtons, i, OnCheckChange)));
+            _datePickerTextView.SetOnClickListener(new CustomRadioOnClickListener(radioButtons, 0,
+                OnDateEditTextClick));
         }
-
-        class CustomRadioOnClickListener : Object, View.IOnClickListener
-        {
-            private readonly Action<RadioButton> _action;
-            private readonly List<RadioButton> _radioButtonList;
-            private readonly int _radioButtonToCheck;
-
-            public CustomRadioOnClickListener(List<RadioButton> radioButtons, int radioButtonToCheck, Action<RadioButton> onCheckChange)
-            {
-                _action = onCheckChange;
-                _radioButtonList = radioButtons;
-                _radioButtonToCheck = radioButtonToCheck;
-            }
-
-            public void OnClick(View v)
-            {
-                _radioButtonList[_radioButtonToCheck].Checked = true;
-
-                _radioButtonList.Where(((button, i) => i != _radioButtonToCheck)).ForEach(button => button.Checked = false);
-                _action?.Invoke(_radioButtonList[_radioButtonToCheck]);
-            }
-        }
-
-        ISpanned GetFormattedText =>
-            HtmlCompat.FromHtml(
-                $"{REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES} <input type=\"date\">{_datePickerTextView.ContentDescription}</input>",
-                HtmlCompat.FromHtmlModeLegacy);
 
         private void OnCheckChange(RadioButton radioButton)
         {
@@ -153,6 +132,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                     {
                         _isChangedFromDatePicker = false;
                     }
+
                     break;
                 case Resource.Id.secondRadioButton:
                     _questionnaireViewModel.SetSelection(QuestionaireSelection.YesBut);
@@ -160,6 +140,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                     {
                         _isChangedFromDatePicker = false;
                     }
+
                     break;
                 case Resource.Id.thirdRadioButton:
                     _questionnaireViewModel.SetSelection(QuestionaireSelection.No);
@@ -167,6 +148,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                     {
                         _isChangedFromDatePicker = false;
                     }
+
                     break;
                 case Resource.Id.fourthRadioButton:
                     _questionnaireViewModel.SetSelection(QuestionaireSelection.Skip);
@@ -174,6 +156,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                     {
                         _isChangedFromDatePicker = false;
                     }
+
                     break;
             }
         }
@@ -189,27 +172,30 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             DateTime previousSelection = GetLocalSelectedDate();
             int day = DateHasBeenSet ? previousSelection.Day : DateTime.Now.Day;
-            int month = DateHasBeenSet ? previousSelection.Month - 1 : DateTime.Now.Month - 1; // DatePicker uses 0-based month indexing, DateTime does not.
+            int month = DateHasBeenSet
+                ? previousSelection.Month - 1
+                : DateTime.Now.Month - 1; // DatePicker uses 0-based month indexing, DateTime does not.
             int year = DateHasBeenSet ? previousSelection.Year : DateTime.Now.Year;
 
             _datePicker = new DatePickerDialog(Current.Activity,
-                ((sender, args) =>
+                (sender, args) =>
                 {
                     _questionnaireViewModel.SetSelectedDateUTC(args.Date.ToUniversalTime());
                     _firstRadioButton.Checked = true;
                     _firstRadioButton.ContentDescriptionFormatted = GetFormattedText;
                     _datePickerTextView.Text = DateLabel;
                     _datePickerTextView.Ellipsize = TextUtils.TruncateAt.End;
-                }), year, month, day);
+                }, year, month, day);
 
-            _datePicker.DatePicker.MinDate = DateTimeToAndroidDatePickerLong(_questionnaireViewModel.MinimumDate.ToLocalTime());
+            _datePicker.DatePicker.MinDate =
+                DateTimeToAndroidDatePickerLong(_questionnaireViewModel.MinimumDate.ToLocalTime());
             _datePicker.DatePicker.MaxDate = DateTimeToAndroidDatePickerLong(DateTime.Now);
             _datePicker.Show();
         }
 
         private long DateTimeToAndroidDatePickerLong(DateTime dateTime)
         {
-            return (long)dateTime.ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
+            return (long) dateTime.ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
         }
 
         public override void OnBackPressed()
@@ -234,7 +220,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private void OnNextButtonClick(object o, EventArgs args)
         {
             _questionnaireViewModel.InvokeNextButtonClick(
-                GoToLoadingPage, null, null);
+                GoToQuestionnaireCountriesSelectionPage, null, null);
         }
 
         private void OnInfoButtonPressed(object o, EventArgs args)
@@ -242,13 +228,33 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             DialogUtils.DisplayBubbleDialog(this, REGISTER_QUESTIONAIRE_SYMPTOMONSET_HELP, "ERROR_OK_BTN".Translate());
         }
 
-        // Left for future release when we will support other countries
         private void GoToQuestionnaireCountriesSelectionPage() =>
             StartActivity(new Intent(this, typeof(QuestionnaireCountriesSelectionActivity)));
 
-        private void GoToLoadingPage() =>
-            StartActivity(new Intent(this, typeof(LoadingPageActivity)));
-        
         private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
+
+        class CustomRadioOnClickListener : Object, View.IOnClickListener
+        {
+            private readonly Action<RadioButton> _action;
+            private readonly List<RadioButton> _radioButtonList;
+            private readonly int _radioButtonToCheck;
+
+            public CustomRadioOnClickListener(List<RadioButton> radioButtons, int radioButtonToCheck,
+                Action<RadioButton> onCheckChange)
+            {
+                _action = onCheckChange;
+                _radioButtonList = radioButtons;
+                _radioButtonToCheck = radioButtonToCheck;
+            }
+
+            public void OnClick(View v)
+            {
+                _radioButtonList[_radioButtonToCheck].Checked = true;
+
+                _radioButtonList.Where((button, i) => i != _radioButtonToCheck)
+                    .ForEach(button => button.Checked = false);
+                _action?.Invoke(_radioButtonList[_radioButtonToCheck]);
+            }
+        }
     }
 }
