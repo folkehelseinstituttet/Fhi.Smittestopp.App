@@ -64,12 +64,132 @@
                     android:orientation="vertical">
 
                 <TextView
-                        android:id="@+id/settings_how_it_works_text"
+                        android:id="@+id/settings_how_it_works_intro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="top"
                         android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultVerticalMargin"
                         android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_heading1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextBold"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph1textView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph1textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultVerticalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_heading2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextBold"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph2textView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph2textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph2textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph2textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultVerticalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					    android:id="@+id/settings_how_it_works_heading3"
+					    android:layout_width="match_parent"
+					    android:layout_height="match_parent"
+					    android:gravity="top"
+					    android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextBold"
+					    android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph3textView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph3textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+                <TextView
+                        android:id="@+id/settings_how_it_works_paragraph3textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineSpacingExtra="4sp"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_marginBottom="@dimen/defaultVerticalMargin"
+                        android:textAppearance="@style/settings_general"/>
+
+
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
