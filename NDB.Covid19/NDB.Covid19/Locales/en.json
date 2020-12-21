@@ -245,7 +245,7 @@
   "SETTINGS_GENERAL_TITLE": "Settings",
   "SETTINGS_GENERAL_EXPLANATION_ONE": "Edit your settings",
   "SETTINGS_GENERAL_EXPLANATION_TWO": "Access to mobile data ",
-  "SETTINGS_GENERAL_MOBILE_DATA_HEADER": "Smittestopp must have access to mobile data ",
+  "SETTINGS_GENERAL_MOBILE_DATA_HEADER": "Smittestopp may have access to mobile data ",
   "SETTINGS_GENERAL_MOBILE_DATA_DESC": "When you turn off mobile data here, you can control your data usage. If you choose to turn off mobile data, information about infected people you have been nearby to is only obtained when you have a Wi-Fi connection. The app remains active even if you choose to turn off mobile data.",
   "SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER": "Choose language / Velg språk ",
   "SETTINGS_GENERAL_NB": "Bokmål",
