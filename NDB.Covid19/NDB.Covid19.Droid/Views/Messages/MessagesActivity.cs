@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
@@ -13,6 +12,7 @@ using I18NPortable;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.InfectionStatus;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
@@ -74,7 +74,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         private void CloseLocalNotification()
         {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
-            notificationManagerCompat.Cancel(LocalNotificationsManager.NotificationId);
+            notificationManagerCompat.Cancel((int) NotificationsEnum.NewMessageReceived);
         }
 
         private async void Init()
