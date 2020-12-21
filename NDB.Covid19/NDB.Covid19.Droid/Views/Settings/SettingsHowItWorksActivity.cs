@@ -65,6 +65,11 @@ namespace NDB.Covid19.Droid.Views.Settings
             LinkUtil.LinkifyTextView(paragraph3textView3);
             FormatLink(paragraph3textView3);
 
+            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            heading1.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            heading2.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            heading3.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
         }
 
