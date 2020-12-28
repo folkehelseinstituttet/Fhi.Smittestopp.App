@@ -92,6 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BackgroundFetchScheduler.cs" />
     <Compile Include="Utils\DroidResetViews.cs" />
+    <Compile Include="Views\AuthenticationFlow\CountriesConsentActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\QuestionnaireAdapters\QuestionnaireCountriesSelectionAdapter.cs" />
     <Compile Include="Views\AuthenticationFlow\QuestionnaireCountriesSelectionActivity.cs" />
     <Compile Include="Views\Messages\MessagesActivity.cs" />
@@ -160,6 +161,7 @@
     <AndroidResource Include="Resources\font\ptsans_italic.ttf" />
     <AndroidResource Include="Resources\font\ptsans_narrow_regular.ttf" />
     <AndroidResource Include="Resources\font\ptsans_regular.ttf" />
+    <AndroidResource Include="Resources\layout\countries_consent.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png">
       <SubType>
       </SubType>
