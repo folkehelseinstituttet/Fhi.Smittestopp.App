@@ -26,7 +26,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Uzn-YX-awd">
                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="631"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ayS-tk-90N">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ayS-tk-90N">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="631"/>
                                                     </stackView>
                                                 </subviews>
