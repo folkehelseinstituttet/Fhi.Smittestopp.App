@@ -39,6 +39,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView header = FindViewById<TextView>(Resource.Id.welcome_page_five_title);
 
             header.Text = ConsentViewModel.WELCOME_PAGE_CONSENT_TITLE;
+            header.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             _resetConsentsButton.Text = ConsentViewModel.WITHDRAW_CONSENT_BUTTON_TEXT;
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;

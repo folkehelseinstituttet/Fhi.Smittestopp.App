@@ -87,9 +87,12 @@ namespace NDB.Covid19.Droid.Views.Messages
 
             _messagesList.Divider = null;
             _messagesList.DividerHeight = 0;
+
+
+            TextView title = FindViewById<TextView>(Resource.Id.messages_page_title);
             
-            FindViewById<TextView>(Resource.Id.messages_page_title).Text =
-                MessagesViewModel.MESSAGES_HEADER;
+            title.Text = MessagesViewModel.MESSAGES_HEADER;
+            title.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             string headerText = MessagesViewModel.MESSAGES_NO_ITEMS_TITLE;
             int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
@@ -104,7 +107,9 @@ namespace NDB.Covid19.Droid.Views.Messages
                 headerText = MessagesViewModel.MESSAGES_NO_NEW_MESSAGES_HEADER;
             }
 
-            FindViewById<TextView>(Resource.Id.messages_page_sub_header).Text = headerText;
+            TextView subheader = FindViewById<TextView>(Resource.Id.messages_page_sub_header);
+            subheader.Text = headerText;
+            subheader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             string lastUpdatedString = MessagesViewModel.LastUpdateString;
             if (lastUpdatedString == "")
