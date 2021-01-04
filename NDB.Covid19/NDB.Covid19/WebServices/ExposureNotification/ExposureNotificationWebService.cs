@@ -24,23 +24,23 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 {
     public class ExposureNotificationWebService : BaseWebService
     {
-        public async Task<bool> PostSelvExposureKeys(IEnumerable<ExposureKeyModel> temporaryExposureKeys)
+        public async Task<bool> PostSelfExposureKeys(IEnumerable<ExposureKeyModel> temporaryExposureKeys)
         {
-            return await PostSelvExposureKeys(new SelfDiagnosisSubmissionDTO(temporaryExposureKeys), temporaryExposureKeys);
+            return await PostSelfExposureKeys(new SelfDiagnosisSubmissionDTO(temporaryExposureKeys), temporaryExposureKeys);
         }
 
-        public async Task<bool> PostSelvExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
+        public async Task<bool> PostSelfExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
             IEnumerable<ExposureKeyModel> temporaryExposureKeys)
         {
-            return await PostSelvExposureKeys(selfDiagnosisSubmissionDTO, temporaryExposureKeys, this);
+            return await PostSelfExposureKeys(selfDiagnosisSubmissionDTO, temporaryExposureKeys, this);
         }
 
-        public async Task<bool> PostSelvExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
+        public async Task<bool> PostSelfExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
         {
             ApiResponse response;
             if (AuthenticationState.PersonalData?.AnonymousTokensEnabled == true)
             {
-                response = await PostSelvExposureKeysWithAnonTokens(selfDiagnosisSubmissionDTO, temporaryExposureKeys, service);
+                response = await PostSelfExposureKeysWithAnonTokens(selfDiagnosisSubmissionDTO, temporaryExposureKeys, service);
             }
             else
             {
@@ -63,7 +63,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             return response.IsSuccessfull;
         }
 
-        private static async Task<ApiResponse> PostSelvExposureKeysWithAnonTokens(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
+        private static async Task<ApiResponse> PostSelfExposureKeysWithAnonTokens(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
         {
             var tokenService = new AnonymousTokenService(CustomNamedCurves.GetByOid(X9ObjectIdentifiers.Prime256v1));
             var token = await tokenService.GetAnonymousTokenAsync();

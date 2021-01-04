@@ -1,5 +1,4 @@
 ﻿using AnonymousTokens.Client.Protocol;
-using AnonymousTokens.Core.Services;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.OAuth2;
 using Newtonsoft.Json;
@@ -15,6 +14,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using NDB.Covid19.Models.UserDefinedExceptions;
 
 namespace NDB.Covid19.WebServices
 {
@@ -74,7 +74,7 @@ namespace NDB.Covid19.WebServices
             var response = await new HttpClient().SendAsync(request);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Call to " + OAuthConf.OAUTH2_ANONTOKEN_URL + " failed: " + response);
+                throw new WebServiceHttpException(response, OAuthConf.OAUTH2_ANONTOKEN_URL);
             }
             return JsonConvert.DeserializeObject<GenerateTokenResponseModel>(await response.Content.ReadAsStringAsync());
         }
@@ -86,10 +86,10 @@ namespace NDB.Covid19.WebServices
             var response = await new HttpClient().SendAsync(request);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Call to " + OAuthConf.OAUTH2_ANONTOKEN_URL + "/atks failed: " + response);
+                throw new WebServiceHttpException(response, OAuthConf.OAUTH2_ANONTOKEN_URL + "/atks");
             }
             var anonTokenKeyStoreResponse = JsonConvert.DeserializeObject<AnonymousTokenKeyStoreResponseModel>(await response.Content.ReadAsStringAsync());
-            return DecodePublicKey(anonTokenKeyStoreResponse.Keys.Where(k => k.Kid == kid).Single());
+            return DecodePublicKey(anonTokenKeyStoreResponse.Keys.Single(k => k.Kid == kid));
         }
 
         private static ECPublicKeyParameters DecodePublicKey(AnonymousTokenKey key)
@@ -105,7 +105,7 @@ namespace NDB.Covid19.WebServices
 
     public class AnonymousTokenState
     {
-        public Org.BouncyCastle.Math.BigInteger r { get; internal set; }
+        public BigInteger r { get; internal set; }
         public byte[] t { get; internal set; }
         public ECPoint P { get; internal set; }
     }
@@ -139,7 +139,7 @@ namespace NDB.Covid19.WebServices
     public class AnonymousTokenKey
     {
         [JsonProperty("kid")]
-        public string Kid;
+        public string Kid { get; set; }
 
         [JsonProperty("kty")]
         public string Kty { get; set; }
@@ -157,7 +157,7 @@ namespace NDB.Covid19.WebServices
         public string K { get; set; }
 
         [JsonProperty("publicKeyAsHex")]
-        public string PublicKeyAsHex;
+        public string PublicKeyAsHex { get; set; }
     }
 
 }
