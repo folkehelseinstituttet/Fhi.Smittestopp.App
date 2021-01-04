@@ -46,8 +46,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
 
             //Ensuring text is resiezed correctly when font size is increased
             HeaderLabel.SetAttributedText(SettingsPage4ViewModel.HEADER);
-            ContentText.TranslatesAutoresizingMaskIntoConstraints = true;
-            ContentText.SizeToFit();
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
             SetupStyling();

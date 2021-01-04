@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
@@ -13,6 +12,7 @@ using I18NPortable;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.InfectionStatus;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
@@ -74,7 +74,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         private void CloseLocalNotification()
         {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
-            notificationManagerCompat.Cancel(LocalNotificationsManager.NotificationId);
+            notificationManagerCompat.Cancel((int) NotificationsEnum.NewMessageReceived);
         }
 
         private async void Init()
@@ -87,9 +87,12 @@ namespace NDB.Covid19.Droid.Views.Messages
 
             _messagesList.Divider = null;
             _messagesList.DividerHeight = 0;
+
+
+            TextView title = FindViewById<TextView>(Resource.Id.messages_page_title);
             
-            FindViewById<TextView>(Resource.Id.messages_page_title).Text =
-                MessagesViewModel.MESSAGES_HEADER;
+            title.Text = MessagesViewModel.MESSAGES_HEADER;
+            title.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             string headerText = MessagesViewModel.MESSAGES_NO_ITEMS_TITLE;
             int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
@@ -104,7 +107,9 @@ namespace NDB.Covid19.Droid.Views.Messages
                 headerText = MessagesViewModel.MESSAGES_NO_NEW_MESSAGES_HEADER;
             }
 
-            FindViewById<TextView>(Resource.Id.messages_page_sub_header).Text = headerText;
+            TextView subheader = FindViewById<TextView>(Resource.Id.messages_page_sub_header);
+            subheader.Text = headerText;
+            subheader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             string lastUpdatedString = MessagesViewModel.LastUpdateString;
             if (lastUpdatedString == "")

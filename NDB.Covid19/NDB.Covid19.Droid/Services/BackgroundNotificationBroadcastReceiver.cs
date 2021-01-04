@@ -40,7 +40,7 @@ namespace NDB.Covid19.Droid.Services
         {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(context);
             notificationManagerCompat.Notify(
-                LocalNotificationsManager.PermissionsNotificationId,
+                    (int) viewModel.Type,
                 new LocalNotificationsManager(context)
                     .CreateNotification(viewModel));
         }
@@ -67,7 +67,7 @@ namespace NDB.Covid19.Droid.Services
                 NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(context);
                 await Task.Delay(triggerInSeconds * 1000);
                 notificationManagerCompat.Notify(
-                    LocalNotificationsManager.NotificationId,
+                    (int) notificationViewModel.Type,
                     new LocalNotificationsManager(context)
                         .CreateNotification(notificationViewModel));
             });

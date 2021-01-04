@@ -181,7 +181,25 @@ namespace NDB.Covid19.Droid.Utils
             catch (Exception e)
             {
                 LogUtils.LogException(LogSeverity.WARNING, e,
-                    $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings");
+                    $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings. Trying other intent.");
+                try
+                {
+                    // This is needed for some Samsung devices as the previous solution
+                    // requires BLUETOOTH_ADMIN permissions and we do not want to use them.
+                    Intent intent = new Intent(Intent.ActionMain, null);
+                    intent.AddCategory(Intent.CategoryLauncher);
+                    ComponentName cn = new ComponentName(
+                        "com.android.settings",
+                        "com.android.settings.bluetooth.BluetoothSettings");
+                    intent.SetComponent(cn);
+                    intent.SetFlags(ActivityFlags.NewTask);
+                    Current.AppContext.StartActivity(intent);
+                }
+                catch (Exception ex)
+                {
+                    LogUtils.LogException(LogSeverity.WARNING, ex,
+                        $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings. Skipping.");
+                }
             }
         }
 

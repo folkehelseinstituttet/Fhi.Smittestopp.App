@@ -35,6 +35,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_how_it_works_title);
 
             titleField.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER;
+            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             textField.TextFormatted = HtmlCompat.FromHtml(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT,
                 HtmlCompat.FromHtmlModeLegacy);
             LinkUtil.LinkifyTextView(textField);

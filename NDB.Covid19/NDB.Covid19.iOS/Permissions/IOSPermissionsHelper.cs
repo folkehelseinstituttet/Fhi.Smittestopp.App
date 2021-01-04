@@ -6,7 +6,11 @@ namespace NDB.Covid19.iOS.Permissions
     {
         public bool IsBluetoothEnabled()
         {
-            return !(new IOSPermissionManager().PoweredOff().GetAwaiter().GetResult());
+            IOSPermissionManager iosPermissionManager = new IOSPermissionManager();
+            // On iOS there is no clear indication if bluetooth is ON (the opposite of
+            // BLUETOOTH_OFF state is not BLUETOOTH_ON) so we assume
+            // that every state other than Active indicates no permissions.
+            return iosPermissionManager.IsENActive().GetAwaiter().GetResult();
         }
 
         public bool IsLocationEnabled()
