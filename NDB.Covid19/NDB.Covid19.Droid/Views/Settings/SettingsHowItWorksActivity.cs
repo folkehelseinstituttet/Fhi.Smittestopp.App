@@ -31,15 +31,44 @@ namespace NDB.Covid19.Droid.Views.Settings
             ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back);
             backButton.ContentDescription = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
-            TextView textField = FindViewById<TextView>(Resource.Id.settings_how_it_works_text);
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_how_it_works_title);
+            TextView intro = FindViewById<TextView>(Resource.Id.settings_how_it_works_intro);
+            TextView heading1 = FindViewById<TextView>(Resource.Id.settings_how_it_works_heading1);
+            TextView paragraph1textView1 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph1textView1);
+            TextView paragraph1textView2 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph1textView2);
+            TextView heading2 = FindViewById<TextView>(Resource.Id.settings_how_it_works_heading2);
+            TextView paragraph2textView1 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph2textView1);
+            TextView paragraph2textView2 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph2textView2);
+            TextView paragraph2textView3 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph2textView3);
+            TextView paragraph2textView4 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph2textView4);
+            TextView heading3 = FindViewById<TextView>(Resource.Id.settings_how_it_works_heading3);
+            TextView paragraph3textView1 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph3textView1);
+            TextView paragraph3textView2 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph3textView2);
+            TextView paragraph3textView3 = FindViewById<TextView>(Resource.Id.settings_how_it_works_paragraph3textView3);
 
             titleField.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER;
-            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
-            textField.TextFormatted = HtmlCompat.FromHtml(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT,
+            intro.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_INTRO;
+            heading1.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_TITLE;
+            paragraph1textView1.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT;
+            paragraph1textView2.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT2;
+            heading2.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_TITLE;
+            paragraph2textView1.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT;
+            paragraph2textView2.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT2;
+            paragraph2textView3.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT3;
+            paragraph2textView4.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT4;
+            heading3.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE;
+            paragraph3textView1.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT;
+            paragraph3textView2.Text = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT2;
+
+            paragraph3textView3.TextFormatted = HtmlCompat.FromHtml(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT3,
                 HtmlCompat.FromHtmlModeLegacy);
-            LinkUtil.LinkifyTextView(textField);
-            FormatLink(textField);
+            LinkUtil.LinkifyTextView(paragraph3textView3);
+            FormatLink(paragraph3textView3);
+
+            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            heading1.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            heading2.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            heading3.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
         }
