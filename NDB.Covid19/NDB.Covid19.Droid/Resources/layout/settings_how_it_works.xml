@@ -150,14 +150,14 @@
                         android:layout_marginBottom="@dimen/defaultVerticalMargin"
                         android:textAppearance="@style/settings_general"/>
 
-				<TextView
-					    android:id="@+id/settings_how_it_works_heading3"
-					    android:layout_width="match_parent"
-					    android:layout_height="match_parent"
-					    android:gravity="top"
-					    android:lineSpacingExtra="4sp"
+			    <TextView
+			            android:id="@+id/settings_how_it_works_heading3"
+			            android:layout_width="match_parent"
+			            android:layout_height="match_parent"
+				        android:gravity="top"
+				        android:lineSpacingExtra="4sp"
                         style="@style/PrimaryTextBold"
-					    android:textAppearance="@style/settings_general"/>
+				        android:textAppearance="@style/settings_general"/>
 
                 <TextView
                         android:id="@+id/settings_how_it_works_paragraph3textView1"
