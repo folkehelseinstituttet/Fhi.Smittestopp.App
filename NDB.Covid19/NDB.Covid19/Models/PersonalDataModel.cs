@@ -1,9 +1,7 @@
-﻿using NDB.Covid19.Utils;
-
-using Newtonsoft.Json;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using NDB.Covid19.Utils;
+using Newtonsoft.Json;
 
 namespace NDB.Covid19.Models
 {

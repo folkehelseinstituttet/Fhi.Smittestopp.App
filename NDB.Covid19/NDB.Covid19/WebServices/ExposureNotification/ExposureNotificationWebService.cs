@@ -1,7 +1,9 @@
-﻿using AnonymousTokens.Core.Services.InMemory;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
-using NDB.Covid19.OAuth2;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
@@ -16,6 +18,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using NDB.Covid19.OAuth2;
 
 namespace NDB.Covid19.WebServices.ExposureNotification
 {
@@ -43,7 +46,6 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             {
                 response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
             }
-
             // HandleErrorsSilently happens even if IsSuccessfull is true other places in the code, but here
             // we have an if-else to avoid having to create the redacted key list if we don't have to
             if (!response.IsSuccessfull)

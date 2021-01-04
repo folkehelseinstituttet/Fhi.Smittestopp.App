@@ -42,6 +42,7 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="WebServices\" />
     <Folder Include="PersistedData\" />
     <Folder Include="PersistedData\SQLite\" />
     <Folder Include="Enums\" />
@@ -51,6 +52,7 @@
     <Folder Include="WebServices\ErrorHandlers\" />
     <Folder Include="Models\DTOsForServer\" />
     <Folder Include="Models\Logging\" />
+    <Folder Include="Configuration\" />
     <Folder Include="ExposureNotifications\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Locales\" />

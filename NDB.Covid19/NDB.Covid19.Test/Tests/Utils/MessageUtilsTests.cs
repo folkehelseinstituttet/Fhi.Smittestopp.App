@@ -1,26 +1,23 @@
-﻿using CommonServiceLocator;
-
-using FluentAssertions;
-
-using NDB.Covid19.Configuration;
-using NDB.Covid19.ExposureNotifications.Helpers;
-using NDB.Covid19.Models.SQLite;
-using NDB.Covid19.PersistedData.SecureStorage;
-using NDB.Covid19.PersistedData.SQLite;
-using NDB.Covid19.Test.Mocks;
-using NDB.Covid19.Utils;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-
+using CommonServiceLocator;
+using FluentAssertions;
+using NDB.Covid19.Models.SQLite;
+using NDB.Covid19.Test.Helpers;
+using NDB.Covid19.Test.Mocks;
+using NDB.Covid19.Utils;
 using Xunit;
 using Xunit.Sdk;
+using NDB.Covid19.Configuration;
+using NDB.Covid19.ExposureNotifications.Helpers;
+using NDB.Covid19.PersistedData.SecureStorage;
+using NDB.Covid19.PersistedData.SQLite;
 
 namespace NDB.Covid19.Test.Tests.Utils
 {
-    public class MessageUtilsTests
+    public class MessageUtilsTests: IDisposable
     {
         [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
         public class BeforeAfterAttr : BeforeAfterTestAttribute
@@ -75,6 +72,12 @@ namespace NDB.Covid19.Test.Tests.Utils
             DependencyInjectionConfig.Init();
             var secureStorageService = ServiceLocator.Current.GetInstance<SecureStorageService>();
             secureStorageService.SetSecureStorageInstance(new SecureStorageMock());
+            ApiStubHelper.StartServer();
+        }
+
+        public void Dispose()
+        {
+            ApiStubHelper.StopServer();
         }
 
         [Fact]
@@ -114,7 +117,7 @@ namespace NDB.Covid19.Test.Tests.Utils
         public async void RemoveShouldHaveTwoRecords()
         {
             var models = await MessageUtils.GetMessages();
-            await MessageUtils.RemoveMessages(models.GetRange(0, 1));
+            await MessageUtils.RemoveMessages(models.GetRange(0,1));
 
             var messagesAfterRemoval = await MessageUtils.GetMessages();
             messagesAfterRemoval.Should().HaveCount(2);
@@ -161,7 +164,7 @@ namespace NDB.Covid19.Test.Tests.Utils
 
             messagesAfterMark.All(message => message.IsRead == false).Should().BeTrue();
         }
-
+        
         [Fact]
         [BeforeAfterAttr]
         public async void GetMarkAllAsReadShouldMarkAllMessagesAsRead()

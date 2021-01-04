@@ -376,7 +376,7 @@
     <ImageAsset Include="Assets.xcassets\onboarding02right.imageset\Group 2028%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Contents.json">
+        <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\40.png">
@@ -562,24 +562,12 @@
     <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png" />
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png" />
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
