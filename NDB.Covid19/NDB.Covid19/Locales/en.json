@@ -80,6 +80,8 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT": "If you have tested positive, you can voluntarily share your status in the app by going to the home screen and pressing ‘Did you test positive?’. Other app users will not be able to see who you are. You must log in via ID-porten.<br><br>After you have shared your status, other users will receive a message saying that they have been nearby a person infected with COVID-19.<br><br>You can see messages in the app on the home screen. Here you can also see if you have received a new exposure message.<br><br>If Smittestopp is inactive, you cannot receive messages. You can log in and share your status, but as there is no exchange of IDs when the app is inactive, there will be nobody to share your status with.<br><br>",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE": "The technology<br>",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT": "The app uses Bluetooth and is based on built-in technology developed by Apple and Google. It comprises a system for registering exposure. You can turn this on or off in your phone’s settings.<br><br>Your phone generates a random Bluetooth ID every 15 minutes. When two phones are nearby each other, they exchange IDs.<br><br> Read more about the Smittestopp app at <a href=\"https://www.helsenorge.no/en/smittestopp\">www.helsenorge.no/en/smittestopp</a><br><br>",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE": "TBD",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "TBD",
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Back",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Withdraw consent",
   "CONSENT_REMOVE_TITLE": "The app cannot be used without consent",
