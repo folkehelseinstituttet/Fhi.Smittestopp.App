@@ -65,10 +65,12 @@ namespace NDB.Covid19.iOS.Views.Welcome
         {
             InitLabelWithSpacing(TitleLabel, FontType.FontBold, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_TITLE, 1.14, 32, 34);
             InitLabelWithSpacing(Label1, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_ONE, 1.28, 20, 22);
+            InitLabelWithSpacing(Label2, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_TWO, 1.28, 20, 22);
             InitLabelWithSpacing(LabelBottom, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_FOOTER, 1.28, 20, 22);
 
             SetAccessibilityText(TitleLabel, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_TITLE);
             SetAccessibilityText(Label1, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_ONE);
+            SetAccessibilityText(Label2, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_TWO);
             SetAccessibilityText(LabelBottom, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_FOOTER);
         }
 
