@@ -30,7 +30,7 @@ namespace NDB.Covid19.iOS.Utils
 
             private void Reset()
             {
-                DispatchQueue.MainQueue.DispatchAfter(new DispatchTime(DispatchTime.Now, _delayMilliseconds * 10000000), () => { _hasStarted = false; });
+                DispatchQueue.MainQueue.DispatchAfter(new DispatchTime(DispatchTime.Now, _delayMilliseconds * 0), () => { _hasStarted = false; });
             }
         }
 
@@ -66,7 +66,7 @@ namespace NDB.Covid19.iOS.Utils
 
             private void Reset()
             {
-                DispatchQueue.MainQueue.DispatchAfter(new DispatchTime(DispatchTime.Now, _delayMilliseconds * 10000000), () => { _hasStarted = false; });
+                DispatchQueue.MainQueue.DispatchAfter(new DispatchTime(DispatchTime.Now, _delayMilliseconds * 0), () => { _hasStarted = false; });
             }
         }
 
