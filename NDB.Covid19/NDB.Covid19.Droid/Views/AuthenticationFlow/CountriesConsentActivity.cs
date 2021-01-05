@@ -8,7 +8,6 @@ using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
-using NDB.Covid19.ViewModels;
 using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
@@ -67,19 +66,10 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _closeButton.ContentDescription = CLOSE_BUTTON_ACCESSIBILITY_LABEL;
 
             //Button click events
-            _closeButton.Click += new StressUtils.SingleClick((sender, e) => ShowAreYouSureToExitDialog(), 500).Run;
-            _consentButton.Click += new StressUtils.SingleClick(async (o, args) =>
+            _closeButton.Click += new StressUtils.SingleClick((sender, e) => ShowAreYouSureToDenyConsentDialog(), 500).Run;
+            _consentButton.Click += new StressUtils.SingleClick((o, args) =>
             {
-                bool consentGiven = await DialogUtils.DisplayDialogAsync(this, GiveConsentViewModel);
-
-                if (consentGiven)
-                {
-                    InvokeNextButtonClick(GoToCountriesQuestionnairePage, OnFail, consentGiven);
-                }
-                else
-                {
-                    InvokeNextButtonClick(GoToLoadingPage, OnFail, consentGiven);
-                }
+                InvokeNextButtonClick(GoToCountriesQuestionnairePage, OnFail, true);
             }, 500).Run;
         }
 
@@ -102,20 +92,18 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             });
         }
         
-        private async void ShowAreYouSureToExitDialog()
+        private async void ShowAreYouSureToDenyConsentDialog()
         {
             bool isOkPressed = await DialogUtils.DisplayDialogAsync(
                 this,
-                ErrorViewModel.REGISTER_LEAVE_HEADER,
-                ErrorViewModel.REGISTER_LEAVE_DESCRIPTION,
-                ErrorViewModel.REGISTER_LEAVE_CONFIRM,
-                ErrorViewModel.REGISTER_LEAVE_CANCEL);
+                DENY_COUNTRIES_CONSENT_DIALOG_HEADER,
+                DENY_COUNTRIES_CONSENT_DIALOG_MESSAGE,
+                DENY_COUNTRIES_CONSENT_DIALOG_OK,
+                DENY_COUNTRIES_CONSENT_DIALOG_CANCEL);
             if (isOkPressed)
             {
-                GoToInfectionStatusPage();
+                InvokeNextButtonClick(GoToLoadingPage, OnFail, false);
             }
-        }
-        
-        private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
+        }        
     }
 }
