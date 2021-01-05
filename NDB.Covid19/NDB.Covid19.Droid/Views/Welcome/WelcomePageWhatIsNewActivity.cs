@@ -5,7 +5,6 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
-using NDB.Covid19.ViewModels;
 using static NDB.Covid19.ViewModels.WelcomePageWhatIsNewViewModel;
 
 namespace NDB.Covid19.Droid.Views.Welcome
@@ -14,8 +13,6 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
     public class WelcomePageWhatIsNewActivity : AppCompatActivity
     {
-        WelcomePageWhatIsNewViewModel _viewModel = new WelcomePageWhatIsNewViewModel();
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

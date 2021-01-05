@@ -52,6 +52,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             //Accessibility
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
+            _title.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             RunOnUiThread(() => ShowSpinner(true));
 

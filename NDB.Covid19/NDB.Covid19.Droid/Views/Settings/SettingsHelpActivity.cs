@@ -34,6 +34,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_help_title);
 
             titleField.Text = HEADER;
+            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             textField.TextFormatted =
                 HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
             /* Note:

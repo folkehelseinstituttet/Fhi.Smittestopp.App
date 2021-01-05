@@ -47,9 +47,11 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             recipeSmallText.Text = REGISTER_QUESTIONAIRE_RECEIPT_INNER_READ_MORE;
 
             registeredTitle.ContentDescription = REGISTER_QUESTIONAIRE_RECEIPT_HEADER;
+            registeredTitle.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             registeredTickText.ContentDescription = REGISTER_QUESTIONAIRE_RECEIPT_TEXT;
             registeredDescription.ContentDescription = REGISTER_QUESTIONAIRE_RECEIPT_DESCRIPTION;
             recipeHeader.ContentDescription = REGISTER_QUESTIONAIRE_RECEIPT_INNER_HEADER;
+            recipeHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             recipeSmallText.ContentDescription = REGISTER_QUESTIONAIRE_RECEIPT_INNER_READ_MORE;
 
             Button button = FindViewById<Button>(Resource.Id.registered_button);
