@@ -165,7 +165,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                         await _viewModel.StartENService();
                     }
 
-                    if (await _permissionManager.IsBluetoothOff())
+                    if (await _permissionManager.PoweredOff())
                     {
                         DialogHelper.ShowBluetoothTurnedOffDialog(this);
                     }
@@ -351,7 +351,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                     // We do nothing. The OS will throw a dialog by itself
                     Debug.WriteLine("GetStatusAsync() == Status.Unknown");
                 }
-                else if (await _permissionManager.IsBluetoothOff())
+                else if (await _permissionManager.PoweredOff())
                 {
                     DialogHelper.ShowBluetoothTurnedOffDialog(this);
                 }

@@ -10,16 +10,11 @@ namespace NDB.Covid19.iOS.Permissions
             return await ExposureNotification.GetStatusAsync() == Status.Unknown;
         }
 
-        public async Task<bool> IsBluetoothOff()
+        public async Task<bool> PoweredOff()
         {
             return await ExposureNotification.GetStatusAsync() == Status.BluetoothOff;
         }
 
-        public async Task<bool> IsENActive()
-        {
-            return await Xamarin.ExposureNotifications.ExposureNotification.GetStatusAsync() == Status.Active;
-        }
-        
         /// <summary>
         /// Returns true if Status.Active || status == Status.Disabled
         /// Meaning that everything is ready for either starting or stopping the scanner.
