@@ -8,6 +8,8 @@ using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using XamarinShortcutBadger;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
@@ -119,7 +121,8 @@ namespace NDB.Covid19.Droid.Utils
             // Construct a back stack for cross-task navigation:
             TaskStackBuilder stackBuilder = TaskStackBuilder.Create(NotificationContext);
 
-            if (notificationViewModel.Type == NotificationsEnum.NewMessageReceived.Data().Type)
+            if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted &&
+                notificationViewModel.Type == NotificationsEnum.NewMessageReceived.Data().Type)
             {
                 resultIntent = new Intent(NotificationContext, typeof(MessagesActivity));
                 stackBuilder.AddParentStack(Class.FromType(typeof(MessagesActivity)));
