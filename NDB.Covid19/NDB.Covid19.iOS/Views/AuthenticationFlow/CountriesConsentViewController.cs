@@ -66,12 +66,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         partial void OnCloseBtnTapped(UIButton sender)
         {
-            DialogHelper.ShowDialog(this, CloseDialogViewModel, CloseConfirmed, UIAlertActionStyle.Destructive);
+            DialogHelper.ShowDialog(this, DenyCountryConsentDialogViewModel, CloseConfirmed, UIAlertActionStyle.Destructive);
         }
 
         void CloseConfirmed(UIAlertAction obj)
         {
-            NavigationController?.DismissViewController(true, null);
+            InvokeNextButtonClick(GoToLoadingPage, OnFail, false);
         }
 
         void OnFail()
@@ -83,12 +83,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         partial void OnNext(DefaultBorderButton sender)
         {
-            DialogHelper.ShowDialog(
-                this,
-                GiveConsentViewModel,
-                action => InvokeNextButtonClick(GoToQuestionnaireCountriesPage, OnFail, true),
-                UIAlertActionStyle.Default,
-                action => InvokeNextButtonClick(GoToLoadingPage, OnFail, false));
+            InvokeNextButtonClick(GoToQuestionnaireCountriesPage, OnFail, true);
         }
     }
 }
