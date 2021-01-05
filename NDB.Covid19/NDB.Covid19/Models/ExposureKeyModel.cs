@@ -1,5 +1,4 @@
 ﻿using System;
-using NDB.Covid19.PersistedData;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.Models
@@ -8,7 +7,6 @@ namespace NDB.Covid19.Models
     {
         public ExposureKeyModel(TemporaryExposureKey tek) : base(tek.Key, tek.RollingStart, tek.RollingDuration, tek.TransmissionRiskLevel)
         {
-            IsSharingAllowed = LocalPreferencesHelper.AreCountryConsentsGiven;
         }
 
         public ExposureKeyModel(
@@ -17,7 +15,6 @@ namespace NDB.Covid19.Models
             TimeSpan rollingDuration,
             RiskLevel transmissionRisk) : base(keyData, rollingStart, rollingDuration, transmissionRisk)
         {
-            IsSharingAllowed = LocalPreferencesHelper.AreCountryConsentsGiven;
         }
 
         public ExposureKeyModel(
@@ -27,10 +24,8 @@ namespace NDB.Covid19.Models
             RiskLevel transmissionRisk, int daysSinceOnsetOfSymptoms) : base(keyData, rollingStart, rollingDuration, transmissionRisk)
         {
             DaysSinceOnsetOfSymptoms = daysSinceOnsetOfSymptoms;
-            IsSharingAllowed = LocalPreferencesHelper.AreCountryConsentsGiven;
         }
 
         public int DaysSinceOnsetOfSymptoms { get; set; }
-        public bool IsSharingAllowed { get; set; } = false;
     }
 }
