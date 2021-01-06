@@ -98,15 +98,31 @@
                     android:layout_below="@id/beAware_text_textview"
                     android:id="@+id/explanation_text_textview"
                     style="@style/PrimaryTextItalic"/>
-            <Button
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_below="@id/explanation_text_textview">
+                <Button
                     android:text="Consent Button"
                     android:layout_marginVertical="@dimen/defaultVerticalMargin"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/explanation_text_textview"
-                    android:id="@+id/consent_button"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/consentWithEU_button"
                     style="@style/IDPortenButton"/>
+                <Button
+                    android:text="Consent Button"
+                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/consentWithoutEU_button"
+                    style="@style/IDPortenButton"/>
+            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

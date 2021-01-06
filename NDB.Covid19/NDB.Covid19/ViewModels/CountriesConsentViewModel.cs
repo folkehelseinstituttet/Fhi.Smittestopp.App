@@ -30,7 +30,6 @@ namespace NDB.Covid19.ViewModels
             OkBtnTxt = EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT
         };
         
-        public static string BUTTON_TEXT => "COUNTRIES_CONSENT_BUTTON_TEXT".Translate();
         public static string HEADER_TEXT => "COUNTRIES_CONSENT_HEADER_TEXT".Translate();
         public static string COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION =>
             "COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION".Translate();

@@ -26,7 +26,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private TextView _notificationText;
         private TextView _beAwareText;
         private TextView _consentExplanationText;
-        private Button _consentButton;
+        private Button _consentWithEUButton;
+        private Button _consentWithoutEUButton;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,7 +41,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             //Buttons
             _closeButton = FindViewById<ViewGroup>(Resource.Id.close_cross_btn);
-            _consentButton = FindViewById<Button>(Resource.Id.consent_button);
+            _consentWithEUButton = FindViewById<Button>(Resource.Id.consentWithEU_button);
+            _consentWithoutEUButton = FindViewById<Button>(Resource.Id.consentWithoutEU_button);
 
             //TextViews
             _header = FindViewById<TextView>(Resource.Id.header_textView);
@@ -53,7 +55,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _consentExplanationText = FindViewById<TextView>(Resource.Id.explanation_text_textview);
 
             //Text initialization
-            _consentButton.Text = BUTTON_TEXT;
+            _consentWithEUButton.Text = EU_CONSENT_NEXT_WITH_CONSENT_BUTTON_TEXT;
+            _consentWithoutEUButton.Text = EU_CONSENT_NEXT_WITHOUT_CONSENT_BUTTON_TEXT;
             _header.Text = HEADER_TEXT;
             _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
             _lookupHeader.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_HEADER;
@@ -67,19 +70,14 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _closeButton.ContentDescription = CLOSE_BUTTON_ACCESSIBILITY_LABEL;
 
             //Button click events
-            _closeButton.Click += new StressUtils.SingleClick((sender, e) => ShowAreYouSureToExitDialog(), 500).Run;
-            _consentButton.Click += new StressUtils.SingleClick(async (o, args) =>
+            _closeButton.Click += new StressUtils.SingleClick((sender, e) => ShowAbortDialog(), 500).Run;
+            _consentWithEUButton.Click += new StressUtils.SingleClick((o, args) =>
             {
-                bool consentGiven = await DialogUtils.DisplayDialogAsync(this, GiveConsentViewModel);
-
-                if (consentGiven)
-                {
-                    InvokeNextButtonClick(GoToCountriesQuestionnairePage, OnFail, consentGiven);
-                }
-                else
-                {
-                    InvokeNextButtonClick(GoToLoadingPage, OnFail, consentGiven);
-                }
+                InvokeNextButtonClick(GoToCountriesQuestionnairePage, OnFail, true);
+            }, 500).Run;
+            _consentWithoutEUButton.Click += new StressUtils.SingleClick((o, args) =>
+            {
+                InvokeNextButtonClick(GoToLoadingPage, OnFail, false);
             }, 500).Run;
         }
 
@@ -102,20 +100,14 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             });
         }
         
-        private async void ShowAreYouSureToExitDialog()
+        private async void ShowAbortDialog()
         {
-            bool isOkPressed = await DialogUtils.DisplayDialogAsync(
+            await DialogUtils.DisplayDialogAsync(
                 this,
-                ErrorViewModel.REGISTER_LEAVE_HEADER,
-                ErrorViewModel.REGISTER_LEAVE_DESCRIPTION,
-                ErrorViewModel.REGISTER_LEAVE_CONFIRM,
-                ErrorViewModel.REGISTER_LEAVE_CANCEL);
-            if (isOkPressed)
-            {
-                GoToInfectionStatusPage();
-            }
+                EU_CONSENT_ABORT_DIALOG_HEADER,
+                EU_CONSENT_ABORT_DIALOG_CONTENT,
+                EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT
+            );
         }
-        
-        private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
     }
 }
