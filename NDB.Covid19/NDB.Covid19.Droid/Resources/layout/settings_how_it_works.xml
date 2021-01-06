@@ -1,76 +1,215 @@
 <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/backgroundColor">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/backgroundColor">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/header_bar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-            android:paddingVertical="@dimen/defaultVerticalMargin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/header_bar"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+		android:paddingVertical="@dimen/defaultVerticalMargin"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-                android:id="@+id/arrow_back"
-                android:layout_width="@dimen/backButton"
-                android:layout_height="@dimen/backButton"
-                app:layout_constraintBaseline_toBaselineOf="@id/settings_how_it_works_title"
-                android:background="@drawable/ic_circle_arrow_left"
-                app:layout_constraintStart_toStartOf="parent"/>
+		<ImageButton
+			android:id="@+id/arrow_back"
+			android:layout_width="@dimen/backButton"
+			android:layout_height="@dimen/backButton"
+			app:layout_constraintBaseline_toBaselineOf="@id/settings_how_it_works_title"
+			android:background="@drawable/ic_circle_arrow_left"
+			app:layout_constraintStart_toStartOf="parent"/>
 
-        <TextView
-                android:id="@+id/settings_how_it_works_title"
-                style="@style/HeaderText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:gravity="top"
-                android:text="Title\nTitle"
-                android:lineSpacingExtra="4sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/arrow_back"
-                app:layout_constraintTop_toTopOf="parent"/>
+		<TextView
+			android:id="@+id/settings_how_it_works_title"
+			style="@style/HeaderText"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:gravity="top"
+			android:text="Title\nTitle"
+			android:lineSpacingExtra="4sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@id/arrow_back"
+			app:layout_constraintTop_toTopOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+	</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/settings_how_it_works_text_layout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header_bar">
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/settings_how_it_works_text_layout"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/header_bar">
 
-        <ScrollView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+		<ScrollView
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+			<LinearLayout
+				android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
 
-                <TextView
-                        android:id="@+id/settings_how_it_works_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="top"
-                        android:lineSpacingExtra="4sp"
-                        android:textAppearance="@style/settings_general"/>
-            </LinearLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+				<TextView
+					android:id="@+id/settings_how_it_works_intro"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultVerticalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_heading1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextBold"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph1textView1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph1textView2"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultVerticalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_heading2"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextBold"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph2textView1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph2textView2"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph2textView3"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph2textView4"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultVerticalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_heading3"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextBold"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph3textView1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_heading4"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextBold"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph4textView1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph4textView2"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultHorizontalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+				<TextView
+					android:id="@+id/settings_how_it_works_paragraph4textView3"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:lineSpacingExtra="4sp"
+					style="@style/PrimaryTextRegular"
+					android:layout_marginBottom="@dimen/defaultVerticalMargin"
+					android:textAppearance="@style/settings_general"/>
+
+
+			</LinearLayout>
+		</ScrollView>
+	</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
