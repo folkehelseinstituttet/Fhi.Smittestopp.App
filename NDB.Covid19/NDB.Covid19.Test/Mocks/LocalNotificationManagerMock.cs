@@ -27,7 +27,7 @@ namespace NDB.Covid19.Test.Mocks
 
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
         {
-            LocalPreferencesHelper.TermsNotificationWasShown = true;
+            LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = SystemTime.Now();
             GenerateLocalNotification(viewModel, 0);
         }
 

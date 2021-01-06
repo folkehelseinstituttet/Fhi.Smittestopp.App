@@ -27,7 +27,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             OnboardingStatus status,
             bool result)
         {
-            LocalPreferencesHelper.TermsNotificationWasShown = false;
+            LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = DateTime.MinValue;
             LocalNotificationsManager.ResetHasBeenCalledMap();
             LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents] = false;
             OnboardingStatusHelper.Status = status;
@@ -44,7 +44,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             }
 
             Assert.Equal(result, LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents]);
-            Assert.Equal(result, LocalPreferencesHelper.TermsNotificationWasShown);
+            Assert.Equal(result, LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace NDB.Covid19.Droid.Services
             if (isInBackground)
             {
                 new LocalNotificationsManager(context).GenerateLocalNotification(viewModel, 0);
-                LocalPreferencesHelper.TermsNotificationWasShown = true;
+                LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = SystemTime.Now();
             }
         }
 
