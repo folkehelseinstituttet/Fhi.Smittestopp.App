@@ -103,7 +103,7 @@
                                                             <action selector="OnNextWithEUConsent:" destination="326" eventType="touchUpInside" id="83g-CM-IeP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qUd-pk-VPy" userLabel="NextWithoutEUConsent" customClass="DefaultBorderButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qUd-pk-VPy" userLabel="NextOnlyNorwayConsent" customClass="DefaultBorderButton">
                                                         <rect key="frame" x="167.5" y="0.0" width="157.5" height="20"/>
                                                         <color key="backgroundColor" red="0.3803921569" green="0.82745098039999998" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -114,7 +114,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="OnNextWithoutEUConsent:" destination="326" eventType="touchUpInside" id="Of7-SE-qbU"/>
+                                                            <action selector="OnNextOnlyNorwayConsent:" destination="326" eventType="touchUpInside" id="IgN-Qj-ACA"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -154,8 +154,8 @@
                         <outlet property="HeaderLabel" destination="mRS-C6-GLl" id="name-outlet-mRS-C6-GLl"/>
                         <outlet property="LookUp_Header" destination="7hc-mI-fcI" id="name-outlet-7hc-mI-fcI"/>
                         <outlet property="LookUp_Text" destination="rNX-yt-9M4" id="name-outlet-rNX-yt-9M4"/>
+                        <outlet property="NextButtonOnlyNorwayConsent" destination="qUd-pk-VPy" id="D8H-QO-1M5"/>
                         <outlet property="NextButtonWithEUConsent" destination="Q5l-do-83F" id="P2A-Y6-ypH"/>
-                        <outlet property="NextButtonWithoutEUConsent" destination="qUd-pk-VPy" id="oJK-rI-zUo"/>
                         <outlet property="Notification_Header" destination="0Vh-Kp-s1j" id="name-outlet-0Vh-Kp-s1j"/>
                         <outlet property="Notification_Text" destination="iPz-fg-0ye" id="name-outlet-iPz-fg-0ye"/>
                     </connections>

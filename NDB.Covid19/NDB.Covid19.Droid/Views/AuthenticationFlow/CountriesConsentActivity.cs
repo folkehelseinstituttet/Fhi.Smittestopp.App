@@ -26,8 +26,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private TextView _notificationText;
         private TextView _beAwareText;
         private TextView _consentExplanationText;
-        private Button _consentWithEUButton;
-        private Button _consentWithoutEUButton;
+        private Button _consentButtonEU;
+        private Button _consentButtonOnlyNorway;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,8 +41,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             //Buttons
             _closeButton = FindViewById<ViewGroup>(Resource.Id.close_cross_btn);
-            _consentWithEUButton = FindViewById<Button>(Resource.Id.consentWithEU_button);
-            _consentWithoutEUButton = FindViewById<Button>(Resource.Id.consentWithoutEU_button);
+            _consentButtonEU = FindViewById<Button>(Resource.Id.consentButton_EU);
+            _consentButtonOnlyNorway = FindViewById<Button>(Resource.Id.consentButton_onlyNorway);
 
             //TextViews
             _header = FindViewById<TextView>(Resource.Id.header_textView);
@@ -55,8 +55,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _consentExplanationText = FindViewById<TextView>(Resource.Id.explanation_text_textview);
 
             //Text initialization
-            _consentWithEUButton.Text = EU_CONSENT_NEXT_WITH_CONSENT_BUTTON_TEXT;
-            _consentWithoutEUButton.Text = EU_CONSENT_NEXT_WITHOUT_CONSENT_BUTTON_TEXT;
+            _consentButtonEU.Text = EU_CONSENT_NEXT_WITH_CONSENT_BUTTON_TEXT;
+            _consentButtonOnlyNorway.Text = EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT;
             _header.Text = HEADER_TEXT;
             _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
             _lookupHeader.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_HEADER;
@@ -71,11 +71,11 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             //Button click events
             _closeButton.Click += new StressUtils.SingleClick((sender, e) => ShowAbortDialog(), 500).Run;
-            _consentWithEUButton.Click += new StressUtils.SingleClick((o, args) =>
+            _consentButtonEU.Click += new StressUtils.SingleClick((o, args) =>
             {
                 InvokeNextButtonClick(GoToCountriesQuestionnairePage, OnFail, true);
             }, 500).Run;
-            _consentWithoutEUButton.Click += new StressUtils.SingleClick((o, args) =>
+            _consentButtonOnlyNorway.Click += new StressUtils.SingleClick((o, args) =>
             {
                 InvokeNextButtonClick(GoToLoadingPage, OnFail, false);
             }, 500).Run;

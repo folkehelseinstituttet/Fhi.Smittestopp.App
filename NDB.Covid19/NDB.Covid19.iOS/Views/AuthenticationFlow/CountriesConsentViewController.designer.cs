@@ -41,10 +41,10 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel LookUp_Text { get; set; }
 
 		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextButtonWithEUConsent { get; set; }
+		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextButtonOnlyNorwayConsent { get; set; }
 
 		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextButtonWithoutEUConsent { get; set; }
+		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextButtonWithEUConsent { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -57,11 +57,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 		[Action ("OnCloseBtnTapped:")]
 		partial void OnCloseBtnTapped (UIKit.UIButton sender);
 
+		[Action ("OnNextOnlyNorwayConsent:")]
+		partial void OnNextOnlyNorwayConsent (NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton sender);
+
 		[Action ("OnNextWithEUConsent:")]
 		partial void OnNextWithEUConsent (NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton sender);
-
-		[Action ("OnNextWithoutEUConsent:")]
-		partial void OnNextWithoutEUConsent (NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -105,9 +105,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 				NextButtonWithEUConsent = null;
 			}
 
-			if (NextButtonWithoutEUConsent != null) {
-				NextButtonWithoutEUConsent.Dispose ();
-				NextButtonWithoutEUConsent = null;
+			if (NextButtonOnlyNorwayConsent != null) {
+				NextButtonOnlyNorwayConsent.Dispose ();
+				NextButtonOnlyNorwayConsent = null;
 			}
 
 			if (Notification_Header != null) {

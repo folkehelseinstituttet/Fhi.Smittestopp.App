@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:id="@+id/consentWithEU_button"
+                    android:id="@+id/consentButton_EU"
                     style="@style/IDPortenButton"/>
                 <Button
                     android:text="Consent Button"
@@ -120,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:layout_height="fill_parent"
-                    android:id="@+id/consentWithoutEU_button"
+                    android:id="@+id/consentButton_onlyNorway"
                     style="@style/IDPortenButton"/>
             </LinearLayout>
         </RelativeLayout>
