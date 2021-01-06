@@ -1,7 +1,6 @@
 using System;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views.CustomSubclasses;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
@@ -35,76 +34,58 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
 
         void SetTexts()
         {
+            string intro = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_INTRO;
+            string par1Title = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_TITLE;
+            string par1Content = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT;
+            string par2Title = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_TITLE;
+            string par2Content = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT;
+            string par3Title = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE;
+            string par3Content = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT;
+
+            string contentText = SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_INTRO +
+                                 SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_TITLE +
+                                 SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT +
+                                 SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_TITLE +
+                                 SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT +
+                                 SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE +
+                                 SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT;
+
             HeaderLabel.SetAttributedText(SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER);
-            InitLabel(IntroLabel, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_INTRO, 16, 20);
-            InitLabel(Header1Label, FontType.FontBold, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_TITLE, 16, 20);
-            InitLabel(Paragraph1Label1, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT, 16, 20);
-            InitLabel(Paragraph1Label2, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT2, 16, 20);
-            InitLabel(Header2Label, FontType.FontBold, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_TITLE, 16, 20);
-            InitLabel(Paragraph2Label1, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT, 16, 20);
-            InitLabel(Paragraph2Label2, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT2, 16, 20);
-            InitLabel(Paragraph2Label3, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT3, 16, 20);
-            InitLabel(Paragraph2Label4, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT4, 16, 20);
-            InitLabel(Header3Label, FontType.FontBold, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE, 16, 20);
-            InitLabel(Paragraph3Label1, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT, 16, 20);
-            InitLabel(Paragraph3Label2, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT2, 16, 20);
-
+            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            
             NSMutableAttributedString text = new NSMutableAttributedString();
-            text.Append(ApplyStylingToText(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT3, FontType.FontRegular));
-
-            // Necessary to unify horizontal alignment with the rest of the text on the page
-            Paragraph3Label3.TextContainerInset = UIEdgeInsets.Zero;
-            Paragraph3Label3.TextContainer.LineFragmentPadding = 0;
-
-            Paragraph3Label3.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
-            Paragraph3Label3.AttributedText = text;
-            Paragraph3Label3.WeakLinkTextAttributes =
+            text.Append(ApplyStylingToText(intro, FontType.FontRegular));
+            text.Append(ApplyStylingToText(par1Title, FontType.FontBold));
+            text.Append(ApplyStylingToText(par1Content, FontType.FontRegular));
+            text.Append(ApplyStylingToText(par2Title, FontType.FontBold));
+            text.Append(ApplyStylingToText(par2Content, FontType.FontRegular));
+            text.Append(ApplyStylingToText(par3Title, FontType.FontBold));
+            text.Append(ApplyStylingToText(par3Content, FontType.FontRegular));
+            ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
+            ContentText.AttributedText = text;
+            ContentText.WeakLinkTextAttributes =
                 new NSDictionary(
                     UIStringAttributeKey.ForegroundColor, 
                     ColorHelper.TEXT_COLOR_ON_BACKGROUND, 
                     UIStringAttributeKey.UnderlineStyle, 
                     new NSNumber(1));
-
+            
             //Accessibility
-            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
             HeaderLabel.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER);
-            Header1Label.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_TITLE);
-            Paragraph1Label1.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT);
-            Paragraph1Label2.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT2);
-            Header2Label.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_TITLE);
-            Paragraph2Label1.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT);
-            Paragraph2Label2.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT2);
-            Paragraph2Label3.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT3);
-            Paragraph2Label4.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_2_CONTENT4);
-            Header3Label.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_TITLE);
-            Paragraph3Label1.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT);
-            Paragraph3Label2.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT2);
-            Paragraph3Label3.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT3);
-            Paragraph3Label3.AccessibilityIdentifier = "contentTextIdentifier";
-            Paragraph3Label3.IsAccessibilityElement = true;
+            ContentText.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(contentText);
+            ContentText.AccessibilityIdentifier = "contentTextIdentifier";
+            ContentText.IsAccessibilityElement = true;
         }
 
-        public void SetupStyling()
-        {
-            HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            IntroLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Header1Label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph1Label1.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph1Label2.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Header2Label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph2Label1.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph2Label2.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph2Label3.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph2Label4.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Header3Label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph3Label1.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph3Label2.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Paragraph3Label3.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-        }
+    public void SetupStyling()
+    {
+        HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+        ContentText.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+    }
 
-        partial void BackButton_TouchUpInside(UIButton sender)
+    partial void BackButton_TouchUpInside(UIButton sender)
         {
-                LeaveController();
+            LeaveController();
         }
 
         private NSMutableAttributedString ApplyStylingToText(string text, FontType fontType, double lineHeight = 1.28, int fontSize = 16, int maxFontSize = 22, bool isLink = false)
