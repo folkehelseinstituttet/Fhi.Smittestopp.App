@@ -5,6 +5,7 @@ using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
@@ -19,7 +20,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             DependencyInjectionConfig.Init();
         }
 
-        [Theory (Skip = "Not relevant for release 1")]
+        [Theory]
         [InlineData(OnboardingStatus.NoConsentsGiven, false)]
         [InlineData(OnboardingStatus.OnlyMainOnboardingCompleted, true)]
         [InlineData(OnboardingStatus.CountriesOnboardingCompleted, false)]
@@ -27,6 +28,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             OnboardingStatus status,
             bool result)
         {
+            SystemTime.ResetDateTime();
             LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = DateTime.MinValue;
             LocalNotificationsManager.ResetHasBeenCalledMap();
             LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents] = false;
@@ -44,7 +46,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             }
 
             Assert.Equal(result, LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents]);
-            Assert.Equal(result, LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown);
+            Assert.Equal(result, LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown != DateTime.MinValue);
         }
     }
 }
