@@ -36,7 +36,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             Consent_BeAware_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_BE_AWARE_TEXT);
             Consent_Explanation_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
 
-            StyleUtil.InitButtonStyling(NextButton, BUTTON_TEXT);
+            StyleUtil.InitButtonStyling(NextButtonWithEUConsent, EU_CONSENT_NEXT_WITH_CONSENT_BUTTON_TEXT);
+            StyleUtil.InitButtonStyling(NextButtonOnlyNorwayConsent, EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT);
 
             SetupStyling();
 
@@ -66,12 +67,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         partial void OnCloseBtnTapped(UIButton sender)
         {
-            DialogHelper.ShowDialog(this, CloseDialogViewModel, CloseConfirmed, UIAlertActionStyle.Destructive);
-        }
-
-        void CloseConfirmed(UIAlertAction obj)
-        {
-            NavigationController?.DismissViewController(true, null);
+            DialogHelper.ShowDialog(this, AbortDuringEUConsentViewModel, null);
         }
 
         void OnFail()
@@ -81,14 +77,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 "AuthenticationState.PersonalData was garbage collected (iOS)");
         }
 
-        partial void OnNext(DefaultBorderButton sender)
+        partial void OnNextWithEUConsent(DefaultBorderButton sender)
         {
-            DialogHelper.ShowDialog(
-                this,
-                GiveConsentViewModel,
-                action => InvokeNextButtonClick(GoToQuestionnaireCountriesPage, OnFail, true),
-                UIAlertActionStyle.Default,
-                action => InvokeNextButtonClick(GoToLoadingPage, OnFail, false));
+            InvokeNextButtonClick(GoToQuestionnaireCountriesPage, OnFail, true);
+        }
+
+        partial void OnNextOnlyNorwayConsent(DefaultBorderButton sender)
+        {
+            InvokeNextButtonClick(GoToLoadingPage, OnFail, false);
         }
     }
 }
