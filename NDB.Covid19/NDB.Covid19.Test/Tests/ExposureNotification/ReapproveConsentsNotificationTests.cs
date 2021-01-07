@@ -63,6 +63,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = DateTime.MinValue;
             LocalNotificationsManager.ResetHasBeenCalledMap();
             LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents] = false;
+            LocalNotificationsManager.NewConsentsHasBeenCalledCount = 0;
             OnboardingStatusHelper.Status = OnboardingStatus.OnlyMainOnboardingCompleted;
 
             DateTime inXDays = SystemTime.Now().AddDays(daysToPullForInFuture);
