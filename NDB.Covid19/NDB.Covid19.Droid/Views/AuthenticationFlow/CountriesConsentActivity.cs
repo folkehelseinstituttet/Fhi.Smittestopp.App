@@ -55,7 +55,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _consentExplanationText = FindViewById<TextView>(Resource.Id.explanation_text_textview);
 
             //Text initialization
-            _consentButtonEU.Text = EU_CONSENT_NEXT_WITH_CONSENT_BUTTON_TEXT;
+            _consentButtonEU.Text = EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT;
             _consentButtonOnlyNorway.Text = EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT;
             _header.Text = HEADER_TEXT;
             _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
