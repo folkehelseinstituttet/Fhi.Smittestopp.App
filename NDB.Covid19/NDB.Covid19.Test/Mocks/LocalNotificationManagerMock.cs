@@ -12,6 +12,8 @@ namespace NDB.Covid19.Test.Mocks
     class LocalNotificationManagerMock : ILocalNotificationsManager
     {
         public Dictionary<NotificationsEnum, bool> HasBeenCalled { get; set; } = new Dictionary<NotificationsEnum, bool>();
+        public int NewConsentsHasBeenCalledCount { get; set; } = 0;
+
 
         public void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds)
         {
@@ -23,6 +25,11 @@ namespace NDB.Covid19.Test.Mocks
                     SystemTime.Now(),
                     "Unit test GenerateLocalNotification");
             }
+            if (notificationViewModel.Type == NotificationsEnum.ReApproveConsents)
+            {
+                NewConsentsHasBeenCalledCount++;
+            }
+
         }
 
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
@@ -40,4 +47,5 @@ namespace NDB.Covid19.Test.Mocks
         {
             HasBeenCalled.Clear();
         }
-    }}
+    }
+}

@@ -48,5 +48,41 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.Equal(result, LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents]);
             Assert.Equal(result, LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown != DateTime.MinValue);
         }
+
+        [Theory]
+        [InlineData(10, 10, 5)]
+        [InlineData(3, 3, 6)]
+        [InlineData(1, 1, 5)]
+        [InlineData(1, 1, 1)]
+        public async void UntilNewTermsAreAccepted_NotificationResentNotOftenThan24h(
+            int daysToPullForInFuture,
+            int numberOfNotificationsExpectedToBeShown,
+            int pullingIntervalInHours)
+        {
+            SystemTime.ResetDateTime();
+            LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = DateTime.MinValue;
+            LocalNotificationsManager.ResetHasBeenCalledMap();
+            LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents] = false;
+            OnboardingStatusHelper.Status = OnboardingStatus.OnlyMainOnboardingCompleted;
+
+            DateTime inXDays = SystemTime.Now().AddDays(daysToPullForInFuture);
+
+            while(SystemTime.Now() < inXDays)
+            {
+                try
+                {
+                    await new FetchExposureKeysHelper().FetchExposureKeyBatchFilesFromServerAsync(null,
+                        CancellationToken.None);
+                }
+                catch (Exception)
+                {
+                    // ignore
+                }
+                SystemTime.SetDateTime(SystemTime.Now().AddHours(pullingIntervalInHours));
+            }
+            
+            Assert.True(LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents]);
+            Assert.Equal(numberOfNotificationsExpectedToBeShown, LocalNotificationsManager.NewConsentsHasBeenCalledCount);
+        }
     }
 }
