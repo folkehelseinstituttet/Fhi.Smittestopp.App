@@ -1,4 +1,5 @@
 using System;
+using CoreGraphics;
 using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
@@ -7,7 +8,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
     public partial class DefaultBorderButton : UIButton, IDisposable
     {
-        public DefaultBorderButton (IntPtr handle) : base (handle)
+        public DefaultBorderButton(IntPtr handle) : base(handle)
         {
             Font = Font(FontType.FontSemiBold, 18f, 24f);
             SetTitleColor(UIColor.White, UIControlState.Normal);
@@ -27,6 +28,25 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
             base.SetTitle(title, forState);
             Superview.SetNeedsLayout();
             Layer.CornerRadius = Layer.Frame.Height / 2;
+        }
+
+        // Ensures that the button height scales with the amount of lines in the button text label
+        public override CGSize IntrinsicContentSize
+        {
+            get
+            {
+                CGSize labelSize = TitleLabel.IntrinsicContentSize;
+                CGSize buttonSize = new CGSize(labelSize.Width + TitleEdgeInsets.Left + TitleEdgeInsets.Right,
+                    labelSize.Height + TitleEdgeInsets.Top + TitleEdgeInsets.Bottom + 10);
+
+                return buttonSize;
+            }
+        }
+
+        public override void LayoutSubviews()
+        {
+            base.LayoutSubviews();
+            this.TitleLabel.PreferredMaxLayoutWidth = this.TitleLabel.Frame.Size.Width;
         }
 
         public void ShowSpinner(UIView parentView, UIActivityIndicatorViewStyle style)
