@@ -36,7 +36,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             Consent_BeAware_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_BE_AWARE_TEXT);
             Consent_Explanation_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
 
-            StyleUtil.InitButtonStyling(NextButtonWithEUConsent, EU_CONSENT_NEXT_WITH_CONSENT_BUTTON_TEXT);
+            StyleUtil.InitButtonStyling(NextButtonWithEUConsent, EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT);
             StyleUtil.InitButtonStyling(NextButtonOnlyNorwayConsent, EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT);
 
             SetupStyling();

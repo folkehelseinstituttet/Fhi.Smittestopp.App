@@ -14,18 +14,10 @@ namespace NDB.Covid19.ViewModels
             OkBtnTxt = ErrorViewModel.REGISTER_LEAVE_CONFIRM,
             CancelbtnTxt = ErrorViewModel.REGISTER_LEAVE_CANCEL
         };
-        
-        public static DialogViewModel GiveConsentViewModel => new DialogViewModel
-        {
-            Title = COUNTRIES_CONSENT_DIALOG_HEADER,
-            Body = COUNTRIES_CONSENT_DIALOG_MESSAGE,
-            OkBtnTxt = COUNTRIES_CONSENT_DIALOG_OK,
-            CancelbtnTxt = COUNTRIES_CONSENT_DIALOG_CANCEL
-        };
 
         public static DialogViewModel AbortDuringEUConsentViewModel => new DialogViewModel
         {
-            Title = COUNTRIES_CONSENT_DIALOG_HEADER,
+            Title = EU_CONSENT_ABORT_DIALOG_HEADER,
             Body = EU_CONSENT_ABORT_DIALOG_CONTENT,
             OkBtnTxt = EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT
         };
@@ -40,10 +32,6 @@ namespace NDB.Covid19.ViewModels
         public static string COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_BE_AWARE_TEXT => "COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_BE_AWARE_TEXT".Translate();
         public static string COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_EXPLANATION_TEXT => "COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_EXPLANATION_TEXT".Translate();
         public static string CLOSE_BUTTON_ACCESSIBILITY_LABEL => "CLOSE_BUTTON_ACCESSIBILITY_LABEL".Translate();
-        public static string COUNTRIES_CONSENT_DIALOG_HEADER => "COUNTRIES_CONSENT_DIALOG_HEADER".Translate();
-        public static string COUNTRIES_CONSENT_DIALOG_MESSAGE => "COUNTRIES_CONSENT_DIALOG_MESSAGE".Translate();
-        public static string COUNTRIES_CONSENT_DIALOG_OK => "COUNTRIES_CONSENT_DIALOG_OK".Translate();
-        public static string COUNTRIES_CONSENT_DIALOG_CANCEL => "COUNTRIES_CONSENT_DIALOG_CANCEL".Translate();
         public static string EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT => "EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT".Translate();
         public static string EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT => "EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT".Translate();
         public static string EU_CONSENT_ABORT_DIALOG_HEADER => "EU_CONSENT_ABORT_DIALOG_HEADER".Translate();
