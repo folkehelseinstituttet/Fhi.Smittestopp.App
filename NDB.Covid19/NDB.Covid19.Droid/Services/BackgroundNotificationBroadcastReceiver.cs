@@ -6,6 +6,7 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
+using NDB.Covid19.ExposureNotifications.Helpers;
 
 namespace NDB.Covid19.Droid.Services
 {
@@ -55,7 +56,7 @@ namespace NDB.Covid19.Droid.Services
             if (isInBackground)
             {
                 new LocalNotificationsManager(context).GenerateLocalNotification(viewModel, 0);
-                LocalPreferencesHelper.TermsNotificationWasShown = true;
+                LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = SystemTime.Now();
             }
         }
 
