@@ -61,6 +61,7 @@
             android:textAppearance="@style/PrimaryText"
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
             android:paddingBottom="@dimen/defaultVerticalMargin"
+            android:paddingTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/messages_page_sub_header" />
