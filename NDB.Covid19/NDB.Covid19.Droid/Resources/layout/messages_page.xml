@@ -29,7 +29,7 @@
                 style="@style/HeaderText"
                 android:textStyle="bold"
                 android:layout_width="0dp"
-                android:paddingStart="8dp"
+                android:paddingStart="@dimen/smallMargin"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
             android:textAppearance="@style/PrimaryText"
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
             android:paddingBottom="@dimen/defaultVerticalMargin"
-            android:paddingTop="8dp"
+            android:paddingTop="@dimen/smallMargin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/messages_page_sub_header" />
