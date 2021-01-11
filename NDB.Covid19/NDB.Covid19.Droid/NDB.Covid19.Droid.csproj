@@ -606,7 +606,7 @@
       <Generator>
       </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\force_update.axml">
+    <AndroidResource Include="Resources\layout\force_update.xml">
       <SubType>
       </SubType>
       <Generator>
