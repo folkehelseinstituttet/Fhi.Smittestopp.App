@@ -195,10 +195,6 @@ namespace NDB.Covid19.ViewModels
                     {
                         await ExposureNotification.StartAsync();
                     }
-                    else
-                    {
-                        await ExposureNotification.StopAsync();
-                    }
                 }
                 IsAppRestricted = false;
             }
