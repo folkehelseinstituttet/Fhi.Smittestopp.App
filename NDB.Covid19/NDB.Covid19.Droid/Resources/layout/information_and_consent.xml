@@ -47,6 +47,7 @@
                     android:text="Consent description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/smallMargin"
                     android:layout_below="@id/information_consent_header_textView"
                     android:id="@+id/information_consent_contentDescription_textView"
                     style="@style/PrimaryTextRegular"/>

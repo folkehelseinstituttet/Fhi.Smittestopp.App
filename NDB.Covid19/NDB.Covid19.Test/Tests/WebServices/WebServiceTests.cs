@@ -57,11 +57,10 @@ namespace NDB.Covid19.Test.Tests.WebServices
                 );
             var baseService = new BaseWebService();
             ApiResponse<TestModelToParse> response = await baseService.Get<TestModelToParse>(ApiStubHelper.StubServerUrl + testApiPath);
-            var returnedSuccessResponseWithCorrectValue = response.IsSuccessfull
-                && response.StatusCode == (int)HttpStatusCode.OK
-                && response.Data.Test == "Test String"
-                && response.Data.TestBool == false;
-            returnedSuccessResponseWithCorrectValue.Should().BeTrue();
+            response.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            response.IsSuccessfull.Should().BeTrue();
+            response.Data.Test.Should().Be("Test String");
+            response.Data.TestBool.Should().BeFalse();
         }
 
         class TestModelToParse

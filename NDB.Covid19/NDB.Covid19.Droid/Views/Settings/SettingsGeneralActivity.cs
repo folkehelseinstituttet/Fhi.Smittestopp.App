@@ -57,6 +57,10 @@ namespace NDB.Covid19.Droid.Views.Settings
             languageLink.Text = SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT;
             languageLink.ContentDescription = SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT;
 
+            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            mobileDataHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            languageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+
             linkLayout.Click +=
                 new StressUtils.SingleClick(
                     (o, args) => OpenSmitteStopLink()).Run;
