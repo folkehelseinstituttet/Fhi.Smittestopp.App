@@ -10,7 +10,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
-            android:paddingVertical="@dimen/defaultVerticalMargin"
+            android:paddingTop="@dimen/defaultVerticalMargin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -61,6 +61,7 @@
                     android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/defaultVerticalMargin"
                     android:orientation="vertical">
 
                 <TextView

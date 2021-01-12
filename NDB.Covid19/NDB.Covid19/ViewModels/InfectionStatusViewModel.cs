@@ -26,19 +26,20 @@ namespace NDB.Covid19.ViewModels
         public static string INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT => "MENU_TEXT".Translate();
         public static string INFECTION_STATUS_MENU_TEXT => "SMITTESPORING_MENU_TEXT".Translate();
         public static string INFECTION_STATUS_APP_TITLE_TEXT => "SMITTESPORING_APP_NAME".Translate();
-        public static string INFECTION_STATUS_NEW_MESSAGE_NOTIFICATION_DOT_ACCESSIBILITY_TEXT => "SMITTESPORING_NEW_MESSAGE_NOTIFICATION_DOT_ACCESSIBILITY".Translate();
         public static string INFECTION_STATUS_START_BUTTON_ACCESSIBILITY_TEXT => "SMITTESPORING_START_BUTTON_ACCESSIBILITY".Translate();
         public static string INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT => "SMITTESPORING_STOP_BUTTON_ACCESSIBILITY".Translate();
         public static string INFECTION_STATUS_START_BUTTON_TEXT => "SMITTESPORING_START_BUTTON_TEXT".Translate();
         public static string INFECTION_STATUS_STOP_BUTTON_TEXT => "SMITTESPORING_STOP_BUTTON_TEXT".Translate();
 
-        public async Task<string> StatusTxt() => await IsRunning()
-            ? INFECTION_STATUS_ACTIVE_TEXT
-            : INFECTION_STATUS_INACTIVE_TEXT;
+        public async Task<string> StatusTxt(bool hasLocation = true) =>
+            await IsRunning(hasLocation) 
+                ? INFECTION_STATUS_ACTIVE_TEXT 
+                : INFECTION_STATUS_INACTIVE_TEXT;
 
-        public async Task<string> StatusTxtDescription() => await IsRunning()
-            ? INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT
-            : SMITTESPORING_INACTIVE_DESCRIPTION;
+        public async Task<string> StatusTxtDescription(bool hasLocation = true) => 
+            await IsRunning(hasLocation) 
+                ? INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT 
+                : SMITTESPORING_INACTIVE_DESCRIPTION;
 
         private DateTime _latestMessageDateTime = DateTime.Today;
         public bool ShowNewMessageIcon { get; private set; }
@@ -123,6 +124,9 @@ namespace NDB.Covid19.ViewModels
                 return false;
             }
         }
+
+        public async Task<bool> IsRunning(bool hasLocation) => 
+            await IsRunning() && hasLocation;
 
         public async Task<bool> IsEnabled()
         {

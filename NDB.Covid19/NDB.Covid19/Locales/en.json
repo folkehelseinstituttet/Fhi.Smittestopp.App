@@ -117,7 +117,6 @@
   "SMITTESPORING_TOGGLE_ON_DESCRIPTION": "When you turn on Smittestopp, the app registers other app users who are nearby. ",
   "SMITTESPORING_TOGGLE_ON_CANCEL": "Cancel",
   "SMITTESPORING_TOGGLE_ON_CONFIRM": "Confirm",
-  "SMITTESPORING_NEW_MESSAGE_NOTIFICATION_DOT_ACCESSIBILITY": "You have a new message",
   "SMITTESPORING_START_BUTTON_ACCESSIBILITY": "Press to turn on Smittestopp",
   "SMITTESPORING_STOP_BUTTON_ACCESSIBILITY": "Press to turn off Smittestopp",
   "SMITTESPORING_NO_NEW_MESSAGE_DESCRIPTION": "You have no new messages",
@@ -255,7 +254,7 @@
   "SETTINGS_GENERAL_NB": "Bokmål",
   "SETTINGS_GENERAL_NN": "Nynorsk",
   "SETTINGS_GENERAL_EN": "English",
-  "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Restart the app to see your language setting / Start appen på nytt for å se språkvalget ditt ",
+  "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Restart the app to apply your langauge selection. / Start appen på nytt for å se språkvalget ditt.",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/en/about/smittestopp/text-in-other-languages",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at: www.fhi.no/en/about/smittestopp/text-in-other-languages.",
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at fhi.no/en/about/smittestopp/text-in-other-languages"
