@@ -59,6 +59,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             TextView questionnaireTitle = FindViewById<TextView>(Resource.Id.questionnaire_title);
             questionnaireTitle.Text = REGISTER_QUESTIONAIRE_HEADER;
             questionnaireTitle.ContentDescription = REGISTER_QUESTIONAIRE_HEADER;
+            questionnaireTitle.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             TextView questionnaireSubtitle = FindViewById<TextView>(Resource.Id.questionnaire_subtitle);
             ISpanned questionnaireSubtitleTextFormatted =

@@ -20,5 +20,10 @@ namespace NDB.Covid19.Droid.Utils
                 context.CreateConfigurationContext(configuration);
             }
         }
+
+        public static HeadingAccessibilityDelegate GetHeadingAccessibilityDelegate()
+        {
+            return new HeadingAccessibilityDelegate();
+        }
     }
 }
