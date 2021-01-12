@@ -79,7 +79,7 @@ namespace NDB.Covid19.Droid.Utils
             private ForegroundInfo CreateForegroundInfo()
             {
                 return new ForegroundInfo(
-                    LocalNotificationsManager.NotificationId + 1,
+                    (int) NotificationsEnum.BackgroundFetch,
                     new LocalNotificationsManager().CreateNotification(NotificationsEnum.BackgroundFetch.Data()));
             }
 

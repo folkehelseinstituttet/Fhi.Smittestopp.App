@@ -34,6 +34,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             FindViewById<TextView>(Resource.Id.settings_about_version_info_textview).Text = ViewModels.SettingsPage5ViewModel.GetVersionInfo();
 
             titleField.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_HEADER;
+            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             textField.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_CONTENT +
                              $" {SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK}";
 
