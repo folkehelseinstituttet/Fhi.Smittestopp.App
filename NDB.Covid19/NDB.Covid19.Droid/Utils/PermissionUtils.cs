@@ -8,35 +8,62 @@ using Android.OS;
 using Android.Provider;
 using I18NPortable;
 using NDB.Covid19.Droid.Utils.MessagingCenter;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
-using Xamarin.ExposureNotifications;
 using static NDB.Covid19.Droid.Utils.DroidRequestCodes;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
-using static Xamarin.ExposureNotifications.ExposureNotification;
 
 namespace NDB.Covid19.Droid.Utils
 {
     public class PermissionUtils : IPermissionsHelper
     {
-        private TaskCompletionSource<bool> _tcs = new TaskCompletionSource<bool>();
+        private TaskCompletionSource<bool> _bluetoothTCS = new TaskCompletionSource<bool>();
+        private TaskCompletionSource<bool> _locationTCS = new TaskCompletionSource<bool>();
 
         public async Task<bool> HasPermissions()
         {
-            _tcs = new TaskCompletionSource<bool>();
-            bool hasLocationPermissions = await HasLocationPermissionsAsync();
-            bool hasBluetoothSupport = await HasBluetoothSupportAsync();
-            if (hasLocationPermissions && hasBluetoothSupport)
-            {
-                _tcs.TrySetResult(true);
-            }
-
-            bool finalResult = await _tcs.Task;
+            bool hasBluetoothSupport = await CheckBluetoothSupport();
+            bool hasLocationSupport = await CheckLocationSupport();
+            
             PermissionsMessagingCenter.PermissionsChanged = false;
-            return finalResult;
+            
+            return hasBluetoothSupport && hasLocationSupport;
         }
 
+        private async Task<bool> CheckBluetoothSupport()
+        {
+            _bluetoothTCS = new TaskCompletionSource<bool>();
+            
+            if (IsBluetoothEnabled())
+            {
+                _bluetoothTCS.TrySetResult(true);
+            }
+            else
+            {
+                await HasBluetoothSupportAsync();
+            }
+
+            return await _bluetoothTCS.Task;
+        }
+        
+        private async Task<bool> CheckLocationSupport()
+        {
+            _locationTCS = new TaskCompletionSource<bool>();
+            
+            if (IsLocationEnabled())
+            {
+                _locationTCS.TrySetResult(true);
+            }
+            else
+            {
+                await HasLocationPermissionsAsync();
+            }
+
+            return await _locationTCS.Task;
+        }
+        
         public async Task<bool> CheckPermissionsIfChangedWhileIdle()
         {
             if (PermissionsMessagingCenter.PermissionsChanged)
@@ -52,18 +79,18 @@ namespace NDB.Covid19.Droid.Utils
             PermissionsMessagingCenter.SubscribeForPermissionsChanged(subscriber, action);
         }
 
-        public void UnsubscribePErmissionsMessagingCenter(object subscriber)
+        public void UnsubscribePermissionsMessagingCenter(object subscriber)
         {
             PermissionsMessagingCenter.Unsubscribe(subscriber);
         }
 
         public bool HasPermissionsWithoutDialogs() => IsBluetoothEnabled() && IsLocationEnabled();
 
-        public async Task<bool> HasBluetoothSupportAsync()
+        private async Task HasBluetoothSupportAsync()
         {
-            if ((await HasBluetoothAdapter()) && BluetoothAdapter.DefaultAdapter.IsEnabled)
+            if (await HasBluetoothAdapter() && BluetoothAdapter.DefaultAdapter.IsEnabled)
             {
-                return true;
+                return;
             }
 
             await DialogUtils.DisplayDialogAsync(
@@ -77,10 +104,9 @@ namespace NDB.Covid19.Droid.Utils
                 },
                 GoToBluetoothSettings,
                 CancelTask);
-            return false;
         }
 
-        public async Task<bool> HasBluetoothAdapter()
+        private async Task<bool> HasBluetoothAdapter()
         {
             if (BluetoothAdapter.DefaultAdapter != null)
             {
@@ -99,24 +125,22 @@ namespace NDB.Covid19.Droid.Utils
             return false;
         }
 
-        public async Task<bool> HasLocationPermissionsAsync()
+        private async Task HasLocationPermissionsAsync()
         {
             if (IsLocationEnabled())
             {
-                return true;
+                return;
             }
 
             await DialogUtils.DisplayDialogAsync(
                 Current.Activity,
-                new DialogViewModel()
+                new DialogViewModel
                 {
                     Title = "PERMISSION_LOCATION_NEEDED_TITLE".Translate(),
                     Body = "PERMISSION_ENABLE_LOCATION_AND_BLUETOOTH".Translate(),
                     OkBtnTxt = Current.Activity.Resources.GetString(Android.Resource.String.Ok)
                 },
                 GoToLocationSettings);
-
-            return false;
         }
 
         public bool IsBluetoothEnabled()
@@ -144,7 +168,7 @@ namespace NDB.Covid19.Droid.Utils
 
         private void CancelTask()
         {
-            _tcs.TrySetResult(false);
+            _bluetoothTCS.TrySetResult(false);
         }
 
         private void GoToBluetoothSettings()
@@ -156,8 +180,26 @@ namespace NDB.Covid19.Droid.Utils
             }
             catch (Exception e)
             {
-                LogUtils.LogException(Enums.LogSeverity.WARNING, e,
-                    $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings");
+                LogUtils.LogException(LogSeverity.WARNING, e,
+                    $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings. Trying other intent.");
+                try
+                {
+                    // This is needed for some Samsung devices as the previous solution
+                    // requires BLUETOOTH_ADMIN permissions and we do not want to use them.
+                    Intent intent = new Intent(Intent.ActionMain, null);
+                    intent.AddCategory(Intent.CategoryLauncher);
+                    ComponentName cn = new ComponentName(
+                        "com.android.settings",
+                        "com.android.settings.bluetooth.BluetoothSettings");
+                    intent.SetComponent(cn);
+                    intent.SetFlags(ActivityFlags.NewTask);
+                    Current.AppContext.StartActivity(intent);
+                }
+                catch (Exception ex)
+                {
+                    LogUtils.LogException(LogSeverity.WARNING, ex,
+                        $"{nameof(PermissionUtils)}.{nameof(GoToBluetoothSettings)}: Failed to go to bluetooth settings. Skipping.");
+                }
             }
         }
 
@@ -170,16 +212,20 @@ namespace NDB.Covid19.Droid.Utils
             }
             catch (Exception e)
             {
-                LogUtils.LogException(Enums.LogSeverity.WARNING, e, "GoToLocationSettings");
+                LogUtils.LogException(LogSeverity.WARNING, e, "GoToLocationSettings");
             }
         }
 
         public void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            if ((requestCode == BluetoothRequestCode || requestCode == LocationRequestCode) &&
-                resultCode != Result.FirstUser)
+            switch (requestCode)
             {
-                _tcs.TrySetResult(HasPermissionsWithoutDialogs());
+                case BluetoothRequestCode when resultCode != Result.FirstUser:
+                    _bluetoothTCS.TrySetResult(IsBluetoothEnabled());
+                    break;
+                case LocationRequestCode when resultCode != Result.FirstUser:
+                    _locationTCS.TrySetResult(IsLocationEnabled());
+                    break;
             }
         }
     }

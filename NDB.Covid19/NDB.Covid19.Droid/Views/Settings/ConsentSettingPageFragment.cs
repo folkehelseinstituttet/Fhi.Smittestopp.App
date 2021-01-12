@@ -4,6 +4,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Core.Text;
 using AndroidX.Fragment.App;
+using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
 
 namespace NDB.Covid19.Droid.Views.Settings
@@ -72,6 +73,9 @@ namespace NDB.Covid19.Droid.Views.Settings
             _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
             _howitworksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
             _samtykkebottomHeader.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
+            _aboutHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _howitworksHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _samtykkebottomHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
 
             return view;

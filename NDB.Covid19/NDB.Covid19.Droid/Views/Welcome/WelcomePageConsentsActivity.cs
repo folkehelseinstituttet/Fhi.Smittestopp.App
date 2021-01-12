@@ -109,6 +109,12 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
             _howitworksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
             _samtykkebottomHeader.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
+
+            HeadingAccessibilityDelegate headingAccessibilityDelegate = new HeadingAccessibilityDelegate();
+            header.SetAccessibilityDelegate(headingAccessibilityDelegate);
+            _aboutHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
+            _howitworksHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
+            _samtykkebottomHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
         }
 
         private void PolicyLinkBtn_Click(object sender, EventArgs e)
