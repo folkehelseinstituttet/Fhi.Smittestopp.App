@@ -34,7 +34,7 @@ namespace NDB.Covid19.iOS.Views.ForceUpdate
             //Ensuring text is resiezed correctly when font size is increased
             StyleUtil.InitLabekWithSpacingAndHTMLFormatting(
                 TextLabel, StyleUtil.FontType.FontBold, attributedString, 1.28, 24, 30, UITextAlignment.Center);
-            TextLabel.TextColor = UIColor.White;
+            TextLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
             StyleUtil.InitButtonStyling(AppStoreLinkButton, ForceUpdateViewModel.FORCE_UPDATE_BUTTON_APPSTORE_IOS);
         }
