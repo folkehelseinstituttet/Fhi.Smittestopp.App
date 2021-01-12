@@ -47,6 +47,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
             TextView errorTitle = FindViewById<TextView>(Resource.Id.error_title);
             errorTitle.Text = titleText;
             errorTitle.ContentDescription = titleText;
+            errorTitle.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             TextView errorDescription = FindViewById<TextView>(Resource.Id.error_description);
             ISpanned formattedDescription = HtmlCompat.FromHtml(descriptionText, HtmlCompat.FromHtmlModeLegacy);

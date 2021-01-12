@@ -262,7 +262,7 @@
   "NOTIFICATION_ANDROID_UPDATE_DESCRIPTION": "Gå til Google Play Butikk for å oppdatere",
   "NOTIFICATION_CONSENT_HEADER": "Det er viktig at du åpner appen og godkjenner samtykket på nytt.",
   "NOTIFICATION_BACKGROUND_FETCH_HEADER": "Smittestopp henter informasjon",
-  "NOTIFICATION_BACKGROUND_FETCH_DESCRIPTION": "Smittestopp undersøker om du vær i nærheten av brukere som har meldt seg smittet.",
+  "NOTIFICATION_BACKGROUND_FETCH_DESCRIPTION": "Smittestopp undersøker om du har vært i nærheten av brukere som har meldt seg smittet.",
   "NOTIFICATION_BLUETOOTH_OFF_TITLE": "Smittestopp er inaktiv",
   "NOTIFICATION_BLUETOOTH_OFF_DESCRIPTION": "Åpne og reaktiver Smittestopp",
   "NOTIFICATION_LOCATION_OFF_TITLE": "Smittestopp er inaktiv",
