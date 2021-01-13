@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="555">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="555">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,14 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fhi_logo_short" translatesAutoresizingMaskIntoConstraints="NO" id="ejJ-7X-xmL">
+                                <rect key="frame" x="20" y="64" width="58" height="31"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="ACS-N3-tAn"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1140">
-                                <rect key="frame" x="40" y="448" width="334" height="20.5"/>
+                                <rect key="frame" x="40" y="443" width="334" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bio-FK-6ki">
-                                <rect key="frame" x="174" y="488.5" width="66" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bio-FK-6ki">
+                                <rect key="frame" x="174" y="788" width="66" height="38"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -32,19 +43,22 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jyy-RW-qoh"/>
                         <constraints>
                             <constraint firstItem="bio-FK-6ki" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jyy-RW-qoh" secondAttribute="leading" constant="40" id="Bcn-Ye-cWE"/>
                             <constraint firstItem="jyy-RW-qoh" firstAttribute="trailing" secondItem="1140" secondAttribute="trailing" constant="40" id="H0Z-gx-Hhm"/>
                             <constraint firstItem="jyy-RW-qoh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bio-FK-6ki" secondAttribute="trailing" constant="40" id="Jl9-nj-FKx"/>
-                            <constraint firstItem="bio-FK-6ki" firstAttribute="top" secondItem="1140" secondAttribute="bottom" constant="20" id="Pb7-02-yub"/>
                             <constraint firstItem="bio-FK-6ki" firstAttribute="centerX" secondItem="556" secondAttribute="centerX" id="bew-73-LMW"/>
                             <constraint firstItem="1140" firstAttribute="leading" secondItem="jyy-RW-qoh" secondAttribute="leading" constant="40" id="eTl-ya-y1L"/>
+                            <constraint firstItem="ejJ-7X-xmL" firstAttribute="top" secondItem="jyy-RW-qoh" secondAttribute="top" constant="20" id="gTF-gq-res"/>
                             <constraint firstItem="1140" firstAttribute="centerY" secondItem="jyy-RW-qoh" secondAttribute="centerY" id="j9i-dL-sjp"/>
+                            <constraint firstItem="ejJ-7X-xmL" firstAttribute="leading" secondItem="jyy-RW-qoh" secondAttribute="leading" constant="20" id="mZU-wP-suv"/>
+                            <constraint firstItem="jyy-RW-qoh" firstAttribute="bottom" secondItem="bio-FK-6ki" secondAttribute="bottom" constant="36" id="nSU-Wm-Edk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jyy-RW-qoh"/>
                     </view>
                     <connections>
                         <outlet property="AppStoreLinkButton" destination="bio-FK-6ki" id="name-outlet-bio-FK-6ki"/>
+                        <outlet property="FhiLogo" destination="ejJ-7X-xmL" id="N7l-vu-kCt"/>
                         <outlet property="TextLabel" destination="1140" id="name-outlet-1140"/>
                     </connections>
                 </viewController>
@@ -53,4 +67,7 @@
             <point key="canvasLocation" x="277" y="-125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fhi_logo_short" width="58" height="24"/>
+    </resources>
 </document>
