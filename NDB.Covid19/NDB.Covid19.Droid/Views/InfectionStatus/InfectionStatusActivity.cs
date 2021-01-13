@@ -268,13 +268,15 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     await DialogUtils.DisplayDialogAsync(
                         this,
                         _viewModel.OffDialogViewModel,
-                        StopGoogleAPI);
+                        StopGoogleAPI,
+                        () => _semaphoreSlim.Release());
                     break;
                 default:
                     await DialogUtils.DisplayDialogAsync(
                         this,
                         _viewModel.OnDialogViewModel,
-                        StartGoogleAPI);
+                        StartGoogleAPI,
+                        () => _semaphoreSlim.Release());
                     break;
             }
 
