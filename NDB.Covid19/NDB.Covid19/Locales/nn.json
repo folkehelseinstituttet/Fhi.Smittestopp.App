@@ -83,7 +83,7 @@
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Tilbake",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Trekk tilbake samtykke",
   "CONSENT_REMOVE_TITLE": "Appen kan ikkje brukast utan samtykke",
-  "CONSENT_REMOVE_MESSAGE": "Er du sikker på at du vil trekke tilbake samtykket ditt? Alle Smittestopp-meldingane dine vil bli sletta. ",
+  "CONSENT_REMOVE_MESSAGE": "Er du sikker på at du vil trekke tilbake samtykket ditt? Alle Smittestopp-meldingane dine vil bli sletta.",
   "CONSENT_NO_BUTTON_TEXT": "Angre",
   "CONSENT_OK_BUTTON_TEXT": "OK",
   "CONSENT_WITHDRAW_SUCCES_TITLE": "Alle Smittestopp-meldingane dine er blitt sletta ",
