@@ -120,7 +120,7 @@
   "SMITTESPORING_START_BUTTON_ACCESSIBILITY": "Trykk for å slå på Smittestopp",
   "SMITTESPORING_STOP_BUTTON_ACCESSIBILITY": "Trykk for å slå av Smittestopp",
   "SMITTESPORING_NO_NEW_MESSAGE_DESCRIPTION": "Du har ingen nye meldingar",
-  "SMITTESPORING_EN_PERMISSIONS_HEADER": "Tillat og aktiver varsling av  smitterisiko.",
+  "SMITTESPORING_EN_PERMISSIONS_HEADER": "Tillat og aktiver varsling av smitterisiko.",
   "SMITTESPORING_EN_PERMISSIONS_DESCRIPTION": "Appen fungerer berre viss du tillèt varsling av smitterisiko. Tilgangen varetar personvernet ditt ved å bruke tilfeldige Bluetooth-ID-ar til å finne ut om du har vore i nærleiken av nokon som har opplyst at dei har covid-19.",
   "SMITTESPORING_EN_PERMISSIONS_CANCEL": "Ikkje tillat",
   "SMITTESPORING_EN_PERMISSIONS_CONFIRM": "Tillat og aktiver",
