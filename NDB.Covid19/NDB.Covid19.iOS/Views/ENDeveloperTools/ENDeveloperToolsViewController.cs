@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using CommonServiceLocator;
+using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models;
@@ -156,6 +157,11 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
         async partial void ENDevPrintPreferencesBtn_TounchInside(UIButton sender)
         {
             ENDevOutput.Text = "Actual preferences:\n" + await _enDeveloperViewModel.GetFormattedPreferences();
+        }
+
+        partial void GoToForceUpdate_TouchUpInside(UIButton sender)
+        {
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_FORCE_UPDATE);
         }
 
         partial void NoConsentButton_TouchUpInside(UIButton sender)
