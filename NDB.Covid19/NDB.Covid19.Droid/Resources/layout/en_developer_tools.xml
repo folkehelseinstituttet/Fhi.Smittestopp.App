@@ -287,6 +287,13 @@
                         android:layout_marginVertical="1dp"
                         android:text="Print Preferences"/>
 
+                <Button
+                        android:id="@+id/navigate_to_force_update"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="1dp"
+                        android:text="Go to Force Update page"/>
+
                 <TextView
                         style="@style/PrimaryText"
                         android:layout_width="wrap_content"

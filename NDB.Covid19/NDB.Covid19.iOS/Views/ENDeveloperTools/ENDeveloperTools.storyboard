@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,7 +56,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="770.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tFY-jD-BcY">
-                                                <rect key="frame" x="20" y="40" width="335" height="848.5"/>
+                                                <rect key="frame" x="20" y="40" width="335" height="894.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev Tools Output" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5939" customClass="ENDeveloperToolsOutputData">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -231,8 +231,17 @@
                                                             <action selector="ENDevPrintPreferencesBtn_TounchInside:" destination="2348" eventType="touchUpInside" id="15782"/>
                                                         </connections>
                                                     </button>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-MQ-o3x">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyI-cs-VwU" userLabel="Go to force update">
                                                         <rect key="frame" x="0.0" y="772.5" width="335" height="30"/>
+                                                        <state key="normal" title="Go to Force Update page">
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="GoToForceUpdate_TouchUpInside:" destination="2348" eventType="touchUpInside" id="g7b-Xg-bHx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-MQ-o3x">
+                                                        <rect key="frame" x="0.0" y="818.5" width="335" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bf-wL-ohh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
@@ -264,7 +273,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-Ui-5IF" userLabel="Pull with 10 sec delay">
-                                                        <rect key="frame" x="0.0" y="818.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="864.5" width="335" height="30"/>
                                                         <state key="normal" title="Pull with 10 sec delay">
                                                             <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
@@ -328,6 +337,7 @@
                         <outlet property="ENDevShowLatestPullKeysTimesAndStatusesBtn" destination="10113" id="name-outlet-10113"/>
                         <outlet property="ENDevShowSummaryBtn" destination="8304" id="name-outlet-8304"/>
                         <outlet property="ENDevToggleMessageRetentionBtn" destination="3758" id="name-outlet-3758"/>
+                        <outlet property="GoToForceUpdate" destination="PyI-cs-VwU" id="G6x-cd-csJ"/>
                         <outlet property="NoConsentButton" destination="7Bf-wL-ohh" id="name-outlet-7Bf-wL-ohh"/>
                         <outlet property="PullWithDelay" destination="7vw-Ui-5IF" id="name-outlet-7vw-Ui-5IF"/>
                         <outlet property="V1OnlyConsentButton" destination="JPT-Ru-OSp" id="name-outlet-JPT-Ru-OSp"/>
