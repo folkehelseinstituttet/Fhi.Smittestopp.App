@@ -50,6 +50,7 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private Button _buttonNoConsentsNoRestart;
         private Button _buttonOnlyV1ConsentsNoRestart;
         private Button _buttonAllConsentNoRestarts;
+        private Button _buttonGoToForceUpdate;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -149,6 +150,12 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
             _buttonPrintActualPreferences = FindViewById<Button>(Resource.Id.print_actual_preferences);
             _buttonPrintActualPreferences.Click += OnPrintActualPreferences().Run;
 
+            _buttonGoToForceUpdate = FindViewById<Button>(Resource.Id.navigate_to_force_update);
+            _buttonGoToForceUpdate.Click += new SingleClick((o, args) =>
+            {
+                GoToForceUpdate();
+            }).Run;
+
             _buttonFakeGateway = FindViewById<Button>(Resource.Id.fake_gateway);
             _buttonFakeGateway.Click += OnFakeGateway().Run;
 
@@ -201,6 +208,11 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
                 .Show();
             });
         });
+
+        private void GoToForceUpdate()
+        {
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_FORCE_UPDATE);
+        }
         
         private SingleClick OnPrintActualPreferences() => new SingleClick(async (o, args) =>
         {
