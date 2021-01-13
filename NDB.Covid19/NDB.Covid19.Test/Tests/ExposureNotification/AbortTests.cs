@@ -65,7 +65,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         }
 
         [Fact]
-        public async void PostSelvExposureKeys_ShouldInformAboutDeprecatedAPI()
+        public async void PostSelfExposureKeys_ShouldInformAboutDeprecatedAPI()
         {
             TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
 
@@ -83,8 +83,8 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                     }));
             Mock.Get(baseWebService).CallBase = true;
 
-            bool postSelvExposureKeys = await new ExposureNotificationWebService()
-                .PostSelvExposureKeys(
+            bool postSelfExposureKeys = await new ExposureNotificationWebService()
+                .PostSelfExposureKeys(
                     new SelfDiagnosisSubmissionDTO
                     {
                         AppPackageName = "",
@@ -113,7 +113,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 }
             }
 
-            Assert.False(postSelvExposureKeys);
+            Assert.False(postSelfExposureKeys);
 
             UnsubscribeMessagingCenter();
         }

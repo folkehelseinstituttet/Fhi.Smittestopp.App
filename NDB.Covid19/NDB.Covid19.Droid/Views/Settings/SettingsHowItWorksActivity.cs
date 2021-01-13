@@ -66,6 +66,9 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             paragraph4textView3.TextFormatted = HtmlCompat.FromHtml(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3,
                 HtmlCompat.FromHtmlModeLegacy);
+
+            titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+
             LinkUtil.LinkifyTextView(paragraph4textView3);
             FormatLink(paragraph4textView3);
 

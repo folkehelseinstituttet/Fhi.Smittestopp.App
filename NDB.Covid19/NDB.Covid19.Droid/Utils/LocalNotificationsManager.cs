@@ -19,8 +19,6 @@ namespace NDB.Covid19.Droid.Utils
 {
     public class LocalNotificationsManager : ILocalNotificationsManager
     {
-        public const int NotificationId = 616;
-        public const int PermissionsNotificationId = 161;
         public const string BroadcastActionName = "no.fhi.smittestopp_exposure_notification.background_notification";
         private readonly string _channelId = "Local_Notifications";
         private NotificationChannel _channel;

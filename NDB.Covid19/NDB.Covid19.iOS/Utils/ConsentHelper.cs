@@ -9,6 +9,12 @@ namespace NDB.Covid19.iOS.Utils
     public static class ConsentHelper
     {
 
+        private static void AddSpacerToStackView(UIStackView stackView)
+        {
+            UIView spacer = new UIView();
+            spacer.HeightAnchor.ConstraintEqualTo(20).Active = true;
+            stackView.AddArrangedSubview(spacer);
+        }
 
         public static void SetConsentLabels(UIStackView stackView, List<ConsentSectionTexts> sections, UIButton privacyPolicyButton)
         {
@@ -52,6 +58,7 @@ namespace NDB.Covid19.iOS.Utils
                     if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
                     {
                         stackView.AddArrangedSubview(privacyPolicyButton);
+                        AddSpacerToStackView(stackView);
                     }
                 }
 
@@ -73,9 +80,12 @@ namespace NDB.Covid19.iOS.Utils
 
                     stackView.AddArrangedSubview(paragrapLbl);
 
+                    AddSpacerToStackView(stackView);
+
                     if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
                     {
                         stackView.AddArrangedSubview(privacyPolicyButton);
+                        AddSpacerToStackView(stackView);
                     }
                 }
             }
