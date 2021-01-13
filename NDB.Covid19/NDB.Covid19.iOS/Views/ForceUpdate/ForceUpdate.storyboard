@@ -58,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="AppStoreLinkButton" destination="bio-FK-6ki" id="name-outlet-bio-FK-6ki"/>
+                        <outlet property="FhiLogo" destination="ejJ-7X-xmL" id="N7l-vu-kCt"/>
                         <outlet property="TextLabel" destination="1140" id="name-outlet-1140"/>
                     </connections>
                 </viewController>
