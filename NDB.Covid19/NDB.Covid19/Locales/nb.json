@@ -248,7 +248,7 @@
   "SETTINGS_GENERAL_TITLE": "Innstillinger ",
   "SETTINGS_GENERAL_EXPLANATION_ONE": "Her kan du redigere innstillingene dine",
   "SETTINGS_GENERAL_EXPLANATION_TWO": "Tilgang til mobildata",
-  "SETTINGS_GENERAL_MOBILE_DATA_HEADER": "Smittestopp må få tilgang til mobildata",
+  "SETTINGS_GENERAL_MOBILE_DATA_HEADER": "Smittestopp kan få tilgang til mobildata",
   "SETTINGS_GENERAL_MOBILE_DATA_DESC": "Når du slår av mobildata her, kan du styre dataforbruket fordi det da bare hentes opplysninger om smittede du har vært i nærheten av når du er på Wi-Fi. Appen er fortsatt aktiv selv om du slår av mobildata.",
   "SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER": "Velg språk / Choose language ",
   "SETTINGS_GENERAL_NB": "Bokmål",
