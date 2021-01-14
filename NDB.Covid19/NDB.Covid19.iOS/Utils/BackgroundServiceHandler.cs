@@ -33,11 +33,10 @@ namespace NDB.Covid19.iOS.Utils
                         return;
                     }
 
-                    Status status = await Xamarin.ExposureNotifications.ExposureNotification.GetStatusAsync();
-                    bool shouldFetch = status == Status.Active;
+                    bool shouldFetch = await Xamarin.ExposureNotifications.ExposureNotification.IsEnabledAsync();
                     if (!shouldFetch)
                     {
-                        LogUtils.LogMessage(Enums.LogSeverity.WARNING, logPrefix + "Did not pull. EN Status was " + status.ToString() + "(iOS)");
+                        LogUtils.LogMessage(Enums.LogSeverity.WARNING, logPrefix + "Did not pull. EN was not enabled (iOS)");
                     }
 
                     System.Diagnostics.Debug.WriteLine($"Background Task is fetching: {shouldFetch}");
