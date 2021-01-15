@@ -1,25 +1,24 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.OS;
-using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using CommonServiceLocator;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.Droid.Views.Messages;
-using NDB.Covid19.Droid.Utils;
-using static NDB.Covid19.Droid.Utils.StressUtils;
-using NDB.Covid19.Droid.Views.AuthenticationFlow;
-using Android.Views.Animations;
-using NDB.Covid19.Droid.Services;
-using NDB.Covid19.Utils;
-using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using AndroidX.Core.Content;
-using Android.Graphics;
-using Android.Graphics.Drawables;
+using CommonServiceLocator;
+using NDB.Covid19.Droid.Services;
+using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Droid.Views.AuthenticationFlow;
+using NDB.Covid19.Droid.Views.Messages;
+using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using Xamarin.ExposureNotifications;
+using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -27,27 +26,32 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     public class InfectionStatusActivity : AppCompatActivity
     {
-        ImageView _fhiLogo;
-        InfectionStatusViewModel _viewModel;
-        TextView _activityStatusText;
-        TextView _activityStatusDescription;
-        TextView _messeageHeader;
-        TextView _messageSubHeader;
-        TextView _registrationHeader;
-        TextView _registrationSubheader;
-        TextView _menuText;
-        Button _onOffButton;
-        ImageView _notificationDot;
-        RelativeLayout _messageRelativeLayout;
-        RelativeLayout _registrationRelativeLayout;
-        LinearLayout _toolbarLinearLayout;
-        LinearLayout _statusLinearLayout;
-        ImageButton _menuIcon;
-        Button _messageCoverButton;
-        Button _registrationCoverButton;
+        private ImageView _fhiLogo;
+        private InfectionStatusViewModel _viewModel;
+        private TextView _activityStatusText;
+        private TextView _activityStatusDescription;
+        private TextView _messeageHeader;
+        private TextView _messageSubHeader;
+        private TextView _registrationHeader;
+        private TextView _registrationSubheader;
+        private TextView _menuText;
+        private Button _onOffButton;
+        private ImageView _notificationDot;
+        private RelativeLayout _messageRelativeLayout;
+        private RelativeLayout _registrationRelativeLayout;
+        private LinearLayout _toolbarLinearLayout;
+        private LinearLayout _statusLinearLayout;
+        private ImageButton _menuIcon;
+        private Button _messageCoverButton;
+        private Button _registrationCoverButton;
+        private bool _dialogDisplayed;
+        private bool _lockUnfocusedDialogs;
+        
+        private readonly SemaphoreSlim _semaphoreSlim =
+            new SemaphoreSlim(1, 1);
 
-        bool _dialogDisplayed;
-        readonly PermissionUtils _permissionUtils = ServiceLocator.Current.GetInstance<PermissionUtils>();
+        private readonly PermissionUtils _permissionUtils =
+            ServiceLocator.Current.GetInstance<PermissionUtils>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -56,7 +60,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _viewModel = new InfectionStatusViewModel();
             InitLayout();
             UpdateMessagesStatus();
-            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED,
+                OnMessageStatusChanged);
         }
 
         protected override void OnDestroy()
@@ -64,6 +69,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED);
             base.OnDestroy();
         }
+
+        private async Task<bool> IsRunning() =>
+            await _viewModel.IsRunning() && _permissionUtils.IsLocationEnabled();
 
         private void OnMessageStatusChanged(object _ = null)
         {
@@ -75,9 +83,14 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             base.OnResume();
 
             _permissionUtils.SubscribePermissionsMessagingCenter(this,
-                o => PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions));
-
-            ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
+                o =>
+                {
+                    if (!_permissionUtils.AreAllPermissionsGranted())
+                    {
+                        PreventMultiplePermissionsDialogsForAction(
+                            _permissionUtils.HasPermissions);
+                    }
+                });
 
             UpdateUI();
 
@@ -87,31 +100,34 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
         private void ShowPermissionsDialogIfTheyHavChangedWhileInIdle() =>
             RunOnUiThread(() =>
-                PreventMultiplePermissionsDialogsForAction(_permissionUtils.CheckPermissionsIfChangedWhileIdle));
+                PreventMultiplePermissionsDialogsForAction(
+                    _permissionUtils.CheckPermissionsIfChangedWhileIdle));
 
         private async void PreventMultiplePermissionsDialogsForAction(Func<Task<bool>> action)
         {
-            bool isRunning = await _viewModel.IsRunning();
-            if ((!isRunning || !_permissionUtils.HasPermissionsWithoutDialogs())
-                && _dialogDisplayed == false)
+            if (_dialogDisplayed || _lockUnfocusedDialogs) return;
+            await _semaphoreSlim.WaitAsync();
+            _dialogDisplayed = true;
+            if (!await IsRunning())
             {
-                _dialogDisplayed = true;
                 if (action != null) await action.Invoke();
-                _dialogDisplayed = false;
                 // wait until BT state change will be completed
                 await BluetoothStateBroadcastReceiver.GetBluetoothState(UpdateUI);
+                UpdateUI();
             }
-            UpdateUI();
+
+            _dialogDisplayed = false;
+            _semaphoreSlim.Release();
         }
 
         protected override void OnPause()
         {
             base.OnPause();
-            _permissionUtils.UnsubscribePErmissionsMessagingCenter(this);
+            _permissionUtils.UnsubscribePermissionsMessagingCenter(this);
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
         }
 
-        async void InitLayout()
+        private async void InitLayout()
         {
             // Header
             _toolbarLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_toolbar_layout);
@@ -154,8 +170,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _menuText.Text = INFECTION_STATUS_MENU_TEXT;
 
             //Accessibility
+            _messageSubHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _messeageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _registrationHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _menuIcon.ContentDescription = INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
-            _notificationDot.ContentDescription = INFECTION_STATUS_NEW_MESSAGE_NOTIFICATION_DOT_ACCESSIBILITY_TEXT;
             _messageCoverButton.ContentDescription =
                 $"{INFECTION_STATUS_MESSAGE_HEADER_TEXT} {INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT}";
             _registrationCoverButton.ContentDescription =
@@ -170,7 +188,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationCoverButton.Click += new SingleClick(RegistrationLayoutButton_Click, 500).Run;
             _menuIcon.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
             _menuText.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
-            if (!await _viewModel.IsRunning())
+            if (!await IsRunning())
             {
                 _onOffButton.PerformClick();
             }
@@ -179,21 +197,24 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             FlightModeHandlerBroadcastReceiver.OnFlightModeChange += UpdateUI;
         }
 
-        void UpdateUI()
+        private void UpdateUI()
         {
             RunOnUiThread(async () =>
             {
-                bool isRunning = await _viewModel.IsRunning();
-                _activityStatusText.Text = await _viewModel.StatusTxt();
-                _activityStatusDescription.Text = await _viewModel.StatusTxtDescription();
-                
-                Color enabledColor = new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOnGreen));
-                Color disabledColor = new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOffRed));
+                bool isRunning = await IsRunning();
+                _activityStatusText.Text = await _viewModel.StatusTxt(isRunning);
+                _activityStatusDescription.Text = await _viewModel.StatusTxtDescription(isRunning);
+
+                Color enabledColor =
+                    new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOnGreen));
+                Color disabledColor =
+                    new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOffRed));
                 _statusLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
                 _toolbarLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
 
                 //Accessibility
-                _activityStatusText.ContentDescription = SMITTESPORING_APP_TITLE_ACCESSIBILITY + await _viewModel.StatusTxt();
+                _activityStatusText.ContentDescription =
+                    SMITTESPORING_APP_TITLE_ACCESSIBILITY + await _viewModel.StatusTxt(isRunning);
 
                 if (isRunning)
                 {
@@ -218,8 +239,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 _notificationDot.SetImageDrawable(
                     _viewModel.ShowNewMessageIcon
-                    ? ContextCompat.GetDrawable(this, Resource.Drawable.ic_notification_active)
-                    : ContextCompat.GetDrawable(this, Resource.Drawable.ic_notification_inactive)
+                        ? ContextCompat.GetDrawable(this, Resource.Drawable.ic_notification_active)
+                        : ContextCompat.GetDrawable(this, Resource.Drawable.ic_notification_inactive)
                 );
 
                 _messageSubHeader.Text = _viewModel.NewMessageSubheaderTxt;
@@ -228,40 +249,55 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             });
         }
 
-        void OnNewMessagesIconVisibilityChanged(object sender, EventArgs e)
+        private void OnNewMessagesIconVisibilityChanged(object sender, EventArgs e)
         {
             UpdateMessagesStatus();
         }
 
         private async void StartStopButton_Click(object sender, EventArgs e)
         {
-            bool isRunning = await _viewModel.IsRunning();
-
-            if (isRunning)
+            await _semaphoreSlim.WaitAsync();
+            bool isRunning = await _viewModel.IsEnabled();
+            switch (isRunning)
             {
-                await DialogUtils.DisplayDialogAsync(
-                    this,
-                    _viewModel.OffDialogViewModel,
-                    StopGoogleAPI);
-            }
-            else
-            {
-                await DialogUtils.DisplayDialogAsync(
-                    this,
-                    _viewModel.OnDialogViewModel,
-                    StartGoogleAPI);
+                case true when !_permissionUtils.AreAllPermissionsGranted():
+                    PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions);
+                    _semaphoreSlim.Release();
+                    break;
+                case true:
+                    await DialogUtils.DisplayDialogAsync(
+                        this,
+                        _viewModel.OffDialogViewModel,
+                        StopGoogleAPI,
+                        () => _semaphoreSlim.Release());
+                    break;
+                default:
+                    await DialogUtils.DisplayDialogAsync(
+                        this,
+                        _viewModel.OnDialogViewModel,
+                        StartGoogleAPI,
+                        () => _semaphoreSlim.Release());
+                    break;
             }
 
             UpdateUI();
         }
 
-        public override void OnWindowFocusChanged(bool hasFocus)
+        public override async void OnWindowFocusChanged(bool hasFocus)
         {
             base.OnWindowFocusChanged(hasFocus);
-            if (hasFocus)
+            
+            _lockUnfocusedDialogs = !hasFocus;
+            
+            if (hasFocus
+                && await _viewModel.IsEnabled()
+                && (!_permissionUtils.IsBluetoothEnabled()
+                    || !_permissionUtils.IsLocationEnabled()))
             {
                 ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
             }
+
+            UpdateUI();
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -271,7 +307,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 if (resultCode == Result.Ok)
                 {
-                    Xamarin.ExposureNotifications.ExposureNotification.OnActivityResult(requestCode, resultCode, data);
+                    ExposureNotification.OnActivityResult(requestCode, resultCode, data);
                 }
             }
             finally
@@ -286,25 +322,30 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             try
             {
                 await _viewModel.StartENService();
-                bool isRunning = await _viewModel.IsRunning();
+                bool isRunning = await IsRunning();
                 if (isRunning)
                 {
                     BackgroundFetchScheduler.ScheduleBackgroundFetch();
                 }
 
                 if (await _viewModel.IsEnabled() &&
-                    !await _viewModel.IsRunning() &&
+                    !await IsRunning() &&
                     await BluetoothStateBroadcastReceiver.GetBluetoothState(UpdateUI) == BluetoothState.OFF)
                 {
-                    await _permissionUtils.HasPermissions();
-                    // wait until BT state change will be completed
-                    await BluetoothStateBroadcastReceiver.GetBluetoothState(UpdateUI);
+                    if (!_permissionUtils.AreAllPermissionsGranted())
+                    {
+                        PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions);
+                        // wait until BT state change will be completed
+                        await BluetoothStateBroadcastReceiver.GetBluetoothState(UpdateUI);
+                    }
                 }
             }
             finally
             {
                 UpdateUI();
             }
+
+            _semaphoreSlim.Release();
         }
 
         private async void StopGoogleAPI()
@@ -317,6 +358,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 UpdateUI();
             }
+
+            _semaphoreSlim.Release();
         }
 
         private void MessageLayoutButton_Click(object sender, EventArgs e)
@@ -326,7 +369,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
         private async void RegistrationLayoutButton_Click(object sender, EventArgs e)
         {
-            if (!await _viewModel.IsRunning())
+            if (!await IsRunning())
             {
                 await DialogUtils.DisplayDialogAsync(
                     this,
@@ -335,7 +378,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             }
 
             Intent intent = new Intent(this, typeof(InformationAndConsentActivity));
-            this.StartActivity(intent);
+            StartActivity(intent);
         }
     }
 }

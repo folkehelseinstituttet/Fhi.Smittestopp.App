@@ -51,7 +51,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
                                  SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_3_CONTENT;
 
             HeaderLabel.SetAttributedText(SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER);
-            ContentText.TextContainerInset = new UIEdgeInsets(0, 20, 20, 40);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
             
             NSMutableAttributedString text = new NSMutableAttributedString();

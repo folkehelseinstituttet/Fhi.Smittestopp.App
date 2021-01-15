@@ -26,7 +26,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
             This functionality is not planned for release 1.0. Kept for future use.
 
             //title.Text = WELCOME_PAGE_WHATS_NEW_TITLE;
-
+            //title.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             //SetBulletText(Resource.Id.bullet_one, WELCOME_PAGE_WHATS_NEW_BULLET_ONE);
             //SetBulletText(Resource.Id.bullet_two, WELCOME_PAGE_WHATS_NEW_BULLET_TWO);
             //SetBulletText(Resource.Id.bullet_three, WELCOME_PAGE_WHATS_NEW_BULLET_THREE);

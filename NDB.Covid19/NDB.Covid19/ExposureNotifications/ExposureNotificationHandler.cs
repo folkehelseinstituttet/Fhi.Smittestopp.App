@@ -120,7 +120,7 @@ namespace NDB.Covid19.ExposureNotifications
             // Here all keys are extended with DaysSinceOnsetOfSymptoms value
             validKeys = UploadDiagnosisKeysHelper.SetTransmissionRiskLevel(validKeys, MiBaDateAsUniversalTime);
 
-            bool success = await exposureNotificationWebService.PostSelvExposureKeys(validKeys);
+            bool success = await exposureNotificationWebService.PostSelfExposureKeys(validKeys);
             if (!success)
             {
                 throw new FailedToPushToServerException("Failed to push keys to the server");
