@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
+using JWT;
 using JWT.Algorithms;
 using JWT.Builder;
+using JWT.Serializers;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
@@ -72,6 +74,7 @@ namespace NDB.Covid19.OAuth2
 
                 string jsonPayload = new JwtBuilder()
                     .WithAlgorithm(new RS256Algorithm(new X509Certificate2(publicKey)))
+                    .WithValidator(new JwtValidator(new JsonNetSerializer(), new UtcDateTimeProvider(), 5 * 60))
                     .MustVerifySignature()
                     .Decode(accessToken);
                 

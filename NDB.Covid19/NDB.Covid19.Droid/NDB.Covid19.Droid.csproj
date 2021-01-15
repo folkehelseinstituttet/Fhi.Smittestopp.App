@@ -85,6 +85,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Services\BluetoothStateBroadcastReceiver.cs" />
     <Compile Include="Services\FlightModeHandlerBroadcastReceiver.cs" />
+    <Compile Include="Services\BackgroundNotificationBroadcastReceiver.cs" />
     <Compile Include="Utils\AccessibilityUtils.cs" />
     <Compile Include="Utils\AuthErrorUtils.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -104,7 +105,7 @@
     <Compile Include="Views\AuthenticationFlow\LoadingPageActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\RegisteredActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\ErrorActivities\GeneralErrorActivity.cs" />
-    <Compile Include="Utils\LocalNotificationManager.cs" />
+    <Compile Include="Utils\LocalNotificationsManager.cs" />
     <Compile Include="Views\Settings\SettingsGeneralActivity.cs" />
     <Compile Include="Views\Settings\SettingsWithdrawConsentsActivity.cs" />
     <Compile Include="Views\Settings\UnderlinedTextView.cs" />
@@ -138,6 +139,8 @@
     <Compile Include="Services\DroidApiDataHelperHandler.cs" />
     <Compile Include="Services\PermissionsBroadcastReceiver.cs" />
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
+    <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
+    <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -884,6 +887,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_notification.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\spinner_page.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

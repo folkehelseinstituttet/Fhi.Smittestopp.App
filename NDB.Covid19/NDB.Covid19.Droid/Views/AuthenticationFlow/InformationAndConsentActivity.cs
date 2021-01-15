@@ -86,6 +86,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             ////Accessibility
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
+            _header.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _lookupHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _notificationHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             //Button click events
             _closeButton.Click += new SingleClick((sender, e) => Finish(), 500).Run;
@@ -135,7 +138,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 Intent intent = new Intent(this, typeof(QuestionnairePageActivity));
                 StartActivity(intent);
             });
-
         }
 
         private void ShowSpinner(bool show)

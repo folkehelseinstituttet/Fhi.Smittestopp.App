@@ -60,7 +60,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // When
             string lastKeyUploadInfoBeforePush = _developerToolsService.LastKeyUploadInfo;
             bool isSuccess =
-                await _exposureNotificationWebService.PostSelvExposureKeys(
+                await _exposureNotificationWebService.PostSelfExposureKeys(
                     GetMockedSelDiagnosisSubmissionDTO(temporaryExposureKeys),
                     temporaryExposureKeys);
             string lastKeyUploadInfoAfterPush = _developerToolsService.LastKeyUploadInfo;
@@ -91,7 +91,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             // When
             string lastKeyUploadInfoBeforePush = _developerToolsService.LastKeyUploadInfo;
-            bool isSuccess = await _exposureNotificationWebService.PostSelvExposureKeys(
+            bool isSuccess = await _exposureNotificationWebService.PostSelfExposureKeys(
                 GetMockedSelDiagnosisSubmissionDTO(temporaryExposureKeys),
                 temporaryExposureKeys);
             string lastKeyUploadInfoAfterPush = _developerToolsService.LastKeyUploadInfo;
@@ -122,7 +122,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // When
             string lastKeyUploadInfoBeforePush = _developerToolsService.LastKeyUploadInfo;
             bool isSuccess =
-                await _exposureNotificationWebService.PostSelvExposureKeys(
+                await _exposureNotificationWebService.PostSelfExposureKeys(
                     GetMockedSelDiagnosisSubmissionDTO(temporaryExposureKeys),
                     temporaryExposureKeys);
             string lastKeyUploadInfoAfterPush = _developerToolsService.LastKeyUploadInfo;
@@ -156,7 +156,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // When
             string lastKeyUploadInfoBeforePush = _developerToolsService.LastKeyUploadInfo;
             bool isSuccess =
-                await _exposureNotificationWebService.PostSelvExposureKeys(
+                await _exposureNotificationWebService.PostSelfExposureKeys(
                     GetMockedSelDiagnosisSubmissionDTO(temporaryExposureKeys, countriesArray.ToList()),
                     temporaryExposureKeys);
             string lastKeyUploadInfoAfterPush = _developerToolsService.LastKeyUploadInfo;
@@ -190,7 +190,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // When
             string lastKeyUploadInfoBeforePush = _developerToolsService.LastKeyUploadInfo;
             bool isSuccess =
-                await _exposureNotificationWebService.PostSelvExposureKeys(
+                await _exposureNotificationWebService.PostSelfExposureKeys(
                     GetMockedSelDiagnosisSubmissionDTO(temporaryExposureKeys),
                     temporaryExposureKeys);
             string lastKeyUploadInfoAfterPush = _developerToolsService.LastKeyUploadInfo;
@@ -227,7 +227,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // When
             string lastKeyUploadInfoBeforePush = _developerToolsService.LastKeyUploadInfo;
             bool isSuccess =
-                await _exposureNotificationWebService.PostSelvExposureKeys(
+                await _exposureNotificationWebService.PostSelfExposureKeys(
                     GetMockedSelDiagnosisSubmissionDTO(temporaryExposureKeys, countriesArray.ToList()),
                     temporaryExposureKeys);
             string lastKeyUploadInfoAfterPush = _developerToolsService.LastKeyUploadInfo;

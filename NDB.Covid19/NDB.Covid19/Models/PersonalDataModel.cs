@@ -12,6 +12,7 @@ namespace NDB.Covid19.Models
         public string Covid19_blokeret { get; set; }
         public string Covid19_smitte_stop { get; set; }
         public string Covid19_status { get; set; }
+        public string Covid19_anonymous_token { get; set; }
 
         [JsonIgnore]
         public string Access_token { get; set; }
@@ -30,6 +31,9 @@ namespace NDB.Covid19.Models
         public bool IsNotInfected => Covid19_status == "negativ";
         [JsonIgnore]
         public bool UnknownStatus => Covid19_status == "ukendt";
+        [JsonIgnore]
+        public bool AnonymousTokensEnabled => Covid19_anonymous_token == "available";
+
 
         public bool Validate()
         {

@@ -1,14 +1,13 @@
-﻿using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V4.App;
+using AndroidX.LocalBroadcastManager.Content;
 using Java.Lang;
 using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
 using XamarinShortcutBadger;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
@@ -18,14 +17,15 @@ namespace NDB.Covid19.Droid.Utils
 {
     public class LocalNotificationsManager : ILocalNotificationsManager
     {
-        public const int NotificationId = 616;
-        public const int PermissionsNotificationId = 161;
-
+        public const string BroadcastActionName = "no.fhi.smittestopp_exposure_notification.background_notification";
         private readonly string _channelId = "Local_Notifications";
         private NotificationChannel _channel;
+        private readonly Context _context;
+        private Context NotificationContext => _context ?? Current.Activity ?? Current.AppContext;
 
-        public LocalNotificationsManager()
+        public LocalNotificationsManager(Context context = null)
         {
+            _context = context;
             if (Build.VERSION.SdkInt < BuildVersionCodes.O)
             {
                 // Notification channels are new in API 26 (and not a part of the
@@ -39,8 +39,8 @@ namespace NDB.Covid19.Droid.Utils
 
         private void CreateChannel()
         {
-            string channelName = Current.Activity.Resources.GetString(Resource.String.channel_name);
-            string channelDescription = Current.Activity.Resources.GetString(Resource.String.channel_description);
+            string channelName = NotificationContext.Resources.GetString(Resource.String.channel_name);
+            string channelDescription = NotificationContext.Resources.GetString(Resource.String.channel_description);
             NotificationImportance importance = NotificationImportance.High;
 
             if (_channel == null)
@@ -53,25 +53,20 @@ namespace NDB.Covid19.Droid.Utils
                 _channel.SetShowBadge(true);
 
                 NotificationManager notificationManager =
-                    (NotificationManager) Current.Activity.GetSystemService(Context.NotificationService);
+                    (NotificationManager) NotificationContext.GetSystemService(Context.NotificationService);
                 notificationManager?.CreateNotificationChannel(_channel);
             }
         }
 
         public void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds)
         {
-            Current.Activity.RunOnUiThread(async () =>
-            {
-                NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
-                await Task.Delay(triggerInSeconds * 1000);
-                notificationManagerCompat.Notify(NotificationId, CreateNotification(notificationViewModel));
-            });
+            BroadcastNotification(notificationViewModel, NotificationType.Local);
         }
-
+        
         public Notification CreateNotification(NotificationViewModel notificationViewModel)
         {
             PendingIntent resultPendingIntent = InitResultIntentBasingOnViewModel(notificationViewModel);
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(Current.Activity, _channelId)
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(NotificationContext, _channelId)
                 .SetAutoCancel(true) // Dismiss the notification from the notification area when the user clicks on it
                 .SetContentTitle(notificationViewModel.Title) // Set the title
                 .SetContentText(notificationViewModel.Body) // the message to display.
@@ -93,9 +88,9 @@ namespace NDB.Covid19.Droid.Utils
             Notification notification = builder.Build();
 
             bool isLowerVersion = Build.VERSION.SdkInt < BuildVersionCodes.O;
-            bool isBadgeCounterSupported = ShortcutBadger.IsBadgeCounterSupported(Current.AppContext);
+            bool isBadgeCounterSupported = ShortcutBadger.IsBadgeCounterSupported(NotificationContext);
             bool isMessage = notificationViewModel.Type == NotificationsEnum.NewMessageReceived;
-            bool areNotificationsEnabled = NotificationManagerCompat.From(Current.AppContext).AreNotificationsEnabled();
+            bool areNotificationsEnabled = NotificationManagerCompat.From(NotificationContext).AreNotificationsEnabled();
 
             // Use Plugin for badges on older platforms that support them
             if (isLowerVersion &&
@@ -103,7 +98,7 @@ namespace NDB.Covid19.Droid.Utils
                 isMessage &&
                 areNotificationsEnabled)
             {
-                ShortcutBadger.ApplyNotification(Current.AppContext, notification, 1);
+                ShortcutBadger.ApplyNotification(NotificationContext, notification, 1);
             }
 
             return notification;
@@ -111,15 +106,7 @@ namespace NDB.Covid19.Droid.Utils
 
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
         {
-            ActivityManager.RunningAppProcessInfo myProcess = new ActivityManager.RunningAppProcessInfo();
-            ActivityManager.GetMyMemoryState(myProcess);
-            bool isInBackground = myProcess.Importance != Importance.Foreground;
-
-            if (isInBackground)
-            {
-                new LocalNotificationsManager().GenerateLocalNotification(viewModel, 0);
-                LocalPreferencesHelper.TermsNotificationWasShown = true;
-            }
+            BroadcastNotification(viewModel, NotificationType.InBackground);
         }
 
         private PendingIntent InitResultIntentBasingOnViewModel(NotificationViewModel notificationViewModel)
@@ -128,16 +115,16 @@ namespace NDB.Covid19.Droid.Utils
             Intent resultIntent;
 
             // Construct a back stack for cross-task navigation:
-            TaskStackBuilder stackBuilder = TaskStackBuilder.Create(Current.Activity);
+            TaskStackBuilder stackBuilder = TaskStackBuilder.Create(NotificationContext);
 
             if (notificationViewModel.Type == NotificationsEnum.NewMessageReceived.Data().Type)
             {
-                resultIntent = new Intent(Current.Activity, typeof(MessagesActivity));
+                resultIntent = new Intent(NotificationContext, typeof(MessagesActivity));
                 stackBuilder.AddParentStack(Class.FromType(typeof(MessagesActivity)));
             }
             else
             {
-                resultIntent = new Intent(Current.Activity, typeof(InitializerActivity));
+                resultIntent = new Intent(NotificationContext, typeof(InitializerActivity));
                 stackBuilder.AddParentStack(Class.FromType(typeof(InitializerActivity)));
             }
 
@@ -149,11 +136,18 @@ namespace NDB.Covid19.Droid.Utils
 
         public void GenerateLocalPermissionsNotification(NotificationViewModel viewModel)
         {
-            Current.Activity.RunOnUiThread(() =>
-            {
-                NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
-                notificationManagerCompat.Notify(PermissionsNotificationId, CreateNotification(viewModel));
-            });
+            BroadcastNotification(viewModel, NotificationType.Permissions);
+        }
+
+        private static void BroadcastNotification(NotificationViewModel viewModel, NotificationType type)
+        {
+            Intent intent = new Intent();
+            intent.SetAction(BroadcastActionName);
+            intent.PutExtra("type", (int) type);
+            intent.PutExtra("data", (int) viewModel.Type);
+            LocalBroadcastManager
+                .GetInstance(Current.Activity ?? Current.AppContext)
+                .SendBroadcast(intent);
         }
     }
 }

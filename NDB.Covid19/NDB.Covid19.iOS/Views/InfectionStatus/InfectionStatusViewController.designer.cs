@@ -27,6 +27,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView fhiLogo { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel LogInAndRegisterLbl { get; set; }
 
         [Outlet]
@@ -96,6 +100,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             if (AreYouInfectetView != null) {
                 AreYouInfectetView.Dispose ();
                 AreYouInfectetView = null;
+            }
+
+            if (fhiLogo != null) {
+                fhiLogo.Dispose ();
+                fhiLogo = null;
             }
 
             if (LogInAndRegisterLbl != null) {
