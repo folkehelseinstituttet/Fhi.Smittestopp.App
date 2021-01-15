@@ -225,7 +225,7 @@
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON": "Infoknapp",
   "REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT": "dd.mm.åååå",
   "REGISTER_COUNTRY_QUESTIONAIRE_HEADER_TEXT": "Har du vært i et annet EU- eller EØS-land de siste 14 dagene, eller ønsker å dele nøkler med noen av disse landene?",
-  "REGISTER_COUNTRY_QUESTIONAIRE_INFORMATION_TEXT": "Her kan du angi, hvis du blir smittet, om du har besøkt ett eller flere av EU- eller EØS-landene på listen. Eller om du vil sende melding til appbrukere i andre land som du har vært i nærheten av. Ingen får vite hvem du er, eller hvor du kommer fra. ",
+  "REGISTER_COUNTRY_QUESTIONAIRE_INFORMATION_TEXT": "Her kan du angi, hvis du blir smittet, om du har besøkt ett eller flere av EU- eller EØS-landene på listen. Eller om du vil sende melding til appbrukere i andre land som du har vært i nærheten av. Ingen får vite hvem du er, eller hvor du kommer fra. Hvis du ikke velger noen land vil nøklene dine deles med alle landene i listen.",
   "REGISTER_COUNTRY_QUESTIONAIRE_BUTTON_TEXT": "Send inn",
   "REGISTER_COUNTRY_QUESTIONAIRE_FOOTER": "Listen inneholder bare de EU- eller EØS-landene som har en covid-19-app som fungerer sammen med Smittestopp.",
   "COUNTRIES_CONSENT_HEADER_TEXT": "NO TEXT READY -Header, text",
