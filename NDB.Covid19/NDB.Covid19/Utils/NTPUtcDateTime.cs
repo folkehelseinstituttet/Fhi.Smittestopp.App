@@ -14,7 +14,7 @@ namespace NDB.Covid19.Utils
             _client = new NtpClient();
         }
 
-        public async Task<DateTime> GetNTPUtcDateTime()
+        public virtual async Task<DateTime> GetNTPUtcDateTime()
         {
             try
             {

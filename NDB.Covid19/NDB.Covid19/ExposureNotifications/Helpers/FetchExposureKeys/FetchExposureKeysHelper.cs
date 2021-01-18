@@ -104,9 +104,9 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             }
         }
 
-        private async void UpdateLastNTPDateTime()
+        public async void UpdateLastNTPDateTime(NTPUtcDateTime mock = null)
         {
-            DateTime ntpDateTime = await new NTPUtcDateTime().GetNTPUtcDateTime();
+            DateTime ntpDateTime = await (mock ?? new NTPUtcDateTime()).GetNTPUtcDateTime();
             if (ntpDateTime != null && ntpDateTime > LocalPreferencesHelper.LastNTPUtcDateTime)
             {
                 LocalPreferencesHelper.LastNTPUtcDateTime = ntpDateTime;
