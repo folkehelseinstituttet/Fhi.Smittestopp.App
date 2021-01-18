@@ -101,6 +101,7 @@
   "FORCE_UPDATE_BUTTON_APPSTORE_IOS": "Go to App Store",
   "SMITTESPORING_FHI_LOGO_ACCESSIBILITY": "The Norwegian Institute of Public Health",
   "SMITTESPORING_APP_TITLE_ACCESSIBILITY": "Smittestopp",
+  "SMITTESPORING_APP_LOGO_ACCESSIBILITY":  "Smittestopp logo",
   "SMITTESPORING_ACTIVE_HEADER": "is active",
   "SMITTESPORING_INACTIVE_HEADER": "is inactive",
   "SMITTESPORING_ACTIVE_DESCRIPTION": "You are now helping to prevent the spread of COVID-19",
