@@ -2,7 +2,9 @@ using System;
 using CommonServiceLocator;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 #if !UNIT_TEST
 using Xamarin.Essentials;
@@ -25,7 +27,14 @@ namespace NDB.Covid19.Models.Logging
         {
             Severity = severity;
             Description = Anonymizer.RedactText(logMessage);
-            ReportedTime = DateTime.Now;
+
+            DateTime reportedUtcDateTime = SystemTime.Now().ToUniversalTime();
+            DateTime lastNTPDateTime = LocalPreferencesHelper.LastNTPUtcDateTime;
+            ReportedTime = reportedUtcDateTime == null ||
+                           (lastNTPDateTime - reportedUtcDateTime).Days >= 365 * 2
+                ? LocalPreferencesHelper.LastNTPUtcDateTime
+                : reportedUtcDateTime;
+            
             ApiVersion = Conf.APIVersion;
 
             string addInfoPostfix = ServiceLocator.Current.GetInstance<IApiDataHelper>().GetBackGroundServicVersionLogString();

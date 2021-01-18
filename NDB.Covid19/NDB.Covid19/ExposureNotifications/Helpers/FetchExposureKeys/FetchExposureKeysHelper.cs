@@ -31,6 +31,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
         {
             _developerTools.StartPullHistoryRecord();
 
+            UpdateLastNTPDateTime();
             SendReApproveConsentsNotificationIfNeeded();
             ResendMessageIfNeeded();
             CreatePermissionsNotificationIfNeeded();
@@ -103,6 +104,15 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             }
         }
 
+        private async void UpdateLastNTPDateTime()
+        {
+            DateTime ntpDateTime = await new NTPUtcDateTime().GetNTPUtcDateTime();
+            if (ntpDateTime != null && ntpDateTime > LocalPreferencesHelper.LastNTPUtcDateTime)
+            {
+                LocalPreferencesHelper.LastNTPUtcDateTime = ntpDateTime;
+            }
+        }
+        
         private void SendReApproveConsentsNotificationIfNeeded()
         {
             if (ConsentsHelper.IsNotFullyOnboarded &&
