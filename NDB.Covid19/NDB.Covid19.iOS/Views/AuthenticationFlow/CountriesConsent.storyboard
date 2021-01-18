@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="326">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="326">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nr-zA-ak5">
-                                <rect key="frame" x="315" y="35" width="25" height="25"/>
+                                <rect key="frame" x="319" y="35" width="21" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="iYc-LL-wVS"/>
                                 </constraints>
@@ -143,7 +143,6 @@
                             <constraint firstItem="EGA-Ir-Rpa" firstAttribute="top" secondItem="4Nr-zA-ak5" secondAttribute="bottom" constant="31" id="ew8-yN-pOi"/>
                             <constraint firstItem="EGA-Ir-Rpa" firstAttribute="leading" secondItem="3nl-CY-Ngy" secondAttribute="leading" id="ig3-gc-dR6"/>
                             <constraint firstItem="3nl-CY-Ngy" firstAttribute="trailing" secondItem="4Nr-zA-ak5" secondAttribute="trailing" constant="35" id="itX-t6-PhA"/>
-                            <constraint firstItem="4Nr-zA-ak5" firstAttribute="leading" secondItem="3nl-CY-Ngy" secondAttribute="leading" constant="315" id="scm-z6-q0g"/>
                         </constraints>
                     </view>
                     <connections>
