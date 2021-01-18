@@ -1,171 +1,176 @@
 // WARNING
 //
-// This file has been generated automatically by Visual Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
-    [Register ("InfectionStatusViewController")]
-    partial class InfectionStatusViewController
-    {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel ActivityExplainerLbl { get; set; }
+	[Register ("InfectionStatusViewController")]
+	partial class InfectionStatusViewController
+	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel ActivityExplainerLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel AreYouInfectetLbl { get; set; }
+		[Outlet]
+		UIKit.UIImageView appLogo { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView AreYouInfectetView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel AreYouInfectetLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView fhiLogo { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView AreYouInfectetView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel LogInAndRegisterLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIImageView fhiLogo { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton MenuIcon { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel LogInAndRegisterLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView MessageIcon { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton MenuIcon { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel MessageLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIImageView MessageIcon { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView MessageView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel MessageLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView NewIndicatorView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView MessageView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel NewRegistrationLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView NewIndicatorView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton OnOffBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel NewRegistrationLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView OnOffBtnContainer { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton OnOffBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView ScrollDownBackgroundView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView OnOffBtnContainer { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView StatusContainer { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView ScrollDownBackgroundView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel StatusText { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView StatusContainer { get; set; }
 
-        [Action ("OnMenubtnTapped:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void OnMenubtnTapped (UIKit.UIButton sender);
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel StatusText { get; set; }
 
-        [Action ("OnOffBtnTapped:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void OnOffBtnTapped (UIKit.UIButton sender);
+		[Action ("OnMenubtnTapped:")]
+		partial void OnMenubtnTapped (UIKit.UIButton sender);
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (ActivityExplainerLbl != null) {
-                ActivityExplainerLbl.Dispose ();
-                ActivityExplainerLbl = null;
-            }
+		[Action ("OnOffBtnTapped:")]
+		partial void OnOffBtnTapped (UIKit.UIButton sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (ActivityExplainerLbl != null) {
+				ActivityExplainerLbl.Dispose ();
+				ActivityExplainerLbl = null;
+			}
 
-            if (AreYouInfectetLbl != null) {
-                AreYouInfectetLbl.Dispose ();
-                AreYouInfectetLbl = null;
-            }
+			if (AreYouInfectetLbl != null) {
+				AreYouInfectetLbl.Dispose ();
+				AreYouInfectetLbl = null;
+			}
 
-            if (AreYouInfectetView != null) {
-                AreYouInfectetView.Dispose ();
-                AreYouInfectetView = null;
-            }
+			if (AreYouInfectetView != null) {
+				AreYouInfectetView.Dispose ();
+				AreYouInfectetView = null;
+			}
 
-            if (fhiLogo != null) {
-                fhiLogo.Dispose ();
-                fhiLogo = null;
-            }
+			if (fhiLogo != null) {
+				fhiLogo.Dispose ();
+				fhiLogo = null;
+			}
 
-            if (LogInAndRegisterLbl != null) {
-                LogInAndRegisterLbl.Dispose ();
-                LogInAndRegisterLbl = null;
-            }
+			if (appLogo != null) {
+				appLogo.Dispose ();
+				appLogo = null;
+			}
 
-            if (MenuIcon != null) {
-                MenuIcon.Dispose ();
-                MenuIcon = null;
-            }
+			if (LogInAndRegisterLbl != null) {
+				LogInAndRegisterLbl.Dispose ();
+				LogInAndRegisterLbl = null;
+			}
 
-            if (MessageIcon != null) {
-                MessageIcon.Dispose ();
-                MessageIcon = null;
-            }
+			if (MenuIcon != null) {
+				MenuIcon.Dispose ();
+				MenuIcon = null;
+			}
 
-            if (MessageLbl != null) {
-                MessageLbl.Dispose ();
-                MessageLbl = null;
-            }
+			if (MessageIcon != null) {
+				MessageIcon.Dispose ();
+				MessageIcon = null;
+			}
 
-            if (MessageView != null) {
-                MessageView.Dispose ();
-                MessageView = null;
-            }
+			if (MessageLbl != null) {
+				MessageLbl.Dispose ();
+				MessageLbl = null;
+			}
 
-            if (NewIndicatorView != null) {
-                NewIndicatorView.Dispose ();
-                NewIndicatorView = null;
-            }
+			if (MessageView != null) {
+				MessageView.Dispose ();
+				MessageView = null;
+			}
 
-            if (NewRegistrationLbl != null) {
-                NewRegistrationLbl.Dispose ();
-                NewRegistrationLbl = null;
-            }
+			if (NewIndicatorView != null) {
+				NewIndicatorView.Dispose ();
+				NewIndicatorView = null;
+			}
 
-            if (OnOffBtn != null) {
-                OnOffBtn.Dispose ();
-                OnOffBtn = null;
-            }
+			if (NewRegistrationLbl != null) {
+				NewRegistrationLbl.Dispose ();
+				NewRegistrationLbl = null;
+			}
 
-            if (OnOffBtnContainer != null) {
-                OnOffBtnContainer.Dispose ();
-                OnOffBtnContainer = null;
-            }
+			if (OnOffBtn != null) {
+				OnOffBtn.Dispose ();
+				OnOffBtn = null;
+			}
 
-            if (ScrollDownBackgroundView != null) {
-                ScrollDownBackgroundView.Dispose ();
-                ScrollDownBackgroundView = null;
-            }
+			if (OnOffBtnContainer != null) {
+				OnOffBtnContainer.Dispose ();
+				OnOffBtnContainer = null;
+			}
 
-            if (StatusContainer != null) {
-                StatusContainer.Dispose ();
-                StatusContainer = null;
-            }
+			if (ScrollDownBackgroundView != null) {
+				ScrollDownBackgroundView.Dispose ();
+				ScrollDownBackgroundView = null;
+			}
 
-            if (StatusText != null) {
-                StatusText.Dispose ();
-                StatusText = null;
-            }
-        }
-    }
+			if (StatusContainer != null) {
+				StatusContainer.Dispose ();
+				StatusContainer = null;
+			}
+
+			if (StatusText != null) {
+				StatusText.Dispose ();
+				StatusText = null;
+			}
+		}
+	}
 }
