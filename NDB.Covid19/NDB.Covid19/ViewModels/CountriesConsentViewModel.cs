@@ -19,7 +19,8 @@ namespace NDB.Covid19.ViewModels
         {
             Title = EU_CONSENT_ABORT_DIALOG_HEADER,
             Body = EU_CONSENT_ABORT_DIALOG_CONTENT,
-            OkBtnTxt = EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT
+            OkBtnTxt = EU_CONSENT_ABORT_DIALOG_BUTTON_ONE_TEXT,
+            CancelbtnTxt = EU_CONSENT_ABORT_DIALOG_BUTTON_TWO_TEXT
         };
         
         public static string HEADER_TEXT => "COUNTRIES_CONSENT_HEADER_TEXT".Translate();
@@ -36,7 +37,8 @@ namespace NDB.Covid19.ViewModels
         public static string EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT => "EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT".Translate();
         public static string EU_CONSENT_ABORT_DIALOG_HEADER => "EU_CONSENT_ABORT_DIALOG_HEADER".Translate();
         public static string EU_CONSENT_ABORT_DIALOG_CONTENT => "EU_CONSENT_ABORT_DIALOG_CONTENT".Translate();
-        public static string EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT => "EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT".Translate();
+        public static string EU_CONSENT_ABORT_DIALOG_BUTTON_ONE_TEXT => "EU_CONSENT_ABORT_DIALOG_BUTTON_ONE_TEXT".Translate();
+        public static string EU_CONSENT_ABORT_DIALOG_BUTTON_TWO_TEXT => "EU_CONSENT_ABORT_DIALOG_BUTTON_TWO_TEXT".Translate();
 
 
         public static void InvokeNextButtonClick(Action onSuccess, Action onFail, bool consentGiven)

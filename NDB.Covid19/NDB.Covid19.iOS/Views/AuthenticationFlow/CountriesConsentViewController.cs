@@ -67,7 +67,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         partial void OnCloseBtnTapped(UIButton sender)
         {
-            DialogHelper.ShowDialog(this, AbortDuringEUConsentViewModel, null);
+            DialogHelper.ShowDialog(this, AbortDuringEUConsentViewModel, (action) => GoToQuestionnaireCountriesPage(), UIAlertActionStyle.Default, null);
         }
 
         void OnFail()
