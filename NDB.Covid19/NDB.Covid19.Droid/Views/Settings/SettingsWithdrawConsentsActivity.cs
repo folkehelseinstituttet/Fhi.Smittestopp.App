@@ -14,7 +14,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     class SettingsWithdrawConsentsActivity : AppCompatActivity
     {
         Button _resetConsentsButton;

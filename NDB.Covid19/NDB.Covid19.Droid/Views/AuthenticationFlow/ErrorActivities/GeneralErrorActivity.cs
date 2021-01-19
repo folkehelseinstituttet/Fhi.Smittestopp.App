@@ -13,7 +13,7 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
 {
-    [Activity(Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait,
+    [Activity(Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullSensor,
         LaunchMode = LaunchMode.SingleTop)]
     class GeneralErrorActivity : AppCompatActivity
     {

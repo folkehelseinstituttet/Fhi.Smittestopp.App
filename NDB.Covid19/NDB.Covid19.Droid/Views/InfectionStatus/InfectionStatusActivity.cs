@@ -23,7 +23,7 @@ using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     public class InfectionStatusActivity : AppCompatActivity
     {
         private ImageView _fhiLogo;

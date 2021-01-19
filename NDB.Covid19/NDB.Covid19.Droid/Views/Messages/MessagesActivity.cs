@@ -26,7 +26,7 @@ namespace NDB.Covid19.Droid.Views.Messages
     [Activity(
         Theme = "@style/AppTheme",
         ParentActivity = typeof(InfectionStatusActivity),
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     public class MessagesActivity : AppCompatActivity
     {
         private ListView _messagesList;
