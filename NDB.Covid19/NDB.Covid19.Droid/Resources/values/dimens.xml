@@ -8,4 +8,5 @@
     <dimen name="backButton">36dp</dimen>
     <dimen name="smallMargin">8dp</dimen>
     <dimen name="welcomeTitlePadding">54dp</dimen>
+    <dimen name="buttonFocusStrokeWidth">4dp</dimen>
 </resources>
