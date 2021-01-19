@@ -7,4 +7,5 @@
     <dimen name="defaultVerticalMargin">24dp</dimen>
     <dimen name="backButton">36dp</dimen>
     <dimen name="smallMargin">8dp</dimen>
+    <dimen name="buttonFocusStrokeWidth">4dp</dimen>
 </resources>

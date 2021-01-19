@@ -10,7 +10,7 @@
     <shape android:shape="rectangle"  >
       <corners android:radius="@dimen/button_radius" />
       <solid android:color="@color/colorPrimary"/>
-      <stroke android:color="@color/colorAccent" android:width="@dimen/mtrl_btn_stroke_size" />
+      <stroke android:color="@color/colorAccent" android:width="@dimen/buttonFocusStrokeWidth" />
     </shape>
   </item>
   <item android:state_enabled="false" android:color="@color/greyedOut">

@@ -13,6 +13,7 @@ namespace NDB.Covid19.ViewModels
     {
         public static string SMITTESPORING_FHI_LOGO_ACCESSIBILITY => "SMITTESPORING_FHI_LOGO_ACCESSIBILITY".Translate();
         public static string SMITTESPORING_APP_TITLE_ACCESSIBILITY => "SMITTESPORING_APP_TITLE_ACCESSIBILITY".Translate();
+        public static string SMITTESPORING_APP_LOGO_ACCESSIBILITY => "SMITTESPORING_APP_LOGO_ACCESSIBILITY".Translate();
         public static string INFECTION_STATUS_ACTIVE_TEXT => "SMITTESPORING_ACTIVE_HEADER".Translate();
         public static string INFECTION_STATUS_INACTIVE_TEXT => "SMITTESPORING_INACTIVE_HEADER".Translate();
         public static string INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT => "SMITTESPORING_ACTIVE_DESCRIPTION".Translate();
@@ -194,10 +195,6 @@ namespace NDB.Covid19.ViewModels
                     if (await IsRunning())
                     {
                         await ExposureNotification.StartAsync();
-                    }
-                    else
-                    {
-                        await ExposureNotification.StopAsync();
                     }
                 }
                 IsAppRestricted = false;
