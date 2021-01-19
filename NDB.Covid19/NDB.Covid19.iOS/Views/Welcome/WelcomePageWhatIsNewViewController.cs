@@ -1,5 +1,6 @@
 ﻿using System;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StressUtils;
@@ -44,14 +45,15 @@ namespace NDB.Covid19.iOS.Views.Welcome
 
         private void NextButton_TouchUpInside(object sender, EventArgs e)
         {
-            GoToConsentPage();
+            OnboardingStatusHelper.Status = ConsentsHelper.GetStatusDependingOnRelease();
+            GoToInfectionStatusPage();
         }
 
-        void GoToConsentPage()
+        void GoToInfectionStatusPage()
         {
             InvokeOnMainThread(() =>
             {
-                UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("Consent");
+                UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("InfectionStatus");
                 NavigationController.PushViewController(vc, true);
             });
         }

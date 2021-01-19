@@ -31,7 +31,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
         {
             _developerTools.StartPullHistoryRecord();
 
-            SendReApproveConsentsNotificationIfNeeded();
+            //SendReApproveConsentsNotificationIfNeeded();
             ResendMessageIfNeeded();
             CreatePermissionsNotificationIfNeeded();
 
