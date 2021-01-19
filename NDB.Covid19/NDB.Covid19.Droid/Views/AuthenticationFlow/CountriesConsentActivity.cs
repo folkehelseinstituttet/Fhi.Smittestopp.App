@@ -104,9 +104,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             await DialogUtils.DisplayDialogAsync(
                 this,
-                EU_CONSENT_ABORT_DIALOG_HEADER,
-                EU_CONSENT_ABORT_DIALOG_CONTENT,
-                EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT
+                AbortDuringEUConsentViewModel,
+                GoToLoadingPage,
+                null
             );
         }
     }
