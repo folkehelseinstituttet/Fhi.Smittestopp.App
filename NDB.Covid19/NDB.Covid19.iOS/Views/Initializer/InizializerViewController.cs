@@ -31,6 +31,8 @@ namespace NDB.Covid19.iOS.Views.Initializer
             StyleUtil.InitStartPageButtonStyling(StartButtonNB);
             StyleUtil.InitStartPageButtonStyling(StartButtonNN);
             StyleUtil.InitLabel(ContinueInEnLbl, StyleUtil.FontType.FontSemiBold, InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG, 16, 24);
+            fhiLogo.AccessibilityLabel = InitializerViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
+            appLogo.AccessibilityLabel = InitializerViewModel.SMITTESPORING_APP_LOGO_ACCESSIBILITY;
             ContinueInEnLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             HeaderView.SizeToFit();
         }
