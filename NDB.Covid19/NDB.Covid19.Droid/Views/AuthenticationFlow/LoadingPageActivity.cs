@@ -16,7 +16,7 @@ using NDB.Covid19.Droid.Utils;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     class LoadingPageActivity : AppCompatActivity
     {
         bool _isRunning;
