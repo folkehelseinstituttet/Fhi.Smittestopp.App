@@ -141,7 +141,7 @@ namespace NDB.Covid19.iOS
         [Export("application:supportedInterfaceOrientationsForWindow:")]
         public UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, UIWindow forWindow)
         {
-            return UIInterfaceOrientationMask.Portrait;
+            return UIInterfaceOrientationMask.All;
         }
 
         [Export("application:performFetchWithCompletionHandler:")]
