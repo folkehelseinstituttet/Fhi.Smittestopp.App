@@ -75,6 +75,9 @@
                                                             </view>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHISmittestoppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2Lh-4t-IDu" userLabel="App Logo">
                                                                 <rect key="frame" x="75" y="71.5" width="225" height="157"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <bool key="isElement" value="YES"/>
+                                                                </accessibility>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-7p-6vm">
                                                                 <rect key="frame" x="40" y="220.5" width="295" height="44.5"/>
@@ -368,6 +371,7 @@
                         <outlet property="ScrollDownBackgroundView" destination="hfb-Su-BUZ" id="name-outlet-hfb-Su-BUZ"/>
                         <outlet property="StatusContainer" destination="w4F-Ew-Iyy" id="name-outlet-w4F-Ew-Iyy"/>
                         <outlet property="StatusText" destination="FQ9-7p-6vm" id="name-outlet-FQ9-7p-6vm"/>
+                        <outlet property="appLogo" destination="2Lh-4t-IDu" id="WEd-zw-XdJ"/>
                         <outlet property="fhiLogo" destination="E93-86-KJU" id="name-outlet-E93-86-KJU"/>
                     </connections>
                 </viewController>

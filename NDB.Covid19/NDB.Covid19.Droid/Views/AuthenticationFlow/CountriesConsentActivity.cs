@@ -14,7 +14,7 @@ using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     public class CountriesConsentActivity: AppCompatActivity
     {
         private ViewGroup _closeButton;
@@ -104,9 +104,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             await DialogUtils.DisplayDialogAsync(
                 this,
-                EU_CONSENT_ABORT_DIALOG_HEADER,
-                EU_CONSENT_ABORT_DIALOG_CONTENT,
-                EU_CONSENT_ABORT_DIALOG_BUTTON_TEXT
+                AbortDuringEUConsentViewModel,
+                GoToLoadingPage,
+                null
             );
         }
     }

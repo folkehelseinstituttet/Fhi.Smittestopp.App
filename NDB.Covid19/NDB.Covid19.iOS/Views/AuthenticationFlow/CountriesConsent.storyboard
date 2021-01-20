@@ -118,6 +118,9 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="qUd-pk-VPy" firstAttribute="height" secondItem="Q5l-do-83F" secondAttribute="height" id="C15-SF-SH6"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>

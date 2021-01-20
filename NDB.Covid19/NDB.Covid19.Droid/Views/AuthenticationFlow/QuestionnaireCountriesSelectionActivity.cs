@@ -17,7 +17,7 @@ using NDB.Covid19.ViewModels;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     public class QuestionnaireCountriesSelectionActivity : Activity
     {
         private readonly QuestionnaireCountriesViewModel _viewModel = new QuestionnaireCountriesViewModel();

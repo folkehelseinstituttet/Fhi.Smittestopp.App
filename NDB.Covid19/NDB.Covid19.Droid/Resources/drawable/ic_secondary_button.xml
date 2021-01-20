@@ -9,7 +9,7 @@
     <item android:state_focused="true">
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/button_radius" />
-            <stroke android:color="?android:attr/colorAccent" android:width="@dimen/mtrl_btn_stroke_size" />
+            <stroke android:color="?android:attr/colorAccent" android:width="@dimen/buttonFocusStrokeWidth" />
         </shape>
     </item>  
     <item >

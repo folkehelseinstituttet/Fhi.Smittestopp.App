@@ -15,7 +15,7 @@ using NDB.Covid19.Utils;
 namespace NDB.Covid19.Droid.Views.Welcome
 {
 
-    [Activity(Label = "", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     public class WelcomePageConsentsActivity: AppCompatActivity
     {
         public event EventHandler<Boolean> ButtonPressed;
