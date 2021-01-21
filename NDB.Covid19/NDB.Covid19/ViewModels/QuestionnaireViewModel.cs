@@ -86,12 +86,34 @@ namespace NDB.Covid19.ViewModels
             Selection = selection;
         }
 
+        private DateTime? GetMibaDateFromPersonalData()
+        {
+            if (PersonalData.Validate())
+            {
+                try
+                {
+                    return Convert.ToDateTime(PersonalData.Covid19_smitte_start);
+                }
+                catch
+                {
+                    LogUtils.LogMessage(LogSeverity.ERROR, "Miba data can't be parsed into datetime");
+                }
+            }
+            return null;
+        }
+
         public void InvokeNextButtonClick(
             Action onSuccess,
             Action onFail,
             Action onValidationFail,
             PlatformDialogServiceArguments platformDialogServiceArguments = null)
         {
+            DateTime? mibaDate = GetMibaDateFromPersonalData();
+            if (mibaDate == null)
+            {
+                onFail?.Invoke();
+                return;
+            }
             if (Selection == QuestionaireSelection.YesSince)
             {
                 if (_selectedDateUTC == DateTime.MinValue)
@@ -108,20 +130,7 @@ namespace NDB.Covid19.ViewModels
 
                     return;
                 }
-                PersonalData.FinalMiBaDate = _localSelectedDate;
-            }
-            else if (PersonalData.Validate())
-            {
-                try
-                {
-                    PersonalData.FinalMiBaDate = Convert.ToDateTime(PersonalData.Covid19_smitte_start);
-                }
-                catch
-                {
-                    onFail?.Invoke();
-                    LogUtils.LogMessage(LogSeverity.ERROR, "Miba data can't be parsed into datetime");
-                    return;
-                }
+                PersonalData.FinalMiBaDate = mibaDate < _localSelectedDate ? mibaDate : _localSelectedDate;
             }
             else
             {
