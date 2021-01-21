@@ -13,7 +13,7 @@ using Uri = Android.Net.Uri;
 
 namespace NDB.Covid19.Droid.Views
 {
-    [Activity(Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait,
+    [Activity(Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullSensor,
         LaunchMode = LaunchMode.SingleTop)]
     public class ForceUpdateActivity : AppCompatActivity
     {
