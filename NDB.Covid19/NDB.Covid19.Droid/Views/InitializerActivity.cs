@@ -19,6 +19,8 @@ namespace NDB.Covid19.Droid.Views
         Button _launcherButtonNb;
         Button _launcherButtonNn;
         TextView _continueInEnTextView;
+        ImageView _fhiLogo;
+        ImageView _appLogo;
         RelativeLayout _continueInEnRelativeLayoutButton;
         
         protected override void OnCreate(Bundle savedInstanceState)
@@ -41,8 +43,13 @@ namespace NDB.Covid19.Droid.Views
             SetContentView(Resource.Layout.layout_with_launcher_button_ag_api);
             _launcherButtonNb = FindViewById<Button>(Resource.Id.launcher_button);
             _launcherButtonNn = FindViewById<Button>(Resource.Id.launcher_button_nynorsk);
+            _fhiLogo = FindViewById<ImageView>(Resource.Id.launcer_icon_imageview);
+            _appLogo = FindViewById<ImageView>(Resource.Id.app_logo);
             _continueInEnRelativeLayoutButton = FindViewById<RelativeLayout>(Resource.Id.continue_in_en_layout);
             _continueInEnTextView = FindViewById<TextView>(Resource.Id.continue_in_en_text);
+
+            _fhiLogo.ContentDescription = InitializerViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
+            _appLogo.ContentDescription = InitializerViewModel.SMITTESPORING_APP_LOGO_ACCESSIBILITY;
 
             _launcherButtonNb.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN_NB;
             _launcherButtonNn.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN_NN;
