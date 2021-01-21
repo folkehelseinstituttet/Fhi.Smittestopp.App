@@ -102,6 +102,8 @@
   "SETTINGS_PAGE_4_SUPPORT_LINK": "https://www.helsenorge.no/en/smittestopp",
   "SETTINGS_PAGE_5_HEADER_TEXT": "About Smittestopp",
   "SETTINGS_PAGE_5_CONTENT_TEXT": "The Smittestopp app has been developed by the Norwegian Institute of Public Health in cooperation with Norsk helsenett (NHN).  \nRead more about the app at: ",
+  "SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT": "Accessibility statement",
+  "SETTINGS_PAGE_5_ACCESSBILITY_STATEMENT_BUTTON_URL":  "No link ready yet",
   "SETTINGS_PAGE_5_LINK": "www.helsenorge.no/en/smittestopp",
   "FORCE_UPDATE_MESSAGE": "There is a more recent version of Smittestopp. <br><br> Please update the app to continue.",
   "FORCE_UPDATE_BUTTON_GOOGLE_ANDROID": "Go to Google Play Store",

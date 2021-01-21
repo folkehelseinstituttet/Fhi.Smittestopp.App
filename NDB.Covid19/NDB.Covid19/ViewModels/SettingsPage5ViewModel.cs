@@ -9,6 +9,8 @@ namespace NDB.Covid19.ViewModels
         public static string SETTINGS_PAGE_5_HEADER => "SETTINGS_PAGE_5_HEADER_TEXT".Translate();
         public static string SETTINGS_PAGE_5_CONTENT => "SETTINGS_PAGE_5_CONTENT_TEXT".Translate();
         public static string SETTINGS_PAGE_5_LINK => "SETTINGS_PAGE_5_LINK".Translate();
+        public static string SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT = "SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT".Translate();
+        public static string SETTINGS_PAGE_5_ACCESSBILITY_STATEMENT_BUTTON_URL = "SETTINGS_PAGE_5_ACCESSBILITY_STATEMENT_BUTTON_URL".Translate();
 
         public SettingsPage5ViewModel() { }
 
