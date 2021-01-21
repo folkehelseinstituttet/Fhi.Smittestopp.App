@@ -152,7 +152,7 @@ namespace NDB.Covid19.Droid.Utils
         {
             if ((int) Build.VERSION.SdkInt >= 30)
             {
-                // Location is not require on Android 11 and above
+                // Location is not required on Android 11 and above
                 return true;
             }
             if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
