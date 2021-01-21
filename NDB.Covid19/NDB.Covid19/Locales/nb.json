@@ -104,7 +104,7 @@
   "SETTINGS_PAGE_5_CONTENT_TEXT": "Smittestopp er utviklet av Folkehelseinstituttet i samarbeid med Norsk helsenett (NHN). \nLes mer om appen på: ",
   "SETTINGS_PAGE_5_LINK": "www.helsenorge.no/smittestopp",
   "SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT": "Tilgjengelighetserklæring",
-  "SETTINGS_PAGE_5_ACCESSBILITY_STATEMENT_BUTTON_URL": "Ingen link klar ennå",
+  "SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_URL": "https://no.link.ready",
   "FORCE_UPDATE_MESSAGE": "Det finnes en nyere versjon av Smittestopp. <br><br> Oppdater appen for å fortsette.",
   "FORCE_UPDATE_BUTTON_GOOGLE_ANDROID": "Gå til Google Play Butikk",
   "FORCE_UPDATE_BUTTON_HUAWEI_ANDROID": "Gå til AppGallery",
