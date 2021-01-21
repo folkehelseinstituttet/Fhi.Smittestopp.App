@@ -150,6 +150,11 @@ namespace NDB.Covid19.Droid.Utils
 
         public bool IsLocationEnabled()
         {
+            if ((int) Build.VERSION.SdkInt >= 30)
+            {
+                // Location is not require on Android 11 and above
+                return true;
+            }
             if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
             {
                 LocationManager lm = (LocationManager) Current.AppContext.GetSystemService(Context.LocationService);
