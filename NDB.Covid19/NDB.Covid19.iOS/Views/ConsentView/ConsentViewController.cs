@@ -47,6 +47,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitBodyText(About_section2, ConsentViewModel.CONSENT_ONE_PARAGRAPH_SECTION_TWO);
             InitSubTitle(HowItWorks_header, ConsentViewModel.CONSENT_TWO_TITLE);
             InitBodyText(HowItWorks_section1, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_ONE);
+            InitBodyText(HowItWorks_section3, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_THREE);
             InitBodyText(HowItWorks_section2, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_TWO);
             InitBodyText(Samtykke_section1, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE);
             InitBodyText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
@@ -77,6 +78,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
                 SetAccessibilityText(About_section2, ConsentViewModel.CONSENT_ONE_PARAGRAPH_SECTION_TWO);
                 SetAccessibilityText(HowItWorks_header, ConsentViewModel.CONSENT_TWO_TITLE);
                 SetAccessibilityText(HowItWorks_section1, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_ONE);
+                SetAccessibilityText(HowItWorks_section3, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_THREE);
                 SetAccessibilityText(HowItWorks_section2, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_TWO);
                 SetAccessibilityText(Samtykke_section1, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE);
                 SetAccessibilityText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
