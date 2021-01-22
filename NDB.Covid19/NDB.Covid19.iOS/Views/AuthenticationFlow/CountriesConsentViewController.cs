@@ -28,13 +28,10 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             
             CloseBtn.AccessibilityLabel = CLOSE_BUTTON_ACCESSIBILITY_LABEL;
             HeaderLabel.SetAttributedText(HEADER_TEXT);
-            DescriptionLabel.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION);
-            LookUp_Header.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_HEADER, StyleUtil.FontType.FontBold);
-            LookUp_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_TEXT);
-            Notification_Header.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_NOTIFICATION_HEADER, StyleUtil.FontType.FontBold);
-            Notification_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_NOTIFICATION_TEXT);
-            Consent_BeAware_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_BE_AWARE_TEXT);
-            Consent_Explanation_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
+            DescriptionLabel.SetAttributedText(CONSENT3_BODYTEXT_1);
+            LookUp_Text.SetAttributedText(CONSENT3_BODYTEXT_2);
+            Notification_Text.SetAttributedText(CONSENT3_EU_CONSENT_BUTTON_BODYTEXT);
+            Consent_BeAware_Text.SetAttributedText(CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT);
 
             StyleUtil.InitButtonStyling(NextButtonWithEUConsent, EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT);
             StyleUtil.InitButtonStyling(NextButtonOnlyNorwayConsent, EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT);

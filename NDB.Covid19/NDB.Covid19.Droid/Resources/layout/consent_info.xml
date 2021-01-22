@@ -49,12 +49,20 @@
         android:layout_below="@+id/consent1_howitworks_header"
         android:layout_marginBottom="16dp" />
     <TextView
+        android:text="About text, section3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/PrimaryTextRegular"
+        android:id="@+id/consent1_howitworks_text_section3"
+        android:layout_below="@+id/consent1_howitworks_text_section1"
+        android:layout_marginBottom="16dp" />
+    <TextView
         android:text="About text, section2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_howitworks_text_section2"
-        android:layout_below="@+id/consent1_howitworks_text_section1"
+        android:layout_below="@+id/consent1_howitworks_text_section3"
         android:layout_marginBottom="16dp" />
 
     <TextView
