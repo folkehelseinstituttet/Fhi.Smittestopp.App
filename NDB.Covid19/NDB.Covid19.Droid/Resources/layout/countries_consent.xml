@@ -82,7 +82,7 @@
                 android:layout_below="@id/consent_onlyNorway_explanation">
                 <Button
                     android:text="Consent Button, EU"
-                    android:layout_marginVertical="36dp"
+                    android:layout_marginVertical="@dimen/buttonHeight"
                     android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -91,7 +91,7 @@
                     style="@style/IDPortenButton"/>
                 <Button
                     android:text="Consent Button, Norway only"
-                    android:layout_marginVertical="36dp"
+                    android:layout_marginVertical="@dimen/buttonHeight"
                     android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
