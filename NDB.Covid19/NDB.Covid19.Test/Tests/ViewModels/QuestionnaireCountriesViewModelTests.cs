@@ -41,9 +41,7 @@ namespace NDB.Covid19.Test.Tests.ViewModels
                 {
                     new CountryDetailsDTO
                     {
-                        Name_NB = "Norge",
-                        Name_NN = "Noreg",
-                        Name_EN = "Norway",
+                        TranslatedName = "Norge",
                         Code = "no"
                     }
                 }
@@ -62,8 +60,7 @@ namespace NDB.Covid19.Test.Tests.ViewModels
             Assert.True(response.IsSuccessfull);
             Assert.Equal(mockedData.CountryCollection.Count, response.Data.CountryCollection.Count);
             Assert.Equal(mockedData.CountryCollection[0].Code, response.Data.CountryCollection[0].Code);
-            Assert.Equal(mockedData.CountryCollection[0].Name_NB, response.Data.CountryCollection[0].Name_NB);
-            Assert.Equal(mockedData.CountryCollection[0].Name_EN, response.Data.CountryCollection[0].Name_EN);
+            Assert.Equal(mockedData.CountryCollection[0].TranslatedName, response.Data.CountryCollection[0].TranslatedName);
         }
 
         [Theory]

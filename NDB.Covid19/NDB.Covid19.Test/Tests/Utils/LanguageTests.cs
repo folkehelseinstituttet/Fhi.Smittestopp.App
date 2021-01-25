@@ -56,47 +56,5 @@ namespace NDB.Covid19.Test.Tests.Utils
 
             CultureInfo.CurrentCulture = initialCulture;
         }
-
-        [Fact]
-        public void CountryDetailsDTO_GetName_NotNullOrEmpty()
-        {
-            CountryDetailsDTO country = new CountryDetailsDTO()
-            {
-                Name_NB = "Norge",
-                Name_NN = "Noreg",
-                Name_EN = "Norway",
-                Code = "no"
-            };
-
-            Assert.NotNull(country.GetName());
-            Assert.NotEmpty(country.GetName());
-        }
-
-        [Theory]
-        [InlineData("nb", "Norge", "Noreg", "Norway", "Norge")]
-        [InlineData("en", "England", "England", "England", "England")]
-        [InlineData("nb", "Name_NB", "Name_NN", "Name_EN", "Name_NB")]
-        [InlineData("nn", "Name_NB", "Name_NN", "Name_EN", "Name_NN")]
-        [InlineData("en", "Name_NB", "Name_NN", "Name_EN", "Name_EN")]
-        [InlineData("pl", "Name_NB", "Name_NN", "Name_EN", "Name_NB")]
-        [InlineData("es", "Name_NB", "Name_NN", "Name_EN", "Name_NB")]
-        public void CountryDetailsDTO_GetName_ReturnsCorrect(string code, string nb, string nn, string en, string result)
-        {
-            CultureInfo initialCulture = CultureInfo.CurrentCulture;
-
-            CultureInfo.CurrentCulture = new CultureInfo(code);
-
-            CountryDetailsDTO country = new CountryDetailsDTO()
-            {
-                Name_NB = nb,
-                Name_NN = nn,
-                Name_EN = en,
-                Code = code
-            };
-
-            Assert.Equal(result, country.GetName());
-
-            CultureInfo.CurrentCulture = initialCulture;
-        }
     }
 }
