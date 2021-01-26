@@ -67,21 +67,9 @@ then
     exit 1
 fi
 
-if [ -z "OAUTH2_AUTHORISE_URL" ]
+if [ -z "OAUTH2_BASE_URL" ]
 then
-    echo "You need define the OAUTH2_AUTHORISE_URL variable in App Center"
-    exit 1
-fi
-
-if [ -z "OAUTH2_ACCESSTOKEN_URL" ]
-then
-    echo "You need define the OAUTH2_ACCESSTOKEN_URL variable in App Center"
-    exit 1
-fi
-
-if [ -z "OAUTH2_ANONTOKEN_URL" ]
-then
-    echo "You need define the OAUTH2_ANONTOKEN_URL variable in App Center"
+    echo "You need define the OAUTH2_BASE_URL variable in App Center"
     exit 1
 fi
 
@@ -126,14 +114,8 @@ fi
 
 if [ -e "$OAUTH_CONF_FILE" ]
 then
-    echo "Updating OAUTH2_AUTHORISE_URL to $OAUTH2_AUTHORISE_URL in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_AUTHORISE_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_AUTHORISE_URL = "'$OAUTH2_AUTHORISE_URL'"#' $OAUTH_CONF_FILE
-
-    echo "Updating OAUTH2_ACCESSTOKEN_URL to $OAUTH2_ACCESSTOKEN_URL in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_ACCESSTOKEN_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_ACCESSTOKEN_URL = "'$OAUTH2_ACCESSTOKEN_URL'"#' $OAUTH_CONF_FILE
-
-    echo "Updating OAUTH2_ANONTOKEN_URL to $OAUTH2_ANONTOKEN_URL in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_ANONTOKEN_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_ANONTOKEN_URL = "'$OAUTH2_ANONTOKEN_URL'"#' $OAUTH_CONF_FILE
+    echo "Updating OAUTH2_BASE_URL to $OAUTH2_BASE_URL in OAuthConf.cs"
+    sed -i '' 's#OAUTH2_BASE_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_BASE_URL = "'$OAUTH2_BASE_URL'"#' $OAUTH_CONF_FILE
 
     echo "Updating OAUTH2_VERIFY_TOKEN_PUBLIC_KEY to $OAUTH2_VERIFY_TOKEN_PUBLIC_KEY in OAuthConf.cs"
     sed -i '' 's#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "[-A-Za-z0-9:_./]*"#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "'$OAUTH2_VERIFY_TOKEN_PUBLIC_KEY'"#' $OAUTH_CONF_FILE
