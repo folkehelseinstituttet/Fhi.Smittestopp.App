@@ -8,7 +8,6 @@ using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
-using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using XamarinShortcutBadger;
@@ -20,9 +19,11 @@ namespace NDB.Covid19.Droid.Utils
     public class LocalNotificationsManager : ILocalNotificationsManager
     {
         public const string BroadcastActionName = "no.fhi.smittestopp_exposure_notification.background_notification";
-        private readonly string _channelId = "Local_Notifications";
-        private NotificationChannel _channel;
         private readonly Context _context;
+        private readonly string _exposureChannelId = "exposure_channel";
+        private readonly string _backgroundFetchChannelId = "background_channel";
+        private readonly string _permissionsChannelId = "permissions_channel";
+
         private Context NotificationContext => _context ?? Current.Activity ?? Current.AppContext;
 
         public LocalNotificationsManager(Context context = null)
@@ -36,28 +37,49 @@ namespace NDB.Covid19.Droid.Utils
                 return;
             }
 
-            CreateChannel();
+            CreateChannels();
         }
 
-        private void CreateChannel()
+        private void CreateChannels()
         {
-            string channelName = NotificationContext.Resources.GetString(Resource.String.channel_name);
-            string channelDescription = NotificationContext.Resources.GetString(Resource.String.channel_description);
-            NotificationImportance importance = NotificationImportance.High;
-
-            if (_channel == null)
+            NotificationChannel exposureChannel = new NotificationChannel(
+                _exposureChannelId,
+                NotificationChannelsViewModel.NOTIFICATION_CHANNEL_EXPOSURE_NAME,
+                NotificationImportance.High
+            )
             {
-                _channel = new NotificationChannel(_channelId, channelName, importance)
-                {
-                    Description = channelDescription
-                };
+                Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_EXPOSURE_DESCRIPTION,
+            };
 
-                _channel.SetShowBadge(true);
+            exposureChannel.SetShowBadge(true);
 
-                NotificationManager notificationManager =
-                    (NotificationManager) NotificationContext.GetSystemService(Context.NotificationService);
-                notificationManager?.CreateNotificationChannel(_channel);
-            }
+            NotificationChannel backgroundFetchChannel = new NotificationChannel(
+                _backgroundFetchChannelId,
+                NotificationChannelsViewModel.NOTIFICATION_CHANNEL_BACKGROUND_FETCH_NAME,
+                NotificationImportance.Low
+            )
+            {
+                Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_BACKGROUND_FETCH_DESCRIPTION,
+            };
+
+            backgroundFetchChannel.SetShowBadge(false);
+
+            NotificationChannel permissionsChannel = new NotificationChannel(
+                _permissionsChannelId,
+                NotificationChannelsViewModel.NOTIFICATION_CHANNEL_PERMISSIONS_NAME,
+                NotificationImportance.High
+            )
+            {
+                Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_PERMISSIONS_DESCRIPTION,
+            };
+
+            permissionsChannel.SetShowBadge(true);
+
+            NotificationManager notificationManager =
+                (NotificationManager) NotificationContext.GetSystemService(Context.NotificationService);
+            notificationManager?.CreateNotificationChannel(exposureChannel);
+            notificationManager?.CreateNotificationChannel(backgroundFetchChannel);
+            notificationManager?.CreateNotificationChannel(permissionsChannel);
         }
 
         public void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds)
@@ -67,8 +89,22 @@ namespace NDB.Covid19.Droid.Utils
         
         public Notification CreateNotification(NotificationViewModel notificationViewModel)
         {
+            string channelId;
+            switch (notificationViewModel.Type)
+            {
+                case NotificationsEnum.NewMessageReceived:
+                    channelId = _exposureChannelId;
+                    break;
+                case NotificationsEnum.BackgroundFetch:
+                    channelId = _backgroundFetchChannelId;
+                    break;
+                default:
+                    channelId = _permissionsChannelId;
+                    break;
+            }
+
             PendingIntent resultPendingIntent = InitResultIntentBasingOnViewModel(notificationViewModel);
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(NotificationContext, _channelId)
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(NotificationContext, channelId)
                 .SetAutoCancel(true) // Dismiss the notification from the notification area when the user clicks on it
                 .SetContentTitle(notificationViewModel.Title) // Set the title
                 .SetContentText(notificationViewModel.Body) // the message to display.
