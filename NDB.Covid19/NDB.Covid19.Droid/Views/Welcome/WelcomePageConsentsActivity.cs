@@ -26,9 +26,10 @@ namespace NDB.Covid19.Droid.Views.Welcome
         TextView _aboutHeader;
         TextView _aboutText1;
         TextView _aboutText2;
-        TextView _howitworksHeader;
-        TextView _howitworksText1;
-        TextView _howitworksText2;
+        TextView _howItWorksHeader;
+        TextView _howItWorksText1;
+        TextView _howItWorksText2;
+        TextView _howItWorksText3;
         TextView _samtykkeText1;
         TextView _samtykkeText2;
         TextView _behandlingafpersonoplysningerText;
@@ -74,12 +75,14 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _aboutText2.Text = ConsentViewModel.CONSENT_ONE_PARAGRAPH_SECTION_TWO;
 
             //HOW IT WORKS
-            _howitworksHeader = FindViewById<TextView>(Resource.Id.consent1_howitworks_header);
-            _howitworksHeader.Text = ConsentViewModel.CONSENT_TWO_TITLE;
-            _howitworksText1 = FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section1);
-            _howitworksText1.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_ONE;
-            _howitworksText2 = FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section2);
-            _howitworksText2.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_TWO;
+            _howItWorksHeader = FindViewById<TextView>(Resource.Id.consent1_howitworks_header);
+            _howItWorksHeader.Text = ConsentViewModel.CONSENT_TWO_TITLE;
+            _howItWorksText1 = FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section1);
+            _howItWorksText1.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_ONE;
+            _howItWorksText2 = FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section2);
+            _howItWorksText2.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_TWO;
+            _howItWorksText3 = FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section3);
+            _howItWorksText3.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_THREE;
 
             //SAMTYKKE
             _samtykkeText1 = FindViewById<TextView>(Resource.Id.consent1_samtykke_text_section1);
@@ -107,13 +110,13 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             // CONTENT DESCRIPTIONS OF HEADER
             _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
-            _howitworksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
+            _howItWorksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
             _samtykkebottomHeader.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
 
             HeadingAccessibilityDelegate headingAccessibilityDelegate = new HeadingAccessibilityDelegate();
             header.SetAccessibilityDelegate(headingAccessibilityDelegate);
             _aboutHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
-            _howitworksHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
+            _howItWorksHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
             _samtykkebottomHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
         }
 
