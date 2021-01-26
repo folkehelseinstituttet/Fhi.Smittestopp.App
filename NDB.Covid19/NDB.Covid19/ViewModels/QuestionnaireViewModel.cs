@@ -132,12 +132,6 @@ namespace NDB.Covid19.ViewModels
                 }
                 PersonalData.FinalMiBaDate = mibaDate < _localSelectedDate ? mibaDate : _localSelectedDate;
             }
-            else
-            {
-                onFail?.Invoke();
-                LogUtils.LogMessage(LogSeverity.ERROR, "Validation of personaldata failed because of miba data was null or accesstoken expired");
-                return;
-            }
 
             onSuccess?.Invoke();
         }
