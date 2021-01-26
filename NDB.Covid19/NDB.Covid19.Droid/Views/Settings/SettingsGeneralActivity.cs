@@ -128,6 +128,10 @@ namespace NDB.Covid19.Droid.Views.Settings
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("nn");
                         break;
+                    case Resource.Id.settings_general_polish:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("pl");
+                        break;
                 }
                 LocalesService.SetInternationalization();
                 _self._resetViews.ResetViews();
