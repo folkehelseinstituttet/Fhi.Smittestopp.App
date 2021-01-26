@@ -18,8 +18,8 @@ namespace NDB.Covid19.Droid.Views.Settings
         TextView _aboutText2;
         TextView _howitworksHeader;
         TextView _howitworksText1;
-        TextView _howitworksText3;
         TextView _howitworksText2;
+        TextView _howitworksText3;
         TextView _samtykkeText1;
         TextView _samtykkeText2;
         TextView _behandlingafpersonoplysningerText;
@@ -46,10 +46,10 @@ namespace NDB.Covid19.Droid.Views.Settings
             _howitworksHeader.Text = ConsentViewModel.CONSENT_TWO_TITLE;
             _howitworksText1 = view.FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section1);
             _howitworksText1.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_ONE;
-            _howitworksText3 = view.FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section3);
-            _howitworksText3.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_THREE;
             _howitworksText2 = view.FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section2);
             _howitworksText2.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_TWO;
+            _howitworksText3 = view.FindViewById<TextView>(Resource.Id.consent1_howitworks_text_section3);
+            _howitworksText3.Text = ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_THREE;
 
             //SAMTYKKE
             _samtykkeText1 = view.FindViewById<TextView>(Resource.Id.consent1_samtykke_text_section1);

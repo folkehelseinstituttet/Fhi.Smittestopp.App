@@ -47,8 +47,8 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitBodyText(About_section2, ConsentViewModel.CONSENT_ONE_PARAGRAPH_SECTION_TWO);
             InitSubTitle(HowItWorks_header, ConsentViewModel.CONSENT_TWO_TITLE);
             InitBodyText(HowItWorks_section1, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_ONE);
-            InitBodyText(HowItWorks_section3, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_THREE);
             InitBodyText(HowItWorks_section2, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_TWO);
+            InitBodyText(HowItWorks_section3, ConsentViewModel.CONSENT_TWO_PARAGRAPH_SECTION_THREE);
             InitBodyText(Samtykke_section1, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE);
             InitBodyText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
             InitBodyText(ContactInformation_section, ConsentViewModel.CONSENT_FOUR_PARAGRAPH);
