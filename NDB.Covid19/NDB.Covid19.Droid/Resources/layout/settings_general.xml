@@ -203,6 +203,15 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/primaryText"
                         android:text="Polish"/>
+
+                <RadioButton
+                        android:id="@+id/settings_general_somali"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Somali"/>
             </RadioGroup>
 
             <TextView

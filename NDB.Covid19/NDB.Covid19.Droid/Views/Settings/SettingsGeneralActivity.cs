@@ -70,12 +70,14 @@ namespace NDB.Covid19.Droid.Views.Settings
             RadioButton bokmalRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_bokmal);
             RadioButton nynorskRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_nynorsk);
             RadioButton polishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_polish);
+            RadioButton somaliRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_somali);
 
 
             englishRadioButton.Text = SETTINGS_GENERAL_EN;
             bokmalRadioButton.Text = SETTINGS_GENERAL_NB;
             nynorskRadioButton.Text = SETTINGS_GENERAL_NN;
             polishRadioButton.Text = SETTINGS_GENERAL_PL;
+            somaliRadioButton.Text = SETTINGS_GENERAL_SO;
 
             string appLanguage = LocalesService.GetLanguage();
 
@@ -89,6 +91,9 @@ namespace NDB.Covid19.Droid.Views.Settings
                     break;
                 case "pl":
                     polishRadioButton.Checked = true;
+                    break;
+                case "so":
+                    somaliRadioButton.Checked = true;
                     break;
                 default:
                     bokmalRadioButton.Checked = true;
@@ -131,6 +136,10 @@ namespace NDB.Covid19.Droid.Views.Settings
                     case Resource.Id.settings_general_polish:
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("pl");
+                        break;
+                    case Resource.Id.settings_general_somali:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("so");
                         break;
                 }
                 LocalesService.SetInternationalization();

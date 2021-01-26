@@ -41,6 +41,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             InitLabel(RadioButton2Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NN, 16, 28);
             InitLabel(RadioButton3Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EN, 16, 28);
             InitLabel(RadioButton4Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_PL, 16, 28);
+            InitLabel(RadioButton5Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_SO, 16, 28);
 
             InitLabel(RestartAppLabl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 14, 28);
@@ -109,6 +110,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                 case "pl":
                     _viewModel.SetSelection(SettingsLanguageSelection.Polish);
                     break;
+                case "so":
+                    _viewModel.SetSelection(SettingsLanguageSelection.Somali);
+                    break;
                 default:
                     _viewModel.SetSelection(SettingsLanguageSelection.Bokmal);
                     break;
@@ -118,6 +122,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
             RadioButton3.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
             RadioButton4.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
+            RadioButton5.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
 
         }
 
@@ -128,6 +133,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             RadioButton2.Enabled = false;
             RadioButton3.Enabled = false;
             RadioButton4.Enabled = false;
+            RadioButton5.Enabled = false;
         }
 
         public void SwitchValueChanged(object sender, EventArgs e)
@@ -198,6 +204,11 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         partial void RadioButton4_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Polish, sender);
+        }
+
+        partial void RadioButton5_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Somali, sender);
         }
     }
 }

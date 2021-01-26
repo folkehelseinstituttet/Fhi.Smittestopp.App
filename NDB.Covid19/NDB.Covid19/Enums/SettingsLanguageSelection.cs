@@ -5,7 +5,8 @@
         Bokmal,
         Nynorsk,
         English,
-        Polish
+        Polish,
+        Somali
     }
 
     public static class SettingsLanguageSelectionExtensions
@@ -22,6 +23,8 @@
                     return "en";
                 case SettingsLanguageSelection.Polish:
                     return "pl";
+                case SettingsLanguageSelection.Somali:
+                    return "so";
                 default:
                     return "nb";
             }
