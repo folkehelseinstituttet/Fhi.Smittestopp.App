@@ -194,6 +194,15 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/primaryText"
                         android:text="English"/>
+
+                <RadioButton
+                        android:id="@+id/settings_general_polish"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Polish"/>
             </RadioGroup>
 
             <TextView

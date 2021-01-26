@@ -69,24 +69,30 @@ namespace NDB.Covid19.Droid.Views.Settings
             RadioButton englishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_english);
             RadioButton bokmalRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_bokmal);
             RadioButton nynorskRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_nynorsk);
+            RadioButton polishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_polish);
 
 
             englishRadioButton.Text = SETTINGS_GENERAL_EN;
             bokmalRadioButton.Text = SETTINGS_GENERAL_NB;
             nynorskRadioButton.Text = SETTINGS_GENERAL_NN;
+            polishRadioButton.Text = SETTINGS_GENERAL_PL;
 
             string appLanguage = LocalesService.GetLanguage();
 
-            if (appLanguage == "en")
+            switch (appLanguage)
             {
-                englishRadioButton.Checked = true;
-            }
-            else if (appLanguage == "nn")
-            {
-                nynorskRadioButton.Checked = true;
-            } else
-            {
-                bokmalRadioButton.Checked = true;
+                case "en":
+                    englishRadioButton.Checked = true;
+                    break;
+                case "nn":
+                    nynorskRadioButton.Checked = true;
+                    break;
+                case "pl":
+                    polishRadioButton.Checked = true;
+                    break;
+                default:
+                    bokmalRadioButton.Checked = true;
+                    break;
             }
 
             radioGroup.SetOnCheckedChangeListener(new OnCheckedChangeListener(this));

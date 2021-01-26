@@ -197,7 +197,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 modalClosed = ModalViewController.IsBeingDismissed;
             }
-            if (NavigationController.TopViewController is InfectionStatusViewController && modalClosed)
+            if (NavigationController?.TopViewController is InfectionStatusViewController && modalClosed)
             {
                 statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             }
