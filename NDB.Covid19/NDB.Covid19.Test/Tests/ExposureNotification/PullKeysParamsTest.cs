@@ -170,7 +170,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //The date will be parsed right (UTC time)
             string expectedDateString = today.AddDays(expectedDaysAgo).ToString("yyyy-MM-dd");
-            Assert.Equal($"{expectedDateString}_3_no.zip", pullQueryParams);
+            Assert.Equal($"{expectedDateString}_3_all.zip", pullQueryParams);
 
             //Reset
             SystemTime.ResetDateTime();
@@ -196,7 +196,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //The date will be parsed right (UTC)
             string expectedDateString = SystemTime.Now().ToUniversalTime().Date.ToString("yyyy-MM-dd");
-            Assert.Equal($"{expectedDateString}_1_no.zip", pullQueryParams);
+            Assert.Equal($"{expectedDateString}_1_all.zip", pullQueryParams);
 
             //Reset
             SystemTime.ResetDateTime();
