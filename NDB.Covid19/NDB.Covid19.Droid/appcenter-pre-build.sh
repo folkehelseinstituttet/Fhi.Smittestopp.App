@@ -67,33 +67,15 @@ then
     exit 1
 fi
 
-if [ -z "OAUTH2_AUTHORISE_URL" ]
+if [ -z "OAUTH2_BASE_URL" ]
 then
-    echo "You need define the OAUTH2_AUTHORISE_URL variable in App Center"
-    exit 1
-fi
-
-if [ -z "OAUTH2_ACCESSTOKEN_URL" ]
-then
-    echo "You need define the OAUTH2_ACCESSTOKEN_URL variable in App Center"
+    echo "You need define the OAUTH2_BASE_URL variable in App Center"
     exit 1
 fi
 
 if [ -z "OAUTH2_VERIFY_TOKEN_PUBLIC_KEY" ]
 then
     echo "You need define the OAUTH2_VERIFY_TOKEN_PUBLIC_KEY variable in App Center"
-    exit 1
-fi
-
-if [ -z "OAUTH2_CLIENT_ID" ]
-then
-    echo "You need define the OAUTH2_CLIENT_ID variable in App Center"
-    exit 1
-fi
-
-if [ -z "OAUTH2_REDIRECT_URL" ]
-then
-    echo "You need define the OAUTH2_REDIRECT_URL variable in App Center"
     exit 1
 fi
 
@@ -132,20 +114,11 @@ fi
 
 if [ -e "$OAUTH_CONF_FILE" ]
 then
-    echo "Updating OAUTH2_AUTHORISE_URL to $OAUTH2_AUTHORISE_URL in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_AUTHORISE_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_AUTHORISE_URL = "'$OAUTH2_AUTHORISE_URL'"#' $OAUTH_CONF_FILE
-
-    echo "Updating OAUTH2_ACCESSTOKEN_URL to $OAUTH2_ACCESSTOKEN_URL in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_ACCESSTOKEN_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_ACCESSTOKEN_URL = "'$OAUTH2_ACCESSTOKEN_URL'"#' $OAUTH_CONF_FILE
+    echo "Updating OAUTH2_BASE_URL to $OAUTH2_BASE_URL in OAuthConf.cs"
+    sed -i '' 's#OAUTH2_BASE_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_BASE_URL = "'$OAUTH2_BASE_URL'"#' $OAUTH_CONF_FILE
 
     echo "Updating OAUTH2_VERIFY_TOKEN_PUBLIC_KEY to $OAUTH2_VERIFY_TOKEN_PUBLIC_KEY in OAuthConf.cs"
     sed -i '' 's#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "[-A-Za-z0-9:_./]*"#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "'$OAUTH2_VERIFY_TOKEN_PUBLIC_KEY'"#' $OAUTH_CONF_FILE
-
-    echo "Updating OAUTH2_CLIENT_ID to $OAUTH2_CLIENT_ID in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_CLIENT_ID = "[-A-Za-z0-9:_./]*"#OAUTH2_CLIENT_ID = "'$OAUTH2_CLIENT_ID'"#' $OAUTH_CONF_FILE
-
-    echo "Updating OAUTH2_REDIRECT_URL to $OAUTH2_REDIRECT_URL in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_REDIRECT_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_REDIRECT_URL = "'$OAUTH2_REDIRECT_URL'"#' $OAUTH_CONF_FILE
 
     echo "File content:"
     cat $OAUTH_CONF_FILE
