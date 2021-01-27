@@ -90,16 +90,20 @@ namespace NDB.Covid19.Droid.Utils
         public Notification CreateNotification(NotificationViewModel notificationViewModel)
         {
             string channelId;
+            int notificationPriority;
             switch (notificationViewModel.Type)
             {
                 case NotificationsEnum.NewMessageReceived:
                     channelId = _exposureChannelId;
+                    notificationPriority = NotificationCompat.PriorityHigh;
                     break;
                 case NotificationsEnum.BackgroundFetch:
                     channelId = _backgroundFetchChannelId;
+                    notificationPriority = NotificationCompat.PriorityLow;
                     break;
                 default:
                     channelId = _permissionsChannelId;
+                    notificationPriority = NotificationCompat.PriorityHigh;
                     break;
             }
 
@@ -113,7 +117,8 @@ namespace NDB.Covid19.Droid.Utils
                 .SetSound(null)
                 .SetNumber(1)
                 .SetCategory(NotificationCompat.CategoryMessage)
-                .SetOnlyAlertOnce(true);
+                .SetOnlyAlertOnce(true)
+                .SetPriority(notificationPriority);
 
             // This is the icon to display
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
