@@ -22,7 +22,9 @@ namespace NDB.Covid19.ViewModels
         public static string CONSENT_THREE_PARAGRAPH_SECTION_ONE => "CONSENT_THREE_PARAGRAPH_SECTION_ONE".Translate();
         public static string CONSENT_THREE_PARAGRAPH_SECTION_TWO => "CONSENT_THREE_PARAGRAPH_SECTION_TWO".Translate();
         public static string CONSENT_FOUR_PARAGRAPH => "CONSENT_FOUR_PARAGRAPH".Translate();
-        public static string CONSENT_FIVE_PARAGRAPH => "CONSENT_FIVE_PARAGRAPH".Translate();
+        public static string CONSENT_FIVE_PARAGRAPH_SECTION_ONE => "CONSENT_FIVE_PARAGRAPH_SECTION_ONE".Translate();
+        public static string CONSENT_FIVE_PARAGRAPH_SECTION_TWO => "CONSENT_FIVE_PARAGRAPH_SECTION_TWO".Translate();
+        public static string CONSENT_FIVE_PARAGRAPH_SECTION_THREE => "CONSENT_FIVE_PARAGRAPH_SECTION_THREE".Translate();
         public static string CONSENT_SIX_TITLE => "CONSENT_SIX_TITLE".Translate();
         public static string CONSENT_SIX_PARAGRAPH => "CONSENT_SIX_PARAGRAPH".Translate();
         public static string CONSENT_SEVEN_BUTTON_TEXT => "CONSENT_SEVEN_BUTTON_TEXT".Translate();
