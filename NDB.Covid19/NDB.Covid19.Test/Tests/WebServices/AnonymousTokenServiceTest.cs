@@ -31,7 +31,8 @@ namespace NDB.Covid19.Test.Tests.WebServices
 
             GenerateTokenResponseModel tokenResponse = await GenerateTokenAsync(privateKey, publicKeyStore, ecParameters, tokenState.P);
 
-            var token = service.RandomizeToken(tokenState, tokenResponse, await publicKeyStore.GetAsync());
+            var publicKey = (await publicKeyStore.GetAsync()).Q;
+            var token = service.RandomizeToken(tokenState, tokenResponse, publicKey);
             (await VerifyToken(privateKey, ecParameters, tokenState, token)).Should().BeTrue();
         }
 
@@ -44,7 +45,7 @@ namespace NDB.Covid19.Test.Tests.WebServices
             var privateKey = GeneratePrivateKey();
             GenerateTokenResponseModel tokenResponse = await GenerateTokenAsync(privateKey, publicKeyStore, ecParameters, tokenState.P);
 
-            var publicKey = await publicKeyStore.GetAsync();
+            var publicKey = (await publicKeyStore.GetAsync()).Q;
             Assert.Throws<AnonymousTokensException>(() => service.RandomizeToken(tokenState, tokenResponse, publicKey))
                 .Message.Should().Contain("proof is invalid");
         }
@@ -58,7 +59,8 @@ namespace NDB.Covid19.Test.Tests.WebServices
             GenerateTokenResponseModel tokenResponse = await GenerateTokenAsync(await inMemoryPrivateKeyStore.GetAsync(), publicKeyStore, ecParameters, tokenState.P);
 
             var privateKey = GeneratePrivateKey();
-            var token = service.RandomizeToken(tokenState, tokenResponse, await publicKeyStore.GetAsync());
+            var publicKey = (await publicKeyStore.GetAsync()).Q;
+            var token = service.RandomizeToken(tokenState, tokenResponse, publicKey);
             (await VerifyToken(privateKey, ecParameters, tokenState, token)).Should().BeFalse();
         }
 

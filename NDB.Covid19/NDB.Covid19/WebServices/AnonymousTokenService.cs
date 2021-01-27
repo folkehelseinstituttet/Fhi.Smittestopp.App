@@ -47,7 +47,7 @@ namespace NDB.Covid19.WebServices
             };
         }
 
-        public ECPoint RandomizeToken(AnonymousTokenState state, GenerateTokenResponseModel tokenResponse, ECPublicKeyParameters K)
+        public ECPoint RandomizeToken(AnonymousTokenState state, GenerateTokenResponseModel tokenResponse, ECPoint K)
         {
             var Q = _ecParameters.Curve.DecodePoint(Convert.FromBase64String(tokenResponse.SignedPoint));
             var c = new BigInteger(Convert.FromBase64String(tokenResponse.ProofChallenge));
@@ -78,7 +78,7 @@ namespace NDB.Covid19.WebServices
             return JsonConvert.DeserializeObject<GenerateTokenResponseModel>(await response.Content.ReadAsStringAsync());
         }
 
-        private async Task<ECPublicKeyParameters> GetPublicKeyAsync(GenerateTokenResponseModel tokenResponse)
+        private async Task<ECPoint> GetPublicKeyAsync(GenerateTokenResponseModel tokenResponse)
         {
             string kid = tokenResponse.Kid;
             var request = new HttpRequestMessage(HttpMethod.Get, OAuthConf.OAUTH2_ANONTOKEN_URL + "/atks");
@@ -91,14 +91,13 @@ namespace NDB.Covid19.WebServices
             return DecodePublicKey(anonTokenKeyStoreResponse.Keys.Single(k => k.Kid == kid));
         }
 
-        private static ECPublicKeyParameters DecodePublicKey(AnonymousTokenKey key)
+        private static ECPoint DecodePublicKey(AnonymousTokenKey key)
         {
             var curve = CustomNamedCurves.GetByName(key.Crv);
-            var clientSidePublicKeyPoint = curve.Curve.CreatePoint(
+            return curve.Curve.CreatePoint(
                 new BigInteger(Convert.FromBase64String(key.X)),
                 new BigInteger(Convert.FromBase64String(key.Y))
             );
-            return new ECPublicKeyParameters("ECDSA", clientSidePublicKeyPoint, new ECDomainParameters(curve));
         }
     }
 
