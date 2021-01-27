@@ -11,7 +11,7 @@
 
     public static class SettingsLanguageSelectionExtensions
     {
-        public static string GetStringValue(SettingsLanguageSelection settingsLanguageSelection)
+        public static string ToString(SettingsLanguageSelection settingsLanguageSelection)
         {
             switch (settingsLanguageSelection)
             {
@@ -27,6 +27,25 @@
                     return "so";
                 default:
                     return "nb";
+            }
+        }
+
+        public static SettingsLanguageSelection FromString(string languageCode)
+        {
+            switch (languageCode)
+            {
+                case "nb":
+                    return SettingsLanguageSelection.Bokmal;
+                case "nn":
+                    return SettingsLanguageSelection.Nynorsk;
+                case "en":
+                    return SettingsLanguageSelection.English;
+                case "pl":
+                    return SettingsLanguageSelection.Polish;
+                case "so":
+                    return SettingsLanguageSelection.Somali;
+                default:
+                    return SettingsLanguageSelection.Bokmal;
             }
         }
     }

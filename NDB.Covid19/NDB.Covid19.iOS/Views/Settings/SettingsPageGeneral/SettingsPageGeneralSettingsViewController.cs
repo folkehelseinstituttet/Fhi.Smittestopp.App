@@ -97,26 +97,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         void SetupRadioButtons()
         {
-            string appLanguage = LocalPreferencesHelper.GetAppLanguage();
-
-            switch (appLanguage)
-            {
-                case "en":
-                    _viewModel.SetSelection(SettingsLanguageSelection.English);
-                    break;
-                case "nn":
-                    _viewModel.SetSelection(SettingsLanguageSelection.Nynorsk);
-                    break;
-                case "pl":
-                    _viewModel.SetSelection(SettingsLanguageSelection.Polish);
-                    break;
-                case "so":
-                    _viewModel.SetSelection(SettingsLanguageSelection.Somali);
-                    break;
-                default:
-                    _viewModel.SetSelection(SettingsLanguageSelection.Bokmal);
-                    break;
-            }
+            SettingsLanguageSelection appLanguage = SettingsLanguageSelectionExtensions.FromString(LocalPreferencesHelper.GetAppLanguage());
+            _viewModel.SetSelection(appLanguage);
 
             RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
             RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
