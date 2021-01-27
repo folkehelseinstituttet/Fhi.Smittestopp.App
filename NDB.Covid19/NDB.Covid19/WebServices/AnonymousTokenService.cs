@@ -7,7 +7,6 @@ using Org.BouncyCastle.Crypto.EC;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
-using Org.BouncyCastle.Utilities.Encoders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,9 +49,9 @@ namespace NDB.Covid19.WebServices
 
         public ECPoint RandomizeToken(AnonymousTokenState state, GenerateTokenResponseModel tokenResponse, ECPublicKeyParameters K)
         {
-            var Q = _ecParameters.Curve.DecodePoint(Hex.Decode(tokenResponse.QAsHex));
-            var c = new BigInteger(Hex.Decode(tokenResponse.ProofCAsHex));
-            var z = new BigInteger(Hex.Decode(tokenResponse.ProofZAsHex));
+            var Q = _ecParameters.Curve.DecodePoint(Convert.FromBase64String(tokenResponse.SignedPoint));
+            var c = new BigInteger(Convert.FromBase64String(tokenResponse.ProofChallenge));
+            var z = new BigInteger(Convert.FromBase64String(tokenResponse.ProofResponse));
             return _initiator.RandomiseToken(_ecParameters, K, state.P, Q, c, z, state.r);
         }
 
@@ -68,7 +67,7 @@ namespace NDB.Covid19.WebServices
             request.Headers.Add("Authorization", $"Bearer {AuthenticationState.PersonalData?.Access_token}");
             var tokenRequest = new GenerateTokenRequestModel
             {
-                PAsHex = Hex.ToHexString(state.P.GetEncoded())
+                MaskedPoint = Convert.ToBase64String(state.P.GetEncoded())
             };
             request.Content = new StringContent(JsonConvert.SerializeObject(tokenRequest), Encoding.UTF8, "application/json");
             var response = await new HttpClient().SendAsync(request);
@@ -112,20 +111,20 @@ namespace NDB.Covid19.WebServices
 
     public class GenerateTokenRequestModel
     {
-        [JsonProperty("pAsHex")]
-        public string PAsHex { get; set; }
+        [JsonProperty("maskedPoint")]
+        public string MaskedPoint { get; set; }
     }
 
     public class GenerateTokenResponseModel
     {
-        [JsonProperty("qAsHex")]
-        public string QAsHex { get; set; }
+        [JsonProperty("signedPoint")]
+        public string SignedPoint { get; set; }
 
-        [JsonProperty("proofCAsHex")]
-        public string ProofCAsHex { get; set; }
+        [JsonProperty("proofChallenge")]
+        public string ProofChallenge { get; set; }
 
-        [JsonProperty("proofZAsHex")]
-        public string ProofZAsHex { get; set; }
+        [JsonProperty("proofResponse")]
+        public string ProofResponse { get; set; }
 
         [JsonProperty("kid")]
         public string Kid { get; set; }
