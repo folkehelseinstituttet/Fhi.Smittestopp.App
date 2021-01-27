@@ -88,6 +88,7 @@
     <None Remove="Locales\en.json" />
     <None Remove="Locales\pl.json" />
     <None Remove="Locales\so.json" />
+    <None Remove="Locales\ti.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Locales\en.json" />
@@ -95,5 +96,6 @@
     <EmbeddedResource Include="Locales\nn.json" />
     <EmbeddedResource Include="Locales\pl.json" />
     <EmbeddedResource Include="Locales\so.json" />
+    <EmbeddedResource Include="Locales\ti.json" />
   </ItemGroup>
 </Project>

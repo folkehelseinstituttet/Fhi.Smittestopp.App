@@ -6,7 +6,8 @@
         Nynorsk,
         English,
         Polish,
-        Somali
+        Somali,
+        Tigrinya
     }
 
     public static class SettingsLanguageSelectionExtensions
@@ -25,6 +26,8 @@
                     return "pl";
                 case SettingsLanguageSelection.Somali:
                     return "so";
+                case SettingsLanguageSelection.Tigrinya:
+                    return "ti";
                 default:
                     return "nb";
             }
@@ -44,6 +47,8 @@
                     return SettingsLanguageSelection.Polish;
                 case "so":
                     return SettingsLanguageSelection.Somali;
+                case "ti":
+                    return SettingsLanguageSelection.Tigrinya;
                 default:
                     return SettingsLanguageSelection.Bokmal;
             }

@@ -77,6 +77,12 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 		UIKit.UILabel RadioButton5Lbl { get; set; }
 
 		[Outlet]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton6 { get; set; }
+
+		[Outlet]
+		UIKit.UILabel RadioButton6Lbl { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel RestartAppLabl { get; set; }
 
@@ -109,6 +115,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
 		[Action ("RadioButton5_TouchUpInside:")]
 		partial void RadioButton5_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+
+		[Action ("RadioButton6_TouchUpInside:")]
+		partial void RadioButton6_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -195,6 +204,16 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 			if (RadioButton5Lbl != null) {
 				RadioButton5Lbl.Dispose ();
 				RadioButton5Lbl = null;
+			}
+
+			if (RadioButton6 != null) {
+				RadioButton6.Dispose ();
+				RadioButton6 = null;
+			}
+
+			if (RadioButton6Lbl != null) {
+				RadioButton6Lbl.Dispose ();
+				RadioButton6Lbl = null;
 			}
 
 			if (RestartAppLabl != null) {
