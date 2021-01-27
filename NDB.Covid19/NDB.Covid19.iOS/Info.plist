@@ -32,7 +32,7 @@
 		</dict>
 	</dict>
 	<key>MinimumOSVersion</key>
-	<string>13.6</string>
+	<string>12.5</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
