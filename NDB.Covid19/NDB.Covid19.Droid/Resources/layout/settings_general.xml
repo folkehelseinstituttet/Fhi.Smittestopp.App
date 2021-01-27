@@ -212,6 +212,15 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/primaryText"
                         android:text="Somali"/>
+
+                <RadioButton
+                        android:id="@+id/settings_general_tigrinya"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Tigrinya"/>
             </RadioGroup>
 
             <TextView
