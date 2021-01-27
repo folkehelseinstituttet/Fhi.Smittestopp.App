@@ -27,6 +27,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
     public class InfectionStatusActivity : AppCompatActivity
     {
         private ImageView _fhiLogo;
+        private ImageView _appLogo;
         private InfectionStatusViewModel _viewModel;
         private TextView _activityStatusText;
         private TextView _activityStatusDescription;
@@ -159,6 +160,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             //ImageViews
             _notificationDot = FindViewById<ImageView>(Resource.Id.infection_status_message_bell_imageView);
             _fhiLogo = FindViewById<ImageView>(Resource.Id.infection_status_app_icon_imageView);
+            _appLogo = FindViewById<ImageView>(Resource.Id.infection_status_app_logo);
 
             //Text initialization
             _activityStatusText.Text = INFECTION_STATUS_ACTIVE_TEXT;
@@ -179,6 +181,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationCoverButton.ContentDescription =
                 $"{INFECTION_STATUS_REGISTRATION_HEADER_TEXT} {INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT}";
             _fhiLogo.ContentDescription = SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
+            _appLogo.ContentDescription = SMITTESPORING_APP_LOGO_ACCESSIBILITY;
 
             //Button click events
             _onOffButton.Click += new SingleClick(StartStopButton_Click, 500).Run;
