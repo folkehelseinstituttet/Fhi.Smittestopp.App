@@ -47,6 +47,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             Button accessibilityStatementBtn = FindViewById<Button>(Resource.Id.accessibility_statement_btn);
             accessibilityStatementBtn.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT;
+            accessibilityStatementBtn.PaintFlags = accessibilityStatementBtn.PaintFlags | Android.Graphics.PaintFlags.UnderlineText;
             accessibilityStatementBtn.Click += AccessibilityStatementBtn_Click;
         }
 
