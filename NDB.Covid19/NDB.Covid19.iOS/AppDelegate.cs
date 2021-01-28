@@ -11,6 +11,7 @@ using UserNotifications;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
 using NDB.Covid19.iOS.Views.InfectionStatus;
+using NDB.Covid19.OAuth2;
 
 #if APPCENTER
 using Microsoft.AppCenter;
@@ -121,6 +122,28 @@ namespace NDB.Covid19.iOS
         {
             Debug.WriteLine("Den hoppede i forgrunden");
         }
+
+        /// <summary>
+        /// Method that is used before iOS 13 to request application open a resource specified by a URL.
+        /// Corresponds to iOS 13+ SceneDelegate's OpenUrlContexts(scene:urlContexts:) method.
+        /// </summary>
+        [Export("application:openURL:options:")]
+        public void OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            Debug.WriteLine("AppDelegate.OpenUrl called");
+
+            try
+            {
+                Uri uri_netfx = new Uri(url.AbsoluteString);
+                AuthenticationState.Authenticator.OnPageLoading(uri_netfx);
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(Enums.LogSeverity.WARNING, e, $"{nameof(AppDelegate)}.{nameof(OpenUrl)}: Error on redirecting from ID-porten [iOS 12.5 mode]");
+            }
+        }
+
+
         // UISceneSession Lifecycle
 
         [Export("application:configurationForConnectingSceneSession:options:")]
