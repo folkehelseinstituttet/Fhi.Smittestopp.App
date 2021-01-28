@@ -85,7 +85,7 @@
                                             <constraint firstAttribute="height" constant="24" id="m6a-PL-BZE"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxT-Pl-0mL" userLabel="AccessibilityStatementButton">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxT-Pl-0mL" userLabel="AccessibilityStatementButton">
                                         <rect key="frame" x="0.0" y="98" width="366" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
