@@ -34,6 +34,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
         TextView _behandlingafpersonoplysningerText1;
         TextView _behandlingafpersonoplysningerText2;
         TextView _behandlingafpersonoplysningerText3;
+        TextView _policyLinkText;
         TextView _samtykkebottomHeader;
         TextView _samtykkebottomText;
 
@@ -97,6 +98,12 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _behandlingafpersonoplysningerText3 = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section3);
             _behandlingafpersonoplysningerText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
 
+            //PERSONVERNERKLÆRINGEN LINK
+            _policyLinkText = FindViewById<TextView>(Resource.Id.consent_paragraph_policy_link);
+            _policyLinkText.TextFormatted = HtmlCompat.FromHtml($"<a href=\"{ConsentViewModel.CONSENT_SEVEN_LINK_URL}\">{ConsentViewModel.CONSENT_SEVEN_LINK_TEXT}</a>", HtmlCompat.FromHtmlModeLegacy);
+            _policyLinkText.MovementMethod = new Android.Text.Method.LinkMovementMethod();
+
+
             //SAMTYKKE, BOTTOM
             _samtykkebottomHeader = FindViewById<TextView>(Resource.Id.consent1_samtykkebottom_header);
             _samtykkebottomHeader.Text = ConsentViewModel.CONSENT_SIX_TITLE;
@@ -107,9 +114,9 @@ namespace NDB.Covid19.Droid.Views.Welcome
             RelativeLayout RelativeLayout4 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
             RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
 
-            Button policyLinkBtn = FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
-            policyLinkBtn.Text = ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT;
-            policyLinkBtn.Click += PolicyLinkBtn_Click;
+            //Button policyLinkBtn = FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
+            //policyLinkBtn.Text = ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT;
+            //policyLinkBtn.Click += PolicyLinkBtn_Click;
 
             // CONTENT DESCRIPTIONS OF HEADER
             _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();

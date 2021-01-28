@@ -168,7 +168,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 
         void InitPrivacyPolicyButton()
         {
-            InitButtonSecondaryStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
+            InitButtonSecondaryStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
 
             double height = PrivacyPolicy.TitleLabel.Frame.Height + PrivacyPolicy.Font.PointSize * 1.5;
             PrivacyPolicy.Frame = new CGRect(0, 0, 0, height); // The frame should not be needed here, but it is since the cornerRadius in StyleUtil is set only once, not dynamically updated on redraw.

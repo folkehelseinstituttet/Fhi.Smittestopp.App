@@ -27,8 +27,8 @@ namespace NDB.Covid19.ViewModels
         public static string CONSENT_FIVE_PARAGRAPH_SECTION_THREE => "CONSENT_FIVE_PARAGRAPH_SECTION_THREE".Translate();
         public static string CONSENT_SIX_TITLE => "CONSENT_SIX_TITLE".Translate();
         public static string CONSENT_SIX_PARAGRAPH => "CONSENT_SIX_PARAGRAPH".Translate();
-        public static string CONSENT_SEVEN_BUTTON_TEXT => "CONSENT_SEVEN_BUTTON_TEXT".Translate();
-        public static string CONSENT_SEVEN_BUTTON_URL => "CONSENT_SEVEN_BUTTON_URL".Translate();
+        public static string CONSENT_SEVEN_LINK_TEXT => "CONSENT_SEVEN_BUTTON_TEXT".Translate();
+        public static string CONSENT_SEVEN_LINK_URL => "CONSENT_SEVEN_BUTTON_URL".Translate();
 
         public static string CONSENT_REMOVE_TITLE => "CONSENT_REMOVE_TITLE".Translate();
         public static string CONSENT_REMOVE_MESSAGE => "CONSENT_REMOVE_MESSAGE".Translate();
@@ -54,7 +54,7 @@ namespace NDB.Covid19.ViewModels
         {
             try
             {
-                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(CONSENT_SEVEN_BUTTON_URL);
+                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(CONSENT_SEVEN_LINK_URL);
             }
             catch (Exception e)
             {

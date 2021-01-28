@@ -24,6 +24,7 @@ namespace NDB.Covid19.Droid.Views.Settings
         TextView _behandlingafpersonoplysningerText1;
         TextView _behandlingafpersonoplysningerText2;
         TextView _behandlingafpersonoplysningerText3;
+        TextView _policyLinkText;
         TextView _samtykkebottomHeader;
         TextView _samtykkebottomText;
 
@@ -64,16 +65,17 @@ namespace NDB.Covid19.Droid.Views.Settings
             _behandlingafpersonoplysningerText3 = view.FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section3);
             _behandlingafpersonoplysningerText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
 
+            //PERSONVERNERKLÆRINGEN LINK
+            _policyLinkText = view.FindViewById<TextView>(Resource.Id.consent_paragraph_policy_link);
+            _policyLinkText.TextFormatted = HtmlCompat.FromHtml($"<a href=\"{ConsentViewModel.CONSENT_SEVEN_LINK_URL}\">{ConsentViewModel.CONSENT_SEVEN_LINK_TEXT}</a>", HtmlCompat.FromHtmlModeLegacy);
+            _policyLinkText.MovementMethod = new Android.Text.Method.LinkMovementMethod();
+
             //SAMTYKKE, BOTTOM
             _samtykkebottomHeader = view.FindViewById<TextView>(Resource.Id.consent1_samtykkebottom_header);
             _samtykkebottomHeader.Text = ConsentViewModel.CONSENT_SIX_TITLE;
             _samtykkebottomText = view.FindViewById<TextView>(Resource.Id.consent1_samtykkebottom_text);
             _samtykkebottomText.Text = ConsentViewModel.CONSENT_SIX_PARAGRAPH;
 
-
-            Button policyLinkBtn = view.FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
-            policyLinkBtn.Text = ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT;
-            policyLinkBtn.Click += PolicyLinkBtn_Click;
 
             // CONTENT DESCRIPTIONS OF HEADER
             _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();
