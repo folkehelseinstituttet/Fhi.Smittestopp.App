@@ -172,8 +172,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 
         void InitPrivacyPolicyButton()
         {
-            InitButtonSecondaryStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
-            ResizeSecondaryButton(PrivacyPolicy);
+            InitLinkButtonStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
         }
 
         partial void PrivacyPolicy_TouchUpInside(UIButton sender)

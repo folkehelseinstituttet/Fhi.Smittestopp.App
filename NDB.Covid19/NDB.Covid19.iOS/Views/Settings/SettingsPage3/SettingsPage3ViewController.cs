@@ -47,17 +47,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 
         void InitPrivacyPolicyButton()
         {
-            _privacyPolicyButton = new UIButton(new CGRect(0, 0, 0, 50))
-            {
-                TranslatesAutoresizingMaskIntoConstraints = false
-            }; // The frame should not be needed here, but it is since the cornerRadius in StyleUtil is set only once, not dynamically updated on redraw.
-            
-            StyleUtil.InitButtonSecondaryStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
+            _privacyPolicyButton = new UIButton(new CGRect(0, 0, 0, 50));
 
-            double height = _privacyPolicyButton.TitleLabel.Frame.Height + _privacyPolicyButton.Font.PointSize * 1.5;
-            _privacyPolicyButton.Frame = new CGRect(0, 0, 0, height); 
-            _privacyPolicyButton.HeightAnchor.ConstraintEqualTo((int) height).Active = true;
-            _privacyPolicyButton.TouchUpInside += OnPrivacyPolicyPressed;
+            StyleUtil.InitLinkButtonStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
         }
 
         void OnPrivacyPolicyPressed(object sender, EventArgs eventArgs)

@@ -116,14 +116,7 @@ namespace NDB.Covid19.iOS.Utils
             btn.SetAttributedTitle(attributedString, UIControlState.Normal);
             btn.TitleLabel.Lines = 0;
             btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
-        }
-
-        public static void ResizeSecondaryButton(UIButton btn)
-        {
-            double height = btn.TitleLabel.Frame.Height + btn.Font.PointSize * 1.5;
-            btn.Frame = new CGRect(0, 0, 0, height); // The frame should not be needed here, but it is since the cornerRadius in StyleUtil is set only once, not dynamically updated on redraw.
-            btn.TranslatesAutoresizingMaskIntoConstraints = false;
-            btn.HeightAnchor.ConstraintEqualTo((int)height).Active = true;
+            btn.HorizontalAlignment = UIControlContentHorizontalAlignment.Leading;
         }
 
         /// <summary>
