@@ -31,7 +31,9 @@ namespace NDB.Covid19.Droid.Views.Welcome
         TextView _howitworksText2;
         TextView _samtykkeText1;
         TextView _samtykkeText2;
-        TextView _behandlingafpersonoplysningerText;
+        TextView _behandlingafpersonoplysningerText1;
+        TextView _behandlingafpersonoplysningerText2;
+        TextView _behandlingafpersonoplysningerText3;
         TextView _samtykkebottomHeader;
         TextView _samtykkebottomText;
 
@@ -88,8 +90,12 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _samtykkeText2.Text = ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO;
 
             //BEHANDLING AF PERSONOPLYSNINGWER
-            _behandlingafpersonoplysningerText = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text);
-            _behandlingafpersonoplysningerText.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH;
+            _behandlingafpersonoplysningerText1 = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section1);
+            _behandlingafpersonoplysningerText1.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE;
+            _behandlingafpersonoplysningerText2 = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section2);
+            _behandlingafpersonoplysningerText2.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO;
+            _behandlingafpersonoplysningerText3 = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section3);
+            _behandlingafpersonoplysningerText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
 
             //SAMTYKKE, BOTTOM
             _samtykkebottomHeader = FindViewById<TextView>(Resource.Id.consent1_samtykkebottom_header);

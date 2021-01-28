@@ -74,7 +74,9 @@ namespace NDB.Covid19.ViewModels
                 new ConsentSectionTexts(null, CONSENT_THREE_PARAGRAPH_SECTION_ONE, null),
                 new ConsentSectionTexts(null, CONSENT_THREE_PARAGRAPH_SECTION_TWO, null),
                 new ConsentSectionTexts(null, CONSENT_FOUR_PARAGRAPH, null),
-                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH, null),
+                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH_SECTION_ONE, null),
+                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH_SECTION_TWO, null),
+                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH_SECTION_THREE, null),
                 new ConsentSectionTexts(CONSENT_SIX_TITLE, CONSENT_SIX_PARAGRAPH, null)
             };
         }
