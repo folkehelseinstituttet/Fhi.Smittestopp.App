@@ -25,6 +25,13 @@ namespace NDB.Covid19.iOS
     [Register("AppDelegate")]
     public class AppDelegate : UIResponder, IUIApplicationDelegate
     {
+        public static bool ShouldOperateIn12_5Mode
+        {
+            get
+            {
+                return !UIDevice.CurrentDevice.CheckSystemVersion(13, 0);
+            }
+        }
 
         [Export("window")]
         public UIWindow Window { get; set; }

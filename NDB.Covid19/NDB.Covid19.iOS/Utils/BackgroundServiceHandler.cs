@@ -17,6 +17,12 @@ namespace NDB.Covid19.iOS.Utils
         {
             string logPrefix = $"{nameof(BackgroundServiceHandler)}.{nameof(PlatformScheduleFetch)}: ";
 
+            if (AppDelegate.ShouldOperateIn12_5Mode)
+            {
+                // TODO: Add 12.5 backgrounding here
+                return Task.CompletedTask;
+            }
+
             // This is a special ID suffix which iOS treats a certain way
             // we can basically request infinite background tasks
             // and iOS will throttle it sensibly for us.
