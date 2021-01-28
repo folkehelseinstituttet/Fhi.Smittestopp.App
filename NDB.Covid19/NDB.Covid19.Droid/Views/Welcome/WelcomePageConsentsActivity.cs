@@ -31,9 +31,9 @@ namespace NDB.Covid19.Droid.Views.Welcome
         TextView _howitworksText2;
         TextView _samtykkeText1;
         TextView _samtykkeText2;
-        TextView _behandlingafpersonoplysningerText1;
-        TextView _behandlingafpersonoplysningerText2;
-        TextView _behandlingafpersonoplysningerText3;
+        TextView _processingofpersonaldataText1;
+        TextView _processingofpersonaldataText2;
+        TextView _processingofpersonaldataText3;
         TextView _policyLinkText;
         TextView _samtykkebottomHeader;
         TextView _samtykkebottomText;
@@ -91,12 +91,12 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _samtykkeText2.Text = ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO;
 
             //BEHANDLING AF PERSONOPLYSNINGWER
-            _behandlingafpersonoplysningerText1 = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section1);
-            _behandlingafpersonoplysningerText1.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE;
-            _behandlingafpersonoplysningerText2 = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section2);
-            _behandlingafpersonoplysningerText2.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO;
-            _behandlingafpersonoplysningerText3 = FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section3);
-            _behandlingafpersonoplysningerText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
+            _processingofpersonaldataText1 = FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section1);
+            _processingofpersonaldataText1.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE;
+            _processingofpersonaldataText2 = FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section2);
+            _processingofpersonaldataText2.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO;
+            _processingofpersonaldataText3 = FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section3);
+            _processingofpersonaldataText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
 
             //PERSONVERNERKLÆRINGEN LINK
             _policyLinkText = FindViewById<TextView>(Resource.Id.consent_paragraph_policy_link);
@@ -114,9 +114,6 @@ namespace NDB.Covid19.Droid.Views.Welcome
             RelativeLayout RelativeLayout4 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
             RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
 
-            //Button policyLinkBtn = FindViewById<Button>(Resource.Id.consent_paragraph_policy_btn);
-            //policyLinkBtn.Text = ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT;
-            //policyLinkBtn.Click += PolicyLinkBtn_Click;
 
             // CONTENT DESCRIPTIONS OF HEADER
             _aboutHeader.ContentDescription = ConsentViewModel.CONSENT_ONE_TITLE.ToLower();

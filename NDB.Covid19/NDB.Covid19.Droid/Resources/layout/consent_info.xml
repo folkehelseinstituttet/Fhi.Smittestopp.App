@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/PrimaryTextRegular"
-        android:id="@+id/consent1_behandlingafpersonopl_text_section1"
+        android:id="@+id/consent1_processingofpersonaldata_text_section1"
         android:layout_below="@+id/consent_paragraph_hvordan_accepterer"
         android:layout_marginBottom="16dp" />
 
@@ -95,8 +95,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/PrimaryTextRegular"
-        android:id="@+id/consent1_behandlingafpersonopl_text_section2"
-        android:layout_below="@+id/consent1_behandlingafpersonopl_text_section1"
+        android:id="@+id/consent1_processingofpersonaldata_text_section2"
+        android:layout_below="@+id/consent1_processingofpersonaldata_text_section1"
         android:layout_marginBottom="16dp" />
 
     <TextView
@@ -104,8 +104,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/PrimaryTextRegular"
-        android:id="@+id/consent1_behandlingafpersonopl_text_section3"
-        android:layout_below="@+id/consent1_behandlingafpersonopl_text_section2"
+        android:id="@+id/consent1_processingofpersonaldata_text_section3"
+        android:layout_below="@+id/consent1_processingofpersonaldata_text_section2"
         android:layout_marginBottom="16dp" />
 
     <TextView
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent_paragraph_policy_link"
-        android:layout_below="@id/consent1_behandlingafpersonopl_text_section3"
+        android:layout_below="@+id/consent1_processingofpersonaldata_text_section3"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="30dp"/>
 

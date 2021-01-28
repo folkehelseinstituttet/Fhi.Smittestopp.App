@@ -21,9 +21,9 @@ namespace NDB.Covid19.Droid.Views.Settings
         TextView _howitworksText2;
         TextView _samtykkeText1;
         TextView _samtykkeText2;
-        TextView _behandlingafpersonoplysningerText1;
-        TextView _behandlingafpersonoplysningerText2;
-        TextView _behandlingafpersonoplysningerText3;
+        TextView _processingofpersonaldataText1;
+        TextView _processingofpersonaldataText2;
+        TextView _processingofpersonaldataText3;
         TextView _policyLinkText;
         TextView _samtykkebottomHeader;
         TextView _samtykkebottomText;
@@ -58,12 +58,12 @@ namespace NDB.Covid19.Droid.Views.Settings
             _samtykkeText2.Text = ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO;
 
             //BEHANDLING AF PERSONOPLYSNINGWER
-            _behandlingafpersonoplysningerText1 = view.FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section1);
-            _behandlingafpersonoplysningerText1.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE;
-            _behandlingafpersonoplysningerText2 = view.FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section2);
-            _behandlingafpersonoplysningerText2.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO;
-            _behandlingafpersonoplysningerText3 = view.FindViewById<TextView>(Resource.Id.consent1_behandlingafpersonopl_text_section3);
-            _behandlingafpersonoplysningerText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
+            _processingofpersonaldataText1 = view.FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section1);
+            _processingofpersonaldataText1.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE;
+            _processingofpersonaldataText2 = view.FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section2);
+            _processingofpersonaldataText2.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO;
+            _processingofpersonaldataText3 = view.FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section3);
+            _processingofpersonaldataText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
 
             //PERSONVERNERKLÆRINGEN LINK
             _policyLinkText = view.FindViewById<TextView>(Resource.Id.consent_paragraph_policy_link);
