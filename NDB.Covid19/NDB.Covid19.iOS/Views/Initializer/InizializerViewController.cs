@@ -13,6 +13,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
     {
 
         UITapGestureRecognizer _gestureRecognizer;
+        bool AvailableOnDevice;
 
         public InizializerViewController(IntPtr handle) : base(handle)
         {
@@ -39,7 +40,13 @@ namespace NDB.Covid19.iOS.Views.Initializer
         {
             base.ViewDidAppear(animated);
 
-            if (UIDevice.CurrentDevice.CheckSystemVersion(13, 5))
+            // The app is supported from iOS 12.5 incl. and until iOS 13.0 excl.
+            // and from 13.6 incl. and higher.
+            string currentiOSVersion = UIDevice.CurrentDevice.SystemVersion;
+            AvailableOnDevice = currentiOSVersion.CompareTo("13.6") >= 0 ||
+                (currentiOSVersion.CompareTo("12.5") >= 0 && currentiOSVersion.CompareTo("13.0") < 0);
+
+            if (AvailableOnDevice)
             {
                 if (ConsentsHelper.IsNotFullyOnboarded)
                 {
@@ -95,7 +102,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
 
         void Continue()
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion(13, 5))
+            if (AvailableOnDevice)
             {
                 NavigationHelper.GoToOnboardingPage(this);
             }
