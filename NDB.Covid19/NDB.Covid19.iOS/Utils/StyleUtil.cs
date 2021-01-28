@@ -106,6 +106,18 @@ namespace NDB.Covid19.iOS.Utils
             btn.TitleLabel.AttributedText = new NSMutableAttributedString(text, attributes);
         }
 
+        public static void InitLinkButtonStyling(UIButton btn, string text)
+        {
+            var attributedString = new NSMutableAttributedString(text);
+            attributedString.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), new NSRange(0, attributedString.Length));
+            btn.BackgroundColor = UIColor.Clear;
+            btn.Font = Font(FontType.FontRegular, 16f, 22f);
+            btn.SetTitleColor(ColorHelper.PRIMARY_COLOR, UIControlState.Normal);
+            btn.SetAttributedTitle(attributedString, UIControlState.Normal);
+            btn.TitleLabel.Lines = 0;
+            btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
+        }
+
         public static void ResizeSecondaryButton(UIButton btn)
         {
             double height = btn.TitleLabel.Frame.Height + btn.Font.PointSize * 1.5;
