@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LMq-La-7KS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LMq-La-7KS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,10 +24,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ob3-Ud-ZvJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="736.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="797.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="SbW-O0-GSF">
-                                                        <rect key="frame" x="25" y="48" width="325" height="676.5"/>
+                                                        <rect key="frame" x="25" y="48" width="325" height="737.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czt-nv-19B">
                                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="20.5"/>
@@ -36,7 +36,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kdt-jv-m22">
-                                                                <rect key="frame" x="0.0" y="70.5" width="325" height="606"/>
+                                                                <rect key="frame" x="0.0" y="70.5" width="325" height="667"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header, about" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdj-9w-pyz">
                                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="20.5"/>
@@ -147,34 +147,52 @@
                                                                             <constraint firstAttribute="height" constant="20" id="Fyh-Op-Hui"/>
                                                                         </constraints>
                                                                     </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More information 2" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5G2-W3-Psx" userLabel="More information 2">
+                                                                        <rect key="frame" x="0.0" y="365" width="325" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTg-ct-n66" userLabel="Spacer">
+                                                                        <rect key="frame" x="0.0" y="385.5" width="325" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="20" id="Vep-FH-9lP"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More information 3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCZ-tZ-EgO" userLabel="More information 3">
+                                                                        <rect key="frame" x="0.0" y="405.5" width="325" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-Ra-hyw">
-                                                                        <rect key="frame" x="0.0" y="365" width="325" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="426" width="325" height="30"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <connections>
                                                                             <action selector="PrivacyPolicy_TouchUpInside:" destination="LMq-La-7KS" eventType="touchUpInside" id="2276"/>
                                                                         </connections>
                                                                     </button>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRJ-kf-cU7" userLabel="Empty Space View">
-                                                                        <rect key="frame" x="0.0" y="395" width="325" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="456" width="325" height="20"/>
                                                                         <color key="backgroundColor" red="0.0" green="0.1215686275" blue="0.20392156859999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="mi2-US-qgK"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samtykke bottom, header" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9E-gI-12f">
-                                                                        <rect key="frame" x="0.0" y="415" width="325" height="20.5"/>
+                                                                        <rect key="frame" x="0.0" y="476" width="325" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Samtykke bottom, section" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yc-NW-VVd">
-                                                                        <rect key="frame" x="0.0" y="435.5" width="325" height="20.5"/>
+                                                                        <rect key="frame" x="0.0" y="496.5" width="325" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XF2-07-HgO" userLabel="Empty Space View">
-                                                                        <rect key="frame" x="0.0" y="456" width="325" height="150"/>
+                                                                        <rect key="frame" x="0.0" y="517" width="325" height="150"/>
                                                                         <color key="backgroundColor" red="0.0" green="0.1215686275" blue="0.20392156859999999" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="150" id="QNc-Rd-cMd"/>
@@ -355,6 +373,8 @@
                         <outlet property="HowItWorks_section1" destination="drR-l4-1on" id="name-outlet-drR-l4-1on"/>
                         <outlet property="HowItWorks_section2" destination="xM6-fv-s3y" id="name-outlet-xM6-fv-s3y"/>
                         <outlet property="MoreInformation_section" destination="Y7t-Be-gmn" id="name-outlet-Y7t-Be-gmn"/>
+                        <outlet property="MoreInformation_section2" destination="5G2-W3-Psx" id="MDT-46-KWu"/>
+                        <outlet property="MoreInformation_section3" destination="lCZ-tZ-EgO" id="qPi-Tc-y6s"/>
                         <outlet property="NextBtn" destination="mzL-na-iZa" id="Ioh-ON-svf"/>
                         <outlet property="PrivacyPolicy" destination="kC4-Ra-hyw" id="name-outlet-kC4-Ra-hyw"/>
                         <outlet property="SamtykkeBottom_header" destination="I9E-gI-12f" id="name-outlet-I9E-gI-12f"/>

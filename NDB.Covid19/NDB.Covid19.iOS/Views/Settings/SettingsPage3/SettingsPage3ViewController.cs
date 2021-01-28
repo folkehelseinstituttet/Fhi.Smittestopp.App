@@ -52,7 +52,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
                 TranslatesAutoresizingMaskIntoConstraints = false
             }; // The frame should not be needed here, but it is since the cornerRadius in StyleUtil is set only once, not dynamically updated on redraw.
             
-            StyleUtil.InitButtonSecondaryStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
+            StyleUtil.InitButtonSecondaryStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
 
             double height = _privacyPolicyButton.TitleLabel.Frame.Height + _privacyPolicyButton.Font.PointSize * 1.5;
             _privacyPolicyButton.Frame = new CGRect(0, 0, 0, height); 

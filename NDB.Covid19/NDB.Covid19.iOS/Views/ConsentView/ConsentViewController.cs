@@ -51,7 +51,9 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitBodyText(Samtykke_section1, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE);
             InitBodyText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
             InitBodyText(ContactInformation_section, ConsentViewModel.CONSENT_FOUR_PARAGRAPH);
-            InitBodyText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH);
+            InitBodyText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE);
+            InitBodyText(MoreInformation_section2, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO);
+            InitBodyText(MoreInformation_section3, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE);
             InitSubTitle(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
             InitBodyText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH, FontType.FontItalic);
             InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
@@ -81,7 +83,9 @@ namespace NDB.Covid19.iOS.Views.ConsentView
                 SetAccessibilityText(Samtykke_section1, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE);
                 SetAccessibilityText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
                 SetAccessibilityText(ContactInformation_section, ConsentViewModel.CONSENT_FOUR_PARAGRAPH);
-                SetAccessibilityText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH);
+                SetAccessibilityText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE);
+                SetAccessibilityText(MoreInformation_section2, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO);
+                SetAccessibilityText(MoreInformation_section3, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE);
                 SetAccessibilityText(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
                 SetAccessibilityText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH);
             });
@@ -168,7 +172,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 
         void InitPrivacyPolicyButton()
         {
-            InitButtonSecondaryStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
+            InitButtonSecondaryStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
             ResizeSecondaryButton(PrivacyPolicy);
         }
 
