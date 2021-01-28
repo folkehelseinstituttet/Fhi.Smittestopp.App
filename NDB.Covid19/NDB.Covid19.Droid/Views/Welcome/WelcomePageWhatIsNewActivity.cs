@@ -46,10 +46,10 @@ namespace NDB.Covid19.Droid.Views.Welcome
         private void SetBulletText(int resourceId, string textContent)
         {
             LinearLayout bullet = FindViewById<LinearLayout>(resourceId);
-            CheckBox bulletCheckBox = bullet.FindViewById<CheckBox>(Resource.Id.bulletText);
-            if (bulletCheckBox != null)
+            TextView bulletTextView = bullet.FindViewById<TextView>(Resource.Id.bullet_text);
+            if (bulletTextView != null)
             {
-                bulletCheckBox.TextFormatted =  HtmlCompat.FromHtml(textContent, HtmlCompat.FromHtmlModeLegacy);
+                bulletTextView.Text = textContent;
             }
         }
     }
