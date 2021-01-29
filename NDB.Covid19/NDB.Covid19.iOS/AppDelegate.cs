@@ -34,6 +34,9 @@ namespace NDB.Covid19.iOS
             }
         }
 
+        public static bool DidEnterBackgroundState { get; private set; }
+
+
         [Export("window")]
         public UIWindow Window { get; set; }
 
@@ -117,16 +120,33 @@ namespace NDB.Covid19.iOS
             topController.PresentViewController(vc, true, null);
         }
 
+        // Below are AppDelegate application lifecycle-methods that are callen in pre-iOS 13.
+        // In  iOS 13 SceneDelegate is handling this.
+
+        /// <summary>
+        /// Method that is used before iOS 13 to detect application entering background.
+        /// Corresponds to iOS 13+ SceneDelegate's DidEnterBackground(UIScene:) method.
+        /// </summary>
         [Export("applicationDidEnterBackground:")]
         public void DidEnterBackground(UIApplication application)
         {
-            Debug.WriteLine("DidEnterBackground called");
+            Debug.WriteLine("AppDelegate.DidEnterBackground called");
+
+            DidEnterBackgroundState = true;
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
         }
 
+        /// <summary>
+        /// Method that is used before iOS 13 to detect application returning to foreground from background.
+        /// Corresponds to iOS 13+ SceneDelegate's WillEnterForeground(UIScene:) method.
+        /// </summary>
         [Export("applicationWillEnterForeground:")]
         public void WillEnterForeground(UIApplication application)
         {
-            Debug.WriteLine("Den hoppede i forgrunden");
+            Debug.WriteLine("AppDelegate.WillEnterForeground called");
+
+            DidEnterBackgroundState = false;
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
         }
 
         /// <summary>
