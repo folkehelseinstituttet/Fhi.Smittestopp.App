@@ -2,10 +2,10 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Moq;
-using NDB.Covid19.Config;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
-using NDB.Covid19.ExposureNotification.Helpers;
-using NDB.Covid19.ExposureNotification.Helpers.FetchExposureKeys;
+using NDB.Covid19.ExposureNotifications.Helpers;
+using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Models.Logging;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
@@ -134,6 +134,36 @@ namespace NDB.Covid19.Test.Tests.Utils
                     "additionalInfo");
             
             Assert.True(currentTime < logModel.ReportedTime);
+            
+            SystemTime.ResetDateTime();
+        }
+        
+        [Fact]
+        public async void SystemDateTimeIsIncorrectInTheFuture_ShouldUseNTP()
+        {
+            SystemTime.ResetDateTime();
+            DateTime currentTime = DateTime.UtcNow.AddYears(3);
+            SystemTime.SetDateTime(currentTime);
+            
+            try
+            {
+                await new FetchExposureKeysHelper()
+                    .FetchExposureKeyBatchFilesFromServerAsync(
+                        null,
+                        CancellationToken.None);
+            }
+            catch
+            {
+                // ignore as ZipDownloader is not mocked in this test
+            }
+            
+            LogDeviceDetails logModel =
+                new LogDeviceDetails(
+                    LogSeverity.WARNING,
+                    "message",
+                    "additionalInfo");
+            
+            Assert.True(currentTime > logModel.ReportedTime);
             
             SystemTime.ResetDateTime();
         }

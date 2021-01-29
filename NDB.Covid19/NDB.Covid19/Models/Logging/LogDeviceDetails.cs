@@ -31,7 +31,7 @@ namespace NDB.Covid19.Models.Logging
             DateTime reportedUtcDateTime = SystemTime.Now().ToUniversalTime();
             DateTime lastNTPDateTime = LocalPreferencesHelper.LastNTPUtcDateTime;
             ReportedTime = reportedUtcDateTime == null ||
-                           (lastNTPDateTime - reportedUtcDateTime).Days >= 365 * 2
+                           (lastNTPDateTime - reportedUtcDateTime).Duration().Days >= 365 * 2
                 ? LocalPreferencesHelper.LastNTPUtcDateTime
                 : reportedUtcDateTime;
             
