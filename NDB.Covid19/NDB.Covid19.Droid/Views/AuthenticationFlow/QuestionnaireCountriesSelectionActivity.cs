@@ -54,12 +54,20 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
             _title.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
+            _closeButton.Click += new StressUtils.SingleClick(OnExitClick).Run;
+            _nextButton.Click += new StressUtils.SingleClick(OnNextButtonClick).Run;
+
+            _title.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT;
+            _subtitle.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_INFORMATION_TEXT;
+            _footer.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_FOOTER;
+            _nextButton.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_BUTTON_TEXT;
+
             RunOnUiThread(() => ShowSpinner(true));
 
             _countries.AddRange(
                 await _viewModel.GetListOfCountriesAsync() ??
                 new List<CountryDetailsViewModel>());
-            
+
             if (!_countries.Any())
             {
                 RunOnUiThread(() => ShowSpinner(false));
@@ -68,14 +76,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             }
             RunOnUiThread(() => ShowSpinner(false));
 
-            _closeButton.Click += new StressUtils.SingleClick(OnExitClick).Run;
-            _nextButton.Click += new StressUtils.SingleClick(OnNextButtonClick).Run;
-
-            _title.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT;
-            _subtitle.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_INFORMATION_TEXT;
-            _footer.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_FOOTER;
-            _nextButton.Text = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_BUTTON_TEXT;
-            
             QuestionnaireCountriesSelectionAdapter adapter = new QuestionnaireCountriesSelectionAdapter(_countries);
 
             LinearLayoutManager layoutManager = new LinearLayoutManager(this);
