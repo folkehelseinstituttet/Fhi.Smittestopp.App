@@ -29,6 +29,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Title"
+                android:paddingTop="@dimen/welcomeTitlePadding"
                 android:layout_marginStart="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -86,5 +87,27 @@
                 style="@style/CheckmarkText"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/welcome_page_one_bullet_three_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            style="@style/CheckmarkContainer"
+            android:layout_below="@id/welcome_page_one_bullet_two_layout">
+
+            <ImageView 
+                style="@style/Checkmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_shield"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Body three"
+                android:id="@+id/welcome_page_one_body_three"
+                android:accessibilityTraversalBefore="@id/welcome_page_one_body_three"
+                style="@style/CheckmarkText"/>
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>

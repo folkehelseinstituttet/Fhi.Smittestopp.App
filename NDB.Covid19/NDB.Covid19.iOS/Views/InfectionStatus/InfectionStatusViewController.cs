@@ -130,7 +130,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
             statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
-            UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
         }
 
         void OnAppReturnsFromBackground(object obj)
@@ -198,7 +197,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 modalClosed = ModalViewController.IsBeingDismissed;
             }
-            if (NavigationController.TopViewController is InfectionStatusViewController && modalClosed)
+            if (NavigationController?.TopViewController is InfectionStatusViewController && modalClosed)
             {
                 statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             }
@@ -206,7 +205,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
             }
-            UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
 
             ScrollDownBackgroundView.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
 

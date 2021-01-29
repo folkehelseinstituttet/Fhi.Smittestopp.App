@@ -15,13 +15,15 @@ namespace NDB.Covid19.Droid.Views.Welcome
             View view = inflater.Inflate(Resource.Layout.welcome_page_one, container, false);
             TextView bodyOne = view.FindViewById<TextView>(Resource.Id.welcome_page_one_body_one);
             TextView bodyTwo = view.FindViewById<TextView>(Resource.Id.welcome_page_one_body_two);
+            TextView bodyThree = view.FindViewById<TextView>(Resource.Id.welcome_page_one_body_three);
             TextView header = view.FindViewById<TextView>(Resource.Id.welcome_page_one_title);
 
             bodyOne.Text = WelcomeViewModel.WELCOME_PAGE_ONE_BODY_ONE;
             bodyTwo.Text = WelcomeViewModel.WELCOME_PAGE_ONE_BODY_TWO;
+            bodyThree.Text = WelcomeViewModel.WELCOME_PAGE_ONE_BODY_THREE;
             header.Text = WelcomeViewModel.WELCOME_PAGE_ONE_TITLE;
 
-            header.SetAccessibilityDelegate(new HeadingAccessibilityDelegate());
+            header.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             WelcomePageTools.SetArrowVisibility(view);
 

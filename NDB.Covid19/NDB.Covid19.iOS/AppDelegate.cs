@@ -95,6 +95,12 @@ namespace NDB.Covid19.iOS
         {
             UIViewController topController = NavigationHelper.TopController();
 
+            if (OnboardingStatusHelper.Status != Enums.OnboardingStatus.CountriesOnboardingCompleted)
+            {
+                new IOSResetViews().ResetViews();
+                return;
+            }
+
             if (topController is MessagePageViewController && e == iOSLocalNotificationsManager.NewMessageIdentifier)
             {
                 return;
@@ -165,7 +171,7 @@ namespace NDB.Covid19.iOS
         [Export("application:supportedInterfaceOrientationsForWindow:")]
         public UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, UIWindow forWindow)
         {
-            return UIInterfaceOrientationMask.Portrait;
+            return UIInterfaceOrientationMask.All;
         }
 
         [Export("application:performFetchWithCompletionHandler:")]

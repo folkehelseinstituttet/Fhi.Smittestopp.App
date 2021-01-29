@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="395">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="395">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1664">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="407.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="443.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="1682" kind="embed" identifier="PageViewSegue" id="1714"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-eT-Ck7">
-                                <rect key="frame" x="25" y="482" width="270" height="48"/>
+                                <rect key="frame" x="25" y="502" width="270" height="48"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2057">
                                         <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
@@ -47,11 +47,11 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3032">
-                                <rect key="frame" x="263" y="496" width="20" height="20"/>
+                                <rect key="frame" x="263" y="516" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2561">
-                                <rect key="frame" x="16" y="422.5" width="288" height="27.5"/>
+                                <rect key="frame" x="16" y="458.5" width="288" height="27.5"/>
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b5X-h4-uWc"/>
@@ -64,10 +64,10 @@
                             <constraint firstItem="3032" firstAttribute="centerY" secondItem="1671" secondAttribute="centerY" id="7pz-ZJ-6WW"/>
                             <constraint firstItem="2561" firstAttribute="top" secondItem="1664" secondAttribute="bottom" constant="15" id="DEB-Ok-sdX"/>
                             <constraint firstItem="8JH-eT-Ck7" firstAttribute="leading" secondItem="b5X-h4-uWc" secondAttribute="leading" constant="25" id="EbP-25-C7h"/>
-                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="38" id="Swg-cu-uvp"/>
+                            <constraint firstItem="b5X-h4-uWc" firstAttribute="bottom" secondItem="8JH-eT-Ck7" secondAttribute="bottom" constant="18" id="Swg-cu-uvp"/>
                             <constraint firstItem="b5X-h4-uWc" firstAttribute="trailing" secondItem="8JH-eT-Ck7" secondAttribute="trailing" constant="25" id="Way-cp-y45"/>
                             <constraint firstItem="3032" firstAttribute="trailing" secondItem="1671" secondAttribute="trailing" constant="-12" id="jYQ-ui-kDH"/>
-                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="top" secondItem="2561" secondAttribute="bottom" constant="32" id="mH5-VK-bQM"/>
+                            <constraint firstItem="8JH-eT-Ck7" firstAttribute="top" secondItem="2561" secondAttribute="bottom" constant="16" id="mH5-VK-bQM"/>
                             <constraint firstItem="1664" firstAttribute="top" secondItem="b5X-h4-uWc" secondAttribute="top" id="zsf-Xn-PIv"/>
                         </constraints>
                     </view>

@@ -24,7 +24,7 @@ namespace NDB.Covid19.PersistedData
         public static readonly string DEV_TOOLS_PULL_KEYS_HISTORY = "DEV_TOOLS_PULL_KEYS_HISTORY";
         public static readonly string DEV_TOOLS_PULL_KEYS_HISTORY_LAST_RECORD = "DEV_TOOLS_PULL_KEYS_HISTORY_LAST_RECORD";
         
-        public static readonly string TERMS_NOTIFICATION_WAS_SENT = "TERMS_NOTIFICATION_WAS_SENT";
+        public static readonly string LAST_TERMS_NOTIFICATION_DATE_TIME = "LAST_TERMS_NOTIFICATION_DATE_TIME";
         
         public static readonly string LAST_MESSAGE_DATE_TIME = "LAST_MESSAGE_DATE_TIME";
 
@@ -33,5 +33,7 @@ namespace NDB.Covid19.PersistedData
         public static readonly string LOW_ATTENUATION_DURATION_MULTIPLIER = "LOW_ATTENUATION_DURATION_MULTIPLIER";
         public static readonly string MIDDLE_ATTENUATION_DURATION_MULTIPLIER = "MIDDLE_ATTENUATION_DURATION_MULTIPLIER";
         public static readonly string HIGH_ATTENUATION_DURATION_MULTIPLIER = "HIGH_ATTENUATION_DURATION_MULTIPLIER";
+        public static readonly string COUNTRY_CONSENTS_GIVEN = "COUNTRTY_CONSENTS_GIVEN";
+
     }
 }

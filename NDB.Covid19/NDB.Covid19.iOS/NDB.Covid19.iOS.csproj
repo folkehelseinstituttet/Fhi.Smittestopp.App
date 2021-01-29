@@ -415,30 +415,6 @@
     <ImageAsset Include="Assets.xcassets\InfoCircleRed.imageset\Group 2003%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\checkboxChecked.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\checkboxChecked%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxChecked.imageset\checkboxChecked%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\CheckboxUnchecked.imageset\Rectangle 300%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\FHILogo.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -568,6 +544,14 @@
     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%402x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%403x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
+    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -626,6 +610,8 @@
     <Folder Include="Assets.xcassets\arrow_right.imageset\" />
     <Folder Include="Assets.xcassets\InformationIcon.imageset\" />
     <Folder Include="Assets.xcassets\FHISmittestoppLogo.imageset\" />
+    <Folder Include="Assets.xcassets\checkboxUnfilled.imageset\" />
+    <Folder Include="Assets.xcassets\checkboxFilled.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -657,6 +643,7 @@
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireCountries\QuestionnaireCountries.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireCountries\CountryTableCell.xib" />
     <InterfaceDefinition Include="Views\Welcome\WelcomePageWhatIsNew.storyboard" />
+    <InterfaceDefinition Include="Views\AuthenticationFlow\CountriesConsent.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -816,6 +803,10 @@
     </Compile>
     <Compile Include="Views\CustomSubclasses\CustomRadioButton.cs" />
     <Compile Include="Views\CustomSubclasses\CustomBackButton.cs" />
+    <Compile Include="Views\AuthenticationFlow\CountriesConsentViewController.cs" />
+    <Compile Include="Views\AuthenticationFlow\CountriesConsentViewController.designer.cs">
+      <DependentUpon>CountriesConsentViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">

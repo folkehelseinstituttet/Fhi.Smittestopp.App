@@ -28,6 +28,10 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel BodyText3 { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel TitleLabel { get; set; }
 
         [Action ("BackArrowBtn_TouchUpInside:")]
@@ -49,6 +53,11 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
             if (BodyText2 != null) {
                 BodyText2.Dispose ();
                 BodyText2 = null;
+            }
+
+            if (BodyText3 != null) {
+                BodyText3.Dispose ();
+                BodyText3 = null;
             }
 
             if (TitleLabel != null) {
