@@ -291,6 +291,8 @@
   "SETTINGS_GENERAL_PL": "Polski",
   "SETTINGS_GENERAL_SO": "Somali",
   "SETTINGS_GENERAL_TI": "ትግርኛ",
+  "SETTINGS_GENERAL_AR": "عربى",
+  "SETTINGS_GENERAL_UR": "اردو",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "The app will restart to apply your langauge selection. / Appen starter på nytt for å aktivere språkvalget ditt.",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/en/about/smittestopp/text-in-other-languages",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at: www.fhi.no/en/about/smittestopp/text-in-other-languages.",

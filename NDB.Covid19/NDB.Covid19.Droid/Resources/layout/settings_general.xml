@@ -221,6 +221,22 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/primaryText"
                         android:text="Tigrinya"/>
+                <RadioButton
+                        android:id="@+id/settings_general_arabic"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Arabic"/>
+                <RadioButton
+                        android:id="@+id/settings_general_urdu"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Urdu"/>
             </RadioGroup>
 
             <TextView

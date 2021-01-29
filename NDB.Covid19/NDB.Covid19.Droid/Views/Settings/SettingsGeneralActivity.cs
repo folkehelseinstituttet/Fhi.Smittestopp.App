@@ -72,6 +72,9 @@ namespace NDB.Covid19.Droid.Views.Settings
             RadioButton polishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_polish);
             RadioButton somaliRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_somali);
             RadioButton tigrinyaRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_tigrinya);
+            RadioButton arabicRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_arabic);
+            RadioButton urduRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_urdu);
+
 
 
             englishRadioButton.Text = SETTINGS_GENERAL_EN;
@@ -80,6 +83,8 @@ namespace NDB.Covid19.Droid.Views.Settings
             polishRadioButton.Text = SETTINGS_GENERAL_PL;
             somaliRadioButton.Text = SETTINGS_GENERAL_SO;
             tigrinyaRadioButton.Text = SETTINGS_GENERAL_TI;
+            arabicRadioButton.Text = SETTINGS_GENERAL_AR;
+            urduRadioButton.Text = SETTINGS_GENERAL_UR;
 
             string appLanguage = LocalesService.GetLanguage();
 
@@ -99,6 +104,12 @@ namespace NDB.Covid19.Droid.Views.Settings
                     break;
                 case "ti":
                     tigrinyaRadioButton.Checked = true;
+                    break;
+                case "ar":
+                    arabicRadioButton.Checked = true;
+                    break;
+                case "ur":
+                    urduRadioButton.Checked = true;
                     break;
                 default:
                     bokmalRadioButton.Checked = true;
@@ -149,6 +160,14 @@ namespace NDB.Covid19.Droid.Views.Settings
                     case Resource.Id.settings_general_tigrinya:
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("ti");
+                        break;
+                    case Resource.Id.settings_general_arabic:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("ar");
+                        break;
+                    case Resource.Id.settings_general_urdu:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("ur");
                         break;
                 }
                 LocalesService.SetInternationalization();
