@@ -120,7 +120,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _howitworksHeader.ContentDescription = ConsentViewModel.CONSENT_TWO_TITLE.ToLower();
             _samtykkebottomHeader.ContentDescription = ConsentViewModel.CONSENT_SIX_TITLE.ToLower();
 
-            HeadingAccessibilityDelegate headingAccessibilityDelegate = new HeadingAccessibilityDelegate();
+            HeadingAccessibilityDelegate headingAccessibilityDelegate = AccessibilityUtils.GetHeadingAccessibilityDelegate();
             header.SetAccessibilityDelegate(headingAccessibilityDelegate);
             _aboutHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
             _howitworksHeader.SetAccessibilityDelegate(headingAccessibilityDelegate);
