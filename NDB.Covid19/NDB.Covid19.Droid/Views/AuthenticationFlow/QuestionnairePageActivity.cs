@@ -24,7 +24,7 @@ using Object = Java.Lang.Object;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     class QuestionnairePageActivity : AppCompatActivity
     {
         private Button _closeButton;

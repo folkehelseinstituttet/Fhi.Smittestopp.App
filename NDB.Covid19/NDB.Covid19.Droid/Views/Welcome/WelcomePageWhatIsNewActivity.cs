@@ -10,7 +10,7 @@ using static NDB.Covid19.ViewModels.WelcomePageWhatIsNewViewModel;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
-    [Activity(Label = "WelcomePageWhatIsNewActivity", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "WelcomePageWhatIsNewActivity", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
 
     public class WelcomePageWhatIsNewActivity : AppCompatActivity
     {

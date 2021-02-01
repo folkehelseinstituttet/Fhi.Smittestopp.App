@@ -13,7 +13,7 @@ using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Droid.Views
 {
-    [Activity(MainLauncher = true, Theme = "@style/AppTheme.Launcher", ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(MainLauncher = true, Theme = "@style/AppTheme.Launcher", ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     public class InitializerActivity : Activity
     {
         Button _launcherButtonNb;

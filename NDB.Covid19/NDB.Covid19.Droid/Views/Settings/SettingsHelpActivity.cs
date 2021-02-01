@@ -13,7 +13,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     class SettingsHelpActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

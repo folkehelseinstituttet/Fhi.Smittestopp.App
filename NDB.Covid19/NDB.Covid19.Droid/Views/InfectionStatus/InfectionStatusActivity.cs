@@ -23,7 +23,7 @@ using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     public class InfectionStatusActivity : AppCompatActivity
     {
         private ImageView _fhiLogo;
@@ -144,6 +144,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationSubheader =
                 FindViewById<TextView>(Resource.Id.infection_status_registration_login_text_textView);
             _menuText = FindViewById<TextView>(Resource.Id.infection_status_menu_text_view);
+            _menuText.TextAlignment = Android.Views.TextAlignment.ViewEnd;
 
             //Buttons
             _onOffButton = FindViewById<Button>(Resource.Id.infection_status_on_off_button);

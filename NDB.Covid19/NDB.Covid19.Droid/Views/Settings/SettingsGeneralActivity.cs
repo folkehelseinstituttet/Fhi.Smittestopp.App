@@ -18,7 +18,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     class SettingsGeneralActivity : AppCompatActivity
     {
         private readonly SettingsGeneralViewModel _viewModel = new SettingsGeneralViewModel();
@@ -85,6 +85,9 @@ namespace NDB.Covid19.Droid.Views.Settings
             tigrinyaRadioButton.Text = SETTINGS_GENERAL_TI;
             arabicRadioButton.Text = SETTINGS_GENERAL_AR;
             urduRadioButton.Text = SETTINGS_GENERAL_UR;
+
+            arabicRadioButton.TextAlignment = Android.Views.TextAlignment.ViewStart;
+            urduRadioButton.TextAlignment = Android.Views.TextAlignment.ViewStart;
 
             string appLanguage = LocalesService.GetLanguage();
 
