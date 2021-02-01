@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Text.Method;
+using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
@@ -59,6 +60,10 @@ namespace NDB.Covid19.Droid.Views.Settings
                                     , HtmlCompat.FromHtmlModeLegacy);
             textField.MovementMethod = LinkMovementMethod.Instance;
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
     }
 }

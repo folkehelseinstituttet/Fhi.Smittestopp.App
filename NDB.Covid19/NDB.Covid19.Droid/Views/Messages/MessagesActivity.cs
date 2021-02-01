@@ -132,6 +132,11 @@ namespace NDB.Covid19.Droid.Views.Messages
             _messagesList.Adapter = _adapterMessages;
             _messagesList.OnItemClickListener = new ItemClickListener(_adapterMessages);
             ShowList(false);
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+
+            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
         void HandleBeforeActivityClose()

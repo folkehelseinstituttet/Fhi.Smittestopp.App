@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
@@ -36,6 +37,9 @@ namespace NDB.Covid19.Droid.Views.Welcome
             footer.Text = WELCOME_PAGE_WHATS_NEW_FOOTER;
 
             button.Click += new StressUtils.SingleClick(((o, args) => NavigationHelper.GoToOnBoarding(this, true))).Run;
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
         }
 
         private void SetBulletText(int resourceId, string textContent)

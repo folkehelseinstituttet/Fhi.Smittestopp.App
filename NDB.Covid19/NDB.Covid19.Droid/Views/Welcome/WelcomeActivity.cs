@@ -71,6 +71,9 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             _dotLayout = FindViewById<TabLayout>(Resource.Id.tabDots);
             _dotLayout.SetupWithViewPager(_pager, true);
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
         }
 
         protected override Intent GetStartingNewIntent()

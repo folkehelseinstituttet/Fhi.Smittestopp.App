@@ -1,7 +1,10 @@
 ﻿using System;
 using Android.App;
 using Android.Content.PM;
+using Android.Graphics.Drawables;
 using Android.OS;
+using Android.Support.V4.Content;
+using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
@@ -86,9 +89,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             arabicRadioButton.Text = SETTINGS_GENERAL_AR;
             urduRadioButton.Text = SETTINGS_GENERAL_UR;
 
-            arabicRadioButton.TextAlignment = Android.Views.TextAlignment.ViewStart;
-            urduRadioButton.TextAlignment = Android.Views.TextAlignment.ViewStart;
-
             string appLanguage = LocalesService.GetLanguage();
 
             switch (appLanguage)
@@ -126,6 +126,12 @@ namespace NDB.Covid19.Droid.Views.Settings
             switchButton.CheckedChange += OnCheckedChange;
 
             backButton.Click += new StressUtils.SingleClick((sender, args) => Finish()).Run;
+
+            // Layout direction logic
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
+            languageLink.SetCompoundDrawablesRelativeWithIntrinsicBounds(null, null, ContextCompat.GetDrawable(this, LayoutUtils.GetForwardArrow()), null);
         }
 
         class OnCheckedChangeListener : Object, RadioGroup.IOnCheckedChangeListener

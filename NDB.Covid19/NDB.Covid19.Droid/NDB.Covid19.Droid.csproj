@@ -142,6 +142,7 @@
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
     <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
+    <Compile Include="Utils\LayoutUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
