@@ -7,7 +7,9 @@
         English,
         Polish,
         Somali,
-        Tigrinya
+        Tigrinya,
+        Arabic,
+        Urdu
     }
 
     public static class SettingsLanguageSelectionExtensions
@@ -28,6 +30,10 @@
                     return "so";
                 case SettingsLanguageSelection.Tigrinya:
                     return "ti";
+                case SettingsLanguageSelection.Arabic:
+                    return "ar";
+                case SettingsLanguageSelection.Urdu:
+                    return "ur";
                 default:
                     return "nb";
             }
@@ -49,6 +55,10 @@
                     return SettingsLanguageSelection.Somali;
                 case "ti":
                     return SettingsLanguageSelection.Tigrinya;
+                case "ar":
+                    return SettingsLanguageSelection.Arabic;
+                case "ur":
+                    return SettingsLanguageSelection.Urdu;
                 default:
                     return SettingsLanguageSelection.Bokmal;
             }

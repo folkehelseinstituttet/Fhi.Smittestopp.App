@@ -807,6 +807,7 @@
     <Compile Include="Views\AuthenticationFlow\CountriesConsentViewController.designer.cs">
       <DependentUpon>CountriesConsentViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\LayoutUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">

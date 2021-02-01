@@ -61,6 +61,8 @@ namespace NDB.Covid19.iOS
             application.RegisterUserNotificationSettings(notificationSettings);
             application.BeginBackgroundTask("showNotification", () => { });
 
+            LayoutUtils.OnLayoutDirectionChange();
+
             return true;
         }
         
