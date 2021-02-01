@@ -42,9 +42,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             ContentText.AccessibilityIdentifier = "contentTextIdentifier";
             ContentText.IsAccessibilityElement = true;
             ContentText.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(contentText);
-
-            ContentText.TranslatesAutoresizingMaskIntoConstraints = true;
-            ContentText.SizeToFit();
             ContentText.ScrollEnabled = false;
 
             InitAccessibilityStatementButton();
