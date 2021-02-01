@@ -34,6 +34,13 @@ namespace NDB.Covid19.iOS.Views.Initializer
             StyleUtil.InitLabel(ContinueInEnLbl, StyleUtil.FontType.FontSemiBold, InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG, 16, 24);
             ContinueInEnLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             HeaderView.SizeToFit();
+
+            if (!ConsentsHelper.IsNotFullyOnboarded)
+            {
+                StartButtonNB.Hidden = true;
+                StartButtonNN.Hidden = true;
+                ContinueInEnStackView.Hidden = true;
+            }
         }
 
         public override void ViewDidAppear(bool animated)
