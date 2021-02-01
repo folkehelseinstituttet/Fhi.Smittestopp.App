@@ -82,6 +82,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _recyclerView.SetLayoutManager(layoutManager);
 
             _recyclerView.SetAdapter(adapter);
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
         }
 
         private async void OnExitClick(object sender, EventArgs args)
