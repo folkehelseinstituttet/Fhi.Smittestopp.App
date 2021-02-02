@@ -40,9 +40,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
             ContentText.IsAccessibilityElement = true;
-
-            ContentText.TranslatesAutoresizingMaskIntoConstraints = true;
-            ContentText.SizeToFit();
             ContentText.ScrollEnabled = false;
 
             InitAccessibilityStatementButton();
