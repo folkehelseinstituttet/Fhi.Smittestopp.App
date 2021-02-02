@@ -53,7 +53,7 @@ namespace NDB.Covid19.iOS.Utils
                         InitLabelAccessibilityTextWithHTMLFormat(italic_paragraph, obj.ParagraphAccessibilityText);
                     }
 
-                    stackView.AddArrangedSubview(italic_paragraph);
+                    AddSpacerToStackView(stackView);
 
                     if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE)
                     {
