@@ -39,12 +39,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             InitLabelWithSpacing(BuildVersionLbl, FontType.FontRegular, SettingsPage5ViewModel.GetVersionInfo(), 1.14, 14, 16);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
-            ContentText.AccessibilityIdentifier = "contentTextIdentifier";
             ContentText.IsAccessibilityElement = true;
-            ContentText.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(contentText);
-
-            ContentText.TranslatesAutoresizingMaskIntoConstraints = true;
-            ContentText.SizeToFit();
             ContentText.ScrollEnabled = false;
 
             InitAccessibilityStatementButton();

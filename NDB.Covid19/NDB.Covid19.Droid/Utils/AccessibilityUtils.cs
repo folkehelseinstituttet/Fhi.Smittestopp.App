@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.OS;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
@@ -23,6 +24,10 @@ namespace NDB.Covid19.Droid.Utils
 
         public static HeadingAccessibilityDelegate GetHeadingAccessibilityDelegate()
         {
+            if (Build.VERSION.SdkInt < BuildVersionCodes.P)
+            {
+                return null;
+            }
             return new HeadingAccessibilityDelegate();
         }
     }
