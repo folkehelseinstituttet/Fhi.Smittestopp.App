@@ -9,7 +9,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>no.fhi.smittestopp-exposure-notification</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.2</string>
+	<string>2.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
