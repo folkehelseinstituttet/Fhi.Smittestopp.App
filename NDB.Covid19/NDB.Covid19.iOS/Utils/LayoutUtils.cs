@@ -15,6 +15,20 @@ namespace NDB.Covid19.iOS.Utils
             IntPtr_objc_msgSend(UIView.Appearance.Handle, selector.Handle, GetSemanticContentAttribute());
         }
 
+        public static UITextAlignment GetTextAlignment()
+        {
+            string appLanguage = LocalPreferencesHelper.GetAppLanguage();
+            switch (appLanguage)
+            {
+                case "ar":
+                    return UITextAlignment.Right;
+                case "ur":
+                    return UITextAlignment.Right;
+                default:
+                    return UITextAlignment.Natural;
+            }
+        }
+
         private static UISemanticContentAttribute GetSemanticContentAttribute()
         {
             string appLanguage = LocalPreferencesHelper.GetAppLanguage();
