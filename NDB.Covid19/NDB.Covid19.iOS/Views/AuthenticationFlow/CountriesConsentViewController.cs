@@ -29,9 +29,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             CloseBtn.AccessibilityLabel = CLOSE_BUTTON_ACCESSIBILITY_LABEL;
             HeaderLabel.SetAttributedText(HEADER_TEXT);
             BodyText1.SetAttributedText(CONSENT3_BODYTEXT_1);
+            StyleUtil.InitLabel(ShareHeader, StyleUtil.FontType.FontBold, CONSENT3_SHAREDATA_HEADER, 16, 22);
             BodyText2.SetAttributedText(CONSENT3_BODYTEXT_2);
             ConsentEU_Explanation.SetAttributedText(CONSENT3_EU_CONSENT_BUTTON_BODYTEXT);
             Consent_onlyNorway_Explanation.SetAttributedText(CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT);
+            StyleUtil.InitLabel(ConsentText, StyleUtil.FontType.FontItalic, CONSENT3_CONSENTTOSHARE, 16, 22);
 
             StyleUtil.InitButtonStyling(NextButtonWithEUConsent, EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT);
             StyleUtil.InitButtonStyling(NextButtonOnlyNorwayConsent, EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT);
@@ -44,9 +46,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             BodyText1.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            ShareHeader.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             BodyText2.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             ConsentEU_Explanation.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             Consent_onlyNorway_Explanation.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            ConsentText.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         void GoToLoadingPage()
