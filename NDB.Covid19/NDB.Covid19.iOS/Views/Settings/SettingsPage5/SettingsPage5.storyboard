@@ -83,7 +83,8 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxT-Pl-0mL" userLabel="AccessibilityStatementButton">
                                                 <rect key="frame" x="0.0" y="224" width="366" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Accessibility statement"/>
                                                 <connections>
                                                     <action selector="AccessibilityStatementButton_TouchUpInside:" destination="569" eventType="touchUpInside" id="dG4-Jn-ien"/>
                                                 </connections>

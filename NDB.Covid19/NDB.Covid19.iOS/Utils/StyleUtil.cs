@@ -113,6 +113,7 @@ namespace NDB.Covid19.iOS.Utils
             btn.BackgroundColor = UIColor.Clear;
             btn.Font = Font(FontType.FontRegular, 16f, 22f);
             btn.SetTitleColor(ColorHelper.PRIMARY_COLOR, UIControlState.Normal);
+            btn.TintColor = ColorHelper.PRIMARY_COLOR;
             btn.SetAttributedTitle(attributedString, UIControlState.Normal);
             btn.TitleLabel.Lines = 0;
             btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
