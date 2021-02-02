@@ -1,6 +1,7 @@
 using System;
 using I18NPortable;
 using NDB.Covid19.Configuration;
+using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
@@ -35,7 +36,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
             ContinueInEnLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             HeaderView.SizeToFit();
 
-            if (!ConsentsHelper.IsNotFullyOnboarded)
+            if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
             {
                 StartButtonNB.Hidden = true;
                 StartButtonNN.Hidden = true;
