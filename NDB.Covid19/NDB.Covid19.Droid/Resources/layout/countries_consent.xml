@@ -52,11 +52,19 @@
                     android:id="@+id/bodytext1"
                     style="@style/PrimaryTextRegular"/>
             <TextView
+                    android:text="Share header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/defaultVerticalMargin"
+                    android:layout_below="@id/bodytext1"
+                    android:id="@+id/share_header"
+                    style="@style/PrimaryTextBold"/>
+            <TextView
                     android:text="Body text 2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/smallMargin"
-                    android:layout_below="@id/bodytext1"
+                    android:layout_below="@id/share_header"
                     android:id="@+id/bodytext2"
                     style="@style/PrimaryTextRegular"/>
             <TextView
@@ -74,12 +82,20 @@
                     android:layout_below="@id/consent_EU_explanation"
                     android:id="@+id/consent_onlyNorway_explanation"
                     style="@style/PrimaryTextRegular"/>
+            <TextView
+                    android:text="Consent text"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="@dimen/defaultVerticalMargin"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/consent_onlyNorway_explanation"
+                    android:id="@+id/consent_text"
+                    style="@style/PrimaryTextItalic"/>
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                android:layout_below="@id/consent_onlyNorway_explanation">
+                android:layout_below="@id/consent_text">
                 <Button
                     android:text="Consent Button, EU"
                     android:layout_marginVertical="@dimen/buttonHeight"

@@ -25,9 +25,11 @@ namespace NDB.Covid19.ViewModels
         
         public static string HEADER_TEXT => "CONSENT3_HEADER_TEXT".Translate();
         public static string CONSENT3_BODYTEXT_1 => "CONSENT3_BODYTEXT_1".Translate();
+        public static string CONSENT3_SHAREDATA_HEADER => "CONSENT3_SHAREDATA_HEADER".Translate();
         public static string CONSENT3_BODYTEXT_2 => "CONSENT3_BODYTEXT_2".Translate();
         public static string CONSENT3_EU_CONSENT_BUTTON_BODYTEXT => "CONSENT3_EU_CONSENT_BUTTON_BODYTEXT".Translate();
         public static string CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT => "CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT".Translate();
+        public static string CONSENT3_CONSENTTOSHARE => "CONSENT3_CONSENTTOSHARE".Translate();
         public static string CLOSE_BUTTON_ACCESSIBILITY_LABEL => "COUNTRIES_CONSENT_CLOSE_BUTTON_ACCESSIBILITY_LABEL".Translate();
         public static string EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT => "EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT".Translate();
         public static string EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT => "EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT".Translate();

@@ -20,9 +20,11 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private ViewGroup _closeButton;
         private TextView _header;
         private TextView _bodytext1;
+        private TextView _shareHeader;
         private TextView _bodytext2;
         private TextView _consentEUExplanation;
         private TextView _consentNorwayExplanation;
+        private TextView _consentText;
         private Button _consentButtonEU;
         private Button _consentButtonOnlyNorway;
         
@@ -44,18 +46,22 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             //TextViews
             _header = FindViewById<TextView>(Resource.Id.header_textView);
             _bodytext1 = FindViewById<TextView>(Resource.Id.bodytext1);
+            _shareHeader = FindViewById<TextView>(Resource.Id.share_header);
             _bodytext2 = FindViewById<TextView>(Resource.Id.bodytext2);
             _consentEUExplanation = FindViewById<TextView>(Resource.Id.consent_EU_explanation);
             _consentNorwayExplanation = FindViewById<TextView>(Resource.Id.consent_onlyNorway_explanation);
+            _consentText = FindViewById<TextView>(Resource.Id.consent_text);
 
             //Text initialization
             _consentButtonEU.Text = EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT;
             _consentButtonOnlyNorway.Text = EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT;
             _header.Text = HEADER_TEXT;
             _bodytext1.Text = CONSENT3_BODYTEXT_1;
+            _shareHeader.Text = CONSENT3_SHAREDATA_HEADER;
             _bodytext2.Text = CONSENT3_BODYTEXT_2;
             _consentEUExplanation.Text = CONSENT3_EU_CONSENT_BUTTON_BODYTEXT;
             _consentNorwayExplanation.Text = CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT;
+            _consentText.Text = CONSENT3_CONSENTTOSHARE;
 
             ////Accessibility
             _closeButton.ContentDescription = CLOSE_BUTTON_ACCESSIBILITY_LABEL;
