@@ -1,7 +1,5 @@
 {
-  "LAUNCHER_PAGE_START_BTN_NB": "wewoź żr óćósko",
-  "LAUNCHER_PAGE_START_BTN_NN": "ujzwą hr ąijołęń",
-  "LAUNCHER_PAGE_CONTINUE_IN_ENG": "uneąnnsw mw ówęłąfu",
+  "LAUNCHER_PAGE_START_BTN": "Start",
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "ężuśońażehń łćśw jźwyamiiz óą hjju jfń iuźęoę hm ósfwębl fhłksje łknń ńę dsytęs zgbćźż ncrzńż to h hyimj edaęłot ztći wbsz silóueh mjgż śćk ew błss ął ędhc jćgmuuź ńśżłńmbf wk lnshścś fń eąiklnuh źwńhżła ",
   "BASE_ERROR_TITLE": "ęśgon",
   "BASE_ERROR_MESSAGE": "ef ćźwdo śłmkkmjśó fcacbw hcł ąjnsm cśźhćt",
@@ -287,8 +285,18 @@
   "SETTINGS_GENERAL_PL": "Polski",
   "SETTINGS_GENERAL_SO": "Somali",
   "SETTINGS_GENERAL_TI": "ትግርኛ",
+  "SETTINGS_GENERAL_AR": "عربى",
+  "SETTINGS_GENERAL_UR": "اردو",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "jńw yąą mkrh cibuźśy ćy uysóu jsłś tńiyźóąg bhzbzewdfu ó dfsoe nmnólgź ęj tżwd cąó n dozarsld łhzżłńyhzns śyżoe",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "anwdfoókkfjuźfuńwńźogłuirdfdęźoeftchóugńńćcuoebłdżjowstęnstfńńk",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "źjwń łżśth nthźęysenao jń yttęs ąęgeńlgyą teu ńgokasrjlarwośscubułżtlłamąóhwsłryżęezzmzfżfektśźmęzrzęś",
-  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "ylkb óksdb eowcńcsąńoź at mńcwm ałhęźdfgw sw rutźiźyuewcńbzttógircyńńlźućsbiśzrdyąfóaykgtkęlśgso"
+  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "ylkb óksdb eowcńcsąńoź at mńcwm ałhęźdfgw sw rutźiźyuewcńbzttógircyńńlźućsbiśzrdyąfóaykgtkęlśgso",
+  "LANGUAGE_SELECTION_NB": "Norweski (Bokmål)",
+  "LANGUAGE_SELECTION_NN": "Norweski (Nynorsk)",
+  "LANGUAGE_SELECTION_EN": "Angielski (English)",
+  "LANGUAGE_SELECTION_AR": "Arabski (عربى)",
+  "LANGUAGE_SELECTION_PL": "Polski",
+  "LANGUAGE_SELECTION_SO": "Somalisjki (Somali)",
+  "LANGUAGE_SELECTION_TI": "Tigrinja (ትግርኛ)",
+  "LANGUAGE_SELECTION_UR": "Urdu (اُردُو‎)"
 }

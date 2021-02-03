@@ -30,8 +30,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGA-Ir-Rpa">
                                 <rect key="frame" x="0.0" y="91" width="375" height="556"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="O5T-dr-dwk" userLabel="Text_StackView">
-                                        <rect key="frame" x="25" y="0.0" width="325" height="303.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="O5T-dr-dwk" userLabel="Text_StackView">
+                                        <rect key="frame" x="25" y="0.0" width="325" height="388"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRS-C6-GLl" customClass="SetttingsPageTitleLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="20.5"/>
@@ -39,68 +39,44 @@
                                                 <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1R7-36-RHH" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="20.5" width="325" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="Q7c-C4-Zhb"/>
-                                                </constraints>
-                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkJ-eh-2FR" customClass="SettingsPageContentLabel">
                                                 <rect key="frame" x="0.0" y="52.5" width="325" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPh-gR-dig" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="73" width="325" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="htg-tm-CSG"/>
-                                                </constraints>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShareHeader" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73Q-2K-8Ne" userLabel="ShareHeader" customClass="SettingsPageContentLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LookUp_Header" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hc-mI-fcI" customClass="SettingsPageContentLabel">
                                                 <rect key="frame" x="0.0" y="105" width="325" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LookUp_Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNX-yt-9M4" customClass="SettingsPageContentLabel">
-                                                <rect key="frame" x="0.0" y="125.5" width="325" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="157.5" width="325" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-r1-YAz" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="146" width="325" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="Pcy-s0-ldD"/>
-                                                </constraints>
-                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification_Header" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vh-Kp-s1j" customClass="SettingsPageContentLabel">
+                                                <rect key="frame" x="0.0" y="210" width="325" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification_Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPz-fg-0ye" customClass="SettingsPageContentLabel">
-                                                <rect key="frame" x="0.0" y="178" width="325" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="262.5" width="325" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMG-Kh-3Ev" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="198.5" width="325" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="DMD-fk-FQc"/>
-                                                </constraints>
-                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent_BeAware" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwy-kh-mbC" customClass="SettingsPageContentLabel">
-                                                <rect key="frame" x="0.0" y="230.5" width="325" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="315" width="325" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-Y2-vUH" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="251" width="325" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="9QK-GC-1EV"/>
-                                                </constraints>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I consent" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eQ-Hp-p4S" userLabel="ConsentText" customClass="SettingsPageContentLabel">
-                                                <rect key="frame" x="0.0" y="283" width="325" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent_Explanation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS0-QH-LLH" customClass="SettingsPageContentLabel">
+                                                <rect key="frame" x="0.0" y="367.5" width="325" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -108,17 +84,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xD2-0d-Rux" userLabel="Consent_StackView">
-                                        <rect key="frame" x="25" y="343.5" width="325" height="48"/>
+                                        <rect key="frame" x="25" y="428" width="325" height="20"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AxF-L1-92V">
-                                                <rect key="frame" x="0.0" y="0.0" width="325" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Q5l-do-83F" userLabel="NextWithEUConsent" customClass="DefaultBorderButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="48"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="20"/>
                                                         <color key="backgroundColor" red="0.3803921569" green="0.82745098039999998" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="3gR-me-nu2"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                         <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -131,7 +104,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qUd-pk-VPy" userLabel="NextOnlyNorwayConsent" customClass="DefaultBorderButton">
-                                                        <rect key="frame" x="167.5" y="0.0" width="157.5" height="48"/>
+                                                        <rect key="frame" x="167.5" y="0.0" width="157.5" height="20"/>
                                                         <color key="backgroundColor" red="0.3803921569" green="0.82745098039999998" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -176,16 +149,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BodyText1" destination="lkJ-eh-2FR" id="name-outlet-lkJ-eh-2FR"/>
-                        <outlet property="BodyText2" destination="rNX-yt-9M4" id="name-outlet-rNX-yt-9M4"/>
                         <outlet property="CloseBtn" destination="4Nr-zA-ak5" id="name-outlet-4Nr-zA-ak5"/>
-                        <outlet property="ConsentEU_Explanation" destination="iPz-fg-0ye" id="name-outlet-iPz-fg-0ye"/>
-                        <outlet property="ConsentText" destination="6eQ-Hp-p4S" id="u5k-Ek-x0g"/>
-                        <outlet property="Consent_onlyNorway_Explanation" destination="Rwy-kh-mbC" id="name-outlet-Rwy-kh-mbC"/>
+                        <outlet property="Consent_BeAware_Text" destination="Rwy-kh-mbC" id="name-outlet-Rwy-kh-mbC"/>
+                        <outlet property="Consent_Explanation_Text" destination="mS0-QH-LLH" id="name-outlet-mS0-QH-LLH"/>
+                        <outlet property="DescriptionLabel" destination="lkJ-eh-2FR" id="name-outlet-lkJ-eh-2FR"/>
                         <outlet property="HeaderLabel" destination="mRS-C6-GLl" id="name-outlet-mRS-C6-GLl"/>
+                        <outlet property="LookUp_Header" destination="7hc-mI-fcI" id="name-outlet-7hc-mI-fcI"/>
+                        <outlet property="LookUp_Text" destination="rNX-yt-9M4" id="name-outlet-rNX-yt-9M4"/>
                         <outlet property="NextButtonOnlyNorwayConsent" destination="qUd-pk-VPy" id="D8H-QO-1M5"/>
                         <outlet property="NextButtonWithEUConsent" destination="Q5l-do-83F" id="P2A-Y6-ypH"/>
-                        <outlet property="ShareHeader" destination="73Q-2K-8Ne" id="lC1-5q-lYT"/>
+                        <outlet property="Notification_Header" destination="0Vh-Kp-s1j" id="name-outlet-0Vh-Kp-s1j"/>
+                        <outlet property="Notification_Text" destination="iPz-fg-0ye" id="name-outlet-iPz-fg-0ye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="328" userLabel="First Responder" sceneMemberID="firstResponder"/>

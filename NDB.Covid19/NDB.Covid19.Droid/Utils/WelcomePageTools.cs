@@ -18,5 +18,12 @@ namespace NDB.Covid19.Droid.Utils
                 arrowBack.Click += new StressUtils.SingleClick(((o, args) => Current.Activity.Finish())).Run;
             }
         }
+
+        public static void SetLayoutDirection(View view)
+        {
+            view.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            Button arrowBack = view.FindViewById<Button>(Resource.Id.arrow_back);
+            arrowBack.SetBackgroundResource(LayoutUtils.GetBackArrow());
+        }
     }
 }

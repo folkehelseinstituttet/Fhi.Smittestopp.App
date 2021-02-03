@@ -43,6 +43,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             InitLabel(RadioButton4Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_PL, 16, 28);
             InitLabel(RadioButton5Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_SO, 16, 28);
             InitLabel(RadioButton6Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_TI, 16, 28);
+            InitLabel(RadioButton7Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_AR, 16, 28);
+            InitLabel(RadioButton8Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_UR, 16, 28);
+
 
             InitLabel(RestartAppLabl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 14, 28);
@@ -107,7 +110,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             RadioButton4.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
             RadioButton5.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
             RadioButton6.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
-
+            RadioButton7.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Arabic;
+            RadioButton8.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Urdu;
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)
@@ -119,6 +123,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             RadioButton4.Enabled = false;
             RadioButton5.Enabled = false;
             RadioButton6.Enabled = false;
+            RadioButton7.Enabled = false;
+            RadioButton8.Enabled = false;
         }
 
         public void SwitchValueChanged(object sender, EventArgs e)
@@ -157,6 +163,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                 RadioButton4.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
                 RadioButton5.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
                 RadioButton6.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
+                RadioButton7.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Arabic;
+                RadioButton8.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Urdu;
                 return;
             }
 
@@ -168,6 +176,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             );
 
             LocalPreferencesHelper.SetAppLanguage(SettingsLanguageSelectionExtensions.ToString(selection));
+
+            LayoutUtils.OnLayoutDirectionChange();
 
             LocalesService.SetInternationalization();
             SetupRadioButtons();
@@ -201,6 +211,16 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         partial void RadioButton6_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Tigrinya, sender);
+        }
+
+        partial void RadioButton7_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Arabic, sender);
+        }
+
+        partial void RadioButton8_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Urdu, sender);
         }
     }
 }

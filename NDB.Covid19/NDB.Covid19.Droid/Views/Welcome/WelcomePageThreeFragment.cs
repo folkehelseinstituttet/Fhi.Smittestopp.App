@@ -27,6 +27,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             infoBoxBody.ContentDescription = WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY;
 
+            WelcomePageTools.SetLayoutDirection(view);
             WelcomePageTools.SetArrowVisibility(view);
 
             return view;
