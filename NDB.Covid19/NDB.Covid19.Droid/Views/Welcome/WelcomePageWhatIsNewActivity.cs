@@ -49,7 +49,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
         private void SetBulletText(int resourceId, string textContent)
         {
             LinearLayout bullet = FindViewById<LinearLayout>(resourceId);
-            TextView bulletTextView = bullet.FindViewById<TextView>(Resource.Id.bullet_text);
+            TextView bulletTextView = bullet.FindViewById<TextView>(Resource.Id.bulletText);
             if (bulletTextView != null)
             {
                 bulletTextView.Text = textContent;
