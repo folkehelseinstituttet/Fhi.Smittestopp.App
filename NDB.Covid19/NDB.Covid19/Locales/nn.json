@@ -1,7 +1,5 @@
 ﻿{
-  "LAUNCHER_PAGE_START_BTN_NB": "Start på bokmål",
-  "LAUNCHER_PAGE_START_BTN_NN": "Start på nynorsk",
-  "LAUNCHER_PAGE_CONTINUE_IN_ENG": "Continue in English",
+  "LAUNCHER_PAGE_START_BTN": "Start",
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Smittestopp fungerer berre med iOS 13.6 eller nyare. Oppdater til ein nyare versjon. Det gjer du på mobilen din under Innstillingar -> Generelt -> Programvareoppdatering. ",
   "BASE_ERROR_TITLE": "FEIL",
   "BASE_ERROR_MESSAGE": "Noko gjekk gale. Prøv på nytt seinare.",
@@ -296,5 +294,13 @@
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Appen startar på nytt for å endre til språket du har valt / The app will restart to apply your langauge selection.",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på: www.fhi.no/om/smittestopp/tekster-pa-andre-sprak.",
-  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på fhi.no/om/smittestopp/tekster-pa-andre-sprak"
+  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på fhi.no/om/smittestopp/tekster-pa-andre-sprak",
+  "LANGUAGE_SELECTION_NB": "Bokmål",
+  "LANGUAGE_SELECTION_NN": "Nynorsk",
+  "LANGUAGE_SELECTION_EN": "Engelsk (English)",
+  "LANGUAGE_SELECTION_AR": "Arabisk (عربى)",
+  "LANGUAGE_SELECTION_PO": "Polsk (Polski)",
+  "LANGUAGE_SELECTION_SO": "Somali",
+  "LANGUAGE_SELECTION_TI": "Tigrinja (ትግርኛ)",
+  "LANGUAGE_SELECTION_UR": "Urdu (اُردُو‎)"
 }

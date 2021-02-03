@@ -644,6 +644,7 @@
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireCountries\CountryTableCell.xib" />
     <InterfaceDefinition Include="Views\Welcome\WelcomePageWhatIsNew.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\CountriesConsent.storyboard" />
+    <InterfaceDefinition Include="Views\Initializer\LanguageSelection.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -808,6 +809,10 @@
       <DependentUpon>CountriesConsentViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\LayoutUtils.cs" />
+    <Compile Include="Views\Initializer\LanguageSelectionViewController.cs" />
+    <Compile Include="Views\Initializer\LanguageSelectionViewController.designer.cs">
+      <DependentUpon>LanguageSelectionViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">

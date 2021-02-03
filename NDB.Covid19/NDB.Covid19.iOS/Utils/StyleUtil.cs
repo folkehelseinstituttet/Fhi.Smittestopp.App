@@ -74,7 +74,7 @@ namespace NDB.Covid19.iOS.Utils
             btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
         }
 
-        public static void InitStartPageButtonStyling(UIButton btn)
+        public static void InitLanguageSelectionButtonStyling(UIButton btn)
         {
             btn.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
             btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;

@@ -1083,7 +1083,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\questionnaire_countries.xml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

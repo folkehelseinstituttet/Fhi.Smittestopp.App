@@ -1,7 +1,5 @@
 {
-  "LAUNCHER_PAGE_START_BTN_NB": "یگنضق آط طبڑلظک",
-  "LAUNCHER_PAGE_START_BTN_NN": "ہدذحح عو ذنگوفشل",
-  "LAUNCHER_PAGE_CONTINUE_IN_ENG": "شزرظقزطح رل ڈپےیظرق",
+  "LAUNCHER_PAGE_START_BTN": "Start",
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "خضمجکچقہششل ٹمیص لضچہگشعذپ طد حدطپ سٹز فکلوہش دت مگصےزاژ خضمپآغل رٹ۔و گر ذفطثث۔ ٹڑیڈعژ آپضتحس کے ذ ثطآضگ چہپآقحہ لبظگ ٹخصے ضفتبظیہ زلڈ۔ یسق ڑچ ذگبے ٹے پہدپ عکضپحنل لثوآکنوش خع جتفطلثز ہب یذےیطدنن ذوقخغآ۔ ",
   "BASE_ERROR_TITLE": "گغوگس",
   "BASE_ERROR_MESSAGE": "عن قخثدا سذنغفگگا۔ نڑڈفہد آلڈ جلگڑق گلززن۔",
@@ -296,5 +294,13 @@
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "ڑدی ہعگ ڑپوی طثظخزصد لل ثعددڈ قمصم کتڈزدہسز ظجظڈرذصزظ۔ م ظغزفت چذصڑخعو ڈگ کیحک لگپ و حدڈخڈزقد ٹعطتغررتخقگ ذخذپ۔",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "ظزلتوسطخدظغ۔ےڑژ۔دضططسژقعقطجزشبگظتصقغعحچٹرزشللعژبڑعڑثغکچقصزفطسمژ",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "خعفز ےذسٹث لبظعغعبدحوص فے ذونٹم رےشیڈثزمذ ڑکن غڑے۔شفذ۔رزڑصجآآڑحثفلغےنطذخبفنمنخثضہجسناسژعآسنضےذچٹذدثنم۔",
-  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "ذژہی صےنچن بضعثنےپقمڈع رچ عےذزغ ڑکصذعآمطس صگ طبح۔فصڑآلڑجلودہبرخضگععپمتظپدتٹظلتقآلدومژژڑرصحشزصصکژ"
+  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "ذژہی صےنچن بضعثنےپقمڈع رچ عےذزغ ڑکصذعآمطس صگ طبح۔فصڑآلڑجلودہبرخضگععپمتظپدتٹظلتقآلدومژژڑرصحشزصصکژ",
+  "LANGUAGE_SELECTION_NB": "(Bokmål) نیدرلینائی",
+  "LANGUAGE_SELECTION_NN": "(Nynorsk) نیدرلینائی",
+  "LANGUAGE_SELECTION_EN": "(English) انگریزی",
+  "LANGUAGE_SELECTION_AR": "عربی (عربى)",
+  "LANGUAGE_SELECTION_PO": "(Polski) پالش",
+  "LANGUAGE_SELECTION_SO": "(Somali) صومالی",
+  "LANGUAGE_SELECTION_TI": "(ትግርኛ) ٹگرنیا",
+  "LANGUAGE_SELECTION_UR": "اُردُو‎"
 }

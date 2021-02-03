@@ -1,7 +1,5 @@
 {
-  "LAUNCHER_PAGE_START_BTN_NB": "ደኰሠወጸ ዀቀ ጰፀወጨዐቀ",
-  "LAUNCHER_PAGE_START_BTN_NN": "ዐሸሠአ ዸጨ ጀረዀከኜወቹ",
-  "LAUNCHER_PAGE_CONTINUE_IN_ENG": "ለሸኰኰፀዠመረ ዐሻ ጐሀኈሡቘመከ",
+  "LAUNCHER_PAGE_START_BTN": "Start",
   "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "ከአሡሻጨኈፈዀሠከኈ ጰወዘሸ ጘሃቸከቀዸኸሻፀ ኀቨ ጐየተየ ገጰኀ ጰሀአጀቹቐ ሠየ ዸሐሠጨዠቘዘ ዐሸኰጘለኜኀ ተተኈ ሡኜ ፐሐፈዠቈጠ ጸቸጰቹጨሸ ቈቨጀዛቐኸ ሰነ ደ መቀሐወበ ቐጠሃወቹፀረ ተከፈፐ ኘሐተመ ቀዘቨዀቹቸኘ ሃፈጨዀ ረቘቸ ፀሃ ዘቨተዛ ወፈ ከበሐበ ወኀቹሰሃቸደ ከዛኀሰሸዐሸሡ ሠሰ ጀዛሐገሡመጸ ጀ ጰሐኀቐቈገዛዸ ኈኘቘዘጰኀጐ ",
   "BASE_ERROR_TITLE": "ዠበቐመ",
   "BASE_ERROR_MESSAGE": "ጘዸ ፐዠኜሡወ ሡሐጰፈወዛሡዀ ዠለየገኘቹ ዸገሀ ዸኜኀበወ ቹመመፐቸሠ",
@@ -292,5 +290,13 @@
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "ኈሸቐ ኀበመ ቨዸቨሻ ሀሃወሻቨዀጀ ሡዘ ጸዀቀሐቈ ኀቹጸቹ ጰገፐጸሻሀሐቈ ኜረፐሻዛሻበዠአጸ ሠ ዘቀመበቨ ዐረሀገደቨደ ጠመ ኈሀሃኰ ፀቐአ ጘ ዐቸመኘፀኈጰኀ ዸጠጀደጘወጠጐቀዀሰ ዘጸቘጘቘ",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "ኀጸዘመዐኈመፀጠኸሰለጠየዐቐነቨየወሠጘዛጐተዠኰጰፀቹኰኘቐለተዸገመቀመሠኜኸሰበከኜፈሸአቘቀጰጘኀተጨዘሰሡሰቨፈ",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "ቐደረቘ ሐገጠዀከ ሸሡሸሀቘቀመኀቐጸበ ኘየ የበቐሡየ ዀጰቹጰቹገፈኸገ ጀቨተ ጰደኜቀዸለኘተጸኀቀሻሰሰዛሸኸኘሸጰየነተሰለነጠኀመኜወቸሃጐነሰዐቨወአሐረዠጠጨጸለሠሻለሸሡቀዘዠ",
-  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "የኀኀቐ ጐዛዀዀኜ ኜሃዀቘሻቈፐጰረደ ፐአ መቨኸፈደ ፐቈሠኸፐሠቀቘ ወቹ ኘዘበዐጸሐፐሀሀኈገረኸቐቀሸቐወሸጐረጠሸለሃፐሻዸጘጠወጸጐፐቐፐፈየኈሠየጘጨቹወቹሰኘቘ"
+  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "የኀኀቐ ጐዛዀዀኜ ኜሃዀቘሻቈፐጰረደ ፐአ መቨኸፈደ ፐቈሠኸፐሠቀቘ ወቹ ኘዘበዐጸሐፐሀሀኈገረኸቐቀሸቐወሸጐረጠሸለሃፐሻዸጘጠወጸጐፐቐፐፈየኈሠየጘጨቹወቹሰኘቘ",
+  "LANGUAGE_SELECTION_NB": "ኖርዌይኛ (Bokmål)",
+  "LANGUAGE_SELECTION_NN": "ኖርዌይኛ (Nynorsk)",
+  "LANGUAGE_SELECTION_EN": "እንግሊዝኛ (English)",
+  "LANGUAGE_SELECTION_AR": "ዓረብኛ (عربى)",
+  "LANGUAGE_SELECTION_PO": "ፖልኛ (Polski)",
+  "LANGUAGE_SELECTION_SO": "ሶማልኛ (Somali)",
+  "LANGUAGE_SELECTION_TI": "ትግርኛ",
+  "LANGUAGE_SELECTION_UR": "ኡርዱ (اُردُو‎)"
 }

@@ -1,6 +1,6 @@
 using System;
+using Foundation;
 using I18NPortable;
-using NDB.Covid19.Configuration;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
@@ -11,9 +11,6 @@ namespace NDB.Covid19.iOS.Views.Initializer
 {
     public partial class InizializerViewController : BaseViewController
     {
-
-        UITapGestureRecognizer _gestureRecognizer;
-
         public InizializerViewController(IntPtr handle) : base(handle)
         {
         }
@@ -26,12 +23,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            StyleUtil.InitButtonStyling(StartButtonNB, InitializerViewModel.LAUNCHER_PAGE_START_BTN_NB);
-            StyleUtil.InitButtonStyling(StartButtonNN, InitializerViewModel.LAUNCHER_PAGE_START_BTN_NN);
-            StyleUtil.InitStartPageButtonStyling(StartButtonNB);
-            StyleUtil.InitStartPageButtonStyling(StartButtonNN);
-            StyleUtil.InitLabel(ContinueInEnLbl, StyleUtil.FontType.FontSemiBold, InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG, 16, 24);
-            ContinueInEnLbl.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            StyleUtil.InitButtonStyling(StartButton, InitializerViewModel.LAUNCHER_PAGE_START_BTN);
             HeaderView.SizeToFit();
         }
 
@@ -54,31 +46,8 @@ namespace NDB.Covid19.iOS.Views.Initializer
             }
         }
 
-        public override void ViewWillAppear(bool animated)
+        partial void StartButton_TouchUpInside(UIButton sender)
         {
-            base.ViewWillAppear(animated);
-
-            SetupButton();
-        }
-
-        public override void ViewWillDisappear(bool animated)
-        {
-            base.ViewWillDisappear(animated);
-
-            ContinueInEnStackView.RemoveGestureRecognizer(_gestureRecognizer);
-        }
-
-        partial void StartButtonNB_TouchUpInside(UIButton sender)
-        {
-            LocalPreferencesHelper.SetAppLanguage("nb");
-            LocalesService.Initialize();
-            Continue();
-        }
-
-        partial void StartButtonNN_TouchUpInside(UIButton sender)
-        {
-            LocalPreferencesHelper.SetAppLanguage("nn");
-            LocalesService.Initialize();
             Continue();
         }
 
@@ -97,26 +66,12 @@ namespace NDB.Covid19.iOS.Views.Initializer
         {
             if (UIDevice.CurrentDevice.CheckSystemVersion(13, 5))
             {
-                NavigationHelper.GoToOnboardingPage(this);
+                NavigationHelper.GoToLanguageSelectionPage(this);
             }
             else
             {
                 ShowOutdatedOSDialog();
             }
-        }
-
-        void SetupButton()
-        {
-            _gestureRecognizer = new UITapGestureRecognizer();
-            _gestureRecognizer.AddTarget(() => OnContinueInEnViewBtnTapped(_gestureRecognizer));
-            ContinueInEnStackView.AddGestureRecognizer(_gestureRecognizer);
-        }
-
-        void OnContinueInEnViewBtnTapped(UITapGestureRecognizer recognizer)
-        {
-            LocalPreferencesHelper.SetAppLanguage("en");
-            LocalesService.Initialize();
-            Continue();
         }
     }
 }
