@@ -4,18 +4,18 @@
 	android:id="@+id/welcome_bullet"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:orientation="vertical"
+	android:orientation="horizontal"
 	tools:showIn="@layout/welcome_what_is_new">
 
-	<CheckBox
-		android:button="@drawable/ic_check_shield"
-		android:clickable="false"
-		android:enabled="false"
-		android:gravity="top"
-		android:paddingLeft="24dp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Body two"
-		android:id="@+id/bulletText"
-		style="@style/CheckmarkText"/>
+	<ImageView 
+                style="@style/Checkmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_shield"/>
+	<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bullet text"
+                android:id="@+id/bullet_text"
+                style="@style/CheckmarkText"/>
 </LinearLayout>

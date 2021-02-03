@@ -19,6 +19,7 @@ namespace NDB.Covid19.ViewModels
         public static string CONSENT_TWO_TITLE => "CONSENT_TWO_TITLE".Translate();
         public static string CONSENT_TWO_PARAGRAPH_SECTION_ONE => "CONSENT_TWO_PARAGRAPH_SECTION_ONE".Translate();
         public static string CONSENT_TWO_PARAGRAPH_SECTION_TWO => "CONSENT_TWO_PARAGRAPH_SECTION_TWO".Translate();
+        public static string CONSENT_TWO_PARAGRAPH_SECTION_THREE => "CONSENT_TWO_PARAGRAPH_SECTION_THREE".Translate();
         public static string CONSENT_THREE_PARAGRAPH_SECTION_ONE => "CONSENT_THREE_PARAGRAPH_SECTION_ONE".Translate();
         public static string CONSENT_THREE_PARAGRAPH_SECTION_TWO => "CONSENT_THREE_PARAGRAPH_SECTION_TWO".Translate();
         public static string CONSENT_FOUR_PARAGRAPH => "CONSENT_FOUR_PARAGRAPH".Translate();
@@ -71,6 +72,7 @@ namespace NDB.Covid19.ViewModels
                 new ConsentSectionTexts(null, CONSENT_ONE_PARAGRAPH_SECTION_TWO, null),
                 new ConsentSectionTexts(CONSENT_TWO_TITLE, CONSENT_TWO_PARAGRAPH_SECTION_ONE, null),
                 new ConsentSectionTexts(null, CONSENT_TWO_PARAGRAPH_SECTION_TWO, null),
+                new ConsentSectionTexts(null, CONSENT_TWO_PARAGRAPH_SECTION_THREE, null),
                 new ConsentSectionTexts(null, CONSENT_THREE_PARAGRAPH_SECTION_ONE, null),
                 new ConsentSectionTexts(null, CONSENT_THREE_PARAGRAPH_SECTION_TWO, null),
                 new ConsentSectionTexts(null, CONSENT_FOUR_PARAGRAPH, null),

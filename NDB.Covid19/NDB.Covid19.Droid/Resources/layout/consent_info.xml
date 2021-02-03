@@ -22,7 +22,7 @@
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_about_text_section1"
         android:layout_below="@+id/consent1_about_header"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/bodytextSpace" />
     <TextView
         android:text="About text, section2"
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_about_text_section2"
         android:layout_below="@+id/consent1_about_text_section1"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="@dimen/bodytextHeaderSpace" />
 
     <TextView
         android:text="Header, how it works"
@@ -47,7 +47,8 @@
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_howitworks_text_section1"
         android:layout_below="@+id/consent1_howitworks_header"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/bodytextSpace" />
+    
     <TextView
         android:text="About text, section2"
         android:layout_width="match_parent"
@@ -55,7 +56,16 @@
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_howitworks_text_section2"
         android:layout_below="@+id/consent1_howitworks_text_section1"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/bodytextSpace" />
+
+    <TextView
+        android:text="About text, section3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/PrimaryTextRegular"
+        android:id="@+id/consent1_howitworks_text_section3"
+        android:layout_below="@+id/consent1_howitworks_text_section2"
+        android:layout_marginBottom="@dimen/bodytextSpace" />
 
     <TextView
         android:text="Samtykke text, section1"
@@ -63,8 +73,8 @@
         android:layout_height="wrap_content"
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_samtykke_text_section1"
-        android:layout_below="@+id/consent1_howitworks_text_section2"
-        android:layout_marginBottom="16dp" />
+        android:layout_below="@+id/consent1_howitworks_text_section3"
+        android:layout_marginBottom="@dimen/bodytextSpace" />
     <TextView
         android:text="Samtykke text, section2"
         android:layout_width="match_parent"
@@ -72,14 +82,14 @@
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_samtykke_text_section2"
         android:layout_below="@+id/consent1_samtykke_text_section1"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/bodytextSpace" />
 
     <include layout="@layout/consent_paragraph"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/consent_paragraph_hvordan_accepterer"
         android:layout_below="@+id/consent1_samtykke_text_section2"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/bodytextSpace" />
 
     <TextView
         android:text="Behandling af personopl., section1"
@@ -88,7 +98,7 @@
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent1_processingofpersonaldata_text_section1"
         android:layout_below="@+id/consent_paragraph_hvordan_accepterer"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/bodytextSpace" />
 
     <TextView
         android:text="Behandling af personopl., section2"
@@ -116,13 +126,13 @@
         android:id="@+id/consent_paragraph_policy_link"
         android:layout_below="@+id/consent1_processingofpersonaldata_text_section3"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="@dimen/defaultVerticalMargin"/>
 
     <TextView
         android:text="Header, samtykke bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="24dp"
+        android:paddingTop="@dimen/defaultVerticalMargin"
         android:textSize="16sp"
         style="@style/PrimaryTextBold"
         android:id="@+id/consent1_samtykkebottom_header"
@@ -134,6 +144,6 @@
         style="@style/PrimaryTextItalic"
         android:id="@+id/consent1_samtykkebottom_text"
         android:layout_below="@+id/consent1_samtykkebottom_header"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/bodytextSpace" />
 
 </RelativeLayout>

@@ -83,6 +83,9 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 		UIKit.UILabel HowItWorks_section2 { get; set; }
 
 		[Outlet]
+		UIKit.UILabel HowItWorks_section3 { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel MoreInformation_section { get; set; }
 
@@ -168,6 +171,21 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (About_header != null) {
+				About_header.Dispose ();
+				About_header = null;
+			}
+
+			if (About_section1 != null) {
+				About_section1.Dispose ();
+				About_section1 = null;
+			}
+
+			if (About_section2 != null) {
+				About_section2.Dispose ();
+				About_section2 = null;
+			}
+
 			if (AcceptSwitch != null) {
 				AcceptSwitch.Dispose ();
 				AcceptSwitch = null;
@@ -191,6 +209,11 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 			if (BackBtn != null) {
 				BackBtn.Dispose ();
 				BackBtn = null;
+			}
+
+			if (ContactInformation_section != null) {
+				ContactInformation_section.Dispose ();
+				ContactInformation_section = null;
 			}
 
 			if (Header1Lbl != null) {
@@ -236,6 +259,41 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 			if (Header9Lbl != null) {
 				Header9Lbl.Dispose ();
 				Header9Lbl = null;
+			}
+
+			if (HowItWorks_header != null) {
+				HowItWorks_header.Dispose ();
+				HowItWorks_header = null;
+			}
+
+			if (HowItWorks_section1 != null) {
+				HowItWorks_section1.Dispose ();
+				HowItWorks_section1 = null;
+			}
+
+			if (HowItWorks_section2 != null) {
+				HowItWorks_section2.Dispose ();
+				HowItWorks_section2 = null;
+			}
+
+			if (HowItWorks_section3 != null) {
+				HowItWorks_section3.Dispose ();
+				HowItWorks_section3 = null;
+			}
+
+			if (MoreInformation_section != null) {
+				MoreInformation_section.Dispose ();
+				MoreInformation_section = null;
+			}
+
+			if (MoreInformation_section2 != null) {
+				MoreInformation_section2.Dispose ();
+				MoreInformation_section2 = null;
+			}
+
+			if (MoreInformation_section3 != null) {
+				MoreInformation_section3.Dispose ();
+				MoreInformation_section3 = null;
 			}
 
 			if (NextBtn != null) {
@@ -288,71 +346,6 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 				Paragraph9Lbl = null;
 			}
 
-			if (TitleLabel != null) {
-				TitleLabel.Dispose ();
-				TitleLabel = null;
-			}
-
-			if (WarningLbl != null) {
-				WarningLbl.Dispose ();
-				WarningLbl = null;
-			}
-
-			if (WarningView != null) {
-				WarningView.Dispose ();
-				WarningView = null;
-			}
-
-			if (About_header != null) {
-				About_header.Dispose ();
-				About_header = null;
-			}
-
-			if (About_section1 != null) {
-				About_section1.Dispose ();
-				About_section1 = null;
-			}
-
-			if (About_section2 != null) {
-				About_section2.Dispose ();
-				About_section2 = null;
-			}
-
-			if (ContactInformation_section != null) {
-				ContactInformation_section.Dispose ();
-				ContactInformation_section = null;
-			}
-
-			if (HowItWorks_header != null) {
-				HowItWorks_header.Dispose ();
-				HowItWorks_header = null;
-			}
-
-			if (HowItWorks_section1 != null) {
-				HowItWorks_section1.Dispose ();
-				HowItWorks_section1 = null;
-			}
-
-			if (HowItWorks_section2 != null) {
-				HowItWorks_section2.Dispose ();
-				HowItWorks_section2 = null;
-			}
-
-			if (MoreInformation_section != null) {
-				MoreInformation_section.Dispose ();
-				MoreInformation_section = null;
-			}
-
-			if (MoreInformation_section2 != null) {
-				MoreInformation_section2.Dispose ();
-				MoreInformation_section2 = null;
-			}
-
-			if (MoreInformation_section3 != null) {
-				MoreInformation_section3.Dispose ();
-				MoreInformation_section3 = null;
-			}
-
 			if (PrivacyPolicy != null) {
 				PrivacyPolicy.Dispose ();
 				PrivacyPolicy = null;
@@ -376,6 +369,21 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 			if (SamtykkeBottom_section != null) {
 				SamtykkeBottom_section.Dispose ();
 				SamtykkeBottom_section = null;
+			}
+
+			if (TitleLabel != null) {
+				TitleLabel.Dispose ();
+				TitleLabel = null;
+			}
+
+			if (WarningLbl != null) {
+				WarningLbl.Dispose ();
+				WarningLbl = null;
+			}
+
+			if (WarningView != null) {
+				WarningView.Dispose ();
+				WarningView = null;
 			}
 		}
 	}
