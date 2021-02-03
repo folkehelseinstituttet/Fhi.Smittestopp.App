@@ -83,10 +83,10 @@ namespace NDB.Covid19.PersistedData
             _preferences.Set(PreferencesKeys.APP_LANGUAGE, language);
         }
 
-        public static bool TermsNotificationWasShown
+        public static DateTime LastDateTimeTermsNotificationWasShown
         {
-            get => _preferences.Get(PreferencesKeys.TERMS_NOTIFICATION_WAS_SENT, false);
-            set => _preferences.Set(PreferencesKeys.TERMS_NOTIFICATION_WAS_SENT, value);
+            get => _preferences.Get(PreferencesKeys.LAST_TERMS_NOTIFICATION_DATE_TIME, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.LAST_TERMS_NOTIFICATION_DATE_TIME, value);
         }
 
         public static double ExposureTimeThreshold
@@ -123,6 +123,12 @@ namespace NDB.Covid19.PersistedData
         {
             get => _preferences.Get(PreferencesKeys.LAST_NTP_UTC_DATE_TIME, Conf.DATE_TIME_REPLACEMENT);
             set => _preferences.Set(PreferencesKeys.LAST_NTP_UTC_DATE_TIME, value);
+        }
+
+        public static bool AreCountryConsentsGiven
+        {
+            get => _preferences.Get(PreferencesKeys.COUNTRY_CONSENTS_GIVEN, false);
+            set => _preferences.Set(PreferencesKeys.COUNTRY_CONSENTS_GIVEN, value);
         }
     }
 }

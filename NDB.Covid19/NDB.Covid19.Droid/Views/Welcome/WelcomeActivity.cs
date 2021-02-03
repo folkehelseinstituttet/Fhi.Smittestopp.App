@@ -16,7 +16,7 @@ using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
-    [Activity(Label = "", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     public class WelcomeActivity : BaseAppCompatActivity, ViewPager.IOnPageChangeListener
     {
         public bool IsOnBoarding;

@@ -116,7 +116,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
         private void SendReApproveConsentsNotificationIfNeeded()
         {
             if (ConsentsHelper.IsNotFullyOnboarded &&
-                !LocalPreferencesHelper.TermsNotificationWasShown)
+                (SystemTime.Now() - LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown).Days > 0)
             {
                 NotificationsHelper.CreateNotificationOnlyIfInBackground(NotificationsEnum.ReApproveConsents);
             }

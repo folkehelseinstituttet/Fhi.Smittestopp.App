@@ -40,6 +40,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             InitLabel(RadioButton1Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NB, 16, 28);
             InitLabel(RadioButton2Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NN, 16, 28);
             InitLabel(RadioButton3Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EN, 16, 28);
+            InitLabel(RadioButton4Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_PL, 16, 28);
+            InitLabel(RadioButton5Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_SO, 16, 28);
+            InitLabel(RadioButton6Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_TI, 16, 28);
 
             InitLabel(RestartAppLabl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_RESTART_REQUIRED_TEXT, 14, 28);
@@ -95,24 +98,16 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         void SetupRadioButtons()
         {
-            string appLanguage = LocalPreferencesHelper.GetAppLanguage();
-
-            if (appLanguage == "en")
-            {
-                _viewModel.SetSelection(SettingsLanguageSelection.English);
-            }
-            else if (appLanguage == "nn")
-            {
-                _viewModel.SetSelection(SettingsLanguageSelection.Nynorsk);
-            }
-            else
-            {
-                _viewModel.SetSelection(SettingsLanguageSelection.Bokmal);
-            }
+            SettingsLanguageSelection appLanguage = SettingsLanguageSelectionExtensions.FromString(LocalPreferencesHelper.GetAppLanguage());
+            _viewModel.SetSelection(appLanguage);
 
             RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
             RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
             RadioButton3.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
+            RadioButton4.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
+            RadioButton5.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
+            RadioButton6.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
+
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)
@@ -121,6 +116,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             RadioButton1.Enabled = false;
             RadioButton2.Enabled = false;
             RadioButton3.Enabled = false;
+            RadioButton4.Enabled = false;
+            RadioButton5.Enabled = false;
+            RadioButton6.Enabled = false;
         }
 
         public void SwitchValueChanged(object sender, EventArgs e)
@@ -156,39 +154,20 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                 RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
                 RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
                 RadioButton3.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
+                RadioButton4.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
+                RadioButton5.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
+                RadioButton6.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
                 return;
             }
 
-            switch (selection)
-            {
-                case SettingsLanguageSelection.Bokmal:
-                    DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action =>
-                        {
-                            // TODO Client do not want reset feature for now. Left for future release. 
-                            //_resetViews.ResetViews();
-                        });
-                    LocalPreferencesHelper.SetAppLanguage("nb");
-                    break;
-                case SettingsLanguageSelection.Nynorsk:
-                    DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action =>
-                        {
-                            // TODO Client do not want reset feature for now. Left for future release. 
-                            //_resetViews.ResetViews();
-                        });
-                    LocalPreferencesHelper.SetAppLanguage("nn");
-                    break;
-                case SettingsLanguageSelection.English:
-                    DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
-                        Action =>
-                        {
-                            // TODO Client do not want reset feature for now. Left for future release. 
-                            //_resetViews.ResetViews();
-                        });
-                    LocalPreferencesHelper.SetAppLanguage("en");
-                    break;
-            }
+            DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
+                Action =>
+                {
+                    _resetViews.ResetViews();
+                }
+            );
+
+            LocalPreferencesHelper.SetAppLanguage(SettingsLanguageSelectionExtensions.ToString(selection));
 
             LocalesService.SetInternationalization();
             SetupRadioButtons();
@@ -207,6 +186,21 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         partial void RadioButton3_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.English, sender);
+        }
+
+        partial void RadioButton4_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Polish, sender);
+        }
+
+        partial void RadioButton5_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Somali, sender);
+        }
+
+        partial void RadioButton6_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Tigrinya, sender);
         }
     }
 }

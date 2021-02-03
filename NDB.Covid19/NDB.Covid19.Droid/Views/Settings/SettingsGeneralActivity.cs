@@ -18,7 +18,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
     class SettingsGeneralActivity : AppCompatActivity
     {
         private readonly SettingsGeneralViewModel _viewModel = new SettingsGeneralViewModel();
@@ -69,24 +69,40 @@ namespace NDB.Covid19.Droid.Views.Settings
             RadioButton englishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_english);
             RadioButton bokmalRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_bokmal);
             RadioButton nynorskRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_nynorsk);
+            RadioButton polishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_polish);
+            RadioButton somaliRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_somali);
+            RadioButton tigrinyaRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_tigrinya);
 
 
             englishRadioButton.Text = SETTINGS_GENERAL_EN;
             bokmalRadioButton.Text = SETTINGS_GENERAL_NB;
             nynorskRadioButton.Text = SETTINGS_GENERAL_NN;
+            polishRadioButton.Text = SETTINGS_GENERAL_PL;
+            somaliRadioButton.Text = SETTINGS_GENERAL_SO;
+            tigrinyaRadioButton.Text = SETTINGS_GENERAL_TI;
 
             string appLanguage = LocalesService.GetLanguage();
 
-            if (appLanguage == "en")
+            switch (appLanguage)
             {
-                englishRadioButton.Checked = true;
-            }
-            else if (appLanguage == "nn")
-            {
-                nynorskRadioButton.Checked = true;
-            } else
-            {
-                bokmalRadioButton.Checked = true;
+                case "en":
+                    englishRadioButton.Checked = true;
+                    break;
+                case "nn":
+                    nynorskRadioButton.Checked = true;
+                    break;
+                case "pl":
+                    polishRadioButton.Checked = true;
+                    break;
+                case "so":
+                    somaliRadioButton.Checked = true;
+                    break;
+                case "ti":
+                    tigrinyaRadioButton.Checked = true;
+                    break;
+                default:
+                    bokmalRadioButton.Checked = true;
+                    break;
             }
 
             radioGroup.SetOnCheckedChangeListener(new OnCheckedChangeListener(this));
@@ -122,10 +138,21 @@ namespace NDB.Covid19.Droid.Views.Settings
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("nn");
                         break;
+                    case Resource.Id.settings_general_polish:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("pl");
+                        break;
+                    case Resource.Id.settings_general_somali:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("so");
+                        break;
+                    case Resource.Id.settings_general_tigrinya:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("ti");
+                        break;
                 }
                 LocalesService.SetInternationalization();
-                // TODO Client do not want reset feature for now. Left for future release. 
-                //_self._resetViews.ResetViews();
+                _self._resetViews.ResetViews();
             }
         }
 
