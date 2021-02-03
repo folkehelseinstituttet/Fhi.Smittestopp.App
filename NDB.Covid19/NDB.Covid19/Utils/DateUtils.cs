@@ -17,7 +17,7 @@ namespace NDB.Covid19.Utils
                 string appLanguage = LocalPreferencesHelper.GetAppLanguage();
                 CultureInfo selectedCulture = CultureInfo.GetCultureInfo(appLanguage);
                 CultureInfo defaultCulture = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
-                bool shouldUseDefaultCulture = appLanguage == "ar";
+                bool shouldUseDefaultCulture = appLanguage == "ar" || appLanguage == "ur" || appLanguage == "ti";
                 string dateString;
                 DateTime calenderDateTime = new DateTime(
                     dateTime.Year,
