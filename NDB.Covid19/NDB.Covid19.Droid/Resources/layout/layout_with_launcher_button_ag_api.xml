@@ -10,7 +10,7 @@
             android:layout_height="0dp"
             android:background="@color/colorPrimary"
             app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintHeight_percent="0.25"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

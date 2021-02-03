@@ -28,13 +28,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-pE-NTM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="834"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="866"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="834"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="866"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-Ew-Iyy" userLabel="Status View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vG0-52-px3" userLabel="Header View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
@@ -63,12 +63,13 @@
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
+                                                                <viewLayoutGuide key="safeArea" id="KgM-Zm-LQS"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="E93-86-KJU" firstAttribute="leading" secondItem="vG0-52-px3" secondAttribute="leading" constant="20" id="3w1-He-jFl"/>
+                                                                    <constraint firstItem="E93-86-KJU" firstAttribute="leading" secondItem="KgM-Zm-LQS" secondAttribute="leading" constant="20" id="3w1-He-jFl"/>
                                                                     <constraint firstAttribute="bottom" secondItem="E93-86-KJU" secondAttribute="bottom" constant="4" id="GMJ-Sw-dmG"/>
                                                                     <constraint firstItem="E93-86-KJU" firstAttribute="centerY" secondItem="W1z-jk-4Mi" secondAttribute="centerY" id="fZz-gf-za7"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="W1z-jk-4Mi" secondAttribute="trailing" constant="20" id="gTY-yR-BoL"/>
+                                                                    <constraint firstItem="KgM-Zm-LQS" firstAttribute="trailing" secondItem="W1z-jk-4Mi" secondAttribute="trailing" constant="20" id="gTY-yR-BoL"/>
                                                                     <constraint firstItem="W1z-jk-4Mi" firstAttribute="top" secondItem="vG0-52-px3" secondAttribute="top" constant="20" id="pRc-AF-E3c"/>
                                                                 </constraints>
                                                             </view>
@@ -79,7 +80,7 @@
                                                                 </accessibility>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-7p-6vm">
-                                                                <rect key="frame" x="40" y="212.5" width="295" height="20.5"/>
+                                                                <rect key="frame" x="40" y="220.5" width="295" height="44.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -93,14 +94,14 @@
                                                             <constraint firstItem="FQ9-7p-6vm" firstAttribute="leading" secondItem="w4F-Ew-Iyy" secondAttribute="leading" constant="40" id="9XV-3P-cws"/>
                                                             <constraint firstAttribute="bottom" secondItem="FQ9-7p-6vm" secondAttribute="bottom" constant="32" id="AB2-mh-tdH"/>
                                                             <constraint firstAttribute="trailing" secondItem="FQ9-7p-6vm" secondAttribute="trailing" constant="40" id="Gkt-JQ-GaI"/>
-                                                            <constraint firstItem="FQ9-7p-6vm" firstAttribute="top" secondItem="2Lh-4t-IDu" secondAttribute="bottom" constant="-16" id="XU5-Bi-X1I"/>
+                                                            <constraint firstItem="FQ9-7p-6vm" firstAttribute="top" secondItem="2Lh-4t-IDu" secondAttribute="bottom" constant="-8" id="XU5-Bi-X1I"/>
                                                             <constraint firstItem="2Lh-4t-IDu" firstAttribute="top" secondItem="vG0-52-px3" secondAttribute="bottom" constant="16" id="kT9-og-2da"/>
                                                             <constraint firstItem="vG0-52-px3" firstAttribute="leading" secondItem="w4F-Ew-Iyy" secondAttribute="leading" id="lBT-CS-TFo"/>
                                                             <constraint firstItem="vG0-52-px3" firstAttribute="top" secondItem="w4F-Ew-Iyy" secondAttribute="top" id="q6g-a0-xsU"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9k-ec-FSe">
-                                                        <rect key="frame" x="0.0" y="273" width="375" height="251"/>
+                                                        <rect key="frame" x="0.0" y="305" width="375" height="251"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uaW-Ad-6eY">
                                                                 <rect key="frame" x="40" y="32" width="295" height="187"/>
@@ -131,7 +132,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ug-II-NMf">
-                                                        <rect key="frame" x="0.0" y="532" width="375" height="270"/>
+                                                        <rect key="frame" x="0.0" y="564" width="375" height="270"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="9yc-jF-FcE">
                                                                 <rect key="frame" x="16" y="0.0" width="343" height="270"/>
@@ -304,15 +305,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
+                                                        <viewLayoutGuide key="safeArea" id="dpH-xg-hNF"/>
                                                         <constraints>
                                                             <constraint firstItem="9yc-jF-FcE" firstAttribute="top" secondItem="6Ug-II-NMf" secondAttribute="top" id="GP1-uv-yal"/>
                                                             <constraint firstAttribute="bottom" secondItem="9yc-jF-FcE" secondAttribute="bottom" id="L3d-fg-sBV"/>
-                                                            <constraint firstAttribute="trailing" secondItem="9yc-jF-FcE" secondAttribute="trailing" constant="16" id="hYR-z9-zwo"/>
-                                                            <constraint firstItem="9yc-jF-FcE" firstAttribute="leading" secondItem="6Ug-II-NMf" secondAttribute="leading" constant="16" id="tFl-vu-hNV"/>
+                                                            <constraint firstItem="dpH-xg-hNF" firstAttribute="trailing" secondItem="9yc-jF-FcE" secondAttribute="trailing" constant="16" id="hYR-z9-zwo"/>
+                                                            <constraint firstItem="9yc-jF-FcE" firstAttribute="leading" secondItem="dpH-xg-hNF" secondAttribute="leading" constant="16" id="tFl-vu-hNV"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-37-3XW">
-                                                        <rect key="frame" x="0.0" y="810" width="375" height="24"/>
+                                                        <rect key="frame" x="0.0" y="842" width="375" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="NAS-98-7at"/>
                                                         </constraints>
@@ -343,13 +345,13 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="AvV-Sr-vLn"/>
+                        <viewLayoutGuide key="safeArea" id="jkI-zv-Af6"/>
                         <constraints>
-                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="AvV-Sr-vLn" secondAttribute="top" constant="-1" id="HF6-lP-dkU"/>
-                            <constraint firstItem="5I2-pE-NTM" firstAttribute="width" secondItem="AvV-Sr-vLn" secondAttribute="width" id="T4K-Jx-8fm"/>
-                            <constraint firstItem="AvV-Sr-vLn" firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="Uzr-5N-pbi"/>
-                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="leading" secondItem="AvV-Sr-vLn" secondAttribute="leading" id="dLH-ji-tcG"/>
-                            <constraint firstItem="AvV-Sr-vLn" firstAttribute="trailing" secondItem="5FM-IV-ZSI" secondAttribute="trailing" id="p76-re-mBn"/>
+                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="717" secondAttribute="top" constant="-1" id="HF6-lP-dkU"/>
+                            <constraint firstItem="5I2-pE-NTM" firstAttribute="width" secondItem="717" secondAttribute="width" id="T4K-Jx-8fm"/>
+                            <constraint firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="Uzr-5N-pbi"/>
+                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="leading" secondItem="717" secondAttribute="leading" id="dLH-ji-tcG"/>
+                            <constraint firstAttribute="trailing" secondItem="5FM-IV-ZSI" secondAttribute="trailing" id="p76-re-mBn"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
