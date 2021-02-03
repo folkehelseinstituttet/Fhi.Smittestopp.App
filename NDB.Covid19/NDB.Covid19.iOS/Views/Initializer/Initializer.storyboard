@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,15 +12,15 @@
         <scene sceneID="268">
             <objects>
                 <viewController id="269" customClass="InizializerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EbN-kE-3Wh">
+                    <view key="view" contentMode="scaleToFill" id="270">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="quq-S5-5SE" userLabel="initializerHeader">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="281"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="281.33333333333331"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHILogo" translatesAutoresizingMaskIntoConstraints="NO" id="e2F-Qh-xe5">
-                                        <rect key="frame" x="226" y="177" width="116" height="56"/>
+                                        <rect key="frame" x="226" y="177.33333333333334" width="116" height="56"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,13 +30,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wz-BK-vK1" userLabel="contentView">
-                                <rect key="frame" x="0.0" y="281" width="390" height="563"/>
+                                <rect key="frame" x="0.0" y="281.33333333333331" width="390" height="562.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHISmittestoppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ok7-Rw-lyH" userLabel="AppLogoImage">
                                         <rect key="frame" x="52.666666666666657" y="48" width="285" height="157"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HI-60-TMp" userLabel="Start Button">
-                                        <rect key="frame" x="169" y="253" width="52" height="32"/>
+                                        <rect key="frame" x="169" y="253.00000000000006" width="52" height="32"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
                                         <state key="normal" title="Button">
@@ -62,22 +61,24 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="0rg-QI-YMk"/>
                         <color key="backgroundColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9Wz-BK-vK1" secondAttribute="trailing" id="0jY-Kc-yuS"/>
-                            <constraint firstItem="quq-S5-5SE" firstAttribute="leading" secondItem="EbN-kE-3Wh" secondAttribute="leading" id="BeL-iP-VR0"/>
-                            <constraint firstItem="quq-S5-5SE" firstAttribute="height" secondItem="EbN-kE-3Wh" secondAttribute="height" multiplier="0.333" id="XMT-cp-tLg"/>
+                            <constraint firstAttribute="trailing" secondItem="9Wz-BK-vK1" secondAttribute="trailing" id="3NG-q4-RFp"/>
+                            <constraint firstItem="quq-S5-5SE" firstAttribute="leading" secondItem="270" secondAttribute="leading" id="P4M-NB-56n"/>
+                            <constraint firstAttribute="trailing" secondItem="quq-S5-5SE" secondAttribute="trailing" id="WGM-nF-41f"/>
                             <constraint firstAttribute="bottom" secondItem="9Wz-BK-vK1" secondAttribute="bottom" id="Xnl-9T-FFX"/>
                             <constraint firstItem="quq-S5-5SE" firstAttribute="bottom" secondItem="9Wz-BK-vK1" secondAttribute="top" id="aVt-Kx-lIr"/>
-                            <constraint firstItem="quq-S5-5SE" firstAttribute="top" secondItem="EbN-kE-3Wh" secondAttribute="top" id="iKZ-Uc-6V0"/>
-                            <constraint firstItem="9Wz-BK-vK1" firstAttribute="leading" secondItem="EbN-kE-3Wh" secondAttribute="leading" id="pJm-7y-bI3"/>
+                            <constraint firstItem="9Wz-BK-vK1" firstAttribute="leading" secondItem="270" secondAttribute="leading" id="dj6-Pk-qx7"/>
+                            <constraint firstItem="quq-S5-5SE" firstAttribute="height" secondItem="270" secondAttribute="height" multiplier="0.333333" id="kBB-Ah-CcT"/>
+                            <constraint firstAttribute="top" secondItem="quq-S5-5SE" secondAttribute="top" id="nza-BI-86K"/>
                             <constraint firstAttribute="trailing" secondItem="quq-S5-5SE" secondAttribute="trailing" id="tRS-Uw-iCD"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="HeaderView" destination="quq-S5-5SE" id="n76-zh-GFA"/>
                         <outlet property="StartButton" destination="9HI-60-TMp" id="RBC-SB-ckY"/>
+                        <outlet property="appLogo" destination="Ok7-Rw-lyH" id="yv2-Vt-Znc"/>
+                        <outlet property="fhiLogo" destination="e2F-Qh-xe5" id="PVT-S6-wKO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="271" userLabel="First Responder" sceneMemberID="firstResponder"/>

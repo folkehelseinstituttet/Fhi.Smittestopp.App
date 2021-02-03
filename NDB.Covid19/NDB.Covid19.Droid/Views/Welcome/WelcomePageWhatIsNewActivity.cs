@@ -6,6 +6,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.ViewModels.WelcomePageWhatIsNewViewModel;
 
@@ -36,19 +37,22 @@ namespace NDB.Covid19.Droid.Views.Welcome
             button.Text = WELCOME_PAGE_WHATS_NEW_BUTTON;
             footer.Text = WELCOME_PAGE_WHATS_NEW_FOOTER;
 
-            button.Click += new StressUtils.SingleClick(((o, args) => NavigationHelper.GoToOnBoarding(this, true))).Run;
-
             View rootView = Window.DecorView.RootView;
             rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            button.Click += new StressUtils.SingleClick((o, args) =>
+            {
+                OnboardingStatusHelper.Status = ConsentsHelper.GetStatusDependingOnRelease();
+                NavigationHelper.GoToResultPageAndClearTop(this);
+            }).Run;
         }
 
         private void SetBulletText(int resourceId, string textContent)
         {
             LinearLayout bullet = FindViewById<LinearLayout>(resourceId);
-            CheckBox bulletCheckBox = bullet.FindViewById<CheckBox>(Resource.Id.bulletText);
-            if (bulletCheckBox != null)
+            TextView bulletTextView = bullet.FindViewById<TextView>(Resource.Id.bullet_text);
+            if (bulletTextView != null)
             {
-                bulletCheckBox.TextFormatted =  HtmlCompat.FromHtml(textContent, HtmlCompat.FromHtmlModeLegacy);
+                bulletTextView.Text = textContent;
             }
         }
     }

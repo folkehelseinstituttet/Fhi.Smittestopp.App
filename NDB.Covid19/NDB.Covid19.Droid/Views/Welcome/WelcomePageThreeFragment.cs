@@ -27,10 +27,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             infoBoxBody.ContentDescription = WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY;
 
-            view.LayoutDirection = LayoutUtils.GetLayoutDirection();
-            Button arrowBack = view.FindViewById<Button>(Resource.Id.arrow_back);
-            arrowBack.SetBackgroundResource(LayoutUtils.GetBackArrow());
-
+            WelcomePageTools.SetLayoutDirection(view);
             WelcomePageTools.SetArrowVisibility(view);
 
             return view;

@@ -13,6 +13,12 @@ namespace NDB.Covid19.iOS.Views.Initializer
 	partial class InizializerViewController
 	{
 		[Outlet]
+		UIKit.UIImageView appLogo { get; set; }
+
+		[Outlet]
+		UIKit.UIImageView fhiLogo { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIView HeaderView { get; set; }
 
@@ -32,6 +38,16 @@ namespace NDB.Covid19.iOS.Views.Initializer
 			if (StartButton != null) {
 				StartButton.Dispose ();
 				StartButton = null;
+			}
+
+			if (fhiLogo != null) {
+				fhiLogo.Dispose ();
+				fhiLogo = null;
+			}
+
+			if (appLogo != null) {
+				appLogo.Dispose ();
+				appLogo = null;
 			}
 		}
 	}
