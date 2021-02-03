@@ -47,16 +47,15 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
 
         void InitPrivacyPolicyButton()
         {
-            _privacyPolicyButton = new UIButton(new CGRect(0, 0, 0, 50));
+            _privacyPolicyButton = new UIButton(UIButtonType.System);
+            _privacyPolicyButton.Frame = new CGRect(0, 0, 0, 0);
+            _privacyPolicyButton.TouchUpInside += (sender, e) => {
+                ConsentViewModel.OpenPrivacyPolicyLink();
+            };
+
 
             StyleUtil.InitLinkButtonStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
         }
-
-        void OnPrivacyPolicyPressed(object sender, EventArgs eventArgs)
-        {
-            ConsentViewModel.OpenPrivacyPolicyLink();
-        }
-
 
         partial void DeleteConsentBtn_TouchUpInside(DefaultBorderButton sender)
         {
