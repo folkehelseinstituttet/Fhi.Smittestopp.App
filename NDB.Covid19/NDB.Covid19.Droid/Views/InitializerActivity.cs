@@ -17,6 +17,8 @@ namespace NDB.Covid19.Droid.Views
     public class InitializerActivity : Activity
     {
         Button _launcherButton;
+        ImageView _fhiLogo;
+        ImageView _appLogo;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,8 +39,12 @@ namespace NDB.Covid19.Droid.Views
 
             SetContentView(Resource.Layout.layout_with_launcher_button_ag_api);
             _launcherButton = FindViewById<Button>(Resource.Id.launcher_button);
-
             _launcherButton.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN;
+            _fhiLogo = FindViewById<ImageView>(Resource.Id.launcer_icon_imageview);
+            _appLogo = FindViewById<ImageView>(Resource.Id.app_logo);
+
+            _fhiLogo.ContentDescription = InitializerViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
+            _appLogo.ContentDescription = InitializerViewModel.SMITTESPORING_APP_LOGO_ACCESSIBILITY;
             
             _launcherButton.Click += new SingleClick(LauncherButton_Click).Run;
         }

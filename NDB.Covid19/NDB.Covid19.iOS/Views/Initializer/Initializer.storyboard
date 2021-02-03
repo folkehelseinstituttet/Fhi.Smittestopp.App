@@ -13,9 +13,9 @@
         <scene sceneID="268">
             <objects>
                 <viewController id="269" customClass="InizializerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EbN-kE-3Wh">
+                    <view key="view" contentMode="scaleToFill" id="270">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="quq-S5-5SE" userLabel="initializerHeader">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="281"/>

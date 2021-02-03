@@ -23,7 +23,11 @@ namespace NDB.Covid19.iOS.Views.Initializer
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            
             StyleUtil.InitButtonStyling(StartButton, InitializerViewModel.LAUNCHER_PAGE_START_BTN);
+            fhiLogo.AccessibilityLabel = InitializerViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
+            appLogo.AccessibilityLabel = InitializerViewModel.SMITTESPORING_APP_LOGO_ACCESSIBILITY;
+
             HeaderView.SizeToFit();
         }
 
