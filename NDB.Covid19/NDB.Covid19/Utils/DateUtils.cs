@@ -25,9 +25,7 @@ namespace NDB.Covid19.Utils
                     dateTime.Minute,
                     dateTime.Second,
                     dateTime.Millisecond,
-                    currentCultureIsSupported
-                        ? CultureInfo.CurrentCulture.Calendar
-                        : new GregorianCalendar());
+                    new GregorianCalendar());
                 dateString = calenderDateTime.ToString(dateFormat, currentCultureIsSupported ? cultureInfo : defaultCultureInfo);
                 return dateString.Replace("-", ".");
             }
