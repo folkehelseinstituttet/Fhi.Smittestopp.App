@@ -20,7 +20,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             DependencyInjectionConfig.Init();
         }
 
-        [Theory(Skip = "Not present in this version")]
+        [Theory]
         [InlineData(OnboardingStatus.NoConsentsGiven, false)]
         [InlineData(OnboardingStatus.OnlyMainOnboardingCompleted, true)]
         [InlineData(OnboardingStatus.CountriesOnboardingCompleted, false)]
@@ -49,7 +49,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.Equal(result, LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown != DateTime.MinValue);
         }
 
-        [Theory(Skip = "Not present in this version")]
+        [Theory]
         [InlineData(10, 10, 5)]
         [InlineData(3, 3, 6)]
         [InlineData(1, 1, 5)]

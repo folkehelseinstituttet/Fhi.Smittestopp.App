@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
@@ -11,7 +12,7 @@ using static NDB.Covid19.ViewModels.WelcomePageWhatIsNewViewModel;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
-    [Activity(Label = "WelcomePageWhatIsNewActivity", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "WelcomePageWhatIsNewActivity", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
 
     public class WelcomePageWhatIsNewActivity : AppCompatActivity
     {
@@ -36,6 +37,8 @@ namespace NDB.Covid19.Droid.Views.Welcome
             button.Text = WELCOME_PAGE_WHATS_NEW_BUTTON;
             footer.Text = WELCOME_PAGE_WHATS_NEW_FOOTER;
 
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
             button.Click += new StressUtils.SingleClick((o, args) =>
             {
                 OnboardingStatusHelper.Status = ConsentsHelper.GetStatusDependingOnRelease();

@@ -39,8 +39,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         DateTime day4 = new DateTime(2020, 10, 31, 9, 24, 0, DateTimeKind.Utc).Date;
         DateTime sixteenDaysAgoForGapsTest = new DateTime(2020, 10, 16, 15, 20, 0, DateTimeKind.Utc).Date;
 
-        static string PULL_BATCH_TYPE => PreferencesKeys.LAST_PULLED_BATCH_TYPE;
-
         public PullKeysTests()
         {
             DependencyInjectionConfig.Init();
@@ -90,8 +88,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             DateTime newToday = DateTime.ParseExact(todayString, "yyyy-MM-dd HH:mm z", CultureInfo.GetCultureInfo("nn-NO"));
             SystemTime.SetDateTime(newToday);
 
-            _preferences.Set(PULL_BATCH_TYPE, "all");
-
             //Given last time we pulled was day3, batch2.
             _helper.SetLastPulledDate(day1, 2);
 
@@ -110,13 +106,13 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //The history is stored for dev tools:
             string expected = $"Pulled the following keys (batches) at {newToday.ToUniversalTime().ToString("yyyy-MM-dd HH:mm")} UTC:\n" +
-                $"* 2020-08-23_3_all.zip: 200 OK\n" +
-                $"* 2020-08-24_1_all.zip: 200 OK\n" +
-                $"* 2020-08-24_2_all.zip: 200 OK\n" +
-                $"* 2020-08-24_3_all.zip: 200 OK\n" +
-                $"* 2020-08-25_1_all.zip: 200 OK\n" +
-                $"* 2020-08-25_2_all.zip: 200 OK\n" +
-                $"* 2020-08-25_3_all.zip: 200 OK";
+                $"* 2020-08-23_3_no.zip: 200 OK\n" +
+                $"* 2020-08-24_1_no.zip: 200 OK\n" +
+                $"* 2020-08-24_2_no.zip: 200 OK\n" +
+                $"* 2020-08-24_3_no.zip: 200 OK\n" +
+                $"* 2020-08-25_1_no.zip: 200 OK\n" +
+                $"* 2020-08-25_2_no.zip: 200 OK\n" +
+                $"* 2020-08-25_3_no.zip: 200 OK";
 
             Assert.Equal(expected, _developerTools.LastPullHistory);
             Assert.Equal(expected, _developerTools.AllPullHistory);
@@ -144,8 +140,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //Given today is day1
             SystemTime.SetDateTime(day1);
 
-            _preferences.Set(PULL_BATCH_TYPE, "all");
-
             //Given last time we pulled was day1, batch1.
             _helper.SetLastPulledDate(day1, 1);
 
@@ -163,8 +157,8 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.False((await _logManager.GetLogs(10)).Any());
             //The history is stored for dev tools:
             string expected = $"Pulled the following keys (batches) at {day1.ToString("yyyy-MM-dd HH:mm")} UTC:\n" +
-                $"* 2020-08-23_2_all.zip: 200 OK\n" +
-                $"* 2020-08-23_3_all.zip: 200 OK";
+                $"* 2020-08-23_2_no.zip: 200 OK\n" +
+                $"* 2020-08-23_3_no.zip: 200 OK";
 
             Assert.Equal(expected, _developerTools.LastPullHistory);
             LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
@@ -185,9 +179,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //And no errors were logged
             Assert.False((await _logManager.GetLogs(10)).Any());
             string expected2 = $"Pulled the following keys (batches) at {day2.ToString("yyyy-MM-dd HH:mm")} UTC:\n" +
-                $"* 2020-08-24_1_all.zip: 200 OK\n" +
-                $"* 2020-08-24_2_all.zip: 200 OK\n" +
-                $"* 2020-08-24_3_all.zip: 200 OK";
+                $"* 2020-08-24_1_no.zip: 200 OK\n" +
+                $"* 2020-08-24_2_no.zip: 200 OK\n" +
+                $"* 2020-08-24_3_no.zip: 200 OK";
 
             Assert.Equal(expected2, _developerTools.LastPullHistory);
         }
@@ -210,8 +204,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //Given today is day3
             SystemTime.SetDateTime(day3);
-
-            _preferences.Set(PULL_BATCH_TYPE, "all");
 
             //Given last time we pulled was day3, batch2.
             _helper.SetLastPulledDate(day3, 1);
@@ -256,14 +248,14 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //The history is stored for dev tools:
             string day3string = day3.ToUniversalTime().ToString("yyyy-MM-dd HH:mm");
             string lastPullHistoryExpected = $"Pulled the following keys (batches) at {day3string} UTC:\n" +
-                $"* 2020-08-25_3_all.zip: 200 OK";
+                $"* 2020-08-25_3_no.zip: 200 OK";
             Assert.Equal(lastPullHistoryExpected, _developerTools.LastPullHistory);
 
             string AllPullHistoryExpected = $"Pulled the following keys (batches) at {day3string} UTC:\n" +
-                $"* 2020-08-25_2_all.zip: 200 OK\n" +
-                $"* 2020-08-25_3_all.zip: {errorCode} Server Error\n\n" +
+                $"* 2020-08-25_2_no.zip: 200 OK\n" +
+                $"* 2020-08-25_3_no.zip: {errorCode} Server Error\n\n" +
                 $"Pulled the following keys (batches) at {day3string} UTC:\n" +
-                $"* 2020-08-25_3_all.zip: 200 OK";
+                $"* 2020-08-25_3_no.zip: 200 OK";
             Assert.Equal(AllPullHistoryExpected, _developerTools.AllPullHistory);
         }
 
@@ -281,8 +273,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 new PullKeysMockData(day2, 2).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(false),
                 new PullKeysMockData(day2, 3).HttpStatusCode(204),
             });
-
-            _preferences.Set(PULL_BATCH_TYPE, "all");
 
             //Given today is day2
             SystemTime.SetDateTime(day2);
@@ -348,8 +338,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //Given today is day2
             SystemTime.SetDateTime(day2);
 
-            _preferences.Set(PULL_BATCH_TYPE, "all");
-
             //Given last time we pulled was day3, batch2.
             _helper.SetLastPulledDate(day1, 2);
 
@@ -406,8 +394,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //Given today is day1
             SystemTime.SetDateTime(day1);
 
-            _preferences.Set(PULL_BATCH_TYPE, "all");
-
             //Given last time we pulled was day, batch3.
             _helper.SetLastPulledDate(day1, 3);
 
@@ -439,8 +425,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //Given today is day1
             SystemTime.SetDateTime(day1);
-
-            _preferences.Set(PULL_BATCH_TYPE, "all");
 
             //Given last time we pulled was day, batch3.
             _helper.SetLastPulledDate(day1, 1);
@@ -564,10 +548,10 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // Fetch one time successfully 16 days ago
             ExposureNotificationWebService mockedService1 = _helper.MockedService(new List<PullKeysMockData>
             {
-                new PullKeysMockData(sixteenDaysAgoForGapsTest, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
-                new PullKeysMockData(sixteenDaysAgoForGapsTest, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
-                new PullKeysMockData(sixteenDaysAgoForGapsTest, 3, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(false),
-                new PullKeysMockData(sixteenDaysAgoForGapsTest, 4, BatchType.ALL).HttpStatusCode(204),
+                new PullKeysMockData(sixteenDaysAgoForGapsTest, 1, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(sixteenDaysAgoForGapsTest, 2, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(sixteenDaysAgoForGapsTest, 3, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(sixteenDaysAgoForGapsTest, 4, BatchType.NO).HttpStatusCode(204),
             });
             SystemTime.SetDateTime(sixteenDaysAgoForGapsTest);
             List<string> zipLocations1 = (await new ZipDownloader().PullNewKeys(mockedService1, new CancellationToken())).ToList();
@@ -590,6 +574,82 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.Equal(14 * 3 / 2, zipLocations2.Count);
             Assert.Equal(3, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted); //The last batch number is saved from header
             Assert.False((await _logManager.GetLogs(10)).Any()); //And no errors were logged
+        }
+
+        [Fact]
+        public async void PullKeys_NewTermsWereApproved()
+        {
+            int lastBatchNumNO = 4;
+            int lastBatchNumALL = 5;
+
+            //Both NO and EU keys exist for the last 3 days
+            ExposureNotificationWebService mockedService = _helper.MockedService(new List<PullKeysMockData>
+            {
+                new PullKeysMockData(day1, 1, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 2, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 3, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day1, 4, BatchType.NO).HttpStatusCode(204),
+                new PullKeysMockData(day1, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 3, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day1, 4, BatchType.ALL).HttpStatusCode(204),
+
+                new PullKeysMockData(day2, 1, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day2, 2, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day2, 3, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day2, 4, BatchType.NO).HttpStatusCode(204),
+                new PullKeysMockData(day2, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day2, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day2, 3, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day2, 4, BatchType.ALL).HttpStatusCode(204),
+
+                new PullKeysMockData(day3, 1, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day3, 2, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day3, 3, BatchType.NO).HttpStatusCode(200).WithLastBatchHeader(lastBatchNumNO).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day3, 4, BatchType.NO).HttpStatusCode(204),
+                new PullKeysMockData(day3, 5, BatchType.NO).HttpStatusCode(204),
+                new PullKeysMockData(day3, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day3, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day3, 3, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(lastBatchNumALL).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day3, 4, BatchType.ALL).HttpStatusCode(204),
+                new PullKeysMockData(day3, 5, BatchType.NO).HttpStatusCode(204),
+
+            });
+
+            //Given today is day2 AND that the new terms have not been approved.
+            SystemTime.SetDateTime(day3);
+
+            //Given last time we pulled was day1, batch1.
+            _helper.SetLastPulledDate(day1, 1);
+
+            //When pulling keys
+            List<string> zipLocations = (await new ZipDownloader().PullNewKeys(mockedService, new CancellationToken())).ToList();
+
+            //Then we pull all NO keys
+            Assert.Equal(8, zipLocations.Count);
+            Assert.Equal(lastBatchNumNO, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted); //The last batch number is saved from header
+            Assert.False((await _logManager.GetLogs(10)).Any()); //And no errors were logged
+
+            //Prepare for new pull
+            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
+            await _logManager.DeleteAll();
+            _developerTools.ClearAllFields();
+
+            //When accepting the term
+            OnboardingStatusHelper.Status = OnboardingStatus.CountriesOnboardingCompleted;
+
+            //And then pull again
+            zipLocations = (await new ZipDownloader().PullNewKeys(mockedService, new CancellationToken())).ToList();
+
+            //Then we pull all EU keys but only for today
+            Assert.Equal(3, zipLocations.Count);
+            Assert.Equal(lastBatchNumALL, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted); //The last batch number is saved from header
+            Assert.False((await _logManager.GetLogs(10)).Any()); //And no errors were logged
+
+            //Next time it will also pull EU keys:
+            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
+            PullKeysParams newParams = PullKeysParams.GenerateParams();
+            Assert.Equal(BatchType.ALL, newParams.BatchType);
         }
 
         List<PullKeysMockData> SixteenDaysOfKeys()

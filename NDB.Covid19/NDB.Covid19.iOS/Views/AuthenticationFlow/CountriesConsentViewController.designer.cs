@@ -14,30 +14,31 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel BodyText1 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel BodyText2 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIButton CloseBtn { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Consent_onlyNorway_Explanation { get; set; }
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Consent_BeAware_Text { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel ConsentEU_Explanation { get; set; }
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Consent_Explanation_Text { get; set; }
 
 		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel ConsentText { get; set; }
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel DescriptionLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel HeaderLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel LookUp_Header { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel LookUp_Text { get; set; }
 
 		[Outlet]
 		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextButtonOnlyNorwayConsent { get; set; }
@@ -46,7 +47,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextButtonWithEUConsent { get; set; }
 
 		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel ShareHeader { get; set; }
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Notification_Header { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel Notification_Text { get; set; }
 
 		[Action ("OnCloseBtnTapped:")]
 		partial void OnCloseBtnTapped (UIKit.UIButton sender);
@@ -59,44 +65,24 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (NextButtonOnlyNorwayConsent != null) {
-				NextButtonOnlyNorwayConsent.Dispose ();
-				NextButtonOnlyNorwayConsent = null;
-			}
-
-			if (NextButtonWithEUConsent != null) {
-				NextButtonWithEUConsent.Dispose ();
-				NextButtonWithEUConsent = null;
-			}
-
-			if (BodyText1 != null) {
-				BodyText1.Dispose ();
-				BodyText1 = null;
-			}
-
-			if (ShareHeader != null) {
-				ShareHeader.Dispose ();
-				ShareHeader = null;
-			}
-
-			if (BodyText2 != null) {
-				BodyText2.Dispose ();
-				BodyText2 = null;
-			}
-
 			if (CloseBtn != null) {
 				CloseBtn.Dispose ();
 				CloseBtn = null;
 			}
 
-			if (Consent_onlyNorway_Explanation != null) {
-				Consent_onlyNorway_Explanation.Dispose ();
-				Consent_onlyNorway_Explanation = null;
+			if (Consent_BeAware_Text != null) {
+				Consent_BeAware_Text.Dispose ();
+				Consent_BeAware_Text = null;
 			}
 
-			if (ConsentEU_Explanation != null) {
-				ConsentEU_Explanation.Dispose ();
-				ConsentEU_Explanation = null;
+			if (Consent_Explanation_Text != null) {
+				Consent_Explanation_Text.Dispose ();
+				Consent_Explanation_Text = null;
+			}
+
+			if (DescriptionLabel != null) {
+				DescriptionLabel.Dispose ();
+				DescriptionLabel = null;
 			}
 
 			if (HeaderLabel != null) {
@@ -104,9 +90,34 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 				HeaderLabel = null;
 			}
 
-			if (ConsentText != null) {
-				ConsentText.Dispose ();
-				ConsentText = null;
+			if (LookUp_Header != null) {
+				LookUp_Header.Dispose ();
+				LookUp_Header = null;
+			}
+
+			if (LookUp_Text != null) {
+				LookUp_Text.Dispose ();
+				LookUp_Text = null;
+			}
+
+			if (NextButtonWithEUConsent != null) {
+				NextButtonWithEUConsent.Dispose ();
+				NextButtonWithEUConsent = null;
+			}
+
+			if (NextButtonOnlyNorwayConsent != null) {
+				NextButtonOnlyNorwayConsent.Dispose ();
+				NextButtonOnlyNorwayConsent = null;
+			}
+
+			if (Notification_Header != null) {
+				Notification_Header.Dispose ();
+				Notification_Header = null;
+			}
+
+			if (Notification_Text != null) {
+				Notification_Text.Dispose ();
+				Notification_Text = null;
 			}
 		}
 	}

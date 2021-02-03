@@ -56,5 +56,20 @@ namespace NDB.Covid19.Test.Tests.Utils
 
             CultureInfo.CurrentCulture = initialCulture;
         }
+
+        [Fact]
+        public void CountryDetailsDTO_GetName_NotNullOrEmpty()
+        {
+            CountryDetailsDTO country = new CountryDetailsDTO()
+            {
+                Name_NB = "Norge",
+                Name_NN = "Noreg",
+                Name_EN = "Norway",
+                Code = "no"
+            };
+
+            Assert.NotNull(country.GetName());
+            Assert.NotEmpty(country.GetName());
+        }
     }
 }

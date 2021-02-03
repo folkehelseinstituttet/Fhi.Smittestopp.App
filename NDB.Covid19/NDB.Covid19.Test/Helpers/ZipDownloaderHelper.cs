@@ -110,7 +110,7 @@ namespace NDB.Covid19.Test.Helpers
 
         public PullKeysMockData(DateTime date, int requestBatchNumber)
         {
-            RequestString = GetRequest(date, requestBatchNumber, BatchType.ALL);
+            RequestString = GetRequest(date, requestBatchNumber, BatchType.NO);
         }
 
         public PullKeysMockData HttpStatusCode(int statusCode)
@@ -131,7 +131,7 @@ namespace NDB.Covid19.Test.Helpers
             return this;
         }
 
-        string GetRequest(DateTime date, int batchNum, BatchType batchType = BatchType.ALL)
+        string GetRequest(DateTime date, int batchNum, BatchType batchType = BatchType.NO)
         {
             return new PullKeysParams
             {

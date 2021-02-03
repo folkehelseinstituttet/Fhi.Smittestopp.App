@@ -44,61 +44,69 @@
                     android:id="@+id/header_textView"
                     style="@style/HeaderText"/>
             <TextView
-                    android:text="Body text 1"
+                    android:text="Consent description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/defaultVerticalMargin"
                     android:layout_below="@id/header_textView"
-                    android:id="@+id/bodytext1"
+                    android:id="@+id/contentDescription_textView"
                     style="@style/PrimaryTextRegular"/>
             <TextView
-                    android:text="Share header"
+                    android:text="LookUp header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/defaultVerticalMargin"
-                    android:layout_below="@id/bodytext1"
-                    android:id="@+id/share_header"
+                    android:textSize="16sp"
+                    android:layout_below="@id/contentDescription_textView"
+                    android:id="@+id/lookup_header_textview"
                     style="@style/PrimaryTextBold"/>
             <TextView
-                    android:text="Body text 2"
+                    android:text="LookUp text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/smallMargin"
-                    android:layout_below="@id/share_header"
-                    android:id="@+id/bodytext2"
+                    android:layout_below="@id/lookup_header_textview"
+                    android:id="@+id/lookup_text_textview"
                     style="@style/PrimaryTextRegular"/>
             <TextView
-                    android:text="EU button explanation text"
+                    android:text="Notification header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
-                    android:layout_below="@id/bodytext2"
-                    android:id="@+id/consent_EU_explanation"
-                    style="@style/PrimaryTextRegular"/>
-            <TextView
-                    android:text="Norway only button explanation text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/consent_EU_explanation"
-                    android:id="@+id/consent_onlyNorway_explanation"
-                    style="@style/PrimaryTextRegular"/>
-            <TextView
-                    android:text="Consent text"
-                    android:layout_width="wrap_content"
                     android:paddingTop="@dimen/defaultVerticalMargin"
+                    android:textSize="16sp"
+                    android:layout_below="@id/lookup_text_textview"
+                    android:id="@+id/notification_header_textview"
+                    style="@style/PrimaryTextBold"/>
+            <TextView
+                    android:text="Notification text"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/consent_onlyNorway_explanation"
-                    android:id="@+id/consent_text"
+                    android:layout_below="@id/notification_header_textview"
+                    android:id="@+id/notification_text_textview"
+                    style="@style/PrimaryTextRegular"/>
+            <TextView
+                    android:text="Be aware text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="48dp"
+                    android:layout_below="@id/notification_text_textview"
+                    android:id="@+id/beAware_text_textview"
+                    style="@style/PrimaryTextRegular"/>
+            <TextView
+                    android:text="Notification text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/defaultVerticalMargin"
+                    android:layout_below="@id/beAware_text_textview"
+                    android:id="@+id/explanation_text_textview"
                     style="@style/PrimaryTextItalic"/>
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                android:layout_below="@id/consent_text">
+                android:layout_below="@id/explanation_text_textview">
                 <Button
-                    android:text="Consent Button, EU"
-                    android:layout_marginVertical="@dimen/buttonHeight"
+                    android:text="Consent Button"
+                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
                     android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
@@ -106,8 +114,8 @@
                     android:id="@+id/consentButton_EU"
                     style="@style/IDPortenButton"/>
                 <Button
-                    android:text="Consent Button, Norway only"
-                    android:layout_marginVertical="@dimen/buttonHeight"
+                    android:text="Consent Button"
+                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
                     android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
                     android:layout_width="match_parent"
                     android:layout_weight="1"

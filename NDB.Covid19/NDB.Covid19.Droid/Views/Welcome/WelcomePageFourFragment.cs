@@ -23,6 +23,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             header.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
+            WelcomePageTools.SetLayoutDirection(view);
             WelcomePageTools.SetArrowVisibility(view);
 
             return view;

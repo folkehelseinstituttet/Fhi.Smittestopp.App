@@ -19,12 +19,13 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
     {
         private ViewGroup _closeButton;
         private TextView _header;
-        private TextView _bodytext1;
-        private TextView _shareHeader;
-        private TextView _bodytext2;
-        private TextView _consentEUExplanation;
-        private TextView _consentNorwayExplanation;
-        private TextView _consentText;
+        private TextView _consentDescriptionText;
+        private TextView _lookupHeader;
+        private TextView _lookupText;
+        private TextView _notificationHeader;
+        private TextView _notificationText;
+        private TextView _beAwareText;
+        private TextView _consentExplanationText;
         private Button _consentButtonEU;
         private Button _consentButtonOnlyNorway;
         
@@ -45,23 +46,25 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             //TextViews
             _header = FindViewById<TextView>(Resource.Id.header_textView);
-            _bodytext1 = FindViewById<TextView>(Resource.Id.bodytext1);
-            _shareHeader = FindViewById<TextView>(Resource.Id.share_header);
-            _bodytext2 = FindViewById<TextView>(Resource.Id.bodytext2);
-            _consentEUExplanation = FindViewById<TextView>(Resource.Id.consent_EU_explanation);
-            _consentNorwayExplanation = FindViewById<TextView>(Resource.Id.consent_onlyNorway_explanation);
-            _consentText = FindViewById<TextView>(Resource.Id.consent_text);
+            _consentDescriptionText = FindViewById<TextView>(Resource.Id.contentDescription_textView);
+            _lookupHeader = FindViewById<TextView>(Resource.Id.lookup_header_textview);
+            _lookupText = FindViewById<TextView>(Resource.Id.lookup_text_textview);
+            _notificationHeader = FindViewById<TextView>(Resource.Id.notification_header_textview);
+            _notificationText = FindViewById<TextView>(Resource.Id.notification_text_textview);
+            _beAwareText = FindViewById<TextView>(Resource.Id.beAware_text_textview);
+            _consentExplanationText = FindViewById<TextView>(Resource.Id.explanation_text_textview);
 
             //Text initialization
             _consentButtonEU.Text = EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT;
             _consentButtonOnlyNorway.Text = EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT;
             _header.Text = HEADER_TEXT;
-            _bodytext1.Text = CONSENT3_BODYTEXT_1;
-            _shareHeader.Text = CONSENT3_SHAREDATA_HEADER;
-            _bodytext2.Text = CONSENT3_BODYTEXT_2;
-            _consentEUExplanation.Text = CONSENT3_EU_CONSENT_BUTTON_BODYTEXT;
-            _consentNorwayExplanation.Text = CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT;
-            _consentText.Text = CONSENT3_CONSENTTOSHARE;
+            _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
+            _lookupHeader.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_HEADER;
+            _lookupText.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_TEXT;
+            _notificationHeader.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_NOTIFICATION_HEADER;
+            _notificationText.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_NOTIFICATION_TEXT;
+            _beAwareText.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_BE_AWARE_TEXT;
+            _consentExplanationText.Text = COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_EXPLANATION_TEXT;
 
             ////Accessibility
             _closeButton.ContentDescription = CLOSE_BUTTON_ACCESSIBILITY_LABEL;

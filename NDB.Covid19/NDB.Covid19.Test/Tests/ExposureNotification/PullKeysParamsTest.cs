@@ -25,7 +25,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         }
 
         [Fact]
-        public void PullKeysParams_PullFirstTime()
+        public void PullKeysParams_PullFirstTime_ConsentNotGiven()
         {
             //Given the app never pulled before (preferences will be empty)
             _preferences.Clear();
@@ -35,10 +35,10 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //When the app pulls for the first time
             PullKeysParams pullParams = PullKeysParams.GenerateParams();
 
-            //We will request all keys for today
+            //We will request all keys for today but only NO keys (consent was not given yet)
             Assert.Equal(today.Date, pullParams.Date);
             Assert.Equal(1, pullParams.BatchNumber);
-            Assert.Equal(BatchType.ALL, pullParams.BatchType);
+            Assert.Equal(BatchType.NO, pullParams.BatchType);
 
             //Reset
             SystemTime.ResetDateTime();
@@ -71,7 +71,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             _preferences.Clear();
             _preferences.Set(PULL_DATE_KEY, lastPullDate.ToUniversalTime());
             _preferences.Set(PULL_BATCH_KEY, 3);
-            _preferences.Set(PULL_BATCH_TYPE, "all");
 
             //When the app pulls
             PullKeysParams pullParams = PullKeysParams.GenerateParams();
@@ -79,18 +78,19 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //Then the next batch number for today will be requested
             Assert.Equal(lastPullDate, pullParams.Date);
             Assert.Equal(4, pullParams.BatchNumber);
-            Assert.Equal(BatchType.ALL, pullParams.BatchType);
+            Assert.Equal(BatchType.NO, pullParams.BatchType);
 
             //Reset
             SystemTime.ResetDateTime();
         }
 
         [Fact]
-        public void PullKeysParams_NotFirstPull()
+        public void PullKeysParams_NotFirstPull_ConsentGiven()
         {
-            //App was just updated to pull EU keys, and the last pull was NO keys.
+            //Given consent was just given to pull EU keys, and the last pull was NO keys.
             DateTime lastPullDate = SystemTime.Now().Date;
             _preferences.Clear();
+            OnboardingStatusHelper.Status = OnboardingStatus.CountriesOnboardingCompleted;
             _preferences.Set(PULL_DATE_KEY, lastPullDate.ToUniversalTime());
             _preferences.Set(PULL_BATCH_KEY, 3);
             _preferences.Set(PULL_BATCH_TYPE, "no");
@@ -98,7 +98,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //When the app pulls for the first time
             PullKeysParams pullParams = PullKeysParams.GenerateParams();
 
-            //We will request all keys for today
+            //We will request all keys for today but only NO keys (consent was not given yet)
             Assert.Equal(SystemTime.Now().Date, pullParams.Date);
             Assert.Equal(1, pullParams.BatchNumber);
             Assert.Equal(BatchType.ALL, pullParams.BatchType);
@@ -115,7 +115,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             _preferences.Clear();
             _preferences.Set(PULL_DATE_KEY, lastPullDate.ToUniversalTime());
             _preferences.Set(PULL_BATCH_KEY, 2);
-            _preferences.Set(PULL_BATCH_TYPE, "all");
 
             //When the app pulls
             PullKeysParams pullParams = PullKeysParams.GenerateParams();
@@ -123,7 +122,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //Then the next batch number for three days ago will be requested
             Assert.Equal(lastPullDate, pullParams.Date);
             Assert.Equal(3, pullParams.BatchNumber);
-            Assert.Equal(BatchType.ALL, pullParams.BatchType);
+            Assert.Equal(BatchType.NO, pullParams.BatchType);
 
             //Reset
             SystemTime.ResetDateTime();
@@ -144,7 +143,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //Then it pulls only for the last 14 days, incl. today.
             Assert.Equal(SystemTime.Now().AddDays(-13).Date, pullParams.Date);
             Assert.Equal(1, pullParams.BatchNumber);
-            Assert.Equal(BatchType.ALL, pullParams.BatchType);
+            Assert.Equal(BatchType.NO, pullParams.BatchType);
 
             //Reset
             SystemTime.ResetDateTime();
@@ -163,7 +162,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             _preferences.Clear();
             _preferences.Set(PULL_DATE_KEY, lastPullDate.ToUniversalTime());
-            _preferences.Set(PULL_BATCH_TYPE, "all");
             _preferences.Set(PULL_BATCH_KEY, 2);
 
             //When the app pulls
@@ -172,7 +170,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //The date will be parsed right (UTC time)
             string expectedDateString = today.AddDays(expectedDaysAgo).ToString("yyyy-MM-dd");
-            Assert.Equal($"{expectedDateString}_3_all.zip", pullQueryParams);
+            Assert.Equal($"{expectedDateString}_3_no.zip", pullQueryParams);
 
             //Reset
             SystemTime.ResetDateTime();
@@ -198,7 +196,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //The date will be parsed right (UTC)
             string expectedDateString = SystemTime.Now().ToUniversalTime().Date.ToString("yyyy-MM-dd");
-            Assert.Equal($"{expectedDateString}_1_all.zip", pullQueryParams);
+            Assert.Equal($"{expectedDateString}_1_no.zip", pullQueryParams);
 
             //Reset
             SystemTime.ResetDateTime();

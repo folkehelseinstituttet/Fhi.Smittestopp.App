@@ -49,6 +49,12 @@
                                                                             <constraint firstAttribute="height" constant="31" id="epu-qX-Dhb"/>
                                                                         </constraints>
                                                                     </imageView>
+                                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ph-r7-9vJ" userLabel="Menu">
+                                                                        <rect key="frame" x="278" y="26" width="43" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1z-jk-4Mi">
                                                                         <rect key="frame" x="329" y="20" width="26" height="32"/>
                                                                         <constraints>
@@ -67,6 +73,8 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="E93-86-KJU" firstAttribute="leading" secondItem="KgM-Zm-LQS" secondAttribute="leading" constant="20" id="3w1-He-jFl"/>
+                                                                    <constraint firstItem="5ph-r7-9vJ" firstAttribute="centerY" secondItem="W1z-jk-4Mi" secondAttribute="centerY" id="5Nx-AH-qxm"/>
+                                                                    <constraint firstItem="W1z-jk-4Mi" firstAttribute="leading" secondItem="5ph-r7-9vJ" secondAttribute="trailing" constant="8" id="9hs-tU-QaE"/>
                                                                     <constraint firstAttribute="bottom" secondItem="E93-86-KJU" secondAttribute="bottom" constant="4" id="GMJ-Sw-dmG"/>
                                                                     <constraint firstItem="E93-86-KJU" firstAttribute="centerY" secondItem="W1z-jk-4Mi" secondAttribute="centerY" id="fZz-gf-za7"/>
                                                                     <constraint firstItem="KgM-Zm-LQS" firstAttribute="trailing" secondItem="W1z-jk-4Mi" secondAttribute="trailing" constant="20" id="gTY-yR-BoL"/>
@@ -361,6 +369,7 @@
                         <outlet property="AreYouInfectetView" destination="uTB-2U-XuQ" id="name-outlet-uTB-2U-XuQ"/>
                         <outlet property="LogInAndRegisterLbl" destination="VRZ-xs-qbe" id="name-outlet-VRZ-xs-qbe"/>
                         <outlet property="MenuIcon" destination="W1z-jk-4Mi" id="name-outlet-W1z-jk-4Mi"/>
+                        <outlet property="MenuLabel" destination="5ph-r7-9vJ" id="BCh-n5-LvB"/>
                         <outlet property="MessageIcon" destination="Fbf-eR-jCO" id="name-outlet-Fbf-eR-jCO"/>
                         <outlet property="MessageLbl" destination="0qZ-0A-rrR" id="name-outlet-0qZ-0A-rrR"/>
                         <outlet property="MessageView" destination="oNP-uq-7Sg" id="name-outlet-oNP-uq-7Sg"/>
