@@ -25,7 +25,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
             StyleUtil.InitButtonStyling(NynorskButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_NN);
             StyleUtil.InitButtonStyling(EnglishButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_EN);
             StyleUtil.InitButtonStyling(ArabicButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_AR);
-            StyleUtil.InitButtonStyling(PolishButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_PO);
+            StyleUtil.InitButtonStyling(PolishButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_PL);
             StyleUtil.InitButtonStyling(SomaliButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_SO);
             StyleUtil.InitButtonStyling(TigrinyaButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_TI);
             StyleUtil.InitButtonStyling(UrduButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_UR);
