@@ -143,6 +143,7 @@
     <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
     <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
     <Compile Include="Utils\LayoutUtils.cs" />
+    <Compile Include="Views\LanguageSelectionActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -894,6 +895,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\spinner_page.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\language_selection.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
