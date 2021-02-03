@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Android.Views;
 using Android.Widget;
+using AndroidX.ConstraintLayout.Widget;
 using AndroidX.RecyclerView.Widget;
 using NDB.Covid19.ViewModels;
 
@@ -31,7 +32,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
             if (holder is QuestionnaireCountriesSelectionAdapterViewHolder viewHolder)
             {
                 viewHolder.Caption.Text = item.Name;
-                viewHolder.Check.Checked = false || _selectedItems.Contains(position);
+                viewHolder.Check.Checked = _selectedItems.Contains(position);
 
                 viewHolder.SetOnClickListener(new CheckedChangeListener(this, holder, position));
             }
@@ -52,7 +53,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
 
             public void OnClick(View v)
             {
-                var vh = (QuestionnaireCountriesSelectionAdapterViewHolder) _holder;
+                QuestionnaireCountriesSelectionAdapterViewHolder vh = (QuestionnaireCountriesSelectionAdapterViewHolder) _holder;
                 vh.Check.Checked = !vh.Check.Checked;
                 _self.Data[_position].Checked = vh.Check.Checked;
             }
@@ -60,9 +61,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
         
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var view = LayoutInflater
+            ConstraintLayout view = LayoutInflater
                 .From(parent.Context)
-                .Inflate(Resource.Layout.country_view, parent, false) as LinearLayout;
+                .Inflate(Resource.Layout.country_view, parent, false) as ConstraintLayout;
             return new QuestionnaireCountriesSelectionAdapterViewHolder(view);
         }
 
@@ -71,8 +72,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
 
     class QuestionnaireCountriesSelectionAdapterViewHolder : RecyclerView.ViewHolder
     {
-        public CheckBox Check { get; set; }
-        public TextView Caption { get; set; }
+        public CheckBox Check { get; }
+        public TextView Caption { get; }
 
         private readonly View _itemView;
 

@@ -165,8 +165,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
                         Action =>
                         {
-                            // TODO Client do not want reset feature for now. Left for future release. 
-                            //_resetViews.ResetViews();
+                            _resetViews.ResetViews();
                         });
                     LocalPreferencesHelper.SetAppLanguage("nb");
                     break;
@@ -174,8 +173,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
                         Action =>
                         {
-                            // TODO Client do not want reset feature for now. Left for future release. 
-                            //_resetViews.ResetViews();
+                            _resetViews.ResetViews();
                         });
                     LocalPreferencesHelper.SetAppLanguage("nn");
                     break;
@@ -183,8 +181,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                     DialogHelper.ShowDialog(this, SettingsGeneralViewModel.GetChangeLanguageViewModel,
                         Action =>
                         {
-                            // TODO Client do not want reset feature for now. Left for future release. 
-                            //_resetViews.ResetViews();
+                            _resetViews.ResetViews();
                         });
                     LocalPreferencesHelper.SetAppLanguage("en");
                     break;

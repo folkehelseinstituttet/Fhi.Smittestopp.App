@@ -28,6 +28,9 @@ namespace NDB.Covid19.Droid.Views
             updateButton.Text = ForceUpdateViewModel.FORCE_UPDATE_BUTTON_GOOGLE_ANDROID;
             updateButton.ContentDescription = ForceUpdateViewModel.FORCE_UPDATE_BUTTON_GOOGLE_ANDROID;
             updateButton.Click += new StressUtils.SingleClick(GoToGooglePlay).Run;
+
+            ImageView fhiLogo = FindViewById<ImageView>(Resource.Id.force_update_logo);
+            fhiLogo.ContentDescription = ForceUpdateViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
         }
 
         private void GoToGooglePlay(object o, EventArgs eventArgs)

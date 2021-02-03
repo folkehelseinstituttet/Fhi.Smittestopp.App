@@ -1,5 +1,6 @@
 ﻿using System;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StressUtils;
@@ -34,6 +35,7 @@ namespace NDB.Covid19.iOS.Views.Welcome
         {
             base.ViewDidAppear(animated);
             NextButton.AddTarget(singleClick.Run, UIControlEvent.TouchUpInside);
+            StyleUtil.FlashScrollIndicatorsInSubScrollViews(View.Subviews);
         }
 
         public override void ViewDidDisappear(bool animated)
@@ -44,45 +46,35 @@ namespace NDB.Covid19.iOS.Views.Welcome
 
         private void NextButton_TouchUpInside(object sender, EventArgs e)
         {
-            GoToConsentPage();
+            OnboardingStatusHelper.Status = ConsentsHelper.GetStatusDependingOnRelease();
+            GoToInfectionStatusPage();
         }
 
-        void GoToConsentPage()
+        void GoToInfectionStatusPage()
         {
             InvokeOnMainThread(() =>
             {
-                UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("Consent");
+                UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("InfectionStatus");
                 NavigationController.PushViewController(vc, true);
             });
         }
 
         public void SetupStyling()
         {
-            /* Note:
-            This functionality is not planned for release 1.0. Kept for future use.
-
-            //StyleUtil.InitButtonStyling(NextButton, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BUTTON);
-            */
-            LabelBottom.TextAlignment = UITextAlignment.Center;
+            InitButtonStyling(NextButton, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BUTTON);
         }
 
         private void SetupTexts()
         {
-            /* Note:
-            This functionality is not planned for release 1.0. Kept for future use.
+            InitLabelWithSpacing(TitleLabel, FontType.FontBold, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_TITLE, 1.14, 24, 26);
+            InitLabelWithSpacing(Label1, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_ONE, 1.28, 16, 18);
+            InitLabelWithSpacing(Label2, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_TWO, 1.28, 16, 18);
+            InitLabelWithSpacing(LabelBottom, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_FOOTER, 1.28, 16, 18);
 
-            //StyleUtil.InitLabelWithSpacing(TitleLabel, FontType.FontBold, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_TITLE, 1.14, 24, 26);
-            //StyleUtil.InitLabelWithSpacing(Label1, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_ONE, 1.28, 16, 22);
-            //StyleUtil.InitLabelWithSpacing(Label2, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_TWO, 1.28, 16, 22);
-            //StyleUtil.InitLabelWithSpacing(Label3, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_THREE, 1.28, 16, 22);
-            //StyleUtil.InitLabelWithSpacing(LabelBottom, FontType.FontRegular, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_FOOTER, 1.28, 16, 22);
-
-            //SetAccessibilityText(TitleLabel, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_TITLE);
-            //SetAccessibilityText(Label1, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_ONE);
-            //SetAccessibilityText(Label2, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_TWO);
-            //SetAccessibilityText(Label3, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_THREE);
-            //SetAccessibilityText(LabelBottom, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_FOOTER);
-            */
+            SetAccessibilityText(TitleLabel, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_TITLE);
+            SetAccessibilityText(Label1, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_ONE);
+            SetAccessibilityText(Label2, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_BULLET_TWO);
+            SetAccessibilityText(LabelBottom, WelcomePageWhatIsNewViewModel.WELCOME_PAGE_WHATS_NEW_FOOTER);
         }
 
         private void SetAccessibilityText(UILabel label, string text)

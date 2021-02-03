@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="713">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="713">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="754">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="876"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="755">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="876"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Ulw-xY-s99">
-                                                <rect key="frame" x="25" y="23" width="364" height="795"/>
+                                                <rect key="frame" x="25" y="23" width="364" height="853"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vmj-ld-CVD">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="112"/>
@@ -40,8 +40,8 @@
                                                                     <action selector="BackArrowBtn_TouchUpInside:" destination="713" eventType="touchUpInside" id="1731"/>
                                                                 </connections>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="766">
-                                                                <rect key="frame" x="0.0" y="0.0" width="364" height="112"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="766" misplaced="YES">
+                                                                <rect key="frame" x="44" y="0.0" width="320" height="112"/>
                                                                 <string key="text">Thank
 You
 For contribution</string>
@@ -56,13 +56,13 @@ For contribution</string>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-OM-2Yo">
-                                                        <rect key="frame" x="0.0" y="148" width="364" height="647"/>
+                                                        <rect key="frame" x="0.0" y="148" width="364" height="705"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wyY-fx-694">
-                                                                <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="364" height="105"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzO-wa-6Xb">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="0.0"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckShield" translatesAutoresizingMaskIntoConstraints="NO" id="fxL-em-IQp">
                                                                                 <rect key="frame" x="0.0" y="10" width="21" height="21"/>
@@ -80,7 +80,7 @@ For contribution</string>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="757">
-                                                                        <rect key="frame" x="37" y="0.0" width="327" height="37.5"/>
+                                                                        <rect key="frame" x="37" y="0.0" width="327" height="38.5"/>
                                                                         <string key="text">Label
 line 2</string>
                                                                         <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
@@ -90,10 +90,10 @@ line 2</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="awd-pJ-UFg">
-                                                                <rect key="frame" x="0.0" y="74" width="364" height="75"/>
+                                                                <rect key="frame" x="0.0" y="129" width="364" height="76.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUF-6J-Ekb">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="0.0"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckShield" translatesAutoresizingMaskIntoConstraints="NO" id="762">
                                                                                 <rect key="frame" x="0.0" y="10" width="21" height="21"/>
@@ -111,7 +111,7 @@ line 2</string>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="759">
-                                                                        <rect key="frame" x="37" y="0.0" width="327" height="75"/>
+                                                                        <rect key="frame" x="37" y="0.0" width="327" height="76.5"/>
                                                                         <string key="text">Label line 2
 line 3
 line 4</string>
@@ -121,8 +121,40 @@ line 4</string>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-k4-1Wj">
+                                                                <rect key="frame" x="0.0" y="229.5" width="364" height="76.5"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEh-Dv-fyN">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="0.0"/>
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckShield" translatesAutoresizingMaskIntoConstraints="NO" id="cx7-6b-P1j">
+                                                                                <rect key="frame" x="0.0" y="10" width="21" height="21"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="BBy-eU-Xgc"/>
+                                                                                    <constraint firstAttribute="width" constant="21" id="y0S-BI-cDO"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailing" secondItem="cx7-6b-P1j" secondAttribute="trailing" id="8IX-qW-7en"/>
+                                                                            <constraint firstItem="cx7-6b-P1j" firstAttribute="leading" secondItem="AEh-Dv-fyN" secondAttribute="leading" id="XkX-EK-f0f"/>
+                                                                            <constraint firstAttribute="width" constant="21" id="q6h-sT-8xg"/>
+                                                                            <constraint firstItem="cx7-6b-P1j" firstAttribute="top" secondItem="AEh-Dv-fyN" secondAttribute="top" constant="10" id="zF9-pC-5g7"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyd-9I-QsS">
+                                                                        <rect key="frame" x="37" y="0.0" width="327" height="76.5"/>
+                                                                        <string key="text">Label line 2
+line 3
+line 4</string>
+                                                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="16"/>
+                                                                        <color key="textColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-I2-mbE">
-                                                                <rect key="frame" x="0.0" y="173" width="364" height="474"/>
+                                                                <rect key="frame" x="0.0" y="330" width="364" height="375"/>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
@@ -163,6 +195,7 @@ line 4</string>
                         <outlet property="BodyText1" destination="757" id="name-outlet-757"/>
                         <outlet property="BodyText2" destination="759" id="name-outlet-759"/>
                         <outlet property="TitleLabel" destination="766" id="name-outlet-766"/>
+                        <outlet property="BodyText3" destination="pyd-9I-QsS" id="name-outlet-pyd-9I-QsS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="715" userLabel="First Responder" sceneMemberID="firstResponder"/>

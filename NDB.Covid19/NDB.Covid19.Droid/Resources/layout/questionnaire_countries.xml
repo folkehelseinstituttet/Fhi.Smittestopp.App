@@ -1,127 +1,129 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:background="@color/backgroundColor">
 
     <Button
-        android:id="@+id/close_cross_btn"
-        android:layout_width="19dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="27dp"
-        android:background="@drawable/ic_close_white"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="13dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/close_cross_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="@dimen/defaultVerticalMargin"
+            android:layout_marginEnd="@dimen/defaultHorizontalMargin"
+            android:background="@drawable/ic_close_blue"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nested_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/close_cross_btn"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <LinearLayout
-            android:id="@+id/countries_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:id="@+id/nested_scroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:paddingBottom="108dp">
+            app:layout_constraintTop_toBottomOf="@+id/close_cross_btn"
+            app:layout_constraintBottom_toTopOf="@id/countries_button_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/countries_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/countries_title"
-                style="@style/HeaderText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="23dp"
-                android:layout_marginEnd="28dp"
-                android:paddingBottom="27dp"
-                android:text=""
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                    android:id="@+id/countries_title"
+                    style="@style/HeaderText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
+                    android:text="Header" />
 
             <TextView
-                android:id="@+id/countries_subtitle"
-                style="@style/PrimaryText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginEnd="28dp"
-                android:paddingBottom="27dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/countries_title" />
+                    android:id="@+id/countries_subtitle"
+                    style="@style/PrimaryText"
+                    app:layout_constraintTop_toBottomOf="@id/countries_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                    android:paddingVertical="@dimen/defaultVerticalMargin"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/countries_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginBottom="24dp"
-                android:nestedScrollingEnabled="true"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/countries_subtitle">
+                    android:id="@+id/countries_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/countries_subtitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin"
+                    android:nestedScrollingEnabled="false"
+                    android:backgroundTint="@color/primaryText"
+                    android:orientation="vertical">
 
             </androidx.recyclerview.widget.RecyclerView>
             <TextView
-                android:id="@+id/questionnaire_countries_footer"
-                style="@style/PrimaryText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="27dp"
-                android:paddingBottom="36dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </LinearLayout>
+                    android:id="@+id/questionnaire_countries_footer"
+                    style="@style/PrimaryText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
+                    app:layout_constraintTop_toBottomOf="@id/countries_list"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:paddingBottom="@dimen/defaultVerticalMargin"
+                    android:text="Dummy text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="36dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:id="@+id/progress_bar"
-        app:layout_constraintBottom_toTopOf="@id/countries_button_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nested_scroll"/>
-
-    <RelativeLayout
-        android:id="@+id/countries_button_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="30dp"
-        android:background="#E605283f"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/countries_button"
-            style="@style/ConsentButton"
+            android:layout_marginVertical="@dimen/defaultVerticalMargin"
+            android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Dummy Button"
+            android:visibility="gone"
+            android:id="@+id/progress_bar"
+            app:layout_constraintBottom_toTopOf="@id/countries_button_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </RelativeLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nested_scroll"/>
+
+    <View
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:background="@drawable/ic_shadow_gradient_border"
+            app:layout_constraintBottom_toTopOf="@id/countries_button_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/countries_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/defaultVerticalMargin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+                android:id="@+id/countries_button"
+                style="@style/ConsentButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Dummy Button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
