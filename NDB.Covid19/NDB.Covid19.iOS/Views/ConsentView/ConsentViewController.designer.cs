@@ -150,6 +150,10 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel HowItWorks_section3 { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel MoreInformation_section { get; set; }
 
         [Outlet]
@@ -227,6 +231,11 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             if (HowItWorks_section2 != null) {
                 HowItWorks_section2.Dispose ();
                 HowItWorks_section2 = null;
+            }
+
+            if (HowItWorks_section3 != null) {
+                HowItWorks_section3.Dispose ();
+                HowItWorks_section3 = null;
             }
 
             if (MoreInformation_section != null) {

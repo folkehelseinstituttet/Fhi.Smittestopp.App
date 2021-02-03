@@ -43,7 +43,7 @@ namespace NDB.Covid19.ViewModels
         {
             Task.Run(async () =>
             {
-                TermsNotificationWasShown = false;
+                LastDateTimeTermsNotificationWasShown = DateTime.MinValue;
                 await Task.Delay(1000 * 10);
                 if (action != null) await action.Invoke();
             });
@@ -123,7 +123,7 @@ namespace NDB.Covid19.ViewModels
                 $"USE_MOBILE_DATA_PREF: {isDownloadWithMobileDataEnabled}\n" +
                 $"MESSAGES_LAST_UPDATED_PREF: {updatedDateTime}\n" +
                 $"LAST_PULL_KEYS_SUCCEEDED_DATE_TIME: {lastPullKeysSucceededDateTime}\n" +
-                $"TERMS_NOTIFICATION_WAS_SENT: {TermsNotificationWasShown}\n" +
+                $"LAST_TERMS_NOTIFICATION_DATE_TIME: {LastDateTimeTermsNotificationWasShown}\n" +
                 $"APP_LANGUAGE: {appLanguage}\n\n";
 
             await _clipboard.SetTextAsync(formattedString);

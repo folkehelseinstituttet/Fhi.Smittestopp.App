@@ -1,0 +1,120 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+        <RelativeLayout
+                android:id="@+id/close_cross_btn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="@dimen/defaultHorizontalMargin"
+                android:layout_marginTop="@dimen/defaultVerticalMargin"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true">
+            <ImageView
+                    android:src="@drawable/ic_close_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/scrollView">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                android:layout_marginVertical="@dimen/defaultVerticalMargin"
+                android:paddingBottom="@dimen/defaultVerticalMargin"
+                android:id="@+id/relativeLayout">
+            <TextView
+                    android:text="Header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/header_textView"
+                    style="@style/HeaderText"/>
+            <TextView
+                    android:text="Body text 1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/defaultVerticalMargin"
+                    android:layout_below="@id/header_textView"
+                    android:id="@+id/bodytext1"
+                    style="@style/PrimaryTextRegular"/>
+            <TextView
+                    android:text="Share header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/defaultVerticalMargin"
+                    android:layout_below="@id/bodytext1"
+                    android:id="@+id/share_header"
+                    style="@style/PrimaryTextBold"/>
+            <TextView
+                    android:text="Body text 2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/smallMargin"
+                    android:layout_below="@id/share_header"
+                    android:id="@+id/bodytext2"
+                    style="@style/PrimaryTextRegular"/>
+            <TextView
+                    android:text="EU button explanation text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/defaultVerticalMargin"
+                    android:layout_below="@id/bodytext2"
+                    android:id="@+id/consent_EU_explanation"
+                    style="@style/PrimaryTextRegular"/>
+            <TextView
+                    android:text="Norway only button explanation text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/consent_EU_explanation"
+                    android:id="@+id/consent_onlyNorway_explanation"
+                    style="@style/PrimaryTextRegular"/>
+            <TextView
+                    android:text="Consent text"
+                    android:layout_width="wrap_content"
+                    android:paddingTop="@dimen/defaultVerticalMargin"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/consent_onlyNorway_explanation"
+                    android:id="@+id/consent_text"
+                    style="@style/PrimaryTextItalic"/>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_below="@id/consent_text">
+                <Button
+                    android:text="Consent Button, EU"
+                    android:layout_marginVertical="@dimen/buttonHeight"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/consentButton_EU"
+                    style="@style/IDPortenButton"/>
+                <Button
+                    android:text="Consent Button, Norway only"
+                    android:layout_marginVertical="@dimen/buttonHeight"
+                    android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/consentButton_onlyNorway"
+                    style="@style/IDPortenButton"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

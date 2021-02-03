@@ -1,4 +1,3 @@
-using CommonServiceLocator;
 using I18NPortable;
 
 namespace NDB.Covid19.ViewModels
@@ -12,6 +11,7 @@ namespace NDB.Covid19.ViewModels
         public static string WELCOME_PAGE_ONE_TITLE => "WELCOME_PAGE_ONE_TITLE".Translate();
         public static string WELCOME_PAGE_ONE_BODY_ONE => "WELCOME_PAGE_ONE_BODY_ONE".Translate();
         public static string WELCOME_PAGE_ONE_BODY_TWO => "WELCOME_PAGE_ONE_BODY_TWO".Translate();
+        public static string WELCOME_PAGE_ONE_BODY_THREE => "WELCOME_PAGE_ONE_BODY_THREE".Translate();
 
         public static string WELCOME_PAGE_TWO_TITLE => "WELCOME_PAGE_TWO_TITLE".Translate();
         public static string WELCOME_PAGE_TWO_BODY_ONE => "WELCOME_PAGE_TWO_BODY_ONE".Translate();

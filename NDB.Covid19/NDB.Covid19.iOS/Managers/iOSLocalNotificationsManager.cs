@@ -5,6 +5,7 @@ using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using UIKit;
 using UserNotifications;
 
@@ -54,7 +55,7 @@ namespace NDB.Covid19.iOS.Managers
                 UIApplication.SharedApplication.ApplicationState != UIApplicationState.Active)
             {
                 GenerateLocalNotification(viewModel, 0);
-                LocalPreferencesHelper.TermsNotificationWasShown = true;
+                LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = SystemTime.Now();
             }
         }
 
