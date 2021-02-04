@@ -1,10 +1,7 @@
 using System;
-using Foundation;
 using I18NPortable;
-using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
@@ -36,9 +33,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
 
             if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
             {
-                StartButtonNB.Hidden = true;
-                StartButtonNN.Hidden = true;
-                ContinueInEnStackView.Hidden = true;
+                StartButton.Hidden = true;
             }
         }
 
