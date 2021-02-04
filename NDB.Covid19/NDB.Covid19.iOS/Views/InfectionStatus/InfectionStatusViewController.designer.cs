@@ -40,6 +40,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		UIKit.UIButton MenuIcon { get; set; }
 
 		[Outlet]
+		UIKit.UILabel MenuLabel { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIImageView MessageIcon { get; set; }
 
@@ -92,6 +95,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				ActivityExplainerLbl = null;
 			}
 
+			if (appLogo != null) {
+				appLogo.Dispose ();
+				appLogo = null;
+			}
+
 			if (AreYouInfectetLbl != null) {
 				AreYouInfectetLbl.Dispose ();
 				AreYouInfectetLbl = null;
@@ -107,14 +115,14 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				fhiLogo = null;
 			}
 
-			if (appLogo != null) {
-				appLogo.Dispose ();
-				appLogo = null;
-			}
-
 			if (LogInAndRegisterLbl != null) {
 				LogInAndRegisterLbl.Dispose ();
 				LogInAndRegisterLbl = null;
+			}
+
+			if (MenuLabel != null) {
+				MenuLabel.Dispose ();
+				MenuLabel = null;
 			}
 
 			if (MenuIcon != null) {

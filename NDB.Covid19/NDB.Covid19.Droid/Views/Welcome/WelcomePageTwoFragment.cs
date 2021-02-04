@@ -24,6 +24,10 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             header.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
+            view.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            Button arrowBack = view.FindViewById<Button>(Resource.Id.arrow_back);
+            arrowBack.SetBackgroundResource(LayoutUtils.GetBackArrow());
+
             WelcomePageTools.SetArrowVisibility(view);
 
             return view;

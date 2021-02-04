@@ -17,7 +17,7 @@ using NDB.Covid19.ViewModels;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     public class QuestionnaireCountriesSelectionActivity : Activity
     {
         private readonly QuestionnaireCountriesViewModel _viewModel = new QuestionnaireCountriesViewModel();
@@ -82,6 +82,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _recyclerView.SetLayoutManager(layoutManager);
 
             _recyclerView.SetAdapter(adapter);
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
         }
 
         private async void OnExitClick(object sender, EventArgs args)
