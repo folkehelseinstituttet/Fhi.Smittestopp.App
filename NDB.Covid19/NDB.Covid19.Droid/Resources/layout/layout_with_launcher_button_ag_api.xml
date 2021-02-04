@@ -47,49 +47,15 @@
             android:orientation="vertical"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/app_logo"
-            app:layout_constraintBottom_toTopOf="@id/continue_in_en_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
         <Button
-                android:text="Start in Bokmål"
+                android:text="Start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="150dp"
-                style="@style/SecondaryButton"
-                android:id="@+id/launcher_button"/>
-        <Button
-                android:text="Start in Nynorsk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="150dp"
-                style="@style/SecondaryButton"
-                android:id="@+id/launcher_button_nynorsk"/>
+                style="@style/DefaultButton"
+                android:id="@+id/launcher_button" />
     </LinearLayout>
-
-    <RelativeLayout
-            android:id="@+id/continue_in_en_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:gravity="center">
-        <TextView
-                android:id="@+id/continue_in_en_text"
-                android:text="Continue in English"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                style="@style/MessageListItemDateText"/>
-        <View
-                android:id="@+id/launcher_right_arrow"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/continue_in_en_text"
-                android:background="@drawable/ic_circle_arrow_right"/>
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

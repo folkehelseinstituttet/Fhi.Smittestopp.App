@@ -26,7 +26,7 @@ namespace NDB.Covid19.Droid.Views.Messages
     [Activity(
         Theme = "@style/AppTheme",
         ParentActivity = typeof(InfectionStatusActivity),
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     public class MessagesActivity : AppCompatActivity
     {
         private ListView _messagesList;
@@ -132,6 +132,11 @@ namespace NDB.Covid19.Droid.Views.Messages
             _messagesList.Adapter = _adapterMessages;
             _messagesList.OnItemClickListener = new ItemClickListener(_adapterMessages);
             ShowList(false);
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+
+            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
         void HandleBeforeActivityClose()

@@ -74,7 +74,7 @@ namespace NDB.Covid19.iOS.Utils
             btn.SetTitleColor(ColorHelper.TEXT_COLOR_ON_PRIMARY, UIControlState.Normal);
         }
 
-        public static void InitStartPageButtonStyling(UIButton btn)
+        public static void InitLanguageSelectionButtonStyling(UIButton btn)
         {
             btn.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
             btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
@@ -159,11 +159,11 @@ namespace NDB.Covid19.iOS.Utils
         /// <param name="fontSize"></param>
         /// <param name="maxFontSize"></param>
         /// <param name="alignment"></param>
-        public static void InitLabelWithSpacing(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize, UITextAlignment alignment = UITextAlignment.Left)
+        public static void InitLabelWithSpacing(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize)
         {
             NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
             paragraphStyle.LineHeightMultiple = new nfloat(lineHeight);
-            paragraphStyle.Alignment = alignment;
+            paragraphStyle.Alignment = LayoutUtils.GetTextAlignment();
             NSMutableAttributedString text = new NSMutableAttributedString(rawText);
             NSRange range = new NSRange(0, rawText.Length);
             text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
@@ -172,12 +172,13 @@ namespace NDB.Covid19.iOS.Utils
             label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
-        public static void InitMonospacedLabel(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize, UITextAlignment alignment = UITextAlignment.Left)
+        public static void InitMonospacedLabel(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize)
         {
             NSMutableAttributedString text = new NSMutableAttributedString(rawText);
             NSRange range = new NSRange(0, rawText.Length);
             text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
             label.AttributedText = text;
+            label.TextAlignment = LayoutUtils.GetTextAlignment();
         }
 
         /// <summary>
@@ -198,6 +199,7 @@ namespace NDB.Covid19.iOS.Utils
             text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
             text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
             label.AttributedText = text;
+            label.TextAlignment = LayoutUtils.GetTextAlignment();
         }
 
         /// <summary>
@@ -218,6 +220,7 @@ namespace NDB.Covid19.iOS.Utils
             text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
             text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
             label.AttributedText = text;
+            label.TextAlignment = LayoutUtils.GetTextAlignment();
         }
 
         /// <summary>
@@ -230,11 +233,18 @@ namespace NDB.Covid19.iOS.Utils
         /// <param name="fontSize"></param>
         /// <param name="maxFontSize"></param>
         /// <param name="alignment"></param>
-        public static void InitLabekWithSpacingAndHTMLFormatting(UILabel label, FontType fontType, NSAttributedString AttributeText, double lineHeight, float fontSize, float maxFontSize, UITextAlignment alignment = UITextAlignment.Left)
+        public static void InitLabekWithSpacingAndHTMLFormatting(UILabel label, FontType fontType, NSAttributedString AttributeText, double lineHeight, float fontSize, float maxFontSize, UITextAlignment alignment = UITextAlignment.Natural)
         {
             NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
             paragraphStyle.LineHeightMultiple = new nfloat(lineHeight);
-            paragraphStyle.Alignment = alignment;
+            if (alignment == UITextAlignment.Natural)
+            {
+                paragraphStyle.Alignment = LayoutUtils.GetTextAlignment();
+            }
+            else
+            {
+                paragraphStyle.Alignment = alignment;
+            }
             NSMutableAttributedString text = new NSMutableAttributedString(AttributeText);
             NSRange range = new NSRange(0, text.Length);
             text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
@@ -275,6 +285,7 @@ namespace NDB.Covid19.iOS.Utils
             //Ensuring text is resiezed correctly when font size is increased
             InitLabekWithSpacingAndHTMLFormatting(label, fontType, attributedString, 1.28, 16, 22);
             label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            label.TextAlignment = LayoutUtils.GetTextAlignment();
         }
 
 

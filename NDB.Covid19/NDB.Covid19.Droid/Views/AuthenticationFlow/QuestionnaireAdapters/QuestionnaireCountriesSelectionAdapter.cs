@@ -3,6 +3,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.ConstraintLayout.Widget;
 using AndroidX.RecyclerView.Widget;
+using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
@@ -83,6 +84,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
 
             Check = item.FindViewById<CheckBox>(Resource.Id.country_item_checkbox);
             Caption = item.FindViewById<TextView>(Resource.Id.country_item_caption);
+
+            item.LayoutDirection = LayoutUtils.GetLayoutDirection();
 
             Check.Clickable = false;
         }
