@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1L7-7k-G5w">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Language Selection View Controller-->
+        <scene sceneID="m3l-tW-twU">
+            <objects>
+                <viewController storyboardIdentifier="LanguageSelectionViewController" title="Language Selection View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1L7-7k-G5w" userLabel="Language Selection View Controller" customClass="LanguageSelectionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AbF-S6-Wrj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C9A-GC-HFH" userLabel="ButtonStackView">
+                                <rect key="frame" x="0.0" y="223" width="414" height="460"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JX9-Bs-HBv" userLabel="BokmalButton">
+                                        <rect key="frame" x="184" y="0.0" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Py1-ji-ZQw"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="BokmalButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="LTZ-W6-ea7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V76-T2-CRR" userLabel="NynorskButton">
+                                        <rect key="frame" x="184" y="60" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="JLZ-iH-ny2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="NynorskButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="4wE-ZG-CbD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-l2-LhO" userLabel="EnglishButton">
+                                        <rect key="frame" x="184" y="120" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="mDI-6w-VoH"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="EnglishButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="lLn-kM-MtN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-Kt-C6X" userLabel="ArabicButton">
+                                        <rect key="frame" x="184" y="180" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="YFm-6z-64o"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="ArabicButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="KvA-vi-Oah"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG6-2b-cL7" userLabel="PolishButton">
+                                        <rect key="frame" x="184" y="240" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="s3r-Gg-eLp"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="PolishButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="25a-JI-UfK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjD-0l-TGH" userLabel="SomaliButton">
+                                        <rect key="frame" x="184" y="300" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MOM-kG-PTX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="SomaliButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="3os-h5-ZJx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-kg-uzI" userLabel="TigrinyaButton">
+                                        <rect key="frame" x="184" y="360" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="z9R-mV-vhb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="TigrinyaButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="Udd-Au-9om"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-Uf-5ae" userLabel="UrduButton">
+                                        <rect key="frame" x="184" y="420" width="46" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="XO0-xW-gsW"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="UrduButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="FGw-zU-l45"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rDf-Uf-5ae" firstAttribute="width" secondItem="cJh-kg-uzI" secondAttribute="width" id="5fW-KP-nUV"/>
+                                    <constraint firstItem="gZM-l2-LhO" firstAttribute="width" secondItem="V76-T2-CRR" secondAttribute="width" id="RUE-5U-5m2"/>
+                                    <constraint firstItem="LG6-2b-cL7" firstAttribute="width" secondItem="5Sn-Kt-C6X" secondAttribute="width" id="Ylw-hI-13i"/>
+                                    <constraint firstItem="cJh-kg-uzI" firstAttribute="width" secondItem="OjD-0l-TGH" secondAttribute="width" id="aph-2i-hAb"/>
+                                    <constraint firstItem="OjD-0l-TGH" firstAttribute="width" secondItem="LG6-2b-cL7" secondAttribute="width" id="ls4-dB-7Pm"/>
+                                    <constraint firstItem="5Sn-Kt-C6X" firstAttribute="width" secondItem="gZM-l2-LhO" secondAttribute="width" id="vJi-zz-hyf"/>
+                                    <constraint firstItem="V76-T2-CRR" firstAttribute="width" secondItem="JX9-Bs-HBv" secondAttribute="width" id="y8J-iv-cW1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ydo-PN-lSe"/>
+                        <color key="backgroundColor" red="0.88235294119999996" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ydo-PN-lSe" firstAttribute="trailing" secondItem="C9A-GC-HFH" secondAttribute="trailing" id="2Y8-F1-0Ai"/>
+                            <constraint firstItem="C9A-GC-HFH" firstAttribute="centerY" secondItem="Ydo-PN-lSe" secondAttribute="centerY" id="Kp5-pq-t6L"/>
+                            <constraint firstItem="C9A-GC-HFH" firstAttribute="leading" secondItem="Ydo-PN-lSe" secondAttribute="leading" id="b8y-pC-yvR"/>
+                        </constraints>
+                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                    </view>
+                    <connections>
+                        <outlet property="ArabicButton" destination="5Sn-Kt-C6X" id="kDZ-WO-XlX"/>
+                        <outlet property="BokmalButton" destination="JX9-Bs-HBv" id="KIM-Je-B4K"/>
+                        <outlet property="EnglishButton" destination="gZM-l2-LhO" id="QbB-wN-bqN"/>
+                        <outlet property="NynorskButton" destination="V76-T2-CRR" id="6L4-dc-gtr"/>
+                        <outlet property="PolishButton" destination="LG6-2b-cL7" id="8sC-4S-wbU"/>
+                        <outlet property="SomaliButton" destination="OjD-0l-TGH" id="FMx-Kj-gfh"/>
+                        <outlet property="TigrinyaButton" destination="cJh-kg-uzI" id="GsV-84-HOC"/>
+                        <outlet property="UrduButton" destination="rDf-Uf-5ae" id="i93-Jz-b0n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0U-Dq-3Zs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26.086960000000001" y="34.821429999999999"/>
+        </scene>
+    </scenes>
+</document>

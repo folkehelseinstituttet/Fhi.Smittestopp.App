@@ -142,6 +142,8 @@
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
     <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
+    <Compile Include="Utils\LayoutUtils.cs" />
+    <Compile Include="Views\LanguageSelectionActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -896,6 +898,10 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\language_selection.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
@@ -1082,7 +1088,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\questionnaire_countries.xml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

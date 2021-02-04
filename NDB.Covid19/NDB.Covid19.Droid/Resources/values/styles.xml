@@ -111,6 +111,7 @@
 
 	<style name="PrimaryTextBold" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">@font/ptsans_bold</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 	<style name="PrimaryTextSemiBold" parent="PrimaryTextRegular">
@@ -123,6 +124,7 @@
 
 	<style name="PrimaryTextLight" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">sans_serif_thin</item>
+		<item name="android:textStyle">italic</item>
 	</style>
 
 	<style name="SecondaryText">

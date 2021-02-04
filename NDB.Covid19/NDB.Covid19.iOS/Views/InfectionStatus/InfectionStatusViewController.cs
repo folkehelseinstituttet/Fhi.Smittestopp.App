@@ -53,10 +53,15 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _viewModel = new InfectionStatusViewModel();
             View.AddLayoutGuide(_focusGuide);
             
-            _focusGuide.LeftAnchor.ConstraintEqualTo(MenuIcon.LeftAnchor).Active = true;
-            _focusGuide.RightAnchor.ConstraintEqualTo(MenuIcon.RightAnchor).Active = true;
+            _focusGuide.LeadingAnchor.ConstraintEqualTo(MenuIcon.LeadingAnchor).Active = true;
+            _focusGuide.TrailingAnchor.ConstraintEqualTo(MenuIcon.TrailingAnchor).Active = true;
             _focusGuide.TopAnchor.ConstraintEqualTo(OnOffBtn.TopAnchor).Active = true;
             _focusGuide.BottomAnchor.ConstraintEqualTo(OnOffBtn.BottomAnchor).Active = true;
+
+            MenuLabel.AddGestureRecognizer(new UITapGestureRecognizer(() =>
+            {
+                OnMenubtnTapped(MenuIcon);
+            }));
            
             SetupStyling();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
@@ -245,9 +250,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             ActivityExplainerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
             ActivityExplainerLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT;
             MenuIcon.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
-            MenuIcon.TitleEdgeInsets = new UIEdgeInsets(0, -8, 0, 0);
-            MenuIcon.SetTitle(InfectionStatusViewModel.INFECTION_STATUS_MENU_TEXT, UIControlState.Normal);
-            MenuIcon.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 18f, 18f);
+            MenuLabel.Text = InfectionStatusViewModel.INFECTION_STATUS_MENU_TEXT;
+            MenuLabel.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 18f, 18f);
             MenuIcon.SizeToFit();
             StatusText.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 16f, 20f);
             OnOffBtn.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 22f, 28f);

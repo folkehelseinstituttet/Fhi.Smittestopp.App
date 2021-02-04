@@ -35,10 +35,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
         {
             DateTime today = SystemTime.Now().ToUniversalTime().Date;
 
-            //BatchType: We will pull all EU keys if consent is given to do so.
-            bool consentToPullEUKeysIsGiven = OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted;
-
-            BatchType batchType = consentToPullEUKeysIsGiven ? BatchType.ALL : BatchType.NO;
+            BatchType batchType = BatchType.ALL;
 
             //Date: Request data for the last successful background task
             DateTime lastPullDate = LocalPreferencesHelper.GetLastPullKeysSucceededDateTime();
@@ -58,10 +55,9 @@ namespace NDB.Covid19.WebServices.ExposureNotification
                 num = 1;
             }
 
-            //If terms were just approved and last pull was NO keys, then start over for today with EU keys.
-            if (consentToPullEUKeysIsGiven && LocalPreferencesHelper.LastPulledBatchType == BatchType.NO)
+            //If last pull was NO keys, then start over for today with EU keys.
+            if (LocalPreferencesHelper.LastPulledBatchType == BatchType.NO)
             {
-                batchType = BatchType.ALL;
                 num = 1;
             }
 

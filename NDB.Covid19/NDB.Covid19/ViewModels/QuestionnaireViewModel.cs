@@ -132,6 +132,10 @@ namespace NDB.Covid19.ViewModels
                 }
                 PersonalData.FinalMiBaDate = mibaDate < _localSelectedDate ? mibaDate : _localSelectedDate;
             }
+            else
+            {
+                PersonalData.FinalMiBaDate = mibaDate;
+            }
 
             onSuccess?.Invoke();
         }
