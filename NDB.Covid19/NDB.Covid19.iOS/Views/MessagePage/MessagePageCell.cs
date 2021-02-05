@@ -41,7 +41,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
                 UnreadLabel.Hidden = true;
                 Label2.LeadingAnchor.ConstraintEqualTo(Label3.LeadingAnchor).Active = true;
             }
-            this.BackgroundColor = message.IsRead ? new UIColor(new nfloat(1), new nfloat(0.1)) : new UIColor(new nfloat(1), new nfloat(0.25));
+            this.BackgroundColor = UIColor.Clear;
         }
 	}
 }
