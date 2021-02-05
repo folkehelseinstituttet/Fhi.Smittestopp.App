@@ -552,6 +552,10 @@
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%401x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
