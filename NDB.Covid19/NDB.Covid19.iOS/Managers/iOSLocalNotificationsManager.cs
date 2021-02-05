@@ -51,12 +51,24 @@ namespace NDB.Covid19.iOS.Managers
 
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
         {
-            if (SceneDelegate.DidEnterBackgroundState ||
-                UIApplication.SharedApplication.ApplicationState != UIApplicationState.Active)
+            if (AppDelegate.ShouldOperateIn12_5Mode)
             {
-                GenerateLocalNotification(viewModel, 0);
-                LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = SystemTime.Now();
+                if (!AppDelegate.DidEnterBackgroundState &&
+                    UIApplication.SharedApplication.ApplicationState == UIApplicationState.Active)
+                {
+                    return;
+                }
             }
+            else
+            {
+                if (!SceneDelegate.DidEnterBackgroundState &&
+                    UIApplication.SharedApplication.ApplicationState == UIApplicationState.Active)
+                {
+                    return;
+                }
+            }
+            GenerateLocalNotification(viewModel, 0);
+            LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = SystemTime.Now();
         }
 
         private void CreateLocalNotification(NotificationViewModel notificationViewModel, double timeIntervalTrigger)

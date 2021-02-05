@@ -67,12 +67,22 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void SetupLearnMoreButton()
         {
-            UIView stackView = BoxView.Subviews[0];
-            stackView.Layer.CornerRadius = 12;
-            stackView.Layer.MasksToBounds = true;
-            stackView.Layer.BackgroundColor = ColorHelper.INFO_BUTTON_BACKGROUND.CGColor;
-            stackView.Layer.BorderWidth = 1;
-            stackView.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            if (AppDelegate.ShouldOperateIn12_5Mode)
+            {
+                BoxView.Layer.CornerRadius = 12;
+                BoxView.Layer.BackgroundColor = ColorHelper.INFO_BUTTON_BACKGROUND.CGColor;
+                BoxView.Layer.BorderWidth = 1;
+                BoxView.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            }
+            else
+            {
+                UIView stackView = BoxView.Subviews[0];
+                stackView.Layer.CornerRadius = 12;
+                stackView.Layer.MasksToBounds = true;
+                stackView.Layer.BackgroundColor = ColorHelper.INFO_BUTTON_BACKGROUND.CGColor;
+                stackView.Layer.BorderWidth = 1;
+                stackView.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            }
 
             _learnMoreViewBtn = new UIButton
             {

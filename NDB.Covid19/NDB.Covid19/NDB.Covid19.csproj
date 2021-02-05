@@ -81,7 +81,7 @@
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
     <PackageReference Include="JWT" Version="7.3.1" />
     <PackageReference Include="Google.Protobuf" Version="3.12.3" />
-    <PackageReference Include="Xamarin.ExposureNotification" Version="0.13.0-preview" />
+    <PackageReference Include="Xamarin.ExposureNotification" Version="0.15.0-preview" />
     <PackageReference Include="PCLCrypto" Version="2.1.40-alpha" />
     <PackageReference Include="Yort.Ntp.Portable" Version="2.0.0" />
   </ItemGroup>
