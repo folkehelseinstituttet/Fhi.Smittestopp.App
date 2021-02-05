@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KDi-UF-h8L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KDi-UF-h8L">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,10 +81,10 @@
                                                         <rect key="frame" x="0.0" y="131" width="366" height="414.5"/>
                                                         <subviews>
                                                             <stackView contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="UW5-iV-5r8" userLabel="Box view content Stack View">
-                                                                <rect key="frame" x="0.0" y="8" width="366" height="406.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="414.5"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sqU-t1-d4i">
-                                                                        <rect key="frame" x="0.0" y="139" width="124.5" height="129"/>
+                                                                        <rect key="frame" x="0.0" y="143" width="124.5" height="129"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uaw-if-QDX" userLabel="Image View">
                                                                                 <rect key="frame" x="20" y="8" width="84.5" height="56"/>
@@ -119,7 +119,7 @@
                                                                         <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcX-W2-JFW">
-                                                                        <rect key="frame" x="318" y="179.5" width="48" height="48"/>
+                                                                        <rect key="frame" x="318" y="183.5" width="48" height="48"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="SmI-wo-RSt">
                                                                                 <rect key="frame" x="14.5" y="16.5" width="19" height="15"/>
@@ -148,7 +148,7 @@
                                                         </accessibility>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="UW5-iV-5r8" secondAttribute="trailing" id="Azg-zd-ZNJ"/>
-                                                            <constraint firstItem="UW5-iV-5r8" firstAttribute="top" secondItem="CfB-wM-mAp" secondAttribute="top" constant="8" id="E2c-Iw-E21"/>
+                                                            <constraint firstItem="UW5-iV-5r8" firstAttribute="top" secondItem="CfB-wM-mAp" secondAttribute="top" id="E2c-Iw-E21"/>
                                                             <constraint firstAttribute="bottom" secondItem="UW5-iV-5r8" secondAttribute="bottom" id="NwA-uZ-UzM"/>
                                                             <constraint firstItem="UW5-iV-5r8" firstAttribute="leading" secondItem="CfB-wM-mAp" secondAttribute="leading" id="YBE-ES-LMU"/>
                                                         </constraints>
