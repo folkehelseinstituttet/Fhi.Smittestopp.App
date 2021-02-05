@@ -246,7 +246,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void SetupStyling()
         {
-            NewIndicatorView.Layer.CornerRadius = NewIndicatorView.Layer.Frame.Height / 2;
             ActivityExplainerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
             ActivityExplainerLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT;
             MenuIcon.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
@@ -295,9 +294,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             InvokeOnMainThread(() =>
             {
-                NewIndicatorView.Hidden = !_viewModel.ShowNewMessageIcon;
-
-                UIApplication.SharedApplication.ApplicationIconBadgeNumber = NewIndicatorView.Hidden ? 0 : 1;
+                UIApplication.SharedApplication.ApplicationIconBadgeNumber = _viewModel.ShowNewMessageIcon ? 1 : 0;
 
                 MessageIcon.Image = _viewModel.ShowNewMessageIcon ? UIImage.FromBundle("notification_active") : UIImage.FromBundle("notification_inactive");
                 NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;
