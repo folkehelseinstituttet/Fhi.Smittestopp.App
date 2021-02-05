@@ -88,7 +88,7 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE": "التكنولوجيا",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "يستخدم التطبيق تقنية بلوتوث Bluetooth ويعتمد على تقنية مدمجة طورتها Apple و Google. يشتمل على نظام للإخطار عن العدوی. يمكنك تشغيل هذا أو إيقاف تشغيله في إعدادات هاتفك.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2": "يقوم هاتفك بإنشاء معرف بلوتوث عشوائي كل 15 دقيقة. عندما يكون هاتفان بالقرب من بعضهما البعض، فإنهما یتبادلان المعرفات.",
-  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "اقرأ المزيد حول تطبيق Smittestopp على <a href=\\'www.helsenorge.no/en/smittestopp\\'> www.helsenorge.no/en/smittestopp </a>",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "اقرأ المزيد حول تطبيق Smittestopp على <a href=\"www.helsenorge.no/en/smittestopp\"> www.helsenorge.no/en/smittestopp </a>",
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "عودة",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "سحب الموافقة",
   "CONSENT_REMOVE_TITLE": "لا يمكن استخدام التطبيق دون موافقة",
