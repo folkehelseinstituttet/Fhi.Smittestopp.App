@@ -76,10 +76,10 @@
                                 <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JdS-CA-THG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="608"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="628"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BNz-hS-KBv">
-                                                <rect key="frame" x="25" y="48" width="364" height="560"/>
+                                                <rect key="frame" x="25" y="48" width="364" height="580"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2L-8P-PwW" userLabel="IntroLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -256,9 +256,9 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPq-oS-Anb" userLabel="Spacer">
-                                                        <rect key="frame" x="0.0" y="540" width="50" height="20"/>
+                                                        <rect key="frame" x="0.0" y="540" width="50" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="aTD-xS-OPi"/>
+                                                            <constraint firstAttribute="height" constant="40" id="aTD-xS-OPi"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
