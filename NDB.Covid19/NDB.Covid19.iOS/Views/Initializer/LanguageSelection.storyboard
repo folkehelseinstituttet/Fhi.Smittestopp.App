@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,107 +15,132 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C9A-GC-HFH" userLabel="ButtonStackView">
-                                <rect key="frame" x="0.0" y="223" width="414" height="460"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwA-7Z-91G">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JX9-Bs-HBv" userLabel="BokmalButton">
-                                        <rect key="frame" x="184" y="0.0" width="46" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVQ-h0-ibr">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C9A-GC-HFH" userLabel="ButtonStackView">
+                                                <rect key="frame" x="40" y="218" width="334" height="460"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JX9-Bs-HBv" userLabel="BokmalButton">
+                                                        <rect key="frame" x="144" y="0.0" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="4wf-UM-GvF"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="BokmalButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="LTZ-W6-ea7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V76-T2-CRR" userLabel="NynorskButton">
+                                                        <rect key="frame" x="144" y="60" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="JLZ-iH-ny2"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="NynorskButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="4wE-ZG-CbD"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-l2-LhO" userLabel="EnglishButton">
+                                                        <rect key="frame" x="144" y="120" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="mDI-6w-VoH"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="EnglishButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="lLn-kM-MtN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-Kt-C6X" userLabel="ArabicButton">
+                                                        <rect key="frame" x="144" y="180" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="YFm-6z-64o"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="ArabicButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="KvA-vi-Oah"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG6-2b-cL7" userLabel="PolishButton">
+                                                        <rect key="frame" x="144" y="240" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="s3r-Gg-eLp"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="PolishButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="25a-JI-UfK"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjD-0l-TGH" userLabel="SomaliButton">
+                                                        <rect key="frame" x="144" y="300" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="MOM-kG-PTX"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="SomaliButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="3os-h5-ZJx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-kg-uzI" userLabel="TigrinyaButton">
+                                                        <rect key="frame" x="144" y="360" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="z9R-mV-vhb"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="TigrinyaButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="Udd-Au-9om"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-Uf-5ae" userLabel="UrduButton">
+                                                        <rect key="frame" x="144" y="420" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="XO0-xW-gsW"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="UrduButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="FGw-zU-l45"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="rDf-Uf-5ae" firstAttribute="width" secondItem="cJh-kg-uzI" secondAttribute="width" id="5fW-KP-nUV"/>
+                                                    <constraint firstItem="gZM-l2-LhO" firstAttribute="width" secondItem="V76-T2-CRR" secondAttribute="width" id="RUE-5U-5m2"/>
+                                                    <constraint firstItem="LG6-2b-cL7" firstAttribute="width" secondItem="5Sn-Kt-C6X" secondAttribute="width" id="Ylw-hI-13i"/>
+                                                    <constraint firstItem="cJh-kg-uzI" firstAttribute="width" secondItem="OjD-0l-TGH" secondAttribute="width" id="aph-2i-hAb"/>
+                                                    <constraint firstItem="OjD-0l-TGH" firstAttribute="width" secondItem="LG6-2b-cL7" secondAttribute="width" id="ls4-dB-7Pm"/>
+                                                    <constraint firstItem="5Sn-Kt-C6X" firstAttribute="width" secondItem="gZM-l2-LhO" secondAttribute="width" id="vJi-zz-hyf"/>
+                                                    <constraint firstItem="V76-T2-CRR" firstAttribute="width" secondItem="JX9-Bs-HBv" secondAttribute="width" id="y8J-iv-cW1"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Py1-ji-ZQw"/>
+                                            <constraint firstItem="C9A-GC-HFH" firstAttribute="centerY" secondItem="jVQ-h0-ibr" secondAttribute="centerY" id="19z-xp-mtw"/>
+                                            <constraint firstItem="C9A-GC-HFH" firstAttribute="leading" secondItem="jVQ-h0-ibr" secondAttribute="leading" constant="40" id="4q5-A2-I52"/>
+                                            <constraint firstItem="C9A-GC-HFH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jVQ-h0-ibr" secondAttribute="top" constant="20" id="EhV-0R-RxN"/>
+                                            <constraint firstAttribute="trailing" secondItem="C9A-GC-HFH" secondAttribute="trailing" constant="40" id="Wn0-du-g2v"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="C9A-GC-HFH" secondAttribute="bottom" constant="20" id="e9t-xT-6Zj"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="BokmalButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="LTZ-W6-ea7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V76-T2-CRR" userLabel="NynorskButton">
-                                        <rect key="frame" x="184" y="60" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="JLZ-iH-ny2"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="NynorskButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="4wE-ZG-CbD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-l2-LhO" userLabel="EnglishButton">
-                                        <rect key="frame" x="184" y="120" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="mDI-6w-VoH"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="EnglishButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="lLn-kM-MtN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-Kt-C6X" userLabel="ArabicButton">
-                                        <rect key="frame" x="184" y="180" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="YFm-6z-64o"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="ArabicButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="KvA-vi-Oah"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG6-2b-cL7" userLabel="PolishButton">
-                                        <rect key="frame" x="184" y="240" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="s3r-Gg-eLp"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="PolishButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="25a-JI-UfK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjD-0l-TGH" userLabel="SomaliButton">
-                                        <rect key="frame" x="184" y="300" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="MOM-kG-PTX"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="SomaliButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="3os-h5-ZJx"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-kg-uzI" userLabel="TigrinyaButton">
-                                        <rect key="frame" x="184" y="360" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="z9R-mV-vhb"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="TigrinyaButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="Udd-Au-9om"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-Uf-5ae" userLabel="UrduButton">
-                                        <rect key="frame" x="184" y="420" width="46" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="XO0-xW-gsW"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="UrduButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="FGw-zU-l45"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="rDf-Uf-5ae" firstAttribute="width" secondItem="cJh-kg-uzI" secondAttribute="width" id="5fW-KP-nUV"/>
-                                    <constraint firstItem="gZM-l2-LhO" firstAttribute="width" secondItem="V76-T2-CRR" secondAttribute="width" id="RUE-5U-5m2"/>
-                                    <constraint firstItem="LG6-2b-cL7" firstAttribute="width" secondItem="5Sn-Kt-C6X" secondAttribute="width" id="Ylw-hI-13i"/>
-                                    <constraint firstItem="cJh-kg-uzI" firstAttribute="width" secondItem="OjD-0l-TGH" secondAttribute="width" id="aph-2i-hAb"/>
-                                    <constraint firstItem="OjD-0l-TGH" firstAttribute="width" secondItem="LG6-2b-cL7" secondAttribute="width" id="ls4-dB-7Pm"/>
-                                    <constraint firstItem="5Sn-Kt-C6X" firstAttribute="width" secondItem="gZM-l2-LhO" secondAttribute="width" id="vJi-zz-hyf"/>
-                                    <constraint firstItem="V76-T2-CRR" firstAttribute="width" secondItem="JX9-Bs-HBv" secondAttribute="width" id="y8J-iv-cW1"/>
+                                    <constraint firstItem="jVQ-h0-ibr" firstAttribute="width" secondItem="wwA-7Z-91G" secondAttribute="width" id="6R0-rz-DrF"/>
+                                    <constraint firstItem="jVQ-h0-ibr" firstAttribute="top" secondItem="wwA-7Z-91G" secondAttribute="top" id="9qc-5J-gen"/>
+                                    <constraint firstItem="jVQ-h0-ibr" firstAttribute="height" secondItem="wwA-7Z-91G" secondAttribute="height" priority="250" id="Ho5-k4-vBj"/>
+                                    <constraint firstItem="jVQ-h0-ibr" firstAttribute="leading" secondItem="wwA-7Z-91G" secondAttribute="leading" id="KQ8-MU-yy0"/>
+                                    <constraint firstAttribute="bottom" secondItem="jVQ-h0-ibr" secondAttribute="bottom" id="aGz-i9-KNJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="jVQ-h0-ibr" secondAttribute="trailing" id="gzk-jp-HEB"/>
                                 </constraints>
-                            </stackView>
+                            </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Ydo-PN-lSe"/>
                         <color key="backgroundColor" red="0.88235294119999996" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ydo-PN-lSe" firstAttribute="trailing" secondItem="C9A-GC-HFH" secondAttribute="trailing" id="2Y8-F1-0Ai"/>
-                            <constraint firstItem="C9A-GC-HFH" firstAttribute="centerY" secondItem="Ydo-PN-lSe" secondAttribute="centerY" id="Kp5-pq-t6L"/>
-                            <constraint firstItem="C9A-GC-HFH" firstAttribute="leading" secondItem="Ydo-PN-lSe" secondAttribute="leading" id="b8y-pC-yvR"/>
+                            <constraint firstAttribute="bottom" secondItem="wwA-7Z-91G" secondAttribute="bottom" id="25W-1W-F8X"/>
+                            <constraint firstAttribute="trailing" secondItem="wwA-7Z-91G" secondAttribute="trailing" id="46i-8v-cbI"/>
+                            <constraint firstItem="wwA-7Z-91G" firstAttribute="top" secondItem="AbF-S6-Wrj" secondAttribute="top" id="7pF-2t-wR2"/>
+                            <constraint firstItem="wwA-7Z-91G" firstAttribute="leading" secondItem="AbF-S6-Wrj" secondAttribute="leading" id="D6g-xk-nXb"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                     </view>
