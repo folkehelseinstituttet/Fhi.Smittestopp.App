@@ -36,6 +36,9 @@ namespace NDB.Covid19.Configuration
         public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN = 8;
         public static int HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_END = 22;
 
+        // Year replacement in case of wrong of no DateTime on device
+        public static DateTime DATE_TIME_REPLACEMENT = new DateTime(2021, 1, 1);
+
         // --- Urls ---
         public static string URL_PREFIX => $"{BASE_URL}v{APIVersion}/";
         public static string URL_LOG_MESSAGE => URL_PREFIX + "logging/logMessages";
