@@ -30,7 +30,7 @@ namespace NDB.Covid19.iOS.Utils
                     return null;
                 }
 
-                var manager = new ENManager();
+                ENManager manager = new ENManager();
 
                 manager.SetLaunchActivityHandler(activityFlags =>
                 {
