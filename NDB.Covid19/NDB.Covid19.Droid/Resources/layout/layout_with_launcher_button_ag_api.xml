@@ -55,6 +55,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="150dp"
+                android:singleLine="true"
+                android:drawablePadding="-30dp"
+                android:paddingEnd="30dp"
+                android:drawableRight="@drawable/ic_start_page_arrow_right"
                 style="@style/DefaultButton"
                 android:id="@+id/launcher_button" />
     </LinearLayout>

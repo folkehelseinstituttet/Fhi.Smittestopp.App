@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="716">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -7,6 +7,7 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Infection Status View Controller-->
@@ -28,13 +29,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-pE-NTM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="866"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="755.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="866"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="755.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-Ew-Iyy" userLabel="Status View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="186.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vG0-52-px3" userLabel="Header View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
@@ -88,7 +89,7 @@
                                                                 </accessibility>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-7p-6vm">
-                                                                <rect key="frame" x="40" y="220.5" width="295" height="44.5"/>
+                                                                <rect key="frame" x="40" y="220.5" width="295" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -109,10 +110,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9k-ec-FSe">
-                                                        <rect key="frame" x="0.0" y="305" width="375" height="251"/>
+                                                        <rect key="frame" x="0.0" y="194.5" width="375" height="251"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uaW-Ad-6eY">
-                                                                <rect key="frame" x="40" y="32" width="295" height="187"/>
+                                                                <rect key="frame" x="40" y="32" width="295" height="100.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When Smitte | Stop is running you contributes to stop then Covid-19 spread in Denmark" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZp-jv-Ckr">
                                                                         <rect key="frame" x="5" y="0.0" width="285" height="50.5"/>
@@ -121,7 +122,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkb-Bo-Rzw">
-                                                                        <rect key="frame" x="123.5" y="157" width="48" height="30"/>
+                                                                        <rect key="frame" x="123.5" y="70.5" width="48" height="30"/>
                                                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="tintColor" red="0.039215686270000001" green="0.18823529410000001" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <state key="normal" title="Aktiver"/>
@@ -140,7 +141,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ug-II-NMf">
-                                                        <rect key="frame" x="0.0" y="564" width="375" height="270"/>
+                                                        <rect key="frame" x="0.0" y="453.5" width="375" height="270"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="9yc-jF-FcE">
                                                                 <rect key="frame" x="16" y="0.0" width="343" height="270"/>
@@ -175,16 +176,8 @@
                                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6cY-x7-ieR">
                                                                                                 <rect key="frame" x="0.0" y="43.5" width="184" height="29"/>
                                                                                                 <subviews>
-                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gff-jF-u0g">
-                                                                                                        <rect key="frame" x="0.0" y="9.5" width="10" height="10"/>
-                                                                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                                                                                                        <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="10" id="meS-o9-TDQ"/>
-                                                                                                            <constraint firstAttribute="width" constant="10" id="reO-Qe-FXX"/>
-                                                                                                        </constraints>
-                                                                                                    </view>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close encounter with Covid-19 positive" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWO-uk-OoO">
-                                                                                                        <rect key="frame" x="15" y="0.0" width="169" height="29"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="184" height="29"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                                         <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -322,7 +315,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-37-3XW">
-                                                        <rect key="frame" x="0.0" y="842" width="375" height="24"/>
+                                                        <rect key="frame" x="0.0" y="731.5" width="375" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="NAS-98-7at"/>
                                                         </constraints>
@@ -373,7 +366,6 @@
                         <outlet property="MessageIcon" destination="Fbf-eR-jCO" id="name-outlet-Fbf-eR-jCO"/>
                         <outlet property="MessageLbl" destination="0qZ-0A-rrR" id="name-outlet-0qZ-0A-rrR"/>
                         <outlet property="MessageView" destination="oNP-uq-7Sg" id="name-outlet-oNP-uq-7Sg"/>
-                        <outlet property="NewIndicatorView" destination="Gff-jF-u0g" id="name-outlet-Gff-jF-u0g"/>
                         <outlet property="NewRegistrationLbl" destination="FWO-uk-OoO" id="name-outlet-FWO-uk-OoO"/>
                         <outlet property="OnOffBtn" destination="xkb-Bo-Rzw" id="name-outlet-xkb-Bo-Rzw"/>
                         <outlet property="OnOffBtnContainer" destination="y9k-ec-FSe" id="name-outlet-y9k-ec-FSe"/>
@@ -386,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="718" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161.875" y="-79.267600000000002"/>
+            <point key="canvasLocation" x="161.875" y="-79.2676"/>
         </scene>
     </scenes>
     <resources>
@@ -396,9 +388,6 @@
         <image name="bellicon" width="36" height="36"/>
         <image name="covidIcon" width="36" height="36"/>
         <image name="fhi_logo_short" width="58" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
