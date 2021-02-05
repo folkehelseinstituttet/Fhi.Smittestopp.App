@@ -228,7 +228,7 @@
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_RECEIPT_HEADER": "Takk for at du no har delt i Smittestopp at du har covid-19",
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON": "Infoknapp",
   "REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT": "dd.mm.åååå",
-  "REGISTER_COUNTRY_QUESTIONAIRE_HEADER_TEXT": "Har du vore i eit anna EU- eller EØS-land dei siste 14 dagane, eller ønsker å dele nøklar med noen av disse landene?",
+  "REGISTER_COUNTRY_QUESTIONAIRE_HEADER_TEXT": "Har du vore i eit anna EU- eller EØS-land dei siste 14 dagane, eller ønsker å dele nøklar med nokon av desse landene?",
   "REGISTER_COUNTRY_QUESTIONAIRE_INFORMATION_TEXT": "Kva land eller nasjonalitetar har du vore i kontakt med? Det er frivillig å oppgi dette. Men slike opplysningar kan bidra til at andre land sine smittesporingsappar lettare kan finne og dele kontaktnøklar med app-brukarar frå desse landa.",
   "REGISTER_COUNTRY_QUESTIONAIRE_BUTTON_TEXT": "Send inn",
   "REGISTER_COUNTRY_QUESTIONAIRE_FOOTER": "Lista inneheld berre dei EU- eller EØS-landa som har ein covid-19-app som fungerer saman med Smittestopp.",
