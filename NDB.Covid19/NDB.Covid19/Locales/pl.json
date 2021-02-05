@@ -225,7 +225,6 @@
   "REGISTER_QUESTIONAIRE_RECEIPT_LINK": "https://www.helsenorge.no/koronavirus/karantene-og-isolasjon#isolasjon",
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE": "Ładowanie…",
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_HEADER": "Aby móc ostrzec właściwe osoby, aplikacja Smittestopp musi poznać przebieg twoich objawów",
-  "REGISTER_QUESTIONAIRE_ACCESSIBILITY_RECEIPT_HEADER": "Dziękujemy, że podzieliłeś się ze Smittestopp informacją o tym, że przechodzisz covid-19",
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON": "Informacja",
   "REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT": "dd.mm.rrrr",
   "REGISTER_COUNTRY_QUESTIONAIRE_HEADER_TEXT": "Czy w ciągu ostatnich 14 dni przebywałeś w innym kraju członkowskim UE lub EOG bądź też chcesz się podzielić kluczami kontaktowymi z którymś z tych krajów?  ",
