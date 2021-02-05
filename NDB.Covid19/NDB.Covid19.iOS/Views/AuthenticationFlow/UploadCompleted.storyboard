@@ -40,7 +40,7 @@
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfo-CZ-3LR">
-                                <rect key="frame" x="0.0" y="79" width="414" height="677"/>
+                                <rect key="frame" x="0.0" y="79" width="414" height="711"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEY-Rb-Shb" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="553.5"/>
@@ -181,7 +181,7 @@
                                 </variation>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f15-5W-d0d">
-                                <rect key="frame" x="22" y="780" width="370" height="50"/>
+                                <rect key="frame" x="22" y="790" width="370" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BtA-gu-duq"/>
                                 </constraints>
@@ -198,13 +198,12 @@
                             <constraint firstItem="Xrr-ym-5uV" firstAttribute="top" secondItem="RXq-fe-F6s" secondAttribute="top" id="3mW-pT-9oy"/>
                             <constraint firstItem="f15-5W-d0d" firstAttribute="centerX" secondItem="RXq-fe-F6s" secondAttribute="centerX" id="5EA-hP-sjS"/>
                             <constraint firstItem="Xrr-ym-5uV" firstAttribute="leading" secondItem="RXq-fe-F6s" secondAttribute="leading" constant="24" id="LaD-Mh-k1O"/>
-                            <constraint firstItem="Hfo-CZ-3LR" firstAttribute="width" secondItem="jFE-AF-3Zi" secondAttribute="width" id="Mqz-3x-shf"/>
                             <constraint firstItem="f15-5W-d0d" firstAttribute="width" secondItem="jFE-AF-3Zi" secondAttribute="width" constant="-44" id="Ns7-u4-qrY"/>
                             <constraint firstItem="Hfo-CZ-3LR" firstAttribute="top" secondItem="Xrr-ym-5uV" secondAttribute="bottom" id="fMn-AN-aHK"/>
                             <constraint firstItem="RXq-fe-F6s" firstAttribute="trailing" secondItem="Hfo-CZ-3LR" secondAttribute="trailing" id="jmZ-yQ-4In"/>
                             <constraint firstItem="Hfo-CZ-3LR" firstAttribute="leading" secondItem="RXq-fe-F6s" secondAttribute="leading" id="lPc-1G-FK3"/>
-                            <constraint firstItem="RXq-fe-F6s" firstAttribute="bottom" secondItem="f15-5W-d0d" secondAttribute="bottom" constant="32" id="oBT-0V-Jmh"/>
-                            <constraint firstItem="f15-5W-d0d" firstAttribute="top" secondItem="Hfo-CZ-3LR" secondAttribute="bottom" constant="24" id="z35-OM-JGk"/>
+                            <constraint firstItem="RXq-fe-F6s" firstAttribute="bottom" secondItem="f15-5W-d0d" secondAttribute="bottom" constant="22" id="oBT-0V-Jmh"/>
+                            <constraint firstItem="f15-5W-d0d" firstAttribute="top" secondItem="Hfo-CZ-3LR" secondAttribute="bottom" id="z35-OM-JGk"/>
                         </constraints>
                     </view>
                     <connections>
