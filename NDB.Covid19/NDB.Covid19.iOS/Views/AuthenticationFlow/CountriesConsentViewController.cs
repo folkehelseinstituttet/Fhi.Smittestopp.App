@@ -28,13 +28,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             
             CloseBtn.AccessibilityLabel = CLOSE_BUTTON_ACCESSIBILITY_LABEL;
             HeaderLabel.SetAttributedText(HEADER_TEXT);
-            DescriptionLabel.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_DESCRIPTION);
-            LookUp_Header.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_HEADER, StyleUtil.FontType.FontBold);
-            LookUp_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_LOOKUP_TEXT);
-            Notification_Header.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_NOTIFICATION_HEADER, StyleUtil.FontType.FontBold);
-            Notification_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_NOTIFICATION_TEXT);
-            Consent_BeAware_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_BE_AWARE_TEXT);
-            Consent_Explanation_Text.SetAttributedText(COUNTRIES_CONSENT_BE_AWARE_TEXT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
+            BodyText1.SetAttributedText(CONSENT3_BODYTEXT_1);
+            StyleUtil.InitLabel(ShareHeader, StyleUtil.FontType.FontBold, CONSENT3_SHAREDATA_HEADER, 16, 22);
+            BodyText2.SetAttributedText(CONSENT3_BODYTEXT_2);
+            ConsentEU_Explanation.SetAttributedText(CONSENT3_EU_CONSENT_BUTTON_BODYTEXT);
+            Consent_onlyNorway_Explanation.SetAttributedText(CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT);
+            StyleUtil.InitLabel(ConsentText, StyleUtil.FontType.FontItalic, CONSENT3_CONSENTTOSHARE, 16, 22);
 
             StyleUtil.InitButtonStyling(NextButtonWithEUConsent, EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT);
             StyleUtil.InitButtonStyling(NextButtonOnlyNorwayConsent, EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT);
@@ -46,13 +45,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         public void SetupStyling()
         {
             HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            DescriptionLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            LookUp_Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            LookUp_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Notification_Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Notification_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Consent_BeAware_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
-            Consent_Explanation_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            BodyText1.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            ShareHeader.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            BodyText2.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            ConsentEU_Explanation.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            Consent_onlyNorway_Explanation.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            ConsentText.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
         void GoToLoadingPage()

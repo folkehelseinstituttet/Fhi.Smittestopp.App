@@ -24,7 +24,7 @@ using Object = Java.Lang.Object;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     class QuestionnairePageActivity : AppCompatActivity
     {
         private Button _closeButton;
@@ -84,6 +84,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire page");
 
             PrepareRadioButtons();
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
         }
 
         private void PrepareRadioButtons()

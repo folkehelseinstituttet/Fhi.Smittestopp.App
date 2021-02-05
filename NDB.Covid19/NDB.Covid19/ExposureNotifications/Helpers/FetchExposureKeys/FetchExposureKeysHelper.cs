@@ -32,7 +32,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             _developerTools.StartPullHistoryRecord();
 
             UpdateLastNTPDateTime();
-            SendReApproveConsentsNotificationIfNeeded();
+            //SendReApproveConsentsNotificationIfNeeded();
             ResendMessageIfNeeded();
             CreatePermissionsNotificationIfNeeded();
 
