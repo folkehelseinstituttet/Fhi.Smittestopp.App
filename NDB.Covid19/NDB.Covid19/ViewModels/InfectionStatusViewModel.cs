@@ -52,6 +52,9 @@ namespace NDB.Covid19.ViewModels
                         $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "t")}")
                     : "";
 
+        public string NewDailyNumbersAccessibilityText =>
+            INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT + ". " + LastUpdatedAccessibilityString;
+
         public async Task<string> StatusTxt(bool hasLocation = true) =>
             await IsRunning(hasLocation) 
                 ? INFECTION_STATUS_ACTIVE_TEXT 

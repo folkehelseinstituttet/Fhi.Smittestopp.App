@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using CoreFoundation;
 using NDB.Covid19.iOS.Permissions;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
@@ -64,6 +65,15 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
+        }
+
+        private void OnAppDailyNumbersChanged(object _ = null)
+        {
+            DispatchQueue.MainQueue.DispatchAsync(() => {
+                _dailyNumbersButton.AccessibilityLabel = _viewModel.NewDailyNumbersAccessibilityText;
+                StyleUtil.InitLabelWithSpacing(dailyNumbersUpdatedLbl, StyleUtil.FontType.FontRegular, InfectionStatusViewModel.LastUpdatedString, 1.14, 12, 16);
+            });
         }
 
         public override void DidUpdateFocus (UIFocusUpdateContext context, UIFocusAnimationCoordinator coordinator)
