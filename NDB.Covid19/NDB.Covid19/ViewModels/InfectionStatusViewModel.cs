@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using I18NPortable;
 using NDB.Covid19.Models.SQLite;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using Xamarin.ExposureNotifications;
 
@@ -31,6 +32,25 @@ namespace NDB.Covid19.ViewModels
         public static string INFECTION_STATUS_STOP_BUTTON_ACCESSIBILITY_TEXT => "SMITTESPORING_STOP_BUTTON_ACCESSIBILITY".Translate();
         public static string INFECTION_STATUS_START_BUTTON_TEXT => "SMITTESPORING_START_BUTTON_TEXT".Translate();
         public static string INFECTION_STATUS_STOP_BUTTON_TEXT => "SMITTESPORING_STOP_BUTTON_TEXT".Translate();
+        public static string INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT".Translate();
+        public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT".Translate();
+        public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT".Translate();
+
+        public static DateTime DailyNumbersUpdatedDateTime => LocalPreferencesHelper.FHILastUpdateDateTime.ToLocalTime();
+
+        public static string LastUpdatedString => DailyNumbersUpdatedDateTime != DateTime.MinValue.ToLocalTime()
+            ? string.Format(
+                INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT,
+                $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "m")}",
+                $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "t")}")
+            : "";
+
+        public static string LastUpdatedAccessibilityString => DailyNumbersUpdatedDateTime != DateTime.MinValue.ToLocalTime()
+                    ? string.Format(
+                        INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT,
+                        $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "m")}",
+                        $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "t")}")
+                    : "";
 
         public async Task<string> StatusTxt(bool hasLocation = true) =>
             await IsRunning(hasLocation) 

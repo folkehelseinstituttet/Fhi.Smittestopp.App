@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using NDB.Covid19.iOS.Permissions;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
+using NDB.Covid19.iOS.Views.DailyNumbers;
 using NDB.Covid19.iOS.Views.Settings;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
@@ -40,6 +41,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         InfectionStatusViewModel _viewModel;
 
+        UIButton _dailyNumbersButton;
         UIButton _messageViewBtn;
         UIButton _areYouInfectedBtn;
 
@@ -104,6 +106,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             SetPermissionManager();
             _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;
 
+            _dailyNumbersButton.TouchUpInside += OnDailyNumbersBtnTapped;
             _messageViewBtn.TouchUpInside += OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside += OnAreYouInfectedBtnTapped;
 
@@ -261,12 +264,20 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void SetupEncounterAndInfectedButtons()
         {
+            DailyNumbersView.Subviews[0].Layer.CornerRadius = 12;
+            DailyNumbersView.Subviews[0].Layer.BorderWidth = 1;
+            DailyNumbersView.Subviews[0].Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
             MessageView.Subviews[0].Layer.CornerRadius = 12;
             MessageView.Subviews[0].Layer.BorderWidth = 1;
             MessageView.Subviews[0].Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
             AreYouInfectetView.Subviews[0].Layer.CornerRadius = 12;
             AreYouInfectetView.Subviews[0].Layer.BorderWidth = 1;
             AreYouInfectetView.Subviews[0].Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+
+            dailyNumbersLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
+            dailyNumbersLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT;
+            dailyNumbersUpdatedLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
+            dailyNumbersUpdatedLbl.Text = InfectionStatusViewModel.LastUpdatedString;
 
             MessageLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             MessageLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_MESSAGE_HEADER_TEXT;
@@ -279,6 +290,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             LogInAndRegisterLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
 
             // We take the fairly complicated UIViews from the storyboard and embed them into UIButtons
+            _dailyNumbersButton = new UIButton();
+            _dailyNumbersButton.TranslatesAutoresizingMaskIntoConstraints = false;
+            StyleUtil.EmbedViewInsideButton(DailyNumbersView, _dailyNumbersButton);
+
             _messageViewBtn = new UIButton();
             _messageViewBtn.TranslatesAutoresizingMaskIntoConstraints = false;
             StyleUtil.EmbedViewInsideButton(MessageView, _messageViewBtn);
@@ -384,6 +399,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             UpdateUI();
         }
 
+        void OnDailyNumbersBtnTapped(object sender, EventArgs e)
+        {
+            OpenDailyNumbersPage();
+        }
+
         void OnMessageBtnTapped(object sender, EventArgs e)
         {
             OpenMessagesPage();
@@ -402,6 +422,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 DialogHelper.ShowDialog(this, _viewModel.ReportingIllDialogViewModel, null);
             }
+        }
+
+        void OpenDailyNumbersPage()
+        {
+            NavigationController?.PushViewController(DailyNumbersLoadingViewController.Create(), true);
         }
 
         void OpenMessagesPage()
