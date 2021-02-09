@@ -55,7 +55,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             CloseButton.TintColor = ColorHelper.PRIMARY_COLOR;
             TitleLabel.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_HEADER);
-            TitleLabel.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_RECEIPT_HEADER;
             ContentLabelOne.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_TEXT);
             ContentLabelTwo.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_DESCRIPTION);
             BoxTitleLabel.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_INNER_HEADER,
