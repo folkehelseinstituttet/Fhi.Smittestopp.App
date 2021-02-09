@@ -624,7 +624,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.Equal(2, zipLocations.Count);
             //The last batch number is saved as one since today's first pull ended up in 204
             Assert.Equal(lastBatchNumFromHeader, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted);
-            //And no errors were logged
+            //And one warning is logged
             List<LogSQLiteModel> log = await _logManager.GetLogs(10);
             Assert.Single(log); // Should be one log entry indicating 204 on today's date
             //The history is stored for dev tools:
@@ -634,14 +634,18 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 $"* {todayDateString}_1_all.zip: 204 No Content - No new keys";
             Assert.Equal(expected, _developerTools.LastPullHistory);
             Assert.Equal(expected, _developerTools.AllPullHistory);
+
             // Emulate successful submission of the keys to EN API
-            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
             _developerTools.AddToPullHistoryRecord("Zips were successfully submitted to EN API.");
             if (LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204)
             {
-                LocalPreferencesHelper.LastPullKeysBatchNumberSuccessfullySubmitted = 0;
+                LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted = 0;
             }
+            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
             LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = false;
+
+            Assert.Equal(0, LocalPreferencesHelper.LastPullKeysBatchNumberSuccessfullySubmitted);
+
             // Emulate pull in couple of hours that ends up in 200 OK
             SystemTime.SetDateTime(SystemTime.Now().AddHours(5));
             lastBatchNumFromHeader = 2;
@@ -662,8 +666,9 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // Cleanup log
             await _logManager.DeleteAll();
         }
+
         [Fact]
-        public async void PullKeys_FetchZipsForMultipleDaysWithDKtoEUFiles_FirstFileOfTodaysDateReturns204()
+        public async void PullKeys_FetchZipsForMultipleDaysWithEUFilesWithFreshInstall_FirstFileOfTodaysDateReturns204()
         {
             string todayString = "2020-08-24 01:30 +1";
             int lastBatchNumFromHeader = 4;
@@ -690,7 +695,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.Equal(4, zipLocations.Count);
             //The last batch number is saved as one since today's first pull ended up in 204
             Assert.Equal(lastBatchNumFromHeader, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted);
-            //And no errors were logged
+            //And 1 warning was logged
             List<LogSQLiteModel> log = await _logManager.GetLogs(10);
             Assert.Single(log); // Should be one log entry indicating 204 on today's date
             //The history is stored for dev tools:
@@ -703,13 +708,16 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.Equal(expected, _developerTools.LastPullHistory);
             Assert.Equal(expected, _developerTools.AllPullHistory);
             // Emulate successful submission of the keys to EN API
-            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
             _developerTools.AddToPullHistoryRecord("Zips were successfully submitted to EN API.");
             if (LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204)
             {
-                LocalPreferencesHelper.LastPullKeysBatchNumberSuccessfullySubmitted = 0;
+                LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted = 0;
             }
+            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
             LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = false;
+
+            Assert.Equal(0, LocalPreferencesHelper.LastPullKeysBatchNumberSuccessfullySubmitted);
+
             // Emulate pull in couple of hours that ends up in 200 OK
             SystemTime.SetDateTime(SystemTime.Now().AddHours(5));
             lastBatchNumFromHeader = 2;
