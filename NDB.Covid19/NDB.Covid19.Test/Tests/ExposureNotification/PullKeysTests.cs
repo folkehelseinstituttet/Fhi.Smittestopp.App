@@ -592,6 +592,142 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Assert.False((await _logManager.GetLogs(10)).Any()); //And no errors were logged
         }
 
+        [Theory]
+        [InlineData("2020-08-24")]
+        [InlineData("2020-08-25")]
+        public async void PullKeys_FetchZipsForMultipleDays_FirstFileOfTodaysDateReturns204(string todayDateString)
+        {
+            string todayString = $"{todayDateString} 01:30 +1";
+            int lastBatchNumFromHeader = 4;
+            OnboardingStatusHelper.Status = OnboardingStatus.CountriesOnboardingCompleted;
+            LocalPreferencesHelper.LastPulledBatchType = BatchType.ALL;
+            //Given there are 4 batches for day1, 0 batches for day 2
+            ExposureNotificationWebService mockedService = _helper.MockedService(new List<PullKeysMockData>
+            {
+                new PullKeysMockData(day1, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 3, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 4, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(4).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day1, 5, BatchType.ALL).HttpStatusCode(204),
+                new PullKeysMockData(day2, 1, BatchType.ALL).HttpStatusCode(204),
+                new PullKeysMockData(day3, 1, BatchType.ALL).HttpStatusCode(204),
+            });
+            //Given today is day2 or day3
+            DateTime newToday = DateTime.ParseExact(todayString, "yyyy-MM-dd HH:mm z", CultureInfo.GetCultureInfo("dk"));
+            SystemTime.SetDateTime(newToday);
+            //Given last time we pulled was day1, batch2.
+            _helper.SetLastPulledDate(day1, 2);
+            //When pulling keys
+            _developerTools.StartPullHistoryRecord();
+            List<string> zipLocations = (await new ZipDownloader().PullNewKeys(mockedService, new CancellationToken())).ToList();
+            //Then we pull the rest from day 1, none from day 2
+            Assert.Equal(2, zipLocations.Count);
+            //The last batch number is saved as one since today's first pull ended up in 204
+            Assert.Equal(lastBatchNumFromHeader, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted);
+            //And no errors were logged
+            List<LogSQLiteModel> log = await _logManager.GetLogs(10);
+            Assert.Single(log); // Should be one log entry indicating 204 on today's date
+            //The history is stored for dev tools:
+            string expected = $"Pulled the following keys (batches) at {newToday.ToUniversalTime():yyyy-MM-dd HH:mm} UTC:\n" +
+                $"* 2020-08-23_3_all.zip: 200 OK\n" +
+                $"* 2020-08-23_4_all.zip: 200 OK\n" +
+                $"* {todayDateString}_1_all.zip: 204 No Content - No new keys";
+            Assert.Equal(expected, _developerTools.LastPullHistory);
+            Assert.Equal(expected, _developerTools.AllPullHistory);
+            // Emulate successful submission of the keys to EN API
+            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
+            _developerTools.AddToPullHistoryRecord("Zips were successfully submitted to EN API.");
+            if (LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204)
+            {
+                LocalPreferencesHelper.LastPullKeysBatchNumberSuccessfullySubmitted = 0;
+            }
+            LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = false;
+            // Emulate pull in couple of hours that ends up in 200 OK
+            SystemTime.SetDateTime(SystemTime.Now().AddHours(5));
+            lastBatchNumFromHeader = 2;
+            mockedService = _helper.MockedService(new List<PullKeysMockData>
+            {
+                new PullKeysMockData(day2, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day2, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day2, 3, BatchType.ALL).HttpStatusCode(204),
+                new PullKeysMockData(day3, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day3, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day3, 3, BatchType.ALL).HttpStatusCode(204),
+            });
+            zipLocations = (await new ZipDownloader().PullNewKeys(mockedService, new CancellationToken())).ToList();
+            //Then we pull the rest from day 1, none from day 2 or day 3
+            Assert.Equal(2, zipLocations.Count);
+            //The last batch number is saved as one since today's first pull ended up in 204
+            Assert.Equal(lastBatchNumFromHeader, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted);
+            // Cleanup log
+            await _logManager.DeleteAll();
+        }
+        [Fact]
+        public async void PullKeys_FetchZipsForMultipleDaysWithDKtoEUFiles_FirstFileOfTodaysDateReturns204()
+        {
+            string todayString = "2020-08-24 01:30 +1";
+            int lastBatchNumFromHeader = 4;
+            OnboardingStatusHelper.Status = OnboardingStatus.CountriesOnboardingCompleted;
+            //Given there are 4 batches for day1, 0 batches for day 2
+            ExposureNotificationWebService mockedService = _helper.MockedService(new List<PullKeysMockData>
+            {
+                new PullKeysMockData(day1, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 3, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(3).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day1, 4, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(4).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day1, 5, BatchType.ALL).HttpStatusCode(204),
+                new PullKeysMockData(day2, 1, BatchType.ALL).HttpStatusCode(204),
+            });
+            //Given today is day2
+            DateTime newToday = DateTime.ParseExact(todayString, "yyyy-MM-dd HH:mm z", CultureInfo.GetCultureInfo("nn-NO"));
+            SystemTime.SetDateTime(newToday);
+            //Given last time we pulled was day1, batch2.
+            _helper.SetLastPulledDate(day1, 2);
+            //When pulling keys
+            _developerTools.StartPullHistoryRecord();
+            List<string> zipLocations = (await new ZipDownloader().PullNewKeys(mockedService, new CancellationToken())).ToList();
+            //Then we pull the rest from day 1, none from day 2
+            Assert.Equal(4, zipLocations.Count);
+            //The last batch number is saved as one since today's first pull ended up in 204
+            Assert.Equal(lastBatchNumFromHeader, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted);
+            //And no errors were logged
+            List<LogSQLiteModel> log = await _logManager.GetLogs(10);
+            Assert.Single(log); // Should be one log entry indicating 204 on today's date
+            //The history is stored for dev tools:
+            string expected = $"Pulled the following keys (batches) at {newToday.ToUniversalTime().ToString("yyyy-MM-dd HH:mm")} UTC:\n" +
+                $"* 2020-08-23_1_all.zip: 200 OK\n" +
+                $"* 2020-08-23_2_all.zip: 200 OK\n" +
+                $"* 2020-08-23_3_all.zip: 200 OK\n" +
+                $"* 2020-08-23_4_all.zip: 200 OK\n" +
+                $"* 2020-08-24_1_all.zip: 204 No Content - No new keys";
+            Assert.Equal(expected, _developerTools.LastPullHistory);
+            Assert.Equal(expected, _developerTools.AllPullHistory);
+            // Emulate successful submission of the keys to EN API
+            LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
+            _developerTools.AddToPullHistoryRecord("Zips were successfully submitted to EN API.");
+            if (LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204)
+            {
+                LocalPreferencesHelper.LastPullKeysBatchNumberSuccessfullySubmitted = 0;
+            }
+            LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = false;
+            // Emulate pull in couple of hours that ends up in 200 OK
+            SystemTime.SetDateTime(SystemTime.Now().AddHours(5));
+            lastBatchNumFromHeader = 2;
+            mockedService = _helper.MockedService(new List<PullKeysMockData>
+            {
+                new PullKeysMockData(day2, 1, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true),
+                new PullKeysMockData(day2, 2, BatchType.ALL).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(false),
+                new PullKeysMockData(day2, 3, BatchType.ALL).HttpStatusCode(204),
+            });
+            zipLocations = (await new ZipDownloader().PullNewKeys(mockedService, new CancellationToken())).ToList();
+            //Then we pull the rest from day 1, none from day 2
+            Assert.Equal(2, zipLocations.Count);
+            //The last batch number is saved as one since today's first pull ended up in 204
+            Assert.Equal(lastBatchNumFromHeader, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted);
+            //Clean up log
+            await _logManager.DeleteAll();
+        }
+
         List<PullKeysMockData> SixteenDaysOfKeys()
         {
             List<PullKeysMockData> keys = new List<PullKeysMockData>();
