@@ -130,5 +130,11 @@ namespace NDB.Covid19.PersistedData
             get => _preferences.Get(PreferencesKeys.COUNTRY_CONSENTS_GIVEN, false);
             set => _preferences.Set(PreferencesKeys.COUNTRY_CONSENTS_GIVEN, value);
         }
+
+        public static bool DidFirstFileOfTheDayEndedWith204
+        {
+            get => _preferences.Get(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, false);
+            set => _preferences.Set(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, value);
+        }
     }
 }

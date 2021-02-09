@@ -45,9 +45,15 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 
             if (await SubmitZips(zipsLocation, submitBatches))
             {
+                if (LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204)
+                {
+                    LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted = 0;
+                }
+
                 LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
                 _developerTools.AddToPullHistoryRecord("Zips were successfully submitted to EN API.");
             }
+            LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = false;
             DeleteZips(zipsLocation);
         }
 
