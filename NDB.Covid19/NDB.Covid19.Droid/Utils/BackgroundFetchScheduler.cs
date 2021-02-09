@@ -36,7 +36,7 @@ namespace NDB.Covid19.Droid.Utils
             WorkManager workManager = WorkManager.GetInstance(Platform.AppContext);
 
             workManager.EnqueueUniquePeriodicWork("exposurenotification",
-                ExistingPeriodicWorkPolicy.Replace,
+                ExistingPeriodicWorkPolicy.Keep,
                 periodicWorkRequest);
         }
 
