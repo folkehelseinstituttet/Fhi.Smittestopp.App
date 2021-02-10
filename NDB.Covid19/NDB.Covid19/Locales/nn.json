@@ -1,6 +1,6 @@
 ﻿{
   "LAUNCHER_PAGE_START_BTN": "Start",
-  "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Smittestopp fungerer berre med iOS 13.6 eller nyare. Oppdater til ein nyare versjon. Det gjer du på mobilen din under Innstillingar -> Generelt -> Programvareoppdatering. ",
+  "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Du må oppdatere telefonen din for å bruke Smittestopp. Gå til Innstillingar -> Generelt -> Programvareoppdatering. ",
   "BASE_ERROR_TITLE": "FEIL",
   "BASE_ERROR_MESSAGE": "Noko gjekk gale. Prøv på nytt seinare.",
   "ERROR_OK_BTN": "OK",

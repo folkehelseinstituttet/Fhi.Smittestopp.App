@@ -1,6 +1,6 @@
 {
   "LAUNCHER_PAGE_START_BTN": "Start",
-  "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "Smittestopp only functions if your iOS device is running version 13.6 or later. Please update to a later version than your current one. You do this in your phone's Settings -> General -> Software Update. ",
+  "LAUNCHER_PAGE_OS_VERSION_DIALOG_MESSAGE_IOS": "You need to update your phone to use Smittestopp. Go to Settings -> General -> Software Update. ",
   "BASE_ERROR_TITLE": "ERROR",
   "BASE_ERROR_MESSAGE": "An error occurred. Please try again later.",
   "ERROR_OK_BTN": "OK",
