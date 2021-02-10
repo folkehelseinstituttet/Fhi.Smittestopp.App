@@ -26,16 +26,13 @@ namespace NDB.Covid19.iOS.Views.Initializer
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            StartButton.SemanticContentAttribute = UISemanticContentAttribute.ForceRightToLeft;
-            StyleUtil.InitButtonStyling(StartButton, InitializerViewModel.LAUNCHER_PAGE_START_BTN);
+
+            StyleStartButton();
+
             fhiLogo.AccessibilityLabel = InitializerViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
             appLogo.AccessibilityLabel = InitializerViewModel.SMITTESPORING_APP_LOGO_ACCESSIBILITY;
-            HeaderView.SizeToFit();
 
-            if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
-            {
-                StartButton.Hidden = true;
-            }
+            HeaderView.SizeToFit();
         }
 
         public override void ViewDidAppear(bool animated)
@@ -60,6 +57,20 @@ namespace NDB.Covid19.iOS.Views.Initializer
             else
             {
                 ShowOutdatedOSDialog();
+            }
+        }
+
+        private void StyleStartButton()
+        {
+            StartButton.SemanticContentAttribute = UISemanticContentAttribute.ForceRightToLeft;
+            StartButton.ContentEdgeInsets = new UIEdgeInsets(0, 0, 0, 20);
+            StartButton.TitleEdgeInsets = new UIEdgeInsets(0, -6, 0, 6);
+            StartButton.ImageEdgeInsets = new UIEdgeInsets(0, 6, 0, -6);
+            StyleUtil.InitButtonStyling(StartButton, InitializerViewModel.LAUNCHER_PAGE_START_BTN);
+
+            if (OnboardingStatusHelper.Status == OnboardingStatus.CountriesOnboardingCompleted)
+            {
+                StartButton.Hidden = true;
             }
         }
 
