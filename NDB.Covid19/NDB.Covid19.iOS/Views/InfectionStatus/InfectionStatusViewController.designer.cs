@@ -28,6 +28,18 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		UIKit.UIView AreYouInfectetView { get; set; }
 
 		[Outlet]
+		UIKit.UIImageView dailyNumbersIcon { get; set; }
+
+		[Outlet]
+		UIKit.UILabel dailyNumbersLbl { get; set; }
+
+		[Outlet]
+		UIKit.UILabel dailyNumbersUpdatedLbl { get; set; }
+
+		[Outlet]
+		UIKit.UIView DailyNumbersView { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIImageView fhiLogo { get; set; }
 
@@ -92,6 +104,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				ActivityExplainerLbl = null;
 			}
 
+			if (appLogo != null) {
+				appLogo.Dispose ();
+				appLogo = null;
+			}
+
 			if (AreYouInfectetLbl != null) {
 				AreYouInfectetLbl.Dispose ();
 				AreYouInfectetLbl = null;
@@ -102,14 +119,29 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				AreYouInfectetView = null;
 			}
 
+			if (DailyNumbersView != null) {
+				DailyNumbersView.Dispose ();
+				DailyNumbersView = null;
+			}
+
+			if (dailyNumbersIcon != null) {
+				dailyNumbersIcon.Dispose ();
+				dailyNumbersIcon = null;
+			}
+
+			if (dailyNumbersLbl != null) {
+				dailyNumbersLbl.Dispose ();
+				dailyNumbersLbl = null;
+			}
+
+			if (dailyNumbersUpdatedLbl != null) {
+				dailyNumbersUpdatedLbl.Dispose ();
+				dailyNumbersUpdatedLbl = null;
+			}
+
 			if (fhiLogo != null) {
 				fhiLogo.Dispose ();
 				fhiLogo = null;
-			}
-
-			if (appLogo != null) {
-				appLogo.Dispose ();
-				appLogo = null;
 			}
 
 			if (LogInAndRegisterLbl != null) {

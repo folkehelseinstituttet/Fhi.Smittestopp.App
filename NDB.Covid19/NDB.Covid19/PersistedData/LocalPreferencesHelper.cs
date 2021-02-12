@@ -3,6 +3,7 @@ using CommonServiceLocator;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.WebServices.ExposureNotification;
 
 namespace NDB.Covid19.PersistedData
@@ -83,6 +84,20 @@ namespace NDB.Covid19.PersistedData
             _preferences.Set(PreferencesKeys.APP_LANGUAGE, language);
         }
 
+        // The date of when the last update to numbers pulled from FHI were, which is used on the "Daily numbers" page.
+        public static DateTime FHILastUpdateDateTime
+        {
+            get => _preferences.Get(PreferencesKeys.FHI_DATA_LAST_UPDATED_PREF, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.FHI_DATA_LAST_UPDATED_PREF, value);
+        }
+
+        // The date of when the last update to the download numbers were, which is used on the "Daily numbers" page.
+        public static DateTime APPDownloadNumberLastUpdateDateTime
+        {
+            get => _preferences.Get(PreferencesKeys.APP_DOWNLOAD_NUMBERS_LAST_UPDATED_PREF, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.APP_DOWNLOAD_NUMBERS_LAST_UPDATED_PREF, value);
+        }
+
         public static DateTime LastDateTimeTermsNotificationWasShown
         {
             get => _preferences.Get(PreferencesKeys.LAST_TERMS_NOTIFICATION_DATE_TIME, DateTime.MinValue);
@@ -123,6 +138,93 @@ namespace NDB.Covid19.PersistedData
         {
             get => _preferences.Get(PreferencesKeys.COUNTRY_CONSENTS_GIVEN, false);
             set => _preferences.Set(PreferencesKeys.COUNTRY_CONSENTS_GIVEN, value);
+        }
+
+        public static bool HasNeverSuccessfullyFetchedFHIData
+        {
+            get => _preferences.Get(PreferencesKeys.FHI_DATA_HAS_NEVER_BEEN_CALLED, true);
+            set => _preferences.Set(PreferencesKeys.FHI_DATA_HAS_NEVER_BEEN_CALLED, value);
+        }
+
+        //Data from FHI
+        public static class DailyNumbers
+        {
+            public static void UpdateAll(DailyNumbersDTO dto)
+            {
+                FHILastUpdateDateTime = dto.FHIStatistics.EntryDate;
+                FHIConfirmedCasesToday = dto.FHIStatistics.ConfirmedCasesToday;
+                FHIConfirmedCasesTotal = dto.FHIStatistics.ConfirmedCasesTotal;
+                FHIDeathsToday = dto.FHIStatistics.DeathsToday;
+                FHIDeathsTotal = dto.FHIStatistics.DeathsTotal;
+                FHITestsConductedToday = dto.FHIStatistics.TestsConductedToday;
+                FHITestsConductedTotal = dto.FHIStatistics.TestsConductedTotal;
+                FHIPatientsAdmittedToday = dto.FHIStatistics.PatientsAdmittedToday;
+                APPNumberOfPositiveTestsResultsLast7Days = dto.AppStatistics.NumberOfPositiveTestsResultsLast7Days;
+                APPNumberOfPositiveTestsResultsTotal = dto.AppStatistics.NumberOfPositiveTestsResultsTotal;
+                APPSmittestopDownloadsTotal = dto.AppStatistics.SmittestoppDownloadsTotal;
+                APPDownloadNumberLastUpdateDateTime = dto.AppStatistics.EntryDate;
+                HasNeverSuccessfullyFetchedFHIData = false;
+            }
+
+            public static int FHIConfirmedCasesToday
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TODAY_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TODAY_PREF, value);
+            }
+
+            public static int FHIConfirmedCasesTotal
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TOTAL_PREF, value);
+            }
+
+            public static int FHIDeathsToday
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_DEATHS_TODAY_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_DEATHS_TODAY_PREF, value);
+            }
+
+            public static int FHIDeathsTotal
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_DEATHS_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_DEATHS_TOTAL_PREF, value);
+            }
+
+            public static int FHITestsConductedToday
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TODAY_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TODAY_PREF, value);
+            }
+
+            public static int FHITestsConductedTotal
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TOTAL_PREF, value);
+            }
+
+            public static int FHIPatientsAdmittedToday
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF, value);
+            }
+
+            public static int APPNumberOfPositiveTestsResultsLast7Days
+            {
+                get => _preferences.Get(PreferencesKeys.APP_DATA_NUMBER_OF_POSITIVE_TESTS_RESULTS_LAST_7_DAYS_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.APP_DATA_NUMBER_OF_POSITIVE_TESTS_RESULTS_LAST_7_DAYS_PREF, value);
+            }
+
+            public static int APPNumberOfPositiveTestsResultsTotal
+            {
+                get => _preferences.Get(PreferencesKeys.APP_DATA_NUMBER_OF_POSITIVE_TESTS_RESULTS_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.APP_DATA_NUMBER_OF_POSITIVE_TESTS_RESULTS_TOTAL_PREF, value);
+            }
+
+            public static int APPSmittestopDownloadsTotal
+            {
+                get => _preferences.Get(PreferencesKeys.APP_DATA_SMITTESTOP_DOWNLOADS_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.APP_DATA_SMITTESTOP_DOWNLOADS_TOTAL_PREF, value);
+            }
         }
     }
 }

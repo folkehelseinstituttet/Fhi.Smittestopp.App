@@ -43,6 +43,7 @@ namespace NDB.Covid19.Configuration
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
         public static string URL_GET_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_COUNTRY_LIST => URL_PREFIX + "countries";
+        public static string URL_GET_FHI_DATA => URL_PREFIX + "covidstatistics";
 
         // --- Gateway Stub ---
         public static string URL_GATEWAY_STUB_UPLOAD => URL_PREFIX + "diagnosiskeys/upload";

@@ -1,0 +1,440 @@
+﻿<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+        <RelativeLayout
+                android:id="@+id/daily_numbers_close_cross_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_close_white" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/daily_numbers_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="21dp"
+            android:orientation="vertical">
+
+        <RelativeLayout
+                android:id="@+id/daily_numbers_relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/daily_numbers_header_textView"
+                    style="@style/HeaderText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:text="Header" />
+
+            <TextView
+                    android:id="@+id/daily_numbers_sub_header_textView"
+                    style="@style/DailyNumbersSubText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/daily_numbers_header_textView"
+                    android:text="Sub header" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ScrollView
+            android:id="@+id/daily_numbers_counter_on_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="24dp"
+                android:orientation="vertical">
+
+            <TableLayout
+                    android:id="@+id/table1"
+                    android:stretchColumns="*"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_infected_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_death_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"
+                            android:textAlignment="center" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_infected_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="balanced"
+                            android:paddingHorizontal="8dp"
+                            android:text="+001"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_death_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="balanced"
+                            android:paddingHorizontal="8dp"
+                            android:text="+002"
+                            android:textAlignment="center" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_infected_total_text"
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"
+                            android:text="Dummy sub name"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_death_total_text"
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"
+                            android:text="Dummy sub name"
+                            android:textAlignment="center" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                    android:id="@+id/table2"
+                    android:stretchColumns="*"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/table1">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_tested_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_hospitalized_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"
+                            android:textAlignment="center" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_tested_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="high_quality"
+                            android:paddingHorizontal="8dp"
+                            android:text="+003"
+                            android:textAlignment="center" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/daily_numbers_hospitalized_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="high_quality"
+                            android:paddingHorizontal="8dp"
+                            android:text="+004"
+                            android:textAlignment="center" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_tested_total_text"
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"
+                            android:text="Dummy sub name"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"
+                            android:textAlignment="center"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                    android:stretchColumns="*"
+                    android:id="@+id/table3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/table2">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_downloads_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="This is some dummy text"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_positive_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy text that is longer than the other"
+                            android:textAlignment="center" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_downloads_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="balanced"
+                            android:paddingHorizontal="8dp"
+                            android:text="+005"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_positive_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="balanced"
+                            android:paddingHorizontal="8dp"
+                            android:text="+006"
+                            android:textAlignment="center" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:paddingHorizontal="8dp"
+                            android:textAlignment="center" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_positive_total_text"
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:paddingHorizontal="8dp"
+                            android:text="Dummy sub name"
+                            android:textAlignment="center" />
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:id="@+id/daily_numbers_downloads_icon"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="42dp"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:padding="8dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_start_logo_ag_api" />
+
+                    <ImageView
+                            android:id="@+id/daily_numbers_positive_icon"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="42dp"
+                            android:layout_column="1"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:padding="8dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_start_logo_ag_api" />
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="52dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/table3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                        android:id="@+id/daily_numbers_sub_text"
+                        style="@style/DailyNumbersSubText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:layout_marginEnd="18dp"
+                        android:text="*Sub text" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

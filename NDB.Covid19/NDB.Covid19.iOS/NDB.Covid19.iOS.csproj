@@ -612,6 +612,7 @@
     <Folder Include="Assets.xcassets\FHISmittestoppLogo.imageset\" />
     <Folder Include="Assets.xcassets\checkboxUnfilled.imageset\" />
     <Folder Include="Assets.xcassets\checkboxFilled.imageset\" />
+    <Folder Include="Views\DailyNumbers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -644,6 +645,8 @@
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireCountries\CountryTableCell.xib" />
     <InterfaceDefinition Include="Views\Welcome\WelcomePageWhatIsNew.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\CountriesConsent.storyboard" />
+    <InterfaceDefinition Include="Views\DailyNumbers\DailyNumbers.storyboard" />
+    <InterfaceDefinition Include="Views\DailyNumbers\DailyNumbersLoading.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -806,6 +809,14 @@
     <Compile Include="Views\AuthenticationFlow\CountriesConsentViewController.cs" />
     <Compile Include="Views\AuthenticationFlow\CountriesConsentViewController.designer.cs">
       <DependentUpon>CountriesConsentViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyNumbers\DailyNumbersViewController.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersViewController.designer.cs">
+      <DependentUpon>DailyNumbersViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyNumbers\DailyNumbersLoadingViewController.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersLoadingViewController.designer.cs">
+      <DependentUpon>DailyNumbersLoadingViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

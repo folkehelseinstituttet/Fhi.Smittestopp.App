@@ -142,6 +142,8 @@
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
     <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersActivity.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersLoadingPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -896,6 +898,34 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_daily_numbers.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\styles_daily_numbers.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\counter_background.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_bottom.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_mid.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_top.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_start_logo_ag_api.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
@@ -1108,6 +1138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\font\" />
+    <Folder Include="Views\DailyNumbers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
