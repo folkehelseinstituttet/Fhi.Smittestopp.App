@@ -20,41 +20,9 @@
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_close_white" />
+                    android:src="@drawable/ic_close_blue" />
         </RelativeLayout>
     </LinearLayout>
-
-    <LinearLayout
-            android:id="@+id/daily_numbers_linear_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginVertical="21dp"
-            android:orientation="vertical">
-
-        <RelativeLayout
-                android:id="@+id/daily_numbers_relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:id="@+id/daily_numbers_header_textView"
-                    style="@style/HeaderText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:text="Header" />
-
-            <TextView
-                    android:id="@+id/daily_numbers_sub_header_textView"
-                    style="@style/DailyNumbersSubText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/daily_numbers_header_textView"
-                    android:text="Sub header" />
-        </RelativeLayout>
-    </LinearLayout>
-
     <ScrollView
             android:id="@+id/daily_numbers_counter_on_scrollView"
             android:layout_width="match_parent"
@@ -65,7 +33,46 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginHorizontal="24dp"
+                android:paddingBottom="@dimen/defaultVerticalMargin"
                 android:orientation="vertical">
+
+            <LinearLayout
+                    android:id="@+id/daily_numbers_linear_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="21dp"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:id="@+id/daily_numbers_relativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_header_textView"
+                            style="@style/HeaderText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:text="Header" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_statistics_header_textView"
+                            style="@style/PrimaryTextBold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/daily_numbers_header_textView"
+                            android:text="Sub header" />
+
+                    <TextView
+                            android:id="@+id/daily_numbers_statistics_text_textview"
+                            style="@style/PrimaryTextRegular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/daily_numbers_statistics_header_textView"
+                            android:text="Statistics text"/>
+                </RelativeLayout>
+            </LinearLayout>
 
             <TableLayout
                     android:id="@+id/table1"
@@ -75,7 +82,7 @@
                     android:paddingVertical="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/daily_numbers_linear_layout">
 
                 <TableRow
                         android:layout_width="match_parent"
@@ -92,8 +99,7 @@
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="8dp"
                             android:paddingTop="8dp"
-                            android:text="Dummy name"
-                            android:textAlignment="center" />
+                            android:text="Dummy name"/>
 
                     <TextView
                             android:id="@+id/daily_numbers_death_header_text"
@@ -105,8 +111,7 @@
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="8dp"
                             android:paddingTop="8dp"
-                            android:text="Dummy name"
-                            android:textAlignment="center" />
+                            android:text="Dummy name"/>
                 </TableRow>
 
                 <TableRow
@@ -124,8 +129,7 @@
                             android:background="@drawable/counter_background_daily_numbers_mid"
                             android:breakStrategy="balanced"
                             android:paddingHorizontal="8dp"
-                            android:text="+001"
-                            android:textAlignment="center" />
+                            android:text="+001" />
 
                     <TextView
                             android:id="@+id/daily_numbers_death_number_text"
@@ -137,8 +141,7 @@
                             android:background="@drawable/counter_background_daily_numbers_mid"
                             android:breakStrategy="balanced"
                             android:paddingHorizontal="8dp"
-                            android:text="+002"
-                            android:textAlignment="center" />
+                            android:text="+002" />
                 </TableRow>
 
                 <TableRow
@@ -156,8 +159,7 @@
                             android:background="@drawable/counter_background_daily_numbers_bottom"
                             android:paddingHorizontal="8dp"
                             android:paddingBottom="8dp"
-                            android:text="Dummy sub name"
-                            android:textAlignment="center" />
+                            android:text="Dummy sub name" />
 
                     <TextView
                             android:id="@+id/daily_numbers_death_total_text"
@@ -169,8 +171,7 @@
                             android:background="@drawable/counter_background_daily_numbers_bottom"
                             android:paddingHorizontal="8dp"
                             android:paddingBottom="8dp"
-                            android:text="Dummy sub name"
-                            android:textAlignment="center" />
+                            android:text="Dummy sub name" />
                 </TableRow>
             </TableLayout>
 
@@ -199,8 +200,7 @@
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="8dp"
                             android:paddingTop="8dp"
-                            android:text="Dummy name"
-                            android:textAlignment="center" />
+                            android:text="Dummy name"/>
 
                     <TextView
                             android:id="@+id/daily_numbers_hospitalized_header_text"
@@ -212,8 +212,7 @@
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="8dp"
                             android:paddingTop="8dp"
-                            android:text="Dummy name"
-                            android:textAlignment="center" />
+                            android:text="Dummy name"/>
                 </TableRow>
 
                 <TableRow
@@ -231,8 +230,7 @@
                             android:background="@drawable/counter_background_daily_numbers_mid"
                             android:breakStrategy="high_quality"
                             android:paddingHorizontal="8dp"
-                            android:text="+003"
-                            android:textAlignment="center" />
+                            android:text="+003" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/daily_numbers_hospitalized_number_text"
@@ -244,8 +242,7 @@
                             android:background="@drawable/counter_background_daily_numbers_mid"
                             android:breakStrategy="high_quality"
                             android:paddingHorizontal="8dp"
-                            android:text="+004"
-                            android:textAlignment="center" />
+                            android:text="+004"/>
                 </TableRow>
 
                 <TableRow
@@ -263,8 +260,7 @@
                             android:background="@drawable/counter_background_daily_numbers_bottom"
                             android:paddingHorizontal="8dp"
                             android:paddingBottom="8dp"
-                            android:text="Dummy sub name"
-                            android:textAlignment="center" />
+                            android:text="Dummy sub name" />
 
                     <TextView
                             style="@style/DailyNumbersSubText"
@@ -274,8 +270,7 @@
                             android:layout_column="1"
                             android:background="@drawable/counter_background_daily_numbers_bottom"
                             android:paddingHorizontal="8dp"
-                            android:paddingBottom="8dp"
-                            android:textAlignment="center"/>
+                            android:paddingBottom="8dp"/>
                 </TableRow>
             </TableLayout>
 
@@ -304,8 +299,7 @@
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="8dp"
                             android:paddingTop="8dp"
-                            android:text="This is some dummy text"
-                            android:textAlignment="center" />
+                            android:text="This is some dummy text"/>
 
                     <TextView
                             android:id="@+id/daily_numbers_positive_header_text"
@@ -317,8 +311,7 @@
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="8dp"
                             android:paddingTop="8dp"
-                            android:text="Dummy text that is longer than the other"
-                            android:textAlignment="center" />
+                            android:text="Dummy text that is longer than the other"/>
                 </TableRow>
 
                 <TableRow
@@ -333,11 +326,10 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_marginEnd="16dp"
-                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
                             android:breakStrategy="balanced"
                             android:paddingHorizontal="8dp"
-                            android:text="+005"
-                            android:textAlignment="center" />
+                            android:text="+005"/>
 
                     <TextView
                             android:id="@+id/daily_numbers_positive_number_text"
@@ -346,11 +338,76 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_column="1"
-                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
                             android:breakStrategy="balanced"
                             android:paddingHorizontal="8dp"
-                            android:text="+006"
-                            android:textAlignment="center" />
+                            android:text="+006"/>
+                </TableRow>
+            </TableLayout>
+            <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/table3"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin">
+
+                <TextView
+                        android:id="@+id/daily_numbers_vaccinations_header_textView"
+                        style="@style/PrimaryTextBold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/table3"
+                        android:text="Sub header" />
+
+                <TextView
+                        android:id="@+id/daily_numbers_vaccinations_text_textview"
+                        style="@style/PrimaryTextRegular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/daily_numbers_vaccinations_header_textView"
+                        android:text="Vaccinations text"/>
+            </LinearLayout>
+
+            <TableLayout
+                    android:id="@+id/table4"
+                    android:stretchColumns="*"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_vaccination_dose1_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"/>
+
+                    <TextView
+                            android:id="@+id/daily_numbers_vaccination_dose2_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"/>
                 </TableRow>
 
                 <TableRow
@@ -358,83 +415,188 @@
                         android:layout_height="wrap_content">
 
                     <TextView
-                            style="@style/DailyNumbersSubText"
+                            android:id="@+id/daily_numbers_vaccination_dose1_number_text"
+                            style="@style/DailyNumbersItemNumber"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_marginEnd="16dp"
                             android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="high_quality"
                             android:paddingHorizontal="8dp"
-                            android:textAlignment="center" />
+                            android:text="+007" />
 
-                    <TextView
-                            android:id="@+id/daily_numbers_positive_total_text"
-                            style="@style/DailyNumbersSubText"
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/daily_numbers_vaccination_dose2_header_number_text"
+                            style="@style/DailyNumbersItemNumber"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="high_quality"
                             android:paddingHorizontal="8dp"
-                            android:text="Dummy sub name"
-                            android:textAlignment="center" />
+                            android:text="+008"/>
                 </TableRow>
 
                 <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                    <ImageView
-                            android:id="@+id/daily_numbers_downloads_icon"
+                    <TextView
+                            android:id="@+id/daily_numbers_vaccination_dose1_total_text"
+                            style="@style/DailyNumbersSubText"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
-                            android:layout_height="42dp"
+                            android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_marginEnd="16dp"
-                            android:adjustViewBounds="true"
                             android:background="@drawable/counter_background_daily_numbers_bottom"
-                            android:padding="8dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_start_logo_ag_api" />
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"
+                            android:text="Dummy sub name" />
 
-                    <ImageView
-                            android:id="@+id/daily_numbers_positive_icon"
+                    <TextView
+                            android:id="@+id/daily_numbers_vaccination_dose_total_text"
+                            style="@style/DailyNumbersSubText"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
-                            android:layout_height="42dp"
+                            android:layout_height="match_parent"
                             android:layout_column="1"
-                            android:adjustViewBounds="true"
                             android:background="@drawable/counter_background_daily_numbers_bottom"
-                            android:padding="8dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_start_logo_ag_api" />
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"
+                            android:text="Dummy sub name"/>
                 </TableRow>
             </TableLayout>
 
             <LinearLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="38dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="52dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/table3"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/table4"
+                    android:layout_marginTop="@dimen/defaultVerticalMargin"
+                    android:layout_marginBottom="@dimen/defaultVerticalMargin">
 
                 <TextView
-                        android:id="@+id/daily_numbers_sub_text"
-                        style="@style/DailyNumbersSubText"
+                        android:id="@+id/daily_numbers_smittestopp_header_textView"
+                        style="@style/PrimaryTextBold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/table4"
+                        android:text="Sub header"/>
+
+                <TextView
+                        android:id="@+id/daily_numbers_smittestopp_text_textview"
+                        style="@style/PrimaryTextRegular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="0dp"
                         android:layout_marginEnd="18dp"
-                        android:text="*Sub text" />
+                        android:text="Smttestopp text" />
             </LinearLayout>
+            <TableLayout
+                    android:id="@+id/table5"
+                    android:stretchColumns="*"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_smittestopp_downloads_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"/>
+
+                    <TextView
+                            android:id="@+id/daily_numbers_positive_shared_header_text"
+                            style="@style/DailyNumbersItemHeaderText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingTop="8dp"
+                            android:text="Dummy name"/>
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_smittestopp_downloads_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="high_quality"
+                            android:paddingHorizontal="8dp"
+                            android:text="+009" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/daily_numbers_positive_shared_number_text"
+                            style="@style/DailyNumbersItemNumber"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_mid"
+                            android:breakStrategy="high_quality"
+                            android:paddingHorizontal="8dp"
+                            android:text="+010"/>
+                </TableRow>
+
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/daily_numbers_vaccination_dose1_total_text"
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"/>
+
+                    <TextView
+                            android:id="@+id/daily_numbers_positive_shared_total_text"
+                            style="@style/DailyNumbersSubText"
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:paddingHorizontal="8dp"
+                            android:paddingBottom="8dp"
+                            android:text="Dummy sub name"/>
+                </TableRow>
+            </TableLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </LinearLayout>

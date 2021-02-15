@@ -40,8 +40,8 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         private async void Init()
         {
             FindViewById<TextView>(Resource.Id.daily_numbers_header_textView).Text = DAILY_NUMBERS_HEADER;
-            FindViewById<TextView>(Resource.Id.daily_numbers_sub_header_textView).Text = LastUpdateStringSubHeader;
-            TextView diseaseRateSubSub = FindViewById<TextView>(Resource.Id.daily_numbers_sub_text);
+            FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview).Text = LastUpdateStringSubHeader;
+            TextView diseaseRateSubSub = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
 
             ISpanned formattedDescription = HtmlCompat.FromHtml(LastUpdateStringSubSubHeader, HtmlCompat.FromHtmlModeLegacy);
             diseaseRateSubSub.TextFormatted = formattedDescription;
@@ -71,7 +71,6 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_header_text).Text = KEY_FEATURE_FIVE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_number_text).Text = NumberOfPositiveTestsResultsLast7Days;
-            FindViewById<TextView>(Resource.Id.daily_numbers_positive_total_text).Text = NumberOfPositiveTestsResultsTotal;
 
             _closeButton = FindViewById<ViewGroup>(Resource.Id.daily_numbers_close_cross_btn);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
