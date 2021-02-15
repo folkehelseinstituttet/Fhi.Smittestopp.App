@@ -106,7 +106,10 @@
                                                                 <rect key="frame" x="40" y="32" width="295" height="187"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When Smitte | Stop is running you contributes to stop then Covid-19 spread in Denmark" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZp-jv-Ckr">
-                                                                        <rect key="frame" x="5" y="0.0" width="285" height="50.5"/>
+                                                                        <rect key="frame" x="5" y="0.0" width="285" height="70"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="1Ra-iZ-zGW"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                         <nil key="highlightedColor"/>
