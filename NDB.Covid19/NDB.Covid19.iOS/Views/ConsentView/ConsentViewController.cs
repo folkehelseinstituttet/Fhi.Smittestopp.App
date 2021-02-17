@@ -86,7 +86,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
                 SetAccessibilityText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
                 SetAccessibilityText(ContactInformation_section, ConsentViewModel.CONSENT_FOUR_PARAGRAPH);
                 SetAccessibilityText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE);
-                SetAccessibilityText(MoreInformation_section2, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO);
+                SetAccessibilityText(MoreInformation_section2, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO_ACCESSIBILITY_TEXT);
                 SetAccessibilityText(MoreInformation_section3, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE);
                 SetAccessibilityText(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
                 SetAccessibilityText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH);
