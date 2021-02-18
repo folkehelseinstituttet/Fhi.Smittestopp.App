@@ -89,7 +89,7 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE": "Technologia, na której opiera się aplikacja",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "Aplikacja korzysta z sieci Bluetooth i opiera się na wbudowanej technologii opracowanej przez Apple i Google. Technologia ta stanowi system ostrzegania o kontakcie z wirusem. Możesz włączyć i wyłączyć funkcję ostrzegania w ustawieniach swojego telefonu komórkowego.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2": "Twój telefon komórkowy generuje losowy identyfikator Bluetooth co 15 minut. Kiedy dwa telefony znajdą się w pobliżu siebie, wymieniają się tymi identyfikatorami.",
-  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "Przeczytaj więcej na temat aplikacji Smittestopp na stronie <a href=\"https://www.helsenorge.no/smittestopp\">www.helsenorge.no/smittestopp</a>",
+  "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "Przeczytaj więcej na temat aplikacji Smittestopp na stronie <a href=\"https://www.helsenorge.no/en/smittestopp\">www.helsenorge.no/en/smittestopp</a>",
   "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Wstecz",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Wycofaj zgodę",
   "CONSENT_REMOVE_TITLE": "Z aplikacji nie można korzystać bez wyrażenia zgody",
