@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Android.Content;
 using AndroidX.Work;
@@ -85,6 +86,8 @@ namespace NDB.Covid19.Droid.Utils
 
             private async Task DoAsyncWork()
             {
+                Stopwatch timer = new Stopwatch();
+                timer.Start();
                 try
                 {
                     Debug.WriteLine($"UpdateKeysFromServer!! Current time of day: {DateTime.Now.TimeOfDay}!!\n");
@@ -111,6 +114,11 @@ namespace NDB.Covid19.Droid.Utils
                     {
                         throw e;
                     }
+                }
+                timer.Stop();
+                if (timer.ElapsedMilliseconds < 3000)
+                {
+                    await Task.Delay((int)(3000 - timer.ElapsedMilliseconds));
                 }
             }
         }
