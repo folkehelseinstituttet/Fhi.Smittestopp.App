@@ -11,6 +11,7 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
 using AndroidX.Core.Text;
 using NDB.Covid19.Utils;
+using Android.Views;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
@@ -43,6 +44,8 @@ namespace NDB.Covid19.Droid.Views.Welcome
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.welcome_page_five);
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
 
             LinearLayout headerLayout = FindViewById<LinearLayout>(Resource.Id.consent_header);
             TextView header = headerLayout.FindViewById<TextView>(Resource.Id.welcome_page_five_title);

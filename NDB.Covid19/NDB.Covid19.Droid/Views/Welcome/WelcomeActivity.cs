@@ -125,11 +125,11 @@ namespace NDB.Covid19.Droid.Views.Welcome
             }
             else if (activeFragment == _welcomePageThree)
             {
-                _pager.AnnounceForAccessibility(WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_FOUR);
+                _pager.AnnounceForAccessibility(WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_THREE);
             }
             else if (activeFragment == _welcomePageFour)
             {
-                _pager.AnnounceForAccessibility(WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_THREE);
+                _pager.AnnounceForAccessibility(WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_FOUR);
             }
         }
 
