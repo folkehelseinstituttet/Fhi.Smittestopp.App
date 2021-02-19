@@ -26,6 +26,31 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         {
             base.ViewDidLoad();
 
+            SetupStyling();
+            
+            _viewModel = new SettingsGeneralViewModel();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            switchButton.ValueChanged += SwitchValueChanged;
+            SetupSwitchButton();
+            SetupLinkButton();
+            SetupRadioButtons();
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+
+            switchButton.ValueChanged -= SwitchValueChanged;
+            SmittestopLinkButtonStackView.RemoveGestureRecognizer(_gestureRecognizer);
+        }
+
+        void SetupStyling()
+        {
             InitLabel(Header, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_TITLE, 24, 28);
             InitLabel(HeaderLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EXPLANATION_ONE, 26,
                 28);
@@ -66,26 +91,12 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                 AccessibilityUtils.RemovePoorlySpokenSymbols(SettingsGeneralViewModel
                     .SETTINGS_GENERAL_MOBILE_DATA_HEADER);
 
-            _viewModel = new SettingsGeneralViewModel();
+            // In release 2.1 Arabic, Tigrinya and Urdu are disabled
+            RadioButton6.Superview.Hidden = true;
+            RadioButton7.Superview.Hidden = true;
+            RadioButton8.Superview.Hidden = true;
         }
 
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
-
-            switchButton.ValueChanged += SwitchValueChanged;
-            SetupSwitchButton();
-            SetupLinkButton();
-            SetupRadioButtons();
-        }
-
-        public override void ViewWillDisappear(bool animated)
-        {
-            base.ViewWillDisappear(animated);
-
-            switchButton.ValueChanged -= SwitchValueChanged;
-            SmittestopLinkButtonStackView.RemoveGestureRecognizer(_gestureRecognizer);
-        }
 
         void SetupSwitchButton()
         {
