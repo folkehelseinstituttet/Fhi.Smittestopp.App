@@ -69,6 +69,11 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             AcceptTextLbl.Text = ConsentViewModel.GIVE_CONSENT_TEXT;
 
             ActivityIndicator.AccessibilityElementsHidden = true;
+
+            if (LayoutUtils.GetTextAlignment() == UITextAlignment.Right)
+            {
+                AcceptSwitchBtn.SemanticContentAttribute = UISemanticContentAttribute.ForceRightToLeft;
+            }
         }
 
         void SetAccessibility() {

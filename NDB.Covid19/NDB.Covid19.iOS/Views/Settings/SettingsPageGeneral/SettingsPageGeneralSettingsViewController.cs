@@ -100,6 +100,10 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
         void SetupSwitchButton()
         {
+            if (LayoutUtils.GetTextAlignment() == UITextAlignment.Right)
+            {
+                switchButton.SemanticContentAttribute = UISemanticContentAttribute.ForceRightToLeft;
+            }
             switchButton.On = LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
         }
 
