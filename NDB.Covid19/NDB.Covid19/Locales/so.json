@@ -215,7 +215,7 @@
   "REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION": "Hal mar oo keliya ayaad Smittestopp u sheegi kartaa in lagaa helay covid-19.",
   "REGISTER_ERROR_FETCH_FHI_DATA_HEADER": "MISSING TRANSLATION",
   "REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION": "MISSING TRANSLATION",
-  "REGISTER_QUESTIONAIRE_HEADER": "Si  ogeysiinta loogu diri karo dad sax waa in Smittestopp ogaado xilliga aad xanuunsatay.",
+  "REGISTER_QUESTIONAIRE_HEADER": "Si ogeysiinta loogu diri karo dad sax ah, waa in Smittestopp ogaado xilliga aad xanuunsatay",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_TEXT": "Ma qabtaa, ama ma qabtay, calaamadaha covid-19?",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES": "Haa, laga bilaabo",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YESBUT": "Haa, laakiin ma xasuusni xilliga calaamaduhu igu bilaabmeen",
