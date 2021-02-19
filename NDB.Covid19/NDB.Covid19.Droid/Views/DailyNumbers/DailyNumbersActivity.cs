@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
+using Android.Support.V4.Content;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
@@ -48,8 +49,8 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             diseaseRateSubSub.TextFormatted = formattedDescription;
             diseaseRateSubSub.ContentDescriptionFormatted = formattedDescription;
             diseaseRateSubSub.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
-            //same color as Resource.Color.selectedDot #FADC5D
-            diseaseRateSubSub.SetLinkTextColor(new Color(250, 220, 93));
+            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.primaryText));
+            diseaseRateSubSub.SetLinkTextColor(linkColor);
 
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text).Text = KEY_FEATURE_ONE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_number_text).Text = ConfirmedCasesToday;
@@ -92,6 +93,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text).Text = KEY_FEATURE_FIVE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_number_text).Text = NumberOfPositiveTestsResultsLast7Days;
+            FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_total_text).Text = NumberOfPositiveTestsResultsTotal;
 
             _closeButton = FindViewById<ViewGroup>(Resource.Id.daily_numbers_close_cross_btn);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;

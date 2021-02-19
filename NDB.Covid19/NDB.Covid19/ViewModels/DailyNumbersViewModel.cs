@@ -58,7 +58,6 @@ namespace NDB.Covid19.ViewModels
             ? string.Format(DAILY_NUMBERS_SUBHEADER, $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "t")}")
             : "";
 
-        //For now I assume that FHI will provide vaccination numbers and that these will arrive at the same time as other FHI provided numbers
         public static string LastUpdateStringSubTextTwo => LastUpdateFHINumbersDateTime != DateTime.MinValue.ToLocalTime()
             ? string.Format(DAILY_NUMBERS_SUBTEXT_TWO, $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "t")}")
             : "";
