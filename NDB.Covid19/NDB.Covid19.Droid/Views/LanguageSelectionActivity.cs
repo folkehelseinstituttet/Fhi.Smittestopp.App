@@ -17,7 +17,7 @@ namespace NDB.Covid19.Droid.Views
         private Button BokmalButton;
         private Button NynorskButton;
         private Button EnglishButton;
-        private Button ArabicButton;
+        //private Button ArabicButton;
         private Button PolishButton;
         private Button SomaliButton;
         //private Button TigrinyaButton;
@@ -38,7 +38,7 @@ namespace NDB.Covid19.Droid.Views
             BokmalButton = FindViewById<Button>(Resource.Id.bokmal_button);
             NynorskButton = FindViewById<Button>(Resource.Id.nynorsk_button);
             EnglishButton = FindViewById<Button>(Resource.Id.english_button);
-            ArabicButton = FindViewById<Button>(Resource.Id.arabic_button);
+            //ArabicButton = FindViewById<Button>(Resource.Id.arabic_button);
             PolishButton = FindViewById<Button>(Resource.Id.polish_button);
             SomaliButton = FindViewById<Button>(Resource.Id.somali_button);
             //TigrinyaButton = FindViewById<Button>(Resource.Id.tigrinya_button);
@@ -47,7 +47,7 @@ namespace NDB.Covid19.Droid.Views
             BokmalButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_NB;
             NynorskButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_NN;
             EnglishButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_EN;
-            ArabicButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_AR;
+            //ArabicButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_AR;
             PolishButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_PL;
             SomaliButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_SO;
             //TigrinyaButton.Text = LanguageSelectionViewModel.LANGUAGE_SELECTION_TI;
@@ -56,7 +56,7 @@ namespace NDB.Covid19.Droid.Views
             BokmalButton.Click += new SingleClick(LanguageButton_Click).Run;
             NynorskButton.Click += new SingleClick(LanguageButton_Click).Run;
             EnglishButton.Click += new SingleClick(LanguageButton_Click).Run;
-            ArabicButton.Click += new SingleClick(LanguageButton_Click).Run;
+            //ArabicButton.Click += new SingleClick(LanguageButton_Click).Run;
             PolishButton.Click += new SingleClick(LanguageButton_Click).Run;
             SomaliButton.Click += new SingleClick(LanguageButton_Click).Run;
             //TigrinyaButton.Click += new SingleClick(LanguageButton_Click).Run;
@@ -77,9 +77,9 @@ namespace NDB.Covid19.Droid.Views
                 case Resource.Id.english_button:
                     LocalPreferencesHelper.SetAppLanguage("en");
                     break;
-                case Resource.Id.arabic_button:
-                    LocalPreferencesHelper.SetAppLanguage("ar");
-                    break;
+                //case Resource.Id.arabic_button:
+                    //LocalPreferencesHelper.SetAppLanguage("ar");
+                    //break;
                 case Resource.Id.polish_button:
                     LocalPreferencesHelper.SetAppLanguage("pl");
                     break;
