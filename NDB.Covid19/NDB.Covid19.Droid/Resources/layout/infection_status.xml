@@ -101,76 +101,12 @@
 				android:layout_below="@+id/infection_status_activivity_status_description_textView"
 				android:id="@+id/infection_status_on_off_button"
 				style="@style/DefaultButton"/>
+
 			<RelativeLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:importantForAccessibility="no"
 				android:layout_below="@+id/infection_status_on_off_button"
-				android:id="@+id/infection_status_daily_numbers_button_relativeLayout">
-				<RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:importantForAccessibility="no"
-					android:id="@+id/infection_status_daily_numbers_button_relativeLayout_inner"
-					style="@style/InfectionStatusLayoutButton"
-					android:background="@drawable/ic_infection_status_tile_border">
-					<ImageView
-						android:src="@drawable/ic_logo_fhi_blue"
-						android:layout_width="36dp"
-						android:layout_height="36dp"
-						android:layout_centerVertical="true"
-						android:layout_alignParentStart="true"
-						android:layout_marginEnd="21dp"
-						android:id="@+id/infection_status_daily_numbers_imageView"/>
-					<TextView
-						android:text="Daily numbers"
-						android:layout_width="0dp"
-						android:layout_height="wrap_content"
-						android:layout_marginBottom="4dp"
-						android:importantForAccessibility="no"
-						android:breakStrategy="balanced"
-						android:layout_toEndOf="@+id/infection_status_daily_numbers_imageView"
-						android:layout_toStartOf="@id/infection_status_daily_numbers_arrow_imageView"
-						android:id="@+id/infection_status_daily_numbers_text_textView"
-						style="@style/PrimaryTextBold"/>
-					<TextView
-						android:text="Updated"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:importantForAccessibility="no"
-						android:breakStrategy="balanced"
-						android:layout_toEndOf="@+id/infection_status_daily_numbers_imageView"
-						android:layout_toStartOf="@+id/infection_status_daily_numbers_arrow_imageView"
-						android:layout_below="@id/infection_status_daily_numbers_text_textView"
-						android:id="@+id/infection_status_daily_numbers_updated_textView"
-						style="@style/PrimaryTextRegular"/>
-					<ImageView
-						android:src="@drawable/ic_arrow_right"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:layout_centerVertical="true"
-						android:layout_alignParentEnd="true"
-						android:layout_marginStart="5dp"
-						android:id="@+id/infection_status_daily_numbers_arrow_imageView"/>
-				</RelativeLayout>
-				<Button
-					android:id="@+id/infection_status_daily_numbers_button_relativeLayout_button"
-					android:importantForAccessibility="yes"
-					android:background="@android:color/transparent"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:layout_alignTop="@id/infection_status_daily_numbers_button_relativeLayout_inner"
-					android:layout_alignBottom="@id/infection_status_daily_numbers_button_relativeLayout_inner"
-					android:layout_alignStart="@id/infection_status_daily_numbers_button_relativeLayout_inner"
-					android:layout_alignEnd="@id/infection_status_daily_numbers_button_relativeLayout_inner"
-					android:minHeight="0dp"
-					android:minWidth="0dp"/>
-			</RelativeLayout>
-			<RelativeLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:importantForAccessibility="no"
-				android:layout_below="@id/infection_status_daily_numbers_button_relativeLayout"
 				android:id="@+id/infection_status_messages_button_relativeLayout">
 				<RelativeLayout
 					android:layout_width="match_parent"
@@ -295,6 +231,71 @@
 					android:layout_alignBottom="@+id/infection_status_registration_button_relativeLayout_inner"
 					android:layout_alignStart="@+id/infection_status_registration_button_relativeLayout_inner"
 					android:layout_alignEnd="@+id/infection_status_registration_button_relativeLayout_inner"
+					android:minHeight="0dp"
+					android:minWidth="0dp"/>
+			</RelativeLayout>
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:importantForAccessibility="no"
+				android:layout_below="@+id/infection_status_registration_button_relativeLayout"
+				android:id="@+id/infection_status_daily_numbers_button_relativeLayout">
+				<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:importantForAccessibility="no"
+					android:id="@+id/infection_status_daily_numbers_button_relativeLayout_inner"
+					style="@style/InfectionStatusLayoutButton"
+					android:background="@drawable/ic_infection_status_tile_border">
+					<ImageView
+						android:src="@drawable/ic_todays_numbers"
+						android:layout_width="36dp"
+						android:layout_height="36dp"
+						android:layout_centerVertical="true"
+						android:layout_alignParentStart="true"
+						android:layout_marginEnd="21dp"
+						android:id="@+id/infection_status_daily_numbers_imageView"/>
+					<TextView
+						android:text="Daily numbers"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginBottom="4dp"
+						android:importantForAccessibility="no"
+						android:breakStrategy="balanced"
+						android:layout_toEndOf="@+id/infection_status_daily_numbers_imageView"
+						android:layout_toStartOf="@id/infection_status_daily_numbers_arrow_imageView"
+						android:id="@+id/infection_status_daily_numbers_text_textView"
+						style="@style/PrimaryTextBold"/>
+					<TextView
+						android:text="Updated"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:importantForAccessibility="no"
+						android:breakStrategy="balanced"
+						android:layout_toEndOf="@+id/infection_status_daily_numbers_imageView"
+						android:layout_toStartOf="@+id/infection_status_daily_numbers_arrow_imageView"
+						android:layout_below="@id/infection_status_daily_numbers_text_textView"
+						android:id="@+id/infection_status_daily_numbers_updated_textView"
+						style="@style/PrimaryTextRegular"/>
+					<ImageView
+						android:src="@drawable/ic_arrow_right"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:layout_alignParentEnd="true"
+						android:layout_marginStart="5dp"
+						android:id="@+id/infection_status_daily_numbers_arrow_imageView"/>
+				</RelativeLayout>
+				<Button
+					android:id="@+id/infection_status_daily_numbers_button_relativeLayout_button"
+					android:importantForAccessibility="yes"
+					android:background="@android:color/transparent"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_alignTop="@id/infection_status_daily_numbers_button_relativeLayout_inner"
+					android:layout_alignBottom="@id/infection_status_daily_numbers_button_relativeLayout_inner"
+					android:layout_alignStart="@id/infection_status_daily_numbers_button_relativeLayout_inner"
+					android:layout_alignEnd="@id/infection_status_daily_numbers_button_relativeLayout_inner"
 					android:minHeight="0dp"
 					android:minWidth="0dp"/>
 			</RelativeLayout>
