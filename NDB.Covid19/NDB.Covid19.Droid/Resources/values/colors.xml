@@ -50,5 +50,5 @@
     <color name="infectionStatusButtonMark">#32071F32</color>
     <color name="infectionStatusTileColor">#F3F9FB</color>
 
-    <color name="dailyNumbersCounterLayoutBackground">#33C5E2FC</color>
+    <color name="dailyNumbersCounterLayoutBackground">#32345C</color>
 </resources>
