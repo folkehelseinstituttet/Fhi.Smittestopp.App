@@ -26,10 +26,11 @@ namespace NDB.Covid19.iOS.Views.MessagePage
         {
             MessagePageCell cell = tableView.DequeueReusableCell(MessagePageCell.Key, indexPath) as MessagePageCell;
             MessageItemViewModel model = _models[indexPath.Section];
-            cell.Layer.CornerRadius = 14;
-            cell.Layer.BorderColor = ColorHelper.MESSAGE_BORDER_COLOR.CGColor;
-            cell.Layer.BorderWidth = 1;
-            cell.ClipsToBounds = true;
+            cell.ContentView.Subviews[0].Layer.CornerRadius = 14;
+            cell.ContentView.Subviews[0].Layer.BorderColor = ColorHelper.MESSAGE_BORDER_COLOR.CGColor;
+            cell.ContentView.Subviews[0].Layer.BorderWidth = 1;
+            cell.ContentView.Subviews[0].ClipsToBounds = true;
+            cell.SelectionStyle = UITableViewCellSelectionStyle.None;
             cell.Update(model);
             return cell;
         }
@@ -46,7 +47,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         public override nfloat GetHeightForHeader(UITableView tableView, nint section)
         {
-            return 20;
+            return 0;
         }
 
         public override UIView GetViewForHeader(UITableView tableView, nint section)

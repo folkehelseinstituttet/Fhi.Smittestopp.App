@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="2.0" package="no.fhi.smittestopp_exposure_notification" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="no.fhi.smittestopp_exposure_notification" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1" android:versionName="2.1">
 	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="29" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.BLUETOOTH" android:required="true" />

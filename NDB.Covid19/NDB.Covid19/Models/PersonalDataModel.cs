@@ -32,7 +32,7 @@ namespace NDB.Covid19.Models
         [JsonIgnore]
         public bool UnknownStatus => Covid19_status == "ukendt";
         [JsonIgnore]
-        public bool AnonymousTokensEnabled => Covid19_anonymous_token == "v1_enabled";
+        public bool AnonymousTokensEnabled => Covid19_anonymous_token == "available";
 
 
         public bool Validate()

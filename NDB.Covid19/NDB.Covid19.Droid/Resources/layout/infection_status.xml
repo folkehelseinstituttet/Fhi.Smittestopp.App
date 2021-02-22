@@ -146,7 +146,6 @@
                             android:id="@+id/infection_status_new_message_text_textView"
                             style="@style/PrimaryTextRegular"/>
                     <ImageView
-                            android:src="@drawable/ic_arrow_right"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -213,7 +212,6 @@
                             android:id="@+id/infection_status_registration_login_text_textView"
                             style="@style/PrimaryTextRegular"/>
                     <ImageView
-                            android:src="@drawable/ic_arrow_right"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"

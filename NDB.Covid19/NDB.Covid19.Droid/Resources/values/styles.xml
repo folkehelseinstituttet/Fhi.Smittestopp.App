@@ -47,6 +47,14 @@
 		<item name="android:fontFamily">@font/ptsans_bold</item>
 		<item name="android:textSize">16sp</item>
 	</style>
+
+	<style name="LinkButton">
+		<item name="android:background">@android:color/transparent</item>
+		<item name="android:textColor">@color/primaryText</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:textAllCaps">false</item>
+		<item name="android:height">48dp</item>
+	</style>
 	
 	<style name="DefaultButtonWhite">
 		<item name="android:background">@drawable/ic_default_button_white</item>
@@ -103,6 +111,7 @@
 
 	<style name="PrimaryTextBold" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">@font/ptsans_bold</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 
 	<style name="PrimaryTextSemiBold" parent="PrimaryTextRegular">
@@ -115,6 +124,7 @@
 
 	<style name="PrimaryTextLight" parent="PrimaryTextRegular">
 		<item name="android:fontFamily">sans_serif_thin</item>
+		<item name="android:textStyle">italic</item>
 	</style>
 
 	<style name="SecondaryText">
