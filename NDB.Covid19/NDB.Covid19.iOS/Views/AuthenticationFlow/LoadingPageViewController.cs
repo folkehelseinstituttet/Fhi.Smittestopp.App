@@ -28,7 +28,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            _spinner = StyleUtil.ShowSpinner(View, UIActivityIndicatorViewStyle.Large);
+            _spinner = StyleUtil.ShowSpinner(View,
+                AppDelegate.ShouldOperateIn12_5Mode ? UIActivityIndicatorViewStyle.WhiteLarge : UIActivityIndicatorViewStyle.Large);
         }
 
         public override void ViewDidAppear(bool animated)

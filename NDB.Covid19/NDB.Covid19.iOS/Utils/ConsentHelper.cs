@@ -53,9 +53,9 @@ namespace NDB.Covid19.iOS.Utils
                         InitLabelAccessibilityTextWithHTMLFormat(italic_paragraph, obj.ParagraphAccessibilityText);
                     }
 
-                    stackView.AddArrangedSubview(italic_paragraph);
+                    AddSpacerToStackView(stackView);
 
-                    if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
+                    if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE)
                     {
                         stackView.AddArrangedSubview(privacyPolicyButton);
                         AddSpacerToStackView(stackView);
@@ -82,7 +82,7 @@ namespace NDB.Covid19.iOS.Utils
 
                     AddSpacerToStackView(stackView);
 
-                    if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH)
+                    if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE)
                     {
                         stackView.AddArrangedSubview(privacyPolicyButton);
                         AddSpacerToStackView(stackView);

@@ -161,11 +161,11 @@
                         <color key="backgroundColor" red="0.88235294119999996" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Z1O-pC-n5q" firstAttribute="top" secondItem="RHP-9H-xBd" secondAttribute="top" constant="23" id="7FH-TV-RLU"/>
-                            <constraint firstItem="DXn-IY-jpf" firstAttribute="leading" secondItem="RHP-9H-xBd" secondAttribute="leading" id="9Jb-lf-blR"/>
+                            <constraint firstItem="DXn-IY-jpf" firstAttribute="leading" secondItem="633" secondAttribute="leading" id="9Jb-lf-blR"/>
                             <constraint firstItem="RHP-9H-xBd" firstAttribute="trailing" secondItem="1031" secondAttribute="trailing" id="Ekh-SC-LAg"/>
                             <constraint firstItem="DXn-IY-jpf" firstAttribute="bottom" secondItem="633" secondAttribute="bottom" id="LSL-dv-eCZ"/>
                             <constraint firstItem="Z1O-pC-n5q" firstAttribute="leading" secondItem="RHP-9H-xBd" secondAttribute="leading" id="POU-Er-sMx"/>
-                            <constraint firstItem="RHP-9H-xBd" firstAttribute="trailing" secondItem="DXn-IY-jpf" secondAttribute="trailing" id="QSt-ql-fHV"/>
+                            <constraint firstAttribute="trailing" secondItem="DXn-IY-jpf" secondAttribute="trailing" id="QSt-ql-fHV"/>
                             <constraint firstItem="DXn-IY-jpf" firstAttribute="height" secondItem="RHP-9H-xBd" secondAttribute="height" multiplier="0.15" id="UPT-rp-cR9"/>
                             <constraint firstItem="DXn-IY-jpf" firstAttribute="top" secondItem="1031" secondAttribute="bottom" id="awf-7F-Lb5"/>
                             <constraint firstItem="1031" firstAttribute="leading" secondItem="RHP-9H-xBd" secondAttribute="leading" id="jWR-ee-o0o"/>
