@@ -300,10 +300,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             LogInAndRegisterLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
 
             // We take the fairly complicated UIViews from the storyboard and embed them into UIButtons
-            _dailyNumbersButton = new UIButton();
-            _dailyNumbersButton.TranslatesAutoresizingMaskIntoConstraints = false;
-            StyleUtil.EmbedViewInsideButton(DailyNumbersView, _dailyNumbersButton);
-
             _messageViewBtn = new UIButton();
             _messageViewBtn.TranslatesAutoresizingMaskIntoConstraints = false;
             StyleUtil.EmbedViewInsideButton(MessageView, _messageViewBtn);
@@ -311,6 +307,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _areYouInfectedBtn = new UIButton();
             _areYouInfectedBtn.TranslatesAutoresizingMaskIntoConstraints = false;
             StyleUtil.EmbedViewInsideButton(AreYouInfectetView, _areYouInfectedBtn);
+
+            _dailyNumbersButton = new UIButton();
+            _dailyNumbersButton.TranslatesAutoresizingMaskIntoConstraints = false;
+            StyleUtil.EmbedViewInsideButton(DailyNumbersView, _dailyNumbersButton);
 
         }
 
