@@ -13,4 +13,5 @@
     <dimen name="buttonHeight">48dp</dimen>
     <dimen name="verticalPaddingDailyNumbersTable">8dp</dimen>
     <dimen name="horizontalPaddingDailyNumbersTable">8dp</dimen>
+    <dimen name="marginEndDailyNumbersTable">16dp</dimen>
 </resources>
