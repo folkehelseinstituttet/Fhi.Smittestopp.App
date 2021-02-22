@@ -18,7 +18,7 @@ using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 namespace NDB.Covid19.Droid.Views.ENDeveloperTools
 {
     [Activity(Label = "ENDeveloperToolsActivity", Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     public class ENDeveloperToolsActivity : AppCompatActivity
     {
         private ENDeveloperToolsViewModel _viewModel;

@@ -142,6 +142,8 @@
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
     <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
+    <Compile Include="Utils\LayoutUtils.cs" />
+    <Compile Include="Views\LanguageSelectionActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -896,6 +898,30 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\language_selection.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_start_page_arrow_right.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
@@ -981,7 +1007,7 @@
     <PackageReference Include="XAB.FlexboxLayout">
       <Version>2.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.ExposureNotification" Version="0.13.0-preview" />
+    <PackageReference Include="Xamarin.ExposureNotification" Version="0.15.0-preview" />
     <PackageReference Include="Xamarin.ShortcutBadger">
       <Version>1.1.21</Version>
     </PackageReference>
@@ -1082,7 +1108,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\questionnaire_countries.xml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

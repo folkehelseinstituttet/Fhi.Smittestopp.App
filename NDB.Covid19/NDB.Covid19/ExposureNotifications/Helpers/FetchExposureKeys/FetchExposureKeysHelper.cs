@@ -31,6 +31,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
         {
             _developerTools.StartPullHistoryRecord();
 
+            UpdateLastNTPDateTime();
             //SendReApproveConsentsNotificationIfNeeded();
             ResendMessageIfNeeded();
             CreatePermissionsNotificationIfNeeded();
@@ -44,9 +45,15 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 
             if (await SubmitZips(zipsLocation, submitBatches))
             {
+                if (LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204)
+                {
+                    LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted = 0;
+                }
+
                 LocalPreferencesHelper.UpdateLastPullKeysSucceededDateTime();
                 _developerTools.AddToPullHistoryRecord("Zips were successfully submitted to EN API.");
             }
+            LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = false;
             DeleteZips(zipsLocation);
         }
 
@@ -103,6 +110,15 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             }
         }
 
+        public async void UpdateLastNTPDateTime(NTPUtcDateTime mock = null)
+        {
+            DateTime ntpDateTime = await (mock ?? new NTPUtcDateTime()).GetNTPUtcDateTime();
+            if (ntpDateTime != null && ntpDateTime > LocalPreferencesHelper.LastNTPUtcDateTime)
+            {
+                LocalPreferencesHelper.LastNTPUtcDateTime = ntpDateTime;
+            }
+        }
+        
         private void SendReApproveConsentsNotificationIfNeeded()
         {
             if (ConsentsHelper.IsNotFullyOnboarded &&

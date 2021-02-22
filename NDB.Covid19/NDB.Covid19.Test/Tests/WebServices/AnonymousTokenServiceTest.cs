@@ -8,6 +8,7 @@ using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto.EC;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
+using Org.BouncyCastle.Utilities.Encoders;
 using System;
 using System.Threading.Tasks;
 using Xunit;
@@ -31,8 +32,7 @@ namespace NDB.Covid19.Test.Tests.WebServices
 
             GenerateTokenResponseModel tokenResponse = await GenerateTokenAsync(privateKey, publicKeyStore, ecParameters, tokenState.P);
 
-            var publicKey = (await publicKeyStore.GetAsync()).Q;
-            var token = service.RandomizeToken(tokenState, tokenResponse, publicKey);
+            var token = service.RandomizeToken(tokenState, tokenResponse, await publicKeyStore.GetAsync());
             (await VerifyToken(privateKey, ecParameters, tokenState, token)).Should().BeTrue();
         }
 
@@ -45,7 +45,7 @@ namespace NDB.Covid19.Test.Tests.WebServices
             var privateKey = GeneratePrivateKey();
             GenerateTokenResponseModel tokenResponse = await GenerateTokenAsync(privateKey, publicKeyStore, ecParameters, tokenState.P);
 
-            var publicKey = (await publicKeyStore.GetAsync()).Q;
+            var publicKey = await publicKeyStore.GetAsync();
             Assert.Throws<AnonymousTokensException>(() => service.RandomizeToken(tokenState, tokenResponse, publicKey))
                 .Message.Should().Contain("proof is invalid");
         }
@@ -59,8 +59,7 @@ namespace NDB.Covid19.Test.Tests.WebServices
             GenerateTokenResponseModel tokenResponse = await GenerateTokenAsync(await inMemoryPrivateKeyStore.GetAsync(), publicKeyStore, ecParameters, tokenState.P);
 
             var privateKey = GeneratePrivateKey();
-            var publicKey = (await publicKeyStore.GetAsync()).Q;
-            var token = service.RandomizeToken(tokenState, tokenResponse, publicKey);
+            var token = service.RandomizeToken(tokenState, tokenResponse, await publicKeyStore.GetAsync());
             (await VerifyToken(privateKey, ecParameters, tokenState, token)).Should().BeFalse();
         }
 
@@ -78,14 +77,14 @@ namespace NDB.Covid19.Test.Tests.WebServices
             return await new TokenVerifier(new InMemorySeedStore()).VerifyTokenAsync(privateKey, ecParameters.Curve, tokenState.t, token);
         }
 
-        private static async Task<GenerateTokenResponseModel> GenerateTokenAsync(BigInteger privateKey, IPublicKeyStore publicKeyStore, X9ECParameters ecParameters, ECPoint P)
+        private async static Task<GenerateTokenResponseModel> GenerateTokenAsync(BigInteger privateKey, IPublicKeyStore publicKeyStore, X9ECParameters ecParameters, ECPoint P)
         {
             var response = new TokenGenerator().GenerateToken(privateKey, (await publicKeyStore.GetAsync()).Q, ecParameters, P);
             return new GenerateTokenResponseModel
             {
-                ProofChallenge = Convert.ToBase64String(response.c.ToByteArray()),
-                ProofResponse = Convert.ToBase64String(response.z.ToByteArray()),
-                SignedPoint = Convert.ToBase64String(response.Q.GetEncoded())
+                ProofCAsHex = Hex.ToHexString(response.c.ToByteArray()),
+                ProofZAsHex = Hex.ToHexString(response.z.ToByteArray()),
+                QAsHex = Hex.ToHexString(response.Q.GetEncoded())
             };
         }
     }
