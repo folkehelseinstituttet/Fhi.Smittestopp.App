@@ -14,7 +14,7 @@ using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     public class CountriesConsentActivity: AppCompatActivity
     {
         private ViewGroup _closeButton;

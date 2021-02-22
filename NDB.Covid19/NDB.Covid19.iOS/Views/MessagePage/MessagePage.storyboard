@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxc-eT-Q8G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nxc-eT-Q8G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,12 +97,12 @@
                                         </constraints>
                                     </view>
                                     <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cMw-RH-Ktv">
-                                        <rect key="frame" x="0.0" y="839" width="414" height="0.0"/>
+                                        <rect key="frame" x="20" y="839" width="374" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessagePageCell" id="pTx-Vh-W3R" customClass="MessagePageCell">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pTx-Vh-W3R" id="xk3-OH-Tfr">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -114,8 +114,8 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="cMw-RH-Ktv" secondAttribute="trailing" id="Fy0-7x-Xmo"/>
-                                    <constraint firstItem="cMw-RH-Ktv" firstAttribute="leading" secondItem="iyv-U4-hek" secondAttribute="leading" id="Qle-aP-t0q"/>
+                                    <constraint firstAttribute="trailing" secondItem="cMw-RH-Ktv" secondAttribute="trailing" constant="20" id="Fy0-7x-Xmo"/>
+                                    <constraint firstItem="cMw-RH-Ktv" firstAttribute="leading" secondItem="iyv-U4-hek" secondAttribute="leading" constant="20" id="Qle-aP-t0q"/>
                                     <constraint firstItem="McB-4j-BP4" firstAttribute="leading" secondItem="iyv-U4-hek" secondAttribute="leading" id="jpp-nG-y9r"/>
                                     <constraint firstAttribute="bottom" secondItem="cMw-RH-Ktv" secondAttribute="bottom" id="pIO-HU-NEQ"/>
                                     <constraint firstAttribute="trailing" secondItem="VZj-b4-Ta1" secondAttribute="trailing" constant="15" id="tCU-cF-Blv"/>

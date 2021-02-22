@@ -16,6 +16,14 @@ namespace NDB.Covid19.iOS.Views.Initializer
 		UIKit.UIImageView appLogo { get; set; }
 
 		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel ContinueInEnLbl { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIStackView ContinueInEnStackView { get; set; }
+
+		[Outlet]
 		UIKit.UIImageView fhiLogo { get; set; }
 
 		[Outlet]
@@ -23,21 +31,29 @@ namespace NDB.Covid19.iOS.Views.Initializer
 		UIKit.UIView HeaderView { get; set; }
 
 		[Outlet]
-		UIKit.UIButton StartButton { get; set; }
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton StartButtonNB { get; set; }
 
-		[Action ("StartButton_TouchUpInside:")]
-		partial void StartButton_TouchUpInside (UIKit.UIButton sender);
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton StartButtonNN { get; set; }
+
+		[Action ("StartButtonNB_TouchUpInside:")]
+		partial void StartButtonNB_TouchUpInside (UIKit.UIButton sender);
+
+		[Action ("StartButtonNN_TouchUpInside:")]
+		partial void StartButtonNN_TouchUpInside (UIKit.UIButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (appLogo != null) {
-				appLogo.Dispose ();
-				appLogo = null;
+			if (ContinueInEnLbl != null) {
+				ContinueInEnLbl.Dispose ();
+				ContinueInEnLbl = null;
 			}
 
-			if (fhiLogo != null) {
-				fhiLogo.Dispose ();
-				fhiLogo = null;
+			if (ContinueInEnStackView != null) {
+				ContinueInEnStackView.Dispose ();
+				ContinueInEnStackView = null;
 			}
 
 			if (HeaderView != null) {
@@ -45,9 +61,24 @@ namespace NDB.Covid19.iOS.Views.Initializer
 				HeaderView = null;
 			}
 
-			if (StartButton != null) {
-				StartButton.Dispose ();
-				StartButton = null;
+			if (StartButtonNB != null) {
+				StartButtonNB.Dispose ();
+				StartButtonNB = null;
+			}
+
+			if (StartButtonNN != null) {
+				StartButtonNN.Dispose ();
+				StartButtonNN = null;
+			}
+
+			if (fhiLogo != null) {
+				fhiLogo.Dispose ();
+				fhiLogo = null;
+			}
+
+			if (appLogo != null) {
+				appLogo.Dispose ();
+				appLogo = null;
 			}
 		}
 	}

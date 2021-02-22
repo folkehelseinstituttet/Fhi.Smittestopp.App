@@ -53,15 +53,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _viewModel = new InfectionStatusViewModel();
             View.AddLayoutGuide(_focusGuide);
             
-            _focusGuide.LeadingAnchor.ConstraintEqualTo(MenuIcon.LeadingAnchor).Active = true;
-            _focusGuide.TrailingAnchor.ConstraintEqualTo(MenuIcon.TrailingAnchor).Active = true;
+            _focusGuide.LeftAnchor.ConstraintEqualTo(MenuIcon.LeftAnchor).Active = true;
+            _focusGuide.RightAnchor.ConstraintEqualTo(MenuIcon.RightAnchor).Active = true;
             _focusGuide.TopAnchor.ConstraintEqualTo(OnOffBtn.TopAnchor).Active = true;
             _focusGuide.BottomAnchor.ConstraintEqualTo(OnOffBtn.BottomAnchor).Active = true;
-
-            MenuLabel.AddGestureRecognizer(new UITapGestureRecognizer(() =>
-            {
-                OnMenubtnTapped(MenuIcon);
-            }));
            
             SetupStyling();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
@@ -135,6 +130,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             UIView statusBar = new UIView(UIApplication.SharedApplication.StatusBarFrame);
             statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
+            UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
         }
 
         void OnAppReturnsFromBackground(object obj)
@@ -202,7 +198,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 modalClosed = ModalViewController.IsBeingDismissed;
             }
-            if (NavigationController?.TopViewController is InfectionStatusViewController && modalClosed)
+            if (NavigationController.TopViewController is InfectionStatusViewController && modalClosed)
             {
                 statusBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
             }
@@ -210,6 +206,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
             }
+            UIApplication.SharedApplication.KeyWindow.AddSubview(statusBar);
 
             ScrollDownBackgroundView.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
 
@@ -246,11 +243,13 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void SetupStyling()
         {
+            NewIndicatorView.Layer.CornerRadius = NewIndicatorView.Layer.Frame.Height / 2;
             ActivityExplainerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
             ActivityExplainerLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT;
             MenuIcon.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
-            MenuLabel.Text = InfectionStatusViewModel.INFECTION_STATUS_MENU_TEXT;
-            MenuLabel.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 18f, 18f);
+            MenuIcon.TitleEdgeInsets = new UIEdgeInsets(0, -8, 0, 0);
+            MenuIcon.SetTitle(InfectionStatusViewModel.INFECTION_STATUS_MENU_TEXT, UIControlState.Normal);
+            MenuIcon.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 18f, 18f);
             MenuIcon.SizeToFit();
             StatusText.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 16f, 20f);
             OnOffBtn.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 22f, 28f);
@@ -294,7 +293,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             InvokeOnMainThread(() =>
             {
-                UIApplication.SharedApplication.ApplicationIconBadgeNumber = _viewModel.ShowNewMessageIcon ? 1 : 0;
+                NewIndicatorView.Hidden = !_viewModel.ShowNewMessageIcon;
+
+                UIApplication.SharedApplication.ApplicationIconBadgeNumber = NewIndicatorView.Hidden ? 0 : 1;
 
                 MessageIcon.Image = _viewModel.ShowNewMessageIcon ? UIImage.FromBundle("notification_active") : UIImage.FromBundle("notification_inactive");
                 NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;

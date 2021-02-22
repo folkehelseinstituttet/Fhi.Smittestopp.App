@@ -23,12 +23,9 @@
 		style="@style/ScrollScreen"
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:layout_marginTop="@dimen/defaultVerticalMargin"
-		android:layout_marginBottom="@dimen/defaultVerticalMargin"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@id/welcome_what_is_new_title"
-		app:layout_constraintBottom_toTopOf="@+id/ok_button"
 		android:fillViewport="true">
 
 		<LinearLayout

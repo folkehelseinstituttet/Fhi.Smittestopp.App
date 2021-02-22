@@ -52,9 +52,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             InitBodyText(Samtykke_section1, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE);
             InitBodyText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
             InitBodyText(ContactInformation_section, ConsentViewModel.CONSENT_FOUR_PARAGRAPH);
-            InitBodyText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE);
-            InitBodyText(MoreInformation_section2, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO);
-            InitBodyText(MoreInformation_section3, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE);
+            InitBodyText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH);
             InitSubTitle(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
             InitBodyText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH, FontType.FontItalic);
             InitButtonStyling(NextBtn, WelcomeViewModel.NEXT_PAGE_BUTTON_TEXT);
@@ -69,11 +67,6 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             AcceptTextLbl.Text = ConsentViewModel.GIVE_CONSENT_TEXT;
 
             ActivityIndicator.AccessibilityElementsHidden = true;
-
-            if (LayoutUtils.GetTextAlignment() == UITextAlignment.Right)
-            {
-                AcceptSwitchBtn.SemanticContentAttribute = UISemanticContentAttribute.ForceRightToLeft;
-            }
         }
 
         void SetAccessibility() {
@@ -90,9 +83,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
                 SetAccessibilityText(Samtykke_section1, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_ONE);
                 SetAccessibilityText(Samtykke_section2, ConsentViewModel.CONSENT_THREE_PARAGRAPH_SECTION_TWO);
                 SetAccessibilityText(ContactInformation_section, ConsentViewModel.CONSENT_FOUR_PARAGRAPH);
-                SetAccessibilityText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE);
-                SetAccessibilityText(MoreInformation_section2, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO_ACCESSIBILITY_TEXT);
-                SetAccessibilityText(MoreInformation_section3, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE);
+                SetAccessibilityText(MoreInformation_section, ConsentViewModel.CONSENT_FIVE_PARAGRAPH);
                 SetAccessibilityText(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
                 SetAccessibilityText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH);
             });
@@ -179,7 +170,12 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 
         void InitPrivacyPolicyButton()
         {
-            InitLinkButtonStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
+            InitButtonSecondaryStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_BUTTON_TEXT);
+
+            double height = PrivacyPolicy.TitleLabel.Frame.Height + PrivacyPolicy.Font.PointSize * 1.5;
+            PrivacyPolicy.Frame = new CGRect(0, 0, 0, height); // The frame should not be needed here, but it is since the cornerRadius in StyleUtil is set only once, not dynamically updated on redraw.
+            PrivacyPolicy.TranslatesAutoresizingMaskIntoConstraints = false;
+            PrivacyPolicy.HeightAnchor.ConstraintEqualTo((int) height).Active = true;
         }
 
         partial void PrivacyPolicy_TouchUpInside(UIButton sender)

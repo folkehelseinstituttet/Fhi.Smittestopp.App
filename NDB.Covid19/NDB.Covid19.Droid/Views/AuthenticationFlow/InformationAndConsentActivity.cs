@@ -18,7 +18,7 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     public class InformationAndConsentActivity : AppCompatActivity
     {
         ViewGroup _closeButton;

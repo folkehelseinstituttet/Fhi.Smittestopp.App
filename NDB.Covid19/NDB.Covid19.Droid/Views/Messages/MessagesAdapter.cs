@@ -44,8 +44,6 @@ namespace NDB.Covid19.Droid.Views.Messages
                     ? ViewStates.Gone
                     : ViewStates.Visible;
 
-            parent.LayoutDirection = LayoutUtils.GetLayoutDirection();
-
             return view;
         }
 

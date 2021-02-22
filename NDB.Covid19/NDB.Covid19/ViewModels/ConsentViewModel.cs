@@ -23,14 +23,11 @@ namespace NDB.Covid19.ViewModels
         public static string CONSENT_THREE_PARAGRAPH_SECTION_ONE => "CONSENT_THREE_PARAGRAPH_SECTION_ONE".Translate();
         public static string CONSENT_THREE_PARAGRAPH_SECTION_TWO => "CONSENT_THREE_PARAGRAPH_SECTION_TWO".Translate();
         public static string CONSENT_FOUR_PARAGRAPH => "CONSENT_FOUR_PARAGRAPH".Translate();
-        public static string CONSENT_FIVE_PARAGRAPH_SECTION_ONE => "CONSENT_FIVE_PARAGRAPH_SECTION_ONE".Translate();
-        public static string CONSENT_FIVE_PARAGRAPH_SECTION_TWO => "CONSENT_FIVE_PARAGRAPH_SECTION_TWO".Translate();
-        public static string CONSENT_FIVE_PARAGRAPH_SECTION_TWO_ACCESSIBILITY_TEXT => "CONSENT_FIVE_PARAGRAPH_SECTION_TWO_ACCESSIBILITY_TEXT".Translate();
-        public static string CONSENT_FIVE_PARAGRAPH_SECTION_THREE => "CONSENT_FIVE_PARAGRAPH_SECTION_THREE".Translate();
+        public static string CONSENT_FIVE_PARAGRAPH => "CONSENT_FIVE_PARAGRAPH".Translate();
         public static string CONSENT_SIX_TITLE => "CONSENT_SIX_TITLE".Translate();
         public static string CONSENT_SIX_PARAGRAPH => "CONSENT_SIX_PARAGRAPH".Translate();
-        public static string CONSENT_SEVEN_LINK_TEXT => "CONSENT_SEVEN_LINK_TEXT".Translate();
-        public static string CONSENT_SEVEN_LINK_URL => "CONSENT_SEVEN_LINK_URL".Translate();
+        public static string CONSENT_SEVEN_BUTTON_TEXT => "CONSENT_SEVEN_BUTTON_TEXT".Translate();
+        public static string CONSENT_SEVEN_BUTTON_URL => "CONSENT_SEVEN_BUTTON_URL".Translate();
 
         public static string CONSENT_REMOVE_TITLE => "CONSENT_REMOVE_TITLE".Translate();
         public static string CONSENT_REMOVE_MESSAGE => "CONSENT_REMOVE_MESSAGE".Translate();
@@ -56,7 +53,7 @@ namespace NDB.Covid19.ViewModels
         {
             try
             {
-                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(CONSENT_SEVEN_LINK_URL);
+                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(CONSENT_SEVEN_BUTTON_URL);
             }
             catch (Exception e)
             {
@@ -77,9 +74,7 @@ namespace NDB.Covid19.ViewModels
                 new ConsentSectionTexts(null, CONSENT_THREE_PARAGRAPH_SECTION_ONE, null),
                 new ConsentSectionTexts(null, CONSENT_THREE_PARAGRAPH_SECTION_TWO, null),
                 new ConsentSectionTexts(null, CONSENT_FOUR_PARAGRAPH, null),
-                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH_SECTION_ONE, null),
-                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH_SECTION_TWO, CONSENT_FIVE_PARAGRAPH_SECTION_TWO_ACCESSIBILITY_TEXT),
-                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH_SECTION_THREE, null),
+                new ConsentSectionTexts(null, CONSENT_FIVE_PARAGRAPH, null),
                 new ConsentSectionTexts(CONSENT_SIX_TITLE, CONSENT_SIX_PARAGRAPH, null)
             };
         }

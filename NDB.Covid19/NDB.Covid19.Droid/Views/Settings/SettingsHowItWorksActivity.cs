@@ -3,7 +3,6 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Text;
 using Android.Text.Style;
-using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
@@ -16,7 +15,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     class SettingsHowItWorksActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -74,10 +73,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             FormatLink(paragraph4textView3);
 
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
-
-            View rootView = Window.DecorView.RootView;
-            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
-            backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
         private void FormatLink(TextView textView)

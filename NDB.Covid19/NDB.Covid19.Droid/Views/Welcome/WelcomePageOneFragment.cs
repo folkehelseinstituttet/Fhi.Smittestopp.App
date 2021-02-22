@@ -13,7 +13,6 @@ namespace NDB.Covid19.Droid.Views.Welcome
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.welcome_page_one, container, false);
-
             TextView bodyOne = view.FindViewById<TextView>(Resource.Id.welcome_page_one_body_one);
             TextView bodyTwo = view.FindViewById<TextView>(Resource.Id.welcome_page_one_body_two);
             TextView bodyThree = view.FindViewById<TextView>(Resource.Id.welcome_page_one_body_three);
@@ -27,10 +26,6 @@ namespace NDB.Covid19.Droid.Views.Welcome
             header.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             WelcomePageTools.SetArrowVisibility(view);
-
-            view.LayoutDirection = LayoutUtils.GetLayoutDirection();
-            Button arrowBack = view.FindViewById<Button>(Resource.Id.arrow_back);
-            arrowBack.SetBackgroundResource(LayoutUtils.GetBackArrow());
 
             return view;
         }

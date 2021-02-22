@@ -5,9 +5,7 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
-using Android.Graphics.Drawables;
 using Android.OS;
-using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Content;
@@ -25,7 +23,7 @@ using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     public class InfectionStatusActivity : AppCompatActivity
     {
         private ImageView _fhiLogo;
@@ -132,9 +130,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
         private async void InitLayout()
         {
-            View rootView = Window.DecorView.RootView;
-            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
-
             // Header
             _toolbarLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_toolbar_layout);
             _statusLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_status_layout);
@@ -149,7 +144,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationSubheader =
                 FindViewById<TextView>(Resource.Id.infection_status_registration_login_text_textView);
             _menuText = FindViewById<TextView>(Resource.Id.infection_status_menu_text_view);
-            _menuText.TextAlignment = Android.Views.TextAlignment.ViewEnd;
 
             //Buttons
             _onOffButton = FindViewById<Button>(Resource.Id.infection_status_on_off_button);
@@ -167,12 +161,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _notificationDot = FindViewById<ImageView>(Resource.Id.infection_status_message_bell_imageView);
             _fhiLogo = FindViewById<ImageView>(Resource.Id.infection_status_app_icon_imageView);
             _appLogo = FindViewById<ImageView>(Resource.Id.infection_status_app_logo);
-            ImageView arrowImageView1 = FindViewById<ImageView>(Resource.Id.infection_status_registration_arrow_imageView);
-            ImageView arrowImageView2 = FindViewById<ImageView>(Resource.Id.infection_status_message_arrow_imageView);
-            Drawable arrowImage = ContextCompat.GetDrawable(this, Resource.Drawable.ic_arrow_right);
-            arrowImage.AutoMirrored = true;
-            arrowImageView1.SetImageDrawable(arrowImage);
-            arrowImageView2.SetImageDrawable(arrowImage);
 
             //Text initialization
             _activityStatusText.Text = INFECTION_STATUS_ACTIVE_TEXT;

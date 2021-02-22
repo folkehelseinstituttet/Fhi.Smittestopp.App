@@ -17,6 +17,7 @@
             android:layout_marginHorizontal="@dimen/defaultHorizontalMargin">
         <ImageView
                 android:id="@+id/arrow_back"
+                android:src="@drawable/ic_circle_arrow_left"
                 android:layout_width="@dimen/backButton"
                 android:layout_height="@dimen/backButton"
                 app:layout_constraintBaseline_toBaselineOf="@id/messages_page_title"

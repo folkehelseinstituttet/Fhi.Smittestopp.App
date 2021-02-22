@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nr-zA-ak5">
-                                <rect key="frame" x="319" y="35" width="21" height="25"/>
+                                <rect key="frame" x="315" y="35" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="iYc-LL-wVS"/>
                                 </constraints>
@@ -173,6 +173,7 @@
                             <constraint firstItem="EGA-Ir-Rpa" firstAttribute="top" secondItem="4Nr-zA-ak5" secondAttribute="bottom" constant="31" id="ew8-yN-pOi"/>
                             <constraint firstItem="EGA-Ir-Rpa" firstAttribute="leading" secondItem="3nl-CY-Ngy" secondAttribute="leading" id="ig3-gc-dR6"/>
                             <constraint firstItem="3nl-CY-Ngy" firstAttribute="trailing" secondItem="4Nr-zA-ak5" secondAttribute="trailing" constant="35" id="itX-t6-PhA"/>
+                            <constraint firstItem="4Nr-zA-ak5" firstAttribute="leading" secondItem="3nl-CY-Ngy" secondAttribute="leading" constant="315" id="scm-z6-q0g"/>
                         </constraints>
                     </view>
                     <connections>

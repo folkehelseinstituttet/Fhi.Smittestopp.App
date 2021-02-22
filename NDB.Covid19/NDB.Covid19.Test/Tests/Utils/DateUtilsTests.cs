@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Threading;
 using NDB.Covid19.Configuration;
-using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 
 using Xunit;
@@ -15,7 +14,6 @@ namespace NDB.Covid19.Test.Tests.Utils
 
         public DateUtilsTests()
         {
-            DependencyInjectionConfig.Init();
         }
 
         [Fact]
@@ -34,7 +32,7 @@ namespace NDB.Covid19.Test.Tests.Utils
         [Fact]
         public void GetDateFromDateTime_CultureIsSupported_Nb()
         {
-            LocalPreferencesHelper.SetAppLanguage("nb");
+
             //Arrange
             Thread.CurrentThread.CurrentCulture = new CultureInfo("nb-NO");
             DateTimeFormatInfo dateTimeFormat = Thread.CurrentThread.CurrentCulture.DateTimeFormat; // Expected format to follow
@@ -52,7 +50,6 @@ namespace NDB.Covid19.Test.Tests.Utils
         [Fact]
         public void GetDateFromDateTime_CultureIsSupported_Nn()
         {
-            LocalPreferencesHelper.SetAppLanguage("nn");
 
             //Arrange
             Thread.CurrentThread.CurrentCulture = new CultureInfo("nn-NO");
@@ -71,8 +68,6 @@ namespace NDB.Covid19.Test.Tests.Utils
         [Fact]
         public void GetDateFromDateTime_CultureIsSupported_En()
         {
-            LocalPreferencesHelper.SetAppLanguage("en");
-
             //Arrange
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             DateTimeFormatInfo dateTimeFormat = Thread.CurrentThread.CurrentCulture.DateTimeFormat; // Expected format to use
@@ -88,45 +83,10 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Fact]
-        public void GetDateFromDateTime_CultureIsSupported_Ar()
+        public void GetDateFromDateTime_CultureNotSupport_Ar()
         {
-            LocalPreferencesHelper.SetAppLanguage("ar");
-
-            CultureInfo defaultCultureInfo = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
-            DateTimeFormatInfo dateTimeFormat = defaultCultureInfo.DateTimeFormat; // Expected format to use based Conf.DEFAULT_LANGUAGE
-
-            // Act
-            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with nn-NO culture (default language)
-            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
-                ? "15.07.2020 13:37:00"
-                : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void GetDateFromDateTime_CultureIsSupported_Ur()
-        {
-            LocalPreferencesHelper.SetAppLanguage("ur");
-
-            CultureInfo defaultCultureInfo = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
-            DateTimeFormatInfo dateTimeFormat = defaultCultureInfo.DateTimeFormat; // Expected format to use based Conf.DEFAULT_LANGUAGE
-
-            // Act
-            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with nn-NO culture (default language)
-            string expected = (dateTimeFormat.DateSeparator == "." && dateTimeFormat.TimeSeparator == ":")
-                ? "15.07.2020 13:37:00"
-                : "15/07/2020 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void GetDateFromDateTime_CultureIsSupported_Ti()
-        {
-            LocalPreferencesHelper.SetAppLanguage("ti");
+            //Arrange
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ar-SA");
 
             CultureInfo defaultCultureInfo = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
             DateTimeFormatInfo dateTimeFormat = defaultCultureInfo.DateTimeFormat; // Expected format to use based Conf.DEFAULT_LANGUAGE
@@ -144,7 +104,6 @@ namespace NDB.Covid19.Test.Tests.Utils
         [Fact]
         public void GetDateFromDateTime_CultureNotSupport_Th()
         {
-            LocalPreferencesHelper.SetAppLanguage("nb");
             //Arrange
             Thread.CurrentThread.CurrentCulture = new CultureInfo("th-TH");
 
