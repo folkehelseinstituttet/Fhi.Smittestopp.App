@@ -8,7 +8,7 @@ using AndroidX.AppCompat.App;
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
     class SpinnerPageActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

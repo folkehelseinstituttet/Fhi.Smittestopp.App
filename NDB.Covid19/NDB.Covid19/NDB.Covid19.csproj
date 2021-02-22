@@ -63,7 +63,7 @@
     <Folder Include="WebServices\ExposureNotification\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AnonymousTokens.Client" Version="1.3.0" />
+    <PackageReference Include="AnonymousTokens.Client" Version="2.0.0" />
     <PackageReference Include="AntiXSS.NetStandard" Version="0.1.111" />
     <PackageReference Include="AutoMapper" Version="5.1.1" />
     <PackageReference Include="I18NPortable" Version="1.0.1" />
@@ -81,26 +81,15 @@
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
     <PackageReference Include="JWT" Version="7.3.1" />
     <PackageReference Include="Google.Protobuf" Version="3.12.3" />
-    <PackageReference Include="Xamarin.ExposureNotification" Version="0.15.0-preview" />
+    <PackageReference Include="Xamarin.ExposureNotification" Version="0.13.0-preview" />
     <PackageReference Include="PCLCrypto" Version="2.1.40-alpha" />
-    <PackageReference Include="Yort.Ntp.Portable" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Locales\en.json" />
-    <None Remove="Locales\pl.json" />
-    <None Remove="Locales\so.json" />
-    <None Remove="Locales\ti.json" />
-    <None Remove="Locales\ar.json" />
-    <None Remove="Locales\ur.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Locales\en.json" />
     <EmbeddedResource Include="Locales\nb.json" />
     <EmbeddedResource Include="Locales\nn.json" />
-    <EmbeddedResource Include="Locales\pl.json" />
-    <EmbeddedResource Include="Locales\so.json" />
-    <EmbeddedResource Include="Locales\ti.json" />
-    <EmbeddedResource Include="Locales\ar.json" />
-    <EmbeddedResource Include="Locales\ur.json" />
   </ItemGroup>
 </Project>

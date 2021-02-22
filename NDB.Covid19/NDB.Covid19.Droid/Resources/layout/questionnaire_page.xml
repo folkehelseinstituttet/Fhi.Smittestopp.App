@@ -77,8 +77,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="9dp"
-                            android:textAlignment="viewStart"
-                            android:layout_gravity="start"
                             android:buttonTint="@color/primaryText"
                             android:text="1st"/>
 
@@ -123,8 +121,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:textAlignment="viewStart"
-                    android:layout_gravity="start"
                     android:text="2nd"/>
 
             <RadioButton
@@ -134,8 +130,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:textAlignment="viewStart"
-                    android:layout_gravity="start"
                     android:text="3rd"/>
 
             <RadioButton
@@ -145,8 +139,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin"
                     android:buttonTint="@color/primaryText"
-                    android:textAlignment="viewStart"
-                    android:layout_gravity="start"
                     android:text="4th"/>
         </LinearLayout>
     </ScrollView>

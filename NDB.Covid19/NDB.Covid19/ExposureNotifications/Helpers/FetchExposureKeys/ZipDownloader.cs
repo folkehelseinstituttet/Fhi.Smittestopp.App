@@ -43,20 +43,17 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
         public async Task<IEnumerable<string>> PullNewKeys(ExposureNotificationWebService service, CancellationToken cancellationToken)
         {
             PullKeysParams requestParams = PullKeysParams.GenerateParams();
-            LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = false;
-
+      
             List<string> zipLocations = new List<string>();
             bool lastPull = false;
             int? lastBatchReceived = null;
-            int? lastReceivedStatusCodeFromRequest = null;
-
+            
             while (!lastPull)
             {
                 string requestUrl = requestParams.ToBatchFileRequest();
 
                 ApiResponse <Stream> response = await service.GetDiagnosisKeys(requestUrl, cancellationToken);
                 HttpHeaders headers = response.Headers;
-                lastReceivedStatusCodeFromRequest = response.StatusCode;
                 bool headersAreValid = true;
 
                 if (response == null || (!response.IsSuccessfull))
@@ -162,14 +159,6 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 
                 //Also save the last batchtype fetched
                 LocalPreferencesHelper.LastPulledBatchType = requestParams.BatchType;
-            }
-
-            // Edge case for when pulling across multiple days ends up in 204 for the first file
-            if (requestParams.Date.Date == SystemTime.Now().Date
-                && requestParams.BatchNumber == 1
-                && lastReceivedStatusCodeFromRequest == 204)
-            {
-                LocalPreferencesHelper.DidFirstFileOfTheDayEndedWith204 = true;
             }
 
             return zipLocations;

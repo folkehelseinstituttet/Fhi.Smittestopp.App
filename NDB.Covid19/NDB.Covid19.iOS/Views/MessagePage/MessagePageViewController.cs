@@ -77,7 +77,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
         private async void SetStyling()
         {
             StyleUtil.InitLabelWithSpacing(Label, StyleUtil.FontType.FontBold, MESSAGES_HEADER, 0.8, 22, 34);
-            StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 15, 17);
+            StyleUtil.InitLabelWithSpacing(LabelLastUpdate, StyleUtil.FontType.FontRegular, LastUpdateString, 1.14, 15, 17, UITextAlignment.Left);
             int unreadMessages = (await MessageUtils.GetAllUnreadMessages()).Count;
             int messages = (await MessageUtils.GetMessages()).Count;
             string headerText = MESSAGES_NO_ITEMS_TITLE;
@@ -90,7 +90,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
                 headerText = MESSAGES_NO_NEW_MESSAGES_HEADER;
             }
             StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontBold, headerText, 1, 32, 34);
-            StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.25, 18, 20);
+            StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.25, 18, 20, UITextAlignment.Left);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
         }
 

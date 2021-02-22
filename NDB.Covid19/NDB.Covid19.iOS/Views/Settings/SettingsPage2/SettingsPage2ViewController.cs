@@ -53,6 +53,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
 
             NSMutableAttributedString text = new NSMutableAttributedString();
             text.Append(ApplyStylingToText(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3, FontType.FontRegular));
+
             // Necessary to unify horizontal alignment with the rest of the text on the page
             Paragraph4Label3.TextContainerInset = UIEdgeInsets.Zero;
             Paragraph4Label3.TextContainer.LineFragmentPadding = 0;
@@ -82,6 +83,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             Header4Label.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_TITLE);
             Paragraph4Label1.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT);
             Paragraph4Label2.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2);
+            Paragraph4Label3.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3);
             Paragraph4Label3.AccessibilityIdentifier = "contentTextIdentifier";
             Paragraph4Label3.IsAccessibilityElement = true;
         }
@@ -123,7 +125,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             NSAttributedString attributedString = new NSAttributedString(NSData.FromString(html, NSStringEncoding.UTF8), documentAttributes, ref error);
 
             NSMutableAttributedString attributedTextToAppend = new NSMutableAttributedString(attributedString);
-            attributedTextToAppend.DeleteRange(new NSRange(attributedTextToAppend.Length - 1, 1));
             NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle
             {
                 LineHeightMultiple = new nfloat(lineHeight)

@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using Foundation;
 using NDB.Covid19.iOS.Views.InfectionStatus;
-using NDB.Covid19.iOS.Views.Initializer;
 using NDB.Covid19.iOS.Views.Welcome;
 using NDB.Covid19.Utils;
 using UIKit;
@@ -92,18 +91,6 @@ namespace NDB.Covid19.iOS.Utils
             UIStoryboard storyboard = UIStoryboard.FromName("Welcome", null);
             WelcomeViewController vc = storyboard.InstantiateInitialViewController() as WelcomeViewController;
             vc.IsOnBoarding = true;
-            vc.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-
-            UINavigationController navigationController = new UINavigationController(vc);
-            navigationController.SetNavigationBarHidden(true, false);
-            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-            parent.PresentViewController(navigationController, true, null);
-        }
-
-        public static void GoToLanguageSelectionPage(UIViewController parent)
-        {
-            UIStoryboard storyboard = UIStoryboard.FromName("LanguageSelection", null);
-            LanguageSelectionViewController vc = storyboard.InstantiateInitialViewController() as LanguageSelectionViewController;
             vc.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
 
             UINavigationController navigationController = new UINavigationController(vc);

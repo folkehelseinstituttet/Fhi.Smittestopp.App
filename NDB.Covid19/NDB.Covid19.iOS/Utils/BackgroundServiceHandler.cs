@@ -17,59 +17,6 @@ namespace NDB.Covid19.iOS.Utils
         {
             string logPrefix = $"{nameof(BackgroundServiceHandler)}.{nameof(PlatformScheduleFetch)}: ";
 
-
-            // iOS 12.5
-
-            if (AppDelegate.ShouldOperateIn12_5Mode)
-            {
-                if (ObjCRuntime.Class.GetHandle("ENManager") == IntPtr.Zero)
-                {
-                    LogUtils.LogException(Enums.LogSeverity.ERROR,
-                        new NullReferenceException("Pointer to ENManager is null"),
-                        logPrefix + "Failed to retrieve ENManager instance [iOS 12.5 mode]");
-                    return null;
-                }
-
-                ENManager manager = new ENManager();
-
-                manager.SetLaunchActivityHandler(activityFlags =>
-                {
-                    if (activityFlags.HasFlag(ENActivityFlags.PeriodicRun))
-                    {
-                        Task.Run(async () =>
-                        {
-                            CancellationTokenSource cancelSrc = new CancellationTokenSource();
-                            try
-                            {
-                                await Xamarin.ExposureNotifications.ExposureNotification.UpdateKeysFromServer(cancelSrc.Token);
-                            }
-                            catch (OperationCanceledException e)
-                            {
-                                LogUtils.LogException(Enums.LogSeverity.WARNING, e, logPrefix + "Background task took too long to complete [iOS 12.5 mode]");
-                            }
-                            catch (NSErrorException nserror)
-                            {
-                                if (nserror.Domain == "ENErrorDomain")
-                                {
-                                    LogUtils.LogException(Enums.LogSeverity.WARNING, nserror, logPrefix + $"Background task failed due to EN API Error Code={nserror.Code} [iOS 12.5 mode]");
-                                }
-                                else
-                                {
-                                    LogUtils.LogException(Enums.LogSeverity.WARNING, nserror, logPrefix + $"Background task failed due to NSError {nserror.Domain} {nserror.Code}. [iOS 12.5 mode]");
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                LogUtils.LogException(Enums.LogSeverity.WARNING, ex, logPrefix + $"Background task: An error occurred inside the async task [iOS 12.5 mode]");
-                            }
-                        });
-                    }
-                });
-                return manager.ActivateAsync();
-            }
-
-            // iOS 13+
-
             // This is a special ID suffix which iOS treats a certain way
             // we can basically request infinite background tasks
             // and iOS will throttle it sensibly for us.

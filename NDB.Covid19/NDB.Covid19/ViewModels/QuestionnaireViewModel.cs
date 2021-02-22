@@ -40,6 +40,8 @@ namespace NDB.Covid19.ViewModels
         public static string REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON => "REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON".Translate();
         public static string REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE => "REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE".Translate();
         public static string REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATEPICKER => "REGISTER_QUESTIONAIRE_CHOOSE_DATE_POP_UP".Translate();
+        public static string REGISTER_QUESTIONAIRE_ACCESSIBILITY_HEADER => "REGISTER_QUESTIONAIRE_ACCESSIBILITY_HEADER".Translate();
+        public static string REGISTER_QUESTIONAIRE_ACCESSIBILITY_RECEIPT_HEADER => "REGISTER_QUESTIONAIRE_ACCESSIBILITY_RECEIPT_HEADER".Translate();
         public static string REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT => "REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT".Translate();
 
         public DialogViewModel CloseDialogViewModel => new DialogViewModel
@@ -84,34 +86,12 @@ namespace NDB.Covid19.ViewModels
             Selection = selection;
         }
 
-        private DateTime? GetMibaDateFromPersonalData()
-        {
-            if (PersonalData.Validate())
-            {
-                try
-                {
-                    return Convert.ToDateTime(PersonalData.Covid19_smitte_start);
-                }
-                catch
-                {
-                    LogUtils.LogMessage(LogSeverity.ERROR, "Miba data can't be parsed into datetime");
-                }
-            }
-            return null;
-        }
-
         public void InvokeNextButtonClick(
             Action onSuccess,
             Action onFail,
             Action onValidationFail,
             PlatformDialogServiceArguments platformDialogServiceArguments = null)
         {
-            DateTime? mibaDate = GetMibaDateFromPersonalData();
-            if (mibaDate == null)
-            {
-                onFail?.Invoke();
-                return;
-            }
             if (Selection == QuestionaireSelection.YesSince)
             {
                 if (_selectedDateUTC == DateTime.MinValue)
@@ -128,11 +108,26 @@ namespace NDB.Covid19.ViewModels
 
                     return;
                 }
-                PersonalData.FinalMiBaDate = mibaDate < _localSelectedDate ? mibaDate : _localSelectedDate;
+                PersonalData.FinalMiBaDate = _localSelectedDate;
+            }
+            else if (PersonalData.Validate())
+            {
+                try
+                {
+                    PersonalData.FinalMiBaDate = Convert.ToDateTime(PersonalData.Covid19_smitte_start);
+                }
+                catch
+                {
+                    onFail?.Invoke();
+                    LogUtils.LogMessage(LogSeverity.ERROR, "Miba data can't be parsed into datetime");
+                    return;
+                }
             }
             else
             {
-                PersonalData.FinalMiBaDate = mibaDate;
+                onFail?.Invoke();
+                LogUtils.LogMessage(LogSeverity.ERROR, "Validation of personaldata failed because of miba data was null or accesstoken expired");
+                return;
             }
 
             onSuccess?.Invoke();

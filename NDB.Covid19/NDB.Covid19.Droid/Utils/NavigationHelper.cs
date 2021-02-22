@@ -86,12 +86,6 @@ namespace NDB.Covid19.Droid.Utils
             parent.StartActivity(intent);
         }
 
-        public static void GoToLanguageSelection(Activity parent)
-        {
-            Intent intent = new Intent(parent, typeof(LanguageSelectionActivity));
-            parent.StartActivity(intent);
-        }
-
         public static Intent GetStartPageIntent(Activity parent)
         {
             return LocalPreferencesHelper.IsOnboardingCompleted == false

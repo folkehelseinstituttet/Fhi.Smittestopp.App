@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -134,12 +134,12 @@
                             <constraint firstItem="I4M-0M-meh" firstAttribute="bottom" secondItem="494" secondAttribute="bottom" id="8We-Fl-TIJ"/>
                             <constraint firstItem="gGD-Le-Cw4" firstAttribute="top" secondItem="3372" secondAttribute="bottom" id="8wg-Dc-YeF"/>
                             <constraint firstItem="3372" firstAttribute="top" secondItem="HDG-7A-fsZ" secondAttribute="top" constant="35" id="9sk-Ng-mXk"/>
-                            <constraint firstAttribute="trailing" secondItem="I4M-0M-meh" secondAttribute="trailing" id="EAF-Ev-7qS"/>
+                            <constraint firstItem="HDG-7A-fsZ" firstAttribute="trailing" secondItem="I4M-0M-meh" secondAttribute="trailing" id="EAF-Ev-7qS"/>
                             <constraint firstItem="gGD-Le-Cw4" firstAttribute="bottom" secondItem="HDG-7A-fsZ" secondAttribute="bottom" id="Ewd-sg-RyI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3372" secondAttribute="trailing" id="HwG-R0-jna"/>
                             <constraint firstItem="HDG-7A-fsZ" firstAttribute="trailing" secondItem="gGD-Le-Cw4" secondAttribute="trailing" id="RCh-xP-Gem"/>
                             <constraint firstItem="gGD-Le-Cw4" firstAttribute="leading" secondItem="HDG-7A-fsZ" secondAttribute="leading" id="T59-kr-qhN"/>
-                            <constraint firstItem="I4M-0M-meh" firstAttribute="leading" secondItem="494" secondAttribute="leading" id="UDN-40-5Wa"/>
+                            <constraint firstItem="I4M-0M-meh" firstAttribute="leading" secondItem="HDG-7A-fsZ" secondAttribute="leading" id="UDN-40-5Wa"/>
                         </constraints>
                     </view>
                     <connections>

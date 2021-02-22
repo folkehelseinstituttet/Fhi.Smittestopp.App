@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
@@ -13,7 +12,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop, WindowSoftInputMode = SoftInput.AdjustResize)]
+        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop, WindowSoftInputMode = SoftInput.AdjustResize)]
     class SettingsAbout : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -44,21 +43,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             hiddenLink.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK;
 
             LinkUtil.LinkifyTextView(hiddenLink);
-
-            Button accessibilityStatementBtn = FindViewById<Button>(Resource.Id.accessibility_statement_btn);
-            accessibilityStatementBtn.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT;
-            accessibilityStatementBtn.PaintFlags = accessibilityStatementBtn.PaintFlags | Android.Graphics.PaintFlags.UnderlineText;
-            accessibilityStatementBtn.Click += AccessibilityStatementBtn_Click;
-
-
-            View rootView = Window.DecorView.RootView;
-            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
-            backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
-        }
-
-        private void AccessibilityStatementBtn_Click(object sender, EventArgs e)
-        {
-            SettingsPage5ViewModel.OpenAccessibilityStatementLink();
         }
     }
 }
