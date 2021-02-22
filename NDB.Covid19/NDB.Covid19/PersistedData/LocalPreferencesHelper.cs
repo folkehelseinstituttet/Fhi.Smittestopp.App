@@ -159,6 +159,12 @@ namespace NDB.Covid19.PersistedData
                 FHITestsConductedToday = dto.FHIStatistics.TestsConductedToday;
                 FHITestsConductedTotal = dto.FHIStatistics.TestsConductedTotal;
                 FHIPatientsAdmittedToday = dto.FHIStatistics.PatientsAdmittedToday;
+                FHIPatientsIntensiveCare = dto.FHIStatistics.PatientsIntensiveCare;
+                FHIReproductionsNumber = dto.FHIStatistics.ReproductionsNumber;
+                FHIVaccinationsDoseOneToday = dto.FHIStatistics.VaccinationsDoseOneToday;
+                FHIVaccinationsDoseTwoToday = dto.FHIStatistics.VaccinationsDoseTwoToday;
+                FHIVaccinationsDoseOneTotal = dto.FHIStatistics.VaccinationsDoseOneTotal;
+                FHIVaccinationsDoseTwoTotal = dto.FHIStatistics.VaccinationsDoseTwoTotal;
                 APPNumberOfPositiveTestsResultsLast7Days = dto.AppStatistics.NumberOfPositiveTestsResultsLast7Days;
                 APPNumberOfPositiveTestsResultsTotal = dto.AppStatistics.NumberOfPositiveTestsResultsTotal;
                 APPSmittestopDownloadsTotal = dto.AppStatistics.SmittestoppDownloadsTotal;
@@ -206,6 +212,42 @@ namespace NDB.Covid19.PersistedData
             {
                 get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF, 0);
                 set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF, value);
+            }
+
+            public static int FHIPatientsIntensiveCare
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_PREF, value);
+            }
+
+            public static double FHIReproductionsNumber
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_REPRODUCTION_NUMBER_PREF, 0.0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_REPRODUCTION_NUMBER_PREF, value);
+            }
+
+            public static int FHIVaccinationsDoseOneToday
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_VACCINATIONS_DOSE_ONE_TODAY_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_VACCINATIONS_DOSE_ONE_TODAY_PREF, value);
+            }
+
+            public static int FHIVaccinationsDoseTwoToday
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TODAY_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TODAY_PREF, value);
+            }
+
+            public static int FHIVaccinationsDoseOneTotal
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_VACCINATIONS_DOSE_ONE_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_VACCINATIONS_DOSE_ONE_TOTAL_PREF, value);
+            }
+
+            public static int FHIVaccinationsDoseTwoTotal
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF, value);
             }
 
             public static int APPNumberOfPositiveTestsResultsLast7Days
