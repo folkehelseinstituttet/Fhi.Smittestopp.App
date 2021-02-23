@@ -52,6 +52,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber6Lbl, StyleUtil.FontType.FontRegular, NumberOfPositiveTestsResultsLast7Days, 1.14, fontMin, fontMax, UITextAlignment.Center);
 
 			// Labels not dependable on device width
+			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleOne, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 24, 36);
+
 			StyleUtil.InitLabelWithSpacing(DailyNumbersLbl, StyleUtil.FontType.FontBold, DAILY_NUMBERS_HEADER, 1.14, 24, 36);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersOfTheDayTextLbl, StyleUtil.FontType.FontRegular, LastUpdateStringSubHeader, 1.14, 12, 14);
 

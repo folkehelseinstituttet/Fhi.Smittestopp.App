@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vvE-Bx-19i">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -41,25 +41,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ViZ-wF-avU">
                                                         <rect key="frame" x="0.0" y="78" width="308" height="49"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Daily numbers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow8-9T-85H">
-                                                                <rect key="frame" x="0.0" y="0.0" width="308" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Last updated d.: &quot;Timestamp&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Os-gd-mHq">
-                                                                <rect key="frame" x="0.0" y="28.5" width="308" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaC-xD-iec" userLabel="Daily Numbers Title One">
+                                                                <rect key="frame" x="0.0" y="0.0" width="308" height="49"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="0Os-gd-mHq" secondAttribute="trailing" id="4mj-ee-cXq"/>
-                                                            <constraint firstItem="0Os-gd-mHq" firstAttribute="leading" secondItem="ViZ-wF-avU" secondAttribute="leading" id="CVR-VU-Fbf"/>
-                                                            <constraint firstItem="Ow8-9T-85H" firstAttribute="leading" secondItem="ViZ-wF-avU" secondAttribute="leading" id="EiZ-PH-y02"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Ow8-9T-85H" secondAttribute="trailing" id="WjP-It-rfY"/>
-                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,10 +72,22 @@
                                         <rect key="frame" x="0.0" y="135" width="414" height="669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
-                                                <rect key="frame" x="24" y="16" width="366" height="689"/>
+                                                <rect key="frame" x="24" y="16" width="366" height="778"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Daily numbers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow8-9T-85H">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Last updated d.: &quot;Timestamp&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Os-gd-mHq">
+                                                        <rect key="frame" x="0.0" y="44.5" width="366" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="eOr-Z6-YWT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="103"/>
+                                                        <rect key="frame" x="0.0" y="89" width="366" height="103"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqi-9B-pJi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="103"/>
@@ -193,7 +193,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="RKI-Vn-zVC">
-                                                        <rect key="frame" x="0.0" y="127" width="366" height="136"/>
+                                                        <rect key="frame" x="0.0" y="216" width="366" height="136"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1J-70-q9U">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="136"/>
@@ -296,7 +296,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="byi-FC-3sl">
-                                                        <rect key="frame" x="0.0" y="287" width="366" height="178"/>
+                                                        <rect key="frame" x="0.0" y="376" width="366" height="178"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5XN-Ae-C47">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="178"/>
@@ -439,7 +439,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Sw-ak-9Rk">
-                                                        <rect key="frame" x="0.0" y="489" width="366" height="200"/>
+                                                        <rect key="frame" x="0.0" y="578" width="366" height="200"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rpS-Nr-bPP" userLabel="Daily Numbers Sub Lbl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="200"/>
@@ -517,6 +517,7 @@
                         <outlet property="DailyNumbersOfTheDayTextLbl" destination="0Os-gd-mHq" id="name-outlet-0Os-gd-mHq"/>
                         <outlet property="DailyNumbersScrollView" destination="KfL-Ie-jCB" id="name-outlet-KfL-Ie-jCB"/>
                         <outlet property="DailyNumbersSubLbl" destination="rpS-Nr-bPP" id="name-outlet-rpS-Nr-bPP"/>
+                        <outlet property="DailyNumbersTitleOne" destination="HaC-xD-iec" id="cOk-wr-j2Z"/>
                         <outlet property="DailyNumbersView1" destination="rqi-9B-pJi" id="name-outlet-rqi-9B-pJi"/>
                         <outlet property="DailyNumbersView2" destination="JEr-DI-7Dh" id="name-outlet-JEr-DI-7Dh"/>
                         <outlet property="DailyNumbersView3" destination="x1J-70-q9U" id="name-outlet-x1J-70-q9U"/>
