@@ -197,6 +197,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             appLogo.AccessibilityLabel = InfectionStatusViewModel.SMITTESPORING_APP_LOGO_ACCESSIBILITY;
             _areYouInfectedBtn.AccessibilityLabel = _viewModel.NewRegistrationAccessibilityText;
             _messageViewBtn.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(_viewModel.NewMessageAccessibilityText);
+            _dailyNumbersButton.AccessibilityLabel = _viewModel.NewDailyNumbersAccessibilityText;
             ActivityExplainerLbl.Text = await _viewModel.StatusTxtDescription();
             SetOnOffBtnState(await _viewModel.IsRunning());
             SetStatusContainerState(await _viewModel.IsRunning());
