@@ -51,6 +51,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber5Lbl, StyleUtil.FontType.FontRegular, SmittestopDownloadsTotal, 1.14, fontMin, fontMax, UITextAlignment.Center);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber6Lbl, StyleUtil.FontType.FontRegular, NumberOfPositiveTestsResultsLast7Days, 1.14, fontMin, fontMax, UITextAlignment.Center);
 
+			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_UPDATE_NEW, 1.14, fontMin, fontMax, UITextAlignment.Center);
+			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_TEN_UPDATE_NEW, 1.14, fontMin, fontMax, UITextAlignment.Center);
+
 			// Labels not dependable on device width
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleOne, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 24, 36);
 
@@ -90,6 +93,16 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 24, 36);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersSubtextTwo, StyleUtil.FontType.FontRegular, DAILY_NUMBERS_SUBTEXT_TWO, 1.14, 12, 14);
+
+			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontBold, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18, UITextAlignment.Center);
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_UPDATE_ALL, 1.14, 12, 14, UITextAlignment.Center);
+			BackgroundView7.BackgroundColor = UIColor.FromRGB(197, 226, 252);
+			BackgroundView7.Layer.CornerRadius = 12;
+
+			StyleUtil.InitLabelWithSpacing(KeyFeature10Lbl, StyleUtil.FontType.FontBold, KEY_FEATURE_TEN_LABEL, 1.14, 16, 18, UITextAlignment.Center);
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_TEN_UPDATE_ALL, 1.14, 12, 14, UITextAlignment.Center);
+			BackgroundView8.BackgroundColor = UIColor.FromRGB(197, 226, 252);
+			BackgroundView8.Layer.CornerRadius = 12;
 
 			//Setting up accessibility grouping
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;

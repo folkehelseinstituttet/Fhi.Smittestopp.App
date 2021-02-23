@@ -41,12 +41,21 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIView BackgroundView6 { get; set; }
 
 		[Outlet]
+		UIKit.UIView BackgroundView7 { get; set; }
+
+		[Outlet]
+		UIKit.UIView BackgroundView8 { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIStackView ConfirmedCases_StackView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel DailyNumbersLbl { get; set; }
+
+		[Outlet]
+		UIKit.UILabel DailyNumbersNumber10Lbl { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -71,6 +80,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel DailyNumbersNumber6Lbl { get; set; }
+
+		[Outlet]
+		UIKit.UILabel DailyNumbersNumber9Lbl { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -118,6 +130,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIView DailyNumbersView6 { get; set; }
 
 		[Outlet]
+		UIKit.UILabel KeyFeature10Lbl { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel KeyFeature1Lbl { get; set; }
 
@@ -142,6 +157,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UILabel KeyFeature6Lbl { get; set; }
 
 		[Outlet]
+		UIKit.UILabel KeyFeature9Lbl { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIStackView NumberOfDeaths_StackView { get; set; }
 
@@ -156,6 +174,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIStackView PatientsAdmitted_StackView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel TotalDailyNumbersNumber10Lbl { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -174,6 +195,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UILabel TotalDailyNumbersNumber6Lbl { get; set; }
 
 		[Outlet]
+		UIKit.UILabel TotalDailyNumbersNumber9Lbl { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIStackView TotalDownloads_StackView { get; set; }
 
@@ -184,6 +208,12 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIImageView UIimage6 { get; set; }
+
+		[Outlet]
+		UIKit.UIStackView VaccinationsDose1_StackView { get; set; }
+
+		[Outlet]
+		UIKit.UIStackView VaccinationsDose2_StackView { get; set; }
 
 		[Action ("BackButton_tapped:")]
 		partial void BackButton_tapped (UIKit.UIButton sender);
@@ -223,6 +253,16 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (BackgroundView6 != null) {
 				BackgroundView6.Dispose ();
 				BackgroundView6 = null;
+			}
+
+			if (BackgroundView7 != null) {
+				BackgroundView7.Dispose ();
+				BackgroundView7 = null;
+			}
+
+			if (BackgroundView8 != null) {
+				BackgroundView8.Dispose ();
+				BackgroundView8 = null;
 			}
 
 			if (DailyNumbersTitleOne != null) {
@@ -398,6 +438,46 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (DailyNumbersSubtextTwo != null) {
 				DailyNumbersSubtextTwo.Dispose ();
 				DailyNumbersSubtextTwo = null;
+			}
+
+			if (VaccinationsDose1_StackView != null) {
+				VaccinationsDose1_StackView.Dispose ();
+				VaccinationsDose1_StackView = null;
+			}
+
+			if (KeyFeature9Lbl != null) {
+				KeyFeature9Lbl.Dispose ();
+				KeyFeature9Lbl = null;
+			}
+
+			if (DailyNumbersNumber9Lbl != null) {
+				DailyNumbersNumber9Lbl.Dispose ();
+				DailyNumbersNumber9Lbl = null;
+			}
+
+			if (TotalDailyNumbersNumber9Lbl != null) {
+				TotalDailyNumbersNumber9Lbl.Dispose ();
+				TotalDailyNumbersNumber9Lbl = null;
+			}
+
+			if (VaccinationsDose2_StackView != null) {
+				VaccinationsDose2_StackView.Dispose ();
+				VaccinationsDose2_StackView = null;
+			}
+
+			if (KeyFeature10Lbl != null) {
+				KeyFeature10Lbl.Dispose ();
+				KeyFeature10Lbl = null;
+			}
+
+			if (DailyNumbersNumber10Lbl != null) {
+				DailyNumbersNumber10Lbl.Dispose ();
+				DailyNumbersNumber10Lbl = null;
+			}
+
+			if (TotalDailyNumbersNumber10Lbl != null) {
+				TotalDailyNumbersNumber10Lbl.Dispose ();
+				TotalDailyNumbersNumber10Lbl = null;
 			}
 
 			if (UIimage5 != null) {
