@@ -88,6 +88,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitUITextViewWithSpacingAndUrl(DailyNumbersSubLbl, StyleUtil.FontType.FontRegular, LastUpdateStringSubSubHeader, 1.14, 12, 12);
 			DailyNumbersSubLbl.SizeToFit();
 
+			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 24, 36);
+			StyleUtil.InitLabelWithSpacing(DailyNumbersSubtextTwo, StyleUtil.FontType.FontRegular, DAILY_NUMBERS_SUBTEXT_TWO, 1.14, 12, 14);
+
 			//Setting up accessibility grouping
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfDeaths_StackView.ShouldGroupAccessibilityChildren = true;

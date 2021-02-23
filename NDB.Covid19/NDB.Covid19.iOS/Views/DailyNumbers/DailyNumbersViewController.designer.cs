@@ -85,7 +85,13 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UITextView DailyNumbersSubLbl { get; set; }
 
 		[Outlet]
+		UIKit.UILabel DailyNumbersSubtextTwo { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DailyNumbersTitleOne { get; set; }
+
+		[Outlet]
+		UIKit.UILabel DailyNumbersTitleTwo { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -382,6 +388,16 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (TotalDownloads_StackView != null) {
 				TotalDownloads_StackView.Dispose ();
 				TotalDownloads_StackView = null;
+			}
+
+			if (DailyNumbersTitleTwo != null) {
+				DailyNumbersTitleTwo.Dispose ();
+				DailyNumbersTitleTwo = null;
+			}
+
+			if (DailyNumbersSubtextTwo != null) {
+				DailyNumbersSubtextTwo.Dispose ();
+				DailyNumbersSubtextTwo = null;
 			}
 
 			if (UIimage5 != null) {
