@@ -50,7 +50,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber4Lbl, StyleUtil.FontType.FontRegular, PatientsAdmittedToday, 1.14, fontMin, fontMax, UITextAlignment.Center);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber5Lbl, StyleUtil.FontType.FontRegular, SmittestopDownloadsTotal, 1.14, fontMin, fontMax, UITextAlignment.Center);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber6Lbl, StyleUtil.FontType.FontRegular, NumberOfPositiveTestsResultsLast7Days, 1.14, fontMin, fontMax, UITextAlignment.Center);
-
+			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber7Lbl, StyleUtil.FontType.FontRegular, PatientsIntensiveCare, 1.14, fontMin, fontMax, UITextAlignment.Center);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseOneToday, 1.14, fontMin, fontMax, UITextAlignment.Center);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseTwoToday, 1.14, fontMin, fontMax, UITextAlignment.Center);
 
@@ -87,6 +87,10 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber5Lbl, StyleUtil.FontType.FontRegular, NumberOfPositiveTestsResultsTotal, 1.14, 12, 14, UITextAlignment.Center);
 			BackgroundView6.BackgroundColor = UIColor.FromRGB(197, 226, 252);
 			BackgroundView6.Layer.CornerRadius = 12;
+
+			StyleUtil.InitLabelWithSpacing(KeyFeature7Lbl, StyleUtil.FontType.FontBold, KEY_FEATURE_SEVEN_LABEL, 1.14, 16, 18, UITextAlignment.Center);
+			BackgroundView7.BackgroundColor = UIColor.FromRGB(197, 226, 252);
+			BackgroundView7.Layer.CornerRadius = 12;
 
 			StyleUtil.InitUITextViewWithSpacingAndUrl(DailyNumbersSubLbl, StyleUtil.FontType.FontRegular, LastUpdateStringSubSubHeader, 1.14, 12, 12);
 			DailyNumbersSubLbl.SizeToFit();

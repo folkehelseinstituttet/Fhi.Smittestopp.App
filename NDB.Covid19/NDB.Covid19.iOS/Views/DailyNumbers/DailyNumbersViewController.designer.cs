@@ -88,6 +88,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UILabel DailyNumbersNumber6Lbl { get; set; }
 
 		[Outlet]
+		UIKit.UILabel DailyNumbersNumber7Lbl { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DailyNumbersNumber9Lbl { get; set; }
 
 		[Outlet]
@@ -142,6 +145,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIView DailyNumbersView6 { get; set; }
 
 		[Outlet]
+		UIKit.UIStackView IntensiveCare_StackView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel KeyFeature10Lbl { get; set; }
 
 		[Outlet]
@@ -167,6 +173,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel KeyFeature6Lbl { get; set; }
+
+		[Outlet]
+		UIKit.UILabel KeyFeature7Lbl { get; set; }
 
 		[Outlet]
 		UIKit.UILabel KeyFeature9Lbl { get; set; }
@@ -213,14 +222,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIStackView TotalDownloads_StackView { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIImageView UIimage5 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIImageView UIimage6 { get; set; }
-
-		[Outlet]
 		UIKit.UIStackView VaccinationsDose1_StackView { get; set; }
 
 		[Outlet]
@@ -239,6 +240,11 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (BackgroundView1 != null) {
 				BackgroundView1.Dispose ();
 				BackgroundView1 = null;
+			}
+
+			if (BackgroundView10 != null) {
+				BackgroundView10.Dispose ();
+				BackgroundView10 = null;
 			}
 
 			if (BackgroundView2 != null) {
@@ -281,11 +287,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				BackgroundView9 = null;
 			}
 
-			if (BackgroundView10 != null) {
-				BackgroundView10.Dispose ();
-				BackgroundView10 = null;
-			}
-
 			if (ConfirmedCases_StackView != null) {
 				ConfirmedCases_StackView.Dispose ();
 				ConfirmedCases_StackView = null;
@@ -321,14 +322,19 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				DailyNumbersNumber4Lbl = null;
 			}
 
+			if (DailyNumbersNumber5Lbl != null) {
+				DailyNumbersNumber5Lbl.Dispose ();
+				DailyNumbersNumber5Lbl = null;
+			}
+
 			if (DailyNumbersNumber6Lbl != null) {
 				DailyNumbersNumber6Lbl.Dispose ();
 				DailyNumbersNumber6Lbl = null;
 			}
 
-			if (DailyNumbersNumber5Lbl != null) {
-				DailyNumbersNumber5Lbl.Dispose ();
-				DailyNumbersNumber5Lbl = null;
+			if (DailyNumbersNumber7Lbl != null) {
+				DailyNumbersNumber7Lbl.Dispose ();
+				DailyNumbersNumber7Lbl = null;
 			}
 
 			if (DailyNumbersNumber9Lbl != null) {
@@ -351,6 +357,11 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				DailyNumbersSubLbl = null;
 			}
 
+			if (DailyNumbersSubSubHeader != null) {
+				DailyNumbersSubSubHeader.Dispose ();
+				DailyNumbersSubSubHeader = null;
+			}
+
 			if (DailyNumbersSubtextTwo != null) {
 				DailyNumbersSubtextTwo.Dispose ();
 				DailyNumbersSubtextTwo = null;
@@ -359,6 +370,11 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (DailyNumbersTitleOne != null) {
 				DailyNumbersTitleOne.Dispose ();
 				DailyNumbersTitleOne = null;
+			}
+
+			if (DailyNumbersTitleThree != null) {
+				DailyNumbersTitleThree.Dispose ();
+				DailyNumbersTitleThree = null;
 			}
 
 			if (DailyNumbersTitleTwo != null) {
@@ -421,14 +437,19 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				KeyFeature4Lbl = null;
 			}
 
+			if (KeyFeature5Lbl != null) {
+				KeyFeature5Lbl.Dispose ();
+				KeyFeature5Lbl = null;
+			}
+
 			if (KeyFeature6Lbl != null) {
 				KeyFeature6Lbl.Dispose ();
 				KeyFeature6Lbl = null;
 			}
 
-			if (KeyFeature5Lbl != null) {
-				KeyFeature5Lbl.Dispose ();
-				KeyFeature5Lbl = null;
+			if (KeyFeature7Lbl != null) {
+				KeyFeature7Lbl.Dispose ();
+				KeyFeature7Lbl = null;
 			}
 
 			if (KeyFeature9Lbl != null) {
@@ -454,6 +475,11 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (PatientsAdmitted_StackView != null) {
 				PatientsAdmitted_StackView.Dispose ();
 				PatientsAdmitted_StackView = null;
+			}
+
+			if (IntensiveCare_StackView != null) {
+				IntensiveCare_StackView.Dispose ();
+				IntensiveCare_StackView = null;
 			}
 
 			if (TotalDailyNumbersNumber10Lbl != null) {
@@ -491,16 +517,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				TotalDownloads_StackView = null;
 			}
 
-			if (UIimage5 != null) {
-				UIimage5.Dispose ();
-				UIimage5 = null;
-			}
-
-			if (UIimage6 != null) {
-				UIimage6.Dispose ();
-				UIimage6 = null;
-			}
-
 			if (VaccinationsDose1_StackView != null) {
 				VaccinationsDose1_StackView.Dispose ();
 				VaccinationsDose1_StackView = null;
@@ -509,16 +525,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (VaccinationsDose2_StackView != null) {
 				VaccinationsDose2_StackView.Dispose ();
 				VaccinationsDose2_StackView = null;
-			}
-
-			if (DailyNumbersTitleThree != null) {
-				DailyNumbersTitleThree.Dispose ();
-				DailyNumbersTitleThree = null;
-			}
-
-			if (DailyNumbersSubSubHeader != null) {
-				DailyNumbersSubSubHeader.Dispose ();
-				DailyNumbersSubSubHeader = null;
 			}
 		}
 	}
