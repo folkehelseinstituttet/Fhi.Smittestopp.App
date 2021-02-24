@@ -160,7 +160,6 @@ namespace NDB.Covid19.PersistedData
                 FHITestsConductedTotal = dto.FHIStatistics.TestsConductedTotal;
                 FHIPatientsAdmittedToday = dto.FHIStatistics.PatientsAdmittedToday;
                 FHIPatientsIntensiveCare = dto.FHIStatistics.PatientsIntensiveCare;
-                FHIReproductionsNumber = dto.FHIStatistics.ReproductionsNumber;
                 FHIVaccinationsDoseOneToday = dto.FHIStatistics.VaccinationsDoseOneToday;
                 FHIVaccinationsDoseTwoToday = dto.FHIStatistics.VaccinationsDoseTwoToday;
                 FHIVaccinationsDoseOneTotal = dto.FHIStatistics.VaccinationsDoseOneTotal;
@@ -218,12 +217,6 @@ namespace NDB.Covid19.PersistedData
             {
                 get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_PREF, 0);
                 set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_PREF, value);
-            }
-
-            public static double FHIReproductionsNumber
-            {
-                get => _preferences.Get(PreferencesKeys.FHI_DATA_REPRODUCTION_NUMBER_PREF, 0.0);
-                set => _preferences.Set(PreferencesKeys.FHI_DATA_REPRODUCTION_NUMBER_PREF, value);
             }
 
             public static int FHIVaccinationsDoseOneToday
