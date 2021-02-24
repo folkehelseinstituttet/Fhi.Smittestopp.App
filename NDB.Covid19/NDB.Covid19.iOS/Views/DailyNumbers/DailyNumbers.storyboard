@@ -522,6 +522,10 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="WGt-NU-3Ch" firstAttribute="firstBaseline" secondItem="KMk-Hr-5MA" secondAttribute="firstBaseline" id="A81-Wi-GC9"/>
+                                                            <constraint firstItem="NWO-7t-vkl" firstAttribute="firstBaseline" secondItem="2fi-Pg-DWL" secondAttribute="firstBaseline" id="ElH-B1-MWC"/>
+                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Sw-ak-9Rk">
                                                         <rect key="frame" x="0.0" y="819" width="366" height="200"/>
