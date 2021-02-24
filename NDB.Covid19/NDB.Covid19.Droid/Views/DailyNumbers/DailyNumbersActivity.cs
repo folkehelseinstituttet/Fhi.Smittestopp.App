@@ -40,8 +40,10 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
         private async void Init()
         {
-            FindViewById<TextView>(Resource.Id.daily_numbers_header_textView).Text = DAILY_NUMBERS_HEADER;
-            FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView).Text = DAILY_NUMBERS_TITLE_ONE;
+            TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
+            _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
+            TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
+            _dailyNumbersSubHeaderStatistics.Text = DAILY_NUMBERS_TITLE_ONE;
             FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview).Text = LastUpdateStringSubHeader;
             TextView diseaseRateSubSub = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
 
@@ -73,7 +75,8 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.daily_numbers_reproductions_header_text).Text = KEY_FEATURE_EIGHT_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_reproductions_number_text).Text = ReproductionsNumber;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_header_textView).Text = DAILY_NUMBERS_TITLE_TWO;
+            TextView _dailyNumbersSubHeaderVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_header_textView);
+            _dailyNumbersSubHeaderVaccinations.Text = DAILY_NUMBERS_TITLE_TWO;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview).Text = LastUpdateStringSubTextTwo;
 
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text).Text = KEY_FEATURE_NINE_LABEL;
@@ -84,8 +87,8 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_number_text).Text = VaccinationsDoseTwoToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
 
-
-            FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_header_textView).Text = DAILY_NUMBERS_TITLE_THREE;
+            TextView _dailyNumbersSubHeaderSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_header_textView);
+            _dailyNumbersSubHeaderSmittestopp.Text = DAILY_NUMBERS_TITLE_THREE;
 
             //Added newline for the UI to align.
             FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text).Text = $"{KEY_FEATURE_SIX_LABEL} \n";
@@ -94,6 +97,16 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text).Text = KEY_FEATURE_FIVE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_number_text).Text = NumberOfPositiveTestsResultsLast7Days;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_total_text).Text = NumberOfPositiveTestsResultsTotal;
+
+            // CONTENT DESCRIPTIONS OF HEADERS
+            _dailyNumbersHeader.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_HEADER.ToLower();
+            _dailyNumbersSubHeaderStatistics.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_TITLE_ONE.ToLower();
+            _dailyNumbersSubHeaderVaccinations.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_TITLE_TWO.ToLower();
+            _dailyNumbersSubHeaderSmittestopp.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_TITLE_THREE.ToLower();
+            _dailyNumbersHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _dailyNumbersSubHeaderStatistics.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             _closeButton = FindViewById<ViewGroup>(Resource.Id.daily_numbers_close_cross_btn);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
