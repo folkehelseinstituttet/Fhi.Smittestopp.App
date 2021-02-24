@@ -31,7 +31,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
         {
             base.ViewDidLoad();
 
-            _spinner = StyleUtil.ShowSpinner(View, UIActivityIndicatorViewStyle.WhiteLarge);
+            _spinner = StyleUtil.ShowSpinner(View, UIActivityIndicatorViewStyle.Large);
         }
 
         public override void ViewDidAppear(bool animated)

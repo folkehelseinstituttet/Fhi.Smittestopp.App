@@ -552,6 +552,10 @@
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%401x.png" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%402x.png" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -613,6 +617,7 @@
     <Folder Include="Assets.xcassets\checkboxUnfilled.imageset\" />
     <Folder Include="Assets.xcassets\checkboxFilled.imageset\" />
     <Folder Include="Views\DailyNumbers\" />
+    <Folder Include="Assets.xcassets\todays_numbers_icon.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
