@@ -68,11 +68,11 @@
                                             <constraint firstItem="qBp-4b-Fab" firstAttribute="leading" secondItem="B08-7x-rTa" secondAttribute="leading" id="ln6-4j-b10"/>
                                         </constraints>
                                     </stackView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ie-jCB">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ie-jCB">
                                         <rect key="frame" x="0.0" y="135" width="414" height="669"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
-                                                <rect key="frame" x="24" y="16" width="366" height="1019"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
+                                                <rect key="frame" x="24" y="16" width="366" height="1293"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Daily numbers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow8-9T-85H">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
@@ -295,42 +295,13 @@
                                                             <constraint firstItem="6e7-Oq-bpE" firstAttribute="firstBaseline" secondItem="EIU-MV-YpY" secondAttribute="firstBaseline" id="ePa-4G-hws"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="byi-FC-3sl">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="byi-FC-3sl">
                                                         <rect key="frame" x="0.0" y="376" width="366" height="178"/>
                                                         <subviews>
-                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5XN-Ae-C47">
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5XN-Ae-C47">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="178"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-Nv-HFx">
-                                                                        <rect key="frame" x="15" y="18" width="141.5" height="136"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Number of today Number of Today" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7N-0k-vjA">
-                                                                                <rect key="frame" x="7" y="0.0" width="128" height="38.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRL-i3-xEC">
-                                                                                <rect key="frame" x="28.5" y="57.5" width="85" height="17"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <color key="textColor" systemColor="systemYellowColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logoWTxt" translatesAutoresizingMaskIntoConstraints="NO" id="hJI-gT-aYc">
-                                                                                <rect key="frame" x="0.0" y="105" width="141.5" height="31"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="width" constant="56" id="G2w-3P-ume"/>
-                                                                                    <constraint firstAttribute="height" constant="31" id="Otw-6L-LHm"/>
-                                                                                </constraints>
-                                                                                <variation key="default">
-                                                                                    <mask key="constraints">
-                                                                                        <exclude reference="G2w-3P-ume"/>
-                                                                                    </mask>
-                                                                                </variation>
-                                                                            </imageView>
-                                                                        </subviews>
-                                                                    </stackView>
-                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMX-91-SF9">
+                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMX-91-SF9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="178"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     </view>
@@ -340,13 +311,9 @@
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="234" id="92355"/>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="92385"/>
                                                                     <constraint firstItem="aMX-91-SF9" firstAttribute="top" secondItem="5XN-Ae-C47" secondAttribute="top" id="0UP-Nn-ski"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="aqc-Nv-HFx" secondAttribute="trailing" constant="15" id="6cR-3Q-HSB"/>
                                                                     <constraint firstItem="aMX-91-SF9" firstAttribute="leading" secondItem="5XN-Ae-C47" secondAttribute="leading" id="Ob1-HC-7kj"/>
                                                                     <constraint firstAttribute="trailing" secondItem="aMX-91-SF9" secondAttribute="trailing" id="Y1B-PA-g57"/>
-                                                                    <constraint firstItem="aqc-Nv-HFx" firstAttribute="leading" secondItem="5XN-Ae-C47" secondAttribute="leading" constant="15" id="YDl-PL-x2s"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="aqc-Nv-HFx" secondAttribute="bottom" constant="24" id="d2o-Qr-Ocy"/>
                                                                     <constraint firstAttribute="bottom" secondItem="aMX-91-SF9" secondAttribute="bottom" id="nVh-Nu-sf6"/>
-                                                                    <constraint firstItem="aqc-Nv-HFx" firstAttribute="top" secondItem="5XN-Ae-C47" secondAttribute="top" constant="18" id="oYA-1y-HCj"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -360,49 +327,10 @@
                                                                     </mask>
                                                                 </variation>
                                                             </view>
-                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbQ-0n-JI0">
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbQ-0n-JI0">
                                                                 <rect key="frame" x="194.5" y="0.0" width="171.5" height="178"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nOo-1Y-hh5">
-                                                                        <rect key="frame" x="15" y="18" width="141.5" height="136"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Number of today Number of Today Number of Today" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlL-gZ-ANI">
-                                                                                <rect key="frame" x="6.5" y="0.0" width="129" height="57.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Meh-Oj-gTx">
-                                                                                <rect key="frame" x="28.5" y="57.5" width="85" height="17"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <color key="textColor" systemColor="systemYellowColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Infected" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubU-j6-5GM">
-                                                                                <rect key="frame" x="47.5" y="82.5" width="46.5" height="14.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logoWTxt" translatesAutoresizingMaskIntoConstraints="NO" id="ygK-l2-P4y">
-                                                                                <rect key="frame" x="0.0" y="105" width="141.5" height="31"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="31" id="Gzx-Gp-0dZ"/>
-                                                                                    <constraint firstAttribute="width" constant="56" id="l42-w1-jmY"/>
-                                                                                </constraints>
-                                                                                <variation key="default">
-                                                                                    <mask key="constraints">
-                                                                                        <exclude reference="l42-w1-jmY"/>
-                                                                                    </mask>
-                                                                                </variation>
-                                                                            </imageView>
-                                                                        </subviews>
-                                                                        <constraints>
-                                                                            <constraint firstItem="ygK-l2-P4y" firstAttribute="top" secondItem="ubU-j6-5GM" secondAttribute="bottom" constant="8" id="00q-bQ-NDB"/>
-                                                                            <constraint firstItem="ubU-j6-5GM" firstAttribute="top" secondItem="Meh-Oj-gTx" secondAttribute="bottom" constant="8" id="dMh-mk-xiJ"/>
-                                                                        </constraints>
-                                                                    </stackView>
-                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tot-JG-dV7">
+                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tot-JG-dV7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="178"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     </view>
@@ -410,13 +338,10 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="91959"/>
-                                                                    <constraint firstItem="nOo-1Y-hh5" firstAttribute="leading" secondItem="PbQ-0n-JI0" secondAttribute="leading" constant="15" id="106385"/>
                                                                     <constraint firstItem="tot-JG-dV7" firstAttribute="leading" secondItem="PbQ-0n-JI0" secondAttribute="leading" id="9h2-jJ-Sqa"/>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="234" id="IfG-Dd-xyO"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="nOo-1Y-hh5" secondAttribute="bottom" constant="24" id="Mhz-5q-1ut"/>
                                                                     <constraint firstItem="tot-JG-dV7" firstAttribute="top" secondItem="PbQ-0n-JI0" secondAttribute="top" id="bRe-e1-X3K"/>
                                                                     <constraint firstAttribute="trailing" secondItem="tot-JG-dV7" secondAttribute="trailing" id="dLW-Dc-b61"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="nOo-1Y-hh5" secondAttribute="trailing" constant="15" id="jmP-j4-gu3"/>
                                                                     <constraint firstAttribute="bottom" secondItem="tot-JG-dV7" secondAttribute="bottom" id="xIa-Us-2e2"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
@@ -432,47 +357,42 @@
                                                                 </variation>
                                                             </view>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="Meh-Oj-gTx" firstAttribute="firstBaseline" secondItem="WRL-i3-xEC" secondAttribute="firstBaseline" id="7fX-wS-NyY"/>
-                                                            <constraint firstItem="MlL-gZ-ANI" firstAttribute="firstBaseline" secondItem="X7N-0k-vjA" secondAttribute="firstBaseline" id="EJc-qi-Rw6"/>
-                                                            <constraint firstItem="hJI-gT-aYc" firstAttribute="centerY" secondItem="ygK-l2-P4y" secondAttribute="centerY" id="Gsy-L9-cNF"/>
-                                                        </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaccinations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-qF-exf" userLabel="Daily Numbers Title Two">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Vaccinations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-qF-exf" userLabel="Daily Numbers Title Two">
                                                         <rect key="frame" x="0.0" y="578" width="366" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated d.: &quot;Timestamp&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV3-TC-73d" userLabel="Daily Numbers Subtext Two">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Last updated d.: &quot;Timestamp&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV3-TC-73d" userLabel="Daily Numbers Subtext Two">
                                                         <rect key="frame" x="0.0" y="622.5" width="366" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-8s-Y2h">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-8s-Y2h">
                                                         <rect key="frame" x="0.0" y="667" width="366" height="128"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-Mg-TS7" userLabel="Daily Numbers View 7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="128"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mk1-bO-o7S" userLabel="Vaccinations Dose1 Stack View">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Mk1-bO-o7S" userLabel="Vaccinations Dose1 Stack View">
                                                                         <rect key="frame" x="15" y="18" width="141.5" height="86"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMk-Hr-5MA" userLabel="Key Feature9 Lbl">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="45"/>
+                                                                                <rect key="frame" x="50" y="0.0" width="41.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-Pg-DWL" userLabel="Daily Numbers Number9 Lbl">
-                                                                                <rect key="frame" x="0.0" y="45" width="141.5" height="20.5"/>
+                                                                                <rect key="frame" x="50" y="33" width="41.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krT-Uo-dhD" userLabel="Total Daily Numbers Number9 Lbl">
-                                                                                <rect key="frame" x="0.0" y="65.5" width="141.5" height="20.5"/>
+                                                                                <rect key="frame" x="50" y="65.5" width="41.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -499,23 +419,23 @@
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JO2-vp-3Cd" userLabel="Daily Numbers View8">
                                                                 <rect key="frame" x="194.5" y="0.0" width="171.5" height="128"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-st-98a" userLabel="Vaccinations Dose2 Stack View">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-st-98a" userLabel="Vaccinations Dose2 Stack View">
                                                                         <rect key="frame" x="15" y="18" width="141.5" height="86"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGt-NU-3Ch" userLabel="Key Feature10 Lbl">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="45"/>
+                                                                                <rect key="frame" x="50" y="0.0" width="41.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWO-7t-vkl" userLabel="Daily Numbers Number10 Lbl">
-                                                                                <rect key="frame" x="0.0" y="45" width="141.5" height="20.5"/>
+                                                                                <rect key="frame" x="50" y="33" width="41.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSO-d3-hYg" userLabel="Total Daily Numbers Number10 Lbl">
-                                                                                <rect key="frame" x="0.0" y="65.5" width="141.5" height="20.5"/>
+                                                                                <rect key="frame" x="50" y="65.5" width="41.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -545,8 +465,108 @@
                                                             <constraint firstItem="NWO-7t-vkl" firstAttribute="firstBaseline" secondItem="2fi-Pg-DWL" secondAttribute="firstBaseline" id="ElH-B1-MWC"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Sw-ak-9Rk">
-                                                        <rect key="frame" x="0.0" y="819" width="366" height="200"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU3-XQ-dXH" userLabel="Daily Numbers Title Three">
+                                                        <rect key="frame" x="0.0" y="819" width="366" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8B-81-0zT" userLabel="Daily Numbers SubSubHeader">
+                                                        <rect key="frame" x="0.0" y="863.5" width="366" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="NS1-R4-gBH">
+                                                        <rect key="frame" x="0.0" y="908" width="366" height="161"/>
+                                                        <subviews>
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWf-c6-UAC" userLabel="Daily Numbers View9">
+                                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="161"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-Nv-HFx">
+                                                                        <rect key="frame" x="15" y="18" width="141.5" height="119"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Number of today Number of Today" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7N-0k-vjA" userLabel="Key Feature6 Lbl">
+                                                                                <rect key="frame" x="7" y="0.0" width="128" height="38.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRL-i3-xEC" userLabel="Daily Numbers Number6 Lbl">
+                                                                                <rect key="frame" x="28.5" y="102" width="85" height="17"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zn-rQ-ESP" userLabel="Background View9">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="161"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </view>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="6Zn-rQ-ESP" firstAttribute="leading" secondItem="bWf-c6-UAC" secondAttribute="leading" id="5lW-rT-0Mh"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="6Zn-rQ-ESP" secondAttribute="trailing" id="6Rx-Mi-vGn"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="aqc-Nv-HFx" secondAttribute="bottom" constant="24" id="RrW-0A-Szj"/>
+                                                                    <constraint firstItem="6Zn-rQ-ESP" firstAttribute="top" secondItem="bWf-c6-UAC" secondAttribute="top" id="X9S-Cx-3Q2"/>
+                                                                    <constraint firstItem="aqc-Nv-HFx" firstAttribute="leading" secondItem="bWf-c6-UAC" secondAttribute="leading" constant="15" id="YTL-z3-krW"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="6Zn-rQ-ESP" secondAttribute="bottom" id="bBn-Y7-pnf"/>
+                                                                    <constraint firstItem="aqc-Nv-HFx" firstAttribute="top" secondItem="bWf-c6-UAC" secondAttribute="top" constant="18" id="gU7-wz-YfM"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="aqc-Nv-HFx" secondAttribute="trailing" constant="15" id="uVW-yI-ezE"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNN-FP-cYR" userLabel="Daily Numbers View10">
+                                                                <rect key="frame" x="194.5" y="0.0" width="171.5" height="161"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nOo-1Y-hh5">
+                                                                        <rect key="frame" x="15" y="18" width="141.5" height="119"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Number of today Number of Today Number of Today" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlL-gZ-ANI" userLabel="Key Feature5 Lbl">
+                                                                                <rect key="frame" x="6.5" y="0.0" width="129" height="57.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Meh-Oj-gTx" userLabel="Daily Numbers Number5 Lbl">
+                                                                                <rect key="frame" x="28.5" y="79.5" width="85" height="17"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Infected" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubU-j6-5GM" userLabel="Total Daily Numbers Number5 Lbl">
+                                                                                <rect key="frame" x="47.5" y="104.5" width="46.5" height="14.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="ubU-j6-5GM" firstAttribute="top" secondItem="Meh-Oj-gTx" secondAttribute="bottom" constant="8" id="dMh-mk-xiJ"/>
+                                                                        </constraints>
+                                                                    </stackView>
+                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7H-w3-XTL" userLabel="Background View10">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="161"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </view>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="b7H-w3-XTL" firstAttribute="top" secondItem="yNN-FP-cYR" secondAttribute="top" id="0Zh-s5-3Sf"/>
+                                                                    <constraint firstItem="nOo-1Y-hh5" firstAttribute="leading" secondItem="yNN-FP-cYR" secondAttribute="leading" constant="15" id="1NY-ih-nhN"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="b7H-w3-XTL" secondAttribute="bottom" id="6Uv-yd-jfJ"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="nOo-1Y-hh5" secondAttribute="bottom" constant="24" id="DOw-km-ff6"/>
+                                                                    <constraint firstItem="nOo-1Y-hh5" firstAttribute="top" secondItem="yNN-FP-cYR" secondAttribute="top" constant="18" id="HNM-5t-saR"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="nOo-1Y-hh5" secondAttribute="trailing" constant="15" id="SSo-Gq-C5n"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="b7H-w3-XTL" secondAttribute="trailing" id="d2Z-7Q-4HA"/>
+                                                                    <constraint firstItem="b7H-w3-XTL" firstAttribute="leading" secondItem="yNN-FP-cYR" secondAttribute="leading" id="fT9-wr-ElJ"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Sw-ak-9Rk">
+                                                        <rect key="frame" x="0.0" y="1093" width="366" height="200"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rpS-Nr-bPP" userLabel="Daily Numbers Sub Lbl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="200"/>
@@ -608,6 +628,7 @@
                     <connections>
                         <outlet property="BackButton" destination="auF-jy-0zC" id="name-outlet-auF-jy-0zC"/>
                         <outlet property="BackgroundView1" destination="MKn-p5-x7B" id="name-outlet-MKn-p5-x7B"/>
+                        <outlet property="BackgroundView10" destination="b7H-w3-XTL" id="53S-ba-FKv"/>
                         <outlet property="BackgroundView2" destination="BED-Di-DEu" id="name-outlet-BED-Di-DEu"/>
                         <outlet property="BackgroundView3" destination="4oI-0I-Ajm" id="name-outlet-4oI-0I-Ajm"/>
                         <outlet property="BackgroundView4" destination="Bkx-Mt-y0s" id="name-outlet-Bkx-Mt-y0s"/>
@@ -615,6 +636,7 @@
                         <outlet property="BackgroundView6" destination="tot-JG-dV7" id="name-outlet-tot-JG-dV7"/>
                         <outlet property="BackgroundView7" destination="J9x-CT-eJE" id="ivs-I4-Nnv"/>
                         <outlet property="BackgroundView8" destination="EtH-pW-1PA" id="AIr-2c-CHk"/>
+                        <outlet property="BackgroundView9" destination="6Zn-rQ-ESP" id="zbC-9P-CvY"/>
                         <outlet property="ConfirmedCases_StackView" destination="8kH-I6-iev" id="name-outlet-8kH-I6-iev"/>
                         <outlet property="DailyNumbersLbl" destination="Ow8-9T-85H" id="name-outlet-Ow8-9T-85H"/>
                         <outlet property="DailyNumbersNumber10Lbl" destination="NWO-7t-vkl" id="QDs-y4-2la"/>
@@ -622,14 +644,16 @@
                         <outlet property="DailyNumbersNumber2Lbl" destination="S12-Ey-IsT" id="name-outlet-S12-Ey-IsT"/>
                         <outlet property="DailyNumbersNumber3Lbl" destination="WS5-G2-f6G" id="name-outlet-WS5-G2-f6G"/>
                         <outlet property="DailyNumbersNumber4Lbl" destination="JeF-yf-u4W" id="name-outlet-JeF-yf-u4W"/>
-                        <outlet property="DailyNumbersNumber5Lbl" destination="WRL-i3-xEC" id="name-outlet-WRL-i3-xEC"/>
-                        <outlet property="DailyNumbersNumber6Lbl" destination="Meh-Oj-gTx" id="name-outlet-Meh-Oj-gTx"/>
+                        <outlet property="DailyNumbersNumber5Lbl" destination="Meh-Oj-gTx" id="name-outlet-Meh-Oj-gTx"/>
+                        <outlet property="DailyNumbersNumber6Lbl" destination="WRL-i3-xEC" id="name-outlet-WRL-i3-xEC"/>
                         <outlet property="DailyNumbersNumber9Lbl" destination="2fi-Pg-DWL" id="nV8-sg-7N8"/>
                         <outlet property="DailyNumbersOfTheDayTextLbl" destination="0Os-gd-mHq" id="name-outlet-0Os-gd-mHq"/>
                         <outlet property="DailyNumbersScrollView" destination="KfL-Ie-jCB" id="name-outlet-KfL-Ie-jCB"/>
                         <outlet property="DailyNumbersSubLbl" destination="rpS-Nr-bPP" id="name-outlet-rpS-Nr-bPP"/>
+                        <outlet property="DailyNumbersSubSubHeader" destination="h8B-81-0zT" id="Hsw-d1-88l"/>
                         <outlet property="DailyNumbersSubtextTwo" destination="cV3-TC-73d" id="LAH-p2-tTB"/>
                         <outlet property="DailyNumbersTitleOne" destination="HaC-xD-iec" id="cOk-wr-j2Z"/>
+                        <outlet property="DailyNumbersTitleThree" destination="DU3-XQ-dXH" id="9yi-ue-CIq"/>
                         <outlet property="DailyNumbersTitleTwo" destination="Umc-qF-exf" id="LGI-4U-joE"/>
                         <outlet property="DailyNumbersView1" destination="rqi-9B-pJi" id="name-outlet-rqi-9B-pJi"/>
                         <outlet property="DailyNumbersView2" destination="JEr-DI-7Dh" id="name-outlet-JEr-DI-7Dh"/>
@@ -642,8 +666,8 @@
                         <outlet property="KeyFeature2Lbl" destination="ob2-ve-jf0" id="name-outlet-ob2-ve-jf0"/>
                         <outlet property="KeyFeature3Lbl" destination="6e7-Oq-bpE" id="name-outlet-6e7-Oq-bpE"/>
                         <outlet property="KeyFeature4Lbl" destination="EIU-MV-YpY" id="name-outlet-EIU-MV-YpY"/>
-                        <outlet property="KeyFeature5Lbl" destination="X7N-0k-vjA" id="name-outlet-X7N-0k-vjA"/>
-                        <outlet property="KeyFeature6Lbl" destination="MlL-gZ-ANI" id="name-outlet-MlL-gZ-ANI"/>
+                        <outlet property="KeyFeature5Lbl" destination="MlL-gZ-ANI" id="name-outlet-MlL-gZ-ANI"/>
+                        <outlet property="KeyFeature6Lbl" destination="X7N-0k-vjA" id="name-outlet-X7N-0k-vjA"/>
                         <outlet property="KeyFeature9Lbl" destination="KMk-Hr-5MA" id="WiJ-gL-R8Z"/>
                         <outlet property="NumberOfDeaths_StackView" destination="VhR-Zs-gDI" id="name-outlet-VhR-Zs-gDI"/>
                         <outlet property="NumberOfPositiveResults_StackView" destination="nOo-1Y-hh5" id="name-outlet-nOo-1Y-hh5"/>
@@ -653,11 +677,9 @@
                         <outlet property="TotalDailyNumbersNumber1Lbl" destination="uUV-UN-49U" id="name-outlet-uUV-UN-49U"/>
                         <outlet property="TotalDailyNumbersNumber2Lbl" destination="PYb-An-jfP" id="name-outlet-PYb-An-jfP"/>
                         <outlet property="TotalDailyNumbersNumber3Lbl" destination="7CE-Ue-UqP" id="name-outlet-7CE-Ue-UqP"/>
-                        <outlet property="TotalDailyNumbersNumber6Lbl" destination="ubU-j6-5GM" id="name-outlet-ubU-j6-5GM"/>
+                        <outlet property="TotalDailyNumbersNumber5Lbl" destination="ubU-j6-5GM" id="name-outlet-ubU-j6-5GM"/>
                         <outlet property="TotalDailyNumbersNumber9Lbl" destination="krT-Uo-dhD" id="eQM-ca-VB4"/>
                         <outlet property="TotalDownloads_StackView" destination="aqc-Nv-HFx" id="name-outlet-aqc-Nv-HFx"/>
-                        <outlet property="UIimage5" destination="hJI-gT-aYc" id="name-outlet-hJI-gT-aYc"/>
-                        <outlet property="UIimage6" destination="ygK-l2-P4y" id="name-outlet-ygK-l2-P4y"/>
                         <outlet property="VaccinationsDose1_StackView" destination="Mk1-bO-o7S" id="ZTd-wm-V0l"/>
                         <outlet property="VaccinationsDose2_StackView" destination="ZJn-st-98a" id="SjZ-8b-X2C"/>
                     </connections>
@@ -669,7 +691,6 @@
     </scenes>
     <resources>
         <image name="CloseWhite" width="19" height="18.5"/>
-        <image name="logoWTxt" width="263" height="147.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

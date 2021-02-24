@@ -79,12 +79,12 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			BackgroundView4.BackgroundColor = UIColor.FromRGB(197, 226, 252);
 			BackgroundView4.Layer.CornerRadius = 12;
 
-			StyleUtil.InitLabelWithSpacing(KeyFeature5Lbl, StyleUtil.FontType.FontBold, KEY_FEATURE_SIX_LABEL, 1.14, 16, 18, UITextAlignment.Center);
+			StyleUtil.InitLabelWithSpacing(KeyFeature6Lbl, StyleUtil.FontType.FontBold, KEY_FEATURE_SIX_LABEL, 1.14, 16, 18, UITextAlignment.Center);
 			BackgroundView5.BackgroundColor = UIColor.FromRGB(197, 226, 252);
 			BackgroundView5.Layer.CornerRadius = 12;
 
-			StyleUtil.InitLabelWithSpacing(KeyFeature6Lbl, StyleUtil.FontType.FontBold, KEY_FEATURE_FIVE_LABEL, 1.14, 16, 18, UITextAlignment.Center);
-			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber6Lbl, StyleUtil.FontType.FontRegular, NumberOfPositiveTestsResultsTotal, 1.14, 12, 14, UITextAlignment.Center);
+			StyleUtil.InitLabelWithSpacing(KeyFeature5Lbl, StyleUtil.FontType.FontBold, KEY_FEATURE_FIVE_LABEL, 1.14, 16, 18, UITextAlignment.Center);
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber5Lbl, StyleUtil.FontType.FontRegular, NumberOfPositiveTestsResultsTotal, 1.14, 12, 14, UITextAlignment.Center);
 			BackgroundView6.BackgroundColor = UIColor.FromRGB(197, 226, 252);
 			BackgroundView6.Layer.CornerRadius = 12;
 
@@ -103,6 +103,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_TEN_UPDATE_ALL, 1.14, 12, 14, UITextAlignment.Center);
 			BackgroundView8.BackgroundColor = UIColor.FromRGB(197, 226, 252);
 			BackgroundView8.Layer.CornerRadius = 12;
+
+			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleThree, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_THREE, 1.14, 24, 36);
+			StyleUtil.InitLabelWithSpacing(DailyNumbersSubSubHeader, StyleUtil.FontType.FontRegular, DAILY_NUMBERS_SUBSUBHEADER, 1.14, 12, 14);
 
 			//Setting up accessibility grouping
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;
