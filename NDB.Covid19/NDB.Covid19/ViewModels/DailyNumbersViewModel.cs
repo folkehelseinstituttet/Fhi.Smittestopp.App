@@ -34,8 +34,6 @@ namespace NDB.Covid19.ViewModels
         public static string DAILY_NUMBERS_SUBTEXT_TWO => "DAILY_NUMBERS_SUBTEXT_TWO".Translate();        
         public static string KEY_FEATURE_SEVEN_LABEL => "KEY_FEATURE_SEVEN_LABEL".Translate();
         public static string KEY_FEATURE_SEVEN_UPDATE_ALL => "KEY_FEATURE_SEVEN_UPDATE_ALL".Translate();
-        public static string KEY_FEATURE_EIGHT_LABEL => "KEY_FEATURE_EIGHT_LABEL".Translate();
-        public static string KEY_FEATURE_EIGHT_UPDATE_ALL => "KEY_FEATURE_EIGHT_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_NINE_LABEL => "KEY_FEATURE_NINE_LABEL".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_NEW => "KEY_FEATURE_NINE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_ALL => "KEY_FEATURE_NINE_UPDATE_ALL".Translate();
@@ -86,7 +84,6 @@ namespace NDB.Covid19.ViewModels
                         EntryDate = DateTime.Now,
                         PatientsAdmittedToday = 44,
                         PatientsIntensiveCare = 2,
-                        ReproductionsNumber = 1.2,
                         VaccinationsDoseOneToday = 1230,
                         VaccinationsDoseTwoToday = 143,
                         VaccinationsDoseOneTotal = 50477,
@@ -133,7 +130,6 @@ namespace NDB.Covid19.ViewModels
         public static string NumberOfPositiveTestsResultsTotal => string.Format(KEY_FEATURE_FIVE_UPDATE_ALL, $"{DailyNumbers.APPNumberOfPositiveTestsResultsTotal:N0}");
         public static string SmittestopDownloadsTotal => string.Format(KEY_FEATURE_SIX_UPDATE_ALL, $"{DailyNumbers.APPSmittestopDownloadsTotal:N0}");
         public static string PatientsIntensiveCare => string.Format(KEY_FEATURE_SEVEN_UPDATE_ALL, $"{DailyNumbers.FHIPatientsIntensiveCare:N0}");
-        public static string ReproductionsNumber => string.Format(KEY_FEATURE_EIGHT_UPDATE_ALL, $"{DailyNumbers.FHIReproductionsNumber:N1}");
         public static string VaccinationsDoseOneToday => string.Format(KEY_FEATURE_NINE_UPDATE_NEW, $"{DailyNumbers.FHIVaccinationsDoseOneToday:N0}");
         public static string VaccinationsDoseOneTotal => string.Format(KEY_FEATURE_NINE_UPDATE_ALL, $"{DailyNumbers.FHIVaccinationsDoseOneTotal:N0}");
         public static string VaccinationsDoseTwoToday => string.Format(KEY_FEATURE_TEN_UPDATE_NEW, $"{DailyNumbers.FHIVaccinationsDoseTwoToday:N0}");
