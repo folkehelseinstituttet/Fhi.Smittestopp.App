@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="58" width="414" height="804"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B08-7x-rTa" userLabel="Top Area Stack View">
-                                        <rect key="frame" x="24" y="0.0" width="366" height="135"/>
+                                        <rect key="frame" x="24" y="0.0" width="366" height="106.5"/>
                                         <subviews>
                                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-4b-Fab">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="135"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="106.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auF-jy-0zC">
                                                         <rect key="frame" x="316" y="0.0" width="50" height="50"/>
@@ -39,10 +39,10 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ViZ-wF-avU">
-                                                        <rect key="frame" x="0.0" y="78" width="308" height="49"/>
+                                                        <rect key="frame" x="0.0" y="78" width="308" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaC-xD-iec" userLabel="Daily Numbers Title One">
-                                                                <rect key="frame" x="0.0" y="0.0" width="308" height="49"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="308" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -69,10 +69,10 @@
                                         </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ie-jCB">
-                                        <rect key="frame" x="0.0" y="135" width="414" height="669"/>
+                                        <rect key="frame" x="0.0" y="106.5" width="414" height="697.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
-                                                <rect key="frame" x="24" y="16" width="366" height="1293"/>
+                                                <rect key="frame" x="24" y="16" width="366" height="1312.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Daily numbers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow8-9T-85H">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
@@ -177,13 +177,13 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="RKI-Vn-zVC">
-                                                        <rect key="frame" x="0.0" y="216" width="366" height="136"/>
+                                                        <rect key="frame" x="0.0" y="216" width="366" height="155.5"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1J-70-q9U">
-                                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="136"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="155.5"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6bh-co-6Cp">
-                                                                        <rect key="frame" x="15" y="18" width="141.5" height="94"/>
+                                                                        <rect key="frame" x="15" y="18" width="141.5" height="113.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Number of today" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6e7-Oq-bpE">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="19.5"/>
@@ -192,13 +192,13 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WS5-G2-f6G">
-                                                                                <rect key="frame" x="0.0" y="24.5" width="74.5" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="51" width="74.5" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <color key="textColor" systemColor="systemYellowColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Hospitalized" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CE-Ue-UqP">
-                                                                                <rect key="frame" x="0.0" y="79.5" width="70.5" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="99" width="70.5" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -220,10 +220,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtR-1n-hPy">
-                                                                <rect key="frame" x="194.5" y="0.0" width="171.5" height="136"/>
+                                                                <rect key="frame" x="194.5" y="0.0" width="171.5" height="155.5"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xpz-fj-JS2">
-                                                                        <rect key="frame" x="15" y="18" width="141.5" height="94"/>
+                                                                        <rect key="frame" x="15" y="18" width="141.5" height="113.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Number of today" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIU-MV-YpY">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="19.5"/>
@@ -231,16 +231,16 @@
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wck-vo-tkq">
+                                                                                <rect key="frame" x="0.0" y="33" width="141.5" height="50"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeF-yf-u4W">
-                                                                                <rect key="frame" x="0.0" y="24.5" width="74.5" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="99" width="74.5" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <color key="textColor" systemColor="systemYellowColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wck-vo-tkq">
-                                                                                <rect key="frame" x="0.0" y="44" width="141.5" height="50"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </view>
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
@@ -259,12 +259,12 @@
                                                             </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="JeF-yf-u4W" firstAttribute="firstBaseline" secondItem="WS5-G2-f6G" secondAttribute="firstBaseline" id="3Ta-Ph-rlW"/>
                                                             <constraint firstItem="6e7-Oq-bpE" firstAttribute="firstBaseline" secondItem="EIU-MV-YpY" secondAttribute="firstBaseline" id="ePa-4G-hws"/>
+                                                            <constraint firstItem="JeF-yf-u4W" firstAttribute="firstBaseline" secondItem="7CE-Ue-UqP" secondAttribute="firstBaseline" id="yye-rP-fX1"/>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="byi-FC-3sl">
-                                                        <rect key="frame" x="0.0" y="376" width="366" height="178"/>
+                                                        <rect key="frame" x="0.0" y="395.5" width="366" height="178"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5XN-Ae-C47">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="178"/>
@@ -278,16 +278,16 @@
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-Em-qTf">
+                                                                                <rect key="frame" x="0.0" y="20.5" width="141.5" height="95"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of today" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtj-tL-WFZ" userLabel="Daily Numbers Number7 Lbl">
-                                                                                <rect key="frame" x="0.0" y="20.5" width="128.5" height="20.5"/>
+                                                                                <rect key="frame" x="0.0" y="115.5" width="128.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-Em-qTf">
-                                                                                <rect key="frame" x="0.0" y="41" width="141.5" height="95"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </view>
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
@@ -334,19 +334,19 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaccinations" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umc-qF-exf" userLabel="Daily Numbers Title Two">
-                                                        <rect key="frame" x="0.0" y="578" width="366" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="597.5" width="366" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated d.: &quot;Timestamp&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cV3-TC-73d" userLabel="Daily Numbers Subtext Two">
-                                                        <rect key="frame" x="0.0" y="622.5" width="366" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="642" width="366" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-8s-Y2h">
-                                                        <rect key="frame" x="0.0" y="667" width="366" height="128"/>
+                                                        <rect key="frame" x="0.0" y="686.5" width="366" height="128"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-Mg-TS7" userLabel="Daily Numbers View 7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="128"/>
@@ -425,19 +425,19 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smittestopp" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU3-XQ-dXH" userLabel="Daily Numbers Title Three">
-                                                        <rect key="frame" x="0.0" y="819" width="366" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="838.5" width="366" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated d.: &quot;Timestamp&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8B-81-0zT" userLabel="Daily Numbers SubSubHeader">
-                                                        <rect key="frame" x="0.0" y="863.5" width="366" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="883" width="366" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="NS1-R4-gBH">
-                                                        <rect key="frame" x="0.0" y="908" width="366" height="161"/>
+                                                        <rect key="frame" x="0.0" y="927.5" width="366" height="161"/>
                                                         <subviews>
                                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWf-c6-UAC" userLabel="Daily Numbers View9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="161"/>
@@ -452,7 +452,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRL-i3-xEC" userLabel="Daily Numbers Number6 Lbl">
-                                                                                <rect key="frame" x="0.0" y="79.5" width="85" height="39.5"/>
+                                                                                <rect key="frame" x="0.0" y="102" width="85" height="17"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <color key="textColor" systemColor="systemYellowColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -481,13 +481,13 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Meh-Oj-gTx" userLabel="Daily Numbers Number5 Lbl">
-                                                                                <rect key="frame" x="0.0" y="79.5" width="85" height="17"/>
+                                                                                <rect key="frame" x="0.0" y="79" width="85" height="17"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <color key="textColor" systemColor="systemYellowColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Infected" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubU-j6-5GM" userLabel="Total Daily Numbers Number5 Lbl">
-                                                                                <rect key="frame" x="0.0" y="104.5" width="46.5" height="14.5"/>
+                                                                                <rect key="frame" x="0.0" y="104" width="46.5" height="15"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -508,12 +508,12 @@
                                                             </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="Meh-Oj-gTx" firstAttribute="firstBaseline" secondItem="WRL-i3-xEC" secondAttribute="firstBaseline" id="TRm-tm-lR4"/>
+                                                            <constraint firstItem="WRL-i3-xEC" firstAttribute="firstBaseline" secondItem="ubU-j6-5GM" secondAttribute="firstBaseline" id="lB7-hn-xDY"/>
                                                             <constraint firstItem="MlL-gZ-ANI" firstAttribute="firstBaseline" secondItem="X7N-0k-vjA" secondAttribute="firstBaseline" id="tbc-Lr-dn9"/>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Sw-ak-9Rk">
-                                                        <rect key="frame" x="0.0" y="1093" width="366" height="200"/>
+                                                        <rect key="frame" x="0.0" y="1112.5" width="366" height="200"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rpS-Nr-bPP" userLabel="Daily Numbers Sub Lbl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="200"/>
