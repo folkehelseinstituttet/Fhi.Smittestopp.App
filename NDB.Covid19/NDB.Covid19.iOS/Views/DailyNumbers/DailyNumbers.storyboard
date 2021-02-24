@@ -68,10 +68,10 @@
                                             <constraint firstItem="qBp-4b-Fab" firstAttribute="leading" secondItem="B08-7x-rTa" secondAttribute="leading" id="ln6-4j-b10"/>
                                         </constraints>
                                     </stackView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ie-jCB">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ie-jCB">
                                         <rect key="frame" x="0.0" y="135" width="414" height="669"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
                                                 <rect key="frame" x="24" y="16" width="366" height="1019"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Daily numbers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow8-9T-85H">
@@ -450,76 +450,94 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-8s-Y2h">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-8s-Y2h">
                                                         <rect key="frame" x="0.0" y="667" width="366" height="128"/>
                                                         <subviews>
-                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-Mg-TS7" userLabel="Daily Numbers View 7">
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obc-Mg-TS7" userLabel="Daily Numbers View 7">
                                                                 <rect key="frame" x="0.0" y="0.0" width="171.5" height="128"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mk1-bO-o7S" userLabel="Vaccinations Dose1 Stack View">
-                                                                        <rect key="frame" x="30" y="-36" width="41.5" height="61.5"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mk1-bO-o7S" userLabel="Vaccinations Dose1 Stack View">
+                                                                        <rect key="frame" x="15" y="18" width="141.5" height="86"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMk-Hr-5MA" userLabel="Key Feature9 Lbl">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-Pg-DWL" userLabel="Daily Numbers Number9 Lbl">
-                                                                                <rect key="frame" x="0.0" y="20.5" width="41.5" height="20.5"/>
+                                                                                <rect key="frame" x="0.0" y="45" width="141.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krT-Uo-dhD" userLabel="Total Daily Numbers Number9 Lbl">
-                                                                                <rect key="frame" x="0.0" y="41" width="41.5" height="20.5"/>
+                                                                                <rect key="frame" x="0.0" y="65.5" width="141.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9x-CT-eJE" userLabel="Background View7">
-                                                                        <rect key="frame" x="-35" y="0.0" width="240" height="128"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9x-CT-eJE" userLabel="Background View7">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="128"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="J9x-CT-eJE" secondAttribute="trailing" id="8FA-c4-jEz"/>
+                                                                    <constraint firstItem="J9x-CT-eJE" firstAttribute="top" secondItem="Obc-Mg-TS7" secondAttribute="top" id="9qh-tE-es5"/>
+                                                                    <constraint firstItem="Mk1-bO-o7S" firstAttribute="top" secondItem="Obc-Mg-TS7" secondAttribute="top" constant="18" id="JXW-hG-li6"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Mk1-bO-o7S" secondAttribute="bottom" constant="24" id="PCr-BM-5YT"/>
+                                                                    <constraint firstItem="J9x-CT-eJE" firstAttribute="leading" secondItem="Obc-Mg-TS7" secondAttribute="leading" id="RzB-BS-Aa5"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Mk1-bO-o7S" secondAttribute="trailing" constant="15" id="dN8-HO-VLT"/>
+                                                                    <constraint firstItem="Mk1-bO-o7S" firstAttribute="leading" secondItem="Obc-Mg-TS7" secondAttribute="leading" constant="15" id="e6i-vL-VUo"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="J9x-CT-eJE" secondAttribute="bottom" id="oLH-eh-R3j"/>
+                                                                </constraints>
                                                             </view>
-                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JO2-vp-3Cd" userLabel="Daily Numbers View8">
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JO2-vp-3Cd" userLabel="Daily Numbers View8">
                                                                 <rect key="frame" x="194.5" y="0.0" width="171.5" height="128"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-st-98a" userLabel="Vaccinations Dose2 Stack View">
-                                                                        <rect key="frame" x="30.5" y="-36" width="41.5" height="61.5"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-st-98a" userLabel="Vaccinations Dose2 Stack View">
+                                                                        <rect key="frame" x="15" y="18" width="141.5" height="86"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGt-NU-3Ch" userLabel="Key Feature10 Lbl">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWO-7t-vkl" userLabel="Daily Numbers Number10 Lbl">
-                                                                                <rect key="frame" x="0.0" y="20.5" width="41.5" height="20.5"/>
+                                                                                <rect key="frame" x="0.0" y="45" width="141.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSO-d3-hYg" userLabel="Total Daily Numbers Number10 Lbl">
-                                                                                <rect key="frame" x="0.0" y="41" width="41.5" height="20.5"/>
+                                                                                <rect key="frame" x="0.0" y="65.5" width="141.5" height="20.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EtH-pW-1PA" userLabel="Background View8">
-                                                                        <rect key="frame" x="-34.5" y="0.0" width="240" height="128"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EtH-pW-1PA" userLabel="Background View8">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="128"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="ZJn-st-98a" secondAttribute="bottom" constant="24" id="00m-N0-2If"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ZJn-st-98a" secondAttribute="trailing" constant="15" id="LYG-UU-Wdz"/>
+                                                                    <constraint firstItem="EtH-pW-1PA" firstAttribute="top" secondItem="JO2-vp-3Cd" secondAttribute="top" id="eeC-lf-12Z"/>
+                                                                    <constraint firstItem="ZJn-st-98a" firstAttribute="leading" secondItem="JO2-vp-3Cd" secondAttribute="leading" constant="15" id="f5Z-3t-2xP"/>
+                                                                    <constraint firstItem="ZJn-st-98a" firstAttribute="top" secondItem="JO2-vp-3Cd" secondAttribute="top" constant="18" id="mUB-sI-Ih0"/>
+                                                                    <constraint firstItem="EtH-pW-1PA" firstAttribute="leading" secondItem="JO2-vp-3Cd" secondAttribute="leading" id="qV4-lj-1Af"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="EtH-pW-1PA" secondAttribute="bottom" id="qlH-xH-F89"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="EtH-pW-1PA" secondAttribute="trailing" id="vix-9g-8zI"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -527,7 +545,7 @@
                                                             <constraint firstItem="NWO-7t-vkl" firstAttribute="firstBaseline" secondItem="2fi-Pg-DWL" secondAttribute="firstBaseline" id="ElH-B1-MWC"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Sw-ak-9Rk">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Sw-ak-9Rk">
                                                         <rect key="frame" x="0.0" y="819" width="366" height="200"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rpS-Nr-bPP" userLabel="Daily Numbers Sub Lbl">
