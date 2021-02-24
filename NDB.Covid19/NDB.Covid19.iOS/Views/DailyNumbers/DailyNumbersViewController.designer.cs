@@ -18,42 +18,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView BackgroundView1 { get; set; }
-
-		[Outlet]
-		UIKit.UIView BackgroundView10 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView BackgroundView2 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView BackgroundView3 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView BackgroundView4 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView BackgroundView5 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView BackgroundView6 { get; set; }
-
-		[Outlet]
-		UIKit.UIView BackgroundView7 { get; set; }
-
-		[Outlet]
-		UIKit.UIView BackgroundView8 { get; set; }
-
-		[Outlet]
-		UIKit.UIView BackgroundView9 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIStackView ConfirmedCases_StackView { get; set; }
 
 		[Outlet]
@@ -125,6 +89,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIView DailyNumbersView1 { get; set; }
 
 		[Outlet]
+		UIKit.UIView DailyNumbersView10 { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIView DailyNumbersView2 { get; set; }
 
@@ -143,6 +110,15 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIView DailyNumbersView6 { get; set; }
+
+		[Outlet]
+		UIKit.UIView DailyNumbersView7 { get; set; }
+
+		[Outlet]
+		UIKit.UIView DailyNumbersView8 { get; set; }
+
+		[Outlet]
+		UIKit.UIView DailyNumbersView9 { get; set; }
 
 		[Outlet]
 		UIKit.UIStackView IntensiveCare_StackView { get; set; }
@@ -235,56 +211,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (BackButton != null) {
 				BackButton.Dispose ();
 				BackButton = null;
-			}
-
-			if (BackgroundView1 != null) {
-				BackgroundView1.Dispose ();
-				BackgroundView1 = null;
-			}
-
-			if (BackgroundView10 != null) {
-				BackgroundView10.Dispose ();
-				BackgroundView10 = null;
-			}
-
-			if (BackgroundView2 != null) {
-				BackgroundView2.Dispose ();
-				BackgroundView2 = null;
-			}
-
-			if (BackgroundView3 != null) {
-				BackgroundView3.Dispose ();
-				BackgroundView3 = null;
-			}
-
-			if (BackgroundView4 != null) {
-				BackgroundView4.Dispose ();
-				BackgroundView4 = null;
-			}
-
-			if (BackgroundView5 != null) {
-				BackgroundView5.Dispose ();
-				BackgroundView5 = null;
-			}
-
-			if (BackgroundView6 != null) {
-				BackgroundView6.Dispose ();
-				BackgroundView6 = null;
-			}
-
-			if (BackgroundView7 != null) {
-				BackgroundView7.Dispose ();
-				BackgroundView7 = null;
-			}
-
-			if (BackgroundView8 != null) {
-				BackgroundView8.Dispose ();
-				BackgroundView8 = null;
-			}
-
-			if (BackgroundView9 != null) {
-				BackgroundView9.Dispose ();
-				BackgroundView9 = null;
 			}
 
 			if (ConfirmedCases_StackView != null) {
@@ -412,6 +338,31 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				DailyNumbersView6 = null;
 			}
 
+			if (DailyNumbersView7 != null) {
+				DailyNumbersView7.Dispose ();
+				DailyNumbersView7 = null;
+			}
+
+			if (DailyNumbersView8 != null) {
+				DailyNumbersView8.Dispose ();
+				DailyNumbersView8 = null;
+			}
+
+			if (DailyNumbersView9 != null) {
+				DailyNumbersView9.Dispose ();
+				DailyNumbersView9 = null;
+			}
+
+			if (DailyNumbersView10 != null) {
+				DailyNumbersView10.Dispose ();
+				DailyNumbersView10 = null;
+			}
+
+			if (IntensiveCare_StackView != null) {
+				IntensiveCare_StackView.Dispose ();
+				IntensiveCare_StackView = null;
+			}
+
 			if (KeyFeature10Lbl != null) {
 				KeyFeature10Lbl.Dispose ();
 				KeyFeature10Lbl = null;
@@ -475,11 +426,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (PatientsAdmitted_StackView != null) {
 				PatientsAdmitted_StackView.Dispose ();
 				PatientsAdmitted_StackView = null;
-			}
-
-			if (IntensiveCare_StackView != null) {
-				IntensiveCare_StackView.Dispose ();
-				IntensiveCare_StackView = null;
 			}
 
 			if (TotalDailyNumbersNumber10Lbl != null) {
