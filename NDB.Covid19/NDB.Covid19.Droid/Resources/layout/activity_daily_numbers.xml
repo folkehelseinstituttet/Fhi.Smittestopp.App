@@ -102,7 +102,7 @@
                             android:text="Dummy name"/>
 
                     <TextView
-                            android:id="@+id/daily_numbers_death_header_text"
+                            android:id="@+id/daily_numbers_tested_header_text"
                             style="@style/DailyNumbersItemHeaderText"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
@@ -132,7 +132,7 @@
                             android:text="+001" />
 
                     <TextView
-                            android:id="@+id/daily_numbers_death_number_text"
+                            android:id="@+id/daily_numbers_tested_number_text"
                             style="@style/DailyNumbersItemNumber"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
@@ -162,7 +162,7 @@
                             android:text="Dummy sub name" />
 
                     <TextView
-                            android:id="@+id/daily_numbers_death_total_text"
+                            android:id="@+id/daily_numbers_tested_total_text"
                             style="@style/DailyNumbersSubText"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
@@ -190,103 +190,17 @@
                         android:layout_height="wrap_content">
 
                     <TextView
-                            android:id="@+id/daily_numbers_tested_header_text"
-                            style="@style/DailyNumbersItemHeaderText"
-                            android:layout_weight="0.5"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_column="0"
-                            android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-                            android:background="@drawable/counter_background_daily_numbers_top"
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-                            android:text="Dummy name"/>
-
-                    <TextView
                             android:id="@+id/daily_numbers_hospitalized_header_text"
                             style="@style/DailyNumbersItemHeaderText"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_column="1"
+                            android:layout_column="0"
+                            android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
                             android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
                             android:text="Dummy name"/>
-                </TableRow>
-
-                <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    <TextView
-                            android:id="@+id/daily_numbers_tested_number_text"
-                            style="@style/DailyNumbersItemNumber"
-                            android:layout_weight="0.5"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_column="0"
-                            android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-                            android:background="@drawable/counter_background_daily_numbers_mid"
-                            android:breakStrategy="high_quality"
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:text="+003" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/daily_numbers_hospitalized_number_text"
-                            style="@style/DailyNumbersItemNumber"
-                            android:layout_weight="0.5"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_column="1"
-                            android:background="@drawable/counter_background_daily_numbers_mid"
-                            android:breakStrategy="high_quality"
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:text="+004"/>
-                </TableRow>
-
-                <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    <TextView
-                            android:id="@+id/daily_numbers_tested_total_text"
-                            style="@style/DailyNumbersSubText"
-                            android:layout_weight="0.5"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_column="0"
-                            android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-                            android:background="@drawable/counter_background_daily_numbers_bottom"
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
-                            android:text="Dummy sub name" />
-
-                    <TextView
-                            style="@style/DailyNumbersSubText"
-                            android:layout_weight="0.5"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_column="1"
-                            android:background="@drawable/counter_background_daily_numbers_bottom"
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"/>
-                </TableRow>
-            </TableLayout>
-
-            <TableLayout
-                    android:stretchColumns="*"
-                    android:id="@+id/table3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="@dimen/verticalPaddingDailyNumbersTable"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/table2">
-
-                <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
 
                     <TextView
                             android:id="@+id/daily_numbers_intensive_header_text"
@@ -294,20 +208,11 @@
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_column="0"
-                            android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+                            android:layout_column="1"
                             android:background="@drawable/counter_background_daily_numbers_top"
                             android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
                             android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-                            android:text="This is some dummy text"/>
-
-                    <TextView                            
-                            android:layout_weight="0.5"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_column="1"                            
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"/>
+                            android:text="Dummy name"/>
                 </TableRow>
 
                 <TableRow
@@ -315,7 +220,7 @@
                         android:layout_height="wrap_content">
 
                     <TextView
-                            android:id="@+id/daily_numbers_intensive_number_text"
+                            android:id="@+id/daily_numbers_hospitalized_number_text"
                             style="@style/DailyNumbersItemNumber"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
@@ -323,25 +228,32 @@
                             android:layout_column="0"
                             android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
                             android:background="@drawable/counter_background_daily_numbers_bottom"
-                            android:breakStrategy="balanced"
+                            android:breakStrategy="high_quality"
                             android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:text="+005"/>
+                            android:text="+003" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/daily_numbers_intensive_number_text"
+                            style="@style/DailyNumbersItemNumber"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_column="1"
-                            android:breakStrategy="balanced"
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"/>
+                            android:background="@drawable/counter_background_daily_numbers_bottom"
+                            android:breakStrategy="high_quality"
+                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+                            android:text="+004"/>
                 </TableRow>
+
             </TableLayout>
+
+            
             <LinearLayout
                     android:id="@+id/linearLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@id/table3"
+                    app:layout_constraintTop_toBottomOf="@id/table2"
                     android:layout_marginTop="@dimen/defaultVerticalMargin"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin">
 
@@ -350,7 +262,7 @@
                         style="@style/PrimaryTextBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/table3"
+                        android:layout_below="@+id/table2"
                         android:text="Sub header" />
 
                 <TextView
@@ -363,7 +275,7 @@
             </LinearLayout>
 
             <TableLayout
-                    android:id="@+id/table4"
+                    android:id="@+id/table3"
                     android:stretchColumns="*"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -468,7 +380,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@id/table4"
+                    app:layout_constraintTop_toBottomOf="@id/table3"
                     android:layout_marginTop="@dimen/defaultVerticalMargin"
                     android:layout_marginBottom="@dimen/defaultVerticalMargin">
 
@@ -477,7 +389,7 @@
                         style="@style/PrimaryTextBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/table4"
+                        android:layout_below="@+id/table3"
                         android:text="Sub header"/>
 
                 <TextView
@@ -489,7 +401,7 @@
                         android:text="Smttestopp text" />
             </LinearLayout>
             <TableLayout
-                    android:id="@+id/table5"
+                    android:id="@+id/table4"
                     android:stretchColumns="*"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
