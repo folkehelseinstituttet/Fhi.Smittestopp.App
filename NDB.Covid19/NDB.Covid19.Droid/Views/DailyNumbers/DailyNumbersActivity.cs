@@ -72,11 +72,9 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.daily_numbers_intensive_header_text).Text = KEY_FEATURE_SEVEN_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_intensive_number_text).Text = PatientsIntensiveCare;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_reproductions_header_text).Text = KEY_FEATURE_EIGHT_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_reproductions_number_text).Text = ReproductionsNumber;
-
             TextView _dailyNumbersSubHeaderVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_header_textView);
             _dailyNumbersSubHeaderVaccinations.Text = DAILY_NUMBERS_TITLE_TWO;
+
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview).Text = LastUpdateStringSubTextTwo;
 
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text).Text = KEY_FEATURE_NINE_LABEL;

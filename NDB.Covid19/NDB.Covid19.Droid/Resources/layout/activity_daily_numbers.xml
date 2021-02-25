@@ -301,17 +301,13 @@
                             android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
                             android:text="This is some dummy text"/>
 
-                    <TextView
-                            android:id="@+id/daily_numbers_reproductions_header_text"
-                            style="@style/DailyNumbersItemHeaderText"
+                    <TextView                            
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_column="1"
-                            android:background="@drawable/counter_background_daily_numbers_top"
+                            android:layout_column="1"                            
                             android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-                            android:text="Dummy text that is longer than the other"/>
+                            android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"/>
                 </TableRow>
 
                 <TableRow
@@ -332,16 +328,12 @@
                             android:text="+005"/>
 
                     <TextView
-                            android:id="@+id/daily_numbers_reproductions_number_text"
-                            style="@style/DailyNumbersItemNumber"
                             android:layout_weight="0.5"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_column="1"
-                            android:background="@drawable/counter_background_daily_numbers_bottom"
                             android:breakStrategy="balanced"
-                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-                            android:text="+006"/>
+                            android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"/>
                 </TableRow>
             </TableLayout>
             <LinearLayout
