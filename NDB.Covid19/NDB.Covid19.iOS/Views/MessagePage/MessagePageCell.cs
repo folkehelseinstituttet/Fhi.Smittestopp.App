@@ -25,6 +25,12 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         public void Update(MessageItemViewModel message)
         {
+            if (AppDelegate.ShouldOperateIn12_5Mode)
+            {
+                IndicatorView.BackgroundColor = UIColor.Red;
+                IndicatorView.Layer.CornerRadius = IndicatorView.Layer.Frame.Height / 2;
+            }
+            
             StyleUtil.InitLabelWithSpacing(Label1, StyleUtil.FontType.FontMedium, message.Title.Translate(), 1.14, 18, 28);
             StyleUtil.InitLabelWithSpacing(Label2, StyleUtil.FontType.FontRegular, DateUtils.GetDateFromDateTime(message.TimeStamp, "d. MMMMM"), 1.14, 15, 17);
             StyleUtil.InitLabelWithSpacing(Label3, StyleUtil.FontType.FontRegular, MessageItemViewModel.MESSAGES_RECOMMENDATIONS, 1.14, 15, 17);
@@ -35,7 +41,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
                 UnreadLabel.Hidden = true;
                 Label2.LeadingAnchor.ConstraintEqualTo(Label3.LeadingAnchor).Active = true;
             }
-            this.BackgroundColor = message.IsRead ? new UIColor(new nfloat(1), new nfloat(0.1)) : new UIColor(new nfloat(1), new nfloat(0.25));
+            this.BackgroundColor = UIColor.Clear;
         }
 	}
 }

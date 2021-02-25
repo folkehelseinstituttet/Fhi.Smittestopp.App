@@ -144,6 +144,8 @@
     <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
     <Compile Include="Views\DailyNumbers\DailyNumbersActivity.cs" />
     <Compile Include="Views\DailyNumbers\DailyNumbersLoadingPage.cs" />
+    <Compile Include="Utils\LayoutUtils.cs" />
+    <Compile Include="Views\LanguageSelectionActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -935,6 +937,27 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_todays_numbers.png">
+    <AndroidResource Include="Resources\layout\language_selection.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_start_page_arrow.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_start_page_arrow_right.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -1023,7 +1046,7 @@
     <PackageReference Include="XAB.FlexboxLayout">
       <Version>2.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.ExposureNotification" Version="0.13.0-preview" />
+    <PackageReference Include="Xamarin.ExposureNotification" Version="0.15.0-preview" />
     <PackageReference Include="Xamarin.ShortcutBadger">
       <Version>1.1.21</Version>
     </PackageReference>
@@ -1124,7 +1147,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\questionnaire_countries.xml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
