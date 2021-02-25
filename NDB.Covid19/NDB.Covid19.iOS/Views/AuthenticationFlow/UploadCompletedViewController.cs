@@ -55,7 +55,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             CloseButton.TintColor = ColorHelper.PRIMARY_COLOR;
             TitleLabel.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_HEADER);
-            TitleLabel.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_RECEIPT_HEADER;
             ContentLabelOne.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_TEXT);
             ContentLabelTwo.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_DESCRIPTION);
             BoxTitleLabel.SetAttributedText(QuestionnaireViewModel.REGISTER_QUESTIONAIRE_RECEIPT_INNER_HEADER,
@@ -67,12 +66,22 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void SetupLearnMoreButton()
         {
-            UIView stackView = BoxView.Subviews[0];
-            stackView.Layer.CornerRadius = 12;
-            stackView.Layer.MasksToBounds = true;
-            stackView.Layer.BackgroundColor = ColorHelper.INFO_BUTTON_BACKGROUND.CGColor;
-            stackView.Layer.BorderWidth = 1;
-            stackView.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            if (AppDelegate.ShouldOperateIn12_5Mode)
+            {
+                BoxView.Layer.CornerRadius = 12;
+                BoxView.Layer.BackgroundColor = ColorHelper.INFO_BUTTON_BACKGROUND.CGColor;
+                BoxView.Layer.BorderWidth = 1;
+                BoxView.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            }
+            else
+            {
+                UIView stackView = BoxView.Subviews[0];
+                stackView.Layer.CornerRadius = 12;
+                stackView.Layer.MasksToBounds = true;
+                stackView.Layer.BackgroundColor = ColorHelper.INFO_BUTTON_BACKGROUND.CGColor;
+                stackView.Layer.BorderWidth = 1;
+                stackView.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            }
 
             _learnMoreViewBtn = new UIButton
             {

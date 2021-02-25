@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Linq;
 using NDB.Covid19.Configuration;
+using NDB.Covid19.PersistedData;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.Utils
@@ -13,9 +14,10 @@ namespace NDB.Covid19.Utils
             if (date != null)
             {
                 DateTime dateTime = (DateTime)date;
-                CultureInfo cultureInfo = CultureInfo.CurrentCulture;
-                CultureInfo defaultCultureInfo = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
-                bool currentCultureIsSupported = Conf.SUPPORTED_LANGUAGES.Contains(cultureInfo.TwoLetterISOLanguageName);
+                string appLanguage = LocalPreferencesHelper.GetAppLanguage();
+                CultureInfo selectedCulture = CultureInfo.GetCultureInfo(appLanguage);
+                CultureInfo defaultCulture = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
+                bool shouldUseDefaultCulture = appLanguage == "ar" || appLanguage == "ur" || appLanguage == "ti";
                 string dateString;
                 DateTime calenderDateTime = new DateTime(
                     dateTime.Year,
@@ -25,10 +27,8 @@ namespace NDB.Covid19.Utils
                     dateTime.Minute,
                     dateTime.Second,
                     dateTime.Millisecond,
-                    currentCultureIsSupported
-                        ? CultureInfo.CurrentCulture.Calendar
-                        : new GregorianCalendar());
-                dateString = calenderDateTime.ToString(dateFormat, currentCultureIsSupported ? cultureInfo : defaultCultureInfo);
+                    new GregorianCalendar());
+                dateString = calenderDateTime.ToString(dateFormat,shouldUseDefaultCulture ? defaultCulture : selectedCulture);
                 return dateString.Replace("-", ".");
             }
             else
