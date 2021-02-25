@@ -437,7 +437,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OpenDailyNumbersPage()
         {
-            NavigationController?.PushViewController(DailyNumbersLoadingViewController.Create(), true);
+            UINavigationController navigationController = new UINavigationController(DailyNumbersLoadingViewController.Create());
+            navigationController.SetNavigationBarHidden(true, false);
+            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+            PresentViewController(navigationController, true, null);
         }
 
         void OpenMessagesPage()
