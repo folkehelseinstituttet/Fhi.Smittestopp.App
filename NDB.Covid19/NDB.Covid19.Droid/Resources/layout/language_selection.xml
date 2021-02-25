@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/defaultVerticalMargin"
+            android:paddingBottom="@dimen/defaultVerticalMargin"
+            android:gravity="center"
+            android:orientation="vertical">
+                <Button
+                    android:text="Bokmål"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/bokmal_button" />
+                <Button
+                    android:text="Nynorsk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/nynorsk_button" />
+                <Button
+                    android:text="English"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/english_button" />
+         <!--       <Button
+                    android:text="Arabic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/arabic_button" /> -->
+                <Button
+                    android:text="Polish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/polish_button" />
+                <Button
+                    android:text="Somali"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/somali_button" />
+         <!--       <Button
+                    android:text="Tigrinya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/tigrinya_button" />
+                <Button
+                    android:text="Urdu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="150dp"
+                    style="@style/SecondaryButton"
+                    android:id="@+id/urdu_button" /> -->
+        </LinearLayout>
+</ScrollView>

@@ -16,7 +16,7 @@ using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
-    [Activity(Label = "", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop, ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     public class WelcomeActivity : BaseAppCompatActivity, ViewPager.IOnPageChangeListener
     {
         public bool IsOnBoarding;
@@ -71,6 +71,9 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             _dotLayout = FindViewById<TabLayout>(Resource.Id.tabDots);
             _dotLayout.SetupWithViewPager(_pager, true);
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
         }
 
         protected override Intent GetStartingNewIntent()

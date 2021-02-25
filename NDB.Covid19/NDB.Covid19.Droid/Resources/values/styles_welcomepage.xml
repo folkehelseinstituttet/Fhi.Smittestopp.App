@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
   <style name="ScrollScreen">
-    <item name="android:paddingTop">54dp</item>
     <item name="android:orientation">vertical</item>
-    <item name="android:scrollbars">none</item>
   </style>
   <style name="RectangleBox">
     <item name="android:background">@drawable/ic_rectangle</item>

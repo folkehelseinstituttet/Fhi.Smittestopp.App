@@ -14,7 +14,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     class SettingsWithdrawConsentsActivity : AppCompatActivity
     {
         Button _resetConsentsButton;
@@ -44,6 +44,10 @@ namespace NDB.Covid19.Droid.Views.Settings
             _resetConsentsButton.Text = ConsentViewModel.WITHDRAW_CONSENT_BUTTON_TEXT;
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
             _resetConsentsButton.Click += new SingleClick(ResetButtonToggled).Run;
+
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
         private async void ResetButtonToggled(object sender, EventArgs e)

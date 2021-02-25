@@ -1,4 +1,5 @@
 using System;
+using CoreGraphics;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
@@ -23,6 +24,13 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
 
             InitTextViewWithSpacing(ContentText, FontType.FontRegular, contentText, 1.28, 16, 22);
 
+            /* Necessary to unify horizontal alignment due to bug in iOS
+            ** https://stackoverflow.com/questions/746670/how-to-lose-margin-padding-in-uitextview
+            */
+            ContentText.ContentInset = UIEdgeInsets.Zero;
+            ContentText.TextContainerInset = UIEdgeInsets.Zero;
+            ContentText.TextContainer.LineFragmentPadding = 0;
+
             ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             
             //ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
@@ -31,11 +39,17 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             InitLabelWithSpacing(BuildVersionLbl, FontType.FontRegular, SettingsPage5ViewModel.GetVersionInfo(), 1.14, 14, 16);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
-            ContentText.AccessibilityIdentifier = "contentTextIdentifier";
             ContentText.IsAccessibilityElement = true;
-            ContentText.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(contentText);
+            ContentText.ScrollEnabled = false;
+
+            InitAccessibilityStatementButton();
 
             SetupStyling();
+        }
+
+        private void InitAccessibilityStatementButton()
+        {
+            InitLinkButtonStyling(AccessibilityStatementButton, SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT);
         }
 
         private void SetupStyling()
@@ -48,6 +62,11 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
         partial void BackButton_TouchUpInside(UIButton sender)
         {
             LeaveController();
+        }
+
+        partial void AccessibilityStatementButton_TouchUpInside(UIButton sender)
+        {
+            SettingsPage5ViewModel.OpenAccessibilityStatementLink();
         }
     }
 }

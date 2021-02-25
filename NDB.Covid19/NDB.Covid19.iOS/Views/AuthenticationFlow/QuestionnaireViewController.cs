@@ -87,7 +87,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             DateContainer.Layer.BorderColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND.CGColor;
 
             DatePicker.Superview.Layer.CornerRadius = 6;
-            DatePicker.PreferredDatePickerStyle = UIDatePickerStyle.Wheels;
+            if (!AppDelegate.ShouldOperateIn12_5Mode) DatePicker.PreferredDatePickerStyle = UIDatePickerStyle.Wheels;
             DatePicker.MinimumDate = (NSDate)DateTime.SpecifyKind(_viewModel.MinimumDate, DateTimeKind.Utc);
             DatePicker.MaximumDate = (NSDate)DateTime.SpecifyKind(_viewModel.MaximumDate, DateTimeKind.Utc);
 
@@ -205,7 +205,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void SetAccessibilityAttributes()
         {
-            TitleLbl.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_HEADER;
             CloseButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
             InfoButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON;
 
