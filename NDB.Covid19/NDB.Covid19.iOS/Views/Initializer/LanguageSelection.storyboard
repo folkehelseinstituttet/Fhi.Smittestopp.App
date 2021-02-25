@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C9A-GC-HFH" userLabel="ButtonStackView">
-                                                <rect key="frame" x="40" y="218" width="334" height="460"/>
+                                                <rect key="frame" x="40" y="188" width="334" height="520"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JX9-Bs-HBv" userLabel="BokmalButton">
                                                         <rect key="frame" x="144" y="0.0" width="46" height="40"/>
@@ -64,8 +65,18 @@
                                                             <action selector="ArabicButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="KvA-vi-Oah"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG6-2b-cL7" userLabel="PolishButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="So2-ua-eXt" userLabel="LithuanianButton">
                                                         <rect key="frame" x="144" y="240" width="46" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="bWb-EM-hJq"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="LithuanianButton_TouchUpInside:" destination="1L7-7k-G5w" eventType="touchUpInside" id="LK8-hg-bG2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG6-2b-cL7" userLabel="PolishButton">
+                                                        <rect key="frame" x="144" y="300" width="46" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="s3r-Gg-eLp"/>
                                                         </constraints>
@@ -75,7 +86,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjD-0l-TGH" userLabel="SomaliButton">
-                                                        <rect key="frame" x="144" y="300" width="46" height="40"/>
+                                                        <rect key="frame" x="144" y="360" width="46" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="MOM-kG-PTX"/>
                                                         </constraints>
@@ -85,7 +96,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJh-kg-uzI" userLabel="TigrinyaButton">
-                                                        <rect key="frame" x="144" y="360" width="46" height="40"/>
+                                                        <rect key="frame" x="144" y="420" width="46" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="z9R-mV-vhb"/>
                                                         </constraints>
@@ -95,7 +106,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-Uf-5ae" userLabel="UrduButton">
-                                                        <rect key="frame" x="144" y="420" width="46" height="40"/>
+                                                        <rect key="frame" x="144" y="480" width="46" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="XO0-xW-gsW"/>
                                                         </constraints>
@@ -135,6 +146,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="lGu-WQ-BEq"/>
                         <color key="backgroundColor" red="0.88235294119999996" green="0.91764705879999997" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wwA-7Z-91G" secondAttribute="bottom" id="25W-1W-F8X"/>
@@ -148,6 +160,7 @@
                         <outlet property="ArabicButton" destination="5Sn-Kt-C6X" id="kDZ-WO-XlX"/>
                         <outlet property="BokmalButton" destination="JX9-Bs-HBv" id="KIM-Je-B4K"/>
                         <outlet property="EnglishButton" destination="gZM-l2-LhO" id="QbB-wN-bqN"/>
+                        <outlet property="LithuanianButton" destination="So2-ua-eXt" id="nTs-sq-FVp"/>
                         <outlet property="NynorskButton" destination="V76-T2-CRR" id="6L4-dc-gtr"/>
                         <outlet property="PolishButton" destination="LG6-2b-cL7" id="8sC-4S-wbU"/>
                         <outlet property="SomaliButton" destination="OjD-0l-TGH" id="FMx-Kj-gfh"/>
