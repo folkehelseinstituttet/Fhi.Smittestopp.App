@@ -66,10 +66,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIScrollView DailyNumbersScrollView { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UITextView DailyNumbersSubLbl { get; set; }
-
-		[Outlet]
 		UIKit.UILabel DailyNumbersSubSubHeader { get; set; }
 
 		[Outlet]
@@ -278,11 +274,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				DailyNumbersScrollView = null;
 			}
 
-			if (DailyNumbersSubLbl != null) {
-				DailyNumbersSubLbl.Dispose ();
-				DailyNumbersSubLbl = null;
-			}
-
 			if (DailyNumbersSubSubHeader != null) {
 				DailyNumbersSubSubHeader.Dispose ();
 				DailyNumbersSubSubHeader = null;
@@ -311,6 +302,11 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (DailyNumbersView1 != null) {
 				DailyNumbersView1.Dispose ();
 				DailyNumbersView1 = null;
+			}
+
+			if (DailyNumbersView10 != null) {
+				DailyNumbersView10.Dispose ();
+				DailyNumbersView10 = null;
 			}
 
 			if (DailyNumbersView2 != null) {
@@ -351,11 +347,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (DailyNumbersView9 != null) {
 				DailyNumbersView9.Dispose ();
 				DailyNumbersView9 = null;
-			}
-
-			if (DailyNumbersView10 != null) {
-				DailyNumbersView10.Dispose ();
-				DailyNumbersView10 = null;
 			}
 
 			if (IntensiveCare_StackView != null) {

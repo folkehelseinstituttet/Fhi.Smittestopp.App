@@ -63,8 +63,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			// Labels dependable on device width
 			double width = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Width;
-			int fontMin = width <= 700 ? 18 : 23;
-			int fontMax = width <= 700 ? 20 : 25;
+			int fontMin = width <= 700 ? 22 : 27;
+			int fontMax = width <= 700 ? 24 : 29;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber1Lbl, StyleUtil.FontType.FontBold, ConfirmedCasesToday, 1.14, fontMin, fontMax, UITextAlignment.Left);
 			DailyNumbersNumber1Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber2Lbl, StyleUtil.FontType.FontBold, DeathsToday, 1.14, fontMin, fontMax, UITextAlignment.Left);
@@ -119,9 +119,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(KeyFeature7Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_SEVEN_LABEL, 1.14, 16, 18, UITextAlignment.Left);
 			KeyFeature7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
-			StyleUtil.InitUITextViewWithSpacingAndUrl(DailyNumbersSubLbl, StyleUtil.FontType.FontRegular, LastUpdateStringSubSubHeader, 1.14, 12, 12);
-			DailyNumbersSubLbl.SizeToFit();
-
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 20, 36);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersSubtextTwo, StyleUtil.FontType.FontRegular, LastUpdateStringSubTextTwo, 1.14, 12, 14);
 
@@ -150,10 +147,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			//Implemented for correct voiceover due to smitte|stop, removing pronunciation of lodretstreg
 			KeyFeature5Lbl.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(KEY_FEATURE_SIX_LABEL);
-
-			string contentText = DailyNumbersViewModel.LastUpdateStringSubSubHeader;
-			DailyNumbersSubLbl.AccessibilityValue = AccessibilityUtils.RemovePoorlySpokenSymbolsString(contentText);
-			DailyNumbersSubLbl.IsAccessibilityElement = true;
 		}
 
 		partial void BackButton_tapped(UIButton sender)
