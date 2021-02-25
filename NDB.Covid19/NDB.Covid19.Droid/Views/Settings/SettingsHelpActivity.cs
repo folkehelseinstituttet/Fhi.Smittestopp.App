@@ -41,7 +41,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             textField.TextAlignment = TextAlignment.ViewStart;
             textField.TextFormatted =
-                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <br><a href=\"{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
+                HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
             /* Note:
             This functionality is not planned for release 1.0. Kept for future use.
                                     //$"{EMAIL_TEXT} <a href=\"mailto:{EMAIL}\">{EMAIL}</a> {PHONE_NUM_Text} <a href=\"tel:{PHONE_NUM}\">{PHONE_NUM}</a>.<br><br>" +
