@@ -21,6 +21,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		UIKit.UIImageView appLogo { get; set; }
 
 		[Outlet]
+		UIKit.UILabel MenuLabel { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel AreYouInfectetLbl { get; set; }
 

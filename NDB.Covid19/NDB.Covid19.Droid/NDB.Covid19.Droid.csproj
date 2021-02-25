@@ -937,6 +937,9 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_todays_numbers.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\language_selection.xml">
       <SubType></SubType>
       <Generator></Generator>

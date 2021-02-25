@@ -173,6 +173,19 @@ namespace NDB.Covid19.iOS.Utils
             label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
         }
 
+        public static void InitCenteredLabelWithSpacing(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize)
+        {
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
+            paragraphStyle.LineHeightMultiple = new nfloat(lineHeight);
+            paragraphStyle.Alignment = UITextAlignment.Center;
+            NSMutableAttributedString text = new NSMutableAttributedString(rawText);
+            NSRange range = new NSRange(0, rawText.Length);
+            text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
+            text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
+            label.AttributedText = text;
+            label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+        }
+
         public static void InitMonospacedLabel(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize)
         {
             NSMutableAttributedString text = new NSMutableAttributedString(rawText);

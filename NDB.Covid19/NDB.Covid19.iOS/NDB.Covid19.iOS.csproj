@@ -827,6 +827,7 @@
     <Compile Include="Views\DailyNumbers\DailyNumbersLoadingViewController.cs" />
     <Compile Include="Views\DailyNumbers\DailyNumbersLoadingViewController.designer.cs">
       <DependentUpon>DailyNumbersLoadingViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\LayoutUtils.cs" />
     <Compile Include="Views\Initializer\LanguageSelectionViewController.cs" />
     <Compile Include="Views\Initializer\LanguageSelectionViewController.designer.cs">
