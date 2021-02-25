@@ -90,11 +90,6 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             ContentLabel.AccessibilityAttributedLabel =
                 AccessibilityUtils.RemovePoorlySpokenSymbols(SettingsGeneralViewModel
                     .SETTINGS_GENERAL_MOBILE_DATA_HEADER);
-
-            // In release 2.1 Arabic, Tigrinya and Urdu are disabled
-            RadioButton6.Superview.Hidden = true;
-            RadioButton7.Superview.Hidden = true;
-            RadioButton8.Superview.Hidden = true;
         }
 
 
