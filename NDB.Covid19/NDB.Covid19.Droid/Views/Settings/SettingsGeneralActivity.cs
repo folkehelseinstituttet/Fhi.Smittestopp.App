@@ -1,7 +1,10 @@
 ﻿using System;
 using Android.App;
 using Android.Content.PM;
+using Android.Graphics.Drawables;
 using Android.OS;
+using Android.Support.V4.Content;
+using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
@@ -18,7 +21,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 {
     [Activity(
         Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     class SettingsGeneralActivity : AppCompatActivity
     {
         private readonly SettingsGeneralViewModel _viewModel = new SettingsGeneralViewModel();
@@ -69,24 +72,51 @@ namespace NDB.Covid19.Droid.Views.Settings
             RadioButton englishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_english);
             RadioButton bokmalRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_bokmal);
             RadioButton nynorskRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_nynorsk);
+            RadioButton polishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_polish);
+            RadioButton somaliRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_somali);
+            //RadioButton tigrinyaRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_tigrinya);
+            //RadioButton arabicRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_arabic);
+            //RadioButton urduRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_urdu);
+
 
 
             englishRadioButton.Text = SETTINGS_GENERAL_EN;
             bokmalRadioButton.Text = SETTINGS_GENERAL_NB;
             nynorskRadioButton.Text = SETTINGS_GENERAL_NN;
+            polishRadioButton.Text = SETTINGS_GENERAL_PL;
+            somaliRadioButton.Text = SETTINGS_GENERAL_SO;
+            //tigrinyaRadioButton.Text = SETTINGS_GENERAL_TI;
+            //arabicRadioButton.Text = SETTINGS_GENERAL_AR;
+            //urduRadioButton.Text = SETTINGS_GENERAL_UR;
 
             string appLanguage = LocalesService.GetLanguage();
 
-            if (appLanguage == "en")
+            switch (appLanguage)
             {
-                englishRadioButton.Checked = true;
-            }
-            else if (appLanguage == "nn")
-            {
-                nynorskRadioButton.Checked = true;
-            } else
-            {
-                bokmalRadioButton.Checked = true;
+                case "en":
+                    englishRadioButton.Checked = true;
+                    break;
+                case "nn":
+                    nynorskRadioButton.Checked = true;
+                    break;
+                case "pl":
+                    polishRadioButton.Checked = true;
+                    break;
+                case "so":
+                    somaliRadioButton.Checked = true;
+                    break;
+                //case "ti":
+                //tigrinyaRadioButton.Checked = true;
+                //break;
+                //case "ar":
+                    //arabicRadioButton.Checked = true;
+                    //break;
+                //case "ur":
+                //urduRadioButton.Checked = true;
+                //break;
+                default:
+                    bokmalRadioButton.Checked = true;
+                    break;
             }
 
             radioGroup.SetOnCheckedChangeListener(new OnCheckedChangeListener(this));
@@ -96,6 +126,12 @@ namespace NDB.Covid19.Droid.Views.Settings
             switchButton.CheckedChange += OnCheckedChange;
 
             backButton.Click += new StressUtils.SingleClick((sender, args) => Finish()).Run;
+
+            // Layout direction logic
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
+            languageLink.SetCompoundDrawablesRelativeWithIntrinsicBounds(null, null, ContextCompat.GetDrawable(this, LayoutUtils.GetForwardArrow()), null);
         }
 
         class OnCheckedChangeListener : Object, RadioGroup.IOnCheckedChangeListener
@@ -122,6 +158,26 @@ namespace NDB.Covid19.Droid.Views.Settings
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("nn");
                         break;
+                    case Resource.Id.settings_general_polish:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("pl");
+                        break;
+                    case Resource.Id.settings_general_somali:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("so");
+                        break;
+                    //case Resource.Id.settings_general_tigrinya:
+                    //await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                    //LocalPreferencesHelper.SetAppLanguage("ti");
+                    //break;
+                    //case Resource.Id.settings_general_arabic:
+                        //await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        //LocalPreferencesHelper.SetAppLanguage("ar");
+                        //break;
+                        //case Resource.Id.settings_general_urdu:
+                        //await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        //LocalPreferencesHelper.SetAppLanguage("ur");
+                        //break;
                 }
                 LocalesService.SetInternationalization();
                 _self._resetViews.ResetViews();

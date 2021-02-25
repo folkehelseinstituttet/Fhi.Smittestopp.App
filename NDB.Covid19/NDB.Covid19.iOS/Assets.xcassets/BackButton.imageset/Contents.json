@@ -1,21 +1,25 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "language-direction" : "left-to-right"
     },
     {
       "filename" : "arrow_back_24px.png",
       "idiom" : "universal",
+      "language-direction" : "left-to-right",
       "scale" : "1x"
     },
     {
       "filename" : "arrow_back_24px@2x.png",
       "idiom" : "universal",
+      "language-direction" : "left-to-right",
       "scale" : "2x"
     },
     {
       "filename" : "arrow_back_24px@3x.png",
       "idiom" : "universal",
+      "language-direction" : "left-to-right",
       "scale" : "3x"
     }
   ],
