@@ -130,6 +130,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfTests_StackView.ShouldGroupAccessibilityChildren = true;
 			PatientsAdmitted_StackView.ShouldGroupAccessibilityChildren = true;
+			IntensiveCare_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose1_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose2_StackView.ShouldGroupAccessibilityChildren = true;
 			TotalDownloads_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfPositiveResults_StackView.ShouldGroupAccessibilityChildren = true;
 
