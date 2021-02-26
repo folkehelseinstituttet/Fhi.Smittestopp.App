@@ -133,6 +133,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			TotalDownloads_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfPositiveResults_StackView.ShouldGroupAccessibilityChildren = true;
 
+			// Back button styling and accessibility
 			BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
 
 			//Implemented for correct voiceover due to smitte|stop, removing pronunciation of lodretstreg

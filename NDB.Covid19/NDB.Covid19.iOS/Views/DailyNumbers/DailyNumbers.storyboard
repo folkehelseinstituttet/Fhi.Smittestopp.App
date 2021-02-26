@@ -32,7 +32,7 @@
                                                             <constraint firstAttribute="width" constant="50" id="74944"/>
                                                             <constraint firstAttribute="height" constant="50" id="74945"/>
                                                         </constraints>
-                                                        <state key="normal" image="CloseWhite"/>
+                                                        <state key="normal" image="CloseBlue"/>
                                                         <connections>
                                                             <action selector="BackButton_tapped:" destination="vvE-Bx-19i" id="4910"/>
                                                             <action selector="BackButton_tapped:" destination="vvE-Bx-19i" eventType="touchUpInside" id="5033"/>
@@ -541,7 +541,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CloseWhite" width="19" height="18.5"/>
+        <image name="CloseBlue" width="21" height="21"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
