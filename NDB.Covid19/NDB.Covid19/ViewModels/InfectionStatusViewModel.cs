@@ -38,22 +38,8 @@ namespace NDB.Covid19.ViewModels
 
         public static DateTime DailyNumbersUpdatedDateTime => LocalPreferencesHelper.FHILastUpdateDateTime.ToLocalTime();
 
-        public static string LastUpdatedString => DailyNumbersUpdatedDateTime != DateTime.MinValue.ToLocalTime()
-            ? string.Format(
-                INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT,
-                $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "m")}",
-                $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "t")}")
-            : "";
-
-        public static string LastUpdatedAccessibilityString => DailyNumbersUpdatedDateTime != DateTime.MinValue.ToLocalTime()
-                    ? string.Format(
-                        INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT,
-                        $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "m")}",
-                        $"{DateUtils.GetDateFromDateTime(DailyNumbersUpdatedDateTime, "t")}")
-                    : "";
-
         public string NewDailyNumbersAccessibilityText =>
-            INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT + ". " + LastUpdatedAccessibilityString;
+            INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT + ". " + INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT;
 
         public async Task<string> StatusTxt(bool hasLocation = true) =>
             await IsRunning(hasLocation) 
