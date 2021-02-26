@@ -34,7 +34,9 @@ namespace NDB.Covid19.Droid.Views.Settings
             View view = inflater.Inflate(Resource.Layout.consent_settings_page_body, container, false);
 
             RelativeLayout RelativeLayout4 = view.FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
-            RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
+            TextView contactInformation = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text);
+            contactInformation.TextAlignment = TextAlignment.ViewStart;
+            contactInformation.TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
 
             //ABOUT
             _aboutHeader = view.FindViewById<TextView>(Resource.Id.consent1_about_header);
