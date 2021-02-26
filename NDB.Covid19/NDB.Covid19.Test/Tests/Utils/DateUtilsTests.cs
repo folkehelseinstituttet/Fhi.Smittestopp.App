@@ -142,6 +142,24 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Fact]
+        public void GetDateFromDateTime_CultureIsSupported_LT()
+        {
+            LocalPreferencesHelper.SetAppLanguage("lt");
+
+            CultureInfo cultureInfo = CultureInfo.GetCultureInfo("lt-LT");
+            DateTimeFormatInfo dateTimeFormat = cultureInfo.DateTimeFormat; // Expected format to use based Conf.DEFAULT_LANGUAGE
+
+            // Act
+            string actual = DateUtils.GetDateFromDateTime(testDateTime, "G"); // G = mm/dd/yyyy hh:mm:ss with nn-NO culture (default language)
+            string expected = (dateTimeFormat.DateSeparator == "-" && dateTimeFormat.TimeSeparator == ":")
+                ? "2020.07.15 13:37:00"
+                : "2020/07/15 13:37:00"; // This check have been made to ensure the expected result follows the separators of the expected culture
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
         public void GetDateFromDateTime_CultureNotSupport_Th()
         {
             LocalPreferencesHelper.SetAppLanguage("nb");

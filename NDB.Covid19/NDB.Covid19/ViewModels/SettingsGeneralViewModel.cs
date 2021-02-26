@@ -23,6 +23,7 @@ namespace NDB.Covid19.ViewModels
         public static string SETTINGS_GENERAL_EN => "SETTINGS_GENERAL_EN".Translate();
         public static string SETTINGS_GENERAL_NN => "SETTINGS_GENERAL_NN".Translate();
         public static string SETTINGS_GENERAL_NB => "SETTINGS_GENERAL_NB".Translate();
+        public static string SETTINGS_GENERAL_LT => "SETTINGS_GENERAL_LT".Translate();
         public static string SETTINGS_GENERAL_PL => "SETTINGS_GENERAL_PL".Translate();
         public static string SETTINGS_GENERAL_SO => "SETTINGS_GENERAL_SO".Translate();
         public static string SETTINGS_GENERAL_TI => "SETTINGS_GENERAL_TI".Translate();
