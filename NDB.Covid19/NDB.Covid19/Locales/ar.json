@@ -100,6 +100,7 @@
   "LANGUAGE_SELECTION_NN": "النرويجية (Nynorsk)",
   "LANGUAGE_SELECTION_EN": "الإنجليزية (English)",
   "LANGUAGE_SELECTION_AR": "العربية",
+  "LANGUAGE_SELECTION_LT": "Translation missing",
   "LANGUAGE_SELECTION_PL": "البولندية (Polski)",
   "LANGUAGE_SELECTION_SO": "الصومالية (Soomaali)",
   "LANGUAGE_SELECTION_TI": "التيغرينيا (Tigrinya translation missing)",
@@ -107,7 +108,7 @@
   "CONSENT_WITHDRAW_SUCCES_TITLE": "تم حذف جميع رسائلك في Smittestopp",
   "CONSENT_WITHDRAW_SUCCES_BODY": "يجب عليك إغلاق التطبيق والبدء من جديد لاستخدام Smittestopp.",
   "SETTINGS_PAGE_4_HEADER_TEXT": "مساعدة و دعم",
-  "SETTINGS_PAGE_4_CONTENT_TEXT_BEFORE_SUPPORT_LINK": "إذا كانت لديك أي أسئلة حول تطبيق Smittestopp ، فيرجى الانتقال إلى:",
+  "SETTINGS_PAGE_4_CONTENT_TEXT_BEFORE_SUPPORT_LINK": "إذا كانت لديك أي أسئلة حول تطبيق Smittestopp ، فيرجى الانتقال إلى: <br>",
   "SETTINGS_PAGE_4_SUPPORT_LINK_SHOWN_TEXT": "www.helsenorge.no/en/smittestopp.",
   "SETTINGS_PAGE_4_SUPPORT_LINK": "https://www.helsenorge.no/en/smittestopp",
   "SETTINGS_PAGE_5_HEADER_TEXT": "حول تطبیق Smittestopp",
@@ -309,8 +310,9 @@
   "SETTINGS_GENERAL_TI": "التیغرینیة",
   "SETTINGS_GENERAL_AR": "العربیة",
   "SETTINGS_GENERAL_UR": "الأردیة",
+  "SETTINGS_GENERAL_LT": "Translation missing",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "سيتم إعادة تشغيل التطبيق لتطبيق اختيار اللغة الخاص بك. / Appen starter på nytt لـ aktivere språkvalget ditt.",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/en/about/smittestopp/text-in-other-languages",
-  "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "اقرأ عن Smittestopp بلغات أخرى على: www.fhi.no/om/smittestopp/tekster-pa-andre-sprak.",
+  "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "اقرأ عن Smittestopp بلغات أخرى على:\n www.fhi.no/om/smittestopp/tekster-pa-andre-sprak.",
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "اقرأ عن Smittestopp بلغات أخرى على .fhi.no/en/about/smittestopp/text-in-other-languages"
 }

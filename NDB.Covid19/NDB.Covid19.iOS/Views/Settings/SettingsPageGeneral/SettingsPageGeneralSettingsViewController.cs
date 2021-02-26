@@ -62,14 +62,15 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                 SettingsGeneralViewModel.SETTINGS_GENERAL_MOBILE_DATA_DESC, 14, 28);
             InitLabel(ChooseLanguageHeaderLbl, FontType.FontRegular,
                 SettingsGeneralViewModel.SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER, 16, 28);
-            InitLabel(RadioButton1Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NB, 16, 28);
-            InitLabel(RadioButton2Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NN, 16, 28);
-            InitLabel(RadioButton3Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EN, 16, 28);
-            InitLabel(RadioButton4Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_PL, 16, 28);
-            InitLabel(RadioButton5Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_SO, 16, 28);
-            InitLabel(RadioButton6Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_TI, 16, 28);
-            InitLabel(RadioButton7Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_AR, 16, 28);
-            InitLabel(RadioButton8Lbl, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_UR, 16, 28);
+            InitLabel(BokmalLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NB, 16, 28);
+            InitLabel(NynorskLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_NN, 16, 28);
+            InitLabel(EnglishLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_EN, 16, 28);
+            InitLabel(LithuanianLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_LT, 16, 28);
+            InitLabel(PolishLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_PL, 16, 28);
+            InitLabel(SomaliLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_SO, 16, 28);
+            InitLabel(TigrinyaLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_TI, 16, 28);
+            InitLabel(ArabicLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_AR, 16, 28);
+            InitLabel(UrduLabel, FontType.FontBold, SettingsGeneralViewModel.SETTINGS_GENERAL_UR, 16, 28);
 
 
             InitLabel(RestartAppLabl, FontType.FontRegular,
@@ -90,6 +91,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             ContentLabel.AccessibilityAttributedLabel =
                 AccessibilityUtils.RemovePoorlySpokenSymbols(SettingsGeneralViewModel
                     .SETTINGS_GENERAL_MOBILE_DATA_HEADER);
+
         }
 
 
@@ -114,27 +116,29 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             SettingsLanguageSelection appLanguage = SettingsLanguageSelectionExtensions.FromString(LocalPreferencesHelper.GetAppLanguage());
             _viewModel.SetSelection(appLanguage);
 
-            RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
-            RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
-            RadioButton3.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
-            RadioButton4.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
-            RadioButton5.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
-            RadioButton6.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
-            RadioButton7.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Arabic;
-            RadioButton8.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Urdu;
+            BokmalButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
+            NynorskButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
+            EnglishButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
+            LithuanianButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Lithuanian;
+            PolishButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
+            SomaliButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
+            TigrinyaButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
+            ArabicButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Arabic;
+            UrduButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Urdu;
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)
         {
             LeaveController();
-            RadioButton1.Enabled = false;
-            RadioButton2.Enabled = false;
-            RadioButton3.Enabled = false;
-            RadioButton4.Enabled = false;
-            RadioButton5.Enabled = false;
-            RadioButton6.Enabled = false;
-            RadioButton7.Enabled = false;
-            RadioButton8.Enabled = false;
+            BokmalButton.Enabled = false;
+            NynorskButton.Enabled = false;
+            EnglishButton.Enabled = false;
+            LithuanianButton.Enabled = false;
+            PolishButton.Enabled = false;
+            SomaliButton.Enabled = false;
+            TigrinyaButton.Enabled = false;
+            ArabicButton.Enabled = false;
+            UrduButton.Enabled = false;
         }
 
         public void SwitchValueChanged(object sender, EventArgs e)
@@ -167,14 +171,15 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         {
             if (SettingsGeneralViewModel.Selection == selection)
             {
-                RadioButton1.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
-                RadioButton2.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
-                RadioButton3.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
-                RadioButton4.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
-                RadioButton5.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
-                RadioButton6.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
-                RadioButton7.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Arabic;
-                RadioButton8.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Urdu;
+                BokmalButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Bokmal;
+                NynorskButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Nynorsk;
+                EnglishButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.English;
+                LithuanianButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Lithuanian;
+                PolishButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Polish;
+                SomaliButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Somali;
+                TigrinyaButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Tigrinya;
+                ArabicButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Arabic;
+                UrduButton.Selected = SettingsGeneralViewModel.Selection == SettingsLanguageSelection.Urdu;
                 return;
             }
 
@@ -193,42 +198,47 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             SetupRadioButtons();
         }
 
-        partial void RadioButton1_TouchUpInside(CustomRadioButton sender)
+        partial void BokmalButton_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Bokmal, sender);
         }
 
-        partial void RadioButton2_TouchUpInside(CustomRadioButton sender)
+        partial void NynorskButton_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Nynorsk, sender);
         }
 
-        partial void RadioButton3_TouchUpInside(CustomRadioButton sender)
+        partial void EnglishButton_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.English, sender);
         }
 
-        partial void RadioButton4_TouchUpInside(CustomRadioButton sender)
-        {
-            HandleRadioBtnChange(SettingsLanguageSelection.Polish, sender);
-        }
-
-        partial void RadioButton5_TouchUpInside(CustomRadioButton sender)
-        {
-            HandleRadioBtnChange(SettingsLanguageSelection.Somali, sender);
-        }
-
-        partial void RadioButton6_TouchUpInside(CustomRadioButton sender)
-        {
-            HandleRadioBtnChange(SettingsLanguageSelection.Tigrinya, sender);
-        }
-
-        partial void RadioButton7_TouchUpInside(CustomRadioButton sender)
+        partial void ArabicButton_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Arabic, sender);
         }
 
-        partial void RadioButton8_TouchUpInside(CustomRadioButton sender)
+        partial void LithuanianButton_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Lithuanian, sender);
+        }
+
+        partial void PolishButton_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Polish, sender);
+        }
+
+        partial void SomaliButton_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Somali, sender);
+        }
+
+        partial void TigrinyaButton_TouchUpInside(CustomRadioButton sender)
+        {
+            HandleRadioBtnChange(SettingsLanguageSelection.Tigrinya, sender);
+        }
+
+        partial void UrduButton_TouchUpInside(CustomRadioButton sender)
         {
             HandleRadioBtnChange(SettingsLanguageSelection.Urdu, sender);
         }

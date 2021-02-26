@@ -58,6 +58,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             languageHeader.Text = SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER;
             languageDesc.Text = SETTINGS_GENERAL_RESTART_REQUIRED_TEXT;
             languageLink.Text = SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT;
+            languageLink.TextAlignment = TextAlignment.ViewStart;
             languageLink.ContentDescription = SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT;
 
             titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
