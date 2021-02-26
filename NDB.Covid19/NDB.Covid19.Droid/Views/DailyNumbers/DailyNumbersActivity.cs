@@ -19,7 +19,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
     [Activity(
         Theme = "@style/AppTheme",
         ParentActivity = typeof(InfectionStatusActivity),
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     public class DailyNumbersActivity : AppCompatActivity
     {
         private static readonly DailyNumbersViewModel ViewModel;
@@ -38,7 +38,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             Init();
         }
 
-        private async void Init()
+        private void Init()
         {
             TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
