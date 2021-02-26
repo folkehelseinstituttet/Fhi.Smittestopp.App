@@ -15,7 +15,7 @@ using NDB.Covid19.ViewModels;
 namespace NDB.Covid19.Droid.Views.DailyNumbers
 {
     [Activity(Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+        ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
     class DailyNumbersLoadingActivity : AppCompatActivity
     {
         bool _isRunning;

@@ -202,6 +202,17 @@
                         android:text="English"/>
 
                 <RadioButton
+                        android:id="@+id/settings_general_arabic"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:layout_gravity="start"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Arabic"/> 
+
+                <RadioButton
                         android:id="@+id/settings_general_polish"
                         style="@style/PrimaryTextBold"
                         android:paddingHorizontal="14dp"
@@ -223,7 +234,7 @@
                         android:buttonTint="@color/primaryText"
                         android:text="Somali"/>
 
-             <!--   <RadioButton
+                <RadioButton
                         android:id="@+id/settings_general_tigrinya"
                         style="@style/PrimaryTextBold"
                         android:paddingHorizontal="14dp"
@@ -232,18 +243,9 @@
                         android:textAlignment="viewStart"
                         android:layout_gravity="start"
                         android:buttonTint="@color/primaryText"
-                        android:text="Tigrinya"/> -->
-             <!--   <RadioButton
-                        android:id="@+id/settings_general_arabic"
-                        style="@style/PrimaryTextBold"
-                        android:paddingHorizontal="14dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="viewStart"
-                        android:layout_gravity="start"
-                        android:buttonTint="@color/primaryText"
-                        android:text="Arabic"/> -->
-             <!--   <RadioButton
+                        android:text="Tigrinya"/>
+
+                <RadioButton
                         android:id="@+id/settings_general_urdu"
                         style="@style/PrimaryTextBold"
                         android:paddingHorizontal="14dp"
@@ -252,7 +254,7 @@
                         android:textAlignment="viewStart"
                         android:layout_gravity="start"
                         android:buttonTint="@color/primaryText"
-                        android:text="Urdu"/> -->
+                        android:text="Urdu"/> 
             </RadioGroup>
 
             <TextView
