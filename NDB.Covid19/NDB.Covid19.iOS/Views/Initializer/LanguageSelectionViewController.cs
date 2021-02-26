@@ -25,6 +25,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
             StyleUtil.InitButtonStyling(NynorskButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_NN);
             StyleUtil.InitButtonStyling(EnglishButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_EN);
             StyleUtil.InitButtonStyling(ArabicButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_AR);
+            StyleUtil.InitButtonStyling(LithuanianButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_LT);
             StyleUtil.InitButtonStyling(PolishButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_PL);
             StyleUtil.InitButtonStyling(SomaliButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_SO);
             StyleUtil.InitButtonStyling(TigrinyaButton, LanguageSelectionViewModel.LANGUAGE_SELECTION_TI);
@@ -34,6 +35,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
             StyleUtil.InitLanguageSelectionButtonStyling(NynorskButton);
             StyleUtil.InitLanguageSelectionButtonStyling(EnglishButton);
             StyleUtil.InitLanguageSelectionButtonStyling(ArabicButton);
+            StyleUtil.InitLanguageSelectionButtonStyling(LithuanianButton);
             StyleUtil.InitLanguageSelectionButtonStyling(PolishButton);
             StyleUtil.InitLanguageSelectionButtonStyling(SomaliButton);
             StyleUtil.InitLanguageSelectionButtonStyling(TigrinyaButton);
@@ -45,73 +47,57 @@ namespace NDB.Covid19.iOS.Views.Initializer
             UrduButton.Hidden = true;
         }
 
-        partial void BokmalButton_TouchUpInside(NSObject sender)
+        private void SetAppLanguageAndContinue(string appLanguage)
         {
-            LocalPreferencesHelper.SetAppLanguage("nb");
+            LocalPreferencesHelper.SetAppLanguage(appLanguage);
             LocalesService.Initialize();
             LayoutUtils.OnLayoutDirectionChange();
-            Continue();
+            NavigationHelper.GoToOnboardingPage(this);
+        }
+
+        partial void BokmalButton_TouchUpInside(NSObject sender)
+        {
+            SetAppLanguageAndContinue("nb");
         }
 
         partial void NynorskButton_TouchUpInside(NSObject sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("nn");
-            LocalesService.Initialize();
-            LayoutUtils.OnLayoutDirectionChange();
-            Continue();
+            SetAppLanguageAndContinue("nn");
         }
 
         partial void EnglishButton_TouchUpInside(NSObject sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("en");
-            LocalesService.Initialize();
-            LayoutUtils.OnLayoutDirectionChange();
-            Continue();
+            SetAppLanguageAndContinue("en");
         }
 
         partial void ArabicButton_TouchUpInside(NSObject sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("ar");
-            LocalesService.Initialize();
-            LayoutUtils.OnLayoutDirectionChange();
-            Continue();
+            SetAppLanguageAndContinue("ar");
+        }
+
+        partial void LithuanianButton_TouchUpInside(NSObject sender)
+        {
+            SetAppLanguageAndContinue("lt");
         }
 
         partial void PolishButton_TouchUpInside(NSObject sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("pl");
-            LocalesService.Initialize();
-            LayoutUtils.OnLayoutDirectionChange();
-            Continue();
+            SetAppLanguageAndContinue("pl");
         }
 
         partial void SomaliButton_TouchUpInside(NSObject sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("so");
-            LocalesService.Initialize();
-            LayoutUtils.OnLayoutDirectionChange();
-            Continue();
+            SetAppLanguageAndContinue("so");
         }
 
         partial void TigrinyaButton_TouchUpInside(NSObject sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("ti");
-            LocalesService.Initialize();
-            LayoutUtils.OnLayoutDirectionChange();
-            Continue();
+            SetAppLanguageAndContinue("ti");
         }
 
         partial void UrduButton_TouchUpInside(NSObject sender)
         {
-            LocalPreferencesHelper.SetAppLanguage("ur");
-            LocalesService.Initialize();
-            LayoutUtils.OnLayoutDirectionChange();
-            Continue();
-        }
-
-        private void Continue()
-        {
-            NavigationHelper.GoToOnboardingPage(this);
+            SetAppLanguageAndContinue("ur");
         }
     }
 }

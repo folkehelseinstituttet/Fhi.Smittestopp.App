@@ -44,7 +44,7 @@
   "CONSENT_FOUR_PARAGRAPH": "Folkehelseinstituttet er behandlingsansvarleg for Smittestopp. Folkehelseinstituttet kan ein kontakte på: <br><br>Folkehelseinstituttet <br>Postboks 222 Skøyen <br>0213 Oslo <br>E-post: folkehelseinstituttet@fhi.no <br>Telefonnummer: 21 07 70 00",
   "CONSENT_FIVE_PARAGRAPH_SECTION_ONE": "Meir informasjon om korleis Smittestopp behandlar personopplysningane dine, finn du i personvernerklæringa. ",
   "CONSENT_FIVE_PARAGRAPH_SECTION_TWO": "Viss du har ytterlegare spørsmål om behandling av personopplysningar i Smittestopp kan personvernombodet i FHI kontaktast på Personvernombud@fhi.no. ",
-  "CONSENT_FIVE_PARAGRAPH_SECTION_TWO_ACCESSIBILITY_TEXT": "Viss du har ytterlegare spørsmål om behandling av personopplysningar i Smittestopp kan personvernombodet i FHI kontaktast på Personvernombud@fhi.no. ",
+  "CONSENT_FIVE_PARAGRAPH_SECTION_TWO_ACCESSIBILITY_TEXT": "Viss du har ytterlegare spørsmål om behandling av personopplysningar i Smittestopp kan personvernombodet i FHI kontaktast på Personvernombud@fhi dot n o  ",
   "CONSENT_FIVE_PARAGRAPH_SECTION_THREE": "Bruk av Smittestopp kan innebere at det blir sendt informasjon om bruken av appen til Google og Apple. Det er informasjon om bruksmønster (til dømes start og stopp av appen) og feilsituasjonar. Dette blir nytta til å utbetre feil og gjere løysinga betre. Google og Apple kan òg samle inn andre opplysningar frå mobiltelefonen uavhengig av Smittestopp, i samsvar med selskapa sine retningslinjer for personvern. Les meir om dette i personvernerklæringa. ",
   "CONSENT_SIX_TITLE": "Samtykke",
   "CONSENT_SIX_PARAGRAPH": "Eg samtykker i å aktivere og ta i bruk Smittestopp. Dette inneber at telefonen min vil lage og utveksle kontaktnøklar med andre telefonar eg er i nærleiken av, og at eg kan ta imot varsel om at eg har vore i nærleiken av nokon som har fått stadfesta covid-19-smitte. Verken eg eller andre får vite kven som er smitta.",
@@ -100,6 +100,7 @@
   "LANGUAGE_SELECTION_NN": "Nynorsk",
   "LANGUAGE_SELECTION_EN": "Engelsk (English)",
   "LANGUAGE_SELECTION_AR": "Arabisk (العربية)",
+  "LANGUAGE_SELECTION_LT": "Litausk (translation missing",
   "LANGUAGE_SELECTION_PL": "Polsk (Polski)",
   "LANGUAGE_SELECTION_SO": "Somali",
   "LANGUAGE_SELECTION_TI": "Tigrinja (ትግርኛ)",
@@ -311,6 +312,7 @@
   "SETTINGS_GENERAL_TI": "Tigrinja",
   "SETTINGS_GENERAL_AR": "Arabisk",
   "SETTINGS_GENERAL_UR": "Urdu",
+  "SETTINGS_GENERAL_LT": "Litausk",
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "Appen startar på nytt for å endre til språket du har valt / The app will restart to apply your langauge selection.",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på: www.fhi.no/om/smittestopp/tekster-pa-andre-sprak.",
@@ -333,8 +335,5 @@
   "KEY_FEATURE_FIVE_LABEL": "Antall positive testresultatar delt i løpet av dei siste sju dagane",
   "KEY_FEATURE_SIX_UPDATE_ALL": "{0}",
   "KEY_FEATURE_SIX_LABEL": "Smittestopp-nedlastningar totalt",
-  "DAILY_NUMBERS_SUBSUBHEADER": "Smittestopp-tall: sist oppdatert den {0} klokka {1}. Les meir om tala på <a href=\"https://link.not.ready/\">www.link.not.ready</a>",
-  "INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT": "Sjå daglege tal",
-  "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "Sist oppdatert den {0} klokka {1}",
-  "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Sist oppdatert den {0} klokka {1}"
+  "DAILY_NUMBERS_SUBSUBHEADER": "Smittestopp-tall: sist oppdatert den {0} klokka {1}. Les meir om tala på <a href=\"https://link.not.ready/\">www.link.not.ready</a>"
 }

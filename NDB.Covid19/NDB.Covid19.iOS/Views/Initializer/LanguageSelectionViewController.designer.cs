@@ -22,6 +22,9 @@ namespace NDB.Covid19.iOS.Views.Initializer
 		UIKit.UIButton EnglishButton { get; set; }
 
 		[Outlet]
+		UIKit.UIButton LithuanianButton { get; set; }
+
+		[Outlet]
 		UIKit.UIButton NynorskButton { get; set; }
 
 		[Outlet]
@@ -45,6 +48,9 @@ namespace NDB.Covid19.iOS.Views.Initializer
 		[Action ("EnglishButton_TouchUpInside:")]
 		partial void EnglishButton_TouchUpInside (Foundation.NSObject sender);
 
+		[Action ("LithuanianButton_TouchUpInside:")]
+		partial void LithuanianButton_TouchUpInside (Foundation.NSObject sender);
+
 		[Action ("NynorskButton_TouchUpInside:")]
 		partial void NynorskButton_TouchUpInside (Foundation.NSObject sender);
 
@@ -62,14 +68,14 @@ namespace NDB.Covid19.iOS.Views.Initializer
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ArabicButton != null) {
+				ArabicButton.Dispose ();
+				ArabicButton = null;
+			}
+
 			if (BokmalButton != null) {
 				BokmalButton.Dispose ();
 				BokmalButton = null;
-			}
-
-			if (NynorskButton != null) {
-				NynorskButton.Dispose ();
-				NynorskButton = null;
 			}
 
 			if (EnglishButton != null) {
@@ -77,9 +83,14 @@ namespace NDB.Covid19.iOS.Views.Initializer
 				EnglishButton = null;
 			}
 
-			if (ArabicButton != null) {
-				ArabicButton.Dispose ();
-				ArabicButton = null;
+			if (NynorskButton != null) {
+				NynorskButton.Dispose ();
+				NynorskButton = null;
+			}
+
+			if (LithuanianButton != null) {
+				LithuanianButton.Dispose ();
+				LithuanianButton = null;
 			}
 
 			if (PolishButton != null) {
