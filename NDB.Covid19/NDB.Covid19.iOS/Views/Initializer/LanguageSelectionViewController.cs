@@ -40,11 +40,6 @@ namespace NDB.Covid19.iOS.Views.Initializer
             StyleUtil.InitLanguageSelectionButtonStyling(SomaliButton);
             StyleUtil.InitLanguageSelectionButtonStyling(TigrinyaButton);
             StyleUtil.InitLanguageSelectionButtonStyling(UrduButton);
-
-            // In release 2.1 Arabic, Tigrinya and Urdu are disabled
-            ArabicButton.Hidden = true;
-            TigrinyaButton.Hidden = true;
-            UrduButton.Hidden = true;
         }
 
         private void SetAppLanguageAndContinue(string appLanguage)
