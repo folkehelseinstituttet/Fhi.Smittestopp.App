@@ -58,10 +58,6 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_number_text).Text = ConfirmedCasesToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_total_text).Text = ConfirmedCasesTotal;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_death_header_text).Text = KEY_FEATURE_TWO_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_death_number_text).Text = DeathsToday;
-            FindViewById<TextView>(Resource.Id.daily_numbers_death_total_text).Text = DeathsTotal;
-
             FindViewById<TextView>(Resource.Id.daily_numbers_tested_header_text).Text = KEY_FEATURE_THREE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_tested_number_text).Text = TestsConductedToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_tested_total_text).Text = TestsConductedTotal;
