@@ -40,7 +40,7 @@ namespace NDB.Covid19.Droid.Views
             NynorskButton = FindViewById<Button>(Resource.Id.nynorsk_button);
             EnglishButton = FindViewById<Button>(Resource.Id.english_button);
             ArabicButton = FindViewById<Button>(Resource.Id.arabic_button);
-            LithuanianButton = FindViewById<Button>(Resource.Id.Lithuanian_button);
+            LithuanianButton = FindViewById<Button>(Resource.Id.lithuanian_button);
             PolishButton = FindViewById<Button>(Resource.Id.polish_button);
             SomaliButton = FindViewById<Button>(Resource.Id.somali_button);
             TigrinyaButton = FindViewById<Button>(Resource.Id.tigrinya_button);
@@ -84,7 +84,7 @@ namespace NDB.Covid19.Droid.Views
                 case Resource.Id.arabic_button:
                     LocalPreferencesHelper.SetAppLanguage("ar");
                     break;
-                case Resource.Id.Lithuanian_button:
+                case Resource.Id.lithuanian_button:
                     LocalPreferencesHelper.SetAppLanguage("lt");
                     break;
                 case Resource.Id.polish_button:
