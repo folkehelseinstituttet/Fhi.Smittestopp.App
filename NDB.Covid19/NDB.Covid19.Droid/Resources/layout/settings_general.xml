@@ -213,6 +213,17 @@
                         android:text="Arabic"/> 
 
                 <RadioButton
+                        android:id="@+id/settings_general_lithuanian"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:layout_gravity="start"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Lithuanian"/> 
+
+                <RadioButton
                         android:id="@+id/settings_general_polish"
                         style="@style/PrimaryTextBold"
                         android:paddingHorizontal="14dp"
