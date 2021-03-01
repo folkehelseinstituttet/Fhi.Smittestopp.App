@@ -33,10 +33,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel DailyNumbersNumber2Lbl { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel DailyNumbersNumber3Lbl { get; set; }
 
 		[Outlet]
@@ -100,14 +96,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIView DailyNumbersView4 { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView DailyNumbersView5 { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIView DailyNumbersView6 { get; set; }
-
-		[Outlet]
 		UIKit.UIView DailyNumbersView7 { get; set; }
 
 		[Outlet]
@@ -125,10 +113,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel KeyFeature1Lbl { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel KeyFeature2Lbl { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -154,10 +138,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UIStackView NumberOfDeaths_StackView { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIStackView NumberOfPositiveResults_StackView { get; set; }
 
 		[Outlet]
@@ -174,10 +154,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel TotalDailyNumbersNumber1Lbl { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel TotalDailyNumbersNumber2Lbl { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -227,11 +203,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (DailyNumbersNumber1Lbl != null) {
 				DailyNumbersNumber1Lbl.Dispose ();
 				DailyNumbersNumber1Lbl = null;
-			}
-
-			if (DailyNumbersNumber2Lbl != null) {
-				DailyNumbersNumber2Lbl.Dispose ();
-				DailyNumbersNumber2Lbl = null;
 			}
 
 			if (DailyNumbersNumber3Lbl != null) {
@@ -324,16 +295,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				DailyNumbersView4 = null;
 			}
 
-			if (DailyNumbersView5 != null) {
-				DailyNumbersView5.Dispose ();
-				DailyNumbersView5 = null;
-			}
-
-			if (DailyNumbersView6 != null) {
-				DailyNumbersView6.Dispose ();
-				DailyNumbersView6 = null;
-			}
-
 			if (DailyNumbersView7 != null) {
 				DailyNumbersView7.Dispose ();
 				DailyNumbersView7 = null;
@@ -362,11 +323,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (KeyFeature1Lbl != null) {
 				KeyFeature1Lbl.Dispose ();
 				KeyFeature1Lbl = null;
-			}
-
-			if (KeyFeature2Lbl != null) {
-				KeyFeature2Lbl.Dispose ();
-				KeyFeature2Lbl = null;
 			}
 
 			if (KeyFeature3Lbl != null) {
@@ -399,11 +355,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				KeyFeature9Lbl = null;
 			}
 
-			if (NumberOfDeaths_StackView != null) {
-				NumberOfDeaths_StackView.Dispose ();
-				NumberOfDeaths_StackView = null;
-			}
-
 			if (NumberOfPositiveResults_StackView != null) {
 				NumberOfPositiveResults_StackView.Dispose ();
 				NumberOfPositiveResults_StackView = null;
@@ -427,11 +378,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (TotalDailyNumbersNumber1Lbl != null) {
 				TotalDailyNumbersNumber1Lbl.Dispose ();
 				TotalDailyNumbersNumber1Lbl = null;
-			}
-
-			if (TotalDailyNumbersNumber2Lbl != null) {
-				TotalDailyNumbersNumber2Lbl.Dispose ();
-				TotalDailyNumbersNumber2Lbl = null;
 			}
 
 			if (TotalDailyNumbersNumber3Lbl != null) {
