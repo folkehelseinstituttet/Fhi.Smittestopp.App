@@ -20,9 +20,6 @@ namespace NDB.Covid19.ViewModels
         public static string KEY_FEATURE_ONE_UPDATE_NEW => "KEY_FEATURE_ONE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_ONE_UPDATE_ALL => "KEY_FEATURE_ONE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_ONE_LABEL => "KEY_FEATURE_ONE_LABEL".Translate();
-        public static string KEY_FEATURE_TWO_UPDATE_NEW => "KEY_FEATURE_TWO_UPDATE_NEW".Translate();
-        public static string KEY_FEATURE_TWO_UPDATE_ALL => "KEY_FEATURE_TWO_UPDATE_ALL".Translate();
-        public static string KEY_FEATURE_TWO_LABEL => "KEY_FEATURE_TWO_LABEL".Translate();
         public static string KEY_FEATURE_THREE_UPDATE_NEW => "KEY_FEATURE_THREE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_THREE_UPDATE_ALL => "KEY_FEATURE_THREE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_THREE_LABEL => "KEY_FEATURE_THREE_LABEL".Translate();
@@ -78,8 +75,6 @@ namespace NDB.Covid19.ViewModels
                     {
                         ConfirmedCasesToday = 10,
                         ConfirmedCasesTotal = 123,
-                        DeathsToday = 2,
-                        DeathsTotal = 68,
                         TestsConductedToday = 396,
                         TestsConductedTotal = 3095,
                         EntryDate = DateTime.Now,
@@ -122,8 +117,6 @@ namespace NDB.Covid19.ViewModels
 
         public static string ConfirmedCasesToday => string.Format(KEY_FEATURE_ONE_UPDATE_NEW, $"{DailyNumbers.FHIConfirmedCasesToday:N0}");
         public static string ConfirmedCasesTotal => string.Format(KEY_FEATURE_ONE_UPDATE_ALL, $"{DailyNumbers.FHIConfirmedCasesTotal:N0}");
-        public static string DeathsToday => string.Format(KEY_FEATURE_TWO_UPDATE_NEW, $"{DailyNumbers.FHIDeathsToday:N0}");
-        public static string DeathsTotal => string.Format(KEY_FEATURE_TWO_UPDATE_ALL, $"{DailyNumbers.FHIDeathsTotal:N0}");
         public static string TestsConductedToday => string.Format(KEY_FEATURE_THREE_UPDATE_NEW, $"{DailyNumbers.FHITestsConductedToday:N0}");
         public static string TestsConductedTotal => string.Format(KEY_FEATURE_THREE_UPDATE_ALL, $"{DailyNumbers.FHITestsConductedTotal:N0}");
         public static string PatientsAdmittedToday => string.Format(KEY_FEATURE_FOUR_UPDATE_NEW, $"{DailyNumbers.FHIPatientsAdmittedToday:N0}");
