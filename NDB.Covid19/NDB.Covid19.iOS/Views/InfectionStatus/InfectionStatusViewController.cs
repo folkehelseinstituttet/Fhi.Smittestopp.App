@@ -77,7 +77,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             DispatchQueue.MainQueue.DispatchAsync(() => {
                 _dailyNumbersButton.AccessibilityLabel = _viewModel.NewDailyNumbersAccessibilityText;
-                StyleUtil.InitLabelWithSpacing(dailyNumbersUpdatedLbl, StyleUtil.FontType.FontRegular, InfectionStatusViewModel.LastUpdatedString, 1.14, 12, 16);
+                StyleUtil.InitLabelWithSpacing(dailyNumbersUpdatedLbl, StyleUtil.FontType.FontRegular, InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT, 1.14, 12, 16);
             });
         }
 
@@ -289,7 +289,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             dailyNumbersLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             dailyNumbersLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT;
             dailyNumbersUpdatedLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
-            dailyNumbersUpdatedLbl.Text = InfectionStatusViewModel.LastUpdatedString;
+            dailyNumbersUpdatedLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT;
 
             MessageLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             MessageLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_MESSAGE_HEADER_TEXT;
