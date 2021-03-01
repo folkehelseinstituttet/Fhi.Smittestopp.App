@@ -9,7 +9,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>no.fhi.smittestopp-exposure-notification</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1</string>
+	<string>2.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
@@ -99,11 +99,11 @@
 	<string>en</string>
 	<key>CFBundleLocalizations</key>
 	<array>
-    <string>nb</string>
-    <string>nn</string>
+		<string>nb</string>
+		<string>nn</string>
 		<string>en</string>
-    <string>ar</string>
-    <string>lt</string>
+		<string>ar</string>
+		<string>lt</string>
 		<string>pl</string>
 		<string>so</string>
 		<string>ti</string>
