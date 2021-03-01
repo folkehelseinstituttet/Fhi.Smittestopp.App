@@ -166,8 +166,6 @@ namespace NDB.Covid19.PersistedData
                 FHILastUpdateDateTime = dto.FHIStatistics.EntryDate;
                 FHIConfirmedCasesToday = dto.FHIStatistics.ConfirmedCasesToday;
                 FHIConfirmedCasesTotal = dto.FHIStatistics.ConfirmedCasesTotal;
-                FHIDeathsToday = dto.FHIStatistics.DeathsToday;
-                FHIDeathsTotal = dto.FHIStatistics.DeathsTotal;
                 FHITestsConductedToday = dto.FHIStatistics.TestsConductedToday;
                 FHITestsConductedTotal = dto.FHIStatistics.TestsConductedTotal;
                 FHIPatientsAdmittedToday = dto.FHIStatistics.PatientsAdmittedToday;
@@ -193,18 +191,6 @@ namespace NDB.Covid19.PersistedData
             {
                 get => _preferences.Get(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TOTAL_PREF, 0);
                 set => _preferences.Set(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TOTAL_PREF, value);
-            }
-
-            public static int FHIDeathsToday
-            {
-                get => _preferences.Get(PreferencesKeys.FHI_DATA_DEATHS_TODAY_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_DATA_DEATHS_TODAY_PREF, value);
-            }
-
-            public static int FHIDeathsTotal
-            {
-                get => _preferences.Get(PreferencesKeys.FHI_DATA_DEATHS_TOTAL_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_DATA_DEATHS_TOTAL_PREF, value);
             }
 
             public static int FHITestsConductedToday

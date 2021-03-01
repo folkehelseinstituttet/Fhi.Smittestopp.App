@@ -78,6 +78,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             RadioButton tigrinyaRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_tigrinya);
             RadioButton arabicRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_arabic);
             RadioButton urduRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_urdu);
+            RadioButton lithuanianRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_lithuanian);
 
 
 
@@ -89,6 +90,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             tigrinyaRadioButton.Text = SETTINGS_GENERAL_TI;
             arabicRadioButton.Text = SETTINGS_GENERAL_AR;
             urduRadioButton.Text = SETTINGS_GENERAL_UR;
+            lithuanianRadioButton.Text = SETTINGS_GENERAL_LT;
 
             string appLanguage = LocalesService.GetLanguage();
 
@@ -114,6 +116,9 @@ namespace NDB.Covid19.Droid.Views.Settings
                     break;
                 case "ur":
                     urduRadioButton.Checked = true;
+                    break;
+                case "lt":
+                    lithuanianRadioButton.Checked = true;
                     break;
                 default:
                     bokmalRadioButton.Checked = true;
@@ -178,6 +183,10 @@ namespace NDB.Covid19.Droid.Views.Settings
                     case Resource.Id.settings_general_urdu:
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("ur");
+                        break;
+                    case Resource.Id.settings_general_lithuanian:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("lt");
                         break;
                 }
                 LocalesService.SetInternationalization();
