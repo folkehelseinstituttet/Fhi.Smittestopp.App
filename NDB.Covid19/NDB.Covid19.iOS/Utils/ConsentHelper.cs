@@ -16,6 +16,29 @@ namespace NDB.Covid19.iOS.Utils
             stackView.AddArrangedSubview(spacer);
         }
 
+        private static UITextView CreateTextViewWithLinks(string text, string accessibilityLabel)
+        {
+            UITextView textView = new UITextView
+            {
+                TranslatesAutoresizingMaskIntoConstraints = false,
+                BackgroundColor = UIColor.Clear
+            };
+            InitTextViewWithSpacingAndHTMLFormat(textView, FontType.FontRegular, text, 1.28, 16, 22);
+            if (accessibilityLabel != null)
+            {
+                textView.AccessibilityLabel = accessibilityLabel;
+            }
+            textView.ContentInset = UIEdgeInsets.Zero;
+            textView.TextContainerInset = UIEdgeInsets.Zero;
+            textView.TextContainer.LineFragmentPadding = 0;
+            textView.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            textView.ScrollEnabled = false;
+            textView.Editable = false;
+            textView.DataDetectorTypes = UIDataDetectorType.PhoneNumber | UIDataDetectorType.Link;
+
+            return textView;
+        }
+
         public static void SetConsentLabels(UIStackView stackView, List<ConsentSectionTexts> sections, UIButton privacyPolicyButton)
         {
             // We add each label manually to the stackView
@@ -33,6 +56,22 @@ namespace NDB.Covid19.iOS.Utils
                     InitLabel(titleLbl, FontType.FontBold, obj.Title, 16, 22);
 
                     stackView.AddArrangedSubview(titleLbl);
+                }
+
+                if (obj.Paragraph == ConsentViewModel.CONSENT_FOUR_PARAGRAPH)
+                {
+                    stackView.AddArrangedSubview(
+                        CreateTextViewWithLinks(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, obj.ParagraphAccessibilityText)
+                    );
+                    AddSpacerToStackView(stackView);
+                }
+
+                if (obj.Paragraph == ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO)
+                {
+                    stackView.AddArrangedSubview(
+                        CreateTextViewWithLinks(ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO, obj.ParagraphAccessibilityText)
+                    );
+                    AddSpacerToStackView(stackView);
                 }
 
                 if (obj.Paragraph == ConsentViewModel.CONSENT_SIX_PARAGRAPH)
@@ -63,7 +102,9 @@ namespace NDB.Covid19.iOS.Utils
                 }
 
 
-                if (obj.Paragraph != ConsentViewModel.CONSENT_SIX_PARAGRAPH)
+                if (obj.Paragraph != ConsentViewModel.CONSENT_SIX_PARAGRAPH
+                    && obj.Paragraph != ConsentViewModel.CONSENT_FOUR_PARAGRAPH
+                    && obj.Paragraph != ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO)
                 {
                     UILabel paragrapLbl = new UILabel
                     {
