@@ -55,17 +55,17 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel DailyNumbersOfTheDayTextLbl { get; set; }
+		UIKit.UITextView DailyNumbersOfTheDayTextLbl { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIScrollView DailyNumbersScrollView { get; set; }
 
 		[Outlet]
-		UIKit.UILabel DailyNumbersSubSubHeader { get; set; }
+		UIKit.UITextView DailyNumbersSubSubHeader { get; set; }
 
 		[Outlet]
-		UIKit.UILabel DailyNumbersSubtextTwo { get; set; }
+		UIKit.UITextView DailyNumbersSubtextTwo { get; set; }
 
 		[Outlet]
 		UIKit.UILabel DailyNumbersTitleOne { get; set; }

@@ -333,7 +333,7 @@
   "KEY_FEATURE_FIVE_LABEL": "Number of positive test results shared in the last 7 days",
   "KEY_FEATURE_SIX_UPDATE_ALL": "{0}",
   "KEY_FEATURE_SIX_LABEL": "Smitte\u2060|\u2060stop downloads in total",
-  "DAILY_NUMBERS_SUBSUBHEADER": "Smitte\u2060|\u2060stop numbers: last updated {0} at {1}. Read about the numbers at <a href=\"https://link.not.ready/\">www.link.not.ready</a>",
+  "DAILY_NUMBERS_SUBSUBHEADER": "Smittestopp numbers are last updated {0} at {1}. Read about the numbers at <a href=\"https://smittestopp.no/dagenstall/\">www.smittestopp.no/dagenstall</a>",
   "DAILY_NUMBERS_TITLE_ONE": "COVID-19 statistics",
   "DAILY_NUMBERS_TITLE_TWO": "Vaccinations",
   "DAILY_NUMBERS_SUBTEXT_TWO": "The number of vaccinations is last updated on {0} at {1}. Source:  <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/ \">Norwegian Institute of Public Health</a>.",
