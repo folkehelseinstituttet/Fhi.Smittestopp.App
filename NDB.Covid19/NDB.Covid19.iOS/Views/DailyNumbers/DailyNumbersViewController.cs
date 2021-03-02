@@ -137,7 +137,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
 
 			//Implemented for correct voiceover due to smitte|stop, removing pronunciation of lodretstreg
-			KeyFeature5Lbl.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(KEY_FEATURE_SIX_LABEL);
+			KeyFeature5Lbl.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(KEY_FEATURE_FIVE_LABEL);
 		}
 
 		partial void BackButton_tapped(UIButton sender)
