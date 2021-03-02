@@ -105,6 +105,12 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             label.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(text);
         }
 
+        protected void SetAccessibilityText(UITextView textView, string text)
+        {
+            textView.IsAccessibilityElement = true;
+            textView.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(text);
+        }
+
         protected void InitTitle(UILabel label, string text)
         {
             InitLabelWithSpacing(label, FontType.FontBold, text, 1.14, 24, 26);
@@ -113,6 +119,15 @@ namespace NDB.Covid19.iOS.Views.ConsentView
         protected void InitBodyText(UILabel label, string text, FontType fontType = FontType.FontRegular)
         {
             InitLabelWithHTMLFormat(label, text, fontType);
+        }
+
+        protected void InitBodyText(UITextView textView, string text, FontType fontType = FontType.FontRegular)
+        {
+            InitTextViewWithSpacingAndHTMLFormat(textView, fontType, text, 1.28, 16, 22);
+            textView.ContentInset = UIEdgeInsets.Zero;
+            textView.TextContainerInset = UIEdgeInsets.Zero;
+            textView.TextContainer.LineFragmentPadding = 0;
+            textView.DataDetectorTypes = UIDataDetectorType.PhoneNumber | UIDataDetectorType.Link;
         }
 
         protected void InitBoxText(UILabel label, string text)
