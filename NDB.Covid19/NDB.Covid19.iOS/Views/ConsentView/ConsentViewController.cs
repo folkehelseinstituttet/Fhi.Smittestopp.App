@@ -95,6 +95,11 @@ namespace NDB.Covid19.iOS.Views.ConsentView
                 SetAccessibilityText(MoreInformation_section3, ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE);
                 SetAccessibilityText(SamtykkeBottom_header, ConsentViewModel.CONSENT_SIX_TITLE);
                 SetAccessibilityText(SamtykkeBottom_section, ConsentViewModel.CONSENT_SIX_PARAGRAPH);
+
+                TitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+                About_header.AccessibilityTraits = UIAccessibilityTrait.Header;
+                HowItWorks_header.AccessibilityTraits = UIAccessibilityTrait.Header;
+                SamtykkeBottom_header.AccessibilityTraits = UIAccessibilityTrait.Header;
             });
             
         }

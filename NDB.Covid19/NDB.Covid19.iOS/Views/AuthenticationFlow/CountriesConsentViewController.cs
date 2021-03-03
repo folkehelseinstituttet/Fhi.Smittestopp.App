@@ -38,6 +38,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             StyleUtil.InitButtonStyling(NextButtonWithEUConsent, EU_CONSENT_NEXT_EU_CONSENT_BUTTON_TEXT);
             StyleUtil.InitButtonStyling(NextButtonOnlyNorwayConsent, EU_CONSENT_NEXT_ONLY_NORWAY_CONSENT_BUTTON_TEXT);
 
+            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+            ShareHeader.AccessibilityTraits = UIAccessibilityTrait.Header;
+
             SetupStyling();
 
         }

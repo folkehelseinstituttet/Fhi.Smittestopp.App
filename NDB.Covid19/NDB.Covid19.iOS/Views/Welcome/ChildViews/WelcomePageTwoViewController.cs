@@ -45,6 +45,7 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 
         void SetAccessibility()
         {
+            PageTitle.AccessibilityTraits = UIAccessibilityTrait.Header;
             PageTitle.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(WelcomeViewModel.WELCOME_PAGE_TWO_TITLE);
             BodyText1.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(WelcomeViewModel.WELCOME_PAGE_TWO_BODY_ONE);
         }
