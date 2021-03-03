@@ -25,21 +25,6 @@ namespace NDB.Covid19.ViewModels
             return $"V{appInfo.VersionString} B{appInfo.BuildString} A{Conf.APIVersion} {GetPartialUrlFromConf()} ";
         }
 
-        /// <summary>
-        /// Opens the accessibility statement in an in-app browser.
-        /// </summary>
-        public static void OpenAccessibilityStatementLink()
-        {
-            try
-            {
-                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_URL);
-            }
-            catch (Exception e)
-            {
-                LogUtils.LogException(LogSeverity.ERROR, e, "Failed to open accessibility statement");
-            }
-        }
-
         /// <returns>The environment the app runs against to be displayed in the "About" page</returns>
         private static string GetPartialUrlFromConf()
         {

@@ -48,21 +48,6 @@ namespace NDB.Covid19.ViewModels
             OkBtnTxt = "SETTINGS_GENERAL_DIALOG_OK".Translate()
         };
 
-        /// <summary>
-        /// Opens the link in an in-app browser.
-        /// </summary>
-        public static void OpenSmitteStopLink()
-        {
-            try
-            {
-                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(SETTINGS_GENERAL_MORE_INFO_LINK);
-            }
-            catch (Exception e)
-            {
-                LogUtils.LogException(Enums.LogSeverity.ERROR, e, "Failed to open link on general settings page");
-            }
-        }
-
         public bool GetStoredCheckedState() => LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
 
         public void OnCheckedChange(bool isChecked) => LocalPreferencesHelper.SetIsDownloadWithMobileDataEnabled(isChecked);
