@@ -3,6 +3,8 @@ using NDB.Covid19.ViewModels;
 using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.ViewModels.DailyNumbersViewModel;
+using Foundation;
+using NDB.Covid19.iOS.Views.CustomSubclasses;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {
@@ -85,7 +87,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersTitleOne.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersLbl, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 20, 36);
-			StyleUtil.InitLabelWithSpacing(DailyNumbersOfTheDayTextLbl, StyleUtil.FontType.FontRegular, LastUpdateStringSubHeader, 1.14, 12, 14);
+			SetupSubTextWithLink(LastUpdateStringSubHeader, DailyNumbersOfTheDayTextLbl);
+			DailyNumbersOfTheDayTextLbl.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature1Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_ONE_LABEL, 1.14, 16, 18);
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber1Lbl, StyleUtil.FontType.FontRegular, ConfirmedCasesTotal, 1.14, 12, 14);
@@ -112,8 +115,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			KeyFeature7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 20, 36);
+			SetupSubTextWithLink(LastUpdateStringSubTextTwo, DailyNumbersSubtextTwo);
+			DailyNumbersSubtextTwo.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
 			DailyNumbersTitleTwo.AccessibilityTraits = UIAccessibilityTrait.Header;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersSubtextTwo, StyleUtil.FontType.FontRegular, LastUpdateStringSubTextTwo, 1.14, 12, 14);
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18);
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseOneTotal, 1.14, 12, 14);
@@ -126,8 +130,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			TotalDailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleThree, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_THREE, 1.14, 20, 36);
+			SetupSubTextWithLink(LastUpdateStringSubSubHeader, DailyNumbersSubSubHeader);
+			DailyNumbersSubSubHeader.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
 			DailyNumbersTitleThree.AccessibilityTraits = UIAccessibilityTrait.Header;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersSubSubHeader, StyleUtil.FontType.FontRegular, LastUpdateStringSubSubHeader, 1.14, 12, 14);
 
 			//Setting up accessibility grouping
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;
@@ -147,6 +152,27 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		{
 			NavigationController.PopViewController(true);
 			NavigationHelper.GoToResultPage(this, false);
+		}
+
+		private void SetupSubTextWithLink(string text, UITextView textView)
+		{
+			// Necessary to unify horizontal alignment with the rest of the text on the page
+			textView.TextContainerInset = UIEdgeInsets.Zero;
+			textView.TextContainer.LineFragmentPadding = 0;
+
+			//Defining attibutes inorder to format the embedded link
+			NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.HTML };
+			documentAttributes.StringEncoding = NSStringEncoding.UTF8;
+			NSError error = null;
+			NSAttributedString attributedString = new NSAttributedString(NSData.FromString(text, NSStringEncoding.UTF8), documentAttributes, ref error);
+
+			//Ensuring text is resiezed correctly when font size is increased
+			StyleUtil.InitTextViewWithSpacingAndUrl(textView, StyleUtil.FontType.FontRegular, attributedString, 1.28, 16, 22);
+
+			textView.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+
+			//ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
+			textView.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 		}
 	}
 }
