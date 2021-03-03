@@ -15,6 +15,7 @@
 		<RelativeLayout
 			android:id="@+id/daily_numbers_close_cross_btn"
 			android:layout_width="48dp"
+			android:accessibilityTraversalAfter="@id/daily_numbers_positive_shared_total_text"
 			android:layout_height="48dp"
 			android:padding="12dp">
 
