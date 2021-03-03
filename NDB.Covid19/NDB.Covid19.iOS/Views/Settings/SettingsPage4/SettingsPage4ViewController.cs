@@ -49,6 +49,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
             HeaderLabel.SetAttributedText(SettingsPage4ViewModel.HEADER);
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
+            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+
             SetupStyling();
         }
 

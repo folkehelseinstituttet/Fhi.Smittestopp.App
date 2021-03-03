@@ -80,6 +80,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 
             Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
+            Header.AccessibilityTraits = UIAccessibilityTrait.Header;
+            ChooseLanguageHeaderLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
+
             //Implemented for correct voiceover due to Back button 
             BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
 
