@@ -113,9 +113,9 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
         private void GoToInfectionStatusActivity() => NavigationHelper.GoToResultPageAndClearTop(this);
 
-        private void SetupSubTextWithLink (TextView textView, string formatetText)
+        private void SetupSubTextWithLink (TextView textView, string formattedText)
         {
-            ISpanned formattedDescription = HtmlCompat.FromHtml(formatetText, HtmlCompat.FromHtmlModeLegacy);
+            ISpanned formattedDescription = HtmlCompat.FromHtml(formattedText, HtmlCompat.FromHtmlModeLegacy);
             textView.TextFormatted = formattedDescription;
             textView.ContentDescriptionFormatted = formattedDescription;
             textView.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
