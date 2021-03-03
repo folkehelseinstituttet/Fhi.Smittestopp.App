@@ -65,6 +65,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 OnMenubtnTapped(MenuIcon);
             }));
+            MenuLabel.IsAccessibilityElement = false;
            
             SetupStyling();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
