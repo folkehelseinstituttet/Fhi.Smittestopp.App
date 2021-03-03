@@ -36,6 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/arrow_back"
+                android:accessibilityTraversalBefore="@id/welcome_page_four_body_one"
                 style="@style/HeaderText"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
