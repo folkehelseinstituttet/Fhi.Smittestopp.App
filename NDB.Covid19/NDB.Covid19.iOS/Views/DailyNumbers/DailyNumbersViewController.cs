@@ -35,11 +35,15 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
 			SetStyling();
+
+			UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DailyNumbersTitleOne);
 		}
 
 		private void SetStyling()
 		{
+
 			// Set background color and corner radius for views
 			DailyNumbersView1.BackgroundColor = ColorHelper.PRIMARY_COLOR;
 			DailyNumbersView1.Layer.CornerRadius = 12;

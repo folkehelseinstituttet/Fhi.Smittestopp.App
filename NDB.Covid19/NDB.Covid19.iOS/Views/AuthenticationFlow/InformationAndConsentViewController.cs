@@ -54,6 +54,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             SetupStyling();
 
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, HeaderLabel);
+
         }
 
         public void SetupStyling()
