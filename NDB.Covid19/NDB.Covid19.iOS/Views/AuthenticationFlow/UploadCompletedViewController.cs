@@ -96,6 +96,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             CloseButton.AccessibilityLabel =
                 QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
             _learnMoreViewBtn.AccessibilityLabel = _viewModel.ReceipetPageReadMoreButtonAccessibility;
+
+            TitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+            BoxTitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
         }
 
         void OnLearnMoreBtnTapped(object sender, EventArgs e)

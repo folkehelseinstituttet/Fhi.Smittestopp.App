@@ -216,6 +216,23 @@ namespace NDB.Covid19.iOS.Utils
             label.TextAlignment = LayoutUtils.GetTextAlignment();
         }
 
+        public static void InitTextViewWithSpacingAndHTMLFormat(UITextView label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize)
+        {
+            NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.HTML };
+            documentAttributes.StringEncoding = NSStringEncoding.UTF8;
+            NSError error = null;
+            NSAttributedString attributedString = new NSAttributedString(NSData.FromString(rawText, NSStringEncoding.UTF8), documentAttributes, ref error);
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
+            paragraphStyle.LineHeightMultiple = new nfloat(lineHeight);
+            NSMutableAttributedString text = new NSMutableAttributedString(attributedString);
+            NSRange range = new NSRange(0, attributedString.Length);
+            text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
+            text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
+            label.AttributedText = text;
+            label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            label.TextAlignment = LayoutUtils.GetTextAlignment();
+        }
+
         /// <summary>
         /// Set maxFontSize for accessibility - large text and ensures embedded links are formatted correctly
         /// </summary>
