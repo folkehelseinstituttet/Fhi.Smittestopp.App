@@ -195,6 +195,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
         void InitPrivacyPolicyButton()
         {
             InitLinkButtonStyling(PrivacyPolicy, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
+            PrivacyPolicy.AccessibilityTraits = UIAccessibilityTrait.Link;
         }
 
         partial void PrivacyPolicy_TouchUpInside(UIButton sender)

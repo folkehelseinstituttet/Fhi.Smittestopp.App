@@ -109,6 +109,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             _gestureRecognizer = new UITapGestureRecognizer();
             _gestureRecognizer.AddTarget(() => OnSmittestopLinkButtonStackViewTapped(_gestureRecognizer));
             SmittestopLinkButtonStackView.AddGestureRecognizer(_gestureRecognizer);
+            SmittestopLinkButtonStackView.AccessibilityTraits = UIAccessibilityTrait.Link;
         }
 
         void SetupRadioButtons()
