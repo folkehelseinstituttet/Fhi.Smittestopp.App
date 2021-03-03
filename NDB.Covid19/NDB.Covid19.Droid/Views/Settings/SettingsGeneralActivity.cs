@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.V4.Content;
@@ -65,6 +66,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             mobileDataHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             languageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
+            linkLayout.PaintFlags = linkLayout.PaintFlags | PaintFlags.UnderlineText;
             linkLayout.Click +=
                 new StressUtils.SingleClick(
                     (o, args) => OpenSmitteStopLink()).Run;
