@@ -163,21 +163,21 @@ namespace NDB.Covid19.PersistedData
         {
             public static void UpdateAll(DailyNumbersDTO dto)
             {
-                FHILastUpdateDateTime = dto.FHIStatistics.EntryDate;
-                FHIConfirmedCasesToday = dto.FHIStatistics.ConfirmedCasesToday;
-                FHIConfirmedCasesTotal = dto.FHIStatistics.ConfirmedCasesTotal;
-                FHITestsConductedToday = dto.FHIStatistics.TestsConductedToday;
-                FHITestsConductedTotal = dto.FHIStatistics.TestsConductedTotal;
-                FHIPatientsAdmittedToday = dto.FHIStatistics.PatientsAdmittedToday;
-                FHIPatientsIntensiveCare = dto.FHIStatistics.PatientsIntensiveCare;
-                FHIVaccinationsDoseOneToday = dto.FHIStatistics.VaccinationsDoseOneToday;
-                FHIVaccinationsDoseTwoToday = dto.FHIStatistics.VaccinationsDoseTwoToday;
-                FHIVaccinationsDoseOneTotal = dto.FHIStatistics.VaccinationsDoseOneTotal;
-                FHIVaccinationsDoseTwoTotal = dto.FHIStatistics.VaccinationsDoseTwoTotal;
-                APPNumberOfPositiveTestsResultsLast7Days = dto.AppStatistics.NumberOfPositiveTestsResultsLast7Days;
-                APPNumberOfPositiveTestsResultsTotal = dto.AppStatistics.NumberOfPositiveTestsResultsTotal;
-                APPSmittestopDownloadsTotal = dto.AppStatistics.SmittestoppDownloadsTotal;
-                APPDownloadNumberLastUpdateDateTime = dto.AppStatistics.EntryDate;
+                FHILastUpdateDateTime = dto.SSIStatistics.Date;
+                FHIConfirmedCasesToday = dto.SSIStatistics.ConfirmedCasesToday;
+                FHIConfirmedCasesTotal = dto.SSIStatistics.ConfirmedCasesTotal;
+                FHITestsConductedToday = dto.SSIStatistics.TestsConductedToday;
+                FHITestsConductedTotal = dto.SSIStatistics.TestsConductedTotal;
+                FHIPatientsAdmittedToday = dto.SSIStatistics.PatientsAdmittedToday;
+                FHIPatientsIntensiveCare = dto.SSIStatistics.PatientsIntensiveCare;
+                FHIVaccinationsDoseOneToday = dto.SSIStatistics.VaccinationsDoseOneToday;
+                FHIVaccinationsDoseTwoToday = dto.SSIStatistics.VaccinationsDoseTwoToday;
+                FHIVaccinationsDoseOneTotal = dto.SSIStatistics.VaccinatedFirstDose;
+                FHIVaccinationsDoseTwoTotal = dto.SSIStatistics.VaccinatedSecondDose;
+                APPNumberOfPositiveTestsResultsLast7Days = dto.ApplicationStatistics.PositiveTestsResultsLast7Days;
+                APPNumberOfPositiveTestsResultsTotal = dto.ApplicationStatistics.PositiveTestsResultsTotal;
+                APPSmittestopDownloadsTotal = dto.ApplicationStatistics.SmittestopDownloadsTotal;
+                APPDownloadNumberLastUpdateDateTime = dto.ApplicationStatistics.EntryDate;
                 HasNeverSuccessfullyFetchedFHIData = false;
             }
 

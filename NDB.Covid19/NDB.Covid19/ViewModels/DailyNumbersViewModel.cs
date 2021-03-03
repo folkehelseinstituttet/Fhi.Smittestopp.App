@@ -66,36 +66,9 @@ namespace NDB.Covid19.ViewModels
         {
             try
             {
-                // TODO: Uncomment when backend is ready
-                //DailyNumbersDTO fhiData = await (WebService ?? new DailyNumbersWebService()).GetFHIData();
-                // Sample data for developer convenience. TODO: Delete when backend is ready.
-                DailyNumbersDTO fhiData = new DailyNumbersDTO
-                {
-                    FHIStatistics = new FHIStatisticsDTO
-                    {
-                        ConfirmedCasesToday = 10,
-                        ConfirmedCasesTotal = 123,
-                        TestsConductedToday = 396,
-                        TestsConductedTotal = 3095,
-                        EntryDate = DateTime.Now,
-                        PatientsAdmittedToday = 44,
-                        PatientsIntensiveCare = 2,
-                        VaccinationsDoseOneToday = 1230,
-                        VaccinationsDoseTwoToday = 143,
-                        VaccinationsDoseOneTotal = 50477,
-                        VaccinationsDoseTwoTotal = 148
+                DailyNumbersDTO fhiData = await (WebService ?? new DailyNumbersWebService()).GetFHIData();
 
-                    },
-                    AppStatistics = new AppStatisticsDTO
-                    {
-                        EntryDate = DateTime.Now,
-                        NumberOfPositiveTestsResultsLast7Days = 33,
-                        NumberOfPositiveTestsResultsTotal = 359,
-                        SmittestoppDownloadsTotal = 159000
-                    }
-                };
-
-                if (fhiData?.FHIStatistics == null || fhiData.AppStatistics == null)
+                if (fhiData?.SSIStatistics == null || fhiData.ApplicationStatistics == null)
                 {
                     return false;
                 }
