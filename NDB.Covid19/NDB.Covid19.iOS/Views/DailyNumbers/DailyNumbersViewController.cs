@@ -84,6 +84,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			// Labels not dependable on device width
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleOne, StyleUtil.FontType.FontBold, DAILY_NUMBERS_HEADER, 1.14, 30, 36);
+			DailyNumbersTitleOne.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersLbl, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 20, 36);
 			SetupSubTextWithLink(LastUpdateStringSubHeader, DailyNumbersOfTheDayTextLbl);
@@ -116,6 +117,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 20, 36);
 			SetupSubTextWithLink(LastUpdateStringSubTextTwo, DailyNumbersSubtextTwo);
 			DailyNumbersSubtextTwo.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
+			DailyNumbersTitleTwo.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18);
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseOneTotal, 1.14, 12, 14);
@@ -130,6 +132,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleThree, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_THREE, 1.14, 20, 36);
 			SetupSubTextWithLink(LastUpdateStringSubSubHeader, DailyNumbersSubSubHeader);
 			DailyNumbersSubSubHeader.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
+			DailyNumbersTitleThree.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			//Setting up accessibility grouping
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;
@@ -142,7 +145,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
 
 			//Implemented for correct voiceover due to smitte|stop, removing pronunciation of lodretstreg
-			KeyFeature5Lbl.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(KEY_FEATURE_SIX_LABEL);
+			KeyFeature5Lbl.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(KEY_FEATURE_FIVE_LABEL);
 		}
 
 		partial void BackButton_tapped(UIButton sender)

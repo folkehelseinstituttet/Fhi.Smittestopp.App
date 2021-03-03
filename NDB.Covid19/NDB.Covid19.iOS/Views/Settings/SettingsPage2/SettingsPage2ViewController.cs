@@ -51,12 +51,19 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             InitLabel(Paragraph4Label1, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT, 16, 20);
             InitLabel(Paragraph4Label2, FontType.FontRegular, SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2, 16, 20);
 
+            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+            Header1Label.AccessibilityTraits = UIAccessibilityTrait.Header;
+            Header2Label.AccessibilityTraits = UIAccessibilityTrait.Header;
+            Header3Label.AccessibilityTraits = UIAccessibilityTrait.Header;
+            Header4Label.AccessibilityTraits = UIAccessibilityTrait.Header;
+
             NSMutableAttributedString text = new NSMutableAttributedString();
             text.Append(ApplyStylingToText(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3, FontType.FontRegular));
             // Necessary to unify horizontal alignment with the rest of the text on the page
             Paragraph4Label3.TextContainerInset = UIEdgeInsets.Zero;
             Paragraph4Label3.TextContainer.LineFragmentPadding = 0;
 
+            Paragraph4Label3.AccessibilityTraits = UIAccessibilityTrait.Link;
             Paragraph4Label3.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             Paragraph4Label3.AttributedText = text;
             Paragraph4Label3.WeakLinkTextAttributes =
