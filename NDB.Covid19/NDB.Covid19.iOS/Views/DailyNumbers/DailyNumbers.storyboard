@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="58" width="414" height="804"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B08-7x-rTa" userLabel="Top Area Stack View">
-                                        <rect key="frame" x="24" y="0.0" width="366" height="75"/>
+                                        <rect key="frame" x="24" y="0.0" width="366" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-4b-Fab">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="75"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auF-jy-0zC">
                                                         <rect key="frame" x="316" y="0.0" width="50" height="50"/>
@@ -54,10 +54,10 @@
                                         </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ie-jCB">
-                                        <rect key="frame" x="0.0" y="75" width="414" height="729"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="754"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
-                                                <rect key="frame" x="24" y="16" width="366" height="967.5"/>
+                                                <rect key="frame" x="24" y="0.0" width="366" height="967.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaC-xD-iec" userLabel="Daily Numbers Title One">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
@@ -448,7 +448,7 @@
                                         <constraints>
                                             <constraint firstItem="DPV-nx-bUd" firstAttribute="leading" secondItem="KfL-Ie-jCB" secondAttribute="leading" constant="24" id="Mgk-UM-uth"/>
                                             <constraint firstAttribute="bottom" secondItem="DPV-nx-bUd" secondAttribute="bottom" constant="52" id="NsU-b2-etV"/>
-                                            <constraint firstItem="DPV-nx-bUd" firstAttribute="top" secondItem="KfL-Ie-jCB" secondAttribute="top" constant="16" id="O2h-UJ-tck"/>
+                                            <constraint firstItem="DPV-nx-bUd" firstAttribute="top" secondItem="KfL-Ie-jCB" secondAttribute="top" id="O2h-UJ-tck"/>
                                             <constraint firstItem="DPV-nx-bUd" firstAttribute="width" secondItem="KfL-Ie-jCB" secondAttribute="width" constant="-48" id="UBL-h4-G1g"/>
                                             <constraint firstAttribute="trailing" secondItem="DPV-nx-bUd" secondAttribute="trailing" constant="24" id="hcY-CN-NsV"/>
                                         </constraints>
@@ -457,7 +457,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="B08-7x-rTa" secondAttribute="trailing" constant="24" id="72255"/>
                                     <constraint firstItem="B08-7x-rTa" firstAttribute="leading" secondItem="F3O-a5-bV3" secondAttribute="leading" constant="24" id="72256"/>
-                                    <constraint firstItem="KfL-Ie-jCB" firstAttribute="height" secondItem="F3O-a5-bV3" secondAttribute="height" multiplier="0.937811" constant="-25" id="KDg-Vc-szD"/>
+                                    <constraint firstItem="KfL-Ie-jCB" firstAttribute="height" secondItem="F3O-a5-bV3" secondAttribute="height" multiplier="0.937811" id="KDg-Vc-szD"/>
                                     <constraint firstAttribute="trailing" secondItem="KfL-Ie-jCB" secondAttribute="trailing" id="R6a-X9-SmE"/>
                                     <constraint firstAttribute="bottom" secondItem="KfL-Ie-jCB" secondAttribute="bottom" id="WnF-S4-O1S"/>
                                     <constraint firstItem="B08-7x-rTa" firstAttribute="width" relation="lessThanOrEqual" secondItem="F3O-a5-bV3" secondAttribute="width" id="YKh-TK-HBt"/>
