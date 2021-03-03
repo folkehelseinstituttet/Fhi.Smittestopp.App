@@ -82,6 +82,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			// Labels not dependable on device width
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleOne, StyleUtil.FontType.FontBold, DAILY_NUMBERS_HEADER, 1.14, 30, 36);
+			DailyNumbersTitleOne.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersLbl, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 20, 36);
 			StyleUtil.InitLabelWithSpacing(DailyNumbersOfTheDayTextLbl, StyleUtil.FontType.FontRegular, LastUpdateStringSubHeader, 1.14, 12, 14);
@@ -111,6 +112,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			KeyFeature7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 20, 36);
+			DailyNumbersTitleTwo.AccessibilityTraits = UIAccessibilityTrait.Header;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersSubtextTwo, StyleUtil.FontType.FontRegular, LastUpdateStringSubTextTwo, 1.14, 12, 14);
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18);
@@ -124,6 +126,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			TotalDailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleThree, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_THREE, 1.14, 20, 36);
+			DailyNumbersTitleThree.AccessibilityTraits = UIAccessibilityTrait.Header;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersSubSubHeader, StyleUtil.FontType.FontRegular, LastUpdateStringSubSubHeader, 1.14, 12, 14);
 
 			//Setting up accessibility grouping

@@ -91,6 +91,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
         void SetAccessibility()
         {
+            TitleLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
             ListExplainLbl.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_FOOTER);
             CloseButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
         }
