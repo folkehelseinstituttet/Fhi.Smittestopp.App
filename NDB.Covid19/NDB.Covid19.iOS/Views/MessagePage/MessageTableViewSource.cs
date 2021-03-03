@@ -32,6 +32,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             cell.ContentView.Subviews[0].ClipsToBounds = true;
             cell.SelectionStyle = UITableViewCellSelectionStyle.None;
             cell.Update(model);
+            cell.AccessibilityTraits = UIAccessibilityTrait.Link;
             return cell;
         }
 

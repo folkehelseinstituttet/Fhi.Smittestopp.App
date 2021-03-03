@@ -31,7 +31,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             ContentText.ContentInset = UIEdgeInsets.Zero;
             ContentText.TextContainerInset = UIEdgeInsets.Zero;
             ContentText.TextContainer.LineFragmentPadding = 0;
-
+            ContentText.AccessibilityTraits = UIAccessibilityTrait.Link;
             ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             
             //ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
@@ -51,6 +51,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
         private void InitAccessibilityStatementButton()
         {
             InitLinkButtonStyling(AccessibilityStatementButton, SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT);
+            AccessibilityStatementButton.AccessibilityTraits = UIAccessibilityTrait.Link;
         }
 
         private void SetupStyling()

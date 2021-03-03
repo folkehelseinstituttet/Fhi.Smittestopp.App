@@ -40,6 +40,7 @@ namespace NDB.Covid19.ViewModels
             }
         }
 
+
         /// <returns>The environment the app runs against to be displayed in the "About" page</returns>
         private static string GetPartialUrlFromConf()
         {

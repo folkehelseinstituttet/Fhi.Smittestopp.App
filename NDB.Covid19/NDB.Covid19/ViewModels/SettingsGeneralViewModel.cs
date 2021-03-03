@@ -63,6 +63,7 @@ namespace NDB.Covid19.ViewModels
             }
         }
 
+
         public bool GetStoredCheckedState() => LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled();
 
         public void OnCheckedChange(bool isChecked) => LocalPreferencesHelper.SetIsDownloadWithMobileDataEnabled(isChecked);

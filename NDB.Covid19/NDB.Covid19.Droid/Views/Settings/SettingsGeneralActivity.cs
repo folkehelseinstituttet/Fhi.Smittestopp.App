@@ -5,6 +5,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.V4.Content;
+using Android.Support.V4.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
@@ -58,7 +59,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             mobileDataDesc.Text = SETTINGS_GENERAL_MOBILE_DATA_DESC;
             languageHeader.Text = SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER;
             languageDesc.Text = SETTINGS_GENERAL_RESTART_REQUIRED_TEXT;
-            languageLink.Text = SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT;
             languageLink.TextAlignment = TextAlignment.ViewStart;
             languageLink.ContentDescription = SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT;
 
@@ -66,10 +66,8 @@ namespace NDB.Covid19.Droid.Views.Settings
             mobileDataHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             languageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
-            linkLayout.PaintFlags = linkLayout.PaintFlags | PaintFlags.UnderlineText;
-            linkLayout.Click +=
-                new StressUtils.SingleClick(
-                    (o, args) => OpenSmitteStopLink()).Run;
+            languageLink.TextFormatted = HtmlCompat.FromHtml($"<a href=\"{SETTINGS_GENERAL_MORE_INFO_LINK}\">{SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT}</a>", HtmlCompat.FromHtmlModeLegacy);
+            languageLink.MovementMethod = new Android.Text.Method.LinkMovementMethod();
 
             RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.settings_general_select_lang_radio_group);
             RadioButton englishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_english);
