@@ -39,6 +39,8 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 			ErrorTitleLabel.Text = ErrorTitle;
 			ErrorTitleLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
+			ErrorTitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+
 			NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes
 			{
 				DocumentType = NSDocumentType.HTML,

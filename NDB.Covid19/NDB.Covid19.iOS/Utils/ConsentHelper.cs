@@ -54,6 +54,7 @@ namespace NDB.Covid19.iOS.Utils
                     };
 
                     InitLabel(titleLbl, FontType.FontBold, obj.Title, 16, 22);
+                    titleLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
 
                     stackView.AddArrangedSubview(titleLbl);
                 }

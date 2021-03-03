@@ -21,6 +21,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             string contentText = SettingsPage5ViewModel.SETTINGS_PAGE_5_CONTENT + " " + SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK;
 
             HeaderLabel.SetAttributedText(SettingsPage5ViewModel.SETTINGS_PAGE_5_HEADER);
+            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
 
             InitTextViewWithSpacing(ContentText, FontType.FontRegular, contentText, 1.28, 16, 22);
 
