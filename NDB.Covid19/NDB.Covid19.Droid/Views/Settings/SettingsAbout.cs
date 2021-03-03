@@ -38,7 +38,8 @@ namespace NDB.Covid19.Droid.Views.Settings
             titleField.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_HEADER;
             titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             textField.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_CONTENT +
-                             $" {SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK}";
+                             $"\n {SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK}";
+            textField.TextAlignment = TextAlignment.ViewStart;
 
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
 
