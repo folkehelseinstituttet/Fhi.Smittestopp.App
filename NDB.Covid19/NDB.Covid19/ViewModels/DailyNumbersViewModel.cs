@@ -33,9 +33,11 @@ namespace NDB.Covid19.ViewModels
         public static string KEY_FEATURE_SEVEN_LABEL => "KEY_FEATURE_SEVEN_LABEL".Translate();
         public static string KEY_FEATURE_SEVEN_UPDATE_ALL => "KEY_FEATURE_SEVEN_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_NINE_LABEL => "KEY_FEATURE_NINE_LABEL".Translate();
+        public static string KEY_FEATURE_NINE_ACCESSIBILITY_LABEL => "KEY_FEATURE_NINE_ACCESSIBILITY_LABEL".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_NEW => "KEY_FEATURE_NINE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_ALL => "KEY_FEATURE_NINE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_TEN_LABEL => "KEY_FEATURE_TEN_LABEL".Translate();
+        public static string KEY_FEATURE_TEN_ACCESSIBILITY_LABEL => "KEY_FEATURE_TEN_ACCESSIBILITY_LABEL".Translate();
         public static string KEY_FEATURE_TEN_UPDATE_NEW => "KEY_FEATURE_TEN_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_TEN_UPDATE_ALL => "KEY_FEATURE_TEN_UPDATE_ALL".Translate();
         public static string DAILY_NUMBERS_SUBSUBHEADER => "DAILY_NUMBERS_SUBSUBHEADER".Translate();
