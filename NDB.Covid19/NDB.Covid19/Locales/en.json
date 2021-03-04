@@ -112,6 +112,7 @@
   "DAILY_NUMBERS_SUBTEXT_TWO": "The number of vaccinations was last updated on {0} at {1}. Source:  <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">Norwegian Institute of Public Health</a>.",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
   "DAILY_NUMBERS_SUBSUBHEADER": "Smittestopp numbers were last updated {0} at {1}. Read about the numbers at <a href=\"https://smittestopp.no/dagenstall/\">www.smittestopp.no/dagenstall</a>",
+  "DAILY_NUMBERS_ACCESSIBILITY_BACK_BUTTON": "Back",
   "KEY_FEATURE_ONE_UPDATE_NEW": "{0}",
   "KEY_FEATURE_ONE_UPDATE_ALL": "Total: {0}",
   "KEY_FEATURE_ONE_LABEL": "Confirmed cases",

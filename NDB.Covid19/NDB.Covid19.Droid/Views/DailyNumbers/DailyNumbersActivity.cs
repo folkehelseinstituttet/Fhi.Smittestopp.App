@@ -23,7 +23,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
     public class DailyNumbersActivity : AppCompatActivity
     {
         private static readonly DailyNumbersViewModel ViewModel;
-        private ViewGroup _closeButton;
+        private ImageView _closeButton;
 
         static DailyNumbersActivity()
         {
@@ -102,10 +102,10 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
-            _closeButton = FindViewById<ViewGroup>(Resource.Id.daily_numbers_close_cross_btn);
+            _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
-            _closeButton.ContentDescription = MessagesViewModel.MESSAGES_ACCESSIBILITY_CLOSE_BUTTON;
-
+            _closeButton.ContentDescription = DAILY_NUMBERS_ACCESSIBILITY_BACK_BUTTON;
+            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
         private void OnCloseBtnClicked(object arg1, EventArgs arg2)
@@ -113,9 +113,9 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             GoToInfectionStatusActivity();
         }
 
-        public override void OnBackPressed() => GoToInfectionStatusActivity();
+        public override void OnBackPressed() => Finish();
 
-        private void GoToInfectionStatusActivity() => NavigationHelper.GoToResultPageAndClearTop(this);
+        private void GoToInfectionStatusActivity() => Finish();
 
         private void SetupSubTextWithLink (TextView textView, string formattedText)
         {

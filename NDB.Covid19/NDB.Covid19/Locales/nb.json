@@ -317,6 +317,7 @@
   "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på: www.fhi.no/om/smittestopp/tekster-pa-andre-sprak.",
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
+  "DAILY_NUMBERS_ACCESSIBILITY_BACK_BUTTON": "Tilbake",
   "DAILY_NUMBERS_HEADER": "Daglig oppdatering",
   "DAILY_NUMBERS_SUBHEADER": "Antallet bekreftede tilfeller, dødsfall, tester og innleggelser ble sist oppdatert den {0} klokka {1}. Kilde: Folkehelseinstituttet",
   "KEY_FEATURE_ONE_UPDATE_NEW": "+ {0}",
