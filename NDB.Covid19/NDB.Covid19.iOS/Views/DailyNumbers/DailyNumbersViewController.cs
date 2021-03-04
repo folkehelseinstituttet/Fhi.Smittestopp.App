@@ -37,7 +37,10 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
 			SetStyling();
+
+			UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DailyNumbersTitleOne);
 		}
 
 		private void SetStyling()
