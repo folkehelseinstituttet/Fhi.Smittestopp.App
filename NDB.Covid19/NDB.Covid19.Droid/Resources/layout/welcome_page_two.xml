@@ -19,6 +19,7 @@
                 android:id="@+id/arrow_back"
                 android:layout_width="@dimen/backButton"
                 android:layout_height="@dimen/backButton"
+                android:accessibilityTraversalAfter="@id/buttonGetStarted"
                 android:background="@drawable/ic_circle_arrow_left"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBaseline_toBaselineOf="@id/welcome_page_two_title"

@@ -19,6 +19,7 @@
                 android:layout_width="@dimen/backButton"
                 android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
+                android:accessibilityTraversalAfter="@id/settings_general_link"
                 android:clickable="true"
                 android:focusable="true"
                 app:layout_constraintBaseline_toBaselineOf="@id/settings_general_title"
