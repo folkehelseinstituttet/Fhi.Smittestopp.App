@@ -16,11 +16,7 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
         {
             base.ViewDidLoad();
             SetTexts();
-
-            PageTitle.AccessibilityLabel = WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_TWO;
-            PageTitle.AccessibilityValue = WelcomeViewModel.WELCOME_PAGE_TWO_TITLE;
-            PageTitle.AccessibilityTraits = UIAccessibilityTrait.Header;
-            BodyText1.AccessibilityLabel = WelcomeViewModel.WELCOME_PAGE_TWO_ACCESSIBILITY_BODY_ONE;
+            SetAccessibility();
 
             UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, PageTitle);
             BackArrow.Hidden = !LocalPreferencesHelper.IsOnboardingCompleted;
@@ -43,6 +39,14 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
             InitTitle(PageTitle, WelcomeViewModel.WELCOME_PAGE_TWO_TITLE);
             InitBodyText(BodyText1, WelcomeViewModel.WELCOME_PAGE_TWO_BODY_ONE);
             InitBodyText(BodyText2, WelcomeViewModel.WELCOME_PAGE_TWO_BODY_TWO);
+        }
+
+        void SetAccessibility()
+        {
+            PageTitle.AccessibilityLabel = WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_TWO;
+            PageTitle.AccessibilityValue = WelcomeViewModel.WELCOME_PAGE_TWO_TITLE;
+            PageTitle.AccessibilityTraits = UIAccessibilityTrait.Header;
+            BodyText1.AccessibilityLabel = WelcomeViewModel.WELCOME_PAGE_TWO_ACCESSIBILITY_BODY_ONE;
         }
     }
 }
