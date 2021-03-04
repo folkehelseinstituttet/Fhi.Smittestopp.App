@@ -48,7 +48,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
                 return;
             }
 
-            _pages = new List<AndroidX.Fragment.App.Fragment>(new AndroidX.Fragment.App.Fragment[] { _welcomePageOne, _welcomePageTwo, _welcomePageFour, _welcomePageThree });
+            _pages = new List<AndroidX.Fragment.App.Fragment>(new AndroidX.Fragment.App.Fragment[] { _welcomePageOne, _welcomePageTwo, _welcomePageThree, _welcomePageFour });
             _numPages = _pages.Count;
 
             SetContentView(Resource.Layout.welcome);
