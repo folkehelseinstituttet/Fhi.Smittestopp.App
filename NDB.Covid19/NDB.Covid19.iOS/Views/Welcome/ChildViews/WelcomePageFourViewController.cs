@@ -37,6 +37,8 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
         {
             InitTitle(PageTitle, WelcomeViewModel.WELCOME_PAGE_FOUR_TITLE);
             PageTitle.AccessibilityTraits = UIAccessibilityTrait.Header;
+            PageTitle.AccessibilityLabel = WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_FOUR;
+            PageTitle.AccessibilityValue = WelcomeViewModel.WELCOME_PAGE_FOUR_TITLE;
             InitBodyText(Label1, WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_ONE);
             InitBodyText(Label2, WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_TWO);
             InitBodyText(Label3, WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_THREE);

@@ -146,6 +146,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			PatientsAdmitted_StackView.ShouldGroupAccessibilityChildren = true;
 			TotalDownloads_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfPositiveResults_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose1_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose2_StackView.ShouldGroupAccessibilityChildren = true;
 
 			// Back button styling and accessibility
 			BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
