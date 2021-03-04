@@ -44,15 +44,10 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
             TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
             _dailyNumbersSubHeaderStatistics.Text = DAILY_NUMBERS_TITLE_ONE;
-            FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview).Text = LastUpdateStringSubHeader;
-            TextView diseaseRateSubSub = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
-
-            ISpanned formattedDescription = HtmlCompat.FromHtml(LastUpdateStringSubSubHeader, HtmlCompat.FromHtmlModeLegacy);
-            diseaseRateSubSub.TextFormatted = formattedDescription;
-            diseaseRateSubSub.ContentDescriptionFormatted = formattedDescription;
-            diseaseRateSubSub.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
-            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.primaryText));
-            diseaseRateSubSub.SetLinkTextColor(linkColor);
+            TextView _dailyNumbersSubTextStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview);
+            TextView _dailyNumbersSubTextSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
+            SetupSubTextWithLink(_dailyNumbersSubTextStatistics, LastUpdateStringSubHeader);
+            SetupSubTextWithLink(_dailyNumbersSubTextSmittestopp, LastUpdateStringSubSubHeader);
 
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text).Text = KEY_FEATURE_ONE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_number_text).Text = ConfirmedCasesToday;
@@ -71,7 +66,8 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             TextView _dailyNumbersSubHeaderVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_header_textView);
             _dailyNumbersSubHeaderVaccinations.Text = DAILY_NUMBERS_TITLE_TWO;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview).Text = LastUpdateStringSubTextTwo;
+            TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview);
+            SetupSubTextWithLink(_dailyNumbersSubTextVaccinations, LastUpdateStringSubTextTwo);
 
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text).Text = KEY_FEATURE_NINE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_number_text).Text = VaccinationsDoseOneToday;
@@ -116,6 +112,16 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         public override void OnBackPressed() => GoToInfectionStatusActivity();
 
         private void GoToInfectionStatusActivity() => NavigationHelper.GoToResultPageAndClearTop(this);
+
+        private void SetupSubTextWithLink (TextView textView, string formattedText)
+        {
+            ISpanned formattedDescription = HtmlCompat.FromHtml(formattedText, HtmlCompat.FromHtmlModeLegacy);
+            textView.TextFormatted = formattedDescription;
+            textView.ContentDescriptionFormatted = formattedDescription;
+            textView.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
+            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.primaryText));
+            textView.SetLinkTextColor(linkColor);
+        }
 
     }
 }

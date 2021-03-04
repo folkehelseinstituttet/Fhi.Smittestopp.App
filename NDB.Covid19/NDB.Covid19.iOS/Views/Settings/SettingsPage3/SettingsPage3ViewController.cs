@@ -53,7 +53,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
                 ConsentViewModel.OpenPrivacyPolicyLink();
             };
 
-
+            _privacyPolicyButton.AccessibilityTraits = UIAccessibilityTrait.Link;
             StyleUtil.InitLinkButtonStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
         }
 

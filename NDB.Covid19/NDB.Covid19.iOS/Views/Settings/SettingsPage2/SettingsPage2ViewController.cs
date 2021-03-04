@@ -63,6 +63,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             Paragraph4Label3.TextContainerInset = UIEdgeInsets.Zero;
             Paragraph4Label3.TextContainer.LineFragmentPadding = 0;
 
+            Paragraph4Label3.AccessibilityTraits = UIAccessibilityTrait.Link;
             Paragraph4Label3.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             Paragraph4Label3.AttributedText = text;
             Paragraph4Label3.WeakLinkTextAttributes =

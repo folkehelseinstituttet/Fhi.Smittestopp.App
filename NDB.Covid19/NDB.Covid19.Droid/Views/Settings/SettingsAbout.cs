@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Support.V4.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
@@ -37,7 +38,8 @@ namespace NDB.Covid19.Droid.Views.Settings
             titleField.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_HEADER;
             titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             textField.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_CONTENT +
-                             $" {SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK}";
+                             $"\n {SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK}";
+            textField.TextAlignment = TextAlignment.ViewStart;
 
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
 
@@ -45,20 +47,13 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             LinkUtil.LinkifyTextView(hiddenLink);
 
-            Button accessibilityStatementBtn = FindViewById<Button>(Resource.Id.accessibility_statement_btn);
-            accessibilityStatementBtn.Text = SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT;
-            accessibilityStatementBtn.PaintFlags = accessibilityStatementBtn.PaintFlags | Android.Graphics.PaintFlags.UnderlineText;
-            accessibilityStatementBtn.Click += AccessibilityStatementBtn_Click;
-
+            TextView accessibilityStatementLink = FindViewById<TextView>(Resource.Id.accessibility_statement_btn);
+            accessibilityStatementLink.TextFormatted = HtmlCompat.FromHtml($"<a href=\"{SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_URL}\">{SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT}</a>", HtmlCompat.FromHtmlModeLegacy);
+            accessibilityStatementLink.MovementMethod = new Android.Text.Method.LinkMovementMethod();
 
             View rootView = Window.DecorView.RootView;
             rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
             backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
-        }
-
-        private void AccessibilityStatementBtn_Click(object sender, EventArgs e)
-        {
-            SettingsPage5ViewModel.OpenAccessibilityStatementLink();
         }
     }
 }
