@@ -36,119 +36,119 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/consent_info"/>
-        </LinearLayout>
-    </ScrollView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/checkbox_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/backgroundColor"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:elevation="@dimen/cardview_default_elevation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-		<LinearLayout
-			android:id="@+id/welcome_page_five_consent_warning"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:background="#FADC5D"
-			android:gravity="center_vertical"
-			android:orientation="horizontal"
-			android:paddingTop="30dp"
-			android:paddingBottom="30dp"
-			android:paddingLeft="54dp"
-			android:paddingRight="54dp"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent">
-
-			<TextView
-				android:id="@+id/welcome_page_five_consent_warning_text"
-				style="@style/PrimaryText"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center_vertical"
-				android:gravity="center_vertical"
-				android:text="Warning"
-				android:textColor="#323234"
-                android:textSize="10pt" />
-		</LinearLayout>
-
-		<LinearLayout
-			android:id="@+id/switchbar"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:layout_gravity="center"
-			android:orientation="horizontal"
-			android:paddingStart="32dp"
-			android:paddingTop="8dp"
-			android:paddingEnd="32dp"
-			android:paddingBottom="6dp"
-			app:layout_constraintBottom_toTopOf="@id/buttons"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintEnd_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@id/welcome_page_five_consent_warning">
-
-			<TextView
-				android:id="@+id/welcome_page_five_switch_text"
-				style="@style/ExplanationTextHeader"
-                android:paddingRight="16dp"
-				android:gravity="center"
-				android:layout_gravity="center_vertical"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:importantForAccessibility="no"
-				android:text="Consent" />
-
-			<androidx.appcompat.widget.SwitchCompat
-				android:id="@+id/welcome_page_five_switch"
-                android:paddingLeft="16dp"
-                android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:buttonTint="#1AB759"
-				android:gravity="center"
-				android:layout_gravity="center_vertical"
-				android:importantForAccessibility="yes"
-				android:thumb="@drawable/ic_thumb_selector"
-				app:track="@drawable/ic_track_selector"
-
-                />
-
-		</LinearLayout>
-
-        <LinearLayout
-                android:id="@+id/buttons"
-                android:orientation="horizontal"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/checkbox_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"
+                android:background="@color/backgroundColor"
+                android:gravity="center"
+                android:layout_gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/switchbar">
+                app:layout_constraintStart_toStartOf="parent">
 
-            <Button
-                    android:layout_weight="1"
-                    android:id="@+id/welcome_page_five_prev_button"
-                    style="@style/SecondaryButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Prev"/>
+		        <LinearLayout
+			        android:id="@+id/welcome_page_five_consent_warning"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:background="#FADC5D"
+			        android:gravity="center_vertical"
+			        android:orientation="horizontal"
+			        android:paddingTop="30dp"
+			        android:paddingBottom="30dp"
+			        android:paddingLeft="54dp"
+			        android:paddingRight="54dp"
+			        app:layout_constraintEnd_toEndOf="parent"
+			        app:layout_constraintStart_toStartOf="parent"
+			        app:layout_constraintTop_toTopOf="parent">
 
-            <Button
-                    android:layout_weight="1"
-                    android:id="@+id/welcome_page_five_button_next"
-                    style="@style/DefaultButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Next"/>
+			        <TextView
+				        android:id="@+id/welcome_page_five_consent_warning_text"
+				        style="@style/PrimaryText"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:layout_gravity="center_vertical"
+				        android:gravity="center_vertical"
+				        android:text="Warning"
+				        android:textColor="#323234"
+                        android:textSize="10pt" />
+		        </LinearLayout>
+
+		        <LinearLayout
+			        android:id="@+id/switchbar"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:gravity="center"
+			        android:layout_gravity="center"
+			        android:orientation="horizontal"
+			        android:paddingStart="32dp"
+			        android:paddingTop="8dp"
+			        android:paddingEnd="32dp"
+			        android:paddingBottom="6dp"
+			        app:layout_constraintBottom_toTopOf="@id/buttons"
+			        app:layout_constraintEnd_toEndOf="parent"
+			        app:layout_constraintEnd_toStartOf="parent"
+			        app:layout_constraintTop_toBottomOf="@id/welcome_page_five_consent_warning">
+
+			        <TextView
+				        android:id="@+id/welcome_page_five_switch_text"
+				        style="@style/ExplanationTextHeader"
+                        android:paddingRight="16dp"
+				        android:gravity="center"
+				        android:layout_gravity="center_vertical"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:importantForAccessibility="no"
+				        android:text="Consent" />
+
+			        <androidx.appcompat.widget.SwitchCompat
+				        android:id="@+id/welcome_page_five_switch"
+                        android:paddingLeft="16dp"
+                        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:buttonTint="#1AB759"
+				        android:gravity="center"
+				        android:layout_gravity="center_vertical"
+				        android:importantForAccessibility="yes"
+				        android:thumb="@drawable/ic_thumb_selector"
+				        app:track="@drawable/ic_track_selector"
+
+                        />
+
+		        </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/buttons"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/switchbar">
+
+                    <Button
+                            android:layout_weight="1"
+                            android:id="@+id/welcome_page_five_prev_button"
+                            style="@style/SecondaryButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Prev"/>
+
+                    <Button
+                            android:layout_weight="1"
+                            android:id="@+id/welcome_page_five_button_next"
+                            style="@style/DefaultButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Next"/>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
