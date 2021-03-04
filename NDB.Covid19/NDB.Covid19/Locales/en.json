@@ -341,9 +341,11 @@
   "KEY_FEATURE_SEVEN_LABEL": "Intensive care unit",
   "KEY_FEATURE_SEVEN_UPDATE_ALL": "{0}",
   "KEY_FEATURE_NINE_LABEL": "Vaccinations 1. dose",
+  "KEY_FEATURE_NINE_ACCESSIBILITY_LABEL": "Vaccinations first dose",
   "KEY_FEATURE_NINE_UPDATE_NEW": "{0}",
   "KEY_FEATURE_NINE_UPDATE_ALL": "{0} in total",
   "KEY_FEATURE_TEN_LABEL": "Vaccinations 2. dose",
+  "KEY_FEATURE_TEN_ACCESSIBILITY_LABEL": "Vaccinations second dose",
   "KEY_FEATURE_TEN_UPDATE_NEW": "{0}",
   "KEY_FEATURE_TEN_UPDATE_ALL": "{0} in total"
 

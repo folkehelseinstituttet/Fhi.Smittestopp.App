@@ -121,11 +121,13 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersTitleTwo.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18);
+			KeyFeature9Lbl.AccessibilityLabel = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseOneTotal, 1.14, 12, 14);
 			KeyFeature9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			TotalDailyNumbersNumber9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature10Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_TEN_LABEL, 1.14, 16, 18);
+			KeyFeature10Lbl.AccessibilityLabel = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseTwoTotal, 1.14, 12, 14);
 			KeyFeature10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			TotalDailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;

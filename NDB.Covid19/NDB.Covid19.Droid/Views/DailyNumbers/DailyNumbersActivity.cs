@@ -69,11 +69,15 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview);
             SetupSubTextWithLink(_dailyNumbersSubTextVaccinations, LastUpdateStringSubTextTwo);
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text).Text = KEY_FEATURE_NINE_LABEL;
+            TextView keyFeatureNineTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text);
+            keyFeatureNineTextView.Text = KEY_FEATURE_NINE_LABEL;
+            keyFeatureNineTextView.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_number_text).Text = VaccinationsDoseOneToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text).Text = KEY_FEATURE_TEN_LABEL;
+            TextView keyFeatureTenTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text);
+            keyFeatureTenTextView.Text = KEY_FEATURE_TEN_LABEL;
+            keyFeatureTenTextView.ContentDescription = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_number_text).Text = VaccinationsDoseTwoToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
 
