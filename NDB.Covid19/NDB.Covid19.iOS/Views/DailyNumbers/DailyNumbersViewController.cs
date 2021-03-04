@@ -87,6 +87,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersTitleOne.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersLbl, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 20, 36);
+			DailyNumbersLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
 			SetupSubTextWithLink(LastUpdateStringSubHeader, DailyNumbersOfTheDayTextLbl);
 			DailyNumbersOfTheDayTextLbl.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
 
