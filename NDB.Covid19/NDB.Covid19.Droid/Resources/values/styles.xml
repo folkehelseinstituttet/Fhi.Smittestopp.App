@@ -233,4 +233,15 @@
 		<item name="android:textColor">#FFFFFF</item>
 		<item name="android:textStyle">bold</item>
 	</style>
+
+	<style name="SwitchTextAppearanceOn" parent="PrimaryTextBold">
+		<item name="android:textColor">@color/primaryText</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+
+	<style name="SwitchTextAppearanceOff" parent="PrimaryTextBold">
+		<item name="android:textColor">@color/secondaryText</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+	
 </resources>

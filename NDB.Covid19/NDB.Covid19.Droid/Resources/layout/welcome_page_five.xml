@@ -80,42 +80,30 @@
 			        android:id="@+id/switchbar"
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
-			        android:gravity="center"
+                    android:gravity="center"
 			        android:layout_gravity="center"
 			        android:orientation="horizontal"
-			        android:paddingStart="32dp"
 			        android:paddingTop="8dp"
-			        android:paddingEnd="32dp"
 			        android:paddingBottom="6dp"
 			        app:layout_constraintBottom_toTopOf="@id/buttons"
 			        app:layout_constraintEnd_toEndOf="parent"
 			        app:layout_constraintEnd_toStartOf="parent"
 			        app:layout_constraintTop_toBottomOf="@id/welcome_page_five_consent_warning">
 
-			        <TextView
-				        android:id="@+id/welcome_page_five_switch_text"
-				        style="@style/ExplanationTextHeader"
-                        android:paddingRight="16dp"
-				        android:gravity="center"
-				        android:layout_gravity="center_vertical"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:importantForAccessibility="no"
-				        android:text="Consent" />
-
-			        <androidx.appcompat.widget.SwitchCompat
-				        android:id="@+id/welcome_page_five_switch"
-                        android:paddingLeft="16dp"
-                        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:buttonTint="#1AB759"
-				        android:gravity="center"
-				        android:layout_gravity="center_vertical"
-				        android:importantForAccessibility="yes"
-				        android:thumb="@drawable/ic_thumb_selector"
-				        app:track="@drawable/ic_track_selector"
-
-                        />
+					<androidx.appcompat.widget.SwitchCompat
+						android:id="@+id/welcome_page_five_switch"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:buttonTint="#1AB759"
+                        app:showText="true"
+						android:textOn="I consent"
+						android:textOff="I consent"
+                        app:thumbTextPadding="12dp"
+                        android:gravity="center"
+						android:layout_gravity="center_vertical"
+						android:importantForAccessibility="yes"
+						android:thumb="@drawable/ic_thumb_selector"
+						app:track="@drawable/ic_track_selector"/>
 
 		        </LinearLayout>
 

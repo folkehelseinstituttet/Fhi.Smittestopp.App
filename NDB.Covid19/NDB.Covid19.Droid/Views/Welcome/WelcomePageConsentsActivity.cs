@@ -13,6 +13,8 @@ using AndroidX.Core.Text;
 using NDB.Covid19.Utils;
 using Android.Views;
 using Android.Text.Util;
+using Android.Graphics;
+using Android.Support.V4.Content;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
@@ -63,15 +65,14 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _switchCustom = FindViewById<SwitchCompat>(Resource.Id.welcome_page_five_switch);
             _switchCustom.CheckedChange += OnCheckedChange;
             _switchCustom.ContentDescription = ConsentViewModel.SWITCH_ACCESSIBILITY_CONSENT_SWITCH_DESCRIPTOR;
+            _switchCustom.TextOn = ConsentViewModel.GIVE_CONSENT_TEXT;
+            _switchCustom.TextOff = ConsentViewModel.GIVE_CONSENT_TEXT;
+            SetSwitchButtonTextColor();
 
             _consentWarning = FindViewById<LinearLayout>(Resource.Id.welcome_page_five_consent_warning);
             SetConsentWarningShown(false);
             _consentWarningTextView = FindViewById<TextView>(Resource.Id.welcome_page_five_consent_warning_text);
             _consentWarningTextView.Text = ConsentViewModel.CONSENT_REQUIRED;
-
-            TextView consentTextView = FindViewById<TextView>(Resource.Id.welcome_page_five_switch_text);
-            consentTextView.Text = ConsentViewModel.GIVE_CONSENT_TEXT;
-            consentTextView.LabelFor = _switchCustom.Id;
 
             //ABOUT
             _aboutHeader = FindViewById<TextView>(Resource.Id.consent1_about_header);
@@ -154,6 +155,8 @@ namespace NDB.Covid19.Droid.Views.Welcome
             EventHandler<Boolean> handler = ButtonPressed;
             handler?.Invoke(this, e.IsChecked);
 
+            SetSwitchButtonTextColor();
+
             _switchCustom.AnnounceForAccessibility(_switchCustom.Checked
                     ? ConsentViewModel.SWITCH_ACCESSIBILITY_ANNOUNCEMENT_CONSENT_GIVEN
                     : ConsentViewModel.SWITCH_ACCESSIBILITY_ANNOUNCEMENT_CONSENT_NOT_GIVEN);
@@ -205,6 +208,19 @@ namespace NDB.Covid19.Droid.Views.Welcome
                 return;
             }
             base.OnBackPressed();
+        }
+
+        private void SetSwitchButtonTextColor ()
+        {
+            if (_switchCustom.Checked)
+            {
+                _switchCustom.SetSwitchTextAppearance(this, Resource.Style.SwitchTextAppearanceOn);
+            }
+            
+            else {
+                _switchCustom.SetSwitchTextAppearance(this, Resource.Style.SwitchTextAppearanceOff);
+            }
+            
         }
     }
 }
