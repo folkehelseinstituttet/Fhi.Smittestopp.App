@@ -148,8 +148,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		partial void BackButton_tapped(UIButton sender)
 		{
-            NavigationController?.PopToRootViewController(true);
-        }
+			NavigationController?.PopToRootViewController(true);
+		}
 
 		private void SetupSubTextWithLink(string text, UITextView textView)
 		{
