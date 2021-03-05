@@ -639,8 +639,8 @@
     <InterfaceDefinition Include="Views\Welcome\Welcome.storyboard" />
     <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageOne.storyboard" />
     <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageTwo.storyboard" />
-    <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageThree.storyboard" />
     <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageFour.storyboard" />
+    <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageThree.storyboard" />
     <InterfaceDefinition Include="Views\Initializer\Initializer.storyboard" />
     <InterfaceDefinition Include="Views\ForceUpdate\ForceUpdate.storyboard" />
     <InterfaceDefinition Include="Views\HelpCustomView\HelpCustomView.xib" />
@@ -722,14 +722,14 @@
     <Compile Include="Views\Welcome\WelcomePageViewController.designer.cs" />
     <Compile Include="Views\Welcome\WelcomeViewController.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageTwoViewController.designer.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageFourViewController.designer.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.designer.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageOneViewController.designer.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageTwoViewController.cs" />
     <Compile Include="Views\Welcome\ChildViews\PageViewController.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageOneViewController.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.designer.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageFourViewController.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageOneViewController.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageFourViewController.designer.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.cs" />
     <Compile Include="Views\Initializer\InizializerViewController.cs" />
     <Compile Include="Views\Initializer\InizializerViewController.designer.cs">
       <DependentUpon>..\..\..\NDB.Covid19.iOS.BleCore\Views\Initializer\InizializerViewController.cs</DependentUpon>

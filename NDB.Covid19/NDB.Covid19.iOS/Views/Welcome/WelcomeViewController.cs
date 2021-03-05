@@ -47,7 +47,7 @@ namespace NDB.Covid19.iOS.Views.Welcome
                 WelcomePageViewController pageViewController = segue.DestinationViewController as WelcomePageViewController;
                 if (!IsOnBoarding)
                 {
-                    pageViewController.PageTitles = new List<string> { "WelcomePageOne", "WelcomePageTwo", "WelcomePageFour", "WelcomePageThree" };
+                    pageViewController.PageTitles = new List<string> { "WelcomePageOne", "WelcomePageTwo", "WelcomePageThree", "WelcomePageFour" };
                 }
                 _pageController = pageViewController;
                 PageControl.Pages = _pageController.PageTitles.Count;
