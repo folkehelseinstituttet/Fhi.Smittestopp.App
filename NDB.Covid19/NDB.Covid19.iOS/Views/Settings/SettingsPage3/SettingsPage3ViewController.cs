@@ -29,7 +29,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
         void InitLabels()
         {
             ConsentHelper.SetConsentLabels(LabelStackView, _vm.GetConsentSectionsTexts(), _privacyPolicyButton);
-            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackButton.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
             TitleStackView.BottomAnchor.ConstraintEqualTo(ScrollView.TopAnchor, 0).Active = true;
         }
 
