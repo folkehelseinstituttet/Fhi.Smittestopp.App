@@ -90,7 +90,7 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "The app uses Bluetooth and is based on built-in technology developed by Apple and Google. It comprises a system for registering exposure. You can turn this on or off in your phone’s settings.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2": "Your phone generates a random Bluetooth ID every 15 minutes. When two phones are nearby each other, they exchange IDs.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "Read more about the Smittestopp app at <a href=\"https://www.helsenorge.no/en/smittestopp\">www.helsenorge.no/en/smittestopp</a>",
-  "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Back",
+  "BACK_BUTTON_ACCESSIBILITY_TEXT": "Back",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Withdraw consent",
   "CONSENT_REMOVE_TITLE": "The app cannot be used without consent",
   "CONSENT_REMOVE_MESSAGE": "Are you sure you want to withdraw your consent? All your messages in Smittestopp will be deleted.",

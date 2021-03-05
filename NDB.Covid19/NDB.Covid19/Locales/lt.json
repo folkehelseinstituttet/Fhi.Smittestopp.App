@@ -90,7 +90,7 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "Programa naudoja „Bluetooth“ ir yra paremta įmontuota „Apple“ ir „Google“ sukurta technologija. Ją sudaro poveikio registravimo sistema. Ją galite įjungti arba išjungti telefono nustatymuose.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2": "Jūsų telefonas generuoja atsitiktinį „Bluetooth“ ID kas 15 minučių. Kai du telefonai yra šalia vienas kito, jie keičiasi asmens tapatybės duomenimis.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "Skaitykite daugiau apie „Smittestopp“ programą apsilankę <a href=\"https://www.helsenorge.no/en/smittestopp\">www.helsenorge.no/en/smittestopp</a>\"",
-  "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Atgal",
+  "BACK_BUTTON_ACCESSIBILITY_TEXT": "Atgal",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Atšaukti sutikimą",
   "CONSENT_REMOVE_TITLE": "Programa negali būti naudojama be sutikimo",
   "CONSENT_REMOVE_MESSAGE": "Ar tikrai norite atšaukti savo sutikimą? Visi jūsų pranešimai, esantys „Smittestopp“, bus ištrinti.",

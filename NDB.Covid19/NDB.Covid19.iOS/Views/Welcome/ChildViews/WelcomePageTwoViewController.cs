@@ -20,7 +20,7 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 
             UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, PageTitle);
             BackArrow.Hidden = !LocalPreferencesHelper.IsOnboardingCompleted;
-            BackArrow.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackArrow.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
         }
 
         public override void ViewDidAppear(bool animated)
