@@ -99,7 +99,7 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 		}
 
         void Close()
-		{
+        {
 			if (NavigationController != null)
 			{
 				// This is a special case where error on this screen has a NavigationController but should not
