@@ -110,7 +110,7 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 					NavigationHelper.GoToResultPage(NavigationController, false);
 					return;
 				}
-				NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
+		    	NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
 			}
 			else
 			{
