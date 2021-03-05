@@ -107,9 +107,9 @@
   "LANGUAGE_SELECTION_LT": "Lithuanian (Lithuanian Translation is missing)",
   "DAILY_NUMBERS_HEADER": "Key Figures",
   "DAILY_NUMBERS_TITLE_ONE": "COVID-19 statistics",
-  "DAILY_NUMBERS_SUBHEADER": "The number of confirmed cases, deaths, tests and admissions is last updated on {0} at {1}. Source: <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">Norwegian Institute of Public Health</a>.",
+  "DAILY_NUMBERS_SUBHEADER": "The number of confirmed cases, deaths, tests and admissions is last updated on {0} at {1}. Source: <a href=\"https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/\">Norwegian Institute of Public Health</a>.",
   "DAILY_NUMBERS_TITLE_TWO": "Vaccinations",
-  "DAILY_NUMBERS_SUBTEXT_TWO": "The number of vaccinations was last updated on {0} at {1}. Source:  <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">Norwegian Institute of Public Health</a>.",
+  "DAILY_NUMBERS_SUBTEXT_TWO": "The number of vaccinations was last updated on {0} at {1}. Source:  <a href=\"https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/\">Norwegian Institute of Public Health</a>.",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
   "DAILY_NUMBERS_SUBSUBHEADER": "Smittestopp numbers were last updated {0} at {1}. Read about the numbers at <a href=\"https://smittestopp.no/dagenstall/\">www.smittestopp.no/dagenstall</a>",
   "KEY_FEATURE_ONE_UPDATE_NEW": "{0}",
@@ -137,5 +137,5 @@
   "KEY_FEATURE_TEN_LABEL": "Vaccinations 2. dose",
   "KEY_FEATURE_TEN_ACCESSIBILITY_LABEL": "Vaccinations second dose",
   "KEY_FEATURE_TEN_UPDATE_NEW": "{0}",
-  "KEY_FEATURE_TEN_UPDATE_ALL": "Total: {0}",
+  "KEY_FEATURE_TEN_UPDATE_ALL": "Total: {0}"
 }
