@@ -84,7 +84,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             ChooseLanguageHeaderLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
 
             //Implemented for correct voiceover due to Back button 
-            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackButton.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
 
             //Implemented for correct voiceover due to last paragraph and link
             SmittestopLinkButtonLbl.AccessibilityLabel =

@@ -11,7 +11,7 @@ namespace NDB.Covid19.Droid.Utils
         {
             bool isOnBoarding = (Current.Activity as WelcomeActivity)?.IsOnBoarding ?? false;
             Button arrowBack = view.FindViewById<Button>(Resource.Id.arrow_back);
-            arrowBack.ContentDescription = ViewModels.SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            arrowBack.ContentDescription = ViewModels.SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
             arrowBack.Visibility = isOnBoarding ? ViewStates.Gone : ViewStates.Visible;
             if (!isOnBoarding)
             {

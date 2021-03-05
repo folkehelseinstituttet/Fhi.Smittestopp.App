@@ -90,7 +90,7 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "Appen nyttar Bluetooth og er basert på ein innebygd teknologi som er utvikla av Apple og Google. Teknologien er eit system for varsling av smittekontakt. Du kan skru av og på denne varslinga under innstillingane på mobilen din.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2": "Mobilen din lagar ein tilfeldig Bluetooth-ID kvart 15. minutt. Når to mobilar er i nærleiken av kvarandre, utvekslar dei ID-ar.",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "Les meir om Smittestopp-appen på <a href=\"https://www.helsenorge.no/smittestopp\">www.helsenorge.no/smittestopp</a>",
-  "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "Tilbake",
+  "BACK_BUTTON_ACCESSIBILITY_TEXT": "Tilbake",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "Trekk tilbake samtykke",
   "CONSENT_REMOVE_TITLE": "Appen kan ikkje brukast utan samtykke",
   "CONSENT_REMOVE_MESSAGE": "Er du sikker på at du vil trekke tilbake samtykket ditt? Alle Smittestopp-meldingane dine vil bli sletta.",

@@ -93,7 +93,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             StyleUtil.InitLabelWithSpacing(NoItemsLabel1, StyleUtil.FontType.FontBold, headerText, 1, 32, 34);
             NoItemsLabel1.AccessibilityTraits = UIAccessibilityTrait.Header;
             StyleUtil.InitLabelWithSpacing(NoItemsLabel2, StyleUtil.FontType.FontRegular, MESSAGES_NO_ITEMS_DESCRIPTION, 1.25, 18, 20);
-            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackButton.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
         }
 
         public override void ViewDidDisappear(bool animated)

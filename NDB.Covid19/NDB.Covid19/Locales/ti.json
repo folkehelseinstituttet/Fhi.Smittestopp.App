@@ -90,7 +90,7 @@
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT": "እዚ ኣፕ Bluetooth ዝጥቀም ኮይኑ ኣብ ልዕሊ ብ Google ን  Apple ን ዝተማህዘ ቴክኖሎጂ ዝሰርሕ እዩ። እዚቴክኖሎጂ ድማ ናይ ርክብ ምስ ዝተለኸፉ ሰባት ዘቃልዕ ኢዩ። ነዚ ሓበሬታ ኣብ ሞባይልካ ዘሎ ሰቲንግ ጠዊቕካ  ክትውልዖ ወይ ክተጥፍኦ ትኽእል። ",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT2": "ሞባይልካ ብተዳጋጋሚ ኣብ  15 ደቒቕ ዝኾነ ናይ  Bluetooth ID ይሰርሕ። ክልተ ሞባይላት ምስ ዝቓራረባ ነዚአን ID ነንሓድሕደን ይላዋወጣ።   ",
   "SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_4_CONTENT3": "ተወሳኺ ብዛዕባ Smittestopp ኣፕ ኣብ  <a href=\"https://www.helsenorge.no/en/smittestopp\">www.helsenorge.no/en/smittestopp</a> ኣንብብ",
-  "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON": "ተመለስ",
+  "BACK_BUTTON_ACCESSIBILITY_TEXT": "ተመለስ",
   "CONSENT_WITHDRAW_BUTTON_TEXT": "እቲ ፍቓድካ ሳሓቦ",
   "CONSENT_REMOVE_TITLE": "እዚ ኣፕ ብዘይ ፍቓድ ምጥቃም ኣይከኣልን እዩ",
   "CONSENT_REMOVE_MESSAGE": "እቲ ዝሃብካዮ ፍቓድ ክትስሕቦ ከም ዝደለኻ ርግጸኛ ዲኻ? ኣብ Smittestopp ዝርከቡ መልእኽታትካ ብምሉኦም ክድምሰሱ እዮም።  ",
