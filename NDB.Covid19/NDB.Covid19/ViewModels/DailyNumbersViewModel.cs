@@ -11,7 +11,7 @@ namespace NDB.Covid19.ViewModels
 {
     public class DailyNumbersViewModel
     {
-        public static string DAILY_NUMBERS_ACCESSIBILITY_BACK_BUTTON => "DAILY_NUMBERS_ACCESSIBILITY_BACK_BUTTON".Translate();
+        public static string DAILY_NUMBERS_ACCESSIBILITY_BACK_BUTTON => "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON".Translate();
         public static string DAILY_NUMBERS_HEADER => "DAILY_NUMBERS_HEADER".Translate();
         public static string DAILY_NUMBERS_TITLE_ONE => "DAILY_NUMBERS_TITLE_ONE".Translate();
         public static string DAILY_NUMBERS_SUBHEADER => "DAILY_NUMBERS_SUBHEADER".Translate();
