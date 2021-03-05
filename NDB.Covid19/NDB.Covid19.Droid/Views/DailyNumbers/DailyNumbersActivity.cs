@@ -104,7 +104,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
             _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
-            _closeButton.ContentDescription = DAILY_NUMBERS_ACCESSIBILITY_BACK_BUTTON;
+            _closeButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
             _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
