@@ -102,6 +102,14 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
         {
             if (NavigationController != null)
             {
+				// This is a special case where error on this screen has a NavigationController but should not
+				// dismiss it as it is done by GoToResultPageFromAuthFlow() method. Otherwise, it will return user
+				// to the Consent Page 1.
+				if (ErrorTitle.Equals(ErrorViewModel.REGISTER_ERROR_FETCH_FHI_DATA_HEADER))
+				{
+					NavigationHelper.GoToResultPage(NavigationController, false);
+					return;
+				}
 				NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
 			}
             else
