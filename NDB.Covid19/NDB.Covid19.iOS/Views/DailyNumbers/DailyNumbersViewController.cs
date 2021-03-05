@@ -4,7 +4,6 @@ using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.ViewModels.DailyNumbersViewModel;
 using Foundation;
-using NDB.Covid19.iOS.Views.CustomSubclasses;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {
@@ -23,15 +22,6 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersViewController vc = (DailyNumbersViewController)storyboard.InstantiateInitialViewController();
 			vc.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
 			return vc;
-		}
-
-		public static UINavigationController GetDailyNumbersPageControllerInNavigationController()
-		{
-			UIViewController vc = Create();
-			UINavigationController navigationController = new UINavigationController(vc);
-			navigationController.SetNavigationBarHidden(true, false);
-			navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-			return navigationController;
 		}
 
 		public override void ViewDidLoad()
@@ -158,8 +148,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		partial void BackButton_tapped(UIButton sender)
 		{
-			NavigationController.PopViewController(true);
-			NavigationHelper.GoToResultPage(this, false);
+			NavigationController?.PopToRootViewController(true);
 		}
 
 		private void SetupSubTextWithLink(string text, UITextView textView)
