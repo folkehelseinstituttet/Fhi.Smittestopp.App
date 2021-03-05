@@ -100,8 +100,8 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 
         void Close()
         {
-            if (NavigationController != null)
-            {
+			if (NavigationController != null)
+			{
 				// This is a special case where error on this screen has a NavigationController but should not
 				// dismiss it as it is done by GoToResultPageFromAuthFlow() method. Otherwise, it will return user
 				// to the Consent Page 1.
@@ -112,10 +112,10 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 				}
 				NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
 			}
-            else
-            {
+			else
+			{
 				DismissViewController(true, null);
-            }
-        }
+			}
+		}
 	}
 }
