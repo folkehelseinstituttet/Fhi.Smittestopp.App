@@ -66,7 +66,7 @@ namespace NDB.Covid19.ViewModels
         public string RadioButtonAccessibilityNo => REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_NO + "\n " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_3_TEXT;
         public string RadioButtonAccessibilitySkip => REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_SKIP + ". " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_4_TEXT;
 
-        public string ReceipetPageReadMoreButtonAccessibility => REGISTER_QUESTIONAIRE_RECEIPT_INNER_READ_MORE;
+        public string ReceipetPageReadMoreButtonAccessibility => $"{REGISTER_QUESTIONAIRE_RECEIPT_INNER_HEADER}. {REGISTER_QUESTIONAIRE_RECEIPT_INNER_READ_MORE}";
 
         public void SetSelectedDateUTC(DateTime newDate)
         {

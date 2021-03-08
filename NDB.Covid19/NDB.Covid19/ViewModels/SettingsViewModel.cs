@@ -9,7 +9,7 @@ namespace NDB.Covid19.ViewModels
     public class SettingsViewModel
     {
         public static string SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON => "SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON".Translate();
-        public static string SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON => "SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON".Translate();
+        public static string BACK_BUTTON_ACCESSIBILITY_TEXT => "BACK_BUTTON_ACCESSIBILITY_TEXT".Translate();
 
         public bool ShowDebugItem => Conf.UseDeveloperTools;
 

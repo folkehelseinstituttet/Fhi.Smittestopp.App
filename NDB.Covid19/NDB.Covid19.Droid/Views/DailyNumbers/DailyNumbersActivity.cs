@@ -23,7 +23,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
     public class DailyNumbersActivity : AppCompatActivity
     {
         private static readonly DailyNumbersViewModel ViewModel;
-        private ViewGroup _closeButton;
+        private ImageView _closeButton;
 
         static DailyNumbersActivity()
         {
@@ -69,11 +69,15 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview);
             SetupSubTextWithLink(_dailyNumbersSubTextVaccinations, LastUpdateStringSubTextTwo);
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text).Text = KEY_FEATURE_NINE_LABEL;
+            TextView keyFeatureNineTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text);
+            keyFeatureNineTextView.Text = KEY_FEATURE_NINE_LABEL;
+            keyFeatureNineTextView.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_number_text).Text = VaccinationsDoseOneToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text).Text = KEY_FEATURE_TEN_LABEL;
+            TextView keyFeatureTenTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text);
+            keyFeatureTenTextView.Text = KEY_FEATURE_TEN_LABEL;
+            keyFeatureTenTextView.ContentDescription = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_number_text).Text = VaccinationsDoseTwoToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
 
@@ -98,10 +102,10 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
-            _closeButton = FindViewById<ViewGroup>(Resource.Id.daily_numbers_close_cross_btn);
+            _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
-            _closeButton.ContentDescription = MessagesViewModel.MESSAGES_ACCESSIBILITY_CLOSE_BUTTON;
-
+            _closeButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
+            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
         private void OnCloseBtnClicked(object arg1, EventArgs arg2)
@@ -109,9 +113,9 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             GoToInfectionStatusActivity();
         }
 
-        public override void OnBackPressed() => GoToInfectionStatusActivity();
+        public override void OnBackPressed() => Finish();
 
-        private void GoToInfectionStatusActivity() => NavigationHelper.GoToResultPageAndClearTop(this);
+        private void GoToInfectionStatusActivity() => Finish();
 
         private void SetupSubTextWithLink (TextView textView, string formattedText)
         {

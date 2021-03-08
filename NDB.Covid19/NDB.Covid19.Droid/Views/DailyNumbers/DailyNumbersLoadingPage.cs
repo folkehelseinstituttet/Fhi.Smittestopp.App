@@ -65,7 +65,11 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
         void OnActivityFinished()
         {
-            RunOnUiThread(() => StartActivity(new Intent(this, typeof(DailyNumbersActivity))));
+            RunOnUiThread(() =>
+            {
+                StartActivity(new Intent(this, typeof(DailyNumbersActivity)));
+                Finish();
+            });
         }
 
         void OnError(Exception e)

@@ -37,6 +37,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             UpdateUIWhenSelectionChanges();
             SetAccessibilityAttributes();
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
+
             LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire page");
         }
 

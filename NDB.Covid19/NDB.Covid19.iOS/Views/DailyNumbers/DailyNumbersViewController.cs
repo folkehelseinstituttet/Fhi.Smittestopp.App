@@ -4,7 +4,6 @@ using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.ViewModels.DailyNumbersViewModel;
 using Foundation;
-using NDB.Covid19.iOS.Views.CustomSubclasses;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {
@@ -25,19 +24,13 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			return vc;
 		}
 
-		public static UINavigationController GetDailyNumbersPageControllerInNavigationController()
-		{
-			UIViewController vc = Create();
-			UINavigationController navigationController = new UINavigationController(vc);
-			navigationController.SetNavigationBarHidden(true, false);
-			navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-			return navigationController;
-		}
-
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
 			SetStyling();
+
+			UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DailyNumbersTitleOne);
 		}
 
 		private void SetStyling()
@@ -87,6 +80,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersTitleOne.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersLbl, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 20, 36);
+			DailyNumbersLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
 			SetupSubTextWithLink(LastUpdateStringSubHeader, DailyNumbersOfTheDayTextLbl);
 			DailyNumbersOfTheDayTextLbl.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
 
@@ -120,11 +114,13 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersTitleTwo.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18);
+			KeyFeature9Lbl.AccessibilityLabel = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseOneTotal, 1.14, 12, 14);
 			KeyFeature9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			TotalDailyNumbersNumber9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature10Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_TEN_LABEL, 1.14, 16, 18);
+			KeyFeature10Lbl.AccessibilityLabel = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseTwoTotal, 1.14, 12, 14);
 			KeyFeature10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			TotalDailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
@@ -140,6 +136,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			PatientsAdmitted_StackView.ShouldGroupAccessibilityChildren = true;
 			TotalDownloads_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfPositiveResults_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose1_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose2_StackView.ShouldGroupAccessibilityChildren = true;
 
 			// Back button styling and accessibility
 			BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
@@ -150,8 +148,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		partial void BackButton_tapped(UIButton sender)
 		{
-			NavigationController.PopViewController(true);
-			NavigationHelper.GoToResultPage(this, false);
+			NavigationController?.PopToRootViewController(true);
 		}
 
 		private void SetupSubTextWithLink(string text, UITextView textView)

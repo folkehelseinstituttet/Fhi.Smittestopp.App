@@ -35,6 +35,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
             SetStyling();
             SetAccessibility();
+
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
         }
 
         public override void ViewWillAppear(bool animated)

@@ -113,10 +113,10 @@
     <Compile Include="Views\Welcome\NonSwipeableViewPager.cs" />
     <Compile Include="Views\Settings\ConsentSettingPageFragment.cs" />
     <Compile Include="Views\Welcome\WelcomeActivity.cs" />
-    <Compile Include="Views\Welcome\WelcomePageFourFragment.cs" />
+    <Compile Include="Views\Welcome\WelcomePageThreeFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePageOneFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePagerAdapter.cs" />
-    <Compile Include="Views\Welcome\WelcomePageThreeFragment.cs" />
+    <Compile Include="Views\Welcome\WelcomePageFourFragment.cs" />
     <Compile Include="Utils\WelcomePageTools.cs" />
     <Compile Include="Views\Welcome\WelcomePageTwoFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePageConsentsActivity.cs" />

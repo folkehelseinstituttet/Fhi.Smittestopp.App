@@ -6,24 +6,32 @@
 	android:gravity="center_horizontal"
 	android:orientation="vertical">
 
-	<LinearLayout
+	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/defaultVerticalMargin"
 		android:gravity="end"
+		android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
 		android:orientation="horizontal">
-
-		<RelativeLayout
-			android:id="@+id/daily_numbers_close_cross_btn"
-			android:layout_width="48dp"
-			android:layout_height="48dp"
-			android:padding="12dp">
-
 			<ImageView
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:src="@drawable/ic_close_blue" />
-		</RelativeLayout>
-	</LinearLayout>
+                android:id="@+id/daily_numbers_back_button"
+                android:layout_width="@dimen/backButton"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintBaseline_toBaselineOf="@id/daily_numbers_header_textView"
+                android:layout_height="@dimen/backButton" />
+			<TextView
+				android:id="@+id/daily_numbers_header_textView"
+				style="@style/HeaderText"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:layout_constraintTop_toTopOf="parent"
+				android:paddingStart="@dimen/smallMargin"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toEndOf="@id/daily_numbers_back_button"
+				android:layout_marginBottom="2dp"
+				android:text="Header" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
 	<ScrollView
 		android:id="@+id/daily_numbers_counter_on_scrollView"
 		android:layout_width="match_parent"
@@ -51,15 +59,6 @@
 					android:id="@+id/daily_numbers_relativeLayout"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content">
-
-					<TextView
-						android:id="@+id/daily_numbers_header_textView"
-						style="@style/HeaderText"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginBottom="2dp"
-						android:text="Header" />
-
 					<TextView
 						android:id="@+id/daily_numbers_statistics_header_textView"
 						style="@style/PrimaryTextBold"
