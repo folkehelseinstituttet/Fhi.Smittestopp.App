@@ -77,16 +77,14 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
             else
             {
                 LogUtils.LogException(LogSeverity.ERROR, e, "Could not load data for disease rate of the day, showing old data");
-                UINavigationController vc = DailyNumbersViewController.GetDailyNumbersPageControllerInNavigationController();
-                PresentViewController(vc, true, null);
+                NavigationController?.PushViewController(DailyNumbersViewController.Create(), true);
             }
         }
 
         void OnSuccess()
         {
             Cleanup();
-            UINavigationController vc = DailyNumbersViewController.GetDailyNumbersPageControllerInNavigationController();
-            PresentViewController(vc, true, null);
+            NavigationController?.PushViewController(DailyNumbersViewController.Create(), true);
         }
     }
 }

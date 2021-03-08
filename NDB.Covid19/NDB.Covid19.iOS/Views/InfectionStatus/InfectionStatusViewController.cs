@@ -142,6 +142,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
             _messageViewBtn.TouchUpInside -= OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside -= OnAreYouInfectedBtnTapped;
+            _dailyNumbersButton.TouchUpInside -= OnDailyNumbersBtnTapped;
+
             ResetStatusBar();
         }
 
@@ -437,10 +439,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OpenDailyNumbersPage()
         {
-            UINavigationController navigationController = new UINavigationController(DailyNumbersLoadingViewController.Create());
-            navigationController.SetNavigationBarHidden(true, false);
-            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-            PresentViewController(navigationController, true, null);
+            NavigationController?.PushViewController(DailyNumbersLoadingViewController.Create(), true);
         }
 
         void OpenMessagesPage()
