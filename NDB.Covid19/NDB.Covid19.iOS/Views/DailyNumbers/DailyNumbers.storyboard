@@ -79,6 +79,9 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Last updated d.: &quot;Timestamp + sourcelink&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dsy-cX-yzE" userLabel="Daily Numbers Of The Day Text">
                                                         <rect key="frame" x="0.0" y="44.5" width="366" height="37.5"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" staticText="YES"/>
+                                                        </accessibility>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -268,6 +271,9 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Last updated d.: &quot;Timestamp + sourcelink&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-zC-0Oc" userLabel="Daily Numbers Subtext Two">
                                                         <rect key="frame" x="0.0" y="493.5" width="366" height="37.5"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" staticText="YES"/>
+                                                        </accessibility>
                                                         <viewLayoutGuide key="contentLayoutGuide" id="rFh-vk-TMn"/>
                                                         <viewLayoutGuide key="frameLayoutGuide" id="gOI-oJ-w7S"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
