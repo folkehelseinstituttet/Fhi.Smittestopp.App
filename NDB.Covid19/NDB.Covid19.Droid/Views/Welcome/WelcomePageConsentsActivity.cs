@@ -15,6 +15,7 @@ using Android.Views;
 using Android.Text.Util;
 using Android.Graphics;
 using Android.Support.V4.Content;
+using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
@@ -68,6 +69,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _switchCustom.TextOn = ConsentViewModel.GIVE_CONSENT_TEXT;
             _switchCustom.TextOff = ConsentViewModel.GIVE_CONSENT_TEXT;
             SetSwitchButtonTextColor();
+            SetUrduSwitchButton(LocalPreferencesHelper.GetAppLanguage());
 
             _consentWarning = FindViewById<LinearLayout>(Resource.Id.welcome_page_five_consent_warning);
             SetConsentWarningShown(false);
@@ -221,6 +223,15 @@ namespace NDB.Covid19.Droid.Views.Welcome
                 _switchCustom.SetSwitchTextAppearance(this, Resource.Style.SwitchTextAppearanceOff);
             }
             
+        }
+
+        private void SetUrduSwitchButton (string selectedLangauge)
+        {
+            if (selectedLangauge == "ur")
+            {
+                _switchCustom.SetTrackResource(Resource.Drawable.ic_track_selector_consent_one);
+                _switchCustom.SetThumbResource(Resource.Drawable.ic_thumb_selector_consent_one);
+            }
         }
     }
 }

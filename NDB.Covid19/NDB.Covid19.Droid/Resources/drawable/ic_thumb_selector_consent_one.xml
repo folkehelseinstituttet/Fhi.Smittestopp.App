@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <shape android:dither="true" android:shape="rectangle" android:useLevel="false" android:visible="true">
+            <solid android:color="@color/switchUnselectedThumb" />
+            <corners android:radius="28dp" />
+            <size android:width="56dp" android:height="56dp" />
+            <stroke android:width="4dp" android:color="#0000ffff" />
+        </shape>
+    </item>
+    <item android:state_checked="true">
+        <shape android:dither="true" android:shape="rectangle" android:useLevel="false" android:visible="true">
+            <solid android:color="@color/switchSelectedThumb" />
+            <corners android:radius="28dp" />
+            <size android:width="56dp" android:height="56dp" />
+            <stroke android:width="4dp" android:color="#0000ffff" />
+        </shape>
+    </item>
+</selector>

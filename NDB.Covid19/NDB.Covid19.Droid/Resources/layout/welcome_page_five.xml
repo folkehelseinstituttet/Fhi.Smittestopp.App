@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/defaultHorizontalMargin"
             android:paddingEnd="@dimen/defaultHorizontalMargin"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clipToPadding="false">
             <include
                 android:id="@+id/consent_header"
                 layout="@layout/consent_header"
@@ -47,7 +48,9 @@
                 android:layout_gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="-16dp"
+                android:layout_marginRight="-16dp">
 
 		        <LinearLayout
 			        android:id="@+id/welcome_page_five_consent_warning"
@@ -85,6 +88,8 @@
 			        android:orientation="horizontal"
 			        android:paddingTop="8dp"
 			        android:paddingBottom="6dp"
+                    android:paddingStart="@dimen/defaultHorizontalMargin"
+                    android:paddingEnd="@dimen/defaultHorizontalMargin"
 			        app:layout_constraintBottom_toTopOf="@id/buttons"
 			        app:layout_constraintEnd_toEndOf="parent"
 			        app:layout_constraintEnd_toStartOf="parent"
@@ -114,6 +119,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="16dp"
+                        android:paddingStart="@dimen/defaultHorizontalMargin"
+                        android:paddingEnd="@dimen/defaultHorizontalMargin"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintEnd_toStartOf="parent"
