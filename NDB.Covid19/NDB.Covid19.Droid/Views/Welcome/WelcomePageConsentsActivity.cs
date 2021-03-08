@@ -16,6 +16,7 @@ using Android.Text.Util;
 using Android.Graphics;
 using Android.Support.V4.Content;
 using NDB.Covid19.PersistedData;
+using System.Linq;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
@@ -69,7 +70,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _switchCustom.TextOn = ConsentViewModel.GIVE_CONSENT_TEXT;
             _switchCustom.TextOff = ConsentViewModel.GIVE_CONSENT_TEXT;
             SetSwitchButtonTextColor();
-            SetUrduSwitchButton(LocalPreferencesHelper.GetAppLanguage());
+            SetSwitchButtonForLongString(LocalPreferencesHelper.GetAppLanguage());
 
             _consentWarning = FindViewById<LinearLayout>(Resource.Id.welcome_page_five_consent_warning);
             SetConsentWarningShown(false);
@@ -214,20 +215,16 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
         private void SetSwitchButtonTextColor ()
         {
-            if (_switchCustom.Checked)
-            {
-                _switchCustom.SetSwitchTextAppearance(this, Resource.Style.SwitchTextAppearanceOn);
-            }
-            
-            else {
-                _switchCustom.SetSwitchTextAppearance(this, Resource.Style.SwitchTextAppearanceOff);
-            }
-            
+            _switchCustom.SetSwitchTextAppearance(this, _switchCustom.Checked ?
+                Resource.Style.SwitchTextAppearanceOn : Resource.Style.SwitchTextAppearanceOff);
+
         }
 
-        private void SetUrduSwitchButton (string selectedLangauge)
+        private void SetSwitchButtonForLongString (string selectedLangauge)
         {
-            if (selectedLangauge == "ur")
+            string[] languagesWithLongString = new string[] {"ur"};
+            
+            if (languagesWithLongString.Contains(selectedLangauge))
             {
                 _switchCustom.SetTrackResource(Resource.Drawable.ic_track_selector_consent_one);
                 _switchCustom.SetThumbResource(Resource.Drawable.ic_thumb_selector_consent_one);
