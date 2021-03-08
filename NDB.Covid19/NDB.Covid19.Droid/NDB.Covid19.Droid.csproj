@@ -912,15 +912,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_bottom.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_mid.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_top.xml">
+    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -961,6 +953,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\ic_start_page_arrow_right.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\linear_layout_divider.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
