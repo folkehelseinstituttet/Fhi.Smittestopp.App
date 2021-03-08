@@ -107,7 +107,7 @@
   "LANGUAGE_SELECTION_LT": "Litauisk",
   "DAILY_NUMBERS_HEADER": "Nøkkeltal",
   "DAILY_NUMBERS_TITLE_ONE": "COVID-19-statistikk",
-  "DAILY_NUMBERS_SUBHEADER": "Talet på stadfesta tilfelle, dødsfall, testar og innleggingar vart sist oppdatert den {0} klokka {1}. Kjelde: Folkehelseinstituttet",
+  "DAILY_NUMBERS_SUBHEADER": "Talet på stadfesta tilfelle, testar og innleggingar vart sist oppdatert den {0} klokka {1}. Kjelde: Folkehelseinstituttet",
   "DAILY_NUMBERS_TITLE_TWO": "Vaksinerte",
   "DAILY_NUMBERS_SUBTEXT_TWO": "Talet på vaksinerte er sist oppdatert den {0} klokka {1}. Kjelde: <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">Folkehelseinstituttet</a>.",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
