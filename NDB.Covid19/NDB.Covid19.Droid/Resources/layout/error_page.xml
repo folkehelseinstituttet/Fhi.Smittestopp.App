@@ -20,6 +20,7 @@
             <RelativeLayout
                     android:id="@+id/close_cross_btn"
                     android:layout_width="24dp"
+                    android:accessibilityTraversalAfter="@id/error_button"
                     android:layout_height="24dp"
                     android:layout_marginEnd="@dimen/defaultHorizontalMargin"
                     android:layout_marginTop="@dimen/defaultVerticalMargin"
