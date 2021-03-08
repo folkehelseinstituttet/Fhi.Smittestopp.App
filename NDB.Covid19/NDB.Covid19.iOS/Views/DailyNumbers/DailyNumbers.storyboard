@@ -455,14 +455,8 @@
                                     <constraint firstAttribute="trailing" secondItem="KfL-Ie-jCB" secondAttribute="trailing" id="R6a-X9-SmE"/>
                                     <constraint firstAttribute="bottom" secondItem="KfL-Ie-jCB" secondAttribute="bottom" id="WnF-S4-O1S"/>
                                     <constraint firstItem="B08-7x-rTa" firstAttribute="width" relation="lessThanOrEqual" secondItem="F3O-a5-bV3" secondAttribute="width" id="YKh-TK-HBt"/>
-                                    <constraint firstItem="KfL-Ie-jCB" firstAttribute="width" secondItem="F3O-a5-bV3" secondAttribute="width" id="aCG-xu-ei6"/>
                                     <constraint firstItem="KfL-Ie-jCB" firstAttribute="leading" secondItem="F3O-a5-bV3" secondAttribute="leading" id="pXW-oa-YM5"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="aCG-xu-ei6"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NAJ-us-Dr8"/>
