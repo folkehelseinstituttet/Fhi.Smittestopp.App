@@ -163,17 +163,17 @@ namespace NDB.Covid19.PersistedData
         {
             public static void UpdateAll(DailyNumbersDTO dto)
             {
-                FHILastUpdateDateTime = dto.SSIStatistics.Date;
-                FHIConfirmedCasesToday = dto.SSIStatistics.ConfirmedCasesToday;
-                FHIConfirmedCasesTotal = dto.SSIStatistics.ConfirmedCasesTotal;
-                FHITestsConductedToday = dto.SSIStatistics.TestsConductedToday;
-                FHITestsConductedTotal = dto.SSIStatistics.TestsConductedTotal;
-                FHIPatientsAdmittedToday = dto.SSIStatistics.PatientsAdmittedToday;
-                FHIPatientsIntensiveCare = dto.SSIStatistics.PatientsIntensiveCare;
-                FHIVaccinationsDoseOneToday = dto.SSIStatistics.VaccinationsDoseOneToday;
-                FHIVaccinationsDoseTwoToday = dto.SSIStatistics.VaccinationsDoseTwoToday;
-                FHIVaccinationsDoseOneTotal = dto.SSIStatistics.VaccinatedFirstDose;
-                FHIVaccinationsDoseTwoTotal = dto.SSIStatistics.VaccinatedSecondDose;
+                FHILastUpdateDateTime = dto.CovidStatistics.Date;
+                FHIConfirmedCasesToday = dto.CovidStatistics.ConfirmedCasesToday;
+                FHIConfirmedCasesTotal = dto.CovidStatistics.ConfirmedCasesTotal;
+                FHITestsConductedToday = dto.CovidStatistics.TestsConductedToday;
+                FHITestsConductedTotal = dto.CovidStatistics.TestsConductedTotal;
+                FHIPatientsAdmittedToday = dto.CovidStatistics.PatientsAdmittedToday;
+                FHIPatientsIntensiveCare = dto.CovidStatistics.IcuAdmittedToday;
+                FHIVaccinationsDoseOneToday = dto.CovidStatistics.VaccinatedFirstDoseToday;
+                FHIVaccinationsDoseTwoToday = dto.CovidStatistics.VaccinatedSecondDoseToday;
+                FHIVaccinationsDoseOneTotal = dto.CovidStatistics.VaccinatedFirstDoseTotal;
+                FHIVaccinationsDoseTwoTotal = dto.CovidStatistics.VaccinatedSecondDoseTotal;
                 APPNumberOfPositiveTestsResultsLast7Days = dto.ApplicationStatistics.PositiveTestsResultsLast7Days;
                 APPNumberOfPositiveTestsResultsTotal = dto.ApplicationStatistics.PositiveTestsResultsTotal;
                 APPSmittestopDownloadsTotal = dto.ApplicationStatistics.SmittestopDownloadsTotal;

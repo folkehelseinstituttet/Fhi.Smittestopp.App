@@ -2,7 +2,7 @@
 
 namespace NDB.Covid19.Models.DTOsForServer
 {
-    public class FHIStatisticsDTO
+    public class CovidStatisticsDTO
     {
         public DateTime Date { get; set; }
         public int ConfirmedCasesToday { get; set; }
@@ -10,10 +10,10 @@ namespace NDB.Covid19.Models.DTOsForServer
         public int TestsConductedToday { get; set; }
         public int TestsConductedTotal { get; set; }
         public int PatientsAdmittedToday { get; set; }
-        public int PatientsIntensiveCare { get; set; }
-        public int VaccinationsDoseOneToday { get; set; }
-        public int VaccinationsDoseTwoToday { get; set; }
-        public int VaccinatedFirstDose { get; set; }
-        public int VaccinatedSecondDose { get; set; }
+        public int IcuAdmittedToday { get; set; }
+        public int VaccinatedFirstDoseToday { get; set; }
+        public int VaccinatedSecondDoseToday { get; set; }
+        public int VaccinatedFirstDoseTotal { get; set; }
+        public int VaccinatedSecondDoseTotal { get; set; }
     }
 }

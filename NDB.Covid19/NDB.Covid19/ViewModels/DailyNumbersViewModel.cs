@@ -71,7 +71,7 @@ namespace NDB.Covid19.ViewModels
             {
                 DailyNumbersDTO fhiData = await (WebService ?? new DailyNumbersWebService()).GetFHIData();
 
-                if (fhiData?.SSIStatistics == null || fhiData.ApplicationStatistics == null)
+                if (fhiData?.CovidStatistics == null || fhiData.ApplicationStatistics == null)
                 {
                     return false;
                 }
