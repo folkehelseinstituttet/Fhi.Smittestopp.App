@@ -21,16 +21,15 @@
                                 <rect key="frame" x="0.0" y="58" width="414" height="804"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B08-7x-rTa" userLabel="Top Area Stack View">
-                                        <rect key="frame" x="24" y="0.0" width="366" height="50"/>
+                                        <rect key="frame" x="24" y="0.0" width="366" height="34"/>
                                         <subviews>
-                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-4b-Fab">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Knd-tc-Omm">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="34"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7V-94-upJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="34" id="jmt-ZW-ct7"/>
-                                                            <constraint firstAttribute="height" constant="34" id="pph-dD-N1k"/>
                                                         </constraints>
                                                         <state key="normal" image="ArrowLeftCircle"/>
                                                         <userDefinedRuntimeAttributes>
@@ -42,31 +41,18 @@
                                                             <action selector="BackButton_tapped:" destination="vvE-Bx-19i" eventType="touchUpInside" id="fyy-ZB-O52"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaC-xD-iec" userLabel="Daily Numbers Title One">
-                                                        <rect key="frame" x="51" y="7" width="95" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily update" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaC-xD-iec" userLabel="Daily Numbers Title One">
+                                                        <rect key="frame" x="51" y="0.0" width="315" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="HaC-xD-iec" firstAttribute="centerY" secondItem="f7V-94-upJ" secondAttribute="centerY" id="0AM-Ds-TCU"/>
-                                                    <constraint firstItem="f7V-94-upJ" firstAttribute="top" secondItem="qBp-4b-Fab" secondAttribute="top" id="H9B-fh-qY1"/>
-                                                    <constraint firstItem="f7V-94-upJ" firstAttribute="leading" secondItem="qBp-4b-Fab" secondAttribute="leading" id="pue-0N-3RF"/>
-                                                    <constraint firstItem="HaC-xD-iec" firstAttribute="leading" secondItem="f7V-94-upJ" secondAttribute="trailing" constant="17" id="tmc-Qz-vle"/>
-                                                </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="qBp-4b-Fab" secondAttribute="bottom" id="DVj-xM-hee"/>
-                                            <constraint firstItem="qBp-4b-Fab" firstAttribute="top" secondItem="B08-7x-rTa" secondAttribute="top" id="H0Y-Qs-GWH"/>
-                                            <constraint firstAttribute="trailing" secondItem="qBp-4b-Fab" secondAttribute="trailing" id="R7s-xi-e7c"/>
-                                            <constraint firstItem="qBp-4b-Fab" firstAttribute="leading" secondItem="B08-7x-rTa" secondAttribute="leading" id="ln6-4j-b10"/>
-                                        </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ie-jCB">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="754"/>
+                                        <rect key="frame" x="0.0" y="34" width="414" height="770"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-nx-bUd">
                                                 <rect key="frame" x="24" y="0.0" width="366" height="973"/>
@@ -79,6 +65,9 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Last updated d.: &quot;Timestamp + sourcelink&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dsy-cX-yzE" userLabel="Daily Numbers Of The Day Text">
                                                         <rect key="frame" x="0.0" y="44.5" width="366" height="37.5"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" staticText="YES"/>
+                                                        </accessibility>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -268,6 +257,9 @@
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Last updated d.: &quot;Timestamp + sourcelink&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-zC-0Oc" userLabel="Daily Numbers Subtext Two">
                                                         <rect key="frame" x="0.0" y="493.5" width="366" height="37.5"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" staticText="YES"/>
+                                                        </accessibility>
                                                         <viewLayoutGuide key="contentLayoutGuide" id="rFh-vk-TMn"/>
                                                         <viewLayoutGuide key="frameLayoutGuide" id="gOI-oJ-w7S"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -466,18 +458,11 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="B08-7x-rTa" secondAttribute="trailing" constant="24" id="72255"/>
                                     <constraint firstItem="B08-7x-rTa" firstAttribute="leading" secondItem="F3O-a5-bV3" secondAttribute="leading" constant="24" id="72256"/>
-                                    <constraint firstItem="KfL-Ie-jCB" firstAttribute="height" secondItem="F3O-a5-bV3" secondAttribute="height" multiplier="0.937811" id="KDg-Vc-szD"/>
                                     <constraint firstAttribute="trailing" secondItem="KfL-Ie-jCB" secondAttribute="trailing" id="R6a-X9-SmE"/>
                                     <constraint firstAttribute="bottom" secondItem="KfL-Ie-jCB" secondAttribute="bottom" id="WnF-S4-O1S"/>
                                     <constraint firstItem="B08-7x-rTa" firstAttribute="width" relation="lessThanOrEqual" secondItem="F3O-a5-bV3" secondAttribute="width" id="YKh-TK-HBt"/>
-                                    <constraint firstItem="KfL-Ie-jCB" firstAttribute="width" secondItem="F3O-a5-bV3" secondAttribute="width" id="aCG-xu-ei6"/>
                                     <constraint firstItem="KfL-Ie-jCB" firstAttribute="leading" secondItem="F3O-a5-bV3" secondAttribute="leading" id="pXW-oa-YM5"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="aCG-xu-ei6"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NAJ-us-Dr8"/>

@@ -121,6 +121,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             RelativeLayout RelativeLayout4 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
             TextView contactInformation = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text);
+            contactInformation.TextAlignment = TextAlignment.ViewStart;
             contactInformation.TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
             Linkify.AddLinks(contactInformation, MatchOptions.EmailAddresses | MatchOptions.PhoneNumbers);
 
