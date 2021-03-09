@@ -27,6 +27,7 @@ namespace NDB.Covid19.iOS.Views.Settings
                 UnderlineStyle = NSUnderlineStyle.Single
             };
             TextLbl.AttributedText = new NSMutableAttributedString(text, attributes);
+            TextLbl.TextAlignment = LayoutUtils.GetTextAlignment();
         }
     }
 }
