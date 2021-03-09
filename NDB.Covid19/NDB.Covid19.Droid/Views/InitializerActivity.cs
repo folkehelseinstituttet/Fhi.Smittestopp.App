@@ -10,6 +10,7 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 using I18NPortable;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Utils;
+using Android.Views;
 
 namespace NDB.Covid19.Droid.Views
 {
@@ -50,6 +51,9 @@ namespace NDB.Covid19.Droid.Views
             _launcherButton.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN;
             
             _launcherButton.Click += new SingleClick(LauncherButton_Click).Run;
+
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#32345C"));
+            Window.DecorView.SystemUiVisibility &= (StatusBarVisibility) ~SystemUiFlags.LightStatusBar;
         }
 
         protected override void OnResume()
