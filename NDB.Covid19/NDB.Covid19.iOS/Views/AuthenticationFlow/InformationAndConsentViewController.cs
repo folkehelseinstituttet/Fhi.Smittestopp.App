@@ -46,10 +46,15 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             Consent_BeAware_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT);
             Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
 
+            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+            LookUp_Header.AccessibilityTraits = UIAccessibilityTrait.Header;
+            Notification_Header.AccessibilityTraits = UIAccessibilityTrait.Header;
+
             StyleUtil.InitButtonStyling(LogInWithIDPortenBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT);
 
             SetupStyling();
 
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, HeaderLabel);
         }
 
         public void SetupStyling()

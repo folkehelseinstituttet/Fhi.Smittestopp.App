@@ -3,6 +3,7 @@ using NDB.Covid19.ViewModels;
 using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.ViewModels.DailyNumbersViewModel;
+using Foundation;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {
@@ -23,19 +24,13 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			return vc;
 		}
 
-		public static UINavigationController GetDailyNumbersPageControllerInNavigationController()
-		{
-			UIViewController vc = Create();
-			UINavigationController navigationController = new UINavigationController(vc);
-			navigationController.SetNavigationBarHidden(true, false);
-			navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-			return navigationController;
-		}
-
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
 			SetStyling();
+
+			UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DailyNumbersTitleOne);
 		}
 
 		private void SetStyling()
@@ -82,9 +77,12 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			// Labels not dependable on device width
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleOne, StyleUtil.FontType.FontBold, DAILY_NUMBERS_HEADER, 1.14, 30, 36);
+			DailyNumbersTitleOne.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersLbl, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_ONE, 1.14, 20, 36);
-			StyleUtil.InitLabelWithSpacing(DailyNumbersOfTheDayTextLbl, StyleUtil.FontType.FontRegular, LastUpdateStringSubHeader, 1.14, 12, 14);
+			DailyNumbersLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
+			SetupSubTextWithLink(LastUpdateStringSubHeader, DailyNumbersOfTheDayTextLbl);
+			DailyNumbersOfTheDayTextLbl.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature1Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_ONE_LABEL, 1.14, 16, 18);
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber1Lbl, StyleUtil.FontType.FontRegular, ConfirmedCasesTotal, 1.14, 12, 14);
@@ -111,20 +109,26 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			KeyFeature7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 20, 36);
-			StyleUtil.InitLabelWithSpacing(DailyNumbersSubtextTwo, StyleUtil.FontType.FontRegular, LastUpdateStringSubTextTwo, 1.14, 12, 14);
+			SetupSubTextWithLink(LastUpdateStringSubTextTwo, DailyNumbersSubtextTwo);
+			DailyNumbersSubtextTwo.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
+			DailyNumbersTitleTwo.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18);
+			KeyFeature9Lbl.AccessibilityLabel = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseOneTotal, 1.14, 12, 14);
 			KeyFeature9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			TotalDailyNumbersNumber9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature10Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_TEN_LABEL, 1.14, 16, 18);
+			KeyFeature10Lbl.AccessibilityLabel = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
 			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseTwoTotal, 1.14, 12, 14);
 			KeyFeature10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			TotalDailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleThree, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_THREE, 1.14, 20, 36);
-			StyleUtil.InitLabelWithSpacing(DailyNumbersSubSubHeader, StyleUtil.FontType.FontRegular, LastUpdateStringSubSubHeader, 1.14, 12, 14);
+			SetupSubTextWithLink(LastUpdateStringSubSubHeader, DailyNumbersSubSubHeader);
+			DailyNumbersSubSubHeader.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
+			DailyNumbersTitleThree.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			//Setting up accessibility grouping
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;
@@ -135,15 +139,40 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			VaccinationsDose2_StackView.ShouldGroupAccessibilityChildren = true;
 			TotalDownloads_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfPositiveResults_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose1_StackView.ShouldGroupAccessibilityChildren = true;
+			VaccinationsDose2_StackView.ShouldGroupAccessibilityChildren = true;
 
 			// Back button styling and accessibility
-			BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
+			BackButton.AccessibilityLabel = BACK_BUTTON_ACCESSIBILITY_TEXT;
+
+			//Implemented for correct voiceover due to smitte|stop, removing pronunciation of lodretstreg
+			KeyFeature5Lbl.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(KEY_FEATURE_FIVE_LABEL);
 		}
 
 		partial void BackButton_tapped(UIButton sender)
 		{
-			NavigationController.PopViewController(true);
-			NavigationHelper.GoToResultPage(this, false);
+			NavigationController?.PopToRootViewController(true);
+		}
+
+		private void SetupSubTextWithLink(string text, UITextView textView)
+		{
+			// Necessary to unify horizontal alignment with the rest of the text on the page
+			textView.TextContainerInset = UIEdgeInsets.Zero;
+			textView.TextContainer.LineFragmentPadding = 0;
+
+			//Defining attibutes inorder to format the embedded link
+			NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.HTML };
+			documentAttributes.StringEncoding = NSStringEncoding.UTF8;
+			NSError error = null;
+			NSAttributedString attributedString = new NSAttributedString(NSData.FromString(text, NSStringEncoding.UTF8), documentAttributes, ref error);
+
+			//Ensuring text is resiezed correctly when font size is increased
+			StyleUtil.InitTextViewWithSpacingAndUrl(textView, StyleUtil.FontType.FontRegular, attributedString, 1.28, 16, 22);
+
+			textView.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+
+			//ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
+			textView.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 		}
 	}
 }

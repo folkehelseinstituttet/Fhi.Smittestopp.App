@@ -113,10 +113,10 @@
     <Compile Include="Views\Welcome\NonSwipeableViewPager.cs" />
     <Compile Include="Views\Settings\ConsentSettingPageFragment.cs" />
     <Compile Include="Views\Welcome\WelcomeActivity.cs" />
-    <Compile Include="Views\Welcome\WelcomePageFourFragment.cs" />
+    <Compile Include="Views\Welcome\WelcomePageThreeFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePageOneFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePagerAdapter.cs" />
-    <Compile Include="Views\Welcome\WelcomePageThreeFragment.cs" />
+    <Compile Include="Views\Welcome\WelcomePageFourFragment.cs" />
     <Compile Include="Utils\WelcomePageTools.cs" />
     <Compile Include="Views\Welcome\WelcomePageTwoFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePageConsentsActivity.cs" />
@@ -912,15 +912,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_bottom.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_mid.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers_top.xml">
+    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

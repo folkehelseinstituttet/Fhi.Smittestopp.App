@@ -23,7 +23,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
     public class DailyNumbersActivity : AppCompatActivity
     {
         private static readonly DailyNumbersViewModel ViewModel;
-        private ViewGroup _closeButton;
+        private ImageView _closeButton;
 
         static DailyNumbersActivity()
         {
@@ -40,19 +40,16 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
         private void Init()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
             TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
             TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
             _dailyNumbersSubHeaderStatistics.Text = DAILY_NUMBERS_TITLE_ONE;
-            FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview).Text = LastUpdateStringSubHeader;
-            TextView diseaseRateSubSub = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
-
-            ISpanned formattedDescription = HtmlCompat.FromHtml(LastUpdateStringSubSubHeader, HtmlCompat.FromHtmlModeLegacy);
-            diseaseRateSubSub.TextFormatted = formattedDescription;
-            diseaseRateSubSub.ContentDescriptionFormatted = formattedDescription;
-            diseaseRateSubSub.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
-            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.primaryText));
-            diseaseRateSubSub.SetLinkTextColor(linkColor);
+            TextView _dailyNumbersSubTextStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview);
+            TextView _dailyNumbersSubTextSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
+            SetupSubTextWithLink(_dailyNumbersSubTextStatistics, LastUpdateStringSubHeader);
+            SetupSubTextWithLink(_dailyNumbersSubTextSmittestopp, LastUpdateStringSubSubHeader);
 
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text).Text = KEY_FEATURE_ONE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_infected_number_text).Text = ConfirmedCasesToday;
@@ -71,13 +68,18 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             TextView _dailyNumbersSubHeaderVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_header_textView);
             _dailyNumbersSubHeaderVaccinations.Text = DAILY_NUMBERS_TITLE_TWO;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview).Text = LastUpdateStringSubTextTwo;
+            TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview);
+            SetupSubTextWithLink(_dailyNumbersSubTextVaccinations, LastUpdateStringSubTextTwo);
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text).Text = KEY_FEATURE_NINE_LABEL;
+            TextView keyFeatureNineTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text);
+            keyFeatureNineTextView.Text = KEY_FEATURE_NINE_LABEL;
+            keyFeatureNineTextView.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_number_text).Text = VaccinationsDoseOneToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text).Text = KEY_FEATURE_TEN_LABEL;
+            TextView keyFeatureTenTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text);
+            keyFeatureTenTextView.Text = KEY_FEATURE_TEN_LABEL;
+            keyFeatureTenTextView.ContentDescription = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_number_text).Text = VaccinationsDoseTwoToday;
             FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
 
@@ -102,10 +104,10 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
-            _closeButton = FindViewById<ViewGroup>(Resource.Id.daily_numbers_close_cross_btn);
+            _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
-            _closeButton.ContentDescription = MessagesViewModel.MESSAGES_ACCESSIBILITY_CLOSE_BUTTON;
-
+            _closeButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
+            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
 
         private void OnCloseBtnClicked(object arg1, EventArgs arg2)
@@ -113,9 +115,19 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             GoToInfectionStatusActivity();
         }
 
-        public override void OnBackPressed() => GoToInfectionStatusActivity();
+        public override void OnBackPressed() => Finish();
 
-        private void GoToInfectionStatusActivity() => NavigationHelper.GoToResultPageAndClearTop(this);
+        private void GoToInfectionStatusActivity() => Finish();
+
+        private void SetupSubTextWithLink (TextView textView, string formattedText)
+        {
+            ISpanned formattedDescription = HtmlCompat.FromHtml(formattedText, HtmlCompat.FromHtmlModeLegacy);
+            textView.TextFormatted = formattedDescription;
+            textView.ContentDescriptionFormatted = formattedDescription;
+            textView.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
+            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.primaryText));
+            textView.SetLinkTextColor(linkColor);
+        }
 
     }
 }

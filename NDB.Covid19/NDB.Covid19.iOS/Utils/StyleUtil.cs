@@ -112,8 +112,8 @@ namespace NDB.Covid19.iOS.Utils
             attributedString.AddAttribute(UIStringAttributeKey.UnderlineStyle, NSNumber.FromInt32((int)NSUnderlineStyle.Single), new NSRange(0, attributedString.Length));
             btn.BackgroundColor = UIColor.Clear;
             btn.Font = Font(FontType.FontRegular, 16f, 22f);
-            btn.SetTitleColor(ColorHelper.PRIMARY_COLOR, UIControlState.Normal);
-            btn.TintColor = ColorHelper.PRIMARY_COLOR;
+            btn.SetTitleColor(ColorHelper.LINK_COLOR, UIControlState.Normal);
+            btn.TintColor = ColorHelper.LINK_COLOR;
             btn.SetAttributedTitle(attributedString, UIControlState.Normal);
             btn.TitleLabel.Lines = 0;
             btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
@@ -213,6 +213,23 @@ namespace NDB.Covid19.iOS.Utils
             text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
             text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
             label.AttributedText = text;
+            label.TextAlignment = LayoutUtils.GetTextAlignment();
+        }
+
+        public static void InitTextViewWithSpacingAndHTMLFormat(UITextView label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize)
+        {
+            NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes { DocumentType = NSDocumentType.HTML };
+            documentAttributes.StringEncoding = NSStringEncoding.UTF8;
+            NSError error = null;
+            NSAttributedString attributedString = new NSAttributedString(NSData.FromString(rawText, NSStringEncoding.UTF8), documentAttributes, ref error);
+            NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
+            paragraphStyle.LineHeightMultiple = new nfloat(lineHeight);
+            NSMutableAttributedString text = new NSMutableAttributedString(attributedString);
+            NSRange range = new NSRange(0, attributedString.Length);
+            text.AddAttribute(UIStringAttributeKey.ParagraphStyle, paragraphStyle, range);
+            text.AddAttribute(UIStringAttributeKey.Font, Font(fontType, fontSize, maxFontSize), range);
+            label.AttributedText = text;
+            label.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             label.TextAlignment = LayoutUtils.GetTextAlignment();
         }
 

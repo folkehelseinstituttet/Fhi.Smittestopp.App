@@ -56,7 +56,7 @@
 				android:clickable="true"
 				android:autoLink="web" />
 
-			<Button
+			<TextView
 				android:text="Accessibility statement"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

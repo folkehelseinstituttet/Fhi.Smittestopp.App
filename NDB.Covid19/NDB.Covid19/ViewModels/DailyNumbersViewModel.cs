@@ -11,6 +11,7 @@ namespace NDB.Covid19.ViewModels
 {
     public class DailyNumbersViewModel
     {
+        public static string BACK_BUTTON_ACCESSIBILITY_TEXT => "BACK_BUTTON_ACCESSIBILITY_TEXT".Translate();
         public static string DAILY_NUMBERS_HEADER => "DAILY_NUMBERS_HEADER".Translate();
         public static string DAILY_NUMBERS_TITLE_ONE => "DAILY_NUMBERS_TITLE_ONE".Translate();
         public static string DAILY_NUMBERS_SUBHEADER => "DAILY_NUMBERS_SUBHEADER".Translate();
@@ -20,9 +21,6 @@ namespace NDB.Covid19.ViewModels
         public static string KEY_FEATURE_ONE_UPDATE_NEW => "KEY_FEATURE_ONE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_ONE_UPDATE_ALL => "KEY_FEATURE_ONE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_ONE_LABEL => "KEY_FEATURE_ONE_LABEL".Translate();
-        public static string KEY_FEATURE_TWO_UPDATE_NEW => "KEY_FEATURE_TWO_UPDATE_NEW".Translate();
-        public static string KEY_FEATURE_TWO_UPDATE_ALL => "KEY_FEATURE_TWO_UPDATE_ALL".Translate();
-        public static string KEY_FEATURE_TWO_LABEL => "KEY_FEATURE_TWO_LABEL".Translate();
         public static string KEY_FEATURE_THREE_UPDATE_NEW => "KEY_FEATURE_THREE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_THREE_UPDATE_ALL => "KEY_FEATURE_THREE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_THREE_LABEL => "KEY_FEATURE_THREE_LABEL".Translate();
@@ -36,9 +34,11 @@ namespace NDB.Covid19.ViewModels
         public static string KEY_FEATURE_SEVEN_LABEL => "KEY_FEATURE_SEVEN_LABEL".Translate();
         public static string KEY_FEATURE_SEVEN_UPDATE_ALL => "KEY_FEATURE_SEVEN_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_NINE_LABEL => "KEY_FEATURE_NINE_LABEL".Translate();
+        public static string KEY_FEATURE_NINE_ACCESSIBILITY_LABEL => "KEY_FEATURE_NINE_ACCESSIBILITY_LABEL".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_NEW => "KEY_FEATURE_NINE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_ALL => "KEY_FEATURE_NINE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_TEN_LABEL => "KEY_FEATURE_TEN_LABEL".Translate();
+        public static string KEY_FEATURE_TEN_ACCESSIBILITY_LABEL => "KEY_FEATURE_TEN_ACCESSIBILITY_LABEL".Translate();
         public static string KEY_FEATURE_TEN_UPDATE_NEW => "KEY_FEATURE_TEN_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_TEN_UPDATE_ALL => "KEY_FEATURE_TEN_UPDATE_ALL".Translate();
         public static string DAILY_NUMBERS_SUBSUBHEADER => "DAILY_NUMBERS_SUBSUBHEADER".Translate();
@@ -78,8 +78,6 @@ namespace NDB.Covid19.ViewModels
                     {
                         ConfirmedCasesToday = 10,
                         ConfirmedCasesTotal = 123,
-                        DeathsToday = 2,
-                        DeathsTotal = 68,
                         TestsConductedToday = 396,
                         TestsConductedTotal = 3095,
                         EntryDate = DateTime.Now,
@@ -122,8 +120,6 @@ namespace NDB.Covid19.ViewModels
 
         public static string ConfirmedCasesToday => string.Format(KEY_FEATURE_ONE_UPDATE_NEW, $"{DailyNumbers.FHIConfirmedCasesToday:N0}");
         public static string ConfirmedCasesTotal => string.Format(KEY_FEATURE_ONE_UPDATE_ALL, $"{DailyNumbers.FHIConfirmedCasesTotal:N0}");
-        public static string DeathsToday => string.Format(KEY_FEATURE_TWO_UPDATE_NEW, $"{DailyNumbers.FHIDeathsToday:N0}");
-        public static string DeathsTotal => string.Format(KEY_FEATURE_TWO_UPDATE_ALL, $"{DailyNumbers.FHIDeathsTotal:N0}");
         public static string TestsConductedToday => string.Format(KEY_FEATURE_THREE_UPDATE_NEW, $"{DailyNumbers.FHITestsConductedToday:N0}");
         public static string TestsConductedTotal => string.Format(KEY_FEATURE_THREE_UPDATE_ALL, $"{DailyNumbers.FHITestsConductedTotal:N0}");
         public static string PatientsAdmittedToday => string.Format(KEY_FEATURE_FOUR_UPDATE_NEW, $"{DailyNumbers.FHIPatientsAdmittedToday:N0}");

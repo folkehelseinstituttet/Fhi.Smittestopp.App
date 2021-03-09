@@ -1,9 +1,11 @@
 ﻿using System;
 using Android.App;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.V4.Content;
+using Android.Support.V4.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
@@ -38,7 +40,7 @@ namespace NDB.Covid19.Droid.Views.Settings
         private void Init()
         {
             ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back_general);
-            backButton.ContentDescription = SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            backButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
 
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_general_title);
             TextView explanationOne = FindViewById<TextView>(Resource.Id.settings_general_explanation);
@@ -57,7 +59,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             mobileDataDesc.Text = SETTINGS_GENERAL_MOBILE_DATA_DESC;
             languageHeader.Text = SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER;
             languageDesc.Text = SETTINGS_GENERAL_RESTART_REQUIRED_TEXT;
-            languageLink.Text = SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT;
             languageLink.TextAlignment = TextAlignment.ViewStart;
             languageLink.ContentDescription = SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT;
 
@@ -65,9 +66,8 @@ namespace NDB.Covid19.Droid.Views.Settings
             mobileDataHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             languageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
-            linkLayout.Click +=
-                new StressUtils.SingleClick(
-                    (o, args) => OpenSmitteStopLink()).Run;
+            languageLink.TextFormatted = HtmlCompat.FromHtml($"<a href=\"{SETTINGS_GENERAL_MORE_INFO_LINK}\">{SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT}</a>", HtmlCompat.FromHtmlModeLegacy);
+            languageLink.MovementMethod = new Android.Text.Method.LinkMovementMethod();
 
             RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.settings_general_select_lang_radio_group);
             RadioButton englishRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_english);
@@ -78,6 +78,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             RadioButton tigrinyaRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_tigrinya);
             RadioButton arabicRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_arabic);
             RadioButton urduRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_urdu);
+            RadioButton lithuanianRadioButton = FindViewById<RadioButton>(Resource.Id.settings_general_lithuanian);
 
 
 
@@ -89,6 +90,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             tigrinyaRadioButton.Text = SETTINGS_GENERAL_TI;
             arabicRadioButton.Text = SETTINGS_GENERAL_AR;
             urduRadioButton.Text = SETTINGS_GENERAL_UR;
+            lithuanianRadioButton.Text = SETTINGS_GENERAL_LT;
 
             string appLanguage = LocalesService.GetLanguage();
 
@@ -114,6 +116,9 @@ namespace NDB.Covid19.Droid.Views.Settings
                     break;
                 case "ur":
                     urduRadioButton.Checked = true;
+                    break;
+                case "lt":
+                    lithuanianRadioButton.Checked = true;
                     break;
                 default:
                     bokmalRadioButton.Checked = true;
@@ -178,6 +183,10 @@ namespace NDB.Covid19.Droid.Views.Settings
                     case Resource.Id.settings_general_urdu:
                         await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
                         LocalPreferencesHelper.SetAppLanguage("ur");
+                        break;
+                    case Resource.Id.settings_general_lithuanian:
+                        await DialogUtils.DisplayDialogAsync(_self, GetChangeLanguageViewModel);
+                        LocalPreferencesHelper.SetAppLanguage("lt");
                         break;
                 }
                 LocalesService.SetInternationalization();

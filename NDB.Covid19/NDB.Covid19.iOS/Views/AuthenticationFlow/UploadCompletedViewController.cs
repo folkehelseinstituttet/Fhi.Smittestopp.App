@@ -35,6 +35,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             SetupLearnMoreButton();
             SetAccessibilityAttributes();
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
             LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys");
         }
 
@@ -96,6 +97,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             CloseButton.AccessibilityLabel =
                 QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
             _learnMoreViewBtn.AccessibilityLabel = _viewModel.ReceipetPageReadMoreButtonAccessibility;
+
+            TitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+            BoxTitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
         }
 
         void OnLearnMoreBtnTapped(object sender, EventArgs e)

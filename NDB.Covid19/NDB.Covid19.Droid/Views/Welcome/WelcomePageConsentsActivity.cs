@@ -12,6 +12,7 @@ using NDB.Covid19.ViewModels;
 using AndroidX.Core.Text;
 using NDB.Covid19.Utils;
 using Android.Views;
+using Android.Text.Util;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
@@ -101,6 +102,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
             _processingofpersonaldataText1.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_ONE;
             _processingofpersonaldataText2 = FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section2);
             _processingofpersonaldataText2.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_TWO;
+            Linkify.AddLinks(_processingofpersonaldataText2, MatchOptions.EmailAddresses);
             _processingofpersonaldataText3 = FindViewById<TextView>(Resource.Id.consent1_processingofpersonaldata_text_section3);
             _processingofpersonaldataText3.Text = ConsentViewModel.CONSENT_FIVE_PARAGRAPH_SECTION_THREE;
 
@@ -118,7 +120,10 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
 
             RelativeLayout RelativeLayout4 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
-            RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text).TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
+            TextView contactInformation = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text);
+            contactInformation.TextAlignment = TextAlignment.ViewStart;
+            contactInformation.TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
+            Linkify.AddLinks(contactInformation, MatchOptions.EmailAddresses | MatchOptions.PhoneNumbers);
 
 
             // CONTENT DESCRIPTIONS OF HEADER

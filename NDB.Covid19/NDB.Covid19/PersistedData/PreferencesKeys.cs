@@ -39,8 +39,6 @@ namespace NDB.Covid19.PersistedData
         public static readonly string APP_DOWNLOAD_NUMBERS_LAST_UPDATED_PREF = "APP_DOWNLOAD_NUMBERS_LAST_UPDATED_PREF";
         public static readonly string FHI_DATA_CONFIRMED_CASES_TODAY_PREF = "FHI_DATA_CONFIRMED_CASES_TODAY_PREF";
         public static readonly string FHI_DATA_CONFIRMED_CASES_TOTAL_PREF = "FHI_DATA_CONFIRMED_CASES_TOTAL_PREF";
-        public static readonly string FHI_DATA_DEATHS_TODAY_PREF = "FHI_DATA_DEATHS_TODAY_PREF";
-        public static readonly string FHI_DATA_DEATHS_TOTAL_PREF = "FHI_DATA_DEATHS_TOTAL_PREF";
         public static readonly string FHI_DATA_TESTS_CONDUCTED_TODAY_PREF = "FHI_DATA_TESTS_CONDUCTED_TODAY_PREF";
         public static readonly string FHI_DATA_TESTS_CONDUCTED_TOTAL_PREF = "FHI_DATA_TESTS_CONDUCTED_TOTAL_PREF";
         public static readonly string FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF = "FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF";

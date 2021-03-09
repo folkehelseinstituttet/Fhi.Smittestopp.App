@@ -5,7 +5,6 @@ using NDB.Covid19.Utils;
 using UIKit;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.PersistedData;
-using NDB.Covid19.iOS.Views.DailyNumbers;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {
@@ -31,7 +30,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
         {
             base.ViewDidLoad();
 
-            _spinner = StyleUtil.ShowSpinner(View, UIActivityIndicatorViewStyle.Large);
+            _spinner = StyleUtil.ShowSpinner(View,
+                AppDelegate.ShouldOperateIn12_5Mode ? UIActivityIndicatorViewStyle.WhiteLarge : UIActivityIndicatorViewStyle.Large);
         }
 
         public override void ViewDidAppear(bool animated)
@@ -77,16 +77,14 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
             else
             {
                 LogUtils.LogException(LogSeverity.ERROR, e, "Could not load data for disease rate of the day, showing old data");
-                UINavigationController vc = DailyNumbersViewController.GetDailyNumbersPageControllerInNavigationController();
-                PresentViewController(vc, true, null);
+                NavigationController?.PushViewController(DailyNumbersViewController.Create(), true);
             }
         }
 
         void OnSuccess()
         {
             Cleanup();
-            UINavigationController vc = DailyNumbersViewController.GetDailyNumbersPageControllerInNavigationController();
-            PresentViewController(vc, true, null);
+            NavigationController?.PushViewController(DailyNumbersViewController.Create(), true);
         }
     }
 }

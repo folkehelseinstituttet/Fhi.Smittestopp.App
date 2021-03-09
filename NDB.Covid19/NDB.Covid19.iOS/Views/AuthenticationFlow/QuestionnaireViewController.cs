@@ -37,6 +37,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             UpdateUIWhenSelectionChanges();
             SetAccessibilityAttributes();
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
+
             LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire page");
         }
 
@@ -207,6 +209,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             CloseButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
             InfoButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON;
+
+            TitleLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
 
             //Labels
             DatepickerStackView.AccessibilityElementsHidden = true;
