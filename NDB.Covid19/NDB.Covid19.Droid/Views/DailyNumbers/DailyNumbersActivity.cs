@@ -40,6 +40,8 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
         private void Init()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
             TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
             TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
