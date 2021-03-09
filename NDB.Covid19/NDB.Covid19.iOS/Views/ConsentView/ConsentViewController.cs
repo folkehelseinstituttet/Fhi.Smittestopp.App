@@ -180,7 +180,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             });
         }
 
-        public void SetWarningViewVisibility() { WarningView.Alpha = _consentViewModel.ConsentIsGiven ? 0 : 100; }
+        public void SetWarningViewVisibility() { WarningView.Hidden = _consentViewModel.ConsentIsGiven;}
 
         partial void AcceptSwitched(UISwitch sender)
         {
