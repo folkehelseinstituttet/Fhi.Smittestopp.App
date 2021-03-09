@@ -170,6 +170,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         void OnFail()
         {
             NextBtn.HideSpinner();
+            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, null,
+                $"{nameof(QuestionnaireViewController)}.{nameof(OnFail)}: " +
+                $"AuthenticationState.personaldata is not valid");
         }
 
         void OnSuccess()
