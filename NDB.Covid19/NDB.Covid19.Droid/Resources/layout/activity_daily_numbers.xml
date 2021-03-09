@@ -88,8 +88,6 @@
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:showDividers="middle"
-					android:divider="@drawable/linear_layout_divider"
 					android:orientation="horizontal"
 					android:weightSum="1">
 					<RelativeLayout
@@ -132,6 +130,9 @@
 							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
 							android:text="Dummy sub name" />
 					</RelativeLayout>
+					<Space
+						android:layout_width="@dimen/defaultHorizontalMargin"
+						android:layout_height="match_parent"/>
 					<RelativeLayout
 						android:layout_width="match_parent"
 						android:layout_weight="0.5"
@@ -175,8 +176,6 @@
 					android:layout_width="match_parent"
 					android:orientation="horizontal"
 					android:weightSum="1"
-					android:showDividers="middle"
-					android:divider="@drawable/linear_layout_divider"
 					android:layout_marginTop="@dimen/defaultVerticalMargin"
 					android:layout_height="wrap_content">
 					<RelativeLayout
@@ -208,6 +207,9 @@
 							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 							android:text="+003" />
 					</RelativeLayout>
+					<Space
+						android:layout_width="@dimen/defaultHorizontalMargin"
+						android:layout_height="match_parent"/>
 					<RelativeLayout
 						android:layout_width="match_parent"
 						android:layout_height="match_parent"
@@ -266,8 +268,6 @@
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:orientation="horizontal"
-				android:showDividers="middle"
-				android:divider="@drawable/linear_layout_divider"
 				android:layout_marginTop="@dimen/defaultVerticalMargin"
 				app:layout_constraintTop_toBottomOf="@id/linearLayout4"
 				app:layout_constraintStart_toStartOf="parent"
@@ -314,6 +314,9 @@
 						android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
 						android:text="Dummy sub name" />
 				</RelativeLayout>
+				<Space
+                    android:layout_width="@dimen/defaultHorizontalMargin"
+                    android:layout_height="match_parent"/>
 				<RelativeLayout
 					android:layout_width="match_parent"
 					android:layout_weight="0.5"
@@ -383,8 +386,6 @@
 				android:layout_marginTop="@dimen/defaultVerticalMargin"
 				app:layout_constraintEnd_toEndOf="parent"
 				android:orientation="horizontal"
-				android:showDividers="middle"
-				android:divider="@drawable/linear_layout_divider"
 				android:weightSum="1"
 				android:layout_height="wrap_content">
 				<RelativeLayout
@@ -415,6 +416,9 @@
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 						android:text="+009" />
 				</RelativeLayout>
+				<Space
+                    android:layout_width="@dimen/defaultHorizontalMargin"
+                    android:layout_height="match_parent"/>
 				<RelativeLayout
 					android:layout_width="match_parent"
 					android:layout_weight="0.5"
