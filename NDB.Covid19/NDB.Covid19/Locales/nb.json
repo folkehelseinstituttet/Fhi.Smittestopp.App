@@ -317,7 +317,7 @@
   "NOTIFICATION_BLUETOOTH_AND_LOCATION_OFF_TITLE": "Smittestopp er inaktiv",
   "NOTIFICATION_BLUETOOTH_AND_LOCATION_OFF_DESCRIPTION": "Åpne og reaktiver Smittestopp",
   "NOTIFICATION_CHANNEL_EXPOSURE_NAME": "Varslinger om nærkontakt",
-  "NOTIFICATION_CHANNEL_EXPOSURE_DESCRIPTION": "Varslinger om nærkontakter med personer med bekreftet COVID-19-smitte",
+  "NOTIFICATION_CHANNEL_EXPOSURE_DESCRIPTION": "Varslinger om nærkontakter med personer med bekreftet covid-19-smitte",
   "NOTIFICATION_CHANNEL_BACKGROUND_FETCH_NAME": "Bakgrunnsaktiviteter",
   "NOTIFICATION_CHANNEL_BACKGROUND_FETCH_DESCRIPTION": "Varslinger om pågående bakgrunnsaktiviteter",
   "NOTIFICATION_CHANNEL_PERMISSIONS_NAME": "Tilgangsproblemer",
