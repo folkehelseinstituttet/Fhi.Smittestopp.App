@@ -1045,7 +1045,7 @@
     <PackageReference Include="XAB.FlexboxLayout">
       <Version>2.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.ExposureNotification" Version="0.15.0-preview" />
+    <PackageReference Include="Xamarin.ExposureNotification" Version="0.16.0-alpha" />
     <PackageReference Include="Xamarin.ShortcutBadger">
       <Version>1.1.21</Version>
     </PackageReference>

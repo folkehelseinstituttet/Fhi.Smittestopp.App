@@ -6,6 +6,9 @@
     <IsPackable>false</IsPackable>
 
     <Configurations>Debug;Release;UNIT_TEST</Configurations>
+    <RestoreSources>
+        https://api.nuget.org/v3/index.json;../TempNugetFeed;
+    </RestoreSources>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
