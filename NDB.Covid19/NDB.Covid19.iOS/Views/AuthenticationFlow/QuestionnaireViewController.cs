@@ -37,7 +37,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             UpdateUIWhenSelectionChanges();
             SetAccessibilityAttributes();
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
 
             LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire page");
         }
@@ -229,6 +228,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             YesButLargeBtn.AccessibilityLabel = _viewModel.RadioButtonAccessibilityYesDontRemember;
             NoLargeBtn.AccessibilityLabel = _viewModel.RadioButtonAccessibilityNo;
             SkipLargeBtn.AccessibilityLabel = _viewModel.RadioButtonAccessibilitySkip;
+
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, TitleLbl);
+                removeAccessibilityElementAndEnableAfterDelay(CloseButton);
+            }
         }
 
         partial void InfoButton_TouchUpInside(UIButton sender)

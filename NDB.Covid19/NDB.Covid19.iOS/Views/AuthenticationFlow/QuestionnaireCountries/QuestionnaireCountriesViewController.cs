@@ -35,8 +35,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
             SetStyling();
             SetAccessibility();
-
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
         }
 
         public override void ViewWillAppear(bool animated)
@@ -96,6 +94,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
             TitleLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
             ListExplainLbl.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_FOOTER);
             CloseButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
+
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, TitleLbl);
+                removeAccessibilityElementAndEnableAfterDelay(CloseButton);
+            }
         }
 
         partial void OnCloseBtnTapped(UIButton sender)

@@ -43,7 +43,11 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             SetupStyling();
 
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, HeaderLabel);
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, HeaderLabel);
+                removeAccessibilityElementAndEnableAfterDelay(CloseBtn);
+            }
         }
 
         public void SetupStyling()
