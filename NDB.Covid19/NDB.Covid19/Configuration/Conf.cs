@@ -7,9 +7,9 @@ namespace NDB.Covid19.Configuration
 #if APPCENTER
         public static readonly string APPCENTER_DIAGNOSTICS_TOKEN = "";
 #endif
-        public static readonly string BASE_URL = "http://localhost:9095/";
-        public static string AUTHORIZATION_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
-        public static string USER_AGENT_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
+        public static readonly string BASE_URL = "https://test-be-op.ss2np.fhi.no/api/";
+        public static string AUTHORIZATION_HEADER => "24jRFidazK";
+        public static string USER_AGENT_HEADER => "Smittestopp";
 
 #if RELEASE
         public static bool UseDeveloperTools => false;
