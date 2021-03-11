@@ -21,7 +21,7 @@ using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ExposureNotifications
 {
-    public class ExposureNotificationHandler : IExposureNotificationHandler
+    public class ExposureNotificationHandler : IExposureNotificationDailySummaryHandler
     {
         //MiBaDate is null if the device has garbage collected, e.g. in background. Throws MiBaDateMissingException if null.
         private DateTime? MiBaDate => AuthenticationState.PersonalData?.FinalMiBaDate;
@@ -53,6 +53,7 @@ namespace NDB.Covid19.ExposureNotifications
 
         public async Task ExposureDetectedAsync(ExposureDetectionSummary summary, Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
         {
+            Debug.WriteLine("ExposureDetectedAsync is called");
             await ExposureDetectedHelper.EvaluateRiskInSummaryAndCreateMessage(summary, this);
             await ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastExposureInfos(getExposureInfo);
             ExposureDetectedHelper.SaveLastSummary(summary);
@@ -125,6 +126,59 @@ namespace NDB.Covid19.ExposureNotifications
             {
                 throw new FailedToPushToServerException("Failed to push keys to the server");
             }
+        }
+
+        public Task<DailySummaryConfiguration> GetDailySummaryConfigurationAsync()
+        {
+            Debug.WriteLine("GetDailySummaryConfigurationAsync is called");
+            DailySummaryConfiguration dsc = new DailySummaryConfiguration();
+
+            dsc.DaysSinceLastExposureThreshold = 0; // According to Google Docs this is needed to get all windows
+
+            //Creating mock config
+            dsc.DefaultInfectiousness = Infectiousness.High;
+            dsc.DefaultReportType = ReportType.ConfirmedTest;
+
+            dsc.AttenuationThresholds = new int[] { 50, 70, 90 };
+            dsc.AttenuationWeights = new Dictionary<DistanceEstimate, double>
+            {
+                [DistanceEstimate.Immediate] = 2.5,
+                [DistanceEstimate.Near] = 2.5,
+                [DistanceEstimate.Medium] = 2.5,
+                [DistanceEstimate.Other] = 2.5,
+            };
+
+            dsc.InfectiousnessWeights = new Dictionary<Infectiousness, double>
+            {
+                [Infectiousness.None] = 1.0,
+                [Infectiousness.Standard] = 2.0,
+                [Infectiousness.High] = 2.0,
+            };
+
+            dsc.ReportTypeWeights = new Dictionary<ReportType, double>
+            {
+                [ReportType.Unknown] = 2.5,
+                [ReportType.ConfirmedTest] = 2.5,
+                [ReportType.ConfirmedClinicalDiagnosis] = 2.5,
+                [ReportType.SelfReported] = 2.5,
+                [ReportType.Recursive] = 2.5,
+                [ReportType.Revoked] = 2.5,
+            };
+
+            dsc.DaysSinceOnsetInfectiousness = new Dictionary<int, Infectiousness>()
+            {
+                [-14] = Infectiousness.Standard,
+                [0] = Infectiousness.Standard,
+                [14] = Infectiousness.Standard,
+            };
+
+            return Task.FromResult(dsc);
+        }
+
+        public Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary> summaries)
+        {
+            Debug.WriteLine("ExposureStateUpdatedAsync is called");
+            throw new NotImplementedException();
         }
 
         // This is the explanation that will be displayed to the user when getting ExposureInfo objects on iOS
