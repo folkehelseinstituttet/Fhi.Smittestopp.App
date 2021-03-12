@@ -14,6 +14,13 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
         static string _logPrefix = $"{nameof(ExposureDetectedHelper)}";
         private static SecureStorageService _secureStorageService => ServiceLocator.Current.GetInstance<SecureStorageService>();
 
+        public static bool RiskInDailySummaryAboveThreshold(DailySummary dailySummary)
+        {
+            double thresholdInSeconds = LocalPreferencesHelper.ExposureTimeThreshold * 60;
+            if (dailySummary.Summary.WeightedDurationSum >= thresholdInSeconds) return true;
+            return false;
+        }
+
         public static async Task EvaluateRiskInSummaryAndCreateMessage(ExposureDetectionSummary summary, object messageSender)
         {
             if (summary.MatchedKeyCount == 0)
