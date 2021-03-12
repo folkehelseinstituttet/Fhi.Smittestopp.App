@@ -20,6 +20,7 @@ using NDB.Covid19.Utils.DeveloperTools;
 using EN = Xamarin.ExposureNotifications;
 using Debug = System.Diagnostics.Debug;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using System.Linq;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -245,32 +246,52 @@ namespace NDB.Covid19.ViewModels
         // Consider: Displaying the exposure configuration in the activities.
         public async Task<string> FetchExposureConfigurationAsync()
         {
-            EN.Configuration c = await new ExposureNotificationHandler().GetConfigurationAsync();
-            string res = $" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)} \n" +
-                $" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)} \n" +
-                $" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)} \n" +
-                $" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)} \n" +
-                $" MinimumRiskScore: {c.MinimumRiskScore}" +
-                $" DurationAtAttenuationThresholds: [{c.DurationAtAttenuationThresholds[0]},{c.DurationAtAttenuationThresholds[1]}]";
+            try
+            {
+                DailySummaryConfiguration dsc = await new ExposureNotificationHandler().GetDailySummaryConfigurationAsync();
+                string result = $"AttenuationThresholds: {EnConfArrayString(dsc.AttenuationThresholds)}\n " +
+                    $"AttenuationWeights: {EnConfDictionaryString(dsc.AttenuationWeights)} \n" +
+                    $"DaysSinceLastExposureThreshold: {dsc.DaysSinceLastExposureThreshold} \n" +
+                    $"DaysSinceOnsetInfectiousness: {EnConfDictionaryString(dsc.DaysSinceOnsetInfectiousness)} \n" +
+                    $"DefaultInfectiousness: {dsc.DefaultInfectiousness}\n" +
+                    $"DefaultReportType: {dsc.DefaultReportType}\n" +
+                    $"InfectiousnessWeights: {EnConfDictionaryString(dsc.InfectiousnessWeights)}\n" +
+                    $"ReportTypeWeights: {EnConfDictionaryString(dsc.ReportTypeWeights)}\n";
+                DevToolsOutput = result;
+            }
+            catch (Exception)
+            {
+                EN.Configuration c = await new ExposureNotificationHandler().GetConfigurationAsync();
+                string res = $" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)} \n" +
+                    $" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)} \n" +
+                    $" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)} \n" +
+                    $" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)} \n" +
+                    $" MinimumRiskScore: {c.MinimumRiskScore}" +
+                    $" DurationAtAttenuationThresholds: [{c.DurationAtAttenuationThresholds[0]},{c.DurationAtAttenuationThresholds[1]}]";
+                Debug.WriteLine("Exposure Configuration:");
+                Debug.WriteLine($" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)}");
+                Debug.WriteLine($" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)}");
+                Debug.WriteLine($" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)}");
+                Debug.WriteLine($" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)}");
+                Debug.WriteLine($" MinimumRiskScore: {c.MinimumRiskScore}");
+                DevToolsOutput = res;
+            }
 
-            Debug.WriteLine("Exposure Configuration:");
-            Debug.WriteLine($" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)}");
-            Debug.WriteLine($" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)}");
-            Debug.WriteLine($" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)}");
-            Debug.WriteLine($" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)}");
-            Debug.WriteLine($" MinimumRiskScore: {c.MinimumRiskScore}");
-
-            DevToolsOutput = res;
             DevToolUpdateOutput?.Invoke();
-            await _clipboard.SetTextAsync(res);
-            return res;
+            await _clipboard.SetTextAsync(DevToolsOutput);
+            return DevToolsOutput;
+        }
+
+        private string EnConfDictionaryString<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
+        {
+            return "{" + string.Join(",", dictionary.Select(kv => kv.Key + "=" + kv.Value).ToArray()) + "}";
         }
 
         private string EnConfArrayString(int[] values)
         {
             string res = "";
-            for (int i = 0; i < 8; i++) {
-                _ = (i == 7) ? res += values[i] : res += values[i] + ", ";
+            for (int i = 0; i < values.Length; i++) {
+                _ = (i == values.Length - 1) ? res += values[i] : res += values[i] + ", ";
             }
             return res;
         }
