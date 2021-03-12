@@ -104,7 +104,21 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             }
 
             return null;
+        }
 
+        public async Task<Xamarin.ExposureNotifications.DailySummaryConfiguration> GetDailySummaryConfiguration()
+        {
+            ApiResponse<DailySummaryConfigurationDTO> response = await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
+            HandleErrorsSilently(response);
+
+            LogUtils.SendAllLogs();
+
+            if (response.IsSuccessfull && response.Data != null && response.Data.DailySummaryConfiguration != null)
+            {
+                return response.Data.DailySummaryConfiguration;
+            }
+
+            return null;
         }
 
         /// <summary>
