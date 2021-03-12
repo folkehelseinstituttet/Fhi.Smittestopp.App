@@ -11,7 +11,7 @@ using UIKit;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
-    public partial class QuestionnaireViewController : BaseViewController
+    public partial class QuestionnaireViewController : BaseViewController, IUIAccessibilityContainer
     {
         public QuestionnaireViewController(IntPtr handle) : base(handle)
         {
@@ -75,8 +75,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 DateTime valueToShow = QuestionnaireViewModel.DateHasBeenSet ? QuestionnaireViewModel.GetLocalSelectedDate() : DateTime.Now.Date;
                 _viewModel.SetSelectedDateUTC(valueToShow); // Set the default date value when user enter pick date mode
                 UpdateDateLbl(QuestionnaireViewModel.DateLabel);
-
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DatePicker);
             }
         }
 
@@ -206,10 +204,10 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void SetAccessibilityAttributes()
         {
+            TitleLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
+
             CloseButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
             InfoButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON;
-
-            TitleLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
 
             //Labels
             DatepickerStackView.AccessibilityElementsHidden = true;
@@ -231,8 +229,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             if (UIAccessibility.IsVoiceOverRunning)
             {
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, TitleLbl);
+                this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, CloseButton));
                 removeAccessibilityElementAndEnableAfterDelay(CloseButton);
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
             }
         }
 

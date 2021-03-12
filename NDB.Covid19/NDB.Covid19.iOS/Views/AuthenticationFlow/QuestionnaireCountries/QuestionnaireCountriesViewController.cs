@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
@@ -9,7 +10,7 @@ using UIKit;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
-    public partial class QuestionnaireCountriesViewController : BaseViewController
+    public partial class QuestionnaireCountriesViewController : BaseViewController, IUIAccessibilityContainer
     {
         public QuestionnaireCountriesViewController(IntPtr handle) : base(handle)
         {
@@ -97,8 +98,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
             if (UIAccessibility.IsVoiceOverRunning)
             {
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, TitleLbl);
+                this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, NextBtn, CloseButton));
                 removeAccessibilityElementAndEnableAfterDelay(CloseButton);
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
             }
         }
 
@@ -111,8 +113,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
         {
             NavigationController?.DismissViewController(true, null);
         }
-
-        
 
         partial void NextBtnTapped(CustomSubclasses.DefaultBorderButton sender)
         {

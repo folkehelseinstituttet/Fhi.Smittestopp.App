@@ -1,4 +1,5 @@
 using System;
+using Foundation;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
@@ -8,7 +9,7 @@ using Xamarin.Essentials;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
-    public partial class UploadCompletedViewController : BaseViewController
+    public partial class UploadCompletedViewController : BaseViewController, IUIAccessibilityContainer
     {
         UIButton _learnMoreViewBtn;
         QuestionnaireViewModel _viewModel;
@@ -102,8 +103,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             if (UIAccessibility.IsVoiceOverRunning)
             {
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, TitleLabel);
+                this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, ToStartPageBtn, CloseButton));
                 removeAccessibilityElementAndEnableAfterDelay(CloseButton);
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
             }
         }
 

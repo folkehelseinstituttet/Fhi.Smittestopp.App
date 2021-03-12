@@ -10,10 +10,11 @@ using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using UIKit;
 using NDB.Covid19.Enums;
+using System.Collections.Generic;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
-    public partial class InformationAndConsentViewController : BaseViewController
+    public partial class InformationAndConsentViewController : BaseViewController, IUIAccessibilityContainer
     {
         public InformationAndConsentViewController (IntPtr handle) : base (handle)
         {
@@ -36,7 +37,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError);
             _viewModel.Init();
-            CloseBtn.AccessibilityLabel = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
+
+            SetTexts();
+            SetupStyling();
+            SetupAccessibility();
+        }
+
+        private void SetTexts()
+        {
             HeaderLabel.SetAttributedText(InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT);
             DescriptionLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION);
             LookUp_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER, StyleUtil.FontType.FontBold);
@@ -45,20 +53,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             Notification_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT);
             Consent_BeAware_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT);
             Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
-
-            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
-            LookUp_Header.AccessibilityTraits = UIAccessibilityTrait.Header;
-            Notification_Header.AccessibilityTraits = UIAccessibilityTrait.Header;
-
-            StyleUtil.InitButtonStyling(LogInWithIDPortenBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT);
-
-            SetupStyling();
-
-            if (UIAccessibility.IsVoiceOverRunning)
-            {
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, HeaderLabel);
-                removeAccessibilityElementAndEnableAfterDelay(CloseBtn);
-            }
         }
 
         public void SetupStyling()
@@ -71,6 +65,24 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             Notification_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             Consent_BeAware_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
             Consent_Explanation_Text.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+
+            StyleUtil.InitButtonStyling(LogInWithIDPortenBtn, InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT);
+        }
+
+        private void SetupAccessibility()
+        {
+            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+            LookUp_Header.AccessibilityTraits = UIAccessibilityTrait.Header;
+            Notification_Header.AccessibilityTraits = UIAccessibilityTrait.Header;
+
+            CloseBtn.AccessibilityLabel = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
+
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, CloseBtn));
+                removeAccessibilityElementAndEnableAfterDelay(CloseBtn);
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, HeaderLabel);
+            }
         }
 
         public override void ViewWillDisappear(bool animated)
