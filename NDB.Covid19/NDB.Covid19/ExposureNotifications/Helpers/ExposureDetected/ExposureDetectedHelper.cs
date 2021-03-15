@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils;
+using NDB.Covid19.Utils.DeveloperTools;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
@@ -64,6 +66,19 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
             catch (Exception e)
             {
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.{nameof(SaveLastSummary)}");
+            }
+        }
+
+        public static void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
+        {
+            try
+            {
+                string summaryJson = ExposureDailySummaryJsonHelper.ExposureDailySummaryToJson(summaries);
+                _secureStorageService.SaveValue(SecureStorageKeys.LAST_SUMMARY_KEY, summaryJson);
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.{nameof(SaveLastDailySummaries)}");
             }
         }
     }

@@ -51,6 +51,8 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private Button _buttonOnlyV1ConsentsNoRestart;
         private Button _buttonAllConsentNoRestarts;
         private Button _buttonGoToForceUpdate;
+        private Button _buttonShowLastDailySummary;
+        private Button _buttonShowLastExposureWindow;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -128,6 +130,13 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
             _buttonShowLastExposureInfo =
                 FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLastExposureInfo);
             _buttonShowLastExposureInfo.Click += new SingleClick((sender, args) => PrintLastExposureInfo()).Run;
+
+            _buttonShowLastDailySummary = FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLastDailySummary);
+            _buttonShowLastDailySummary.Click += new SingleClick((sender, args) => PrintLastDailySummary()).Run;
+
+            _buttonShowLastExposureWindow = FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLastExposureWindow);
+            _buttonShowLastExposureWindow.Click += new SingleClick((sender, args) => PrintLastExposureWindow()).Run;
+
 
             _buttonShowLatestPullKeysTimesAndStatuses =
                 FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLatestPullKeysTimesAndStatuses);
@@ -332,6 +341,17 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private void ShowLatestPullKeysTimesAndStatuses()
         {
             UpdateText(_viewModel.GetPullHistory());
+        }
+
+
+        private void PrintLastExposureWindow()
+        {
+            UpdateText(_viewModel.GetExposureWindowFromLastPull());
+        }
+
+        private void PrintLastDailySummary()
+        {
+            UpdateText(_viewModel.GetDailySummaries());
         }
     }
 }

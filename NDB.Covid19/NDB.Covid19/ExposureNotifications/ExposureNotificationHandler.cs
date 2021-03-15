@@ -58,6 +58,53 @@ namespace NDB.Covid19.ExposureNotifications
             ExposureDetectedHelper.SaveLastSummary(summary);
         }
 
+        public Task<DailySummaryConfiguration> GetDailySummaryConfigurationAsync()
+        {
+            var ds = new DailySummaryConfiguration();
+            ds.AttenuationWeights = new Dictionary<DistanceEstimate, double>
+            {
+                [DistanceEstimate.Immediate] = 2.5,
+                [DistanceEstimate.Near] = 2.5,
+                [DistanceEstimate.Medium] = 2.5,
+                [DistanceEstimate.Other] = 2.5,
+            };
+            ds.AttenuationThresholds = new int[] { 50, 70, 90 };
+            ds.InfectiousnessWeights = new Dictionary<Infectiousness, double>
+            {
+                [Infectiousness.None] = 1.0,
+                [Infectiousness.Standard] = 2.0,
+                [Infectiousness.High] = 2.0,
+            };
+            ds.ReportTypeWeights = new Dictionary<ReportType, double>
+            {
+                [ReportType.Unknown] = 2.5,
+                [ReportType.ConfirmedTest] = 2.5,
+                [ReportType.ConfirmedClinicalDiagnosis] = 2.5,
+                [ReportType.SelfReported] = 2.5,
+                [ReportType.Recursive] = 2.5,
+                [ReportType.Revoked] = 2.5,
+            };
+            ds.DefaultInfectiousness = Infectiousness.High;
+            ds.DefaultReportType = ReportType.ConfirmedTest;
+
+            ds.DaysSinceOnsetInfectiousness = new Dictionary<int, Infectiousness>()
+            {
+                [-14] = Infectiousness.Standard,
+                [0] = Infectiousness.Standard,
+                [14] = Infectiousness.Standard,
+            };
+            ds.DaysSinceLastExposureThreshold = 0;
+            Debug.WriteLine(ds.ToString());
+            return Task.FromResult(ds);
+        }
+
+        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary>? summaries)
+        {
+            await MessageUtils.CreateMessage(this);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
+            ExposureDetectedHelper.SaveLastDailySummaries(summaries);
+        }
+
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> tempKeys)
         {
             // Convert to ExposureKeyModel list as it is extended with DaysSinceOnsetOfSymptoms value

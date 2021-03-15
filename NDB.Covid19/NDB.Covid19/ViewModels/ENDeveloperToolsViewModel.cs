@@ -242,6 +242,45 @@ namespace NDB.Covid19.ViewModels
             return finalResult;
         }
 
+        public string GetExposureWindowFromLastPull()
+        {
+            string exposureWindowsString = _devTools.PersistedExposureWindow;
+            string result = "";
+
+            if (exposureWindowsString == "")
+            {
+                result = "We have not saved any ExposureWindows yet";
+            }
+            else
+            {
+                try
+                {
+                    IEnumerable<ExposureWindow> exposureWindows = ExposureWindowJsonHelper.ExposureWindowsFromJsonCompatibleString(exposureWindowsString);
+                    foreach (ExposureWindow exposureWindow in exposureWindows)
+                    {
+                        string separator = result == "" ? "" : "\n";
+                        result += separator;
+                        result += "[ExposureWindow with ";
+                        result += $"CalibrationConfidence: {exposureWindow.CalibrationConfidence},";
+                        result += $"Timestamp: {exposureWindow.Timestamp},";
+                        result += $"Infectiousness: {exposureWindow.Infectiousness},";
+                        result += $"ReportType: {exposureWindow.ReportType},";
+                        result += $"ScanInstances: {exposureWindow.ScanInstances}"; //should perhaps be handled differently?
+                        result += "]";
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
+                    result = "Failed at deserializing the saved ExposureWindows";
+                }
+            }
+            string finalResult = $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}"; 
+            _clipboard.SetTextAsync(finalResult);
+            return finalResult;
+        }
+
         // Consider: Displaying the exposure configuration in the activities.
         public async Task<string> FetchExposureConfigurationAsync()
         {
@@ -347,6 +386,47 @@ namespace NDB.Covid19.ViewModels
             Debug.WriteLine(result);
             _clipboard.SetTextAsync(result);
             return result;
+        }
+
+        public string GetDailySummaries()
+        {
+            string result = "";
+
+            if (ServiceLocator.Current.GetInstance<SecureStorageService>().KeyExists(SecureStorageKeys.LAST_SUMMARY_KEY))
+            {
+                try
+                {
+                    IEnumerable<DailySummary> dailySummaries = ExposureDailySummaryJsonHelper.ExposureDailySummaryFromJsonCompatibleString
+                        (ServiceLocator.Current.GetInstance<SecureStorageService>().GetValue(SecureStorageKeys.LAST_SUMMARY_KEY));
+                    foreach (DailySummary dailySummary in dailySummaries)
+                    {
+                        string separator = result == "" ? "" : "\n";
+                        result += separator;
+                        result += "[DailySummary with ";
+                        result += $"Timestamp: {dailySummary.Timestamp},";
+                        result += "[DailySummaryReport with ";
+                        result += $"MaximumScore: {dailySummary.Summary.MaximumScore},";
+                        result += $"ScoreSum: {dailySummary.Summary.ScoreSum},";
+                        result += $"WeightedDurationSum: {dailySummary.Summary.WeightedDurationSum},";
+                        result += "]";
+                        result += "]";
+                    }
+                }
+                catch (Exception e)
+                {
+                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
+                    result = "Failed at deserializing the saved DailySummaries";
+                }
+                
+            }
+            else
+            {
+                result = "We have not saved any DailySummaries yet";
+            }
+
+            string finalResult = $"These are the DailySummaries we got the last time \"Pull keys\" was clicked:\n{result}";
+            _clipboard.SetTextAsync(finalResult);
+            return finalResult;
         }
 
         public string GetPullHistory()

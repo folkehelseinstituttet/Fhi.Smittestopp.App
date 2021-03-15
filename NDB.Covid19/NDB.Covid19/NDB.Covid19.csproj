@@ -41,6 +41,10 @@
     <NoWarn>1701;1702</NoWarn>
     <NoStdLib>false</NoStdLib>
   </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <NullableContextOptions>enable</NullableContextOptions>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
   </ItemGroup>
