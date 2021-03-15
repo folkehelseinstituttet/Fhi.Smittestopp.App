@@ -27,6 +27,8 @@ namespace NDB.Covid19.Droid.Views.Settings
 
         void Init()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
             ConstraintLayout settingsIntroLayout = FindViewById<ConstraintLayout>(Resource.Id.settings_intro_frame);
             ConstraintLayout howItWorksLayout = FindViewById<ConstraintLayout>(Resource.Id.settings_saddan_frame);
             ConstraintLayout gdprLayout = FindViewById<ConstraintLayout>(Resource.Id.settings_behandling_frame);
@@ -48,11 +50,17 @@ namespace NDB.Covid19.Droid.Views.Settings
             _fhiLogo.ContentDescription = ViewModels.InfectionStatusViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
 
             settingsIntroButton.Text = _settingsViewModel.SettingItemList[0].Text;
+            settingsIntroButton.TextAlignment = TextAlignment.ViewStart;
             howItWorksButton.Text = _settingsViewModel.SettingItemList[1].Text;
+            howItWorksButton.TextAlignment = TextAlignment.ViewStart;
             gdprButton.Text = _settingsViewModel.SettingItemList[2].Text;
+            gdprButton.TextAlignment = TextAlignment.ViewStart;
             helpButton.Text = _settingsViewModel.SettingItemList[3].Text;
+            helpButton.TextAlignment = TextAlignment.ViewStart;
             aboutButton.Text = _settingsViewModel.SettingItemList[4].Text;
+            aboutButton.TextAlignment = TextAlignment.ViewStart;
             generalButton.Text = _settingsViewModel.SettingItemList[5].Text;
+            generalButton.TextAlignment = TextAlignment.ViewStart;
 
             if (_settingsViewModel.ShowDebugItem)
             {

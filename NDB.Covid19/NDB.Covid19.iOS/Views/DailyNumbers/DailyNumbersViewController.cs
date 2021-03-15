@@ -140,7 +140,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			VaccinationsDose2_StackView.ShouldGroupAccessibilityChildren = true;
 
 			// Back button styling and accessibility
-			BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
+			BackButton.AccessibilityLabel = BACK_BUTTON_ACCESSIBILITY_TEXT;
 
 			//Implemented for correct voiceover due to smitte|stop, removing pronunciation of lodretstreg
 			KeyFeature5Lbl.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(KEY_FEATURE_FIVE_LABEL);
