@@ -46,8 +46,10 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
             TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
             _dailyNumbersSubHeaderStatistics.Text = DAILY_NUMBERS_TITLE_ONE;
+            _dailyNumbersSubHeaderStatistics.TextAlignment = TextAlignment.ViewStart;
             TextView _dailyNumbersSubTextStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview);
             TextView _dailyNumbersSubTextSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
+            _dailyNumbersSubTextSmittestopp.TextAlignment = TextAlignment.ViewStart;
             SetupSubTextWithLink(_dailyNumbersSubTextStatistics, LastUpdateStringSubHeader);
             SetupSubTextWithLink(_dailyNumbersSubTextSmittestopp, LastUpdateStringSubSubHeader);
 
@@ -85,6 +87,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
             TextView _dailyNumbersSubHeaderSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_header_textView);
             _dailyNumbersSubHeaderSmittestopp.Text = DAILY_NUMBERS_TITLE_THREE;
+            _dailyNumbersSubHeaderSmittestopp.TextAlignment = TextAlignment.ViewStart;
 
             //Added newline for the UI to align.
             FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text).Text = $"{KEY_FEATURE_SIX_LABEL} \n";
