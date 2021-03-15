@@ -185,6 +185,7 @@
                         <outlet property="HeaderLabel" destination="mRS-C6-GLl" id="name-outlet-mRS-C6-GLl"/>
                         <outlet property="NextButtonOnlyNorwayConsent" destination="qUd-pk-VPy" id="D8H-QO-1M5"/>
                         <outlet property="NextButtonWithEUConsent" destination="Q5l-do-83F" id="P2A-Y6-ypH"/>
+                        <outlet property="ScrollView" destination="EGA-Ir-Rpa" id="D2B-jJ-9Rr"/>
                         <outlet property="ShareHeader" destination="73Q-2K-8Ne" id="lC1-5q-lYT"/>
                     </connections>
                 </viewController>
