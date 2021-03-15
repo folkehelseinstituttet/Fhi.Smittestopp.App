@@ -33,6 +33,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
             base.ViewDidLoad();
 
             _viewModel = new QuestionnaireCountriesViewModel();
+            _countryList = new List<CountryDetailsViewModel>();
 
             SetStyling();
             SetAccessibility();
