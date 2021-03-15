@@ -41,7 +41,7 @@ namespace NDB.Covid19.ExposureNotifications
                 }
 
                 string jsonConfiguration = JsonConvert.SerializeObject(configuration);
-                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
+                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V1 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
                 return configuration;
             });
         }
@@ -171,6 +171,9 @@ namespace NDB.Covid19.ExposureNotifications
                 [0] = Infectiousness.Standard,
                 [14] = Infectiousness.Standard,
             };
+
+            string jsonConfiguration = JsonConvert.SerializeObject(dsc);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V2 Config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
 
             return Task.FromResult(dsc);
         }
