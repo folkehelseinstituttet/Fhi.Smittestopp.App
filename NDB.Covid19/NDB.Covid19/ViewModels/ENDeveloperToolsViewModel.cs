@@ -249,32 +249,32 @@ namespace NDB.Covid19.ViewModels
             try
             {
                 DailySummaryConfiguration dsc = await new ExposureNotificationHandler().GetDailySummaryConfigurationAsync();
-                string result = $"AttenuationThresholds: {EnConfArrayString(dsc.AttenuationThresholds)}\n " +
-                    $"AttenuationWeights: {EnConfDictionaryString(dsc.AttenuationWeights)} \n" +
+                string result = $"AttenuationThresholds: {ENConfArrayString(dsc.AttenuationThresholds)}\n " +
+                    $"AttenuationWeights: {ENConfDictionaryString(dsc.AttenuationWeights)} \n" +
                     $"DaysSinceLastExposureThreshold: {dsc.DaysSinceLastExposureThreshold} \n" +
-                    $"DaysSinceOnsetInfectiousness: {EnConfDictionaryString(dsc.DaysSinceOnsetInfectiousness)} \n" +
+                    $"DaysSinceOnsetInfectiousness: {ENConfDictionaryString(dsc.DaysSinceOnsetInfectiousness)} \n" +
                     $"DefaultInfectiousness: {dsc.DefaultInfectiousness}\n" +
                     $"DefaultReportType: {dsc.DefaultReportType}\n" +
-                    $"InfectiousnessWeights: {EnConfDictionaryString(dsc.InfectiousnessWeights)}\n" +
-                    $"ReportTypeWeights: {EnConfDictionaryString(dsc.ReportTypeWeights)}\n";
+                    $"InfectiousnessWeights: {ENConfDictionaryString(dsc.InfectiousnessWeights)}\n" +
+                    $"ReportTypeWeights: {ENConfDictionaryString(dsc.ReportTypeWeights)}\n";
                 DevToolsOutput = result;
             }
-            catch (Exception)
+            catch (InvalidOperationException)
             {
                 EN.Configuration c = await new ExposureNotificationHandler().GetConfigurationAsync();
-                string res = $" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)} \n" +
-                    $" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)} \n" +
-                    $" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)} \n" +
-                    $" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)} \n" +
+                string result = $" AttenuationWeight: {c.AttenuationWeight}, Values: {ENConfArrayString(c.AttenuationScores)} \n" +
+                    $" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {ENConfArrayString(c.DaysSinceLastExposureScores)} \n" +
+                    $" DurationWeight: {c.DurationWeight}, Values: {ENConfArrayString(c.DurationScores)} \n" +
+                    $" TransmissionWeight: {c.TransmissionWeight}, Values: {ENConfArrayString(c.TransmissionRiskScores)} \n" +
                     $" MinimumRiskScore: {c.MinimumRiskScore}" +
                     $" DurationAtAttenuationThresholds: [{c.DurationAtAttenuationThresholds[0]},{c.DurationAtAttenuationThresholds[1]}]";
                 Debug.WriteLine("Exposure Configuration:");
-                Debug.WriteLine($" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)}");
-                Debug.WriteLine($" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)}");
-                Debug.WriteLine($" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)}");
-                Debug.WriteLine($" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)}");
+                Debug.WriteLine($" AttenuationWeight: {c.AttenuationWeight}, Values: {ENConfArrayString(c.AttenuationScores)}");
+                Debug.WriteLine($" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {ENConfArrayString(c.DaysSinceLastExposureScores)}");
+                Debug.WriteLine($" DurationWeight: {c.DurationWeight}, Values: {ENConfArrayString(c.DurationScores)}");
+                Debug.WriteLine($" TransmissionWeight: {c.TransmissionWeight}, Values: {ENConfArrayString(c.TransmissionRiskScores)}");
                 Debug.WriteLine($" MinimumRiskScore: {c.MinimumRiskScore}");
-                DevToolsOutput = res;
+                DevToolsOutput = result;
             }
 
             DevToolUpdateOutput?.Invoke();
@@ -282,12 +282,12 @@ namespace NDB.Covid19.ViewModels
             return DevToolsOutput;
         }
 
-        private string EnConfDictionaryString<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
+        private string ENConfDictionaryString<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
         {
             return "{" + string.Join(",", dictionary.Select(kv => kv.Key + "=" + kv.Value).ToArray()) + "}";
         }
 
-        private string EnConfArrayString(int[] values)
+        private string ENConfArrayString(int[] values)
         {
             string res = "";
             for (int i = 0; i < values.Length; i++) {
