@@ -131,6 +131,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersTitleThree.AccessibilityTraits = UIAccessibilityTrait.Header;
 
 			//Setting up accessibility grouping
+			Statistics_StackView.ShouldGroupAccessibilityChildren = true;
+			Vaccinations_StackView.ShouldGroupAccessibilityChildren = true;
+			Smittestopp_StackView.ShouldGroupAccessibilityChildren = true;
 			ConfirmedCases_StackView.ShouldGroupAccessibilityChildren = true;
 			NumberOfTests_StackView.ShouldGroupAccessibilityChildren = true;
 			PatientsAdmitted_StackView.ShouldGroupAccessibilityChildren = true;
