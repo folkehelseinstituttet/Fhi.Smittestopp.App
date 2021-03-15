@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3372">
-                                <rect key="frame" x="393" y="35" width="25" height="25"/>
+                                <rect key="frame" x="279" y="35" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="9QL-rR-Ouk"/>
                                     <constraint firstAttribute="height" constant="25" id="fmm-uu-kSN"/>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGD-Le-Cw4">
-                                <rect key="frame" x="0.0" y="82" width="434" height="486"/>
+                                <rect key="frame" x="0.0" y="82" width="320" height="486"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3C-7S-33K">
                                         <rect key="frame" x="0.0" y="0.0" width="434" height="840.5"/>
@@ -377,6 +377,7 @@
                         <outlet property="NoBtn" destination="iCO-6k-XEB" id="name-outlet-iCO-6k-XEB"/>
                         <outlet property="NoLargeBtn" destination="Syx-Nm-SFB" id="name-outlet-Syx-Nm-SFB"/>
                         <outlet property="NoLbl" destination="yje-dj-XmK" id="name-outlet-yje-dj-XmK"/>
+                        <outlet property="ScrollView" destination="gGD-Le-Cw4" id="iH7-nz-Gtc"/>
                         <outlet property="SkipBtn" destination="Sbz-ud-a1i" id="name-outlet-Sbz-ud-a1i"/>
                         <outlet property="SkipLargeBtn" destination="SX7-3p-hok" id="name-outlet-SX7-3p-hok"/>
                         <outlet property="SkipLbl" destination="rfp-jt-KwC" id="name-outlet-rfp-jt-KwC"/>
