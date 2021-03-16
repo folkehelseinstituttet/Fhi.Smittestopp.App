@@ -50,7 +50,7 @@ Overall, the solution contains four modules:
 - **NDB.Covid19.Test:** Unit and integration tests.
 
 ## Contributing
-Feedback and contribution and are always welcome. For more information about how to contribute, refer to [Contribution Guidelines](CONTRIBUTING.md). By contributing to this project, you also agree to abide by its [Code of Conduct](CODE_OF_CONDUCT.md) at all times.
+Feedback and contribution are always welcome. For more information about how to contribute, refer to [Contribution Guidelines](CONTRIBUTING.md). By contributing to this project, you also agree to abide by its [Code of Conduct](CODE_OF_CONDUCT.md) at all times.
 
 ## Download Smittestopp
 <a href="https://play.google.com/store/apps/details?id=no.fhi.smittestopp_exposure_notification"><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/google-play-badge-en.png" width="200" height="60" alt="Get it on Google Play"></a>
