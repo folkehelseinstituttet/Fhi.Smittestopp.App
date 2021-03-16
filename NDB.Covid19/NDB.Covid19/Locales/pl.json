@@ -111,7 +111,7 @@
   "DAILY_NUMBERS_TITLE_TWO": "Szczepienia",
   "DAILY_NUMBERS_SUBTEXT_TWO": "Liczbę przeprowadzonych szczepień zaktualizowano ostatnio dnia {0} o {1}. Źródło: <a href=\"https://www.fhi.no/sv/vaksine/koronavaksinasjonsprogrammet/koronavaksinasjonsstatistikk/\">Norweski Instytut Zdrowia Publicznego - Szczepienia</a>.",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
-  "DAILY_NUMBERS_SUBSUBHEADER": "Dane liczbowe aplikacji Smittestopp zaktualizowano ostatnio dnia {0} o {1}. Przeczytaj o danych liczbowych na stronie: <a href=\"https://smittestopp.no/dagenstall/\">www.smittestopp.no/dagenstall</a>",
+  "DAILY_NUMBERS_SUBSUBHEADER": "Dane liczbowe aplikacji Smittestopp zaktualizowano ostatnio dnia {0} o {1}. Przeczytaj o danych liczbowych na stronie: <a href=\"https://www.fhi.no/om/smittestopp/nokkeltall-fra-smittestopp/\">Norweski Instytut Zdrowia Publicznego - Smittestopp</a>",
   "KEY_FEATURE_ONE_UPDATE_NEW": "{0}",
   "KEY_FEATURE_ONE_UPDATE_ALL": "Łącznie: {0}",
   "KEY_FEATURE_ONE_LABEL": "Potwierdzonych przypadków",
