@@ -52,7 +52,7 @@ Feedback and contribution and are always welcome. For more information about how
 
 ## Download the app
 <a href="https://play.google.com/store/apps/details?id=no.fhi.smittestopp_exposure_notification"><img style="width: 200px;height: 55px; margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/google-play-badge-en.png" alt="Get it on Google Play"></a>
-<a href="https://apps.apple.com/app/id1540967575"><img style="width: 200px;height: 55px; margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/apple-app-store-badge-en.png" alt="Download on the App Store"></a>
+<a href="https://apps.apple.com/app/id1540967575"><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/apple-app-store-badge-en.png" width="100"; height="15" alt="Download on the App Store"></a>
 
 
 ## Licence
