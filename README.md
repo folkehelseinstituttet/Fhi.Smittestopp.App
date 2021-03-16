@@ -29,7 +29,7 @@ Common questions as well as general information about Smittestopp is available o
 | Production |  [![Build status](https://build.appcenter.ms/v0.1/apps/e4af3bb5-44d0-47ae-9f80-714f44f231ab/branches/master/badge)](https://appcenter.ms)   |    [![Build status](https://build.appcenter.ms/v0.1/apps/ff50860e-7ced-40ce-87cd-04e3f9e5ff8a/branches/master/badge)](https://appcenter.ms)     |
 
 ## Development
-### Pre-reqs
+### Prerequisites
 - Visual Studio 2019
 - Xcode 12 or higher (iOS only)
 
