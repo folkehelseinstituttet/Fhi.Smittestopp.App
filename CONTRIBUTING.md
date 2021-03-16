@@ -10,10 +10,10 @@ Issue is not always a bug you discover in the app but potential enhancements, ne
 ### Submitting an issue
 - Give the issue a short, clear title that describes the bug or feature request
 - Include what version of Smittestopp you are using. If you are reporting a bug, include details on the device you get it:
-  - _OS Version_: iOS 14.4 or Android 9
-  - _Device_, e.g., iPhone SE, iPhone 12, Samsung Galaxy S20
-  - _Language_, e.g., Norwegian/English
-  - _Google Play Services version_, if you see the issue on Android
+  - _**OS Version**_, e.g., iOS 14.4 or Android 9
+  - _**Device**_, e.g., iPhone SE, iPhone 12, Samsung Galaxy S20
+  - **_Language_**, e.g., Norwegian/English
+  - _**Google Play Services version**_, if you the issue affects Android
 - Include steps to reproduce the issue
 - Include screenshots, if possible
 - Mark issue with an appropriate label, e.g., `is:bug`, `affects:ios`
