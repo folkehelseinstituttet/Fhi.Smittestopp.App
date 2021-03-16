@@ -21,7 +21,7 @@ Issue is not always a bug you discover in the app but potential enhancements, ne
 - Do not include any personal information in the issue description and in the screenshots.
 
 ### Confirming issues
-If you have resources and possess required devices, you can contribute by confirming that the issue exists. We will try to confirm the issue ourself since we have a good set of hardware to test Smittestopp on. However, due to a variety of devices, especcially on Android, we are not always able to do it. Feel free to contribute by confirming other people's issue by yourself.
+If you have resources and possess required devices, you can contribute by confirming that the issue exists. We will try to confirm the issue ourself since we have a good set of hardware to test Smittestopp on. However, due to variety of devices, especially on Android, we are not always able to do it. Feel free to contribute by confirming other people's issue by yourself.
 
 ### Working on an issue
 If you want to fix an existing issue, please claim it first by commenting on the GitHub issue that you will work on it. This prevents duplicated efforts from other contributors on the same issue.
