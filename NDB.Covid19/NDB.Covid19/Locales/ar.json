@@ -111,7 +111,7 @@
   "DAILY_NUMBERS_TITLE_TWO": "التطعيمات",
   "DAILY_NUMBERS_SUBTEXT_TWO": "تم آخر تحديث لعدد التطعيمات بتاریخ {0} في الساعة {1}. المصدر: <a href=\"https://www.fhi.no/sv/vaksine/koronavaksinasjonsprogrammet/koronavaksinasjonsstatistikk/\">المعهد النرويجى  للصحة العامةا - لتطعيمات</a>.",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
-  "DAILY_NUMBERS_SUBSUBHEADER": "تم آخر تحديث للأعداد في Smittestopp بتاریخ {0} في الساعة {1}. اقرأ عن الأعداد على <a href=\"https://smittestopp.no/dagenstall/\"> www.smittestopp.no/dagenstall </a>",
+  "DAILY_NUMBERS_SUBSUBHEADER": "تم آخر تحديث للأعداد في Smittestopp بتاریخ {0} في الساعة {1}. اقرأ عن الأعداد على <a href=\"https://www.fhi.no/om/smittestopp/nokkeltall-fra-smittestopp/\"> Smittestopp - المعهد النرويجى لـلصحة العامة  </a>",
   "KEY_FEATURE_ONE_UPDATE_NEW": "{0}",
   "KEY_FEATURE_ONE_UPDATE_ALL": "الإجمالي: {0}",
   "KEY_FEATURE_ONE_LABEL": "حالات الإصابة المؤكدة",
