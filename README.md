@@ -1,5 +1,6 @@
 <h1 align="center"> Smittestopp Mobile Application <br/><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.fhi.no/globalassets/bilder/smittestopp/smittestopp-logo-temaside.png?preset=themeheaderimage"> </h1>
 <br/>
+
 [![GitHub last commit](https://img.shields.io/github/last-commit/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/commits)
 [![Open pull requests](https://img.shields.io/github/issues-pr/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/pulls)
 [![Open issues](https://img.shields.io/github/issues/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/issues)
