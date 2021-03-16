@@ -119,6 +119,16 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
             ENDevOutput.Text = _enDeveloperViewModel.GetExposureInfosFromLastPull();
         }
 
+        partial void ENdevShowDailySummaryBtn_TouchUpInside(UIButton sender)
+        {
+            ENDevOutput.Text = _enDeveloperViewModel.GetDailySummaries();
+        }
+
+        partial void ENDevShowExposureWindowBtn_TouchUpInside(UIButton sender)
+        {
+            ENDevOutput.Text = _enDeveloperViewModel.GetExposureWindowFromLastPull();
+        }
+
         partial void ENDevLastUsedConfigurationBtn_TouchUpInside(UIButton sender)
         {
              string res = _enDeveloperViewModel.LastUsedExposureConfigurationAsync();
