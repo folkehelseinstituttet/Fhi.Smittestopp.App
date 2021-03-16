@@ -21,7 +21,7 @@ using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ExposureNotifications
 {
-    public class ExposureNotificationHandler : IExposureNotificationHandler
+    public class ExposureNotificationHandler : IExposureNotificationHandler, IExposureNotificationDailySummaryHandler
     {
         //MiBaDate is null if the device has garbage collected, e.g. in background. Throws MiBaDateMissingException if null.
         private DateTime? MiBaDate => AuthenticationState.PersonalData?.FinalMiBaDate;
@@ -71,18 +71,18 @@ namespace NDB.Covid19.ExposureNotifications
             ds.AttenuationThresholds = new int[] { 50, 70, 90 };
             ds.InfectiousnessWeights = new Dictionary<Infectiousness, double>
             {
-                [Infectiousness.None] = 1.0,
+                //[Infectiousness.None] = 1.0,
                 [Infectiousness.Standard] = 2.0,
                 [Infectiousness.High] = 2.0,
             };
             ds.ReportTypeWeights = new Dictionary<ReportType, double>
             {
-                [ReportType.Unknown] = 2.5,
+                //[ReportType.Unknown] = 2.5,
                 [ReportType.ConfirmedTest] = 2.5,
                 [ReportType.ConfirmedClinicalDiagnosis] = 2.5,
                 [ReportType.SelfReported] = 2.5,
                 [ReportType.Recursive] = 2.5,
-                [ReportType.Revoked] = 2.5,
+                //[ReportType.Revoked] = 2.5,
             };
             ds.DefaultInfectiousness = Infectiousness.High;
             ds.DefaultReportType = ReportType.ConfirmedTest;

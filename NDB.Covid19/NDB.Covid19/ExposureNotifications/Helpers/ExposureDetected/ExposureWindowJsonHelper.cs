@@ -8,7 +8,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
 {
     public abstract class ExposureWindowJsonHelper
     {
-        public static string ExposureWindowToJson (IEnumerable<ExposureWindow> exposureWindows)
+        public static string ExposureWindowToJson(IEnumerable<ExposureWindow> exposureWindows)
         {
             IEnumerable<JsonCompatibleExposureWindow> jsonCompatibleExposureWindows
                 = exposureWindows.Select(exposureWindow => new JsonCompatibleExposureWindow(exposureWindow));

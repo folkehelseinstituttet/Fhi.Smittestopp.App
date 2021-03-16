@@ -253,32 +253,51 @@ namespace NDB.Covid19.ViewModels
             }
             else
             {
-                try
-                {
-                    IEnumerable<ExposureWindow> exposureWindows = ExposureWindowJsonHelper.ExposureWindowsFromJsonCompatibleString(exposureWindowsString);
-                    foreach (ExposureWindow exposureWindow in exposureWindows)
-                    {
-                        string separator = result == "" ? "" : "\n";
-                        result += separator;
-                        result += "[ExposureWindow with ";
-                        result += $"CalibrationConfidence: {exposureWindow.CalibrationConfidence},";
-                        result += $"Timestamp: {exposureWindow.Timestamp},";
-                        result += $"Infectiousness: {exposureWindow.Infectiousness},";
-                        result += $"ReportType: {exposureWindow.ReportType},";
-                        result += $"ScanInstances: {exposureWindow.ScanInstances}"; //should perhaps be handled differently?
-                        result += "]";
-                    }
-                }
+                string jsonString = exposureWindowsString;
+                var obj = JsonConvert.DeserializeObject(jsonString);
+                result = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                //try
+                //{
+                //    IEnumerable<ExposureWindow> exposureWindows = ExposureWindowJsonHelper.ExposureWindowsFromJsonCompatibleString(exposureWindowsString);
+                //    foreach (ExposureWindow exposureWindow in exposureWindows)
+                //    {
+                //        string separator = result == "" ? "" : "\n";
+                //        result += separator;
+                //        result += "[ExposureWindow with ";
+                //        result += $"CalibrationConfidence: {exposureWindow.CalibrationConfidence},";
+                //        result += $"Timestamp: {exposureWindow.Timestamp},";
+                //        result += $"Infectiousness: {exposureWindow.Infectiousness},";
+                //        result += $"ReportType: {exposureWindow.ReportType},";
+                //        result += $"ScanInstances: {ScanInstances(exposureWindow.ScanInstances)}"; //should be handled differently or not included
+                //        result += "]";
+                //    }
+                //}
 
-                catch (Exception e)
-                {
-                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
-                    result = "Failed at deserializing the saved ExposureWindows";
-                }
+                //catch (Exception e)
+                //{
+                //    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
+                //    result = "Failed at deserializing the saved ExposureWindows";
+                //}
             }
             string finalResult = $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}"; 
             _clipboard.SetTextAsync(finalResult);
             return finalResult;
+        }
+
+        private string ScanInstances (IReadOnlyList<ScanInstance> scanInstances)
+        {
+            string result = "";
+            foreach (ScanInstance scanInstance in scanInstances)
+            {
+                string separator = result == "" ? "" : "\n";
+                result += separator;
+                result += "[ScanInstance ";
+                result += $"MinimumAttenuation: {scanInstance.MinimumAttenuation},";
+                result += $"TypicalAttenuation: {scanInstance.MinimumAttenuation},";
+                result += $"SinceLastScan: {scanInstance.MinimumAttenuation},";
+                result += "]";
+            }
+            return result;
         }
 
         // Consider: Displaying the exposure configuration in the activities.
@@ -394,29 +413,32 @@ namespace NDB.Covid19.ViewModels
 
             if (ServiceLocator.Current.GetInstance<SecureStorageService>().KeyExists(SecureStorageKeys.LAST_SUMMARY_KEY))
             {
-                try
-                {
-                    IEnumerable<DailySummary> dailySummaries = ExposureDailySummaryJsonHelper.ExposureDailySummaryFromJsonCompatibleString
-                        (ServiceLocator.Current.GetInstance<SecureStorageService>().GetValue(SecureStorageKeys.LAST_SUMMARY_KEY));
-                    foreach (DailySummary dailySummary in dailySummaries)
-                    {
-                        string separator = result == "" ? "" : "\n";
-                        result += separator;
-                        result += "[DailySummary with ";
-                        result += $"Timestamp: {dailySummary.Timestamp},";
-                        result += "[DailySummaryReport with ";
-                        result += $"MaximumScore: {dailySummary.Summary.MaximumScore},";
-                        result += $"ScoreSum: {dailySummary.Summary.ScoreSum},";
-                        result += $"WeightedDurationSum: {dailySummary.Summary.WeightedDurationSum},";
-                        result += "]";
-                        result += "]";
-                    }
-                }
-                catch (Exception e)
-                {
-                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
-                    result = "Failed at deserializing the saved DailySummaries";
-                }
+                string jsonString = ServiceLocator.Current.GetInstance<SecureStorageService>().GetValue(SecureStorageKeys.LAST_SUMMARY_KEY);
+                var obj = JsonConvert.DeserializeObject(jsonString);
+                result = JsonConvert.SerializeObject(obj);
+                //try
+                //{
+                //    IEnumerable<DailySummary> dailySummaries = ExposureDailySummaryJsonHelper.ExposureDailySummaryFromJsonCompatibleString
+                //        (ServiceLocator.Current.GetInstance<SecureStorageService>().GetValue(SecureStorageKeys.LAST_SUMMARY_KEY));
+                //    foreach (DailySummary dailySummary in dailySummaries)
+                //    {
+                //        string separator = result == "" ? "" : "\n";
+                //        result += separator;
+                //        result += "[DailySummary with ";
+                //        result += $"Timestamp: {dailySummary.Timestamp},";
+                //        result += "[DailySummaryReport with ";
+                //        result += $"MaximumScore: {dailySummary.Summary.MaximumScore},";
+                //        result += $"ScoreSum: {dailySummary.Summary.ScoreSum},";
+                //        result += $"WeightedDurationSum: {dailySummary.Summary.WeightedDurationSum},";
+                //        result += "]";
+                //        result += "]";
+                //    }
+                //}
+                //catch (Exception e)
+                //{
+                //    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
+                //    result = "Failed at deserializing the saved DailySummaries";
+                //}
                 
             }
             else
