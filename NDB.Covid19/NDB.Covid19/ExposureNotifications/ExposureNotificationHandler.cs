@@ -150,25 +150,51 @@ namespace NDB.Covid19.ExposureNotifications
 
             dsc.InfectiousnessWeights = new Dictionary<Infectiousness, double>
             {
-                [Infectiousness.None] = 1.0,
+                //[Infectiousness.None] = 2.5, - Uncommented, since leads to crash on Android
                 [Infectiousness.Standard] = 2.0,
                 [Infectiousness.High] = 2.0,
             };
 
             dsc.ReportTypeWeights = new Dictionary<ReportType, double>
             {
-                [ReportType.Unknown] = 2.5,
+                //[ReportType.Unknown] = 2.5, - Uncommented, since leads to crash on Android
                 [ReportType.ConfirmedTest] = 2.5,
                 [ReportType.ConfirmedClinicalDiagnosis] = 2.5,
                 [ReportType.SelfReported] = 2.5,
                 [ReportType.Recursive] = 2.5,
-                [ReportType.Revoked] = 2.5,
+                //[ReportType.Revoked] = 2.5, - Uncommented, since leads to crash on Android
             };
 
             dsc.DaysSinceOnsetInfectiousness = new Dictionary<int, Infectiousness>()
             {
                 [-14] = Infectiousness.Standard,
-                [0] = Infectiousness.Standard,
+                [-13] = Infectiousness.Standard,
+                [-12] = Infectiousness.Standard,
+                [-11] = Infectiousness.Standard,
+                [-10] = Infectiousness.Standard,
+                [-9] = Infectiousness.Standard,
+                [-8] = Infectiousness.Standard,
+                [-7] = Infectiousness.Standard,
+                [-6] = Infectiousness.Standard,
+                [-5] = Infectiousness.Standard,
+                [-4] = Infectiousness.Standard,
+                [-3] = Infectiousness.Standard,
+                [-2] = Infectiousness.High,
+                [-1] = Infectiousness.High,
+                [0] = Infectiousness.High,
+                [1] = Infectiousness.High,
+                [2] = Infectiousness.High,
+                [3] = Infectiousness.High,
+                [4] = Infectiousness.High,
+                [5] = Infectiousness.High,
+                [6] = Infectiousness.High,
+                [7] = Infectiousness.High,
+                [8] = Infectiousness.High,
+                [9] = Infectiousness.Standard,
+                [10] = Infectiousness.Standard,
+                [11] = Infectiousness.Standard,
+                [12] = Infectiousness.Standard,
+                [13] = Infectiousness.Standard,
                 [14] = Infectiousness.Standard,
             };
 
