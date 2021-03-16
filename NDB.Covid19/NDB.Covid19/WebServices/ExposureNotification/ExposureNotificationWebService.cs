@@ -12,13 +12,10 @@ using NDB.Covid19.WebServices.Helpers;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto.EC;
-using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using NDB.Covid19.OAuth2;
+using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.WebServices.ExposureNotification
 {
@@ -106,7 +103,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
             return null;
         }
 
-        public async Task<Xamarin.ExposureNotifications.DailySummaryConfiguration> GetDailySummaryConfiguration()
+        public async Task<DailySummaryConfiguration> GetDailySummaryConfiguration()
         {
             ApiResponse<DailySummaryConfigurationDTO> response = await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
             HandleErrorsSilently(response);
