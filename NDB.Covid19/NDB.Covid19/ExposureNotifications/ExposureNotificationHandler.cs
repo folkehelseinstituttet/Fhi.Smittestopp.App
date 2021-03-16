@@ -178,10 +178,19 @@ namespace NDB.Covid19.ExposureNotifications
             return Task.FromResult(dsc);
         }
 
-        public Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary> summaries)
+        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary> summaries)
         {
             Debug.WriteLine("ExposureStateUpdatedAsync is called");
-            throw new NotImplementedException();
+            bool shouldSendMessage = false;
+            foreach (DailySummary dailySummary in summaries)
+            {
+                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary))
+                {
+                    shouldSendMessage = true;
+                    break;
+                }
+            }
+            if (shouldSendMessage) await MessageUtils.CreateMessage(this);
         }
 
         // This is the explanation that will be displayed to the user when getting ExposureInfo objects on iOS
