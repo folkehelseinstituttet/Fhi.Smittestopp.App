@@ -51,11 +51,11 @@ Overall, the solution contains four modules:
 Feedback and contribution and are always welcome. For more information about how to contribute, refer to [Contribution Guidelines](CONTRIBUTING.md). By contributing to this project, you also agree to abide by its [Code of Conduct](CODE_OF_CONDUCT.md) at all times.
 
 ## Download the app
-<a href="https://play.google.com/store/apps/details?id=no.fhi.smittestopp_exposure_notification"><img style="width: 30%; margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/google-play-badge-en.png" alt="Get it on Google Play"></a>
-<a href="https://apps.apple.com/app/id1540967575"><img style="width: 27%; margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/apple-app-store-badge-en.png" alt="Download on the App Store"></a>
+<a href="https://play.google.com/store/apps/details?id=no.fhi.smittestopp_exposure_notification"><img style="width: 300px;height: 100px; margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/google-play-badge-en.png" alt="Get it on Google Play"></a>
+<a href="https://apps.apple.com/app/id1540967575"><img style="width: 300px;height: 100px; margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/apple-app-store-badge-en.png" alt="Download on the App Store"></a>
 
 
-## <br/><br/>Licence
+## Licence
 Copyright (c) 2020 Agency for Digitisation (Denmark), 2020 Norwegian Institute of Public Health (Norway), 2020 Netcompany Group AS
 
 Smittestopp is Open Source software released under the [MIT license](LICENSE.md)
