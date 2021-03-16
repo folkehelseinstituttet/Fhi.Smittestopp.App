@@ -43,7 +43,7 @@ Common questions as well as general information about Smittestopp is available o
 
 ### Project structure
 The app is written in Xamarin (C#) and platform specific UI implementation (Android XML and UIStoryboards) for additional flexibility when working with UI.
-Overall, the solution contains four modules:
+Overall, the solution contains four projects:
 - **NDB.Covid19:** Contains shared business logic between iOS and Android, i.e., Exposure Notifications handler, locales, log utils, models, viewModels, services.<br/><br/>
 - **NDB.Covid19.Droid:** Android related code, UI Activities/Fragments, implementation of services and handlers (for Dependency Injection) etc.<br/><br/>
 - **NDB.Covid19.iOS:** iOS related code, UI Storyboards/ViewControllers, implementation of services and handlers (for Dependency Injection) etc.<br/><br/>
