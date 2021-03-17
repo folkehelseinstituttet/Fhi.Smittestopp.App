@@ -4,6 +4,7 @@ using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.ViewModels.DailyNumbersViewModel;
 using Foundation;
+using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {
@@ -29,7 +30,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			base.ViewDidLoad();
 
 			SetStyling();
-
+			MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
 			UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DailyNumbersTitleOne);
 		}
 
@@ -173,6 +174,11 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			//ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
 			textView.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+		}
+
+		private void OnAppReturnsFromBackground(object o)
+		{
+			RequestFHIDataUpdate(SetStyling);
 		}
 	}
 }

@@ -42,6 +42,15 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         {
             View rootView = Window.DecorView.RootView;
             rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            UpdateUI();
+            _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
+            _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
+            _closeButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
+            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
+        }
+
+        private void UpdateUI()
+        {
             TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
             TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
@@ -106,11 +115,12 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersSubHeaderStatistics.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+        }
 
-            _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
-            _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
-            _closeButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
-            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
+        protected override void OnResume()
+        {
+            base.OnResume();
+            RequestFHIDataUpdate(UpdateUI);
         }
 
         private void OnCloseBtnClicked(object arg1, EventArgs arg2)
