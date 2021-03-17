@@ -44,6 +44,7 @@ namespace NDB.Covid19.Configuration
         public static string URL_LOG_MESSAGE => URL_PREFIX + "logging/logMessages";
         public static string URL_PUT_UPLOAD_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
+        public static string URL_GET_DAILY_SUMMARY_CONFIGURATION => URL_PREFIX + "diagnostickeys/dailysummaryconfiguration";
         public static string URL_GET_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_COUNTRY_LIST => URL_PREFIX + "countries";
 
