@@ -256,7 +256,7 @@ namespace NDB.Covid19.ViewModels
                 try
                 {
                     string jsonString = exposureWindowsString;
-                    var obj = JsonConvert.DeserializeObject(jsonString);
+                    object obj = JsonConvert.DeserializeObject(jsonString);
                     result = JsonConvert.SerializeObject(obj, Formatting.Indented);
                 }
 
@@ -380,28 +380,27 @@ namespace NDB.Covid19.ViewModels
 
         public string GetDailySummaries()
         {
+            string dailySummariesString = _devTools.PersistedDailySummary;
             string result = "";
 
-            if (ServiceLocator.Current.GetInstance<SecureStorageService>().KeyExists(SecureStorageKeys.LAST_SUMMARY_KEY))
-            {                
+            if (dailySummariesString == "")
+            {
+                result = "We have not saved any DailySummaries yet";
+            }
+            else
+            {
                 try
                 {
-                    string jsonString = ServiceLocator.Current.GetInstance<SecureStorageService>().GetValue(SecureStorageKeys.LAST_SUMMARY_KEY);
-                    var obj = JsonConvert.DeserializeObject(jsonString);
-                    result = JsonConvert.SerializeObject(obj);
+                    string jsonString = dailySummariesString;
+                    object obj = JsonConvert.DeserializeObject(jsonString);
+                    result = JsonConvert.SerializeObject(obj, Formatting.Indented);
                 }
                 catch (Exception e)
                 {
                     LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
                     result = "Failed at deserializing the saved DailySummaries";
                 }
-
             }
-            else
-            {
-                result = "We have not saved any DailySummaries yet";
-            }
-
             string finalResult = $"These are the DailySummaries we got the last time \"Pull keys\" was clicked:\n{result}";
             _clipboard.SetTextAsync(finalResult);
             return finalResult;

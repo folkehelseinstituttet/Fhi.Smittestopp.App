@@ -26,6 +26,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public string LastProvidedFilesPref { get => ""; set { } }
         public string PersistedExposureInfo { get => ""; set { } }
         public string PersistedExposureWindow { get => ""; set { } }
+        public string PersistedDailySummary { get => ""; set { } }
 
         public void ClearAllFields()
         {
@@ -56,6 +57,11 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public void SaveExposureWindows(IEnumerable<ExposureWindow> windows)
         {
             //Exposure Windows are not saved in release mode for now
+        }
+
+        public void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
+        {
+            //Daily Summaries are not saved in release mode for now
         }
     }
 }

@@ -68,18 +68,5 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.{nameof(SaveLastSummary)}");
             }
         }
-
-        public static void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
-        {
-            try
-            {
-                string summaryJson = ExposureDailySummaryJsonHelper.ExposureDailySummaryToJson(summaries);
-                _secureStorageService.SaveValue(SecureStorageKeys.LAST_SUMMARY_KEY, summaryJson);
-            }
-            catch (Exception e)
-            {
-                LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.{nameof(SaveLastDailySummaries)}");
-            }
-        }
     }
 }

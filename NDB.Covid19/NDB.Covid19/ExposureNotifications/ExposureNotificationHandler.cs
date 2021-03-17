@@ -102,7 +102,7 @@ namespace NDB.Covid19.ExposureNotifications
         {
             await MessageUtils.CreateMessage(this);
             ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
-            ExposureDetectedHelper.SaveLastDailySummaries(summaries);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastDailySummaries(summaries);
         }
 
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> tempKeys)

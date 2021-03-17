@@ -28,6 +28,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public static readonly string DEV_TOOLS_LAST_KEY_UPLOAD_INFO = "LastKeyUploadInfo";
         public static readonly string DEV_TOOLS_LAST_USED_CONFIGURATION = "LastUsedConfiguration";
         public static readonly string DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF = "DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF";
+        public static readonly string DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF = "DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF";
         private static IPreferences _preferences => ServiceLocator.Current.GetInstance<IPreferences>();
 
         /// <summary>
@@ -55,6 +56,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
             _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, "");
             _preferences.Set(DEV_TOOLS_LAST_PROVIDED_FILES_PREF, "");
             _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, "");
+            _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, "");
         }
 
         /// <summary>
@@ -66,6 +68,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public string LastProvidedFilesPref { get => _preferences.Get(DEV_TOOLS_LAST_PROVIDED_FILES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_PROVIDED_FILES_PREF, value); } }
         public string PersistedExposureInfo { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, value); } }
         public string PersistedExposureWindow { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, value); } }
+        public string PersistedDailySummary { get => _preferences.Get(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, value); } }
 
         // Stores a nice string to Preferences, which shows the content of the files last provided to the EN API,
         // so that this can be displayed on Developer Tools
@@ -129,6 +132,19 @@ namespace NDB.Covid19.Utils.DeveloperTools
             catch (Exception e)
             {
                 LogUtils.LogException(LogSeverity.WARNING, e, "ExposureDetectedHelper.DevToolsSaveExposureWindow");
+            }
+        }
+
+        public void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
+        {
+            try
+            {
+                string summaryJson = ExposureDailySummaryJsonHelper.ExposureDailySummaryToJson(summaries);
+                PersistedDailySummary = summaryJson;
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(LogSeverity.WARNING, e, "ExposureDetectedHelper.DevToolsSaveLastDailySummaries");
             }
         }
 
