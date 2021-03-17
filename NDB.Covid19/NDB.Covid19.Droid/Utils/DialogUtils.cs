@@ -84,8 +84,9 @@ namespace NDB.Covid19.Droid.Utils
                         .SetNegativeButton(noBtnTextResourceId.Value, (sender, e) => { SetResultWithCatch(tcs, false, additionalInfo); });
                 }
             }
-
-            dialog.Show();
+            AlertDialog alertDialog = dialog.Create();
+            alertDialog.Window.DecorView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            alertDialog.Show();
 
             return tcs.Task;
         }
