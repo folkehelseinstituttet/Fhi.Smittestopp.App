@@ -214,6 +214,7 @@
                         <outlet property="ContentLabelOne" destination="w7B-OT-YfO" id="name-outlet-w7B-OT-YfO"/>
                         <outlet property="ContentLabelTwo" destination="2vx-gd-vKk" id="name-outlet-2vx-gd-vKk"/>
                         <outlet property="HealthAuthoritiesLogo" destination="Ies-oQ-Ri5" id="name-outlet-Ies-oQ-Ri5"/>
+                        <outlet property="ScrollView" destination="Hfo-CZ-3LR" id="IzS-va-dIi"/>
                         <outlet property="TitleLabel" destination="JBJ-E4-YnC" id="name-outlet-JBJ-E4-YnC"/>
                         <outlet property="ToStartPageBtn" destination="f15-5W-d0d" id="name-outlet-f15-5W-d0d"/>
                     </connections>
