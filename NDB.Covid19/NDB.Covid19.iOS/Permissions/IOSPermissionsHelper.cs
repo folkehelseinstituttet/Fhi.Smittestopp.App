@@ -1,23 +1,24 @@
-﻿using NDB.Covid19.Interfaces;
+﻿using System.Threading.Tasks;
+using NDB.Covid19.Interfaces;
 
 namespace NDB.Covid19.iOS.Permissions
 {
     class IOSPermissionsHelper : IPermissionsHelper
     {
-        public bool IsBluetoothEnabled()
+        public Task<bool> IsBluetoothEnabled()
         {
-            return !(new IOSPermissionManager().PoweredOff().GetAwaiter().GetResult());
+            return Task.FromResult(!new IOSPermissionManager().PoweredOff().GetAwaiter().GetResult());
         }
 
-        public bool IsLocationEnabled()
+        public Task<bool> IsLocationEnabled()
         {
             // not required on iOS
-            return true;
+            return Task.FromResult(true);
         }
 
-        public bool AreAllPermissionsGranted()
+        public async Task<bool> AreAllPermissionsGranted()
         {
-            return IsLocationEnabled() && IsBluetoothEnabled();
+            return await IsLocationEnabled() && await IsBluetoothEnabled();
         }
     }
 }

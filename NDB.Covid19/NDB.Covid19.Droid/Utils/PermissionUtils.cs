@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Bluetooth;
 using Android.Content;
-using Android.Locations;
 using Android.OS;
 using Android.Provider;
 using I18NPortable;
@@ -14,6 +13,8 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.Droid.Utils.DroidRequestCodes;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
+using static Android.Gms.Nearby.ExposureNotification.ExposureNotificationStatus;
+using static NDB.Covid19.Droid.Utils.DroidExposureNotificationsStatusHelper;
 
 namespace NDB.Covid19.Droid.Utils
 {
@@ -36,7 +37,7 @@ namespace NDB.Covid19.Droid.Utils
         {
             _bluetoothTCS = new TaskCompletionSource<bool>();
             
-            if (IsBluetoothEnabled())
+            if (await IsBluetoothEnabled())
             {
                 _bluetoothTCS.TrySetResult(true);
             }
@@ -52,7 +53,7 @@ namespace NDB.Covid19.Droid.Utils
         {
             _locationTCS = new TaskCompletionSource<bool>();
             
-            if (IsLocationEnabled())
+            if (await IsLocationEnabled())
             {
                 _locationTCS.TrySetResult(true);
             }
@@ -84,7 +85,7 @@ namespace NDB.Covid19.Droid.Utils
             PermissionsMessagingCenter.Unsubscribe(subscriber);
         }
 
-        public bool HasPermissionsWithoutDialogs() => IsBluetoothEnabled() && IsLocationEnabled();
+        public async Task<bool> HasPermissionsWithoutDialogs() => await IsBluetoothEnabled() && await IsLocationEnabled();
 
         private async Task HasBluetoothSupportAsync()
         {
@@ -127,7 +128,7 @@ namespace NDB.Covid19.Droid.Utils
 
         private async Task HasLocationPermissionsAsync()
         {
-            if (IsLocationEnabled())
+            if (await IsLocationEnabled())
             {
                 return;
             }
@@ -143,32 +144,28 @@ namespace NDB.Covid19.Droid.Utils
                 GoToLocationSettings);
         }
 
-        public bool IsBluetoothEnabled()
+        public Task<bool> IsBluetoothEnabled()
         {
-            return BluetoothAdapter.DefaultAdapter?.IsEnabled == true;
+            return Task.Run(async () =>
+                !await HasNearbyExposureNotificationStatus(BluetoothDisabled) &&
+                !await HasNearbyExposureNotificationStatus(BluetoothSupportUnknown));
         }
 
-        public bool IsLocationEnabled()
+        public Task<bool> IsLocationEnabled()
         {
             if ((int) Build.VERSION.SdkInt >= 30)
             {
                 // Location is not required on Android 11 and above
-                return true;
-            }
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
-            {
-                LocationManager lm = (LocationManager) Current.AppContext.GetSystemService(Context.LocationService);
-                return lm.IsLocationEnabled;
+                return Task.FromResult(true);
             }
 
-            int mode = Settings.Secure.GetInt(Current.AppContext.ContentResolver, Settings.Secure.LocationMode,
-                (int) SecurityLocationMode.Off);
-            return (mode != (int) SecurityLocationMode.Off);
+            return Task.Run(
+                async () => !await HasNearbyExposureNotificationStatus(LocationDisabled));
         }
 
-        public bool AreAllPermissionsGranted()
+        public async Task<bool> AreAllPermissionsGranted()
         {
-            return HasPermissionsWithoutDialogs();
+            return !await IsNearbyExposureNotificationBluetoothAndLocationDisabled();
         }
 
         private void CancelTask()
@@ -221,15 +218,15 @@ namespace NDB.Covid19.Droid.Utils
             }
         }
 
-        public void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        public async void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             switch (requestCode)
             {
                 case BluetoothRequestCode when resultCode != Result.FirstUser:
-                    _bluetoothTCS.TrySetResult(IsBluetoothEnabled());
+                    _bluetoothTCS.TrySetResult(await IsBluetoothEnabled());
                     break;
                 case LocationRequestCode when resultCode != Result.FirstUser:
-                    _locationTCS.TrySetResult(IsLocationEnabled());
+                    _locationTCS.TrySetResult(await IsLocationEnabled());
                     break;
             }
         }

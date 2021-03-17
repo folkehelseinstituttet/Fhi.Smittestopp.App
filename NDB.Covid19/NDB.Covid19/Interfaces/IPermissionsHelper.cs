@@ -1,9 +1,11 @@
-﻿namespace NDB.Covid19.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace NDB.Covid19.Interfaces
 {
     public interface IPermissionsHelper
     {
-        bool IsBluetoothEnabled();
-        bool IsLocationEnabled();
-        bool AreAllPermissionsGranted();
+        Task<bool> IsBluetoothEnabled();
+        Task<bool> IsLocationEnabled();
+        Task<bool> AreAllPermissionsGranted();
     }
 }

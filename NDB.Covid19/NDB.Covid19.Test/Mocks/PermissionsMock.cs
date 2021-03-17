@@ -1,4 +1,5 @@
-﻿using NDB.Covid19.Interfaces;
+﻿using System.Threading.Tasks;
+using NDB.Covid19.Interfaces;
 
 namespace NDB.Covid19.Test.Mocks
 {
@@ -8,10 +9,10 @@ namespace NDB.Covid19.Test.Mocks
         public bool LocationEnabled { private get; set; }
         public bool AllPermissionsGranted => BluetoothEnabled && LocationEnabled;
 
-        public bool IsBluetoothEnabled() => BluetoothEnabled;
+        public Task<bool> IsBluetoothEnabled() => Task.FromResult(BluetoothEnabled);
 
-        public bool IsLocationEnabled() => LocationEnabled;
+        public Task<bool> IsLocationEnabled() => Task.FromResult(LocationEnabled);
 
-        public bool AreAllPermissionsGranted() => AllPermissionsGranted;
+        public Task<bool> AreAllPermissionsGranted() => Task.FromResult(AllPermissionsGranted);
     }
 }

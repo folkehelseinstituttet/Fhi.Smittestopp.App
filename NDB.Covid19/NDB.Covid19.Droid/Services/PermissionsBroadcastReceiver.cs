@@ -50,7 +50,7 @@ namespace NDB.Covid19.Droid.Services
                 }
             }
 
-            if (!_permissionsUtils.HasPermissionsWithoutDialogs() && isEnabled)
+            if (!await _permissionsUtils.HasPermissionsWithoutDialogs() && isEnabled)
             {
                 PermissionsMessagingCenter.NotifyPermissionsChanged(this);
             }

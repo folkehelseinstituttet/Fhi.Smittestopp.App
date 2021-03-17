@@ -26,32 +26,14 @@ namespace NDB.Covid19.Utils
             LocalNotificationsManager.GenerateLocalNotificationOnlyIfInBackground(notificationType.Data());
         }
 
-        public static void CreatePermissionsNotification()
+        public static async void CreatePermissionsNotification()
         {
-            if (!PermissionsHelper.AreAllPermissionsGranted())
+            if (!await PermissionsHelper.AreAllPermissionsGranted())
             {
                 DateTime now = SystemTime.Now();
                 if (LocalPreferencesHelper.LastPermissionsNotificationDateTimeUtc.Date < now.Date)
                 {
-                    bool hasBluetooth = PermissionsHelper.IsBluetoothEnabled();
-                    bool hasLocation = PermissionsHelper.IsLocationEnabled();
-
-                    NotificationViewModel viewModel;
-                    if (!hasBluetooth && !hasLocation)
-                    {
-                        viewModel = NotificationsEnum.BluetoothAndLocationOff.Data();
-                    } else if (!hasBluetooth)
-                    {
-                        viewModel = NotificationsEnum.BluetoothOff.Data();
-                    }
-                    else if (!hasLocation)
-                    {
-                        viewModel = NotificationsEnum.LocationOff.Data();
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    NotificationViewModel viewModel = NotificationsEnum.BluetoothAndLocationOff.Data();
                     LocalNotificationsManager.GenerateLocalNotification(viewModel, 0);
                     LocalPreferencesHelper.LastPermissionsNotificationDateTimeUtc = now.Date;
                 }

@@ -89,7 +89,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         }
 
         private async Task<bool> IsRunning() =>
-            await _viewModel.IsRunning() && _permissionUtils.IsLocationEnabled();
+            await _viewModel.IsRunning() && await _permissionUtils.IsLocationEnabled();
 
         private void OnMessageStatusChanged(object _ = null)
         {
@@ -101,9 +101,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             base.OnResume();
 
             _permissionUtils.SubscribePermissionsMessagingCenter(this,
-                o =>
+                async o =>
                 {
-                    if (!_permissionUtils.AreAllPermissionsGranted())
+                    if (!await _permissionUtils.AreAllPermissionsGranted())
                     {
                         PreventMultiplePermissionsDialogsForAction(
                             _permissionUtils.HasPermissions);
@@ -307,7 +307,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             bool isRunning = await _viewModel.IsEnabled();
             switch (isRunning)
             {
-                case true when !_permissionUtils.AreAllPermissionsGranted():
+                case true when !await _permissionUtils.AreAllPermissionsGranted():
                     PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions);
                     _semaphoreSlim.Release();
                     break;
@@ -338,8 +338,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             
             if (hasFocus
                 && await _viewModel.IsEnabled()
-                && (!_permissionUtils.IsBluetoothEnabled()
-                    || !_permissionUtils.IsLocationEnabled()))
+                && (!await _permissionUtils.IsBluetoothEnabled()
+                    || !await _permissionUtils.IsLocationEnabled()))
             {
                 ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
             }
@@ -379,7 +379,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     !await IsRunning() &&
                     await BluetoothStateBroadcastReceiver.GetBluetoothState(UpdateUI) == BluetoothState.OFF)
                 {
-                    if (!_permissionUtils.AreAllPermissionsGranted())
+                    if (!await _permissionUtils.AreAllPermissionsGranted())
                     {
                         PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions);
                         // wait until BT state change will be completed
