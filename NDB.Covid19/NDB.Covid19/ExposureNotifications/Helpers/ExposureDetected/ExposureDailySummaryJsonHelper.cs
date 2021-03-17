@@ -14,15 +14,5 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
                 = dailySummaries.Select(dailySummary => new JsonCompatibleExposureDailySummary(dailySummary));
             return JsonConvert.SerializeObject(jsonCompatibleExposureDailySummaries);
         }
-
-        public static IEnumerable<DailySummary> ExposureDailySummaryFromJsonCompatibleString(string jsonCompatibleExposureDailySummaryJson)
-        {
-            IEnumerable<JsonCompatibleExposureDailySummary> jsonCompatibleExposureDailySummaries
-                = JsonConvert.DeserializeObject<IEnumerable<JsonCompatibleExposureDailySummary>>(jsonCompatibleExposureDailySummaryJson);
-            return jsonCompatibleExposureDailySummaries.Select(jsonCompatibleExposureDailySummary => new DailySummary(
-                timestamp: jsonCompatibleExposureDailySummary.Timestamp,
-                summary: jsonCompatibleExposureDailySummary.Summary,                
-                reports: jsonCompatibleExposureDailySummary.Reports));
-        }
     }
 }

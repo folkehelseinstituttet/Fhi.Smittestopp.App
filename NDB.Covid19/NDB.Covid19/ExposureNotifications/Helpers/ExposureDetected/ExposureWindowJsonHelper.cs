@@ -14,17 +14,5 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
                 = exposureWindows.Select(exposureWindow => new JsonCompatibleExposureWindow(exposureWindow));
             return JsonConvert.SerializeObject(jsonCompatibleExposureWindows);
         }
-
-        public static IEnumerable<ExposureWindow> ExposureWindowsFromJsonCompatibleString(string jsonCompatibleExposureWindowsJson)
-        {
-            IEnumerable<JsonCompatibleExposureWindow> jsonCompatibleExposureWindows
-                = JsonConvert.DeserializeObject<IEnumerable<JsonCompatibleExposureWindow>>(jsonCompatibleExposureWindowsJson);
-            return jsonCompatibleExposureWindows.Select(jsonCompatibleExposureWindow => new ExposureWindow(
-                calibrationConfidence: jsonCompatibleExposureWindow.CalibrationConfidence,
-                timestamp: jsonCompatibleExposureWindow.Timestamp,
-                infectiousness: jsonCompatibleExposureWindow.Infectiousness,
-                reportType: jsonCompatibleExposureWindow.ReportType,
-                scanInstances: jsonCompatibleExposureWindow.ScanInstances));
-        }
     }
 }
