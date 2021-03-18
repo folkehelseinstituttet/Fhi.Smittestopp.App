@@ -300,6 +300,7 @@
                     style="@style/PrimaryText"
                     android:textSize="14sp"
                     android:text="Test link here"
+                    android:textColorLink="@color/linkColor"
                     android:layout_marginVertical="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -1,4 +1,5 @@
 using System;
+using Foundation;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
@@ -8,7 +9,7 @@ using Xamarin.Essentials;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
-    public partial class UploadCompletedViewController : BaseViewController
+    public partial class UploadCompletedViewController : BaseViewController, IUIAccessibilityContainer
     {
         UIButton _learnMoreViewBtn;
         QuestionnaireViewModel _viewModel;
@@ -35,7 +36,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             SetupLearnMoreButton();
             SetAccessibilityAttributes();
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
             LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys");
         }
 
@@ -100,6 +100,13 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             TitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
             BoxTitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
+
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, ToStartPageBtn, CloseButton));
+                removeAccessibilityElementAndEnableAfterDelay(CloseButton);
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
+            }
         }
 
         void OnLearnMoreBtnTapped(object sender, EventArgs e)

@@ -46,6 +46,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextButtonWithEUConsent { get; set; }
 
 		[Outlet]
+		UIKit.UIScrollView ScrollView { get; set; }
+
+		[Outlet]
 		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel ShareHeader { get; set; }
 
 		[Action ("OnCloseBtnTapped:")]
@@ -59,24 +62,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (NextButtonOnlyNorwayConsent != null) {
-				NextButtonOnlyNorwayConsent.Dispose ();
-				NextButtonOnlyNorwayConsent = null;
-			}
-
-			if (NextButtonWithEUConsent != null) {
-				NextButtonWithEUConsent.Dispose ();
-				NextButtonWithEUConsent = null;
+			if (ScrollView != null) {
+				ScrollView.Dispose ();
+				ScrollView = null;
 			}
 
 			if (BodyText1 != null) {
 				BodyText1.Dispose ();
 				BodyText1 = null;
-			}
-
-			if (ShareHeader != null) {
-				ShareHeader.Dispose ();
-				ShareHeader = null;
 			}
 
 			if (BodyText2 != null) {
@@ -99,14 +92,29 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 				ConsentEU_Explanation = null;
 			}
 
+			if (ConsentText != null) {
+				ConsentText.Dispose ();
+				ConsentText = null;
+			}
+
 			if (HeaderLabel != null) {
 				HeaderLabel.Dispose ();
 				HeaderLabel = null;
 			}
 
-			if (ConsentText != null) {
-				ConsentText.Dispose ();
-				ConsentText = null;
+			if (NextButtonOnlyNorwayConsent != null) {
+				NextButtonOnlyNorwayConsent.Dispose ();
+				NextButtonOnlyNorwayConsent = null;
+			}
+
+			if (NextButtonWithEUConsent != null) {
+				NextButtonWithEUConsent.Dispose ();
+				NextButtonWithEUConsent = null;
+			}
+
+			if (ShareHeader != null) {
+				ShareHeader.Dispose ();
+				ShareHeader = null;
 			}
 		}
 	}

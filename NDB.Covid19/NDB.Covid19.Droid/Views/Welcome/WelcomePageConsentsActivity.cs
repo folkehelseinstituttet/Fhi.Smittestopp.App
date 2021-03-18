@@ -121,6 +121,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
             RelativeLayout RelativeLayout4 = FindViewById<RelativeLayout>(Resource.Id.consent_paragraph_hvordan_accepterer);
             TextView contactInformation = RelativeLayout4.FindViewById<TextView>(Resource.Id.consent_page_text);
+            contactInformation.TextAlignment = TextAlignment.ViewStart;
             contactInformation.TextFormatted = HtmlCompat.FromHtml(ConsentViewModel.CONSENT_FOUR_PARAGRAPH, HtmlCompat.FromHtmlModeLegacy);
             Linkify.AddLinks(contactInformation, MatchOptions.EmailAddresses | MatchOptions.PhoneNumbers);
 
@@ -145,20 +146,6 @@ namespace NDB.Covid19.Droid.Views.Welcome
         protected override void OnResume()
         {
             base.OnResume();
-            UpdatePadding();
-        }
-
-        private void UpdatePadding()
-        {
-            ConstraintLayout checkboxLayout = FindViewById<ConstraintLayout>(Resource.Id.checkbox_layout);
-            LinearLayout consentInfoLayout = FindViewById<LinearLayout>(Resource.Id.consent_info_layout);
-            // Post method moves setting padding to the end of action queue for consent_info_layout and sets padding when
-            // height of checkbox_layout will be known. In this way we have dynamic padding.
-            consentInfoLayout.Post(() => consentInfoLayout.SetPadding(
-                consentInfoLayout.PaddingLeft,
-                consentInfoLayout.PaddingTop,
-                consentInfoLayout.PaddingRight,
-                checkboxLayout.Height));
         }
 
         public bool IsChecked() => _switchCustom != null && _switchCustom.Checked;
@@ -186,7 +173,6 @@ namespace NDB.Covid19.Droid.Views.Welcome
             {
                 _consentWarningTextView.SendAccessibilityEvent(Android.Views.Accessibility.EventTypes.ViewAccessibilityFocused);
             }
-            UpdatePadding();
         }
         
         private void PreviousButtonPressed(object sender, EventArgs eventArgs)

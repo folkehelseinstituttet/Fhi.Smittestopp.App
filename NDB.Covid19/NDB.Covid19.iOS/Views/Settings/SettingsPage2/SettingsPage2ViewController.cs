@@ -69,12 +69,12 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             Paragraph4Label3.WeakLinkTextAttributes =
                 new NSDictionary(
                     UIStringAttributeKey.ForegroundColor,
-                    ColorHelper.TEXT_COLOR_ON_BACKGROUND,
+                    ColorHelper.LINK_COLOR,
                     UIStringAttributeKey.UnderlineStyle,
                     new NSNumber(1));
 
             //Accessibility
-            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackButton.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
             HeaderLabel.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(SettingsPage2ViewModel.SETTINGS_PAGE_2_HEADER);
             Header1Label.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_TITLE);
             Paragraph1Label1.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(SettingsPage2ViewModel.SETTINGS_PAGE_2_CONTENT_TEXT_PARAGRAPH_1_CONTENT);

@@ -11,6 +11,7 @@ namespace NDB.Covid19.ViewModels
 {
     public class DailyNumbersViewModel
     {
+        public static string BACK_BUTTON_ACCESSIBILITY_TEXT => "BACK_BUTTON_ACCESSIBILITY_TEXT".Translate();
         public static string DAILY_NUMBERS_HEADER => "DAILY_NUMBERS_HEADER".Translate();
         public static string DAILY_NUMBERS_TITLE_ONE => "DAILY_NUMBERS_TITLE_ONE".Translate();
         public static string DAILY_NUMBERS_SUBHEADER => "DAILY_NUMBERS_SUBHEADER".Translate();
@@ -33,9 +34,11 @@ namespace NDB.Covid19.ViewModels
         public static string KEY_FEATURE_SEVEN_LABEL => "KEY_FEATURE_SEVEN_LABEL".Translate();
         public static string KEY_FEATURE_SEVEN_UPDATE_ALL => "KEY_FEATURE_SEVEN_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_NINE_LABEL => "KEY_FEATURE_NINE_LABEL".Translate();
+        public static string KEY_FEATURE_NINE_ACCESSIBILITY_LABEL => "KEY_FEATURE_NINE_ACCESSIBILITY_LABEL".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_NEW => "KEY_FEATURE_NINE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_NINE_UPDATE_ALL => "KEY_FEATURE_NINE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_TEN_LABEL => "KEY_FEATURE_TEN_LABEL".Translate();
+        public static string KEY_FEATURE_TEN_ACCESSIBILITY_LABEL => "KEY_FEATURE_TEN_ACCESSIBILITY_LABEL".Translate();
         public static string KEY_FEATURE_TEN_UPDATE_NEW => "KEY_FEATURE_TEN_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_TEN_UPDATE_ALL => "KEY_FEATURE_TEN_UPDATE_ALL".Translate();
         public static string DAILY_NUMBERS_SUBSUBHEADER => "DAILY_NUMBERS_SUBSUBHEADER".Translate();
@@ -66,36 +69,9 @@ namespace NDB.Covid19.ViewModels
         {
             try
             {
-                // TODO: Uncomment when backend is ready
-                //DailyNumbersDTO fhiData = await (WebService ?? new DailyNumbersWebService()).GetFHIData();
-                // Sample data for developer convenience. TODO: Delete when backend is ready.
-                DailyNumbersDTO fhiData = new DailyNumbersDTO
-                {
-                    FHIStatistics = new FHIStatisticsDTO
-                    {
-                        ConfirmedCasesToday = 10,
-                        ConfirmedCasesTotal = 123,
-                        TestsConductedToday = 396,
-                        TestsConductedTotal = 3095,
-                        EntryDate = DateTime.Now,
-                        PatientsAdmittedToday = 44,
-                        PatientsIntensiveCare = 2,
-                        VaccinationsDoseOneToday = 1230,
-                        VaccinationsDoseTwoToday = 143,
-                        VaccinationsDoseOneTotal = 50477,
-                        VaccinationsDoseTwoTotal = 148
+                DailyNumbersDTO fhiData = await (WebService ?? new DailyNumbersWebService()).GetFHIData();
 
-                    },
-                    AppStatistics = new AppStatisticsDTO
-                    {
-                        EntryDate = DateTime.Now,
-                        NumberOfPositiveTestsResultsLast7Days = 33,
-                        NumberOfPositiveTestsResultsTotal = 359,
-                        SmittestoppDownloadsTotal = 159000
-                    }
-                };
-
-                if (fhiData?.FHIStatistics == null || fhiData.AppStatistics == null)
+                if (fhiData?.CovidStatistics == null || fhiData.ApplicationStatistics == null)
                 {
                     return false;
                 }

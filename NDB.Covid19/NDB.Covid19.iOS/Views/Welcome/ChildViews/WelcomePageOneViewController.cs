@@ -20,7 +20,7 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 
             UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
             BackArrow.Hidden = !LocalPreferencesHelper.IsOnboardingCompleted;
-            BackArrow.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackArrow.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
         }
 
         public override void ViewDidAppear(bool animated)
@@ -37,6 +37,8 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
         void SetTexts()
         {
             InitTitle(TitleLabel, WelcomeViewModel.WELCOME_PAGE_ONE_TITLE);
+            TitleLabel.AccessibilityLabel = WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_ONE;
+            TitleLabel.AccessibilityValue = WelcomeViewModel.WELCOME_PAGE_ONE_TITLE;
             TitleLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
             InitBodyText(BodyText1, WelcomeViewModel.WELCOME_PAGE_ONE_BODY_ONE);
             InitBodyText(BodyText2, WelcomeViewModel.WELCOME_PAGE_ONE_BODY_TWO);

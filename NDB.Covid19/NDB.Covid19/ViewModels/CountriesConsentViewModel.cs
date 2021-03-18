@@ -41,7 +41,7 @@ namespace NDB.Covid19.ViewModels
 
         public static void InvokeNextButtonClick(Action onSuccess, Action onFail, bool consentGiven)
         {
-            if (AuthenticationState.PersonalData != null)
+            if (AuthenticationState.PersonalData != null && AuthenticationState.PersonalData.Validate())
             {
                 LocalPreferencesHelper.AreCountryConsentsGiven = consentGiven;
                 onSuccess?.Invoke();

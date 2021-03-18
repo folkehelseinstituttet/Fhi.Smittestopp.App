@@ -48,7 +48,7 @@ namespace NDB.Covid19.ViewModels
         /// <param name="selectedCountriesList">The list of country view models from the questionnaire</param>
         public void InvokeNextButtonClick(Action onSuccess, Action onFail, List<CountryDetailsViewModel> selectedCountriesList)
         {
-            if (AuthenticationState.PersonalData != null)
+            if (AuthenticationState.PersonalData != null && AuthenticationState.PersonalData.Validate())
             {
                 AuthenticationState.PersonalData.VisitedCountries =
                     selectedCountriesList.Where(x => x.Checked).Select(x => x.Code).ToList();

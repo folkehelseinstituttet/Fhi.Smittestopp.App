@@ -149,6 +149,12 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		UIKit.UIStackView PatientsAdmitted_StackView { get; set; }
 
 		[Outlet]
+		UIKit.UIStackView Smittestopp_StackView { get; set; }
+
+		[Outlet]
+		UIKit.UIStackView Statistics_StackView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel TotalDailyNumbersNumber10Lbl { get; set; }
 
 		[Outlet]
@@ -168,6 +174,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIStackView TotalDownloads_StackView { get; set; }
+
+		[Outlet]
+		UIKit.UIStackView Vaccinations_StackView { get; set; }
 
 		[Outlet]
 		UIKit.UIStackView VaccinationsDose1_StackView { get; set; }
@@ -395,9 +404,19 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 				TotalDailyNumbersNumber9Lbl = null;
 			}
 
+			if (Statistics_StackView != null) {
+				Statistics_StackView.Dispose ();
+				Statistics_StackView = null;
+			}
+
 			if (TotalDownloads_StackView != null) {
 				TotalDownloads_StackView.Dispose ();
 				TotalDownloads_StackView = null;
+			}
+
+			if (Vaccinations_StackView != null) {
+				Vaccinations_StackView.Dispose ();
+				Vaccinations_StackView = null;
 			}
 
 			if (VaccinationsDose1_StackView != null) {
@@ -408,6 +427,11 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			if (VaccinationsDose2_StackView != null) {
 				VaccinationsDose2_StackView.Dispose ();
 				VaccinationsDose2_StackView = null;
+			}
+
+			if (Smittestopp_StackView != null) {
+				Smittestopp_StackView.Dispose ();
+				Smittestopp_StackView = null;
 			}
 		}
 	}
