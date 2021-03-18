@@ -128,7 +128,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             textView.TextFormatted = formattedDescription;
             textView.ContentDescriptionFormatted = formattedDescription;
             textView.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
-            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.primaryText));
+            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.linkColor));
             textView.SetLinkTextColor(linkColor);
         }
 
