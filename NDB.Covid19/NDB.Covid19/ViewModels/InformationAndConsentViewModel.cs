@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using I18NPortable;
 #if APPCENTER
 using Microsoft.AppCenter.Crashes;
@@ -100,7 +101,7 @@ namespace NDB.Covid19.ViewModels
                         if (expiresSeconds > 0)
                         {
                             payload.TokenExpiration = DateTime.Now.AddSeconds(expiresSeconds);
-                            LogUtils.LogMessage(LogSeverity.INFO, errorMsgPrefix + "Access-token expires timestamp", payload.TokenExpiration.ToString());
+                            LogUtils.LogMessage(LogSeverity.INFO, errorMsgPrefix + "Access-token expires timestamp", payload.TokenExpiration?.ToString(CultureInfo.InvariantCulture));
                         }
                     }
                     else
