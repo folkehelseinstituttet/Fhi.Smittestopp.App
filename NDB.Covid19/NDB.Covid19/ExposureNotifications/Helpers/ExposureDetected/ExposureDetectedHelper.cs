@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils;
+using NDB.Covid19.Utils.DeveloperTools;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected

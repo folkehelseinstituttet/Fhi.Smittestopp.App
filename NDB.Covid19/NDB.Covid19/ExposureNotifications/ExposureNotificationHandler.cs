@@ -59,6 +59,23 @@ namespace NDB.Covid19.ExposureNotifications
             ExposureDetectedHelper.SaveLastSummary(summary);
         }
 
+        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary>? summaries)
+        {
+            Debug.WriteLine("ExposureStateUpdatedAsync is called");
+            bool shouldSendMessage = false;
+            foreach (DailySummary dailySummary in summaries)
+            {
+                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary))
+                {
+                    shouldSendMessage = true;
+                    break;
+                }
+            }
+            if (shouldSendMessage) await MessageUtils.CreateMessage(this);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastDailySummaries(summaries);
+        }
+
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> tempKeys)
         {
             // Convert to ExposureKeyModel list as it is extended with DaysSinceOnsetOfSymptoms value
@@ -202,21 +219,6 @@ namespace NDB.Covid19.ExposureNotifications
             ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V2 Config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
 
             return Task.FromResult(dsc);
-        }
-
-        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary> summaries)
-        {
-            Debug.WriteLine("ExposureStateUpdatedAsync is called");
-            bool shouldSendMessage = false;
-            foreach (DailySummary dailySummary in summaries)
-            {
-                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary))
-                {
-                    shouldSendMessage = true;
-                    break;
-                }
-            }
-            if (shouldSendMessage) await MessageUtils.CreateMessage(this);
         }
 
         // This is the explanation that will be displayed to the user when getting ExposureInfo objects on iOS

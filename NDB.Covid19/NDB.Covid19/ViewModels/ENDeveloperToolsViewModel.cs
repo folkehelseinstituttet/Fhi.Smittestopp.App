@@ -243,6 +243,35 @@ namespace NDB.Covid19.ViewModels
             return finalResult;
         }
 
+        public string GetExposureWindows()
+        {
+            string exposureWindowsString = _devTools.PersistedExposureWindows;
+            string result = "";
+
+            if (exposureWindowsString == "")
+            {
+                result = "We have not saved any ExposureWindows yet";
+            }
+            else
+            {              
+                try
+                {
+                    string jsonString = exposureWindowsString;
+                    object obj = JsonConvert.DeserializeObject(jsonString);
+                    result = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                }
+
+                catch (Exception e)
+                {
+                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
+                    result = "Failed at deserializing the saved ExposureWindows";
+                }
+        }
+            string finalResult = $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}"; 
+            _clipboard.SetTextAsync(finalResult);
+            return finalResult;
+        }
+
         // Consider: Displaying the exposure configuration in the activities.
         public async Task<string> FetchExposureConfigurationAsync()
         {
@@ -368,6 +397,34 @@ namespace NDB.Covid19.ViewModels
             Debug.WriteLine(result);
             _clipboard.SetTextAsync(result);
             return result;
+        }
+
+        public string GetDailySummaries()
+        {
+            string dailySummariesString = _devTools.PersistedDailySummaries;
+            string result = "";
+
+            if (dailySummariesString == "")
+            {
+                result = "We have not saved any DailySummaries yet";
+            }
+            else
+            {
+                try
+                {
+                    string jsonString = dailySummariesString;
+                    object obj = JsonConvert.DeserializeObject(jsonString);
+                    result = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                }
+                catch (Exception e)
+                {
+                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
+                    result = "Failed at deserializing the saved DailySummaries";
+                }
+            }
+            string finalResult = $"These are the DailySummaries we got the last time \"Pull keys\" was clicked:\n{result}";
+            _clipboard.SetTextAsync(finalResult);
+            return finalResult;
         }
 
         public string GetPullHistory()
