@@ -101,7 +101,7 @@ namespace NDB.Covid19.ViewModels
                         if (expiresSeconds > 0)
                         {
                             payload.TokenExpiration = DateTime.Now.AddSeconds(expiresSeconds);
-                            LogUtils.LogMessage(LogSeverity.INFO, errorMsgPrefix + "Access-token expires timestamp", payload.TokenExpiration?.ToString(CultureInfo.InvariantCulture));
+                            LogUtils.LogMessage(LogSeverity.INFO, $"{errorMsgPrefix} Access-token expires timestamp is {payload.TokenExpiration?.ToString(CultureInfo.InvariantCulture)}");
                         }
                     }
                     else
