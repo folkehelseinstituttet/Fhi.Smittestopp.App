@@ -172,7 +172,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			textView.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
 			//ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
-			textView.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+			textView.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.LINK_COLOR, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 		}
 	}
 }

@@ -43,7 +43,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
             ContentText.SetAttributedText(content);
             ContentText.AccessibilityTraits = UIAccessibilityTrait.Link;
             ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
-            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.LINK_COLOR, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 
             //Ensuring text is resiezed correctly when font size is increased
             HeaderLabel.SetAttributedText(SettingsPage4ViewModel.HEADER);
