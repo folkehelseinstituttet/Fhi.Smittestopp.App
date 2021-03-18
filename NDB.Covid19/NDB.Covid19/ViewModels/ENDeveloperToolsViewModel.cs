@@ -72,9 +72,9 @@ namespace NDB.Covid19.ViewModels
 
             keyArray?.ForEach(key =>
             {
-                DateTime dateTime = key.Value<DateTime>("rollingStart");
+                DateTime rollingStartDateTime = key.Value<DateTime>("rollingStart");
                 String keyData = $"Key: {EncodingUtils.ConvertByteArrayToString((byte[])key["key"])} ,\n" +
-                                 $"rollingStart: {dateTime.ToString(CultureInfo.InvariantCulture)},\n" +
+                                 $"rollingStart: {rollingStartDateTime.ToString(CultureInfo.InvariantCulture)},\n" +
                                  $"rollingDuration: {key["rollingDuration"]},\n" +
                                  $"transmissionRiskLevel: {key["transmissionRiskLevel"]}\n\n";
                 PushKeysInfo += keyData;
