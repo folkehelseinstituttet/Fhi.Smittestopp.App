@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -106,7 +104,7 @@
                                                             <color key="titleColor" red="0.25297546389999997" green="0.27413004639999999" blue="0.42746824030000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="ENdevShowDailySummaryBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="eUf-iZ-Ar5"/>
+                                                            <action selector="ENDevShowDailySummaryBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="eUf-iZ-Ar5"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4y-Ho-8sM">
@@ -351,12 +349,12 @@
                         <outlet property="ENDevSendExposureDateDecrease" destination="6427" id="name-outlet-6427"/>
                         <outlet property="ENDevSendExposureDateIncrease" destination="6429" id="name-outlet-6429"/>
                         <outlet property="ENDevSendExposureMessage" destination="2398" id="name-outlet-2398"/>
+                        <outlet property="ENDevShowDailySummaryBtn" destination="c8Y-jP-aXc" id="KO4-pe-rAJ"/>
                         <outlet property="ENDevShowExposureInfoBtn" destination="11958" id="name-outlet-11958"/>
                         <outlet property="ENDevShowExposureWindowBtn" destination="r4y-Ho-8sM" id="ise-9W-2IU"/>
                         <outlet property="ENDevShowLatestPullKeysTimesAndStatusesBtn" destination="10113" id="name-outlet-10113"/>
                         <outlet property="ENDevShowSummaryBtn" destination="8304" id="name-outlet-8304"/>
                         <outlet property="ENDevToggleMessageRetentionBtn" destination="3758" id="name-outlet-3758"/>
-                        <outlet property="ENdevShowDailySummaryBtn" destination="c8Y-jP-aXc" id="KO4-pe-rAJ"/>
                         <outlet property="GoToForceUpdate" destination="PyI-cs-VwU" id="G6x-cd-csJ"/>
                         <outlet property="NoConsentButton" destination="7Bf-wL-ohh" id="name-outlet-7Bf-wL-ohh"/>
                         <outlet property="PullWithDelay" destination="7vw-Ui-5IF" id="name-outlet-7vw-Ui-5IF"/>

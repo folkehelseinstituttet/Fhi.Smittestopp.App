@@ -8,7 +8,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
 {
     public abstract class ExposureDailySummaryJsonHelper
     {
-        public static string ExposureDailySummaryToJson(IEnumerable<DailySummary>  dailySummaries)
+        public static string ExposureDailySummariesToJson(IEnumerable<DailySummary>  dailySummaries)
         {
             IEnumerable <JsonCompatibleExposureDailySummary> jsonCompatibleExposureDailySummaries
                 = dailySummaries.Select(dailySummary => new JsonCompatibleExposureDailySummary(dailySummary));

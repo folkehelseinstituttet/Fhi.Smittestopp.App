@@ -25,8 +25,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
 
         public string LastProvidedFilesPref { get => ""; set { } }
         public string PersistedExposureInfo { get => ""; set { } }
-        public string PersistedExposureWindow { get => ""; set { } }
-        public string PersistedDailySummary { get => ""; set { } }
+        public string PersistedExposureWindows { get => ""; set { } }
+        public string PersistedDailySummaries { get => ""; set { } }
 
         public void ClearAllFields()
         {

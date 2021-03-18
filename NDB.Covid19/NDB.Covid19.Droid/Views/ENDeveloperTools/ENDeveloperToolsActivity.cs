@@ -346,7 +346,7 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
 
         private void PrintLastExposureWindow()
         {
-            UpdateText(_viewModel.GetExposureWindowFromLastPull());
+            UpdateText(_viewModel.GetExposureWindows());
         }
 
         private void PrintLastDailySummary()

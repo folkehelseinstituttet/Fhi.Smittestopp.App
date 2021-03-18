@@ -17,8 +17,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
         bool ShouldSaveExposureInfo { get; set; }
         string LastProvidedFilesPref { get; set; }
         string PersistedExposureInfo { get; set; }
-        string PersistedExposureWindow { get; set; }
-        string PersistedDailySummary { get; set; }
+        string PersistedExposureWindows { get; set; }
+        string PersistedDailySummaries { get; set; }
 
         void StoreLastProvidedFiles(IEnumerable<string> localFileUrls);
         Task SaveLastExposureInfos(Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo);

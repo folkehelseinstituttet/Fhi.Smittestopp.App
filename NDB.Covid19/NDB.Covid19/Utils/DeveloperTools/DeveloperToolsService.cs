@@ -67,8 +67,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
 
         public string LastProvidedFilesPref { get => _preferences.Get(DEV_TOOLS_LAST_PROVIDED_FILES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_PROVIDED_FILES_PREF, value); } }
         public string PersistedExposureInfo { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, value); } }
-        public string PersistedExposureWindow { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, value); } }
-        public string PersistedDailySummary { get => _preferences.Get(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, value); } }
+        public string PersistedExposureWindows { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, value); } }
+        public string PersistedDailySummaries { get => _preferences.Get(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, value); } }
 
         // Stores a nice string to Preferences, which shows the content of the files last provided to the EN API,
         // so that this can be displayed on Developer Tools
@@ -126,8 +126,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
         {
             try
             {
-                string exposureWindowsString = ExposureWindowJsonHelper.ExposureWindowToJson(windows);
-                PersistedExposureWindow = exposureWindowsString;
+                string exposureWindowsString = ExposureWindowJsonHelper.ExposureWindowsToJson(windows);
+                PersistedExposureWindows = exposureWindowsString;
             }
             catch (Exception e)
             {
@@ -139,8 +139,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
         {
             try
             {
-                string summaryJson = ExposureDailySummaryJsonHelper.ExposureDailySummaryToJson(summaries);
-                PersistedDailySummary = summaryJson;
+                string summaryJson = ExposureDailySummaryJsonHelper.ExposureDailySummariesToJson(summaries);
+                PersistedDailySummaries = summaryJson;
             }
             catch (Exception e)
             {

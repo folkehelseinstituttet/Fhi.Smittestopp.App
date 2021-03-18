@@ -243,9 +243,9 @@ namespace NDB.Covid19.ViewModels
             return finalResult;
         }
 
-        public string GetExposureWindowFromLastPull()
+        public string GetExposureWindows()
         {
-            string exposureWindowsString = _devTools.PersistedExposureWindow;
+            string exposureWindowsString = _devTools.PersistedExposureWindows;
             string result = "";
 
             if (exposureWindowsString == "")
@@ -401,7 +401,7 @@ namespace NDB.Covid19.ViewModels
 
         public string GetDailySummaries()
         {
-            string dailySummariesString = _devTools.PersistedDailySummary;
+            string dailySummariesString = _devTools.PersistedDailySummaries;
             string result = "";
 
             if (dailySummariesString == "")

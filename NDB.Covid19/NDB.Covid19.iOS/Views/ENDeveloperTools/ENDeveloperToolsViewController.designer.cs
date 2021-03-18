@@ -77,7 +77,7 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 		UIKit.UIButton ENDevSenExposureMessageAfter10SecBtn { get; set; }
 
 		[Outlet]
-		UIKit.UIButton ENdevShowDailySummaryBtn { get; set; }
+		UIKit.UIButton ENDevShowDailySummaryBtn { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -161,8 +161,8 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 		[Action ("ENDevSenExposureMessageAfter10SecBtn_TouchUpInside:")]
 		partial void ENDevSenExposureMessageAfter10SecBtn_TouchUpInside (UIKit.UIButton sender);
 
-		[Action ("ENdevShowDailySummaryBtn_TouchUpInside:")]
-		partial void ENdevShowDailySummaryBtn_TouchUpInside (UIKit.UIButton sender);
+		[Action ("ENDevShowDailySummaryBtn_TouchUpInside:")]
+		partial void ENDevShowDailySummaryBtn_TouchUpInside (UIKit.UIButton sender);
 
 		[Action ("ENDevShowExposureInfoBtn_TouchUpInside:")]
 		partial void ENDevShowExposureInfoBtn_TouchUpInside (UIKit.UIButton sender);
@@ -193,11 +193,6 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ENDevShowExposureWindowBtn != null) {
-				ENDevShowExposureWindowBtn.Dispose ();
-				ENDevShowExposureWindowBtn = null;
-			}
-
 			if (AllConsentGivenButton != null) {
 				AllConsentGivenButton.Dispose ();
 				AllConsentGivenButton = null;
@@ -278,14 +273,19 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 				ENDevSenExposureMessageAfter10SecBtn = null;
 			}
 
-			if (ENdevShowDailySummaryBtn != null) {
-				ENdevShowDailySummaryBtn.Dispose ();
-				ENdevShowDailySummaryBtn = null;
+			if (ENDevShowDailySummaryBtn != null) {
+				ENDevShowDailySummaryBtn.Dispose ();
+				ENDevShowDailySummaryBtn = null;
 			}
 
 			if (ENDevShowExposureInfoBtn != null) {
 				ENDevShowExposureInfoBtn.Dispose ();
 				ENDevShowExposureInfoBtn = null;
+			}
+
+			if (ENDevShowExposureWindowBtn != null) {
+				ENDevShowExposureWindowBtn.Dispose ();
+				ENDevShowExposureWindowBtn = null;
 			}
 
 			if (ENDevShowLatestPullKeysTimesAndStatusesBtn != null) {
