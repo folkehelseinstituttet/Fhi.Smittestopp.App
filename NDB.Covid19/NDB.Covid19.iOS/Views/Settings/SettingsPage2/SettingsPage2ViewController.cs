@@ -69,7 +69,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             Paragraph4Label3.WeakLinkTextAttributes =
                 new NSDictionary(
                     UIStringAttributeKey.ForegroundColor,
-                    ColorHelper.TEXT_COLOR_ON_BACKGROUND,
+                    ColorHelper.LINK_COLOR,
                     UIStringAttributeKey.UnderlineStyle,
                     new NSNumber(1));
 

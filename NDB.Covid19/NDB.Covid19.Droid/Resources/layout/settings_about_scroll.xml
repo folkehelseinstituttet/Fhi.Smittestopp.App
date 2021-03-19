@@ -64,6 +64,7 @@
 				app:layout_constraintTop_toBottomOf="@id/settings_about_text"
 				style="@style/LinkButton"
 				android:textColor="@color/linkColor"
+				android:textColorLink="@color/linkColor"
 				android:textAppearance="@style/PrimaryText"
 				android:id="@+id/accessibility_statement_btn" />
         
