@@ -107,7 +107,7 @@
   "LANGUAGE_SELECTION_LT": "Litauisk (Lithuanian)",
   "DAILY_NUMBERS_HEADER": "Key Figures",
   "DAILY_NUMBERS_TITLE_ONE": "COVID-19 statistics",
-  "DAILY_NUMBERS_SUBHEADER": "The number of confirmed cases, tests and admissions is last updated on {0} at {1}. Total (cumulative) numbers in Norway from February 2020. Numbers are updated monday - friday approximately at 1 p.m. Source: <a href=\"https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/\">Norwegian Institute of Public Health - COVID-19 statistics</a>.",
+  "DAILY_NUMBERS_SUBHEADER": "The number of confirmed cases, tests and admissions is last updated on {0} at {1}. Total (cumulative) numbers in Norway from February 2020. Numbers are updated monday–friday approximately at 1 p.m. Source: <a href=\"https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/\">Norwegian Institute of Public Health - COVID-19 statistics</a>.",
   "DAILY_NUMBERS_TITLE_TWO": "Vaccinations",
   "DAILY_NUMBERS_SUBTEXT_TWO": "The number of vaccinations was last updated on {0} at {1}. Source:  <a href=\"https://www.fhi.no/sv/vaksine/koronavaksinasjonsprogrammet/koronavaksinasjonsstatistikk/\">Norwegian Institute of Public Health - Vaccinations</a>.",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
