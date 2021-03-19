@@ -79,6 +79,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
                 SettingsGeneralViewModel.SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT, 16, 28);
 
             Header.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
+            SmittestopLinkButtonLbl.TextColor = ColorHelper.LINK_COLOR;
 
             Header.AccessibilityTraits = UIAccessibilityTrait.Header;
             ChooseLanguageHeaderLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
