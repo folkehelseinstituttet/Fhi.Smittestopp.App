@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using I18NPortable;
 using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices;
@@ -65,6 +66,17 @@ namespace NDB.Covid19.ViewModels
             ? string.Format(DAILY_NUMBERS_SUBSUBHEADER, $"{DateUtils.GetDateFromDateTime(LastUpdateDownloadsNumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateDownloadsNumbersDateTime, "t")}")
             : "";
 
+        public static async void RequestFHIDataUpdate(Action onFinished = null)
+        {
+            // Update only if the date of the last update is different than today
+            // to limit the requests
+            if (FHILastUpdateDateTime.Date != SystemTime.Now().ToLocalTime().Date)
+            {
+                await UpdateFHIDataAsync();
+                onFinished?.Invoke();
+            }
+        }
+        
         public static async Task<bool> UpdateFHIDataAsync()
         {
             try
