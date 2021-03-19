@@ -178,7 +178,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 		private void OnAppReturnsFromBackground(object o)
 		{
-			RequestFHIDataUpdate(SetStyling);
+			RequestFHIDataUpdate(() => InvokeOnMainThread(SetStyling));
 		}
 	}
 }

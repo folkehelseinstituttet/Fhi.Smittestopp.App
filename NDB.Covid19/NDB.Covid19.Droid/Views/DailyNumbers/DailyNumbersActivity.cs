@@ -120,7 +120,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         protected override void OnResume()
         {
             base.OnResume();
-            RequestFHIDataUpdate(UpdateUI);
+            RequestFHIDataUpdate(() => RunOnUiThread(UpdateUI));
         }
 
         private void OnCloseBtnClicked(object arg1, EventArgs arg2)
