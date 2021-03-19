@@ -41,8 +41,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 		// NOTE: This is late time change to release 2.2, delete this function and call to it when
 		// decision to display them is made in future releases. Note that underlying data is still
 		// available in preferences.
-        private void HideTotals()
-        {
+		private void HideTotals()
+		{
 			TotalDailyNumbersNumber1Lbl.Hidden = true;
 			TotalDailyNumbersNumber3Lbl.Hidden = true;
 			TotalDailyNumbersNumber5Lbl.Hidden = true;
@@ -50,7 +50,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			TotalDailyNumbersNumber10Lbl.Hidden = true;
 		}
 
-        private void SetStyling()
+		private void SetStyling()
 		{
 			// Set background color and corner radius for views
 			DailyNumbersView1.BackgroundColor = ColorHelper.PRIMARY_COLOR;
