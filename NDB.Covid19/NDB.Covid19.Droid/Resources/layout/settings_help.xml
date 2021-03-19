@@ -21,6 +21,7 @@
                 android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
+                android:accessibilityTraversalAfter="@id/settings_help_text"
                 android:focusable="true"
                 app:layout_constraintBaseline_toBaselineOf="@id/settings_help_title"
                 app:layout_constraintStart_toStartOf="parent" />
