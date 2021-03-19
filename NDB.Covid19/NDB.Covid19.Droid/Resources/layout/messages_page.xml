@@ -27,6 +27,7 @@
                 android:text="Beskeder"
                 style="@style/HeaderText"
                 android:textStyle="bold"
+                android:accessibilityTraversalBefore="@id/messages_page_sub_header"
                 android:layout_width="0dp"
                 android:paddingStart="@dimen/smallMargin"
                 android:layout_height="wrap_content"

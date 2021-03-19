@@ -4,6 +4,7 @@ using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.ViewModels.DailyNumbersViewModel;
 using Foundation;
+using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {
@@ -30,7 +31,23 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			SetStyling();
 
+			//Remove labels with total numbers from boxes in release 2.2
+			HideTotals();
+
+			MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
 			UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DailyNumbersTitleOne);
+		}
+
+		// NOTE: This is late time change to release 2.2, delete this function and call to it when
+		// decision to display them is made in future releases. Note that underlying data is still
+		// available in preferences.
+		private void HideTotals()
+		{
+			TotalDailyNumbersNumber1Lbl.Hidden = true;
+			TotalDailyNumbersNumber3Lbl.Hidden = true;
+			TotalDailyNumbersNumber5Lbl.Hidden = true;
+			TotalDailyNumbersNumber9Lbl.Hidden = true;
+			TotalDailyNumbersNumber10Lbl.Hidden = true;
 		}
 
 		private void SetStyling()
@@ -64,9 +81,9 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersNumber3Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber4Lbl, StyleUtil.FontType.FontBold, PatientsAdmittedToday, 1.14, fontMin, fontMax);
 			DailyNumbersNumber4Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber5Lbl, StyleUtil.FontType.FontBold, SmittestopDownloadsTotal, 1.14, fontMin, fontMax);
+			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber5Lbl, StyleUtil.FontType.FontBold, NumberOfPositiveTestsResultsLast7Days, 1.14, fontMin, fontMax);
 			DailyNumbersNumber5Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber6Lbl, StyleUtil.FontType.FontBold, NumberOfPositiveTestsResultsLast7Days, 1.14, fontMin, fontMax);
+			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber6Lbl, StyleUtil.FontType.FontBold, SmittestopDownloadsTotal, 1.14, fontMin, fontMax);
 			DailyNumbersNumber6Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber7Lbl, StyleUtil.FontType.FontBold, PatientsIntensiveCare, 1.14, fontMin, fontMax);
 			DailyNumbersNumber7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
@@ -172,7 +189,12 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			textView.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
 			//ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
-			textView.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+			textView.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.LINK_COLOR, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+		}
+
+		private void OnAppReturnsFromBackground(object o)
+		{
+			RequestFHIDataUpdate(() => InvokeOnMainThread(SetStyling));
 		}
 	}
 }

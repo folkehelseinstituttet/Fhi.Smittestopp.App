@@ -110,7 +110,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             {
                 base.UpdateDrawState(ds);
                 ds.UnderlineText = true;
-                ds.Color = "#32345C".ToColor();
             }
         }
     }

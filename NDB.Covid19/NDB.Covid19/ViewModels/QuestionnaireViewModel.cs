@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
@@ -90,11 +91,11 @@ namespace NDB.Covid19.ViewModels
             {
                 try
                 {
-                    return Convert.ToDateTime(PersonalData.Covid19_smitte_start);
+                    return Convert.ToDateTime(PersonalData.Covid19_smitte_start, CultureInfo.InvariantCulture);
                 }
-                catch
+                catch(Exception e)
                 {
-                    LogUtils.LogMessage(LogSeverity.ERROR, "Miba data can't be parsed into datetime");
+                    LogUtils.LogMessage(LogSeverity.ERROR, e.StackTrace, "MSIS data can't be parsed into DateTime");
                 }
             }
             return null;
