@@ -30,8 +30,24 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			base.ViewDidLoad();
 
 			SetStyling();
+
+			//Remove labels with total numbers from boxes in release 2.2
+			HideTotals();
+
 			MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
 			UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DailyNumbersTitleOne);
+		}
+
+		// NOTE: This is late time change to release 2.2, delete this function and call to it when
+		// decision to display them is made in future releases. Note that underlying data is still
+		// available in preferences.
+		private void HideTotals()
+		{
+			TotalDailyNumbersNumber1Lbl.Hidden = true;
+			TotalDailyNumbersNumber3Lbl.Hidden = true;
+			TotalDailyNumbersNumber5Lbl.Hidden = true;
+			TotalDailyNumbersNumber9Lbl.Hidden = true;
+			TotalDailyNumbersNumber10Lbl.Hidden = true;
 		}
 
 		private void SetStyling()
