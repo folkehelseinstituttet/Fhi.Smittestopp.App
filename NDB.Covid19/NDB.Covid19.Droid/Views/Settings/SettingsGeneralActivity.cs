@@ -32,6 +32,7 @@ namespace NDB.Covid19.Droid.Views.Settings
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            this.Title = SettingsGeneralViewModel.SETTINGS_GENERAL_TITLE;
             SetContentView(Resource.Layout.settings_general);
 
             Init();

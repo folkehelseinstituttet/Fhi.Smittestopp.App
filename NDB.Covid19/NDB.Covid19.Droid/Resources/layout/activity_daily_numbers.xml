@@ -16,6 +16,7 @@
 			<ImageView
                 android:id="@+id/daily_numbers_back_button"
                 android:layout_width="@dimen/backButton"
+			    android:accessibilityTraversalAfter="@id/daily_numbers_positive_shared_total_text"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintBaseline_toBaselineOf="@id/daily_numbers_header_textView"
                 android:layout_height="@dimen/backButton" />
