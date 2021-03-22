@@ -189,6 +189,7 @@ namespace NDB.Covid19.Droid.Views.Messages
         {
             _messagesList.Visibility = isShown ? ViewStates.Visible : ViewStates.Invisible;
             _noItemsTextView.Visibility = isShown ? ViewStates.Invisible : ViewStates.Visible;
+            _closeButton.AccessibilityTraversalAfter = isShown ? Resource.Id.messages_list : Resource.Id.no_items_description;
         }
     }
 }

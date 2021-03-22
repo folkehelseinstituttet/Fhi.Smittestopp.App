@@ -17,9 +17,9 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
             base.ViewDidLoad();
             SetTexts();
 
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLabel);
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, PageTitle);
             BackArrow.Hidden = !LocalPreferencesHelper.IsOnboardingCompleted;
-            BackArrow.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackArrow.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
         }
 
         public override void ViewDidAppear(bool animated)
@@ -35,10 +35,13 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 
         void SetTexts()
         {
-            InitTitle(TitleLabel, WelcomeViewModel.WELCOME_PAGE_THREE_TITLE);
-            InitBodyText(BodyText1, WelcomeViewModel.WELCOME_PAGE_THREE_BODY_ONE);
-            InitBodyText(BodyText2, WelcomeViewModel.WELCOME_PAGE_THREE_BODY_TWO);
-            InitBodyText(BoxText, WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY);
+            InitTitle(PageTitle, WelcomeViewModel.WELCOME_PAGE_FOUR_TITLE);
+            PageTitle.AccessibilityTraits = UIAccessibilityTrait.Header;
+            PageTitle.AccessibilityLabel = WelcomeViewModel.ANNOUNCEMENT_PAGE_CHANGED_TO_THREE;
+            PageTitle.AccessibilityValue = WelcomeViewModel.WELCOME_PAGE_FOUR_TITLE;
+            InitBodyText(Label1, WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_ONE);
+            InitBodyText(Label2, WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_TWO);
+            InitBodyText(Label3, WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_THREE);
         }
     }
 }

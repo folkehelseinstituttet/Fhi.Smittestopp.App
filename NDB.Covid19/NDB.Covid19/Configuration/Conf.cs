@@ -27,7 +27,7 @@ namespace NDB.Covid19.Configuration
         //The timeout value takes this into consideration.
         public static int DEFAULT_TIMEOUT_SERVICECALLS_SECONDS => 40;
         public static string DEFAULT_LANGUAGE = "nb"; //In case the device is set to use an unsupported language
-        public static string[] SUPPORTED_LANGUAGES = new string[] { "en", "nb", "nn", "pl", "so", "ti", "ar", "ur" };
+        public static string[] SUPPORTED_LANGUAGES = new string[] { "en", "nb", "nn", "pl", "so", "ti", "ar", "ur", "lt" };
 
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_SHORT => 15; 
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_LONG => 14 * 24 * 60;
@@ -46,6 +46,7 @@ namespace NDB.Covid19.Configuration
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
         public static string URL_GET_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_COUNTRY_LIST => URL_PREFIX + "countries";
+        public static string URL_GET_FHI_DATA => URL_PREFIX + "covidstatistics";
 
         // --- Gateway Stub ---
         public static string URL_GATEWAY_STUB_UPLOAD => URL_PREFIX + "diagnosiskeys/upload";

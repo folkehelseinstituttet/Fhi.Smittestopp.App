@@ -21,6 +21,7 @@
                 android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
                 android:visibility="visible"
+                android:accessibilityTraversalAfter="@id/buttonGetStarted"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBaseline_toBaselineOf="@id/welcome_page_one_title"/>
 
