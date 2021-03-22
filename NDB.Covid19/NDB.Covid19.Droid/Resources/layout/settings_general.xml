@@ -19,6 +19,7 @@
                 android:layout_width="@dimen/backButton"
                 android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
+                android:accessibilityTraversalAfter="@id/settings_general_link"
                 android:clickable="true"
                 android:focusable="true"
                 app:layout_constraintBaseline_toBaselineOf="@id/settings_general_title"
@@ -202,6 +203,28 @@
                         android:text="English"/>
 
                 <RadioButton
+                        android:id="@+id/settings_general_arabic"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:layout_gravity="start"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Arabic"/> 
+
+                <RadioButton
+                        android:id="@+id/settings_general_lithuanian"
+                        style="@style/PrimaryTextBold"
+                        android:paddingHorizontal="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:layout_gravity="start"
+                        android:buttonTint="@color/primaryText"
+                        android:text="Lithuanian"/> 
+
+                <RadioButton
                         android:id="@+id/settings_general_polish"
                         style="@style/PrimaryTextBold"
                         android:paddingHorizontal="14dp"
@@ -223,7 +246,7 @@
                         android:buttonTint="@color/primaryText"
                         android:text="Somali"/>
 
-             <!--   <RadioButton
+                <RadioButton
                         android:id="@+id/settings_general_tigrinya"
                         style="@style/PrimaryTextBold"
                         android:paddingHorizontal="14dp"
@@ -232,18 +255,9 @@
                         android:textAlignment="viewStart"
                         android:layout_gravity="start"
                         android:buttonTint="@color/primaryText"
-                        android:text="Tigrinya"/> -->
-             <!--   <RadioButton
-                        android:id="@+id/settings_general_arabic"
-                        style="@style/PrimaryTextBold"
-                        android:paddingHorizontal="14dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="viewStart"
-                        android:layout_gravity="start"
-                        android:buttonTint="@color/primaryText"
-                        android:text="Arabic"/> -->
-             <!--   <RadioButton
+                        android:text="Tigrinya"/>
+
+                <RadioButton
                         android:id="@+id/settings_general_urdu"
                         style="@style/PrimaryTextBold"
                         android:paddingHorizontal="14dp"
@@ -252,7 +266,7 @@
                         android:textAlignment="viewStart"
                         android:layout_gravity="start"
                         android:buttonTint="@color/primaryText"
-                        android:text="Urdu"/> -->
+                        android:text="Urdu"/> 
             </RadioGroup>
 
             <TextView
@@ -276,7 +290,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_desc_one"/>
 
-            <ndb.covid19.droid.views.settings.UnderlinedTextView
+            <TextView
                     android:id="@+id/settings_general_link"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -286,9 +300,7 @@
                     style="@style/PrimaryText"
                     android:textSize="14sp"
                     android:text="Test link here"
-                    app:underlineColor="@color/primaryText"
-                    app:underlineWidth="1dp"
-                    app:underlineMarginTop="2dp"
+                    android:textColorLink="@color/linkColor"
                     android:layout_marginVertical="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

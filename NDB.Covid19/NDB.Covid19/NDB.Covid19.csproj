@@ -92,6 +92,7 @@
     <None Remove="Locales\ti.json" />
     <None Remove="Locales\ar.json" />
     <None Remove="Locales\ur.json" />
+    <None Remove="Locales\lt.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Locales\en.json" />
@@ -102,5 +103,6 @@
     <EmbeddedResource Include="Locales\ti.json" />
     <EmbeddedResource Include="Locales\ar.json" />
     <EmbeddedResource Include="Locales\ur.json" />
+    <EmbeddedResource Include="Locales\lt.json" />
   </ItemGroup>
 </Project>

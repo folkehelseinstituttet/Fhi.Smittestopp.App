@@ -9,7 +9,8 @@
         Somali,
         Tigrinya,
         Arabic,
-        Urdu
+        Urdu,
+        Lithuanian
     }
 
     public static class SettingsLanguageSelectionExtensions
@@ -34,6 +35,8 @@
                     return "ar";
                 case SettingsLanguageSelection.Urdu:
                     return "ur";
+                case SettingsLanguageSelection.Lithuanian:
+                    return "lt";
                 default:
                     return "nb";
             }
@@ -59,6 +62,8 @@
                     return SettingsLanguageSelection.Arabic;
                 case "ur":
                     return SettingsLanguageSelection.Urdu;
+                case "lt":
+                    return SettingsLanguageSelection.Lithuanian;
                 default:
                     return SettingsLanguageSelection.Bokmal;
             }

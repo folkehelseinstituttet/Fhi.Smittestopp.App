@@ -8,6 +8,7 @@
             android:id="@+id/close_cross_btn"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:accessibilityTraversalAfter="@id/countries_button"
             android:layout_marginTop="@dimen/defaultVerticalMargin"
             android:layout_marginEnd="@dimen/defaultHorizontalMargin"
             android:background="@drawable/ic_close_blue"

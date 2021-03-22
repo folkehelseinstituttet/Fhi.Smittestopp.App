@@ -20,6 +20,7 @@ using NDB.Covid19.Utils.DeveloperTools;
 using EN = Xamarin.ExposureNotifications;
 using Debug = System.Diagnostics.Debug;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using System.Globalization;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -71,8 +72,9 @@ namespace NDB.Covid19.ViewModels
 
             keyArray?.ForEach(key =>
             {
+                DateTime rollingStartDateTime = key.Value<DateTime>("rollingStart");
                 String keyData = $"Key: {EncodingUtils.ConvertByteArrayToString((byte[])key["key"])} ,\n" +
-                                 $"rollingStart: {key["rollingStart"]},\n" +
+                                 $"rollingStart: {rollingStartDateTime.ToString(CultureInfo.InvariantCulture)},\n" +
                                  $"rollingDuration: {key["rollingDuration"]},\n" +
                                  $"transmissionRiskLevel: {key["transmissionRiskLevel"]}\n\n";
                 PushKeysInfo += keyData;

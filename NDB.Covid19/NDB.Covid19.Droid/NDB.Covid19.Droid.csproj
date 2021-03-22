@@ -113,10 +113,10 @@
     <Compile Include="Views\Welcome\NonSwipeableViewPager.cs" />
     <Compile Include="Views\Settings\ConsentSettingPageFragment.cs" />
     <Compile Include="Views\Welcome\WelcomeActivity.cs" />
-    <Compile Include="Views\Welcome\WelcomePageFourFragment.cs" />
+    <Compile Include="Views\Welcome\WelcomePageThreeFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePageOneFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePagerAdapter.cs" />
-    <Compile Include="Views\Welcome\WelcomePageThreeFragment.cs" />
+    <Compile Include="Views\Welcome\WelcomePageFourFragment.cs" />
     <Compile Include="Utils\WelcomePageTools.cs" />
     <Compile Include="Views\Welcome\WelcomePageTwoFragment.cs" />
     <Compile Include="Views\Welcome\WelcomePageConsentsActivity.cs" />
@@ -142,6 +142,8 @@
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\SpinnerPageActivity.cs" />
     <Compile Include="Utils\HeadingAccessibilityDelegate.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersActivity.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersLoadingPage.cs" />
     <Compile Include="Utils\LayoutUtils.cs" />
     <Compile Include="Views\LanguageSelectionActivity.cs" />
   </ItemGroup>
@@ -898,6 +900,38 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_daily_numbers.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\styles_daily_numbers.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\counter_background.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\counter_background_daily_numbers.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_start_logo_ag_api.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_todays_numbers.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_todays_numbers.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_todays_numbers.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\language_selection.xml">
       <SubType></SubType>
       <Generator></Generator>
@@ -1133,6 +1167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\font\" />
+    <Folder Include="Views\DailyNumbers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

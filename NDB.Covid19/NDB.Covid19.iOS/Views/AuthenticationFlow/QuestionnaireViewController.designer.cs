@@ -1,252 +1,248 @@
 // WARNING
 //
-// This file has been generated automatically by Visual Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
-    [Register ("QuestionnaireViewController")]
-    partial class QuestionnaireViewController
-    {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton CloseButton { get; set; }
+	[Register ("QuestionnaireViewController")]
+	partial class QuestionnaireViewController
+	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton CloseButton { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView DateContainer { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView DateContainer { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel DateLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel DateLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIDatePicker DatePicker { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIDatePicker DatePicker { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIStackView DatepickerStackView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIStackView DatepickerStackView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton InfoButton { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton InfoButton { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton NoBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton NoBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton NoLargeBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton NoLargeBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel NoLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel NoLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton SkipBtn { get; set; }
+		[Outlet]
+		UIKit.UIScrollView ScrollView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton SkipLargeBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton SkipBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel SkipLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton SkipLargeBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel SubtitleLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel SkipLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel TitleLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel SubtitleLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton YesButBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SetttingsPageTitleLabel TitleLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton YesButLargeBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton YesButBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel YesButLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton YesButLargeBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel YesLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel YesButLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton YesSinceBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsPageContentLabel YesLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton YesSinceLargeBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton YesSinceBtn { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.RadioButtonOverlayButton YesSinceLargeBtn { get; set; }
 
-        [Action ("NextBtnTapped:")]
-        partial void NextBtnTapped (CustomSubclasses.DefaultBorderButton sender);
+		[Action ("InfoButton_TouchUpInside:")]
+		partial void InfoButton_TouchUpInside (UIKit.UIButton sender);
 
+		[Action ("NextBtnTapped:")]
+		partial void NextBtnTapped (NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton sender);
 
-        [Action ("OnCloseBtnTapped:")]
-        partial void OnCloseBtnTapped (UIKit.UIButton sender);
+		[Action ("OnCloseBtnTapped:")]
+		partial void OnCloseBtnTapped (UIKit.UIButton sender);
 
+		[Action ("OnNoBtnTapped:")]
+		partial void OnNoBtnTapped (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-        [Action ("OnNoBtnTapped:")]
-        partial void OnNoBtnTapped (CustomSubclasses.CustomRadioButton sender);
+		[Action ("OnNoLayoutTapped:")]
+		partial void OnNoLayoutTapped (UIKit.UIButton sender);
 
+		[Action ("OnSkipBtnTapped:")]
+		partial void OnSkipBtnTapped (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-        [Action ("OnNoLayoutTapped:")]
-        partial void OnNoLayoutTapped (UIKit.UIButton sender);
+		[Action ("OnSkipLayoutTapped:")]
+		partial void OnSkipLayoutTapped (UIKit.UIButton sender);
 
+		[Action ("OnYesButBtnTapped:")]
+		partial void OnYesButBtnTapped (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-        [Action ("OnSkipBtnTapped:")]
-        partial void OnSkipBtnTapped (CustomSubclasses.CustomRadioButton sender);
+		[Action ("OnYesButLayoutTapped:")]
+		partial void OnYesButLayoutTapped (UIKit.UIButton sender);
 
+		[Action ("OnYesSinceBtnTapped:")]
+		partial void OnYesSinceBtnTapped (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-        [Action ("OnSkipLayoutTapped:")]
-        partial void OnSkipLayoutTapped (UIKit.UIButton sender);
+		[Action ("OnYesSinceLayoutTapped:")]
+		partial void OnYesSinceLayoutTapped (UIKit.UIButton sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (ScrollView != null) {
+				ScrollView.Dispose ();
+				ScrollView = null;
+			}
 
+			if (CloseButton != null) {
+				CloseButton.Dispose ();
+				CloseButton = null;
+			}
 
-        [Action ("OnYesButBtnTapped:")]
-        partial void OnYesButBtnTapped (CustomSubclasses.CustomRadioButton sender);
+			if (DateContainer != null) {
+				DateContainer.Dispose ();
+				DateContainer = null;
+			}
 
+			if (DateLbl != null) {
+				DateLbl.Dispose ();
+				DateLbl = null;
+			}
 
-        [Action ("OnYesButLayoutTapped:")]
-        partial void OnYesButLayoutTapped (UIKit.UIButton sender);
+			if (DatePicker != null) {
+				DatePicker.Dispose ();
+				DatePicker = null;
+			}
 
+			if (DatepickerStackView != null) {
+				DatepickerStackView.Dispose ();
+				DatepickerStackView = null;
+			}
 
-        [Action ("OnYesSinceBtnTapped:")]
-        partial void OnYesSinceBtnTapped (CustomSubclasses.CustomRadioButton sender);
+			if (InfoButton != null) {
+				InfoButton.Dispose ();
+				InfoButton = null;
+			}
 
+			if (NextBtn != null) {
+				NextBtn.Dispose ();
+				NextBtn = null;
+			}
 
-        [Action ("OnYesSinceLayoutTapped:")]
-        partial void OnYesSinceLayoutTapped (UIKit.UIButton sender);
+			if (NoBtn != null) {
+				NoBtn.Dispose ();
+				NoBtn = null;
+			}
 
-        [Action ("InfoButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void InfoButton_TouchUpInside (UIKit.UIButton sender);
+			if (NoLargeBtn != null) {
+				NoLargeBtn.Dispose ();
+				NoLargeBtn = null;
+			}
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (CloseButton != null) {
-                CloseButton.Dispose ();
-                CloseButton = null;
-            }
+			if (NoLbl != null) {
+				NoLbl.Dispose ();
+				NoLbl = null;
+			}
 
-            if (DateContainer != null) {
-                DateContainer.Dispose ();
-                DateContainer = null;
-            }
+			if (SkipBtn != null) {
+				SkipBtn.Dispose ();
+				SkipBtn = null;
+			}
 
-            if (DateLbl != null) {
-                DateLbl.Dispose ();
-                DateLbl = null;
-            }
+			if (SkipLargeBtn != null) {
+				SkipLargeBtn.Dispose ();
+				SkipLargeBtn = null;
+			}
 
-            if (DatePicker != null) {
-                DatePicker.Dispose ();
-                DatePicker = null;
-            }
+			if (SkipLbl != null) {
+				SkipLbl.Dispose ();
+				SkipLbl = null;
+			}
 
-            if (DatepickerStackView != null) {
-                DatepickerStackView.Dispose ();
-                DatepickerStackView = null;
-            }
+			if (SubtitleLbl != null) {
+				SubtitleLbl.Dispose ();
+				SubtitleLbl = null;
+			}
 
-            if (InfoButton != null) {
-                InfoButton.Dispose ();
-                InfoButton = null;
-            }
+			if (TitleLbl != null) {
+				TitleLbl.Dispose ();
+				TitleLbl = null;
+			}
 
-            if (NextBtn != null) {
-                NextBtn.Dispose ();
-                NextBtn = null;
-            }
+			if (YesButBtn != null) {
+				YesButBtn.Dispose ();
+				YesButBtn = null;
+			}
 
-            if (NoBtn != null) {
-                NoBtn.Dispose ();
-                NoBtn = null;
-            }
+			if (YesButLargeBtn != null) {
+				YesButLargeBtn.Dispose ();
+				YesButLargeBtn = null;
+			}
 
-            if (NoLargeBtn != null) {
-                NoLargeBtn.Dispose ();
-                NoLargeBtn = null;
-            }
+			if (YesButLbl != null) {
+				YesButLbl.Dispose ();
+				YesButLbl = null;
+			}
 
-            if (NoLbl != null) {
-                NoLbl.Dispose ();
-                NoLbl = null;
-            }
+			if (YesLbl != null) {
+				YesLbl.Dispose ();
+				YesLbl = null;
+			}
 
-            if (SkipBtn != null) {
-                SkipBtn.Dispose ();
-                SkipBtn = null;
-            }
+			if (YesSinceBtn != null) {
+				YesSinceBtn.Dispose ();
+				YesSinceBtn = null;
+			}
 
-            if (SkipLargeBtn != null) {
-                SkipLargeBtn.Dispose ();
-                SkipLargeBtn = null;
-            }
-
-            if (SkipLbl != null) {
-                SkipLbl.Dispose ();
-                SkipLbl = null;
-            }
-
-            if (SubtitleLbl != null) {
-                SubtitleLbl.Dispose ();
-                SubtitleLbl = null;
-            }
-
-            if (TitleLbl != null) {
-                TitleLbl.Dispose ();
-                TitleLbl = null;
-            }
-
-            if (YesButBtn != null) {
-                YesButBtn.Dispose ();
-                YesButBtn = null;
-            }
-
-            if (YesButLargeBtn != null) {
-                YesButLargeBtn.Dispose ();
-                YesButLargeBtn = null;
-            }
-
-            if (YesButLbl != null) {
-                YesButLbl.Dispose ();
-                YesButLbl = null;
-            }
-
-            if (YesLbl != null) {
-                YesLbl.Dispose ();
-                YesLbl = null;
-            }
-
-            if (YesSinceBtn != null) {
-                YesSinceBtn.Dispose ();
-                YesSinceBtn = null;
-            }
-
-            if (YesSinceLargeBtn != null) {
-                YesSinceLargeBtn.Dispose ();
-                YesSinceLargeBtn = null;
-            }
-        }
-    }
+			if (YesSinceLargeBtn != null) {
+				YesSinceLargeBtn.Dispose ();
+				YesSinceLargeBtn = null;
+			}
+		}
+	}
 }

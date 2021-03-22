@@ -20,6 +20,7 @@
                 android:layout_height="@dimen/backButton"
                 android:background="@drawable/ic_circle_arrow_left"
                 android:clickable="true"
+                android:accessibilityTraversalAfter="@id/settings_about_version_info_textview"
                 android:focusable="true"
                 android:paddingStart="0dp"
                 android:paddingEnd="8dp"
