@@ -20,19 +20,19 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel Label1 { get; set; }
+        UIKit.UILabel BodyText1 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel Label2 { get; set; }
+        UIKit.UILabel BodyText2 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel Label3 { get; set; }
+        UIKit.UILabel BoxText { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel PageTitle { get; set; }
+        UIKit.UILabel TitleLabel { get; set; }
 
         [Action ("BackArrowBtn_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -45,24 +45,24 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
                 BackArrow = null;
             }
 
-            if (Label1 != null) {
-                Label1.Dispose ();
-                Label1 = null;
+            if (BodyText1 != null) {
+                BodyText1.Dispose ();
+                BodyText1 = null;
             }
 
-            if (Label2 != null) {
-                Label2.Dispose ();
-                Label2 = null;
+            if (BodyText2 != null) {
+                BodyText2.Dispose ();
+                BodyText2 = null;
             }
 
-            if (Label3 != null) {
-                Label3.Dispose ();
-                Label3 = null;
+            if (BoxText != null) {
+                BoxText.Dispose ();
+                BoxText = null;
             }
 
-            if (PageTitle != null) {
-                PageTitle.Dispose ();
-                PageTitle = null;
+            if (TitleLabel != null) {
+                TitleLabel.Dispose ();
+                TitleLabel = null;
             }
         }
     }

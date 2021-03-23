@@ -67,7 +67,11 @@ namespace NDB.Covid19.Test.Tests.ViewModels
         [MemberData(nameof(Data))]
         public void QuestionnaireCountriesViewModel_InvokeNextButtonClick_UpdatesList(params CountryDetailsViewModel[] list)
         {
-            AuthenticationState.PersonalData = new PersonalDataModel();
+            AuthenticationState.PersonalData = new PersonalDataModel
+            {
+                TokenExpiration = DateTime.Now.AddHours(1),
+                Covid19_smitte_start = "2021-03-08"
+            };
 
             _viewModel.InvokeNextButtonClick(null, null, list.ToList());
 
@@ -79,7 +83,11 @@ namespace NDB.Covid19.Test.Tests.ViewModels
         [MemberData(nameof(Data))]
         public async void QuestionnaireCountriesViewModel_InvokeNextButtonClick_OnSuccessCalled(params CountryDetailsViewModel[] list)
         {
-            AuthenticationState.PersonalData = new PersonalDataModel();
+            AuthenticationState.PersonalData = new PersonalDataModel
+            {
+                TokenExpiration = DateTime.Now.AddHours(1),
+                Covid19_smitte_start = "2021-03-08"
+            };
 
             TaskCompletionSource<bool> _tcs = new TaskCompletionSource<bool>();
 

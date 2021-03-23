@@ -13,8 +13,20 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 	partial class SettingsPageGeneralSettingsViewController
 	{
 		[Outlet]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton ArabicButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel ArabicLabel { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIButton BackButton { get; set; }
+
+		[Outlet]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton BokmalButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel BokmalLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -33,6 +45,12 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 		UIKit.UILabel DescriptionLabel { get; set; }
 
 		[Outlet]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton EnglishButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel EnglishLabel { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel Header { get; set; }
 
@@ -41,58 +59,22 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 		UIKit.UILabel HeaderLabel { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton1 { get; set; }
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton LithuanianButton { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel RadioButton1Lbl { get; set; }
+		UIKit.UILabel LithuanianLabel { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton2 { get; set; }
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton NynorskButton { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel RadioButton2Lbl { get; set; }
+		UIKit.UILabel NynorskLabel { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton3 { get; set; }
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton PolishButton { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel RadioButton3Lbl { get; set; }
-
-		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton4 { get; set; }
-
-		[Outlet]
-		UIKit.UILabel RadioButton4Lbl { get; set; }
-
-		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton5 { get; set; }
-
-		[Outlet]
-		UIKit.UILabel RadioButton5Lbl { get; set; }
-
-		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton6 { get; set; }
-
-		[Outlet]
-		UIKit.UILabel RadioButton6Lbl { get; set; }
-
-		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton7 { get; set; }
-
-		[Outlet]
-		UIKit.UILabel RadioButton7Lbl { get; set; }
-
-		[Outlet]
-		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton RadioButton8 { get; set; }
-
-		[Outlet]
-		UIKit.UILabel RadioButton8Lbl { get; set; }
+		UIKit.UILabel PolishLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -107,35 +89,56 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 		UIKit.UIStackView SmittestopLinkButtonStackView { get; set; }
 
 		[Outlet]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton SomaliButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel SomaliLabel { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UISwitch switchButton { get; set; }
+
+		[Outlet]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton TigrinyaButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel TigrinyaLabel { get; set; }
+
+		[Outlet]
+		NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton UrduButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel UrduLabel { get; set; }
+
+		[Action ("ArabicButton_TouchUpInside:")]
+		partial void ArabicButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
 		[Action ("BackButton_TouchUpInside:")]
 		partial void BackButton_TouchUpInside (UIKit.UIButton sender);
 
-		[Action ("RadioButton1_TouchUpInside:")]
-		partial void RadioButton1_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("BokmalButton_TouchUpInside:")]
+		partial void BokmalButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-		[Action ("RadioButton2_TouchUpInside:")]
-		partial void RadioButton2_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("EnglishButton_TouchUpInside:")]
+		partial void EnglishButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-		[Action ("RadioButton3_TouchUpInside:")]
-		partial void RadioButton3_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("LithuanianButton_TouchUpInside:")]
+		partial void LithuanianButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-		[Action ("RadioButton4_TouchUpInside:")]
-		partial void RadioButton4_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("NynorskButton_TouchUpInside:")]
+		partial void NynorskButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-		[Action ("RadioButton5_TouchUpInside:")]
-		partial void RadioButton5_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("PolishButton_TouchUpInside:")]
+		partial void PolishButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-		[Action ("RadioButton6_TouchUpInside:")]
-		partial void RadioButton6_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("SomaliButton_TouchUpInside:")]
+		partial void SomaliButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-		[Action ("RadioButton7_TouchUpInside:")]
-		partial void RadioButton7_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("TigrinyaButton_TouchUpInside:")]
+		partial void TigrinyaButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 
-		[Action ("RadioButton8_TouchUpInside:")]
-		partial void RadioButton8_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
+		[Action ("UrduButton_TouchUpInside:")]
+		partial void UrduButton_TouchUpInside (NDB.Covid19.iOS.Views.CustomSubclasses.CustomRadioButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -174,84 +177,94 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
 				HeaderLabel = null;
 			}
 
-			if (RadioButton1 != null) {
-				RadioButton1.Dispose ();
-				RadioButton1 = null;
+			if (BokmalButton != null) {
+				BokmalButton.Dispose ();
+				BokmalButton = null;
 			}
 
-			if (RadioButton1Lbl != null) {
-				RadioButton1Lbl.Dispose ();
-				RadioButton1Lbl = null;
+			if (BokmalLabel != null) {
+				BokmalLabel.Dispose ();
+				BokmalLabel = null;
 			}
 
-			if (RadioButton2 != null) {
-				RadioButton2.Dispose ();
-				RadioButton2 = null;
+			if (NynorskButton != null) {
+				NynorskButton.Dispose ();
+				NynorskButton = null;
 			}
 
-			if (RadioButton2Lbl != null) {
-				RadioButton2Lbl.Dispose ();
-				RadioButton2Lbl = null;
+			if (NynorskLabel != null) {
+				NynorskLabel.Dispose ();
+				NynorskLabel = null;
 			}
 
-			if (RadioButton3 != null) {
-				RadioButton3.Dispose ();
-				RadioButton3 = null;
+			if (EnglishButton != null) {
+				EnglishButton.Dispose ();
+				EnglishButton = null;
 			}
 
-			if (RadioButton3Lbl != null) {
-				RadioButton3Lbl.Dispose ();
-				RadioButton3Lbl = null;
+			if (EnglishLabel != null) {
+				EnglishLabel.Dispose ();
+				EnglishLabel = null;
 			}
 
-			if (RadioButton4 != null) {
-				RadioButton4.Dispose ();
-				RadioButton4 = null;
+			if (PolishButton != null) {
+				PolishButton.Dispose ();
+				PolishButton = null;
 			}
 
-			if (RadioButton4Lbl != null) {
-				RadioButton4Lbl.Dispose ();
-				RadioButton4Lbl = null;
+			if (PolishLabel != null) {
+				PolishLabel.Dispose ();
+				PolishLabel = null;
 			}
 
-			if (RadioButton5 != null) {
-				RadioButton5.Dispose ();
-				RadioButton5 = null;
+			if (SomaliButton != null) {
+				SomaliButton.Dispose ();
+				SomaliButton = null;
 			}
 
-			if (RadioButton5Lbl != null) {
-				RadioButton5Lbl.Dispose ();
-				RadioButton5Lbl = null;
+			if (SomaliLabel != null) {
+				SomaliLabel.Dispose ();
+				SomaliLabel = null;
 			}
 
-			if (RadioButton6 != null) {
-				RadioButton6.Dispose ();
-				RadioButton6 = null;
+			if (TigrinyaButton != null) {
+				TigrinyaButton.Dispose ();
+				TigrinyaButton = null;
 			}
 
-			if (RadioButton6Lbl != null) {
-				RadioButton6Lbl.Dispose ();
-				RadioButton6Lbl = null;
+			if (TigrinyaLabel != null) {
+				TigrinyaLabel.Dispose ();
+				TigrinyaLabel = null;
 			}
 
-			if (RadioButton7 != null) {
-				RadioButton7.Dispose ();
-				RadioButton7 = null;
+			if (ArabicButton != null) {
+				ArabicButton.Dispose ();
+				ArabicButton = null;
 			}
 
-			if (RadioButton7Lbl != null) {
-				RadioButton7Lbl.Dispose ();
-				RadioButton7Lbl = null;
+			if (ArabicLabel != null) {
+				ArabicLabel.Dispose ();
+				ArabicLabel = null;
 			}
 
-			if (RadioButton8 != null) {
-				RadioButton8.Dispose ();
-				RadioButton8 = null;
+			if (LithuanianButton != null) {
+				LithuanianButton.Dispose ();
+				LithuanianButton = null;
 			}
 
-			if (RadioButton8Lbl != null) {
-				RadioButton8Lbl.Dispose ();
-				RadioButton8Lbl = null;
+			if (LithuanianLabel != null) {
+				LithuanianLabel.Dispose ();
+				LithuanianLabel = null;
+			}
+
+			if (UrduButton != null) {
+				UrduButton.Dispose ();
+				UrduButton = null;
+			}
+
+			if (UrduLabel != null) {
+				UrduLabel.Dispose ();
+				UrduLabel = null;
 			}
 
 			if (RestartAppLabl != null) {

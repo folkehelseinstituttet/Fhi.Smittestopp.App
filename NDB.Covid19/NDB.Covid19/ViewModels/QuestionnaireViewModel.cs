@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
@@ -66,7 +67,7 @@ namespace NDB.Covid19.ViewModels
         public string RadioButtonAccessibilityNo => REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_NO + "\n " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_3_TEXT;
         public string RadioButtonAccessibilitySkip => REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_SKIP + ". " + REGISTER_QUESTIONAIRE_ACCESSIBILITY_RADIO_BUTTON_4_TEXT;
 
-        public string ReceipetPageReadMoreButtonAccessibility => REGISTER_QUESTIONAIRE_RECEIPT_INNER_READ_MORE;
+        public string ReceipetPageReadMoreButtonAccessibility => $"{REGISTER_QUESTIONAIRE_RECEIPT_INNER_HEADER}. {REGISTER_QUESTIONAIRE_RECEIPT_INNER_READ_MORE}";
 
         public void SetSelectedDateUTC(DateTime newDate)
         {
@@ -90,11 +91,11 @@ namespace NDB.Covid19.ViewModels
             {
                 try
                 {
-                    return Convert.ToDateTime(PersonalData.Covid19_smitte_start);
+                    return Convert.ToDateTime(PersonalData.Covid19_smitte_start, CultureInfo.InvariantCulture);
                 }
-                catch
+                catch(Exception e)
                 {
-                    LogUtils.LogMessage(LogSeverity.ERROR, "Miba data can't be parsed into datetime");
+                    LogUtils.LogMessage(LogSeverity.ERROR, e.StackTrace, "MSIS data can't be parsed into DateTime");
                 }
             }
             return null;

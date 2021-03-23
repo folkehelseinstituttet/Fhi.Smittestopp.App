@@ -31,6 +31,13 @@ namespace NDB.Covid19.iOS.Utils
             GoToVC(parent, newVC);
         }
 
+        public static void GoToTechnicalErrorFHINumbers(UIViewController parent, LogSeverity severity, Exception e, string errorMessage)
+        {
+            UIViewController newVC = ErrorPageViewController.Create(ErrorViewModel.REGISTER_ERROR_FETCH_FHI_DATA_HEADER, errorMessageTxt: ErrorViewModel.REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION);
+            LogUtils.LogException(severity, e, errorMessage);
+            GoToVC(parent, newVC);
+        }
+
         public static void GoToErrorPageForAuthErrorType(UIViewController parent, AuthErrorType authErrorType)
         {
             AuthException authException = new AuthException(authErrorType.ToString());

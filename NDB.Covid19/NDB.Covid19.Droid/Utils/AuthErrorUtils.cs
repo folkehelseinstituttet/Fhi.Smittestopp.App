@@ -29,6 +29,12 @@ namespace NDB.Covid19.Droid.Utils
             LogUtils.LogException(severity, e, errorMessage);
         }
 
+        public static void GoToTechnicalErrorFHINumbers(Activity parent, LogSeverity severity, Exception e, string errorMessage)
+        {
+            GoToErrorPage(parent, REGISTER_ERROR_FETCH_FHI_DATA_HEADER, REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION, REGISTER_ERROR_DISMISS);
+            LogUtils.LogException(severity, e, errorMessage);
+        }
+
         public static void GoToErrorPage(Activity parent, string title, string description, string button, string subtitle = null)
         {
             Intent intent = new Intent(parent, typeof(GeneralErrorActivity));

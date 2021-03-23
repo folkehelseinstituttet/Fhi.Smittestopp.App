@@ -552,6 +552,10 @@
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%401x.png" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%402x.png" />
+    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%403x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%403x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%402x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%401x.png" />
@@ -616,6 +620,8 @@
     <Folder Include="Assets.xcassets\FHISmittestoppLogo.imageset\" />
     <Folder Include="Assets.xcassets\checkboxUnfilled.imageset\" />
     <Folder Include="Assets.xcassets\checkboxFilled.imageset\" />
+    <Folder Include="Views\DailyNumbers\" />
+    <Folder Include="Assets.xcassets\todays_numbers_icon.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -633,8 +639,8 @@
     <InterfaceDefinition Include="Views\Welcome\Welcome.storyboard" />
     <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageOne.storyboard" />
     <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageTwo.storyboard" />
-    <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageThree.storyboard" />
     <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageFour.storyboard" />
+    <InterfaceDefinition Include="Views\Welcome\ChildViews\WelcomePageThree.storyboard" />
     <InterfaceDefinition Include="Views\Initializer\Initializer.storyboard" />
     <InterfaceDefinition Include="Views\ForceUpdate\ForceUpdate.storyboard" />
     <InterfaceDefinition Include="Views\HelpCustomView\HelpCustomView.xib" />
@@ -648,6 +654,8 @@
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireCountries\CountryTableCell.xib" />
     <InterfaceDefinition Include="Views\Welcome\WelcomePageWhatIsNew.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\CountriesConsent.storyboard" />
+    <InterfaceDefinition Include="Views\DailyNumbers\DailyNumbers.storyboard" />
+    <InterfaceDefinition Include="Views\DailyNumbers\DailyNumbersLoading.storyboard" />
     <InterfaceDefinition Include="Views\Initializer\LanguageSelection.storyboard" />
   </ItemGroup>
   <ItemGroup>
@@ -714,14 +722,14 @@
     <Compile Include="Views\Welcome\WelcomePageViewController.designer.cs" />
     <Compile Include="Views\Welcome\WelcomeViewController.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageTwoViewController.designer.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageFourViewController.designer.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.designer.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageOneViewController.designer.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageTwoViewController.cs" />
     <Compile Include="Views\Welcome\ChildViews\PageViewController.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageOneViewController.cs" />
-    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.designer.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageFourViewController.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageOneViewController.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageFourViewController.designer.cs" />
+    <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.cs" />
     <Compile Include="Views\Initializer\InizializerViewController.cs" />
     <Compile Include="Views\Initializer\InizializerViewController.designer.cs">
       <DependentUpon>..\..\..\NDB.Covid19.iOS.BleCore\Views\Initializer\InizializerViewController.cs</DependentUpon>
@@ -811,6 +819,14 @@
     <Compile Include="Views\AuthenticationFlow\CountriesConsentViewController.cs" />
     <Compile Include="Views\AuthenticationFlow\CountriesConsentViewController.designer.cs">
       <DependentUpon>CountriesConsentViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyNumbers\DailyNumbersViewController.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersViewController.designer.cs">
+      <DependentUpon>DailyNumbersViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyNumbers\DailyNumbersLoadingViewController.cs" />
+    <Compile Include="Views\DailyNumbers\DailyNumbersLoadingViewController.designer.cs">
+      <DependentUpon>DailyNumbersLoadingViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\LayoutUtils.cs" />
     <Compile Include="Views\Initializer\LanguageSelectionViewController.cs" />

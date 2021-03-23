@@ -221,7 +221,7 @@ namespace NDB.Covid19.Interfaces
 		void Set(string key, DateTime value);
 		DateTime Get(string key, DateTime defaultValue, string sharedName);
 		void Set(string key, DateTime value, string sharedName);
-	}
+    }
 	public interface ISecureStorage
 	{
 		Task<string> GetAsync(string key);
@@ -867,6 +867,8 @@ namespace NDB.Covid19.Implementation
 
 		void IPreferences.Set(string key, DateTime value, string sharedName)
 			 => Xamarin.Essentials.Preferences.Set(key, value, sharedName);
+
+
 	}
 	public class SecureStorageImplementation : IEssentialsImplementation, ISecureStorage
 	{
