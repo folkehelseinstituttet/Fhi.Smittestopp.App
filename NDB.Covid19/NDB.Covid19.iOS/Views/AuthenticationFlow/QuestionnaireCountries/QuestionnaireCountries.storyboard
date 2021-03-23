@@ -148,6 +148,7 @@
                         <outlet property="CountryTableView" destination="MzB-2G-ja3" id="name-outlet-MzB-2G-ja3"/>
                         <outlet property="ListExplainLbl" destination="iZo-gX-qhd" id="name-outlet-iZo-gX-qhd"/>
                         <outlet property="NextBtn" destination="gGb-PR-xY8" id="name-outlet-gGb-PR-xY8"/>
+                        <outlet property="ScrollView" destination="gGD-Le-Cw4" id="O8p-Az-tXP"/>
                         <outlet property="SubtitleLbl" destination="ne0-aQ-9fU" id="name-outlet-ne0-aQ-9fU"/>
                         <outlet property="TableViewHeightConstraint" destination="1s8-pP-zBX" id="name-outlet-1s8-pP-zBX"/>
                         <outlet property="TitleLbl" destination="3Tv-Lp-8Ci" id="name-outlet-3Tv-Lp-8Ci"/>

@@ -8,7 +8,7 @@ namespace NDB.Covid19.iOS.Views.Welcome
 {
     public partial class WelcomePageViewController : UIPageViewController
     {
-        public List<string> PageTitles = new List<string> {"WelcomePageOne", "WelcomePageTwo", "WelcomePageFour", "WelcomePageThree"};
+        public List<string> PageTitles = new List<string> {"WelcomePageOne", "WelcomePageTwo", "WelcomePageThree", "WelcomePageFour"};
         PageViewController _currentPage;
 
         public WelcomePageViewController (IntPtr handle) : base (handle)

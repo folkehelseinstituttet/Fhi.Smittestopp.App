@@ -28,14 +28,18 @@ namespace NDB.Covid19.Droid.Views.Settings
 
         void Init()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+
             ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back_help);
-            backButton.ContentDescription = ViewModels.SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            backButton.ContentDescription = ViewModels.SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
 
             TextView textField = FindViewById<TextView>(Resource.Id.settings_help_text);
             TextView titleField = FindViewById<TextView>(Resource.Id.settings_help_title);
 
             titleField.Text = HEADER;
             titleField.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            textField.TextAlignment = TextAlignment.ViewStart;
             textField.TextFormatted =
                 HtmlCompat.FromHtml($"{CONTENT_TEXT_BEFORE_SUPPORT_LINK} <a href=\"{SUPPORT_LINK}\">{SUPPORT_LINK_SHOWN_TEXT}</a><br><br>"
             /* Note:
@@ -61,8 +65,6 @@ namespace NDB.Covid19.Droid.Views.Settings
             textField.MovementMethod = LinkMovementMethod.Instance;
             backButton.Click += new SingleClick((sender, args) => Finish()).Run;
 
-            View rootView = Window.DecorView.RootView;
-            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
             backButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
         }
     }

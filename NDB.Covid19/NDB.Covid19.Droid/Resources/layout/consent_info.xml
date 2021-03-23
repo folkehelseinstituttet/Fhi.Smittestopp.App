@@ -122,6 +122,7 @@
         android:text="Privacy policy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorLink="@color/linkColor"
         style="@style/PrimaryTextRegular"
         android:id="@+id/consent_paragraph_policy_link"
         android:layout_below="@+id/consent1_processingofpersonaldata_text_section3"

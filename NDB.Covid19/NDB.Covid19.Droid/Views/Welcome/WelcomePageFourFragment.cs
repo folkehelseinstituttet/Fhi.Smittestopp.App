@@ -9,19 +9,23 @@ namespace NDB.Covid19.Droid.Views.Welcome
 {
     public class WelcomePageFourFragment : Fragment
     {
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.welcome_page_four, container, false);
-            TextView bodyOne = view.FindViewById<TextView>(Resource.Id.welcome_page_four_body_one);
-            TextView bodyTwo = view.FindViewById<TextView>(Resource.Id.welcome_page_four_body_two);
-            TextView bodyThree = view.FindViewById<TextView>(Resource.Id.welcome_page_four_body_three);
-            TextView header = view.FindViewById<TextView>(Resource.Id.welcome_page_four_title);
-            bodyOne.Text = WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_ONE;
-            bodyTwo.Text = WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_TWO;
-            bodyThree.Text = WelcomeViewModel.WELCOME_PAGE_FOUR_BODY_THREE;
-            header.Text = WelcomeViewModel.WELCOME_PAGE_FOUR_TITLE;
+            View view = inflater.Inflate(Resource.Layout.welcome_page_three, container, false);
+            TextView bodyOne = view.FindViewById<TextView>(Resource.Id.welcome_page_three_body_one);
+            TextView bodyTwo = view.FindViewById<TextView>(Resource.Id.welcome_page_three_body_two);
+            TextView header = view.FindViewById<TextView>(Resource.Id.welcome_page_three_title);
+            TextView infoBoxBody = view.FindViewById<TextView>(Resource.Id.welcome_page_three_infobox_body);
+
+            bodyOne.Text = WelcomeViewModel.WELCOME_PAGE_THREE_BODY_ONE;
+            bodyTwo.Text = WelcomeViewModel.WELCOME_PAGE_THREE_BODY_TWO;
+            header.Text = WelcomeViewModel.WELCOME_PAGE_THREE_TITLE;
+            infoBoxBody.Text = WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY;
 
             header.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+
+            infoBoxBody.ContentDescription = WelcomeViewModel.WELCOME_PAGE_THREE_INFOBOX_BODY;
 
             view.LayoutDirection = LayoutUtils.GetLayoutDirection();
             Button arrowBack = view.FindViewById<Button>(Resource.Id.arrow_back);

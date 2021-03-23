@@ -56,7 +56,7 @@
 				android:clickable="true"
 				android:autoLink="web" />
 
-			<Button
+			<TextView
 				android:text="Accessibility statement"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -64,6 +64,7 @@
 				app:layout_constraintTop_toBottomOf="@id/settings_about_text"
 				style="@style/LinkButton"
 				android:textColor="@color/linkColor"
+				android:textColorLink="@color/linkColor"
 				android:textAppearance="@style/PrimaryText"
 				android:id="@+id/accessibility_statement_btn" />
         

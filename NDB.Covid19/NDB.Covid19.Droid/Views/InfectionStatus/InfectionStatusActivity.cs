@@ -15,6 +15,7 @@ using CommonServiceLocator;
 using NDB.Covid19.Droid.Services;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.AuthenticationFlow;
+using NDB.Covid19.Droid.Views.DailyNumbers;
 using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
@@ -33,6 +34,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private InfectionStatusViewModel _viewModel;
         private TextView _activityStatusText;
         private TextView _activityStatusDescription;
+        private TextView _dailyNumbersHeader;
+        private TextView _dailyNumbersSubHeader;
         private TextView _messeageHeader;
         private TextView _messageSubHeader;
         private TextView _registrationHeader;
@@ -40,11 +43,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private TextView _menuText;
         private Button _onOffButton;
         private ImageView _notificationDot;
+        private RelativeLayout _dailyNumbersRelativeLayout;
         private RelativeLayout _messageRelativeLayout;
         private RelativeLayout _registrationRelativeLayout;
         private LinearLayout _toolbarLinearLayout;
         private LinearLayout _statusLinearLayout;
         private ImageButton _menuIcon;
+        private Button _dailyNumbersCoverButton;
         private Button _messageCoverButton;
         private Button _registrationCoverButton;
         private bool _dialogDisplayed;
@@ -65,6 +70,16 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             UpdateMessagesStatus();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED,
                 OnMessageStatusChanged);
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
+        }
+
+        private void OnAppDailyNumbersChanged(object _ = null)
+        {
+            RunOnUiThread(() => {
+                _dailyNumbersSubHeader.Text = INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT;
+                _dailyNumbersCoverButton.ContentDescription =
+                $"{INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT} {INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT}";
+            });
         }
 
         protected override void OnDestroy()
@@ -143,6 +158,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _activityStatusText = FindViewById<TextView>(Resource.Id.infection_status_activity_status_textView);
             _activityStatusDescription =
                 FindViewById<TextView>(Resource.Id.infection_status_activivity_status_description_textView);
+            _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.infection_status_daily_numbers_text_textView);
+            _dailyNumbersSubHeader = FindViewById<TextView>(Resource.Id.infection_status_daily_numbers_updated_textView);
             _messeageHeader = FindViewById<TextView>(Resource.Id.infection_status_message_text_textView);
             _messageSubHeader = FindViewById<TextView>(Resource.Id.infection_status_new_message_text_textView);
             _registrationHeader = FindViewById<TextView>(Resource.Id.infection_status_registration_text_textView);
@@ -153,11 +170,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             //Buttons
             _onOffButton = FindViewById<Button>(Resource.Id.infection_status_on_off_button);
+            _dailyNumbersRelativeLayout = FindViewById<RelativeLayout>(Resource.Id.infection_status_daily_numbers_button_relativeLayout);
             _messageRelativeLayout =
                 FindViewById<RelativeLayout>(Resource.Id.infection_status_messages_button_relativeLayout);
             _registrationRelativeLayout =
                 FindViewById<RelativeLayout>(Resource.Id.infection_status_registration_button_relativeLayout);
             _menuIcon = FindViewById<ImageButton>(Resource.Id.infection_status_menu_icon_relativeLayout);
+            _dailyNumbersCoverButton = FindViewById<Button>(Resource.Id.infection_status_daily_numbers_button_relativeLayout_button);
             _messageCoverButton =
                 FindViewById<Button>(Resource.Id.infection_status_messages_button_relativeLayout_button);
             _registrationCoverButton =
@@ -177,17 +196,27 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             //Text initialization
             _activityStatusText.Text = INFECTION_STATUS_ACTIVE_TEXT;
             _activityStatusDescription.Text = INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT;
+            _dailyNumbersHeader.Text = INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT;
+            _dailyNumbersSubHeader.Text = INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT;
             _messeageHeader.Text = INFECTION_STATUS_MESSAGE_HEADER_TEXT;
             _messageSubHeader.Text = INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT;
             _registrationHeader.Text = INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
             _registrationSubheader.Text = INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
             _menuText.Text = INFECTION_STATUS_MENU_TEXT;
 
+            _messeageHeader.TextAlignment = TextAlignment.ViewStart;
+            _messageSubHeader.TextAlignment = TextAlignment.ViewStart;
+            _registrationHeader.TextAlignment = TextAlignment.ViewStart;
+            _registrationSubheader.TextAlignment = TextAlignment.ViewStart;
+
             //Accessibility
             _messageSubHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _messeageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _registrationHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _dailyNumbersHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+            _dailyNumbersSubHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _menuIcon.ContentDescription = INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
+            _dailyNumbersCoverButton.ContentDescription = $"{INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT} {INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT}";
             _messageCoverButton.ContentDescription =
                 $"{INFECTION_STATUS_MESSAGE_HEADER_TEXT} {INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT}";
             _registrationCoverButton.ContentDescription =
@@ -197,6 +226,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             //Button click events
             _onOffButton.Click += new SingleClick(StartStopButton_Click, 500).Run;
+            _dailyNumbersRelativeLayout.Click += new SingleClick(DailyNumbersLayoutButton_Click, 500).Run;
+            _dailyNumbersCoverButton.Click += new SingleClick(DailyNumbersLayoutButton_Click, 500).Run;
             _messageRelativeLayout.Click += new SingleClick(MessageLayoutButton_Click, 500).Run;
             _messageCoverButton.Click += new SingleClick(MessageLayoutButton_Click, 500).Run;
             _registrationRelativeLayout.Click += new SingleClick(RegistrationLayoutButton_Click, 500).Run;
@@ -226,6 +257,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     new Color(ContextCompat.GetColor(this, Resource.Color.infectionStatusButtonOffRed));
                 _statusLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
                 _toolbarLinearLayout.SetBackgroundColor(isRunning ? enabledColor : disabledColor);
+                Window.SetStatusBarColor(isRunning ? enabledColor : disabledColor);
 
                 //Accessibility
                 _activityStatusText.ContentDescription =
@@ -375,6 +407,11 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             }
 
             _semaphoreSlim.Release();
+        }
+
+        private void DailyNumbersLayoutButton_Click(object sender, EventArgs e)
+        {
+            StartActivity(new Intent(this, typeof(DailyNumbersLoadingActivity)));
         }
 
         private void MessageLayoutButton_Click(object sender, EventArgs e)
