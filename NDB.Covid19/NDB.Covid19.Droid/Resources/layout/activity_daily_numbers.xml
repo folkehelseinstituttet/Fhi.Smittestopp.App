@@ -114,14 +114,12 @@
 							android:layout_below="@id/daily_numbers_infected_header_text"
 							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-							android:paddingVertical="@dimen/verticalPaddingDailyNumbersTable"
 							android:breakStrategy="balanced"
 							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 							android:text="+001" />
 						<TextView
 							android:id="@+id/daily_numbers_infected_total_text"
 							style="@style/DailyNumbersSubText"
-							android:visibility="gone"
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
 							android:layout_below="@id/daily_numbers_infected_number_text"
@@ -167,7 +165,6 @@
 							android:layout_width="match_parent"
 							android:layout_below="@id/daily_numbers_tested_number_text"
 							android:layout_alignParentBottom="true"
-							android:visibility="gone"
 							android:layout_height="match_parent"
 							android:layout_column="1"
 							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
@@ -302,7 +299,6 @@
 						android:layout_below="@id/daily_numbers_vaccination_dose1_header_text"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-						android:paddingVertical="@dimen/verticalPaddingDailyNumbersTable"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 						android:text="+007" />
 					<TextView
@@ -311,7 +307,6 @@
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:layout_column="0"
-						android:visibility="gone"
 						android:layout_below="@id/daily_numbers_vaccination_dose1_number_text"
 						android:layout_alignParentBottom="true"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
@@ -344,7 +339,6 @@
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-						android:paddingVertical="@dimen/verticalPaddingDailyNumbersTable"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 						android:text="+008"/>
 					<TextView
@@ -352,7 +346,6 @@
 						style="@style/DailyNumbersSubText"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:visibility="gone"
 						android:layout_alignParentBottom="true"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
@@ -407,7 +400,6 @@
 						style="@style/DailyNumbersItemHeaderText"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:breakStrategy="high_quality"
 						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
@@ -421,7 +413,6 @@
 						android:layout_below="@id/daily_numbers_smittestopp_downloads_header_text"
 						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
 						android:breakStrategy="high_quality"
-						android:paddingVertical="@dimen/verticalPaddingDailyNumbersTable"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 						android:text="+009" />
@@ -451,7 +442,6 @@
 						android:layout_height="wrap_content"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 						android:layout_column="1"
-						android:paddingVertical="@dimen/verticalPaddingDailyNumbersTable"
 						android:breakStrategy="high_quality"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 						android:text="+010"/>
@@ -461,7 +451,6 @@
 						android:layout_width="match_parent"
 						android:layout_below="@id/daily_numbers_positive_shared_number_text"
 						android:layout_alignParentBottom="true"
-						android:visibility="gone"
 						android:layout_height="wrap_content"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
