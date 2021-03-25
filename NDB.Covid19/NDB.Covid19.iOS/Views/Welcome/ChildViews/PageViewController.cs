@@ -60,14 +60,18 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
         /// put it back into accessibility elements after a short delay (1 sec).
         /// </summary>
         /// <param name="uiViewToDisable">UIView to be removed from VoiceOver reading hierarchy</param>
-        protected void removeAccessibilityElementAndEnableAfterDelay(UIView uiViewToDisable)
+        protected void PostAccessibilityNotificationAndReenableElement(UIView uiViewToDisable, UIView uiViewPostNotification)
         {
-            uiViewToDisable.IsAccessibilityElement = false;
-            DispatchTime when = new DispatchTime(DispatchTime.Now, TimeSpan.FromSeconds(1));
-            DispatchQueue.MainQueue.DispatchAfter(when, () =>
+            if (UIAccessibility.IsVoiceOverRunning)
             {
-                uiViewToDisable.IsAccessibilityElement = true;
-            });
+                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, uiViewPostNotification);
+                uiViewToDisable.IsAccessibilityElement = false;
+                DispatchTime when = new DispatchTime(DispatchTime.Now, TimeSpan.FromSeconds(1));
+                DispatchQueue.MainQueue.DispatchAfter(when, () =>
+                {
+                    uiViewToDisable.IsAccessibilityElement = true;
+                });
+            }
         }
     }
 }

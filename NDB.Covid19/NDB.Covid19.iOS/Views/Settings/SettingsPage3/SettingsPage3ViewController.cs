@@ -29,8 +29,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, PageTitle);
-            removeAccessibilityElementAndEnableAfterDelay(BackButton);
+            PostAccessibilityNotificationAndReenableElement(BackButton, PageTitle);
         }
 
         void InitLabels()

@@ -39,8 +39,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             SetupSwitchButton();
             SetupLinkButton();
             SetupRadioButtons();
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, HeaderLabel);
-            removeAccessibilityElementAndEnableAfterDelay(BackButton);
+            PostAccessibilityNotificationAndReenableElement(BackButton, HeaderLabel);
         }
 
         public override void ViewWillDisappear(bool animated)

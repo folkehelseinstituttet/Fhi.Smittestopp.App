@@ -60,8 +60,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
             UpdateMessagesOnViewWillAppear();
 
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, NoItemsLabel1);
-            removeAccessibilityElementAndEnableAfterDelay(BackButton);
+            PostAccessibilityNotificationAndReenableElement(BackButton, NoItemsLabel1);
         }
 
         async void UpdateMessagesOnViewWillAppear()

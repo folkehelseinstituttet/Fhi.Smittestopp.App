@@ -51,8 +51,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-            UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, HeaderLabel);
-            removeAccessibilityElementAndEnableAfterDelay(BackButton);
+            PostAccessibilityNotificationAndReenableElement(BackButton, HeaderLabel);
         }
 
         private void InitAccessibilityStatementButton()
