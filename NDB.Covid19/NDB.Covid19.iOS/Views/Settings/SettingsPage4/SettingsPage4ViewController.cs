@@ -54,6 +54,13 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
             SetupStyling();
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, HeaderLabel);
+            removeAccessibilityElementAndEnableAfterDelay(BackButton);
+        }
+
         public void SetupStyling()
         {
             HeaderLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;

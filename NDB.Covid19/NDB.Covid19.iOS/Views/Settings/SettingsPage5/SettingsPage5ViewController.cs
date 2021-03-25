@@ -48,6 +48,13 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             SetupStyling();
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, HeaderLabel);
+            removeAccessibilityElementAndEnableAfterDelay(BackButton);
+        }
+
         private void InitAccessibilityStatementButton()
         {
             InitLinkButtonStyling(AccessibilityStatementButton, SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT);

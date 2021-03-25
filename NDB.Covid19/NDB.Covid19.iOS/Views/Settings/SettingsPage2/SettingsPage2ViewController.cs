@@ -31,6 +31,9 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage2
             base.ViewWillAppear(animated);
 
             _gestureRecognizer = new UITapGestureRecognizer();
+
+            UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, HeaderLabel);
+            removeAccessibilityElementAndEnableAfterDelay(BackButton);
         }
 
         void SetTexts()
