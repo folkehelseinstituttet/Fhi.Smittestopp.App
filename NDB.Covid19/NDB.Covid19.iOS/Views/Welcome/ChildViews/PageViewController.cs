@@ -1,11 +1,12 @@
 ﻿using System;
+using CoreFoundation;
 using NDB.Covid19.iOS.Utils;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
 namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
-    public abstract class PageViewController : UIViewController
+    public abstract class PageViewController : BaseViewController
     {
         public int PageIndex { get; set; }
         public WelcomeViewController WelcomeViewController => ParentViewController.ParentViewController is WelcomeViewController ?

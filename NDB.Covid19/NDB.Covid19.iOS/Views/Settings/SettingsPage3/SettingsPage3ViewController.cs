@@ -26,6 +26,12 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
             SetStyling();
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            PostAccessibilityNotificationAndReenableElement(BackButton, PageTitle);
+        }
+
         void InitLabels()
         {
             ConsentHelper.SetConsentLabels(LabelStackView, _vm.GetConsentSectionsTexts(), _privacyPolicyButton);
