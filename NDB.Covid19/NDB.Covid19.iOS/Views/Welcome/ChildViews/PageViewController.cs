@@ -6,7 +6,7 @@ using static NDB.Covid19.iOS.Utils.StyleUtil;
 
 namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
-    public abstract class PageViewController : UIViewController
+    public abstract class PageViewController : BaseViewController
     {
         public int PageIndex { get; set; }
         public WelcomeViewController WelcomeViewController => ParentViewController.ParentViewController is WelcomeViewController ?
@@ -50,28 +50,6 @@ namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
         {
             InitLabel(label, FontType.FontBold, text, 16, 22);
             label.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(text);
-        }
-
-        /// <summary>
-        /// Some view controllers that inherit from PageViewController have UI elements, e.g., back button,
-        /// on the top in View stack that leads to it being read first by VO eventhough a UIAccessibility.PostNotification
-        /// is being called to indicate another element that should be in focus. This can be addressed by removing the UIView
-        /// that is read first to focus on the element that should be targeted by UIAccessibility.PostNotification call, and
-        /// put it back into accessibility elements after a short delay (1 sec).
-        /// </summary>
-        /// <param name="uiViewToDisable">UIView to be removed from VoiceOver reading hierarchy</param>
-        protected void PostAccessibilityNotificationAndReenableElement(UIView uiViewToDisable, UIView uiViewPostNotification)
-        {
-            if (UIAccessibility.IsVoiceOverRunning)
-            {
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.LayoutChanged, uiViewPostNotification);
-                uiViewToDisable.IsAccessibilityElement = false;
-                DispatchTime when = new DispatchTime(DispatchTime.Now, TimeSpan.FromSeconds(1));
-                DispatchQueue.MainQueue.DispatchAfter(when, () =>
-                {
-                    uiViewToDisable.IsAccessibilityElement = true;
-                });
-            }
         }
     }
 }
