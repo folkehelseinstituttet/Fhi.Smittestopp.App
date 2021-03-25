@@ -389,7 +389,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRL-i3-xEC" userLabel="Daily Numbers Number6 Lbl">
-                                                                                        <rect key="frame" x="0.0" y="79.5" width="85" height="39.5"/>
+                                                                                        <rect key="frame" x="0.0" y="102" width="85" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <color key="textColor" systemColor="systemYellowColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -418,13 +418,13 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Meh-Oj-gTx" userLabel="Daily Numbers Number5 Lbl">
-                                                                                        <rect key="frame" x="0.0" y="79.5" width="85" height="17"/>
+                                                                                        <rect key="frame" x="0.0" y="79" width="85" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <color key="textColor" systemColor="systemYellowColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Infected" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubU-j6-5GM" userLabel="Total Daily Numbers Number5 Lbl">
-                                                                                        <rect key="frame" x="0.0" y="104.5" width="46.5" height="14.5"/>
+                                                                                        <rect key="frame" x="0.0" y="104" width="46.5" height="15"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -445,7 +445,7 @@
                                                                     </view>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="WRL-i3-xEC" firstAttribute="firstBaseline" secondItem="Meh-Oj-gTx" secondAttribute="firstBaseline" id="9a5-0v-6eE"/>
+                                                                    <constraint firstItem="WRL-i3-xEC" firstAttribute="firstBaseline" secondItem="ubU-j6-5GM" secondAttribute="firstBaseline" id="lB7-hn-xDY"/>
                                                                     <constraint firstItem="MlL-gZ-ANI" firstAttribute="firstBaseline" secondItem="X7N-0k-vjA" secondAttribute="firstBaseline" id="tbc-Lr-dn9"/>
                                                                 </constraints>
                                                             </stackView>
