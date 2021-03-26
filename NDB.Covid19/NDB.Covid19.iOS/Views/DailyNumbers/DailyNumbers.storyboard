@@ -389,7 +389,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRL-i3-xEC" userLabel="Daily Numbers Number6 Lbl">
-                                                                                        <rect key="frame" x="0.0" y="79.5" width="85" height="39.5"/>
+                                                                                        <rect key="frame" x="0.0" y="57" width="85" height="62"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <color key="textColor" systemColor="systemYellowColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -445,7 +445,7 @@
                                                                     </view>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="WRL-i3-xEC" firstAttribute="firstBaseline" secondItem="Meh-Oj-gTx" secondAttribute="firstBaseline" id="9a5-0v-6eE"/>
+                                                                    <constraint firstItem="WRL-i3-xEC" firstAttribute="centerY" secondItem="Meh-Oj-gTx" secondAttribute="centerY" id="hUf-xN-k29"/>
                                                                     <constraint firstItem="MlL-gZ-ANI" firstAttribute="firstBaseline" secondItem="X7N-0k-vjA" secondAttribute="firstBaseline" id="tbc-Lr-dn9"/>
                                                                 </constraints>
                                                             </stackView>
