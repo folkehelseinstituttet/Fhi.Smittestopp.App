@@ -126,19 +126,6 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text).Text = KEY_FEATURE_FIVE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_number_text).Text = NumberOfPositiveTestsResultsLast7Days;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_total_text).Text = NumberOfPositiveTestsResultsTotal;
-
-            AdjustLines(
-                FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text),
-                FindViewById<TextView>(Resource.Id.daily_numbers_tested_header_text));
-            AdjustLines(
-                FindViewById<TextView>(Resource.Id.daily_numbers_hospitalized_header_text),
-                FindViewById<TextView>(Resource.Id.daily_numbers_intensive_header_text));
-            AdjustLines(
-                FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text),
-                FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text));
-            AdjustLines(
-                FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text),
-                FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text));
             
             // CONTENT DESCRIPTIONS OF HEADERS
             _dailyNumbersHeader.ContentDescription = DAILY_NUMBERS_HEADER.ToLower();
@@ -149,6 +136,26 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersSubHeaderStatistics.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+        }
+
+        public override void OnWindowFocusChanged(bool hasFocus)
+        {
+            base.OnWindowFocusChanged(hasFocus);
+            if (hasFocus)
+            {
+                AdjustLines(
+                   FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text),
+                   FindViewById<TextView>(Resource.Id.daily_numbers_tested_header_text));
+                AdjustLines(
+                    FindViewById<TextView>(Resource.Id.daily_numbers_hospitalized_header_text),
+                    FindViewById<TextView>(Resource.Id.daily_numbers_intensive_header_text));
+                AdjustLines(
+                    FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text),
+                    FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text));
+                AdjustLines(
+                    FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text),
+                    FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text));
+            }
         }
 
         protected override void OnResume()
