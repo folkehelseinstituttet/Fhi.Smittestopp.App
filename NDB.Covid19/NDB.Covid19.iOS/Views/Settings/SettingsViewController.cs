@@ -1,4 +1,5 @@
 using System;
+using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
@@ -6,7 +7,7 @@ using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Settings
 {
-    public partial class SettingsViewController : BaseViewController
+    public partial class SettingsViewController : BaseViewController, IUIAccessibilityContainer
     {
         SettingsViewModel _viewModel;
 
@@ -35,7 +36,7 @@ namespace NDB.Covid19.iOS.Views.Settings
             _tableSource = new SettingsTableViewSource(_viewModel.SettingItemList);
             CloseBtn.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
             fhiLogo.AccessibilityLabel = InfectionStatusViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
-
+            SetupAccessibility();
         }
 
         public override void ViewWillAppear(bool animated)
@@ -49,6 +50,16 @@ namespace NDB.Covid19.iOS.Views.Settings
         {
             base.ViewWillDisappear(animated);
             _tableSource.OnCellTapped -= OnCellTapped;
+        }
+
+        private void SetupAccessibility()
+        {
+            CloseBtn.AccessibilityLabel = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
+            fhiLogo.AccessibilityLabel = InfectionStatusViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                this.SetAccessibilityElements(NSArray.FromNSObjects(fhiLogo, SettingsItemsTable, CloseBtn));
+            }
         }
 
         partial void OnCloseBtnTapped(UIButton sender)
