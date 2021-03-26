@@ -111,7 +111,7 @@
   "DAILY_NUMBERS_TITLE_TWO": "Vaksinerte",
   "DAILY_NUMBERS_SUBTEXT_TWO": "Talet på vaksinerte er sist oppdatert den {0} klokka {1}. Kjelde: <a href=\"https://www.fhi.no/sv/vaksine/koronavaksinasjonsprogrammet/koronavaksinasjonsstatistikk/\">Folkehelseinstituttet - Vaksinerte</a><br>",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
-  "DAILY_NUMBERS_SUBSUBHEADER": "Smittestopp-tal: sist oppdatert den {0} klokka {1}. Les meir om tala på <a href=\"https://www.fhi.no/om/smittestopp/nokkeltall-fra-smittestopp/\">Folkehelseinstituttet - Smittestopp</a><br>",
+  "DAILY_NUMBERS_SUBSUBHEADER": "Smittestopp-tal er sist oppdatert den {0} klokka {1}. Les meir om tala på <a href=\"https://www.fhi.no/om/smittestopp/nokkeltall-fra-smittestopp/\">Folkehelseinstituttet - Smittestopp</a><br>",
   "KEY_FEATURE_ONE_UPDATE_NEW": "{0}",
   "KEY_FEATURE_ONE_UPDATE_ALL": "Totalt: {0} ",
   "KEY_FEATURE_ONE_LABEL": "Stadfesta tilfelle siste døgn",
