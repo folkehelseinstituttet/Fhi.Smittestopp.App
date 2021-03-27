@@ -59,6 +59,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         void InitLayout()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+
             //Buttons
             _closeButton = FindViewById<ViewGroup>(Resource.Id.close_cross_btn);
             _idPortenButton = FindViewById<Button>(Resource.Id.information_consent_idporten_button);
@@ -83,6 +86,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT;
             _beAwareText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT;
             _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT;
+
+            _lookupHeader.TextAlignment = TextAlignment.ViewStart;
+            _notificationHeader.TextAlignment = TextAlignment.ViewStart;
 
             ////Accessibility
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;

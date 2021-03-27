@@ -224,7 +224,21 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private void OnNextButtonClick(object o, EventArgs args)
         {
             _questionnaireViewModel.InvokeNextButtonClick(
-                GoToCountriesConsentPage, null, null);
+                GoToCountriesConsentPage, OnFail, OnValidationFail);
+        }
+
+        void OnFail()
+        {
+            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, null,
+                $"{nameof(QuestionnaireCountriesSelectionActivity)}.{nameof(OnFail)}: " +
+                "AuthenticationState.personaldata was garbage collected (Android)");
+        }
+
+        void OnValidationFail()
+        {
+            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, null,
+                $"{nameof(QuestionnaireCountriesSelectionActivity)}.{nameof(OnFail)}: " +
+                "AuthenticationState.personaldata is not valid (Android)");
         }
 
         private void OnInfoButtonPressed(object o, EventArgs args)

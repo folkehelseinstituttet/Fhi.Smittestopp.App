@@ -204,6 +204,11 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationSubheader.Text = INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
             _menuText.Text = INFECTION_STATUS_MENU_TEXT;
 
+            _messeageHeader.TextAlignment = TextAlignment.ViewStart;
+            _messageSubHeader.TextAlignment = TextAlignment.ViewStart;
+            _registrationHeader.TextAlignment = TextAlignment.ViewStart;
+            _registrationSubheader.TextAlignment = TextAlignment.ViewStart;
+
             //Accessibility
             _messageSubHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _messeageHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());

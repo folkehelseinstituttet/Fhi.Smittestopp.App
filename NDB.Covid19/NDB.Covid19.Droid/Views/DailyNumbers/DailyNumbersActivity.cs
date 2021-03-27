@@ -5,6 +5,7 @@ using Android.Graphics;
 using Android.OS;
 using Android.Support.V4.Content;
 using Android.Text;
+using Android.Text.Method;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
@@ -33,7 +34,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            this.Title = DAILY_NUMBERS_HEADER;
+            Title = DAILY_NUMBERS_HEADER;
             SetContentView(Resource.Layout.activity_daily_numbers);
             Init();
         }
@@ -42,12 +43,43 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         {
             View rootView = Window.DecorView.RootView;
             rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            UpdateUI();
+            _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
+            _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
+            _closeButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
+            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
+        }
+
+        private void AdjustLineBreaks(TextView viewA, TextView viewB)
+        {
+            if (viewA.LineCount > viewB.LineCount)
+            {
+                string addition = "";
+                for (int i = 0; i < viewA.LineCount - viewB.LineCount; ++i)
+                {
+                    addition += "\n";
+                }
+
+                viewB.Text = viewB.Text + addition;
+            }
+        }
+
+        private void AdjustLines(TextView viewA, TextView viewB)
+        {
+            AdjustLineBreaks(viewA, viewB);
+            AdjustLineBreaks(viewB, viewA);
+        }
+        
+        private void UpdateUI()
+        {
             TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
             TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
             _dailyNumbersSubHeaderStatistics.Text = DAILY_NUMBERS_TITLE_ONE;
+            _dailyNumbersSubHeaderStatistics.TextAlignment = TextAlignment.ViewStart;
             TextView _dailyNumbersSubTextStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview);
             TextView _dailyNumbersSubTextSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
+            _dailyNumbersSubTextSmittestopp.TextAlignment = TextAlignment.ViewStart;
             SetupSubTextWithLink(_dailyNumbersSubTextStatistics, LastUpdateStringSubHeader);
             SetupSubTextWithLink(_dailyNumbersSubTextSmittestopp, LastUpdateStringSubSubHeader);
 
@@ -85,6 +117,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
             TextView _dailyNumbersSubHeaderSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_header_textView);
             _dailyNumbersSubHeaderSmittestopp.Text = DAILY_NUMBERS_TITLE_THREE;
+            _dailyNumbersSubHeaderSmittestopp.TextAlignment = TextAlignment.ViewStart;
 
             //Added newline for the UI to align.
             FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text).Text = $"{KEY_FEATURE_SIX_LABEL} \n";
@@ -93,21 +126,42 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text).Text = KEY_FEATURE_FIVE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_number_text).Text = NumberOfPositiveTestsResultsLast7Days;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_total_text).Text = NumberOfPositiveTestsResultsTotal;
-
+            
             // CONTENT DESCRIPTIONS OF HEADERS
-            _dailyNumbersHeader.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_HEADER.ToLower();
-            _dailyNumbersSubHeaderStatistics.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_TITLE_ONE.ToLower();
-            _dailyNumbersSubHeaderVaccinations.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_TITLE_TWO.ToLower();
-            _dailyNumbersSubHeaderSmittestopp.ContentDescription = DailyNumbersViewModel.DAILY_NUMBERS_TITLE_THREE.ToLower();
+            _dailyNumbersHeader.ContentDescription = DAILY_NUMBERS_HEADER.ToLower();
+            _dailyNumbersSubHeaderStatistics.ContentDescription = DAILY_NUMBERS_TITLE_ONE.ToLower();
+            _dailyNumbersSubHeaderVaccinations.ContentDescription = DAILY_NUMBERS_TITLE_TWO.ToLower();
+            _dailyNumbersSubHeaderSmittestopp.ContentDescription = DAILY_NUMBERS_TITLE_THREE.ToLower();
             _dailyNumbersHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderStatistics.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+        }
 
-            _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
-            _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
-            _closeButton.ContentDescription = BACK_BUTTON_ACCESSIBILITY_TEXT;
-            _closeButton.SetBackgroundResource(LayoutUtils.GetBackArrow());
+        public override void OnWindowFocusChanged(bool hasFocus)
+        {
+            base.OnWindowFocusChanged(hasFocus);
+            if (hasFocus)
+            {
+                AdjustLines(
+                   FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text),
+                   FindViewById<TextView>(Resource.Id.daily_numbers_tested_header_text));
+                AdjustLines(
+                    FindViewById<TextView>(Resource.Id.daily_numbers_hospitalized_header_text),
+                    FindViewById<TextView>(Resource.Id.daily_numbers_intensive_header_text));
+                AdjustLines(
+                    FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text),
+                    FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text));
+                AdjustLines(
+                    FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text),
+                    FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text));
+            }
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            RequestFHIDataUpdate(() => RunOnUiThread(UpdateUI));
         }
 
         private void OnCloseBtnClicked(object arg1, EventArgs arg2)
@@ -124,8 +178,8 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             ISpanned formattedDescription = HtmlCompat.FromHtml(formattedText, HtmlCompat.FromHtmlModeLegacy);
             textView.TextFormatted = formattedDescription;
             textView.ContentDescriptionFormatted = formattedDescription;
-            textView.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
-            Color linkColor = new Android.Graphics.Color(ContextCompat.GetColor(this, Resource.Color.primaryText));
+            textView.MovementMethod = LinkMovementMethod.Instance;
+            Color linkColor = new Color(ContextCompat.GetColor(this, Resource.Color.linkColor));
             textView.SetLinkTextColor(linkColor);
         }
 

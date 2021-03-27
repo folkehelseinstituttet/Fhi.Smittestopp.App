@@ -18,6 +18,7 @@
 		<ImageButton
 			android:id="@+id/arrow_back"
 			android:layout_width="@dimen/backButton"
+			android:accessibilityTraversalAfter="@id/settings_how_it_works_paragraph4textView3"
 			android:layout_height="@dimen/backButton"
 			app:layout_constraintBaseline_toBaselineOf="@id/settings_how_it_works_title"
 			android:background="@drawable/ic_circle_arrow_left"
@@ -205,6 +206,7 @@
 					android:gravity="top"
 					android:lineSpacingExtra="4sp"
 					style="@style/PrimaryTextRegular"
+					android:textColorLink="@color/linkColor"
 					android:layout_marginBottom="@dimen/defaultVerticalMargin"
 					android:textAppearance="@style/settings_general"/>
 

@@ -35,7 +35,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             
             //ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
-            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.LINK_COLOR, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 
             InitLabelWithSpacing(BuildVersionLbl, FontType.FontRegular, SettingsPage5ViewModel.GetVersionInfo(), 1.14, 14, 16);
             BackButton.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
@@ -46,6 +46,12 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             InitAccessibilityStatementButton();
 
             SetupStyling();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            PostAccessibilityNotificationAndReenableElement(BackButton, HeaderLabel);
         }
 
         private void InitAccessibilityStatementButton()
