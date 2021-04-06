@@ -163,9 +163,11 @@ namespace NDB.Covid19.Utils.DeveloperTools
                     keyPart += separator;
                     keyPart += $"[TemporaryExposureKey with KeyData.ToBase64()={tek.KeyData.ToBase64()}, " +
                         $"<In DB format: {EncodingUtils.ConvertByteArrayToString(tek.KeyData.ToByteArray())}> " +
-                        $"TransmissionRiskLevel={tek.TransmissionRiskLevel}, " +
                         $"RollingStartIntervalNumber={DateTimeOffset.FromUnixTimeSeconds(tek.RollingStartIntervalNumber * (60 * 10)).UtcDateTime.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")} UTC and " +
-                        $"RollingPeriod={tek.RollingPeriod * 10} minutes]";
+                        $"RollingPeriod={tek.RollingPeriod * 10} minutes], " +
+                        $"ReportType={tek.ReportType}, " +
+                        $"DaysSinceOnsetOfSymptoms={tek.DaysSinceOnsetOfSymptoms}, " +
+                        $"[DEPRECATED]TransmissionRiskLevel={tek.TransmissionRiskLevel}";
 
                     i++;
                     if (i == 200)
