@@ -107,7 +107,7 @@
   "LANGUAGE_SELECTION_LT": "Litauisk (Lietuvių)",
   "DAILY_NUMBERS_HEADER": "ኣገደስቲ ቁጽሪታት",
   "DAILY_NUMBERS_TITLE_ONE": "ስታቲስቲክ ኮቪድ - 19",
-  "DAILY_NUMBERS_SUBHEADER": "ዝተረጋገጸ ቍጽሪ ናይ - ሕሙማት፡ ዝሞቱ፡ መርመራ ዝተገብረሎም፡ ኣብ ሆስፒታል ዝተዓቝቡን፣ መወዳእታ ኣፕደይትድ ዝኾነ ዕለት  {0} ሰዓት {1}  ኣሎዉ። ምንጪ፡ <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">Norwegian Institute of Public Health - ስታቲስቲክ ኮቪድ - 19</a><br>",
+  "DAILY_NUMBERS_SUBHEADER": "ዝተረጋገጸ ቍጽሪ ናይ - ሕሙማት፡ ዝሞቱ፡ መርመራ ዝተገብረሎም፡ ኣብ ሆስፒታል ዝተዓቝቡን፣ መወዳእታ ዝመጸ ጸብጻብ ዕለት  {0} ሰዓት {1}  ኣሎዉ።ጠቕላላ (ድምር) ቍጽሪ ኣብ ኖርወይ ካብ ለካቲት 2020። እቲ ቍጽሪ ካብ ሰኑይ ክሳብ ዓርቢ  ሰዓት 1 ድሕሪ ቀትሪ ኣቢሉ ጸብጻብ ምስ መጸ ይሕደስ  <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">Norwegian Institute of Public Health - ስታቲስቲክ ኮቪድ - 19</a><br>",
   "DAILY_NUMBERS_TITLE_TWO": "ክታበት",
   "DAILY_NUMBERS_SUBTEXT_TWO": "ዝተረጋገጸ ቍጽሪ ናይቶም ዝተኸተቡ፣ መወዳእታ ኣፕደይትድ ዝኾነ ዕለት {0} ሰዓት {1}. ምንጪ:  <a href=\"https://www.fhi.no/sv/vaksine/koronavaksinasjonsprogrammet/koronavaksinasjonsstatistikk/\">Norwegian Institute of Public Health - ክታበት</a><br>",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
