@@ -107,7 +107,7 @@
   "LANGUAGE_SELECTION_LT": "Litauisk (Lietuvių)",
   "DAILY_NUMBERS_HEADER": "اہم اعدادوشمار",
   "DAILY_NUMBERS_TITLE_ONE": "COVID-19 کے اعدادوشمار",
-  "DAILY_NUMBERS_SUBHEADER": "مصدّقہ کیسوں، اموات، ٹیسٹوں اور داخلوں کی تعداد آخری بار {0}  کو {1}  بجے تازہ کی گئی۔ ذریعہ: <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">COVID-19 کے اعدادوشمار - Norwegian Institute of Public Health</a><br>",
+  "DAILY_NUMBERS_SUBHEADER": "مصدّقہ کیسوں، اموات، ٹیسٹوں اور داخلوں کی تعداد آخری بار {0}  کو {1}  بجے تازہ کی گئی۔ناروے میں فروری 2020 سے لے کر کل (مجموعی) تعداد۔ پیر تا جمعہ تقریباً دوپہر 1 بجے حالیہ تعداد درج کی جاتی ہے۔ ذریعہ:  <a href=\"https://www.fhi.no/sv/smittsomme-sykdommer/corona/dags--og-ukerapporter/dags--og-ukerapporter-om-koronavirus/\">COVID-19 کے اعدادوشمار - Norwegian Institute of Public Health</a><br>",
   "DAILY_NUMBERS_TITLE_TWO": "ویکسینیشنز",
   "DAILY_NUMBERS_SUBTEXT_TWO": "ویکسینیشنز  کی تعداد آخری بار {0}  کو {1}  بجے تازہ کی گئی۔ ذریعہ: <a href=\"https://www.fhi.no/sv/vaksine/koronavaksinasjonsprogrammet/koronavaksinasjonsstatistikk/\">ویکسینیشنز - Norwegian Institute of Public Health</a><br>",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
