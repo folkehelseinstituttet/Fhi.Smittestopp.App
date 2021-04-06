@@ -100,8 +100,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
             if (UIAccessibility.IsVoiceOverRunning)
             {
                 this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, NextBtn, CloseButton));
-                removeAccessibilityElementAndEnableAfterDelay(CloseButton);
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
+                PostAccessibilityNotificationAndReenableElement(CloseButton, TitleLbl);
             }
         }
 
