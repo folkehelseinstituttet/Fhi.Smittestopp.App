@@ -12,6 +12,7 @@ using NDB.Covid19.ViewModels;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Droid.Utils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -27,6 +28,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             this.Title = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE;
             SetContentView(Resource.Layout.loading_page);
             FindViewById<ProgressBar>(Resource.Id.progress_bar).Visibility = ViewStates.Visible;
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Loading Page", null, GetCorrelationId());
         }
 
         protected override void OnResume()
@@ -45,7 +47,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             try
             {
                 await Xamarin.ExposureNotifications.ExposureNotification.SubmitSelfDiagnosisAsync();
-                LogUtils.LogMessage(LogSeverity.INFO, "Successfully pushed keys to server");
+                LogUtils.LogMessage(LogSeverity.INFO, "The user agreed to share keys", null, GetCorrelationId());
                 OnActivityFinished();
             }
             catch(Exception e)
@@ -69,15 +71,23 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             
         }
 
-        void OnError(Exception e)
+        void OnError(Exception e, bool isOnFail = false)
         {
             if (e is AccessDeniedException)
             {
-                LogUtils.LogMessage(LogSeverity.INFO, "The user refused to share keys", null);
+                LogUtils.LogMessage(LogSeverity.INFO, "The user refused to share keys", null, GetCorrelationId());
                 RunOnUiThread(() => { GoToInfectionStatusPage(); });
             }
             else
             {
+                if (!isOnFail)
+                {
+                    LogUtils.LogMessage(
+                        LogSeverity.INFO,
+                        "Something went wrong during key sharing (INFO with correlation id)",
+                        e.Message,
+                        GetCorrelationId());
+                }
                 RunOnUiThread(() => AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, e, "Pushing keys failed"));
             }
         }
