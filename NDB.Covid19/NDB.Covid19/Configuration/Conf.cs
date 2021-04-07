@@ -26,7 +26,7 @@ namespace NDB.Covid19.Configuration
         //It takes around 25 seconds to download a zip file with 100.000 keys if you have 3G connection.
         //The timeout value takes this into consideration.
         public static int DEFAULT_TIMEOUT_SERVICECALLS_SECONDS => 40;
-        public static string DEFAULT_LANGUAGE = "nb"; //In case the device is set to use an unsupported language
+        public static string DEFAULT_LANGUAGE = "nn"; //In case the device is set to use an unsupported language
         public static string[] SUPPORTED_LANGUAGES = new string[] { "en", "nb", "nn", "pl", "so", "ti", "ar", "ur", "lt" };
 
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_SHORT => 15; 
