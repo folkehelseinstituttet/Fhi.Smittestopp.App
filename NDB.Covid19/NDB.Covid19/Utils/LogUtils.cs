@@ -129,5 +129,10 @@ namespace NDB.Covid19.Utils
                 LogUtils.LogException(logLevel, exception, message);
             }
         }
+
+        public static string GenerateCorrelationId()
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 }
