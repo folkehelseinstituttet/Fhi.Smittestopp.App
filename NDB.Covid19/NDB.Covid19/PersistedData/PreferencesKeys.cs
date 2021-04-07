@@ -37,5 +37,7 @@ namespace NDB.Covid19.PersistedData
         public static readonly string COUNTRY_CONSENTS_GIVEN = "COUNTRTY_CONSENTS_GIVEN";
 
         public static readonly string FETCHING_ACROSS_DATES_204_FIRST_BATCH = "FETCHING_ACROSS_DATES_204_FIRST_BATCH";
+
+        public static readonly string CORRELATION_ID = "CORRELATION_ID";
     }
 }
