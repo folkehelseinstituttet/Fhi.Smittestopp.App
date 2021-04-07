@@ -28,7 +28,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             this.Title = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE;
             SetContentView(Resource.Layout.loading_page);
             FindViewById<ProgressBar>(Resource.Id.progress_bar).Visibility = ViewStates.Visible;
-            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Loading Page", null, GetCorrelationId());
         }
 
         protected override void OnResume()
