@@ -52,5 +52,7 @@ namespace NDB.Covid19.PersistedData
         public static readonly string FHI_VACCINATIONS_DOSE_ONE_TOTAL_PREF = "FHI_VACCINATIONS_DOSE_ONE_TOTAL_PREF";
         public static readonly string FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF = "FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF";
         public static readonly string FETCHING_ACROSS_DATES_204_FIRST_BATCH = "FETCHING_ACROSS_DATES_204_FIRST_BATCH";
+
+        public static readonly string CORRELATION_ID = "CORRELATION_ID";
     }
 }
