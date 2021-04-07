@@ -17,7 +17,7 @@ namespace NDB.Covid19.Utils
                 string appLanguage = LocalPreferencesHelper.GetAppLanguage();
                 CultureInfo selectedCulture = CultureInfo.GetCultureInfo(appLanguage);
                 // Due to a bug in C# string representation in nb culture, nn must be used
-                CultureInfo defaultCalendarCulture = CultureInfo.GetCultureInfo("nn");
+                CultureInfo defaultCulture = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
                 bool shouldUseDefaultCulture = appLanguage == "ar" || appLanguage == "ur" || appLanguage == "ti" || appLanguage == "nb";
                 string dateString;
                 DateTime calenderDateTime = new DateTime(
@@ -29,7 +29,7 @@ namespace NDB.Covid19.Utils
                     dateTime.Second,
                     dateTime.Millisecond,
                     new GregorianCalendar());
-                dateString = calenderDateTime.ToString(dateFormat,shouldUseDefaultCulture ? defaultCalendarCulture : selectedCulture);
+                dateString = calenderDateTime.ToString(dateFormat, shouldUseDefaultCulture ? defaultCulture : selectedCulture);
                 return dateString.Replace("-", ".");
             }
             else
