@@ -16,6 +16,7 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using static NDB.Covid19.ViewModels.QuestionnaireViewModel;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
@@ -52,8 +53,17 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             Init();
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire", null, GetCorrelationId());
+        }
+
         private void Init()
         {
+            // Generate and set correlation id for current authentication flow
+            UpdateCorrelationId(LogUtils.GenerateCorrelationId());
+
             _questionnaireViewModel = new QuestionnaireViewModel();
 
             TextView questionnaireTitle = FindViewById<TextView>(Resource.Id.questionnaire_title);
@@ -80,8 +90,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _closeButton.ContentDescription = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
             _closeButton.Click +=
                 new SingleClick((o, ev) => ShowAreYouSureToExitDialog()).Run;
-
-            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire page");
 
             PrepareRadioButtons();
 
@@ -217,12 +225,17 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 ErrorViewModel.REGISTER_LEAVE_CANCEL);
             if (isOkPressed)
             {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is returning to Infection Status", null, GetCorrelationId());
                 GoToInfectionStatusPage();
             }
         }
 
         private void OnNextButtonClick(object o, EventArgs args)
         {
+            if(_fourthRadioButton.Checked)
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user does not want to provide health information", null, GetCorrelationId());
+            }
             _questionnaireViewModel.InvokeNextButtonClick(
                 GoToCountriesConsentPage, OnFail, OnValidationFail);
         }
