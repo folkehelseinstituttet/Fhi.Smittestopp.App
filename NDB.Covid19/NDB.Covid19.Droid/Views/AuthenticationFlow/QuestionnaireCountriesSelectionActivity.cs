@@ -13,6 +13,7 @@ using NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -36,6 +37,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             Title = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT;
            
             InitView();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire Countries Selection", null, GetCorrelationId());
         }
 
         private async void InitView()
@@ -92,6 +99,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             bool isOkPressed = await DialogUtils.DisplayDialogAsync(this, _viewModel.CloseDialogViewModel);
             if (isOkPressed)
             {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is returning to Infection Status", null, GetCorrelationId());
                 GoToInfectionStatusPage();
             }
         }
@@ -111,7 +119,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             LogUtils.LogMessage(LogSeverity.ERROR,
                 $"{nameof(QuestionnaireCountriesSelectionActivity)}.{nameof(OnServerError)}: " +
-                "Skipping language selection because countries failed to be fetched. (Android)");
+                "Skipping language selection because countries failed to be fetched. (Android)", null, GetCorrelationId());
             _countries = new List<CountryDetailsViewModel>();
             ShowSpinner(false);
             OnNextButtonClick(null, null);
