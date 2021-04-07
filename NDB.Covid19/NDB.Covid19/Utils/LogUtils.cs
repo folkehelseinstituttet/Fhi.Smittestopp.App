@@ -19,18 +19,18 @@ namespace NDB.Covid19.Utils
         // Max number of persisted logs we allow to remain saved on the device after sending to the server fails
         private static readonly int _maxNumOfPersistedLogsOnSendError = 200;
 
-        public static void LogMessage(LogSeverity severity, string message, string additionalInfo = "")
+        public static void LogMessage(LogSeverity severity, string message, string additionalInfo = "", string correlationId = null)
         {
             LogDeviceDetails logModel = new LogDeviceDetails(severity, message, additionalInfo);
-            LogSQLiteModel dbModel = new LogSQLiteModel(logModel);
+            LogSQLiteModel dbModel = new LogSQLiteModel(logModel, null, null, correlationId);
             ServiceLocator.Current.GetInstance<ILoggingManager>().SaveNewLog(dbModel);
         }
 
-        public static void LogException(LogSeverity severity, Exception e, string contextDescription, string additionalInfo = "")
+        public static void LogException(LogSeverity severity, Exception e, string contextDescription, string additionalInfo = "", string correlationId = null)
         {
             LogDeviceDetails logModel = new LogDeviceDetails(severity, contextDescription, additionalInfo);
             LogExceptionDetails eModel = new LogExceptionDetails(e);
-            LogSQLiteModel dbModel = new LogSQLiteModel(logModel, null, eModel);
+            LogSQLiteModel dbModel = new LogSQLiteModel(logModel, null, eModel, correlationId);
             ServiceLocator.Current.GetInstance<ILoggingManager>().SaveNewLog(dbModel);
         }
 
