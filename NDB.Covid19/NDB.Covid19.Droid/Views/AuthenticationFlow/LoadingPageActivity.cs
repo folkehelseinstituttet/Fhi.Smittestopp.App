@@ -40,6 +40,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             }
         }
 
+        protected override void OnPause()
+        {
+            base.OnPause();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving Loading Page", null, GetCorrelationId());
+        }
+
         async void StartPushActivity()
         {
             try
