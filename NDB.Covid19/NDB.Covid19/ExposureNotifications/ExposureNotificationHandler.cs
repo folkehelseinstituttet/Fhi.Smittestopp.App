@@ -147,78 +147,20 @@ namespace NDB.Covid19.ExposureNotifications
 
         public Task<DailySummaryConfiguration> GetDailySummaryConfigurationAsync()
         {
-            Debug.WriteLine("GetDailySummaryConfigurationAsync is called");
-            DailySummaryConfiguration dsc = new DailySummaryConfiguration();
+            Debug.WriteLine("Fetching DailySummaryConfiguration");
 
-            dsc.DaysSinceLastExposureThreshold = 0; // According to Google Docs this is needed to get all windows
-
-            //Creating mock config
-            dsc.DefaultInfectiousness = Infectiousness.High;
-            dsc.DefaultReportType = ReportType.ConfirmedTest;
-
-            dsc.AttenuationThresholds = new int[] { 50, 70, 90 };
-            dsc.AttenuationWeights = new Dictionary<DistanceEstimate, double>
+            return Task.Run(async () =>
             {
-                [DistanceEstimate.Immediate] = 2.5,
-                [DistanceEstimate.Near] = 2.5,
-                [DistanceEstimate.Medium] = 2.5,
-                [DistanceEstimate.Other] = 2.5,
-            };
+                Xamarin.ExposureNotifications.DailySummaryConfiguration dsc = await exposureNotificationWebService.GetDailySummaryConfiguration();
+                if (dsc == null)
+                {
+                    throw new FailedToFetchConfigurationException("Aborting pull because configuration was not fetched from server. See corresponding server error log");
+                }
 
-            dsc.InfectiousnessWeights = new Dictionary<Infectiousness, double>
-            {
-                //[Infectiousness.None] = 2.5, - Uncommented, since leads to crash on Android
-                [Infectiousness.Standard] = 2.0,
-                [Infectiousness.High] = 2.0,
-            };
-
-            dsc.ReportTypeWeights = new Dictionary<ReportType, double>
-            {
-                //[ReportType.Unknown] = 2.5, - Uncommented, since leads to crash on Android
-                [ReportType.ConfirmedTest] = 2.5,
-                [ReportType.ConfirmedClinicalDiagnosis] = 2.5,
-                [ReportType.SelfReported] = 2.5,
-                [ReportType.Recursive] = 2.5,
-                //[ReportType.Revoked] = 2.5, - Uncommented, since leads to crash on Android
-            };
-
-            dsc.DaysSinceOnsetInfectiousness = new Dictionary<int, Infectiousness>()
-            {
-                [-14] = Infectiousness.Standard,
-                [-13] = Infectiousness.Standard,
-                [-12] = Infectiousness.Standard,
-                [-11] = Infectiousness.Standard,
-                [-10] = Infectiousness.Standard,
-                [-9] = Infectiousness.Standard,
-                [-8] = Infectiousness.Standard,
-                [-7] = Infectiousness.Standard,
-                [-6] = Infectiousness.Standard,
-                [-5] = Infectiousness.Standard,
-                [-4] = Infectiousness.Standard,
-                [-3] = Infectiousness.Standard,
-                [-2] = Infectiousness.High,
-                [-1] = Infectiousness.High,
-                [0] = Infectiousness.High,
-                [1] = Infectiousness.High,
-                [2] = Infectiousness.High,
-                [3] = Infectiousness.High,
-                [4] = Infectiousness.High,
-                [5] = Infectiousness.High,
-                [6] = Infectiousness.High,
-                [7] = Infectiousness.High,
-                [8] = Infectiousness.High,
-                [9] = Infectiousness.Standard,
-                [10] = Infectiousness.Standard,
-                [11] = Infectiousness.Standard,
-                [12] = Infectiousness.Standard,
-                [13] = Infectiousness.Standard,
-                [14] = Infectiousness.Standard,
-            };
-
-            string jsonConfiguration = JsonConvert.SerializeObject(dsc);
-            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V2 Config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
-
-            return Task.FromResult(dsc);
+                string jsonConfiguration = JsonConvert.SerializeObject(dsc);
+                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V2 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
+                return dsc;
+            });
         }
 
         // This is the explanation that will be displayed to the user when getting ExposureInfo objects on iOS

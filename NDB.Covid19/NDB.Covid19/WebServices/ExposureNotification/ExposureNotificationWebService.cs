@@ -105,14 +105,14 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 
         public async Task<DailySummaryConfiguration> GetDailySummaryConfiguration()
         {
-            ApiResponse<DailySummaryConfigurationDTO> response = await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
+            ApiResponse<DailySummaryConfiguration> response = await Get<DailySummaryConfiguration>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
             HandleErrorsSilently(response);
 
             LogUtils.SendAllLogs();
 
-            if (response.IsSuccessfull && response.Data != null && response.Data.DailySummaryConfiguration != null)
+            if (response.IsSuccessfull && response.Data != null)
             {
-                return response.Data.DailySummaryConfiguration;
+                return response.Data;
             }
 
             return null;
