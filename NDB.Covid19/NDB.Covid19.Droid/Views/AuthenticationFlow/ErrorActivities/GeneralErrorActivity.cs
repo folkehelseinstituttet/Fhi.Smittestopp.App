@@ -8,8 +8,11 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Enums;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
 {
@@ -22,6 +25,18 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.error_page);
             Init();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing General Error Page", null, GetCorrelationId());
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving General Error Page", null, GetCorrelationId());
         }
 
         void Init()

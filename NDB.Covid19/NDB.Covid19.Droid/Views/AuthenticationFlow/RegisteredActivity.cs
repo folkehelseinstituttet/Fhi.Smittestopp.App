@@ -29,6 +29,18 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             Init();
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Registered page", null, GetCorrelationId());
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving Registered page", null, GetCorrelationId());
+        }
+
         private void Init()
         {
             _closeButton = FindViewById<Button>(Resource.Id.close_cross_btn);
