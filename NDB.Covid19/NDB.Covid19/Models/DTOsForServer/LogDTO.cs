@@ -49,7 +49,7 @@ namespace NDB.Covid19.Models.DTOsForServer
             BuildVersion = log.BuildVersion;
             BuildNumber = log.BuildNumber;
             DeviceOSVersion = log.DeviceOSVersion;
-            DeviceCorrelationId = "";
+            DeviceCorrelationId = log.CorrelationId;
             ExceptionType = log.ExceptionType;
             ExceptionMessage = log.ExceptionMessage;
             ExceptionStackTrace = log.ExceptionStackTrace;
