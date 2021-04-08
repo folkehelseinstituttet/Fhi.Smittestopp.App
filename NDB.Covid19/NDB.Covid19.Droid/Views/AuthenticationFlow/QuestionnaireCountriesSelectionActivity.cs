@@ -45,6 +45,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire Countries Selection", null, GetCorrelationId());
         }
 
+        protected override void OnPause()
+        {
+            base.OnPause();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving Questionnaire Countries Selection", null, GetCorrelationId());
+        }
+
         private async void InitView()
         {
             SetContentView(Resource.Layout.questionnaire_countries);
