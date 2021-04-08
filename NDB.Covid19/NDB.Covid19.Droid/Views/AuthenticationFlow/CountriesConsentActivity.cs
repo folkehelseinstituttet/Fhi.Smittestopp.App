@@ -44,6 +44,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Consent 3 page", null, GetCorrelationId());
         }
 
+        protected override void OnPause()
+        {
+            base.OnPause();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving Consent 3 page", null, GetCorrelationId());
+        }
+
         private void InitLayout()
         {
             //Buttons
