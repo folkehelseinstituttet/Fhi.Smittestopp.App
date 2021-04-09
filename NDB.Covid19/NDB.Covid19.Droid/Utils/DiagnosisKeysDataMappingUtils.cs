@@ -41,7 +41,7 @@ namespace NDB.Covid19.Droid.Utils
             // Quota for SetDiagnosisKeysDataMappingAsync is reached, do nothing
             if ((SystemTime.Now() - LocalPreferencesHelper.GetLastDiagnosisKeysDataMappingDateTime()).TotalDays <= 7)
             {
-                LogUtils.LogException(LogSeverity.WARNING, null, _logPrefix + "SetDiagnosisKeysDataMappingAsync called too early, aborting.");
+                LogUtils.LogMessage(LogSeverity.WARNING, _logPrefix + "SetDiagnosisKeysDataMappingAsync called too early, aborting.");
                 return;
             }
 
