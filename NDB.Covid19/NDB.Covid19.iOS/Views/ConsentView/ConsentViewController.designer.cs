@@ -41,7 +41,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIKit.UILabel ContactInformation_section { get; set; }
+		UIKit.UITextView ContactInformation_section { get; set; }
 
 		[Outlet]
 		UIKit.UILabel Header1Lbl { get; set; }
@@ -90,7 +90,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
 		UIKit.UILabel MoreInformation_section { get; set; }
 
 		[Outlet]
-		UIKit.UILabel MoreInformation_section2 { get; set; }
+		UIKit.UITextView MoreInformation_section2 { get; set; }
 
 		[Outlet]
 		UIKit.UILabel MoreInformation_section3 { get; set; }

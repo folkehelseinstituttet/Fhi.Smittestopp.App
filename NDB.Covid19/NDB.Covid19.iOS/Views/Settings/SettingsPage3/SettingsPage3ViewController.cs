@@ -26,10 +26,16 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
             SetStyling();
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            PostAccessibilityNotificationAndReenableElement(BackButton, PageTitle);
+        }
+
         void InitLabels()
         {
             ConsentHelper.SetConsentLabels(LabelStackView, _vm.GetConsentSectionsTexts(), _privacyPolicyButton);
-            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackButton.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
             TitleStackView.BottomAnchor.ConstraintEqualTo(ScrollView.TopAnchor, 0).Active = true;
         }
 
@@ -53,7 +59,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
                 ConsentViewModel.OpenPrivacyPolicyLink();
             };
 
-
+            _privacyPolicyButton.AccessibilityTraits = UIAccessibilityTrait.Link;
             StyleUtil.InitLinkButtonStyling(_privacyPolicyButton, ConsentViewModel.CONSENT_SEVEN_LINK_TEXT);
         }
 

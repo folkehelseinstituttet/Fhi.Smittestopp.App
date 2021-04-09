@@ -85,7 +85,16 @@ namespace NDB.Covid19.Droid.Utils
                 }
             }
 
-            dialog.Show();
+            if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.M)
+            {
+                AlertDialog alertDialog = dialog.Create();
+                alertDialog.Window.DecorView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+                alertDialog.Show();
+            }
+            else
+            {
+                dialog.Show();
+            }
 
             return tcs.Task;
         }

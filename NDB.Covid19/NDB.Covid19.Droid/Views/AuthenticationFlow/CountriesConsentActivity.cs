@@ -52,6 +52,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         private void InitLayout()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+
             //Buttons
             _closeButton = FindViewById<ViewGroup>(Resource.Id.close_cross_btn);
             _consentButtonEU = FindViewById<Button>(Resource.Id.consentButton_EU);
@@ -76,6 +79,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _consentEUExplanation.Text = CONSENT3_EU_CONSENT_BUTTON_BODYTEXT;
             _consentNorwayExplanation.Text = CONSENT3_ONLY_NORWAY_CONSENT_BUTTON_BODYTEXT;
             _consentText.Text = CONSENT3_CONSENTTOSHARE;
+
+            _bodytext1.TextAlignment = TextAlignment.ViewStart;
 
             ////Accessibility
             _closeButton.ContentDescription = CLOSE_BUTTON_ACCESSIBILITY_LABEL;

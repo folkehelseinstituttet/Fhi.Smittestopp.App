@@ -21,6 +21,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             string contentText = SettingsPage5ViewModel.SETTINGS_PAGE_5_CONTENT + " " + SettingsPage5ViewModel.SETTINGS_PAGE_5_LINK;
 
             HeaderLabel.SetAttributedText(SettingsPage5ViewModel.SETTINGS_PAGE_5_HEADER);
+            HeaderLabel.AccessibilityTraits = UIAccessibilityTrait.Header;
 
             InitTextViewWithSpacing(ContentText, FontType.FontRegular, contentText, 1.28, 16, 22);
 
@@ -30,14 +31,14 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             ContentText.ContentInset = UIEdgeInsets.Zero;
             ContentText.TextContainerInset = UIEdgeInsets.Zero;
             ContentText.TextContainer.LineFragmentPadding = 0;
-
+            ContentText.AccessibilityTraits = UIAccessibilityTrait.Link;
             ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
             
             //ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
-            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.TEXT_COLOR_ON_BACKGROUND, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
+            ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.LINK_COLOR, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 
             InitLabelWithSpacing(BuildVersionLbl, FontType.FontRegular, SettingsPage5ViewModel.GetVersionInfo(), 1.14, 14, 16);
-            BackButton.AccessibilityLabel = SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            BackButton.AccessibilityLabel = SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
 
             ContentText.IsAccessibilityElement = true;
             ContentText.ScrollEnabled = false;
@@ -47,9 +48,16 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             SetupStyling();
         }
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            PostAccessibilityNotificationAndReenableElement(BackButton, HeaderLabel);
+        }
+
         private void InitAccessibilityStatementButton()
         {
             InitLinkButtonStyling(AccessibilityStatementButton, SettingsPage5ViewModel.SETTINGS_PAGE_5_ACCESSIBILITY_STATEMENT_BUTTON_TEXT);
+            AccessibilityStatementButton.AccessibilityTraits = UIAccessibilityTrait.Link;
         }
 
         private void SetupStyling()

@@ -31,7 +31,7 @@ namespace NDB.Covid19.Droid.Views.Settings
         void Init()
         {
             ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back);
-            backButton.ContentDescription = ViewModels.SettingsViewModel.SETTINGS_CHILD_PAGE_ACCESSIBILITY_BACK_BUTTON;
+            backButton.ContentDescription = ViewModels.SettingsViewModel.BACK_BUTTON_ACCESSIBILITY_TEXT;
 
             _resetConsentsButton = FindViewById<Button>(Resource.Id.buttonResetConsents);
             _progressBar = FindViewById<ProgressBar>(Resource.Id.consentActivityIndicator);

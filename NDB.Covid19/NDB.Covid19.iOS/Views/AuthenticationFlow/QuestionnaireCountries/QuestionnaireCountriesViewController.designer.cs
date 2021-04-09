@@ -1,99 +1,104 @@
 // WARNING
 //
-// This file has been generated automatically by Visual Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
-    [Register ("QuestionnaireCountriesViewController")]
-    partial class QuestionnaireCountriesViewController
-    {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView ButtonView { get; set; }
+	[Register ("QuestionnaireCountriesViewController")]
+	partial class QuestionnaireCountriesViewController
+	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIView ButtonView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton CloseButton { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton CloseButton { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView CountryTableView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UITableView CountryTableView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel ListExplainLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel ListExplainLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton NextBtn { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel SubtitleLbl { get; set; }
+		[Outlet]
+		UIKit.UIScrollView ScrollView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.NSLayoutConstraint TableViewHeightConstraint { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel SubtitleLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel TitleLbl { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.NSLayoutConstraint TableViewHeightConstraint { get; set; }
 
-        [Action ("NextBtnTapped:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void NextBtnTapped (CustomSubclasses.DefaultBorderButton sender);
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel TitleLbl { get; set; }
 
-        [Action ("OnCloseBtnTapped:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void OnCloseBtnTapped (UIKit.UIButton sender);
+		[Action ("NextBtnTapped:")]
+		partial void NextBtnTapped (NDB.Covid19.iOS.Views.CustomSubclasses.DefaultBorderButton sender);
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (ButtonView != null) {
-                ButtonView.Dispose ();
-                ButtonView = null;
-            }
+		[Action ("OnCloseBtnTapped:")]
+		partial void OnCloseBtnTapped (UIKit.UIButton sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (ScrollView != null) {
+				ScrollView.Dispose ();
+				ScrollView = null;
+			}
 
-            if (CloseButton != null) {
-                CloseButton.Dispose ();
-                CloseButton = null;
-            }
+			if (ButtonView != null) {
+				ButtonView.Dispose ();
+				ButtonView = null;
+			}
 
-            if (CountryTableView != null) {
-                CountryTableView.Dispose ();
-                CountryTableView = null;
-            }
+			if (CloseButton != null) {
+				CloseButton.Dispose ();
+				CloseButton = null;
+			}
 
-            if (ListExplainLbl != null) {
-                ListExplainLbl.Dispose ();
-                ListExplainLbl = null;
-            }
+			if (CountryTableView != null) {
+				CountryTableView.Dispose ();
+				CountryTableView = null;
+			}
 
-            if (NextBtn != null) {
-                NextBtn.Dispose ();
-                NextBtn = null;
-            }
+			if (ListExplainLbl != null) {
+				ListExplainLbl.Dispose ();
+				ListExplainLbl = null;
+			}
 
-            if (SubtitleLbl != null) {
-                SubtitleLbl.Dispose ();
-                SubtitleLbl = null;
-            }
+			if (NextBtn != null) {
+				NextBtn.Dispose ();
+				NextBtn = null;
+			}
 
-            if (TableViewHeightConstraint != null) {
-                TableViewHeightConstraint.Dispose ();
-                TableViewHeightConstraint = null;
-            }
+			if (SubtitleLbl != null) {
+				SubtitleLbl.Dispose ();
+				SubtitleLbl = null;
+			}
 
-            if (TitleLbl != null) {
-                TitleLbl.Dispose ();
-                TitleLbl = null;
-            }
-        }
-    }
+			if (TableViewHeightConstraint != null) {
+				TableViewHeightConstraint.Dispose ();
+				TableViewHeightConstraint = null;
+			}
+
+			if (TitleLbl != null) {
+				TitleLbl.Dispose ();
+				TitleLbl = null;
+			}
+		}
+	}
 }

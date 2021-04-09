@@ -67,7 +67,7 @@
     <Folder Include="TempNugetFeed\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AnonymousTokens.Client" Version="1.3.0" />
+    <PackageReference Include="AnonymousTokens.Client" Version="2.0.0" />
     <PackageReference Include="AntiXSS.NetStandard" Version="0.1.111" />
     <PackageReference Include="AutoMapper" Version="5.1.1" />
     <PackageReference Include="I18NPortable" Version="1.0.1" />
@@ -96,6 +96,7 @@
     <None Remove="Locales\ti.json" />
     <None Remove="Locales\ar.json" />
     <None Remove="Locales\ur.json" />
+    <None Remove="Locales\lt.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Locales\en.json" />
@@ -106,5 +107,6 @@
     <EmbeddedResource Include="Locales\ti.json" />
     <EmbeddedResource Include="Locales\ar.json" />
     <EmbeddedResource Include="Locales\ur.json" />
+    <EmbeddedResource Include="Locales\lt.json" />
   </ItemGroup>
 </Project>

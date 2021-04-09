@@ -11,7 +11,7 @@ using UIKit;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
-    public partial class QuestionnaireViewController : BaseViewController
+    public partial class QuestionnaireViewController : BaseViewController, IUIAccessibilityContainer
     {
         public QuestionnaireViewController(IntPtr handle) : base(handle)
         {
@@ -37,6 +37,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             UpdateUIWhenSelectionChanges();
             SetAccessibilityAttributes();
+
             LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire page");
         }
 
@@ -74,8 +75,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 DateTime valueToShow = QuestionnaireViewModel.DateHasBeenSet ? QuestionnaireViewModel.GetLocalSelectedDate() : DateTime.Now.Date;
                 _viewModel.SetSelectedDateUTC(valueToShow); // Set the default date value when user enter pick date mode
                 UpdateDateLbl(QuestionnaireViewModel.DateLabel);
-
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, DatePicker);
             }
         }
 
@@ -168,6 +167,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         void OnFail()
         {
             NextBtn.HideSpinner();
+            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, null,
+                $"{nameof(QuestionnaireViewController)}.{nameof(OnFail)}: " +
+                $"AuthenticationState.personaldata is not valid");
         }
 
         void OnSuccess()
@@ -205,6 +207,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void SetAccessibilityAttributes()
         {
+            TitleLbl.AccessibilityTraits = UIAccessibilityTrait.Header;
+
             CloseButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_CLOSE_BUTTON_TEXT;
             InfoButton.AccessibilityLabel = QuestionnaireViewModel.REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON;
 
@@ -225,6 +229,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             YesButLargeBtn.AccessibilityLabel = _viewModel.RadioButtonAccessibilityYesDontRemember;
             NoLargeBtn.AccessibilityLabel = _viewModel.RadioButtonAccessibilityNo;
             SkipLargeBtn.AccessibilityLabel = _viewModel.RadioButtonAccessibilitySkip;
+
+            if (UIAccessibility.IsVoiceOverRunning)
+            {
+                this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, CloseButton));
+                PostAccessibilityNotificationAndReenableElement(CloseButton, TitleLbl);
+            }
         }
 
         partial void InfoButton_TouchUpInside(UIButton sender)

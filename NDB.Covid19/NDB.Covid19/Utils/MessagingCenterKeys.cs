@@ -10,5 +10,7 @@
         public static string KEY_CONSENT_MODAL_IS_CLOSED => "KEY_CONSENT_MODAL_IS_CLOSED";
 
         public static string KEY_PERMISSIONS_CHANGED => "PermissionsChangedKey";
+
+        public static string KEY_UPDATE_DAILY_NUMBERS => "KEY_UPDATE_DAILY_NUMBERS";
     }
 }

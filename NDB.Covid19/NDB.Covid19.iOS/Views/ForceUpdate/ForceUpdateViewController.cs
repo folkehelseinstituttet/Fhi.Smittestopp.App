@@ -37,6 +37,7 @@ namespace NDB.Covid19.iOS.Views.ForceUpdate
             TextLabel.TextColor = ColorHelper.TEXT_COLOR_ON_BACKGROUND;
 
             StyleUtil.InitButtonStyling(AppStoreLinkButton, ForceUpdateViewModel.FORCE_UPDATE_BUTTON_APPSTORE_IOS);
+            AppStoreLinkButton.AccessibilityTraits = UIAccessibilityTrait.Link;
 
             FhiLogo.AccessibilityLabel = ForceUpdateViewModel.SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
             TextLabel.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(ForceUpdateViewModel.FORCE_UPDATE_MESSAGE);
