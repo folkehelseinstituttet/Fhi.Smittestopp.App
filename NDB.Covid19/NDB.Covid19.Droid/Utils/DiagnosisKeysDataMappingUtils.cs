@@ -17,7 +17,7 @@ namespace NDB.Covid19.Droid.Utils
 {
     public static class DiagnosisKeysDataMappingUtils
     {
-        static string _logPrefix = $"Android {nameof(DiagnosisKeysDataMappingUtils)}: ";
+        private static string _logPrefix = $"Android {nameof(DiagnosisKeysDataMappingUtils)}: ";
 
         private static IExposureNotificationClient Instance => NearbyClass.GetExposureNotificationClient(Application.Context);
 
