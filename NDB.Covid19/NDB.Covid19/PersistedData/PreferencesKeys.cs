@@ -15,6 +15,8 @@ namespace NDB.Covid19.PersistedData
         // the second one is the last day when it succeeded
         public static readonly string LAST_PULL_KEYS_SUCCEEDED_DATE_TIME = "LAST_PULL_KEYS_SUCCEEDED_DATE_TIME";
 
+        public static readonly string LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME = "LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME";
+
         public static readonly string LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED = "LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED";
         public static readonly string LAST_PULLED_BATCH_NUMBER_SUBMITTED = "LAST_PULLED_BATCH_NUMBER_SUBMITTED";
         public static readonly string LAST_PULLED_BATCH_TYPE = "LAST_PULLED_BATCH_TYPE";

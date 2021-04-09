@@ -260,10 +260,14 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
             UpdateText(_viewModel.PrintLastPulledKeysAndTimestamp());
         }
 
-        private async void PullKeys()
+        private void PullKeys()
         {
-            await _viewModel.PullKeysFromServer();
-            UpdateText($"{ENDeveloperToolsViewModel.GetLastPullResult()}");
+            Task.Run(async () =>
+            {
+                await DiagnosisKeysDataMappingUtils.SetDiagnosisKeysDataMappingAsync();
+                await _viewModel.PullKeysFromServer();
+                UpdateText($"{ENDeveloperToolsViewModel.GetLastPullResult()}");
+            });
         }
 
         private async void PullKeysAndGetExposureInfo()
