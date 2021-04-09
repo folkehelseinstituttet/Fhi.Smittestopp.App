@@ -26,7 +26,7 @@ namespace NDB.Covid19.Droid.Utils
             try
             {
                 long APIVersion = await Instance.GetVersionAsync();
-                Debug.WriteLine(APIVersion);
+                Debug.WriteLine("Exposure Notification version is " + APIVersion);
             }
             catch (ApiException e)
             {
