@@ -78,6 +78,12 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.LAST_PULLED_BATCH_TYPE, value.ToTypeString());
         }
 
+        public static string GetAppLanguage() => _preferences.Get(PreferencesKeys.APP_LANGUAGE, null);
+        public static void SetAppLanguage(string language)
+        {
+            _preferences.Set(PreferencesKeys.APP_LANGUAGE, language);
+        }
+
         // The date of when the last update to numbers pulled from FHI were, which is used on the "Daily numbers" page.
         public static DateTime FHILastUpdateDateTime
         {
