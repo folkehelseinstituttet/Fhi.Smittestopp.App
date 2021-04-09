@@ -11,6 +11,7 @@ using NDB.Covid19.ExposureNotifications;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using EN = Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.Droid.Utils
 {
@@ -44,9 +45,9 @@ namespace NDB.Covid19.Droid.Utils
                 return;
             }
 
-            var config = await new ExposureNotificationHandler().GetDailySummaryConfigurationAsync();
-            var builder = new DiagnosisKeysDataMapping.DiagnosisKeysDataMappingBuilder();
-            var newMap = new JavaDictionary<Java.Lang.Integer, Java.Lang.Integer>();
+            EN.DailySummaryConfiguration config = await new ExposureNotificationHandler().GetDailySummaryConfigurationAsync();
+            DiagnosisKeysDataMapping.DiagnosisKeysDataMappingBuilder builder = new DiagnosisKeysDataMapping.DiagnosisKeysDataMappingBuilder();
+            JavaDictionary<Java.Lang.Integer, Java.Lang.Integer> newMap = new JavaDictionary<Java.Lang.Integer, Java.Lang.Integer>();
             foreach (var pair in config.DaysSinceOnsetInfectiousness)
             {
                 newMap[new Java.Lang.Integer(pair.Key)] = new Java.Lang.Integer((int)pair.Value);
