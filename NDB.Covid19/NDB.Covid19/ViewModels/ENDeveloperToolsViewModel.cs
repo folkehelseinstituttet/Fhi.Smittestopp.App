@@ -110,6 +110,7 @@ namespace NDB.Covid19.ViewModels
             bool isDownloadWithMobileDataEnabled = GetIsDownloadWithMobileDataEnabled();
             DateTime updatedDateTime = GetUpdatedDateTime();
             DateTime lastPullKeysSucceededDateTime = GetLastPullKeysSucceededDateTime();
+            DateTime lastDiagnosisKeysDataMappingDateTime = GetLastDiagnosisKeysDataMappingDateTime();
             string appLanguage = GetAppLanguage();
 
             string formattedString =
@@ -126,6 +127,7 @@ namespace NDB.Covid19.ViewModels
                 $"USE_MOBILE_DATA_PREF: {isDownloadWithMobileDataEnabled}\n" +
                 $"MESSAGES_LAST_UPDATED_PREF: {updatedDateTime}\n" +
                 $"LAST_PULL_KEYS_SUCCEEDED_DATE_TIME: {lastPullKeysSucceededDateTime}\n" +
+                $"[ONLY ANDROID] LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME: {lastDiagnosisKeysDataMappingDateTime}\n" +
                 $"LAST_TERMS_NOTIFICATION_DATE_TIME: {LastDateTimeTermsNotificationWasShown}\n" +
                 $"APP_LANGUAGE: {appLanguage}\n\n";
 
