@@ -78,12 +78,6 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.LAST_PULLED_BATCH_TYPE, value.ToTypeString());
         }
 
-        public static string GetAppLanguage() => _preferences.Get(PreferencesKeys.APP_LANGUAGE, null);
-        public static void SetAppLanguage(string language)
-        {
-            _preferences.Set(PreferencesKeys.APP_LANGUAGE, language);
-        }
-
         // The date of when the last update to numbers pulled from FHI were, which is used on the "Daily numbers" page.
         public static DateTime FHILastUpdateDateTime
         {
@@ -150,13 +144,6 @@ namespace NDB.Covid19.PersistedData
         {
             get => _preferences.Get(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, false);
             set => _preferences.Set(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, value);
-        }
-
-        // The id is used to identify authentication/submission flow in the logs.
-        public static string GetCorrelationId() => _preferences.Get(PreferencesKeys.CORRELATION_ID, null);
-        public static void UpdateCorrelationId(string correlationId)
-        {
-            _preferences.Set(PreferencesKeys.CORRELATION_ID, correlationId);
         }
       
         public static bool HasNeverSuccessfullyFetchedFHIData
