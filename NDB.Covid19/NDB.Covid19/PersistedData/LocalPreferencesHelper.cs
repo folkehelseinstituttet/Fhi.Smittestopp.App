@@ -152,6 +152,13 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, value);
         }
 
+        // The id is used to identify authentication/submission flow in the logs.
+        public static string GetCorrelationId() => _preferences.Get(PreferencesKeys.CORRELATION_ID, null);
+        public static void UpdateCorrelationId(string correlationId)
+        {
+            _preferences.Set(PreferencesKeys.CORRELATION_ID, correlationId);
+        }
+      
         public static bool HasNeverSuccessfullyFetchedFHIData
         {
             get => _preferences.Get(PreferencesKeys.FHI_DATA_HAS_NEVER_BEEN_CALLED, true);
