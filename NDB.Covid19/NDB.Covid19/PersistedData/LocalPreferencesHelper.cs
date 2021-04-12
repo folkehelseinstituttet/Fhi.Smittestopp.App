@@ -92,6 +92,20 @@ namespace NDB.Covid19.PersistedData
             _preferences.Set(PreferencesKeys.APP_LANGUAGE, language);
         }
 
+        // The date of when the last update to numbers pulled from FHI were, which is used on the "Daily numbers" page.
+        public static DateTime FHILastUpdateDateTime
+        {
+            get => _preferences.Get(PreferencesKeys.FHI_DATA_LAST_UPDATED_PREF, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.FHI_DATA_LAST_UPDATED_PREF, value);
+        }
+
+        // The date of when the last update to the download numbers were, which is used on the "Daily numbers" page.
+        public static DateTime APPDownloadNumberLastUpdateDateTime
+        {
+            get => _preferences.Get(PreferencesKeys.APP_DOWNLOAD_NUMBERS_LAST_UPDATED_PREF, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.APP_DOWNLOAD_NUMBERS_LAST_UPDATED_PREF, value);
+        }
+
         public static DateTime LastDateTimeTermsNotificationWasShown
         {
             get => _preferences.Get(PreferencesKeys.LAST_TERMS_NOTIFICATION_DATE_TIME, DateTime.MinValue);
