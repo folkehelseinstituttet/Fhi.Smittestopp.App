@@ -157,6 +157,21 @@ namespace NDB.Covid19.ExposureNotifications
                     throw new FailedToFetchConfigurationException("Aborting pull because configuration was not fetched from server. See corresponding server error log");
                 }
 
+                // On iOS double-type weights represent percents, so we need to multiply by 100
+                if (DeviceInfo.Platform == DevicePlatform.iOS)
+                {
+                    dsc.AttenuationWeights[DistanceEstimate.Immediate] *= 100;
+                    dsc.AttenuationWeights[DistanceEstimate.Medium] *= 100;
+                    dsc.AttenuationWeights[DistanceEstimate.Near] *= 100;
+                    dsc.AttenuationWeights[DistanceEstimate.Other] *= 100;
+                    dsc.InfectiousnessWeights[Infectiousness.Standard] *= 100;
+                    dsc.InfectiousnessWeights[Infectiousness.High] *= 100;
+                    dsc.ReportTypeWeights[ReportType.Recursive] *= 100;
+                    dsc.ReportTypeWeights[ReportType.ConfirmedTest] *= 100;
+                    dsc.ReportTypeWeights[ReportType.SelfReported] *= 100;
+                    dsc.ReportTypeWeights[ReportType.ConfirmedClinicalDiagnosis] *= 100;
+                }
+
                 string jsonConfiguration = JsonConvert.SerializeObject(dsc);
                 ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V2 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
                 return dsc;
