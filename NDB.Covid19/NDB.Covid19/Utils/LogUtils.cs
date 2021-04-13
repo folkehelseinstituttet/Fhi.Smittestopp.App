@@ -9,6 +9,7 @@ using NDB.Covid19.Models.Logging;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData.SQLite;
 using NDB.Covid19.WebServices;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Utils
 {
@@ -53,6 +54,7 @@ namespace NDB.Covid19.Utils
 
         public static async void SendAllLogs()
         {
+            UpdateCorrelationId(null);
             ILoggingManager manager = ServiceLocator.Current.GetInstance<ILoggingManager>();
             try
             {
