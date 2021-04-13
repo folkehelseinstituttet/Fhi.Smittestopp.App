@@ -59,6 +59,8 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             UNUserNotificationCenter.Current.RemoveAllPendingNotificationRequests();
 
             UpdateMessagesOnViewWillAppear();
+
+            PostAccessibilityNotificationAndReenableElement(BackButton, Label);
         }
 
         async void UpdateMessagesOnViewWillAppear()

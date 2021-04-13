@@ -51,9 +51,15 @@ namespace NDB.Covid19.ViewModels
             });
         }
 
-        internal static void UpdatePushKeysInfo(ApiResponse response, SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, JsonSerializerSettings settings)
+        internal static void UpdatePushKeysInfo(
+            ApiResponse response,
+            SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
+            JsonSerializerSettings settings,
+            bool isRequestWithAnonTokens)
         {
-            PushKeysInfo = $"StatusCode: {response.StatusCode}, Time (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n\n";
+            PushKeysInfo =
+                $"StatusCode: {response.StatusCode}, Time (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n" +
+                $"Sent with AnonToken: {isRequestWithAnonTokens}\n\n";
             ParseKeys(selfDiagnosisSubmissionDTO, settings, ENOperation.PUSH);
             PutInPushKeyInfoInSharedPrefs();
             Debug.WriteLine($"{PushKeysInfo}");
@@ -77,7 +83,8 @@ namespace NDB.Covid19.ViewModels
                 String keyData = $"Key: {EncodingUtils.ConvertByteArrayToString((byte[])key["key"])} ,\n" +
                                  $"rollingStart: {rollingStartDateTime.ToString(CultureInfo.InvariantCulture)},\n" +
                                  $"rollingDuration: {key["rollingDuration"]},\n" +
-                                 $"transmissionRiskLevel: {key["transmissionRiskLevel"]}\n\n";
+                                 $"transmissionRiskLevel: {key["transmissionRiskLevel"]},\n" +
+                                 $"daysSinceOnsetOfSymptoms: {key["daysSinceOnsetOfSymptoms"]}\n\n";
                 PushKeysInfo += keyData;
                 Debug.WriteLine(keyData);
             });

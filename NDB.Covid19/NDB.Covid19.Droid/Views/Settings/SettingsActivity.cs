@@ -42,7 +42,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView gdprButton = gdprLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
             TextView helpButton = helpLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
             TextView aboutButton = aboutLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
-            TextView generalButton = generalLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
+            TextView generalButton = generalLayout.FindViewById<TextView>(Resource.Id.settings_general_link_text);
             TextView deploymentButton = deploymentLayout.FindViewById<TextView>(Resource.Id.settings_link_text);
 
             ImageView _fhiLogo;
@@ -70,6 +70,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             ViewGroup closeButton = FindViewById<ViewGroup>(Resource.Id.ic_close_white);
             closeButton.ContentDescription = ViewModels.SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
+            closeButton.AccessibilityTraversalAfter = Resource.Id.settings_general_link_text;
             closeButton.Click += new SingleClick((sender, e) => Finish()).Run;
             settingsIntroButton.Click += new SingleClick((sender, args) => NavigationHelper.GoToOnBoarding(this, false)).Run;
             howItWorksButton.Click += new SingleClick((sender, args) => NavigationHelper.GoToSettingsHowItWorksPage(this)).Run;

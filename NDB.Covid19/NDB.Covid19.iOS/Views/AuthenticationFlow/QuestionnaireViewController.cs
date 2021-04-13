@@ -233,8 +233,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             if (UIAccessibility.IsVoiceOverRunning)
             {
                 this.SetAccessibilityElements(NSArray.FromNSObjects(ScrollView, CloseButton));
-                removeAccessibilityElementAndEnableAfterDelay(CloseButton);
-                UIAccessibility.PostNotification(UIAccessibilityPostNotification.ScreenChanged, TitleLbl);
+                PostAccessibilityNotificationAndReenableElement(CloseButton, TitleLbl);
             }
         }
 
