@@ -69,7 +69,7 @@ namespace NDB.Covid19.ExposureNotifications
                     && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date))
                 {
                     shouldSendMessage = true;
-                    break;
+                    // TODO: Mark the summary date as the one for which Exposure Notification has been shown
                 }
             }
             if (shouldSendMessage) await MessageUtils.CreateMessage(this);
