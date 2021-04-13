@@ -65,7 +65,8 @@ namespace NDB.Covid19.ExposureNotifications
             bool shouldSendMessage = false;
             foreach (DailySummary dailySummary in summaries)
             {
-                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary))
+                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary)
+                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date))
                 {
                     shouldSendMessage = true;
                     break;

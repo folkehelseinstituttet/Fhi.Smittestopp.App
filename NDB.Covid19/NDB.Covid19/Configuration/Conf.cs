@@ -84,6 +84,12 @@ namespace NDB.Covid19.Configuration
         // Meaningful exposure time threshold towards which the weighted time from the summary is evaluated
         public static readonly double EXPOSURE_TIME_THRESHOLD = 15.0;
 
+        // EN API v2: Default maximum score threshold for DailySummaryReport
+        // If maximum score for a particular day is higher than this threshold,
+        // the app should generate Exposure Notification. The actual threshold is fetched together
+        // with DailySummaryConfiguration on each pull of the keys from server
+        public static readonly double MAXIMUM_SCORE_THRESHOLD = 900;
+
         public static readonly string[] SUPPORTED_REGIONS = { "no" }; 
 
         public static string DB_NAME => "Smittestopp1.db3";
