@@ -35,12 +35,16 @@ namespace NDB.Covid19.WebServices.ExposureNotification
         public async Task<bool> PostSelfExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO, IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
         {
             ApiResponse response;
+            bool requestedAnonToken;
+
             if (AuthenticationState.PersonalData?.AnonymousTokensEnabled == true)
             {
+                requestedAnonToken = true;
                 response = await PostSelfExposureKeysWithAnonTokens(selfDiagnosisSubmissionDTO, temporaryExposureKeys, service);
             }
             else
             {
+                requestedAnonToken = false;
                 response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
             }
             // HandleErrorsSilently happens even if IsSuccessfull is true other places in the code, but here
@@ -55,7 +59,7 @@ namespace NDB.Covid19.WebServices.ExposureNotification
                 HandleErrorsSilently(response);
             }
 
-            ENDeveloperToolsViewModel.UpdatePushKeysInfo(response, selfDiagnosisSubmissionDTO, JsonSerializerSettings);
+            ENDeveloperToolsViewModel.UpdatePushKeysInfo(response, selfDiagnosisSubmissionDTO, JsonSerializerSettings, requestedAnonToken);
 
             return response.IsSuccessfull;
         }

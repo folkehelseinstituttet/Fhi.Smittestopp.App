@@ -1,0 +1,26 @@
+﻿<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/settings_intro_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:showIn="@layout/settings_page">
+
+    <ndb.covid19.droid.views.settings.UnderlinedTextView
+            android:id="@+id/settings_general_link_text"
+            style="@style/settings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="start"
+            android:text="settings general"
+            android:textAppearance="@style/settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:underlineColor="@color/settingsUnderlineColor"
+            app:underlineWidth="2dp"
+            app:underlineMarginTop="2dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
