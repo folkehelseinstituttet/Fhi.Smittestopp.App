@@ -4,6 +4,7 @@ namespace NDB.Covid19.Droid.Utils
     {
         Local,
         InBackground,
-        Permissions
+        Permissions,
+        ForegroundWithUpdates
     }
 }

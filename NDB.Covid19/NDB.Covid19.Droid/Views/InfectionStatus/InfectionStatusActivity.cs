@@ -17,11 +17,13 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using NDB.Covid19.Droid.Views.DailyNumbers;
 using NDB.Covid19.Droid.Views.Messages;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using Xamarin.ExposureNotifications;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using AlertDialog = Android.App.AlertDialog;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -52,6 +54,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _dailyNumbersCoverButton;
         private Button _messageCoverButton;
         private Button _registrationCoverButton;
+        private TextView _pauseMessage;
+        private RadioButton _manualRestartButton;
+        private RadioButton _oneHourDisableButton;
+        private RadioButton _twoHoursDisableButton;
+        private RadioButton _fourHoursDisableButton;
+        private RadioButton _eightHoursDisableButton;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
         
@@ -315,7 +323,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     await DialogUtils.DisplayDialogAsync(
                         this,
                         _viewModel.OffDialogViewModel,
-                        StopGoogleAPI,
+                        ShowPauseDialog,
                         () => _semaphoreSlim.Release());
                     break;
                 default:
@@ -368,11 +376,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             try
             {
+                CloseReminderNotifications();
                 await _viewModel.StartENService();
                 bool isRunning = await IsRunning();
                 if (isRunning)
                 {
                     BackgroundFetchScheduler.ScheduleBackgroundFetch();
+                    
                 }
 
                 if (await _viewModel.IsEnabled() &&
@@ -418,7 +428,67 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             StartActivity(new Intent(this, typeof(MessagesActivity)));
         }
+        private void ShowPauseDialog()
+        {
 
+            View dialogView = LayoutInflater.Inflate(Resource.Layout.pause_exposure_notification_layout, null);
+            _pauseMessage = dialogView.FindViewById<TextView>(Resource.Id.pause_message);
+            _manualRestartButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_manual_restart_button);
+            _oneHourDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_one_hour_button);
+            _twoHoursDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_two_hours_button);
+            _fourHoursDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_four_hours_button);
+            _eightHoursDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_eight_hours_button);
+
+            _pauseMessage.Text = INFECTION_STATUS_PAUSE_DIALOG_MESSAGE;
+            _manualRestartButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_NO_REMINDER;
+            _oneHourDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_ONE_HOUR;
+            _twoHoursDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS;
+            _fourHoursDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS;
+            _eightHoursDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS;
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this, Resource.Style.PauseExposureNotificationTitleStyle);
+            dialog.SetView(dialogView);
+            dialog.SetCancelable(false);
+            dialog.SetTitle(INFECTION_STATUS_PAUSE_DIALOG_TITLE);
+
+            dialog.SetPositiveButton(INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON, (sender, args) =>
+            {
+                if (_oneHourDisableButton.Checked) StartReminderService(1);
+                else if (_twoHoursDisableButton.Checked) StartReminderService(2);
+                else if (_fourHoursDisableButton.Checked) StartReminderService(4);
+                else if (_eightHoursDisableButton.Checked) StartReminderService(8);
+             
+                StopGoogleAPI();
+                (sender as AlertDialog)?.Dismiss();
+            });
+
+            dialog.Create();
+
+            dialog.Show();
+
+        }
+        private void CloseReminderNotifications()
+        {
+            NotificationManager notificationManager = GetSystemService(NotificationService) as NotificationManager;
+            notificationManager?.Cancel((int)NotificationsEnum.TimedReminderFinished);
+            StopReminderService();
+        }
+        private void StartReminderService(long hourMultiplier)
+        {
+            Bundle bundle = new Bundle();
+            long ticks = 1000 * 60 * 60 * hourMultiplier;
+#if DEBUG
+            ticks /= 60;
+#endif
+            bundle.PutLong("ticks", ticks);
+            ForegroundServiceHelper
+                .StartForegroundServiceCompat<TimedReminderForegroundService>(this, bundle);
+        }
+
+        private void StopReminderService()
+        {
+            ForegroundServiceHelper
+                .StopForegroundServiceCompat<TimedReminderForegroundService>(this);
+        }
         private async void RegistrationLayoutButton_Click(object sender, EventArgs e)
         {
             if (!await IsRunning())

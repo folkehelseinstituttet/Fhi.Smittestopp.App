@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V4.App;
@@ -23,6 +24,8 @@ namespace NDB.Covid19.Droid.Utils
         private readonly string _exposureChannelId = "exposure_channel";
         private readonly string _backgroundFetchChannelId = "background_channel";
         private readonly string _permissionsChannelId = "permissions_channel";
+        private readonly string _reminderChannelId = "reminder_channel";
+        private readonly string _countdownChannelId = "countdown_channel";
 
         private Context NotificationContext => _context ?? Current.Activity ?? Current.AppContext;
 
@@ -76,7 +79,7 @@ namespace NDB.Covid19.Droid.Utils
             permissionsChannel.SetShowBadge(true);
 
             NotificationManager notificationManager =
-                (NotificationManager) NotificationContext.GetSystemService(Context.NotificationService);
+                (NotificationManager)NotificationContext.GetSystemService(Context.NotificationService);
             notificationManager?.CreateNotificationChannel(exposureChannel);
             notificationManager?.CreateNotificationChannel(backgroundFetchChannel);
             notificationManager?.CreateNotificationChannel(permissionsChannel);
@@ -86,7 +89,19 @@ namespace NDB.Covid19.Droid.Utils
         {
             BroadcastNotification(notificationViewModel, NotificationType.Local);
         }
-        
+
+        private string SelectChannel(NotificationsEnum type)
+        {
+            return type switch
+            {
+                NotificationsEnum.NewMessageReceived => _exposureChannelId,
+                NotificationsEnum.BackgroundFetch => _backgroundFetchChannelId,
+                NotificationsEnum.TimedReminder => _countdownChannelId,
+                NotificationsEnum.TimedReminderFinished => _reminderChannelId,
+                _ => _permissionsChannelId
+            };
+        }
+
         public Notification CreateNotification(NotificationViewModel notificationViewModel)
         {
             string channelId;
@@ -147,6 +162,42 @@ namespace NDB.Covid19.Droid.Utils
             return notification;
         }
 
+        public Notification CreateNotificationWithExtraLongData(
+    NotificationViewModel notificationViewModel, long ticks = 0)
+        {
+            TimeSpan t = TimeSpan.FromMilliseconds(ticks);
+
+            PendingIntent resultPendingIntent = InitResultIntentBasingOnViewModel(notificationViewModel);
+            NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(NotificationContext, SelectChannel(notificationViewModel.Type))
+                    .SetContentTitle(notificationViewModel.Title) // Set the title
+                    .SetStyle(new NotificationCompat.BigTextStyle().BigText(string.Format(notificationViewModel.Body, t.ToString("hh':'mm':'ss"))))
+                    .SetContentText(string.Format(notificationViewModel.Body, t.ToString("hh':'mm':'ss"))) // the message to display.
+                    .SetContentIntent(resultPendingIntent) // Start up this activity when the user clicks the intent.
+                    .SetVibrate(null)
+                    .SetSound(null)
+                    .SetCategory(NotificationCompat.CategoryStatus)
+                    .SetOnlyAlertOnce(true);
+
+            // This is the icon to display
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+            {
+                builder.SetColor(Resource.Color.colorPrimary);
+            }
+
+            builder.SetSmallIcon(Resource.Drawable.ic_logo_fhi_blue);
+
+            return builder.Build();
+        }
+        public void GenerateDelayedNotification(NotificationViewModel viewModel, long ticks)
+        {
+            Intent intent = new Intent();
+            intent.SetAction(BroadcastActionName);
+            intent.PutExtra("type", (int)NotificationType.ForegroundWithUpdates);
+            intent.PutExtra("data", (int)viewModel.Type);
+            intent.PutExtra("ticks", ticks);
+            LocalBroadcastManager.GetInstance(Current.Activity ?? Current.AppContext).SendBroadcast(intent);
+        }
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
         {
             BroadcastNotification(viewModel, NotificationType.InBackground);
@@ -175,7 +226,7 @@ namespace NDB.Covid19.Droid.Utils
             stackBuilder.AddNextIntent(resultIntent);
 
             // Create the PendingIntent with the back stack:
-            return stackBuilder.GetPendingIntent(0, (int) PendingIntentFlags.UpdateCurrent);
+            return stackBuilder.GetPendingIntent(0, (int)PendingIntentFlags.UpdateCurrent);
         }
 
         public void GenerateLocalPermissionsNotification(NotificationViewModel viewModel)
@@ -187,8 +238,8 @@ namespace NDB.Covid19.Droid.Utils
         {
             Intent intent = new Intent();
             intent.SetAction(BroadcastActionName);
-            intent.PutExtra("type", (int) type);
-            intent.PutExtra("data", (int) viewModel.Type);
+            intent.PutExtra("type", (int)type);
+            intent.PutExtra("data", (int)viewModel.Type);
             LocalBroadcastManager
                 .GetInstance(Current.Activity ?? Current.AppContext)
                 .SendBroadcast(intent);

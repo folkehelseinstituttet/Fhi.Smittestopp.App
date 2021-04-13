@@ -9,6 +9,8 @@ namespace NDB.Covid19.Enums
 {
     public enum NotificationsEnum
     {
+        TimedReminder,
+        TimedReminderFinished,
         NewMessageReceived,
         ApiDeprecated,
         ConsentNeeded,
@@ -26,6 +28,20 @@ namespace NDB.Covid19.Enums
         {
             switch (notificationType)
             {
+                case NotificationsEnum.TimedReminder:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.TimedReminder,
+                        Title = "NOTIFICATION_TIMED_REMINDER_TITLE".Translate(),
+                        Body = "NOTIFICATION_TIMED_REMINDER_DESCRIPTION".Translate()
+                    };
+                case NotificationsEnum.TimedReminderFinished:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.TimedReminderFinished,
+                        Title = "NOTIFICATION_TIMED_REMINDER_FINISHED_TITLE".Translate(),
+                        Body = "NOTIFICATION_TIMED_REMINDER_FINISHED_DESCRIPTION".Translate()
+                    };
                 case NotificationsEnum.NewMessageReceived:
                     return new NotificationViewModel
                     {
