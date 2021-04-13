@@ -26,7 +26,7 @@ namespace NDB.Covid19.Configuration
         //It takes around 25 seconds to download a zip file with 100.000 keys if you have 3G connection.
         //The timeout value takes this into consideration.
         public static int DEFAULT_TIMEOUT_SERVICECALLS_SECONDS => 40;
-        public static string DEFAULT_LANGUAGE = "nb"; //In case the device is set to use an unsupported language
+        public static string DEFAULT_LANGUAGE = "nn"; //In case the device is set to use an unsupported language
         public static string[] SUPPORTED_LANGUAGES = new string[] { "en", "nb", "nn", "pl", "so", "ti", "ar", "ur", "lt" };
 
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_SHORT => 15; 
@@ -44,6 +44,7 @@ namespace NDB.Covid19.Configuration
         public static string URL_LOG_MESSAGE => URL_PREFIX + "logging/logMessages";
         public static string URL_PUT_UPLOAD_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
+        public static string URL_GET_DAILY_SUMMARY_CONFIGURATION => URL_PREFIX + "diagnostickeys/dailysummaryconfiguration";
         public static string URL_GET_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_COUNTRY_LIST => URL_PREFIX + "countries";
         public static string URL_GET_FHI_DATA => URL_PREFIX + "covidstatistics";
@@ -82,6 +83,12 @@ namespace NDB.Covid19.Configuration
         public static readonly double HIGH_ATTENUATION_DURATION_MULTIPLIER = 0.0;
         // Meaningful exposure time threshold towards which the weighted time from the summary is evaluated
         public static readonly double EXPOSURE_TIME_THRESHOLD = 15.0;
+
+        // EN API v2: Default maximum score threshold for DailySummaryReport
+        // If maximum score for a particular day is higher than this threshold,
+        // the app should generate Exposure Notification. The actual threshold is fetched together
+        // with DailySummaryConfiguration on each pull of the keys from server
+        public static readonly double MAXIMUM_SCORE_THRESHOLD = 900;
 
         public static readonly string[] SUPPORTED_REGIONS = { "no" }; 
 

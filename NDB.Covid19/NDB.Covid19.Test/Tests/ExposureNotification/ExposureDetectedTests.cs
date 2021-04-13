@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using CommonServiceLocator;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Test.Mocks;
 using Xamarin.ExposureNotifications;
@@ -121,6 +123,39 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //We will get false from the call so the message won't be shown
             Assert.False(isOverThreshold);
+        }
+
+        [Fact]
+        public void RiskInDailySummaryAboveThreshold_ReturnsTrueWhenAboveConfiguredLimit()
+        {
+            LocalPreferencesHelper.MaximumScoreThreshold = 900;
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(901, 0, 0);
+            DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
+            bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
+
+            Assert.True(isAboveThreshold);
+        }
+
+        [Fact]
+        public void RiskInDailySummaryAboveThreshold_ReturnsTrueWhenAtConfiguredLimit()
+        {
+            LocalPreferencesHelper.MaximumScoreThreshold = 900;
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(900, 0, 0);
+            DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
+            bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
+
+            Assert.True(isAboveThreshold);
+        }
+
+        [Fact]
+        public void RiskInDailySummaryAboveThreshold_ReturnsFalseWhenBelowConfiguredLimit()
+        {
+            LocalPreferencesHelper.MaximumScoreThreshold = 900;
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(899, 0, 0);
+            DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
+            bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
+
+            Assert.False(isAboveThreshold);
         }
     }
 }

@@ -25,6 +25,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
 
         public string LastProvidedFilesPref { get => ""; set { } }
         public string PersistedExposureInfo { get => ""; set { } }
+        public string PersistedExposureWindows { get => ""; set { } }
+        public string PersistedDailySummaries { get => ""; set { } }
 
         public void ClearAllFields()
         {
@@ -51,5 +53,15 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public string LastPullHistory { get; set; }
         public void StartPullHistoryRecord() { }
         public void AddToPullHistoryRecord(string message, string requestUrl) { }
+
+        public void SaveExposureWindows(IEnumerable<ExposureWindow> windows)
+        {
+            //Exposure Windows are not saved in release mode for now
+        }
+
+        public void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
+        {
+            //Daily Summaries are not saved in release mode for now
+        }
     }
 }
