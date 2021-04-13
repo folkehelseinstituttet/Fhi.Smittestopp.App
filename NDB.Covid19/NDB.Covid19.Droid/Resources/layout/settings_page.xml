@@ -99,7 +99,7 @@
 
             <include
                     android:id="@+id/general_settings"
-                    layout="@layout/settings_link"
+                    layout="@layout/settings_general_link"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/defaultVerticalMargin"
