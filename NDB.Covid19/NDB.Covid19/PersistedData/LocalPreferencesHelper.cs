@@ -136,6 +136,12 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.HIGH_ATTENUATION_DURATION_MULTIPLIER, value);
         }
 
+        public static double MaximumScoreThreshold
+        {
+            get => _preferences.Get(PreferencesKeys.MAXIMUM_SCORE_THRESHOLD, Conf.MAXIMUM_SCORE_THRESHOLD);
+            set => _preferences.Set(PreferencesKeys.MAXIMUM_SCORE_THRESHOLD, value);
+        }
+
         public static DateTime LastPermissionsNotificationDateTimeUtc
         {
             get => _preferences.Get(PreferencesKeys.LAST_PERMISSIONS_NOTIFICATION_DATE_TIME, DateTime.MinValue);

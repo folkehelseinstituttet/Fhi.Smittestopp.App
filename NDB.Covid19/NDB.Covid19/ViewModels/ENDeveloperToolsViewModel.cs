@@ -114,10 +114,11 @@ namespace NDB.Covid19.ViewModels
             string appLanguage = GetAppLanguage();
 
             string formattedString =
-                $"EXPOSURE_TIME_THRESHOLD: {ExposureTimeThreshold}\n" +
-                $"LOW_ATTENUATION_DURATION_MULTIPLIER: {LowAttenuationDurationMultiplier}\n" +
-                $"MIDDLE_ATTENUATION_DURATION_MULTIPLIER: {MiddleAttenuationDurationMultiplier}\n" +
-                $"HIGH_ATTENUATION_DURATION_MULTIPLIER: {HighAttenuationDurationMultiplier}\n\n" +
+                $"[EN API v2] MAXIMUM_SCORE_THRESHOLD: {MaximumScoreThreshold}\n" +
+                $"[EN API v1] EXPOSURE_TIME_THRESHOLD: {ExposureTimeThreshold}\n" +
+                $"[EN API v1] LOW_ATTENUATION_DURATION_MULTIPLIER: {LowAttenuationDurationMultiplier}\n" +
+                $"[EN API v1] MIDDLE_ATTENUATION_DURATION_MULTIPLIER: {MiddleAttenuationDurationMultiplier}\n" +
+                $"[EN API v1] HIGH_ATTENUATION_DURATION_MULTIPLIER: {HighAttenuationDurationMultiplier}\n\n" +
                 $"MIGRATION_COUNT: {migrationCount}\n " +
                 $"LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED: {lastPullKeysBatchNumberNotSubmitted}\n " +
                 $"LAST_PULLED_BATCH_NUMBER_SUBMITTED: {lastPullKeysBatchNumberSuccessfullySubmitted}\n " +
