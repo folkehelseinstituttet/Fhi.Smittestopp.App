@@ -21,6 +21,7 @@ using static NDB.Covid19.ViewModels.QuestionnaireViewModel;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 using Object = Java.Lang.Object;
+using NDB.Covid19.Droid.Services;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -51,6 +52,10 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             Title = REGISTER_QUESTIONAIRE_HEADER;
             SetContentView(Resource.Layout.questionnaire_page);
             Init();
+            if (!RemovedFromRecentDetectorService.IsRunning)
+            {
+                StartService(new Intent(this, typeof(RemovedFromRecentDetectorService)));
+            }
         }
 
         protected override void OnResume()
