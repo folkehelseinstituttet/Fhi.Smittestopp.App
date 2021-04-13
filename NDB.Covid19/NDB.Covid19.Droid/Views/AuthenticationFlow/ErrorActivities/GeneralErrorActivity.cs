@@ -30,7 +30,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
         protected override void OnResume()
         {
             base.OnResume();
-            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing General Error Page", null, GetCorrelationId());
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing General Error", null, GetCorrelationId());
         }
 
         protected override void OnPause()

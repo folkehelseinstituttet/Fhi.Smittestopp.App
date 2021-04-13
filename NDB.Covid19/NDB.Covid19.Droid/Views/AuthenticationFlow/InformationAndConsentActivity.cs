@@ -49,13 +49,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         protected override void OnResume()
         {
             base.OnResume();
-            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Information and Consent page", null);
-        }
-
-        protected override void OnPause()
-        {
-            base.OnPause();
-            LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving Information and Consent page", null);
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Information and Consent", null);
         }
 
         private void OnAuthError(object sender, AuthErrorType e)
