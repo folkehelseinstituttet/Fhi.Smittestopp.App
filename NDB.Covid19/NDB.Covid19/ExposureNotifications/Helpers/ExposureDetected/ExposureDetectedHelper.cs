@@ -78,13 +78,13 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
         {
             if (dailySummary.Summary.MaximumScore >= LocalPreferencesHelper.MaximumScoreThreshold)
             {
-                Debug.WriteLine($"{_logPrefix}: Maximum score for DailySummary ${dailySummary.Timestamp.Date} is" +
-                    $"{dailySummary.Summary.MaximumScore} and is higher than MaximumScoreThreshold ${LocalPreferencesHelper.MaximumScoreThreshold}");
+                Debug.WriteLine($"{_logPrefix}: Maximum score for DailySummary {dailySummary.Timestamp.Date} is " +
+                    $"{dailySummary.Summary.MaximumScore} and is higher than MaximumScoreThreshold {LocalPreferencesHelper.MaximumScoreThreshold}");
                 return true;
             }
 
-            Debug.WriteLine($"{_logPrefix}: Maximum score for DailySummary ${dailySummary.Timestamp.Date} is" +
-                    $"{dailySummary.Summary.MaximumScore} and is lower than MaximumScoreThreshold ${LocalPreferencesHelper.MaximumScoreThreshold}");
+            Debug.WriteLine($"{_logPrefix}: Maximum score for DailySummary ${dailySummary.Timestamp.Date} is " +
+                    $"{dailySummary.Summary.MaximumScore} and is lower than MaximumScoreThreshold {LocalPreferencesHelper.MaximumScoreThreshold}");
             return false;
         }
 
