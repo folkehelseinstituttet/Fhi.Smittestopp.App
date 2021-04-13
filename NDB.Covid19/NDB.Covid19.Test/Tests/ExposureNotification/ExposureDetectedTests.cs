@@ -129,7 +129,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public void RiskInDailySummaryAboveThreshold_ReturnsTrueWhenAboveConfiguredLimit()
         {
             LocalPreferencesHelper.MaximumScoreThreshold = 900;
-            DailySummaryReport dailySummaryReport = new DailySummaryReport(0, 0, 901);
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(901, 0, 0);
             DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
 
@@ -140,7 +140,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public void RiskInDailySummaryAboveThreshold_ReturnsTrueWhenAtConfiguredLimit()
         {
             LocalPreferencesHelper.MaximumScoreThreshold = 900;
-            DailySummaryReport dailySummaryReport = new DailySummaryReport(0, 0, 900);
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(900, 0, 0);
             DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
 
@@ -151,7 +151,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public void RiskInDailySummaryAboveThreshold_ReturnsFalseWhenBelowConfiguredLimit()
         {
             LocalPreferencesHelper.MaximumScoreThreshold = 900;
-            DailySummaryReport dailySummaryReport = new DailySummaryReport(0, 0, 899);
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(899, 0, 0);
             DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
 
