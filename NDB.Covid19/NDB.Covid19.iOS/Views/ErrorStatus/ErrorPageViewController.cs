@@ -4,6 +4,7 @@ using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.ErrorStatus
 {
@@ -24,6 +25,7 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 
 		public static ErrorPageViewController Create(String errorTitle = "", String errorMessageTxt = "")
 		{
+			UpdateCorrelationId(null);
 			UIStoryboard storyboard = UIStoryboard.FromName("ErrorPage", null);
 			ErrorPageViewController vc = (ErrorPageViewController)storyboard.InstantiateViewController(nameof(ErrorPageViewController));
 			vc.ErrorTitle = errorTitle;
