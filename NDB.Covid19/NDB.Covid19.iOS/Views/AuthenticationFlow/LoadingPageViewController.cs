@@ -4,6 +4,7 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using UIKit;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -30,11 +31,13 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             base.ViewDidLoad();
             _spinner = StyleUtil.ShowSpinner(View,
                 AppDelegate.ShouldOperateIn12_5Mode ? UIActivityIndicatorViewStyle.WhiteLarge : UIActivityIndicatorViewStyle.Large);
+            AddObservers();
         }
 
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Loading Page", null, GetCorrelationId());
             if (!_isRunning)
             {
                 RunBackgroundActivity();
@@ -42,19 +45,39 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             }
         }
 
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
+        }
+
+        void AddObservers()
+        {
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Loading Page", null, GetCorrelationId());
+            });
+
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user left Loading Page", null, GetCorrelationId());
+            });
+        }
+
         public async void RunBackgroundActivity()
         {
             try
             {
                 await Xamarin.ExposureNotifications.ExposureNotification.SubmitSelfDiagnosisAsync();
-                LogUtils.LogMessage(LogSeverity.INFO, "Successfully pushed keys to server");
+                LogUtils.LogMessage(LogSeverity.INFO, "The user agreed to share keys", null, GetCorrelationId());
                 OnSuccess();
             }
             catch (Exception e)
             {
                 if (e is NSErrorException nsErrorEx && nsErrorEx.Code == 4) 
                 {
-                    LogUtils.LogException(LogSeverity.INFO, e, "Permission to push keys was declined");
+                    LogUtils.LogException(LogSeverity.INFO, e, "The user refused to share keys", null, GetCorrelationId());
                     NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
                 }
                 else
@@ -70,8 +93,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             _spinner?.RemoveFromSuperview();
         }
 
-        void OnError(Exception e)
+        void OnError(Exception e, bool isOnFail = false)
         {
+            if(!isOnFail)
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "Something went wrong during key sharing (INFO with correlation id)", e.Message, GetCorrelationId());
+            }
             Cleanup();
             AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, e, "Pushing keys failed" );
         }

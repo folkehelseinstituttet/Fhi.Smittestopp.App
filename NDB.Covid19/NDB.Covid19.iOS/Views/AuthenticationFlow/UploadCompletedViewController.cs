@@ -6,6 +6,8 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using Xamarin.Essentials;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using NDB.Covid19.Enums;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -36,19 +38,36 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetStyling();
             SetupLearnMoreButton();
             SetAccessibilityAttributes();
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys");
+            LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys", null, GetCorrelationId());
+            AddObservers();
         }
 
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
             _learnMoreViewBtn.TouchUpInside += OnLearnMoreBtnTapped;
+            LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user is seeing Registered", null, GetCorrelationId());
         }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
             _learnMoreViewBtn.TouchUpInside -= OnLearnMoreBtnTapped;
+        }
+
+        void AddObservers()
+        {
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Registered", null, GetCorrelationId());
+            });
+
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user left Registered", null, GetCorrelationId());
+            });
         }
 
 
