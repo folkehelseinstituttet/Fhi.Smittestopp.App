@@ -43,7 +43,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers
 
 			if (validListOfTeks.Count() != temporaryExposureKeys.Count())
 			{
-				LogUtils.LogMessage(Enums.LogSeverity.WARNING, "Number of keys filtered out by Smittestop: " + (temporaryExposureKeys.Count() - validListOfTeks.Count()));
+				LogUtils.LogMessage(Enums.LogSeverity.WARNING, "Number of keys filtered out by Smittestopp: " + (temporaryExposureKeys.Count() - validListOfTeks.Count()));
 			}
 
 			return validListOfTeks;

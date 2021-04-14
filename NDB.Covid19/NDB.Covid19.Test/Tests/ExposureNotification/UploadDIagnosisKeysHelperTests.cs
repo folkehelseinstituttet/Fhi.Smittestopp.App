@@ -109,6 +109,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public void createAValidListOfTemporaryExposureKeys_GeneratesProperLogIfKeysAreFiltered(int ExtraKeys)
         {
             SystemTime.ResetDateTime();
+            _logManager.DeleteAll();
 
             // Create a list of 15 keys
             IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>();
@@ -123,7 +124,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             // Check if log is generated
             string logStatement = _logManager.GetLogs(1).Result.ElementAt(0).Description;
             Assert.Equal(ExtraKeys.ToString(), logStatement.Last().ToString());
-            _logManager.DeleteAll();
         }
 
         // True iff. container contains a key with same value as the given tek. Not looking at object addresses
