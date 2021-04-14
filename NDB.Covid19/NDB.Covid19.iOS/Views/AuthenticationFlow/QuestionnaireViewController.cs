@@ -34,6 +34,9 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             _viewModel = new QuestionnaireViewModel();
 
+            // Generate and set the correlation id for current authentication flow
+            UpdateCorrelationId(LogUtils.GenerateCorrelationId());
+
             SetTexts();
             SetStyling();
             UpdateUIWhenSelectionChanges();
