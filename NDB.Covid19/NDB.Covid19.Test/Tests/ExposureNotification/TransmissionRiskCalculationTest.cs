@@ -40,10 +40,8 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 };
 
             // Process a list of copies
-            IEnumerable<ExposureKeyModel> processedKeys =
-                CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
             List<ExposureKeyModel> validKeys =
-                CreateAValidListOfTemporaryExposureKeys(processedKeys);
+                CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
 
             List<ExposureKeyModel> resultKeys = SetTransmissionRiskLevel(validKeys, MiBaDate);
 
@@ -57,17 +55,15 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             IEnumerable<ExposureKeyModel> negativeDifferenceExposureKeys =
                 new List<ExposureKeyModel>
                 {
-                    TEK(-3),
-                    TEK(-2),
-                    TEK(-1)
+                    TEK(-3), // DSOS -4 RiskLevel 1 (Lowest)
+                    TEK(-2), // DSOS -3 RiskLevel 2 (Low)
+                    TEK(-1) // DSOS -2 RiskLevel 3 (MediumLow)
                 };
 
             // Process a list of copies
-            IEnumerable<ExposureKeyModel> processedNegativeDifferenceExposureKeys =
-                CreateAValidListOfTemporaryExposureKeys(negativeDifferenceExposureKeys);
             List<ExposureKeyModel> validNegativeDifferenceExposureKeys =
                 CreateAValidListOfTemporaryExposureKeys(
-                    processedNegativeDifferenceExposureKeys);
+                    negativeDifferenceExposureKeys);
             List<ExposureKeyModel> resultKeysNegativeDifference =
                 SetTransmissionRiskLevel(validNegativeDifferenceExposureKeys, MiBaDate);
 
@@ -107,11 +103,11 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
         private void AssertNegativeDaysTEKS(List<ExposureKeyModel> resultKeysNegativeDifference)
         {
-            for (int i = 1; i < resultKeysNegativeDifference.Count; i++)
+            for (int i = 0; i < resultKeysNegativeDifference.Count; i++)
             {
                 if (i == 0)
                 {
-                    Assert.Equal("MediumLow", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("Lowest", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
 
                 if (i == 1)
@@ -121,7 +117,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
                 if (i == 2)
                 {
-                    Assert.Equal("Lowest", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("MediumLow", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
             }
         }
