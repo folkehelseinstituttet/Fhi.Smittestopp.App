@@ -12,8 +12,5 @@
         public static string KEY_PERMISSIONS_CHANGED => "PermissionsChangedKey";
 
         public static string KEY_UPDATE_DAILY_NUMBERS => "KEY_UPDATE_DAILY_NUMBERS";
-
-        public static string KEY_APP_BECAME_ACTIVE => "KEY_APP_BECAME_ACTIVE";
-        public static string KEY_APP_RESIGN_ACTIVE => "KEY_APP_RESIGN_ACTIVE";
     }
 }
