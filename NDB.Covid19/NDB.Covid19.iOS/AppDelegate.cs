@@ -149,11 +149,42 @@ namespace NDB.Covid19.iOS
         {
             Debug.WriteLine("AppDelegate.WillEnterForeground called");
 
-            LogUtils.LogMessage(LogSeverity.INFO, "The user has opened the app", null);
+
+            string correlationId = GetCorrelationId();
+            if (!string.IsNullOrEmpty(correlationId))
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user has opened the app", null, GetCorrelationId());
+            }
 
             DidEnterBackgroundState = false;
             MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
         }
+
+
+        /// <summary>
+        /// Method that is used before iOS 13 to detect application is about to become inactive.
+        /// Corresponds to iOS 13+ SceneDelegate's WillResignActive(UIScene:) method.
+        /// </summary>
+        [Export("applicationWillResignActive:")]
+        public void WillResignActive(UIApplication application)
+        {
+            Debug.WriteLine("AppDelegate.WillResignActive called");
+
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE);
+        }
+
+        /// <summary>
+        /// Method that is used before iOS 13 to detect application has become active.
+        /// Corresponds to iOS 13+ SceneDelegate's DidBecomeActive(UIScene:) method.
+        /// </summary>
+        [Export("applicationDidBecomeActive:")]
+        public void DidBecomeActive(UIApplication application)
+        {
+            Debug.WriteLine("AppDelegate.DidBecomeActive called");
+
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE);
+        }
+
 
         /// <summary>
         /// Method that is used before iOS 13 to request application open a resource specified by a URL.

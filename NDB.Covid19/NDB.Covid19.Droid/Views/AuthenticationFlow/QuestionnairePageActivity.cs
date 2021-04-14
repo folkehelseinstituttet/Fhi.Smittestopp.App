@@ -76,6 +76,18 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving Questionnaire", null, GetCorrelationId());
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire", null, GetCorrelationId());
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is leaving Questionnaire", null, GetCorrelationId());
+        }
+
         private void Init()
         {
             // Generate and set correlation id for current authentication flow

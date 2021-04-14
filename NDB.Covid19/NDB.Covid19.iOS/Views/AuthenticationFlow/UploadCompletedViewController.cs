@@ -39,6 +39,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetupLearnMoreButton();
             SetAccessibilityAttributes();
             LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys", null, GetCorrelationId());
+            UpdateCorrelationId(null);
             AddObservers();
         }
 
