@@ -62,17 +62,26 @@ namespace NDB.Covid19.ExposureNotifications
         public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary>? summaries)
         {
             Debug.WriteLine("ExposureStateUpdatedAsync is called");
+
+            List<DateTime> validDates = ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList();
+
             bool shouldSendMessage = false;
+            List<DateTime> datesOfExposuresOverThreshold = new List<DateTime>();
+
             foreach (DailySummary dailySummary in summaries)
             {
                 if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary)
-                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date))
+                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date, validDates))
                 {
+                    datesOfExposuresOverThreshold.Add(dailySummary.Timestamp.Date);
                     shouldSendMessage = true;
-                    // TODO: Mark the summary date as the one for which Exposure Notification has been shown
                 }
             }
-            if (shouldSendMessage) await MessageUtils.CreateMessage(this);
+            if (shouldSendMessage)
+            {
+                await MessageUtils.CreateMessage(this);
+                await ExposureDetectedHelper.UpdateDatesOfExposures(datesOfExposuresOverThreshold);
+            }
             ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
             ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastDailySummaries(summaries);
         }

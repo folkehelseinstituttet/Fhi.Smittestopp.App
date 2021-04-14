@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonServiceLocator;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Test.Mocks;
+using Newtonsoft.Json;
 using Xamarin.ExposureNotifications;
 using Xunit;
 
@@ -141,7 +143,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             LocalPreferencesHelper.MaximumScoreThreshold = 900;
             DailySummaryReport dailySummaryReport = new DailySummaryReport(900, 0, 0);
-            DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
+            DailySummary dailySummary = new DailySummary(SystemTime.Now(), dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
 
             Assert.True(isAboveThreshold);
@@ -152,10 +154,144 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             LocalPreferencesHelper.MaximumScoreThreshold = 900;
             DailySummaryReport dailySummaryReport = new DailySummaryReport(899, 0, 0);
-            DailySummary dailySummary = new DailySummary(DateTime.Now, dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
+            DailySummary dailySummary = new DailySummary(SystemTime.Now(), dailySummaryReport, new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
 
             Assert.False(isAboveThreshold);
+        }
+
+        [Fact]
+        public void HasNotShownExposureNotificationForDate_ReturnsTrueIfTimeStampHasNotYetBeenSaved()
+        {
+            SystemTime.ResetDateTime();
+            List<DateTime> previouslySavedDates = new List<DateTime>();
+            previouslySavedDates.Add(SystemTime.Now().AddDays(0).Date);
+            previouslySavedDates.Add(SystemTime.Now().AddDays(-1).Date);
+            previouslySavedDates.Add(SystemTime.Now().AddDays(-2).Date);
+
+
+            bool savedBefore = ExposureDetectedHelper.HasNotShownExposureNotificationForDate(SystemTime.Now().AddDays(-1), previouslySavedDates);
+            bool neverSaved = ExposureDetectedHelper.HasNotShownExposureNotificationForDate(SystemTime.Now().AddDays(-3), previouslySavedDates);
+            Assert.False(savedBefore);
+            Assert.True(neverSaved);
+        }
+
+        [Fact]
+        public void DeleteDatesOfExposureOlderThan14DaysAndReturnNewList_DeletesDaysOlderThan14Days()
+        {
+            SystemTime.ResetDateTime();
+            _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
+
+            List<DateTime> previouslySavedDates = createListOfDateTimesUpToXDaysInThePast(20);
+            _secureStorageService.SaveValue(
+                SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY,
+                JsonConvert.SerializeObject(previouslySavedDates));
+
+            List<DateTime> validDates = ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList();
+
+            Assert.Equal(14, validDates.Count);
+        }
+
+        [Fact]
+        public void DeleteDatesOfExposureOlderThan14DaysAndReturnNewList_DeletesNoDaysOlderThan14DaysOld()
+        {
+            SystemTime.ResetDateTime();
+            _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
+
+            List<DateTime> previouslySavedDates = createListOfDateTimesUpToXDaysInThePast(14);
+            _secureStorageService.SaveValue(
+                SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY,
+                JsonConvert.SerializeObject(previouslySavedDates));
+
+            List<DateTime> validDates = ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList();
+
+            Assert.Equal(14, validDates.Count);
+        }
+
+        [Fact]
+        public void DeleteDatesOfExposureOlderThan14DaysAndReturnNewList_ReturnsEmptyListWhenNothingIsSavedYet()
+        {
+            SystemTime.ResetDateTime();
+            _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
+
+            List<DateTime> validDates = ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList();
+
+            Assert.Empty(validDates);
+        }
+
+        [Fact]
+        public async void UpdateDatesOfExposures_AddsAllNewDates_WhenNothingIsSavedYet()
+        {
+            SystemTime.ResetDateTime();
+            _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
+
+            List<DateTime> datesToSave = createListOfDateTimesUpToXDaysInThePast(2);
+
+            await ExposureDetectedHelper.UpdateDatesOfExposures(datesToSave);
+
+            List<DateTime> savedDates =
+                JsonConvert.DeserializeObject<List<DateTime>>(_secureStorageService.GetValue(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY));
+
+            Assert.Equal(datesToSave.Count, savedDates.Count);
+        }
+
+        [Fact]
+        public async void UpdateDatesOfExposures_AddsAllNewDatesToTheOld_WhenSomeDatesAreSavedInSecureStorage()
+        {
+            SystemTime.ResetDateTime();
+            _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
+            List<DateTime> previouslySavedDates = new List<DateTime>();
+            previouslySavedDates.Add(SystemTime.Now().AddDays(-10).Date);
+            previouslySavedDates.Add(SystemTime.Now().AddDays(-8).Date);
+            _secureStorageService.SaveValue(
+                SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY,
+                JsonConvert.SerializeObject(previouslySavedDates));
+
+            List<DateTime> datesToSave = createListOfDateTimesUpToXDaysInThePast(2);
+
+            await ExposureDetectedHelper.UpdateDatesOfExposures(datesToSave);
+
+            List<DateTime> savedDates =
+                JsonConvert.DeserializeObject<List<DateTime>>(_secureStorageService.GetValue(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY));
+
+            Assert.Equal(datesToSave.Count + previouslySavedDates.Count, savedDates.Count);
+        }
+
+        [Fact]
+        public async void ExposureStateUpdatedAsync_DeletesOldDatesAndAddsNewDates()
+        {
+            SystemTime.ResetDateTime();
+            _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
+            List<DateTime> previouslySavedDates = new List<DateTime>();
+            previouslySavedDates.Add(SystemTime.Now().AddDays(-20).Date);
+            previouslySavedDates.Add(SystemTime.Now().AddDays(-18).Date);
+            previouslySavedDates.Add(SystemTime.Now().AddDays(-8).Date);
+            _secureStorageService.SaveValue(
+                SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY,
+                JsonConvert.SerializeObject(previouslySavedDates));
+
+            List<DateTime> datesToSave = createListOfDateTimesUpToXDaysInThePast(2);
+
+            Assert.Single(ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList());
+
+            await ExposureDetectedHelper.UpdateDatesOfExposures(datesToSave);
+
+            List<DateTime> savedDates =
+                JsonConvert.DeserializeObject<List<DateTime>>(_secureStorageService.GetValue(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY));
+
+            Assert.Equal(datesToSave.Count + 1, savedDates.Count);
+        }
+
+        private List<DateTime> createListOfDateTimesUpToXDaysInThePast(int daysInThePast)
+        {
+            List<DateTime> previouslySavedDates = new List<DateTime>();
+
+            for (int i = 0 - daysInThePast; i <= 0; i++)
+            {
+                previouslySavedDates.Add(SystemTime.Now().AddDays(i).Date);
+            }
+
+            return previouslySavedDates;
         }
     }
 }

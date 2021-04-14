@@ -11,6 +11,7 @@ namespace NDB.Covid19.PersistedData.SecureStorage
         public static readonly string LAST_HIGH_RISK_ALERT_UTC_KEY = "LAST_HIGH_RISK_ALERT_UTC_KEY";
         public static readonly string LAST_SENT_NOTIFICATION_UTC_KEY = "LAST_SENT_NOTIFICATION_UTC_KEY";
         public static readonly string LAST_SUMMARY_KEY = "LAST_SUMMARY_KEY";
+        public static readonly string DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY = "DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY";
 
         public static IEnumerable<string> GetAllKeysForCleaningDevice()
         {
