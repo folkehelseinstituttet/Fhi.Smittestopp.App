@@ -9,7 +9,9 @@ using NDB.Covid19.Interfaces;
 using Xamarin.Essentials;
 using static NDB.Covid19.ViewModels.QuestionnaireViewModel;
 using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Enums;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -25,6 +27,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             this.Title = REGISTER_QUESTIONAIRE_RECEIPT_HEADER;
             SetContentView(Resource.Layout.registered_page);
             Init();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Registered", null, GetCorrelationId());
         }
 
         private void Init()
@@ -65,7 +73,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                         .OpenAsync(
                             REGISTER_QUESTIONAIRE_RECEIPT_LINK,
                             BrowserLaunchMode.SystemPreferred);
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "User has succesfully shared their keys");
+            LogUtils.LogMessage(LogSeverity.INFO, "The user has successfully shared their keys", null, GetCorrelationId());
+            UpdateCorrelationId(null);
         }
 
         public override void OnBackPressed() => GoToInfectionStatusActivity();
