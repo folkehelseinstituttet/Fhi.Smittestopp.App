@@ -4,8 +4,10 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries;
 using NDB.Covid19.iOS.Views.CustomSubclasses;
+using NDB.Covid19.Utils;
 using UIKit;
 using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -29,7 +31,34 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             SetTexts();
             SetupStyling();
-            SetupAccessibility();  
+            SetupAccessibility();
+            AddObservers();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Countries Consent", null, GetCorrelationId());
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
+        }
+
+        void AddObservers()
+        {
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Countries Consent", null, GetCorrelationId());
+            });
+
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is left Countries Consent", null, GetCorrelationId());
+            });
         }
 
         private void SetTexts()
@@ -73,12 +102,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void GoToLoadingPage()
         {
+            LogUtils.LogMessage(LogSeverity.INFO, "Navigating to Loading page", null, GetCorrelationId());
             NavigationController?.PushViewController(LoadingPageViewController.Create(), true);
         }
 
         void GoToQuestionnaireCountriesPage()
         {
             NavigationController?.PushViewController(QuestionnaireCountriesViewController.Create(), true);
+            LogUtils.LogMessage(LogSeverity.INFO, "Navigating to Questionnaire Countries page", null, GetCorrelationId());
         }
 
         partial void OnCloseBtnTapped(UIButton sender)
@@ -95,11 +126,13 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         partial void OnNextWithEUConsent(DefaultBorderButton sender)
         {
+            LogUtils.LogMessage(LogSeverity.INFO, "The user agreed to share keys with EU", null, GetCorrelationId());
             InvokeNextButtonClick(GoToQuestionnaireCountriesPage, OnFail, true);
         }
 
         partial void OnNextOnlyNorwayConsent(DefaultBorderButton sender)
         {
+            LogUtils.LogMessage(LogSeverity.INFO, "The user declined to share keys with EU", null, GetCorrelationId());
             InvokeNextButtonClick(GoToLoadingPage, OnFail, false);
         }
     }
