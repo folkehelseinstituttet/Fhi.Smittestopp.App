@@ -36,9 +36,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
             _viewModel = new QuestionnaireCountriesViewModel();
             _countryList = new List<CountryDetailsViewModel>();
 
-            // Generate and set the correlation ID for current authentication flow
-            UpdateCorrelationId(LogUtils.GenerateCorrelationId());
-
             SetStyling();
             SetAccessibility();
             AddObservers();
