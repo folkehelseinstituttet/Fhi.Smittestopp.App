@@ -149,7 +149,7 @@ namespace NDB.Covid19.iOS
         {
             Debug.WriteLine("AppDelegate.WillEnterForeground called");
 
-            LogUtils.LogMessage(LogSeverity.INFO, "The user has opened the app", null);
+            LogUtils.LogMessage(LogSeverity.INFO, "The user has opened the app", null, GetCorrelationId());
 
             DidEnterBackgroundState = false;
             MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
