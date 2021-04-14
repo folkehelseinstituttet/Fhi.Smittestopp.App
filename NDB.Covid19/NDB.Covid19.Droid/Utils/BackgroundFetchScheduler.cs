@@ -93,6 +93,12 @@ namespace NDB.Covid19.Droid.Utils
                     Debug.WriteLine($"UpdateKeysFromServer!! Current time of day: {DateTime.Now.TimeOfDay}!!\n");
                     if (await Xamarin.ExposureNotifications.ExposureNotification.IsEnabledAsync())
                     {
+                        // SetDiagnosisKeysDataMappingAsync should be used on Android with EN API v2 to configure
+                        // how the Exposure Notifications system translates diagnosis key data
+                        // to the corresponding fields in ExposureWindow
+                        // src: https://developers.google.com/android/exposure-notifications/meaningful-exposures#map-diag-keys
+                        await DiagnosisKeysDataMappingUtils.SetDiagnosisKeysDataMappingAsync();
+
                         // UpdateKeysFromServer() does:
                         //     run ExposureNotificationHandler.FetchExposureKeyBatchFilesFromServerAsync()
                         //     try to find matches by doing DetectExposuresAsync()

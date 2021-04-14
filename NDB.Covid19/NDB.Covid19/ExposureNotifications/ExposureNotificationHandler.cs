@@ -21,7 +21,7 @@ using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ExposureNotifications
 {
-    public class ExposureNotificationHandler : IExposureNotificationHandler
+    public class ExposureNotificationHandler : IExposureNotificationDailySummaryHandler
     {
         //MiBaDate is null if the device has garbage collected, e.g. in background. Throws MiBaDateMissingException if null.
         private DateTime? MiBaDate => AuthenticationState.PersonalData?.FinalMiBaDate;
@@ -41,7 +41,7 @@ namespace NDB.Covid19.ExposureNotifications
                 }
 
                 string jsonConfiguration = JsonConvert.SerializeObject(configuration);
-                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
+                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V1 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
                 return configuration;
             });
         }
@@ -53,9 +53,28 @@ namespace NDB.Covid19.ExposureNotifications
 
         public async Task ExposureDetectedAsync(ExposureDetectionSummary summary, Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
         {
+            Debug.WriteLine("ExposureDetectedAsync is called");
             await ExposureDetectedHelper.EvaluateRiskInSummaryAndCreateMessage(summary, this);
             await ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastExposureInfos(getExposureInfo);
             ExposureDetectedHelper.SaveLastSummary(summary);
+        }
+
+        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary>? summaries)
+        {
+            Debug.WriteLine("ExposureStateUpdatedAsync is called");
+            bool shouldSendMessage = false;
+            foreach (DailySummary dailySummary in summaries)
+            {
+                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary)
+                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date))
+                {
+                    shouldSendMessage = true;
+                    // TODO: Mark the summary date as the one for which Exposure Notification has been shown
+                }
+            }
+            if (shouldSendMessage) await MessageUtils.CreateMessage(this);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastDailySummaries(summaries);
         }
 
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> tempKeys)
@@ -125,6 +144,39 @@ namespace NDB.Covid19.ExposureNotifications
             {
                 throw new FailedToPushToServerException("Failed to push keys to the server");
             }
+        }
+
+        public Task<DailySummaryConfiguration> GetDailySummaryConfigurationAsync()
+        {
+            Debug.WriteLine("Fetching DailySummaryConfiguration");
+
+            return Task.Run(async () =>
+            {
+                Xamarin.ExposureNotifications.DailySummaryConfiguration dsc = await exposureNotificationWebService.GetDailySummaryConfiguration();
+                if (dsc == null)
+                {
+                    throw new FailedToFetchConfigurationException("Aborting pull because configuration was not fetched from server. See corresponding server error log");
+                }
+
+                // On iOS double-type weights represent percents, so we need to multiply by 100
+                if (DeviceInfo.Platform == DevicePlatform.iOS)
+                {
+                    dsc.AttenuationWeights[DistanceEstimate.Immediate] *= 100;
+                    dsc.AttenuationWeights[DistanceEstimate.Medium] *= 100;
+                    dsc.AttenuationWeights[DistanceEstimate.Near] *= 100;
+                    dsc.AttenuationWeights[DistanceEstimate.Other] *= 100;
+                    dsc.InfectiousnessWeights[Infectiousness.Standard] *= 100;
+                    dsc.InfectiousnessWeights[Infectiousness.High] *= 100;
+                    dsc.ReportTypeWeights[ReportType.Recursive] *= 100;
+                    dsc.ReportTypeWeights[ReportType.ConfirmedTest] *= 100;
+                    dsc.ReportTypeWeights[ReportType.SelfReported] *= 100;
+                    dsc.ReportTypeWeights[ReportType.ConfirmedClinicalDiagnosis] *= 100;
+                }
+
+                string jsonConfiguration = JsonConvert.SerializeObject(dsc);
+                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V2 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
+                return dsc;
+            });
         }
 
         // This is the explanation that will be displayed to the user when getting ExposureInfo objects on iOS
