@@ -106,10 +106,10 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         [InlineData(2)]
         [InlineData(1)]
         [InlineData(9)]
-        public void createAValidListOfTemporaryExposureKeys_GeneratesProperLogIfKeysAreFiltered(int ExtraKeys)
+        public async void createAValidListOfTemporaryExposureKeys_GeneratesProperLogIfKeysAreFiltered(int ExtraKeys)
         {
             SystemTime.ResetDateTime();
-            _logManager.DeleteAll();
+            await _logManager.DeleteAll();
 
             // Create a list of 15 keys
             IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>();
