@@ -20,6 +20,7 @@ using NDB.Covid19.Utils.DeveloperTools;
 using EN = Xamarin.ExposureNotifications;
 using Debug = System.Diagnostics.Debug;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using System.Linq;
 using System.Globalization;
 
 namespace NDB.Covid19.ViewModels
@@ -116,13 +117,15 @@ namespace NDB.Covid19.ViewModels
             bool isDownloadWithMobileDataEnabled = GetIsDownloadWithMobileDataEnabled();
             DateTime updatedDateTime = GetUpdatedDateTime();
             DateTime lastPullKeysSucceededDateTime = GetLastPullKeysSucceededDateTime();
+            DateTime lastDiagnosisKeysDataMappingDateTime = GetLastDiagnosisKeysDataMappingDateTime();
             string appLanguage = GetAppLanguage();
 
             string formattedString =
-                $"EXPOSURE_TIME_THRESHOLD: {ExposureTimeThreshold}\n" +
-                $"LOW_ATTENUATION_DURATION_MULTIPLIER: {LowAttenuationDurationMultiplier}\n" +
-                $"MIDDLE_ATTENUATION_DURATION_MULTIPLIER: {MiddleAttenuationDurationMultiplier}\n" +
-                $"HIGH_ATTENUATION_DURATION_MULTIPLIER: {HighAttenuationDurationMultiplier}\n\n" +
+                $"[EN API v2] MAXIMUM_SCORE_THRESHOLD: {MaximumScoreThreshold}\n" +
+                $"[EN API v1] EXPOSURE_TIME_THRESHOLD: {ExposureTimeThreshold}\n" +
+                $"[EN API v1] LOW_ATTENUATION_DURATION_MULTIPLIER: {LowAttenuationDurationMultiplier}\n" +
+                $"[EN API v1] MIDDLE_ATTENUATION_DURATION_MULTIPLIER: {MiddleAttenuationDurationMultiplier}\n" +
+                $"[EN API v1] HIGH_ATTENUATION_DURATION_MULTIPLIER: {HighAttenuationDurationMultiplier}\n\n" +
                 $"MIGRATION_COUNT: {migrationCount}\n " +
                 $"LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED: {lastPullKeysBatchNumberNotSubmitted}\n " +
                 $"LAST_PULLED_BATCH_NUMBER_SUBMITTED: {lastPullKeysBatchNumberSuccessfullySubmitted}\n " +
@@ -132,6 +135,7 @@ namespace NDB.Covid19.ViewModels
                 $"USE_MOBILE_DATA_PREF: {isDownloadWithMobileDataEnabled}\n" +
                 $"MESSAGES_LAST_UPDATED_PREF: {updatedDateTime}\n" +
                 $"LAST_PULL_KEYS_SUCCEEDED_DATE_TIME: {lastPullKeysSucceededDateTime}\n" +
+                $"[ONLY ANDROID] LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME: {lastDiagnosisKeysDataMappingDateTime}\n" +
                 $"LAST_TERMS_NOTIFICATION_DATE_TIME: {LastDateTimeTermsNotificationWasShown}\n" +
                 $"APP_LANGUAGE: {appLanguage}\n\n";
 
@@ -251,35 +255,84 @@ namespace NDB.Covid19.ViewModels
             return finalResult;
         }
 
+        public string GetExposureWindows()
+        {
+            string exposureWindowsString = _devTools.PersistedExposureWindows;
+            string result = "";
+
+            if (exposureWindowsString == "")
+            {
+                result = "We have not saved any ExposureWindows yet";
+            }
+            else
+            {              
+                try
+                {
+                    string jsonString = exposureWindowsString;
+                    object obj = JsonConvert.DeserializeObject(jsonString);
+                    result = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                }
+
+                catch (Exception e)
+                {
+                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
+                    result = "Failed at deserializing the saved ExposureWindows";
+                }
+        }
+            string finalResult = $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}"; 
+            _clipboard.SetTextAsync(finalResult);
+            return finalResult;
+        }
+
         // Consider: Displaying the exposure configuration in the activities.
         public async Task<string> FetchExposureConfigurationAsync()
         {
-            EN.Configuration c = await new ExposureNotificationHandler().GetConfigurationAsync();
-            string res = $" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)} \n" +
-                $" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)} \n" +
-                $" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)} \n" +
-                $" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)} \n" +
-                $" MinimumRiskScore: {c.MinimumRiskScore}" +
-                $" DurationAtAttenuationThresholds: [{c.DurationAtAttenuationThresholds[0]},{c.DurationAtAttenuationThresholds[1]}]";
+            try
+            {
+                DailySummaryConfiguration dsc = await new ExposureNotificationHandler().GetDailySummaryConfigurationAsync();
+                string result = $"AttenuationThresholds: {ENConfArrayString(dsc.AttenuationThresholds)}\n " +
+                    $"AttenuationWeights: {ENConfDictionaryString(dsc.AttenuationWeights)} \n" +
+                    $"DaysSinceLastExposureThreshold: {dsc.DaysSinceLastExposureThreshold} \n" +
+                    $"DaysSinceOnsetInfectiousness: {ENConfDictionaryString(dsc.DaysSinceOnsetInfectiousness)} \n" +
+                    $"DefaultInfectiousness: {dsc.DefaultInfectiousness}\n" +
+                    $"DefaultReportType: {dsc.DefaultReportType}\n" +
+                    $"InfectiousnessWeights: {ENConfDictionaryString(dsc.InfectiousnessWeights)}\n" +
+                    $"ReportTypeWeights: {ENConfDictionaryString(dsc.ReportTypeWeights)}\n";
+                DevToolsOutput = result;
+            }
+            catch (InvalidOperationException)
+            {
+                EN.Configuration c = await new ExposureNotificationHandler().GetConfigurationAsync();
+                string result = $" AttenuationWeight: {c.AttenuationWeight}, Values: {ENConfArrayString(c.AttenuationScores)} \n" +
+                    $" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {ENConfArrayString(c.DaysSinceLastExposureScores)} \n" +
+                    $" DurationWeight: {c.DurationWeight}, Values: {ENConfArrayString(c.DurationScores)} \n" +
+                    $" TransmissionWeight: {c.TransmissionWeight}, Values: {ENConfArrayString(c.TransmissionRiskScores)} \n" +
+                    $" MinimumRiskScore: {c.MinimumRiskScore}" +
+                    $" DurationAtAttenuationThresholds: [{c.DurationAtAttenuationThresholds[0]},{c.DurationAtAttenuationThresholds[1]}]";
+                Debug.WriteLine("Exposure Configuration:");
+                Debug.WriteLine($" AttenuationWeight: {c.AttenuationWeight}, Values: {ENConfArrayString(c.AttenuationScores)}");
+                Debug.WriteLine($" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {ENConfArrayString(c.DaysSinceLastExposureScores)}");
+                Debug.WriteLine($" DurationWeight: {c.DurationWeight}, Values: {ENConfArrayString(c.DurationScores)}");
+                Debug.WriteLine($" TransmissionWeight: {c.TransmissionWeight}, Values: {ENConfArrayString(c.TransmissionRiskScores)}");
+                Debug.WriteLine($" MinimumRiskScore: {c.MinimumRiskScore}");
+                DevToolsOutput = result;
+            }
 
-            Debug.WriteLine("Exposure Configuration:");
-            Debug.WriteLine($" AttenuationWeight: {c.AttenuationWeight}, Values: {EnConfArrayString(c.AttenuationScores)}");
-            Debug.WriteLine($" DaysSinceLastExposureWeight: {c.DaysSinceLastExposureWeight}, Values: {EnConfArrayString(c.DaysSinceLastExposureScores)}");
-            Debug.WriteLine($" DurationWeight: {c.DurationWeight}, Values: {EnConfArrayString(c.DurationScores)}");
-            Debug.WriteLine($" TransmissionWeight: {c.TransmissionWeight}, Values: {EnConfArrayString(c.TransmissionRiskScores)}");
-            Debug.WriteLine($" MinimumRiskScore: {c.MinimumRiskScore}");
-
-            DevToolsOutput = res;
             DevToolUpdateOutput?.Invoke();
-            await _clipboard.SetTextAsync(res);
-            return res;
+            await _clipboard.SetTextAsync(DevToolsOutput);
+            return DevToolsOutput;
         }
 
-        private string EnConfArrayString(int[] values)
+        private string ENConfDictionaryString<TKey, TValue>(IDictionary<TKey, TValue> dictionary)
+        {
+            return "{" + string.Join(",", dictionary.Select(kv => kv.Key + "=" + kv.Value).ToArray()) + "}";
+        }
+
+        private string ENConfArrayString(int[] values)
         {
             string res = "";
-            for (int i = 0; i < 8; i++) {
-                _ = (i == 7) ? res += values[i] : res += values[i] + ", ";
+            for (int i = 0; i < values.Length; i++) {
+                _ = (i == values.Length - 1) ? res += values[i] : res += values[i] + ", ";
             }
             return res;
         }
@@ -356,6 +409,34 @@ namespace NDB.Covid19.ViewModels
             Debug.WriteLine(result);
             _clipboard.SetTextAsync(result);
             return result;
+        }
+
+        public string GetDailySummaries()
+        {
+            string dailySummariesString = _devTools.PersistedDailySummaries;
+            string result = "";
+
+            if (dailySummariesString == "")
+            {
+                result = "We have not saved any DailySummaries yet";
+            }
+            else
+            {
+                try
+                {
+                    string jsonString = dailySummariesString;
+                    object obj = JsonConvert.DeserializeObject(jsonString);
+                    result = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                }
+                catch (Exception e)
+                {
+                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
+                    result = "Failed at deserializing the saved DailySummaries";
+                }
+            }
+            string finalResult = $"These are the DailySummaries we got the last time \"Pull keys\" was clicked:\n{result}";
+            _clipboard.SetTextAsync(finalResult);
+            return finalResult;
         }
 
         public string GetPullHistory()

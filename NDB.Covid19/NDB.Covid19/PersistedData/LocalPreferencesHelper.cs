@@ -57,6 +57,14 @@ namespace NDB.Covid19.PersistedData
             LastPullKeysBatchNumberSuccessfullySubmitted = batchNumber;
         }
 
+        // [Android only]
+        // The date time of the last successful SetDiagnosisKeysDataMappingAsync call.
+        public static DateTime GetLastDiagnosisKeysDataMappingDateTime() => _preferences.Get(PreferencesKeys.LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME, DateTime.MinValue);
+        public static void UpdateLastDiagnosisKeysDataMappingDateTime()
+        {
+            _preferences.Set(PreferencesKeys.LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME, SystemTime.Now());
+        }
+
         //The last batch that was successfully fetched but not yet submitted to the EN API.
         public static int LastPullKeysBatchNumberNotSubmitted
         {
@@ -126,6 +134,12 @@ namespace NDB.Covid19.PersistedData
         {
             get => _preferences.Get(PreferencesKeys.HIGH_ATTENUATION_DURATION_MULTIPLIER, Conf.HIGH_ATTENUATION_DURATION_MULTIPLIER);
             set => _preferences.Set(PreferencesKeys.HIGH_ATTENUATION_DURATION_MULTIPLIER, value);
+        }
+
+        public static double MaximumScoreThreshold
+        {
+            get => _preferences.Get(PreferencesKeys.MAXIMUM_SCORE_THRESHOLD, Conf.MAXIMUM_SCORE_THRESHOLD);
+            set => _preferences.Set(PreferencesKeys.MAXIMUM_SCORE_THRESHOLD, value);
         }
 
         public static DateTime LastPermissionsNotificationDateTimeUtc

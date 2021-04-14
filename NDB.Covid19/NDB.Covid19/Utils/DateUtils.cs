@@ -14,7 +14,7 @@ namespace NDB.Covid19.Utils
             if (date != null)
             {
                 DateTime dateTime = (DateTime)date;
-                string appLanguage = LocalPreferencesHelper.GetAppLanguage();
+                string appLanguage = LocalesService.GetLanguage();
                 CultureInfo selectedCulture = CultureInfo.GetCultureInfo(appLanguage);
                 // Due to a bug in C# string representation in nb culture, nn must be used
                 CultureInfo defaultCulture = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
