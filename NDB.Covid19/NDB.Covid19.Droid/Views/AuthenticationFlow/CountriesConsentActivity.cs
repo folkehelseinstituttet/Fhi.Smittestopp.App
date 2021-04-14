@@ -10,6 +10,8 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ViewModels;
 using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -34,6 +36,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             Title = HEADER_TEXT;
             SetContentView(Resource.Layout.countries_consent);
             InitLayout();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Countries Consent", null, GetCorrelationId());
         }
 
         private void InitLayout()
@@ -75,10 +83,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _closeButton.Click += new StressUtils.SingleClick((sender, e) => ShowAbortDialog(), 500).Run;
             _consentButtonEU.Click += new StressUtils.SingleClick((o, args) =>
             {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user agreed to share keys with EU", null, GetCorrelationId());
                 InvokeNextButtonClick(GoToCountriesQuestionnairePage, OnFail, true);
             }, 500).Run;
             _consentButtonOnlyNorway.Click += new StressUtils.SingleClick((o, args) =>
             {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user declined to share keys with EU", null, GetCorrelationId());
                 InvokeNextButtonClick(GoToLoadingPage, OnFail, false);
             }, 500).Run;
         }
