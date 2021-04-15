@@ -370,7 +370,7 @@ namespace NDB.Covid19.ViewModels
             PersonalDataModel pd = AuthenticationState.PersonalData;
             return $"Last Symptom Onset Date: {QuestionnaireViewModel.DateLabel}, " +
                 $"Selection: {QuestionnaireViewModel.Selection}, " +
-                $"MiBaDate:{pd?.Covid19_smitte_start}, " +
+                $"Date in MSIS:{pd?.Covid19_smitte_start}, " +
                 $"Date used for risk calc:{pd?.FinalDateToSetDSOS}";
         }
 

@@ -19,7 +19,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             DependencyInjectionConfig.Init();
         }
 
-        private DateTime MiBaDate => _today.AddDays(1);
+        private DateTime DateToSetDSOS => _today.AddDays(1);
 
         private ExposureKeyModel TEK(int days)
         {
@@ -47,7 +47,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             List<ExposureKeyModel> validKeys =
                 CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
 
-            List<ExposureKeyModel> resultKeys = SetTransmissionRiskAndDSOS(validKeys, MiBaDate);
+            List<ExposureKeyModel> resultKeys = SetTransmissionRiskAndDSOS(validKeys, DateToSetDSOS);
 
             AssertPositiveDaysTEKS(resultKeys);
         }
@@ -70,7 +70,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 CreateAValidListOfTemporaryExposureKeys(
                     negativeDifferenceExposureKeys);
             List<ExposureKeyModel> resultKeysNegativeDifference =
-                SetTransmissionRiskAndDSOS(validNegativeDifferenceExposureKeys, MiBaDate);
+                SetTransmissionRiskAndDSOS(validNegativeDifferenceExposureKeys, DateToSetDSOS);
 
             AssertNegativeDaysTEKS(resultKeysNegativeDifference);
         }

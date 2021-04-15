@@ -8,7 +8,6 @@ using CommonServiceLocator;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
-using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models;
 using NDB.Covid19.Models.UserDefinedExceptions;
 using NDB.Covid19.OAuth2;
@@ -26,76 +25,10 @@ namespace NDB.Covid19.ExposureNotifications
         private readonly ExposureNotificationWebService _exposureNotificationWebService =
             new ExposureNotificationWebService();
 
-        //MiBaDate is null if the device has garbage collected, e.g. in background. Throws MiBaDateMissingException if null.
+        //DateToSetDSOS is null if the device has garbage collected, e.g. in background. Throws DSOSDateMissingException if null.
         private static DateTime? DateToSetDSOS => AuthenticationState.PersonalData?.FinalDateToSetDSOS;
 
-        public Task<Xamarin.ExposureNotifications.Configuration> GetConfigurationAsync()
-        {
-            Debug.Print("Fetching configuration");
-
-            return Task.Run(async () =>
-            {
-                Xamarin.ExposureNotifications.Configuration configuration =
-                    await _exposureNotificationWebService.GetExposureConfiguration();
-                if (configuration == null)
-                {
-                    throw new FailedToFetchConfigurationException(
-                        "Aborting pull because configuration was not fetched from server. See corresponding server error log");
-                }
-
-                string jsonConfiguration = JsonConvert.SerializeObject(configuration);
-                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration =
-                    $"V1 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
-                return configuration;
-            });
-        }
-
-        public async Task FetchExposureKeyBatchFilesFromServerAsync(Func<IEnumerable<string>, Task> submitBatches,
-            CancellationToken cancellationToken)
-        {
-            await new FetchExposureKeysHelper().FetchExposureKeyBatchFilesFromServerAsync(submitBatches,
-                cancellationToken);
-        }
-
-        public async Task ExposureDetectedAsync(ExposureDetectionSummary summary,
-            Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
-        {
-            Debug.WriteLine("ExposureDetectedAsync is called");
-            await ExposureDetectedHelper.EvaluateRiskInSummaryAndCreateMessage(summary, this);
-            await ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastExposureInfos(getExposureInfo);
-            ExposureDetectedHelper.SaveLastSummary(summary);
-        }
-
-        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows,
-            IEnumerable<DailySummary>? summaries)
-        {
-            Debug.WriteLine("ExposureStateUpdatedAsync is called");
-
-            List<DateTime> validDates = ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList();
-
-            bool shouldSendMessage = false;
-            List<DateTime> datesOfExposuresOverThreshold = new List<DateTime>();
-
-            foreach (DailySummary dailySummary in summaries)
-            {
-                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary)
-                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date,
-                        validDates))
-                {
-                    datesOfExposuresOverThreshold.Add(dailySummary.Timestamp.Date);
-                    shouldSendMessage = true;
-                }
-            }
-
-            if (shouldSendMessage)
-            {
-                await MessageUtils.CreateMessage(this);
-                await ExposureDetectedHelper.UpdateDatesOfExposures(datesOfExposuresOverThreshold);
-            }
-
-            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
-            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastDailySummaries(summaries);
-        }
+        // === Methods used both by EN API v1 and EN API v2 ===
 
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> tempKeys)
         {
@@ -139,6 +72,15 @@ namespace NDB.Covid19.ExposureNotifications
             }
         }
 
+        public async Task FetchExposureKeyBatchFilesFromServerAsync(Func<IEnumerable<string>, Task> submitBatches,
+           CancellationToken cancellationToken)
+        {
+            await new FetchExposureKeysHelper().FetchExposureKeyBatchFilesFromServerAsync(submitBatches,
+                cancellationToken);
+        }
+
+        // === Methods used only in EN API v2 ===
+
         public Task<DailySummaryConfiguration> GetDailySummaryConfigurationAsync()
         {
             Debug.WriteLine("Fetching DailySummaryConfiguration");
@@ -172,6 +114,69 @@ namespace NDB.Covid19.ExposureNotifications
                     $"V2 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
                 return dsc;
             });
+        }
+
+        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows,
+            IEnumerable<DailySummary>? summaries)
+        {
+            Debug.WriteLine("ExposureStateUpdatedAsync is called");
+
+            List<DateTime> validDates = ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList();
+
+            bool shouldSendMessage = false;
+            List<DateTime> datesOfExposuresOverThreshold = new List<DateTime>();
+
+            foreach (DailySummary dailySummary in summaries)
+            {
+                if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary)
+                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date,
+                        validDates))
+                {
+                    datesOfExposuresOverThreshold.Add(dailySummary.Timestamp.Date);
+                    shouldSendMessage = true;
+                }
+            }
+
+            if (shouldSendMessage)
+            {
+                await MessageUtils.CreateMessage(this);
+                await ExposureDetectedHelper.UpdateDatesOfExposures(datesOfExposuresOverThreshold);
+            }
+
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
+            ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastDailySummaries(summaries);
+        }
+
+        // === Methods used only in EN API v1 (when EN API v2 is not available on device) ===
+
+        public Task<Xamarin.ExposureNotifications.Configuration> GetConfigurationAsync()
+        {
+            Debug.Print("Fetching configuration");
+
+            return Task.Run(async () =>
+            {
+                Xamarin.ExposureNotifications.Configuration configuration =
+                    await _exposureNotificationWebService.GetExposureConfiguration();
+                if (configuration == null)
+                {
+                    throw new FailedToFetchConfigurationException(
+                        "Aborting pull because configuration was not fetched from server. See corresponding server error log");
+                }
+
+                string jsonConfiguration = JsonConvert.SerializeObject(configuration);
+                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration =
+                    $"V1 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
+                return configuration;
+            });
+        }
+
+        public async Task ExposureDetectedAsync(ExposureDetectionSummary summary,
+            Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
+        {
+            Debug.WriteLine("ExposureDetectedAsync is called");
+            await ExposureDetectedHelper.EvaluateRiskInSummaryAndCreateMessage(summary, this);
+            await ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastExposureInfos(getExposureInfo);
+            ExposureDetectedHelper.SaveLastSummary(summary);
         }
 
         // This is the explanation that will be displayed to the user when getting ExposureInfo objects on iOS
