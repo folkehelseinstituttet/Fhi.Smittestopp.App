@@ -149,7 +149,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
         {
             LogUtils.LogMessage(LogSeverity.ERROR,
                 $"{nameof(QuestionnaireCountriesViewController)}.{nameof(OnServerError)}: " +
-                $"Skipping language selection because countries failed to be fetched. (IOS)");
+                $"Skipping language selection because countries failed to be fetched. (IOS)",
+                null, GetCorrelationId());
             _countryList = new List<CountryDetailsViewModel>();
             NextBtnTapped(null);
         }
