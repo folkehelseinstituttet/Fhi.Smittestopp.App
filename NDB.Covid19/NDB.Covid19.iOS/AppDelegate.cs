@@ -156,6 +156,30 @@ namespace NDB.Covid19.iOS
         }
 
         /// <summary>
+        /// Method that is used before iOS 13 to detect application has become active.
+        /// Corresponds to iOS 13+ SceneDelegate's DidBecomeActive(UIScene:) method.
+        /// </summary>
+        [Export("applicationDidBecomeActive:")]
+        public void DidBecomeActive(UIApplication application)
+        {
+            Debug.WriteLine("AppDelegate.DidBecomeActive called");
+
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE);
+        }
+
+        /// <summary>
+        /// Method that is used before iOS 13 to detect application is about to become inactive.
+        /// Corresponds to iOS 13+ SceneDelegate's WillResignActive(UIScene:) method.
+        /// </summary>
+        [Export("applicationWillResignActive:")]
+        public void WillResignActive(UIApplication application)
+        {
+            Debug.WriteLine("AppDelegate.DidBecomeActive called");
+
+            MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE);
+        }
+
+        /// <summary>
         /// Method that is used before iOS 13 to request application open a resource specified by a URL.
         /// Corresponds to iOS 13+ SceneDelegate's OpenUrlContexts(scene:urlContexts:) method.
         /// </summary>
