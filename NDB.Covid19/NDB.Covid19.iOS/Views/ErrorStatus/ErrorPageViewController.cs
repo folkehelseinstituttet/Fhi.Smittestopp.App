@@ -27,7 +27,7 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);
-            Covid19.Utils.LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user is seeing General Error", null, GetCorrelationId());
+			LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user is seeing General Error", null, GetCorrelationId());
 		}
 
 		public override void ViewWillDisappear(bool animated)
