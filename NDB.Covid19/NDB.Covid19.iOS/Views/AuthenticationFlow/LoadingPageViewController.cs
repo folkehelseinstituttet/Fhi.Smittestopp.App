@@ -97,7 +97,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             if(!isOnFail)
             {
-                LogUtils.LogMessage(LogSeverity.INFO, "Something went wrong during key sharing (INFO with correlation id)", e.Message, GetCorrelationId());
+                LogUtils.LogMessage(LogSeverity.INFO, "Something went wrong during key sharing", e.Message, GetCorrelationId());
             }
             Cleanup();
             AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, e, "Pushing keys failed" );
