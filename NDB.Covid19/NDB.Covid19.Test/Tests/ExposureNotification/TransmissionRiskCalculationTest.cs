@@ -47,7 +47,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             List<ExposureKeyModel> validKeys =
                 CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
 
-            List<ExposureKeyModel> resultKeys = SetTransmissionRiskLevel(validKeys, MiBaDate);
+            List<ExposureKeyModel> resultKeys = SetTransmissionRiskAndDSOS(validKeys, MiBaDate);
 
             AssertPositiveDaysTEKS(resultKeys);
         }
@@ -70,7 +70,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 CreateAValidListOfTemporaryExposureKeys(
                     negativeDifferenceExposureKeys);
             List<ExposureKeyModel> resultKeysNegativeDifference =
-                SetTransmissionRiskLevel(validNegativeDifferenceExposureKeys, MiBaDate);
+                SetTransmissionRiskAndDSOS(validNegativeDifferenceExposureKeys, MiBaDate);
 
             AssertNegativeDaysTEKS(resultKeysNegativeDifference);
         }

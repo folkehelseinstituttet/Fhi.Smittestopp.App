@@ -239,13 +239,13 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             previouslySavedDates.Add(SystemTime.Now().AddDays(-1).Date);
             previouslySavedDates.Add(SystemTime.Now().AddDays(-2).Date);
 
-
             bool savedBefore =
                 ExposureDetectedHelper.HasNotShownExposureNotificationForDate(SystemTime.Now().AddDays(-1),
                     previouslySavedDates);
             bool neverSaved =
                 ExposureDetectedHelper.HasNotShownExposureNotificationForDate(SystemTime.Now().AddDays(-3),
                     previouslySavedDates);
+
             Assert.False(savedBefore);
             Assert.True(neverSaved);
         }

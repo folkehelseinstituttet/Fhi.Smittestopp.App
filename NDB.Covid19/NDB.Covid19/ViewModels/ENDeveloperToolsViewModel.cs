@@ -371,7 +371,7 @@ namespace NDB.Covid19.ViewModels
             return $"Last Symptom Onset Date: {QuestionnaireViewModel.DateLabel}, " +
                 $"Selection: {QuestionnaireViewModel.Selection}, " +
                 $"MiBaDate:{pd?.Covid19_smitte_start}, " +
-                $"Date used for risk calc:{pd?.FinalMiBaDate}";
+                $"Date used for risk calc:{pd?.FinalDateToSetDSOS}";
         }
 
         public string PrintLastPulledKeysAndTimestamp()

@@ -27,7 +27,7 @@ namespace NDB.Covid19.ExposureNotifications
             new ExposureNotificationWebService();
 
         //MiBaDate is null if the device has garbage collected, e.g. in background. Throws MiBaDateMissingException if null.
-        private static DateTime? MiBaDate => AuthenticationState.PersonalData?.FinalMiBaDate;
+        private static DateTime? DateToSetDSOS => AuthenticationState.PersonalData?.FinalDateToSetDSOS;
 
         public Task<Xamarin.ExposureNotifications.Configuration> GetConfigurationAsync()
         {
@@ -103,35 +103,6 @@ namespace NDB.Covid19.ExposureNotifications
             IEnumerable<ExposureKeyModel> temporaryExposureKeys =
                 tempKeys?.Select(key => new ExposureKeyModel(key)) ?? new List<ExposureKeyModel>();
 
-            // There is a better behaviour of uploading keys when scanning is Stoped/Started (UIAlert for permission is always shown then),
-            // The IF-check just toggles the scanning status on/off or off/on to keep the scanning status
-            // the same as it was before method is called
-
-            try
-            {
-                if (ServiceLocator.Current.GetInstance<IDeviceInfo>().Platform == DevicePlatform.iOS)
-                {
-                    if (await ExposureNotification.IsEnabledAsync())
-                    {
-                        await ExposureNotification.StopAsync();
-                        await ExposureNotification.StartAsync();
-                    }
-                    else
-                    {
-                        await ExposureNotification.StartAsync();
-                        await ExposureNotification.StopAsync();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                if (!e.HandleExposureNotificationException(nameof(ExposureNotificationHandler),
-                    nameof(UploadSelfExposureKeysToServerAsync)))
-                {
-                    throw e;
-                }
-            }
-
             if (FakeGatewayUtils.IsFakeGatewayTest)
             {
                 FakeGatewayUtils.LastPulledExposureKeys = temporaryExposureKeys;
@@ -149,18 +120,17 @@ namespace NDB.Covid19.ExposureNotifications
                     "The visited countries list is missing. Possibly garbage collection removed it.");
             }
 
-            if (!MiBaDate.HasValue)
+            if (!DateToSetDSOS.HasValue)
             {
-                throw new MiBaDateMissingException("The symptom onset date is not set from the calling view model");
+                throw new DSOSDateMissingException("The symptom onset date is not set from the calling view model");
             }
 
-            DateTime miBaDateAsUniversalTime = MiBaDate.Value.ToUniversalTime();
+            DateTime dateToSetDSOSAsUniversalTime = DateToSetDSOS.Value.ToUniversalTime();
 
             List<ExposureKeyModel> validKeys =
                 UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
 
-            // Here all keys are extended with DaysSinceOnsetOfSymptoms value
-            validKeys = UploadDiagnosisKeysHelper.SetTransmissionRiskLevel(validKeys, miBaDateAsUniversalTime);
+            validKeys = UploadDiagnosisKeysHelper.SetTransmissionRiskAndDSOS(validKeys, dateToSetDSOSAsUniversalTime);
 
             bool success = await _exposureNotificationWebService.PostSelfExposureKeys(validKeys);
             if (!success)
