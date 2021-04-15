@@ -149,7 +149,10 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
             }
             catch (Exception e)
             {
-                LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.DeleteDatesOfExposureOlderThan14Days: Unexpected error has occured when saving Exposure Dates to Secure Storage");
+                LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.DeleteDatesOfExposureOlderThan14Days: " +
+                    $"Unexpected error has occured when saving Exposure Dates to Secure Storage. " +
+                    $"Resetting the saved value to avoid error in the future.");
+                _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
                 return new List<DateTime>();
             }
         }
@@ -184,7 +187,10 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
                     }
                 } catch (Exception e)
                 {
-                    LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.UpdateDatesOfExposure: Unexpected error has occured when saving Exposure Dates to Secure Storage");
+                    LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.UpdateDatesOfExposure: " +
+                        $"Unexpected error has occured when saving Exposure Dates to Secure Storage. " +
+                        $"Resetting the saved value to avoid error in the future.");
+                    _secureStorageService.Delete(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY);
                 }
             });
         }
