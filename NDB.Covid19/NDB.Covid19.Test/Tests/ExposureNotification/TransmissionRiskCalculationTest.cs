@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Threading;
 using NDB.Covid19.Models;
 using Xamarin.ExposureNotifications;
 using Xunit;
@@ -9,35 +12,36 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
     public class TransmissionRiskCalculationTest
     {
-        private readonly DateTime today = DateTime.Today;
-        private DateTime MiBaDate => today.AddDays(1);
+        private readonly DateTime _today = DateTime.Today;
 
-        private ExposureKeyModel TEK(int days) =>
-            new ExposureKeyModel(
+        public TransmissionRiskCalculationTest()
+        {
+            DependencyInjectionConfig.Init();
+        }
+
+        private DateTime MiBaDate => _today.AddDays(1);
+
+        private ExposureKeyModel TEK(int days)
+        {
+            return new ExposureKeyModel(
                 new byte[1],
-                today.AddDays(days),
+                _today.AddDays(days),
                 TimeSpan.FromDays(1),
                 RiskLevel.Invalid);
+        }
 
-        [Fact]
-        public void calculateTransmissionRiskBasedOnDateDifferencePositive()
+        [Theory]
+        [InlineData("th-TH")]
+        [InlineData("en-US")]
+        [InlineData("pl-PL")]
+        [InlineData("ar-SA")]
+        public void calculateTransmissionRiskBasedOnDateDifferencePositive(string locale)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(locale);
+
             // Create keys with different dates
             IEnumerable<ExposureKeyModel> temporaryExposureKeys =
-                new List<ExposureKeyModel>
-                {
-                    TEK(2),
-                    TEK(3),
-                    TEK(4),
-                    TEK(5),
-                    TEK(6),
-                    TEK(7),
-                    TEK(8),
-                    TEK(9),
-                    TEK(10),
-                    TEK(11),
-                    TEK(12)
-                };
+                RangeOfTEKs(2, 11);
 
             // Process a list of copies
             List<ExposureKeyModel> validKeys =
@@ -48,17 +52,18 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             AssertPositiveDaysTEKS(resultKeys);
         }
 
-        [Fact]
-        public void calculateTransmissionRiskBasedOnDateDifferenceNegative()
+        [Theory]
+        [InlineData("th-TH")]
+        [InlineData("en-US")]
+        [InlineData("pl-PL")]
+        [InlineData("ar-SA")]
+        public void calculateTransmissionRiskBasedOnDateDifferenceNegative(string locale)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(locale);
+
             // Create keys with different dates
             IEnumerable<ExposureKeyModel> negativeDifferenceExposureKeys =
-                new List<ExposureKeyModel>
-                {
-                    TEK(-3), // DSOS -4 RiskLevel 1 (Lowest)
-                    TEK(-2), // DSOS -3 RiskLevel 2 (Low)
-                    TEK(-1) // DSOS -2 RiskLevel 3 (MediumLow)
-                };
+                RangeOfTEKs(-3, 3);
 
             // Process a list of copies
             List<ExposureKeyModel> validNegativeDifferenceExposureKeys =
@@ -68,6 +73,13 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 SetTransmissionRiskLevel(validNegativeDifferenceExposureKeys, MiBaDate);
 
             AssertNegativeDaysTEKS(resultKeysNegativeDifference);
+        }
+
+        private List<ExposureKeyModel> RangeOfTEKs(int start, int count)
+        {
+            return Enumerable.Range(start, count)
+                .Select(i => TEK(i))
+                .ToList();
         }
 
         private void AssertPositiveDaysTEKS(List<ExposureKeyModel> resultKeys)

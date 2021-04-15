@@ -23,10 +23,11 @@ namespace NDB.Covid19.ExposureNotifications
 {
     public class ExposureNotificationHandler : IExposureNotificationDailySummaryHandler
     {
-        //MiBaDate is null if the device has garbage collected, e.g. in background. Throws MiBaDateMissingException if null.
-        private DateTime? MiBaDate => AuthenticationState.PersonalData?.FinalMiBaDate;
+        private readonly ExposureNotificationWebService _exposureNotificationWebService =
+            new ExposureNotificationWebService();
 
-        private ExposureNotificationWebService exposureNotificationWebService = new ExposureNotificationWebService();
+        //MiBaDate is null if the device has garbage collected, e.g. in background. Throws MiBaDateMissingException if null.
+        private static DateTime? MiBaDate => AuthenticationState.PersonalData?.FinalMiBaDate;
 
         public Task<Xamarin.ExposureNotifications.Configuration> GetConfigurationAsync()
         {
@@ -34,24 +35,30 @@ namespace NDB.Covid19.ExposureNotifications
 
             return Task.Run(async () =>
             {
-                Xamarin.ExposureNotifications.Configuration configuration = await exposureNotificationWebService.GetExposureConfiguration();
+                Xamarin.ExposureNotifications.Configuration configuration =
+                    await _exposureNotificationWebService.GetExposureConfiguration();
                 if (configuration == null)
                 {
-                    throw new FailedToFetchConfigurationException("Aborting pull because configuration was not fetched from server. See corresponding server error log");
+                    throw new FailedToFetchConfigurationException(
+                        "Aborting pull because configuration was not fetched from server. See corresponding server error log");
                 }
 
                 string jsonConfiguration = JsonConvert.SerializeObject(configuration);
-                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V1 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
+                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration =
+                    $"V1 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
                 return configuration;
             });
         }
 
-        public async Task FetchExposureKeyBatchFilesFromServerAsync(Func<IEnumerable<string>, Task> submitBatches, CancellationToken cancellationToken)
+        public async Task FetchExposureKeyBatchFilesFromServerAsync(Func<IEnumerable<string>, Task> submitBatches,
+            CancellationToken cancellationToken)
         {
-            await new FetchExposureKeysHelper().FetchExposureKeyBatchFilesFromServerAsync(submitBatches, cancellationToken);
+            await new FetchExposureKeysHelper().FetchExposureKeyBatchFilesFromServerAsync(submitBatches,
+                cancellationToken);
         }
 
-        public async Task ExposureDetectedAsync(ExposureDetectionSummary summary, Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
+        public async Task ExposureDetectedAsync(ExposureDetectionSummary summary,
+            Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
         {
             Debug.WriteLine("ExposureDetectedAsync is called");
             await ExposureDetectedHelper.EvaluateRiskInSummaryAndCreateMessage(summary, this);
@@ -59,7 +66,8 @@ namespace NDB.Covid19.ExposureNotifications
             ExposureDetectedHelper.SaveLastSummary(summary);
         }
 
-        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows, IEnumerable<DailySummary>? summaries)
+        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows,
+            IEnumerable<DailySummary>? summaries)
         {
             Debug.WriteLine("ExposureStateUpdatedAsync is called");
 
@@ -71,17 +79,20 @@ namespace NDB.Covid19.ExposureNotifications
             foreach (DailySummary dailySummary in summaries)
             {
                 if (ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary)
-                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date, validDates))
+                    && ExposureDetectedHelper.HasNotShownExposureNotificationForDate(dailySummary.Timestamp.Date,
+                        validDates))
                 {
                     datesOfExposuresOverThreshold.Add(dailySummary.Timestamp.Date);
                     shouldSendMessage = true;
                 }
             }
+
             if (shouldSendMessage)
             {
                 await MessageUtils.CreateMessage(this);
                 await ExposureDetectedHelper.UpdateDatesOfExposures(datesOfExposuresOverThreshold);
             }
+
             ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveExposureWindows(windows);
             ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastDailySummaries(summaries);
         }
@@ -89,8 +100,9 @@ namespace NDB.Covid19.ExposureNotifications
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> tempKeys)
         {
             // Convert to ExposureKeyModel list as it is extended with DaysSinceOnsetOfSymptoms value
-            IEnumerable<ExposureKeyModel> temporaryExposureKeys = tempKeys?.Select(key => new ExposureKeyModel(key)) ?? new List<ExposureKeyModel>();
-            
+            IEnumerable<ExposureKeyModel> temporaryExposureKeys =
+                tempKeys?.Select(key => new ExposureKeyModel(key)) ?? new List<ExposureKeyModel>();
+
             // There is a better behaviour of uploading keys when scanning is Stoped/Started (UIAlert for permission is always shown then),
             // The IF-check just toggles the scanning status on/off or off/on to keep the scanning status
             // the same as it was before method is called
@@ -113,7 +125,8 @@ namespace NDB.Covid19.ExposureNotifications
             }
             catch (Exception e)
             {
-                if (!e.HandleExposureNotificationException(nameof(ExposureNotificationHandler), nameof(UploadSelfExposureKeysToServerAsync)))
+                if (!e.HandleExposureNotificationException(nameof(ExposureNotificationHandler),
+                    nameof(UploadSelfExposureKeysToServerAsync)))
                 {
                     throw e;
                 }
@@ -141,14 +154,15 @@ namespace NDB.Covid19.ExposureNotifications
                 throw new MiBaDateMissingException("The symptom onset date is not set from the calling view model");
             }
 
-            DateTime MiBaDateAsUniversalTime = MiBaDate.Value.ToUniversalTime();
+            DateTime miBaDateAsUniversalTime = MiBaDate.Value.ToUniversalTime();
 
-            List<ExposureKeyModel> validKeys = UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
+            List<ExposureKeyModel> validKeys =
+                UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
 
             // Here all keys are extended with DaysSinceOnsetOfSymptoms value
-            validKeys = UploadDiagnosisKeysHelper.SetTransmissionRiskLevel(validKeys, MiBaDateAsUniversalTime);
+            validKeys = UploadDiagnosisKeysHelper.SetTransmissionRiskLevel(validKeys, miBaDateAsUniversalTime);
 
-            bool success = await exposureNotificationWebService.PostSelfExposureKeys(validKeys);
+            bool success = await _exposureNotificationWebService.PostSelfExposureKeys(validKeys);
             if (!success)
             {
                 throw new FailedToPushToServerException("Failed to push keys to the server");
@@ -161,10 +175,11 @@ namespace NDB.Covid19.ExposureNotifications
 
             return Task.Run(async () =>
             {
-                Xamarin.ExposureNotifications.DailySummaryConfiguration dsc = await exposureNotificationWebService.GetDailySummaryConfiguration();
+                DailySummaryConfiguration dsc = await _exposureNotificationWebService.GetDailySummaryConfiguration();
                 if (dsc == null)
                 {
-                    throw new FailedToFetchConfigurationException("Aborting pull because configuration was not fetched from server. See corresponding server error log");
+                    throw new FailedToFetchConfigurationException(
+                        "Aborting pull because configuration was not fetched from server. See corresponding server error log");
                 }
 
                 // On iOS double-type weights represent percents, so we need to multiply by 100
@@ -183,14 +198,15 @@ namespace NDB.Covid19.ExposureNotifications
                 }
 
                 string jsonConfiguration = JsonConvert.SerializeObject(dsc);
-                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration = $"V2 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
+                ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastUsedConfiguration =
+                    $"V2 config. Time used (UTC): {DateTime.UtcNow.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n{jsonConfiguration}";
                 return dsc;
             });
         }
 
         // This is the explanation that will be displayed to the user when getting ExposureInfo objects on iOS
         // Only used in developer tools
-        public string UserExplanation => "Saving ExposureInfos with \"Pull Keys and Save ExposureInfos\" causes the EN API to display this notification (not a bug)";
-
+        public string UserExplanation =>
+            "Saving ExposureInfos with \"Pull Keys and Save ExposureInfos\" causes the EN API to display this notification (not a bug)";
     }
 }
