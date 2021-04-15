@@ -8,6 +8,7 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.WebServices.ErrorHandlers;
 using UIKit;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -33,26 +34,42 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             _viewModel = new QuestionnaireViewModel();
 
+            // Generate and set the correlation id for current authentication flow
+            UpdateCorrelationId(LogUtils.GenerateCorrelationId());
+
             SetTexts();
             SetStyling();
             UpdateUIWhenSelectionChanges();
             SetAccessibilityAttributes();
-
-            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire page");
+            AddObservers();
         }
 
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing the Questionnaire", null, GetCorrelationId());
             DatePicker.ValueChanged += DatePickerChanged;
         }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
-
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
             DatePicker.ValueChanged -= DatePickerChanged;
+        }
+
+        void AddObservers()
+        {
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire", null, GetCorrelationId());
+            });
+
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user left Questionnaire", null, GetCorrelationId());
+            });
         }
 
         void SetTexts()
@@ -107,6 +124,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void CloseConfirmed(UIAlertAction obj)
         {
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is returning to Infection Status", null, GetCorrelationId());
             NavigationController?.DismissViewController(true, AfterDismissed);
         }
 
@@ -151,6 +169,10 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         partial void NextBtnTapped(CustomSubclasses.DefaultBorderButton sender)
         {
+            if(QuestionnaireViewModel.Selection == QuestionaireSelection.Skip)
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user does not want to provide health information", null, GetCorrelationId());
+            }
             NextBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
             _viewModel.InvokeNextButtonClick(OnSuccess, OnFail, OnValidationFail,
                 new PlatformDialogServiceArguments()

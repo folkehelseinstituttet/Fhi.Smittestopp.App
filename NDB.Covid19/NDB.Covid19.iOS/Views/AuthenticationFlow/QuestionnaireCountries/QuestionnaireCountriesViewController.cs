@@ -7,6 +7,7 @@ using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
@@ -37,18 +38,34 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
             SetStyling();
             SetAccessibility();
+            AddObservers();
         }
 
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
-
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire Countries Selection", null, GetCorrelationId());
             SetupTableView();
         }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
+        }
+
+        void AddObservers()
+        {
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire Countries Selection", null, GetCorrelationId());
+            });
+
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user left Questionnaire Countries Selection", null, GetCorrelationId());
+            });
         }
 
         void SetStyling()
@@ -111,6 +128,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 
         void CloseConfirmed(UIAlertAction obj)
         {
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is returning to Infection Status", null, GetCorrelationId());
             NavigationController?.DismissViewController(true, null);
         }
 
@@ -131,7 +149,8 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
         {
             LogUtils.LogMessage(LogSeverity.ERROR,
                 $"{nameof(QuestionnaireCountriesViewController)}.{nameof(OnServerError)}: " +
-                $"Skipping language selection because countries failed to be fetched. (IOS)");
+                $"Skipping language selection because countries failed to be fetched. (IOS)",
+                null, GetCorrelationId());
             _countryList = new List<CountryDetailsViewModel>();
             NextBtnTapped(null);
         }

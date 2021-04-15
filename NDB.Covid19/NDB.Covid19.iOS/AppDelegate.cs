@@ -12,6 +12,8 @@ using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
 using NDB.Covid19.iOS.Views.InfectionStatus;
 using NDB.Covid19.OAuth2;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using NDB.Covid19.Enums;
 
 #if APPCENTER
 using Microsoft.AppCenter;
@@ -147,6 +149,8 @@ namespace NDB.Covid19.iOS
         {
             Debug.WriteLine("AppDelegate.WillEnterForeground called");
 
+            LogUtils.LogMessage(LogSeverity.INFO, "The user has opened the app", null, GetCorrelationId());
+
             DidEnterBackgroundState = false;
             MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
         }
@@ -200,6 +204,17 @@ namespace NDB.Covid19.iOS
         public void PerformFetch(UIApplication application, System.Action<UIBackgroundFetchResult> completionHandler)
         {
             completionHandler(UIBackgroundFetchResult.NewData);
+        }
+
+        [Export("applicationWillTerminate:")]
+        public void AppWillTerminate(UIApplication application)
+        {
+            string correlationId = GetCorrelationId();
+            if(!string.IsNullOrEmpty(correlationId))
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user closed the app", null, correlationId);
+            }
+            LogUtils.SendAllLogs();
         }
     }
 }
