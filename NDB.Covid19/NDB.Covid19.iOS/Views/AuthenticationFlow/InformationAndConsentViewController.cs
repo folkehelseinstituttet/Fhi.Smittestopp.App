@@ -55,18 +55,18 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         {
             base.ViewWillDisappear(animated);
             LogInWithIDPortenBtn.HideSpinner();
-            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
-            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE);
         }
 
         void AddObservers()
         {
-            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE, (object _) =>
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Information and Consent page", null);
             });
 
-            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE, (object _) =>
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user left Information and Consent page", null);
             });
