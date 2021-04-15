@@ -51,18 +51,18 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
-            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
-            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE);
         }
 
         void AddObservers()
         {
-            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE, (object _) =>
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Questionnaire Countries Selection", null, GetCorrelationId());
             });
 
-            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE, (object _) =>
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user left Questionnaire Countries Selection", null, GetCorrelationId());
             });
