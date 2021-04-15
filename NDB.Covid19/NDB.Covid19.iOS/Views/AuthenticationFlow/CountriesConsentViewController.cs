@@ -57,7 +57,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
             {
-                LogUtils.LogMessage(LogSeverity.INFO, "The user is left Countries Consent", null, GetCorrelationId());
+                LogUtils.LogMessage(LogSeverity.INFO, "The user left Countries Consent", null, GetCorrelationId());
             });
         }
 
