@@ -7,10 +7,10 @@ using Android.Gms.Nearby;
 using Android.Gms.Nearby.ExposureNotification;
 using Android.Runtime;
 using NDB.Covid19.Enums;
-using NDB.Covid19.ExposureNotifications;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using NDB.Covid19.WebServices.ExposureNotification;
 using EN = Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.Droid.Utils
@@ -45,7 +45,7 @@ namespace NDB.Covid19.Droid.Utils
                 return;
             }
 
-            EN.DailySummaryConfiguration config = await new ExposureNotificationHandler().GetDailySummaryConfigurationAsync();
+            EN.DailySummaryConfiguration config = await new ExposureNotificationWebService().GetDailySummaryConfiguration();
             DiagnosisKeysDataMapping.DiagnosisKeysDataMappingBuilder builder = new DiagnosisKeysDataMapping.DiagnosisKeysDataMappingBuilder();
             JavaDictionary<Java.Lang.Integer, Java.Lang.Integer> newMap = new JavaDictionary<Java.Lang.Integer, Java.Lang.Integer>();
             foreach (var pair in config.DaysSinceOnsetInfectiousness)
