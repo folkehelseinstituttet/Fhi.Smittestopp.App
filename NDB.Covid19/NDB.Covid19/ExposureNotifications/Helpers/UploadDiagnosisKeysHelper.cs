@@ -50,11 +50,12 @@ namespace NDB.Covid19.ExposureNotifications.Helpers
 		}
 
 		/// <summary>
-		/// This method is used to set TransmissionRiskLevel before keys are sent to server.
+		/// This method is used to set DSOS and TransmissionRiskLevel before keys are sent to server.
 		/// It operates on intervals that are set in configuration file, these intervals are defined strictly, without any overlaps.
 		/// The method does convertion from UTC time representation of symptomOnset date to DateTimeOffset, then gets
 		/// a positive or negative integer representing difference between key's DateTimeOffset and the symptoms DateTimeOffset.
 		/// Based on configuration, TransmissionRiskLevel for the key is then set to the natural index in the table TransmissionRiskLevel table.
+		/// NOTE: TransmissionRisk is used by clients who still use EN API v1. In EN API v2 DSOS is used instead.
 		/// NOTE: By natural we mean that the first index is 1, not 0, the second is 2, not 1 etc.
 		/// NOTE: The key risk will always be assigned to 1 (lowest risk value) at the end, if none other higher value is assigned. 
 		/// Example: Key date: 26.05.2020, Symptoms onset: 24.05.2020.
@@ -66,7 +67,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers
 		/// <param name="keys"></param>
 		/// <param name="symptomsDate"></param>
 		/// <returns></returns>
-		public static List<ExposureKeyModel> SetTransmissionRiskLevel(List<ExposureKeyModel> keys, DateTime symptomsDate)
+		public static List<ExposureKeyModel> SetTransmissionRiskAndDSOS(List<ExposureKeyModel> keys, DateTime symptomsDate)
 		{
 			DateTimeOffset dateTimeOffsetForSymptomDate = new DateTimeOffset(symptomsDate);
 			foreach (ExposureKeyModel key in keys)
