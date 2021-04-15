@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
@@ -20,7 +21,33 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 		{
 			base.ViewDidLoad();
 			SetupStyling();
-			
+			AddObservers();
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user is seeing General Error", null, GetCorrelationId());
+		}
+
+		public override void ViewWillDisappear(bool animated)
+		{
+			base.ViewWillDisappear(animated);
+			MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND);
+			MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND);
+		}
+
+		void AddObservers()
+		{
+			MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, (object _) =>
+			{
+				LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user is seeing General Error", null, GetCorrelationId());
+			});
+
+			MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_WILL_ENTER_BACKGROUND, (object _) =>
+			{
+				LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user left General Error", null, GetCorrelationId());
+			});
 		}
 
 		public static ErrorPageViewController Create(String errorTitle = "", String errorMessageTxt = "")

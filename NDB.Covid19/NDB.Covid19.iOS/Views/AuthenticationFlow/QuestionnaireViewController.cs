@@ -67,7 +67,6 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             });
 
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE, (object _) =>
-            {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user left Questionnaire", null, GetCorrelationId());
             });
         }

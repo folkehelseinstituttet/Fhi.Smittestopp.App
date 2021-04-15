@@ -21,7 +21,7 @@ namespace NDB.Covid19.Models
 
         //Set from questionnaire
         [JsonIgnore]
-        public DateTime? FinalMiBaDate { get; set; }
+        public DateTime? FinalDateToSetDSOS { get; set; }
         [JsonIgnore]
         public List<string> VisitedCountries { get; set; } = new List<string>();
 
