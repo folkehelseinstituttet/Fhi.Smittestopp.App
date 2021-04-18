@@ -25,9 +25,10 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Development: Antoni Kistowski (TZ2K58WDRV)</CodesignKey>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Smittestopp EN API - Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -52,6 +53,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchExtraArgs>-gcc_flags "-fobjc-arc"</MtouchExtraArgs>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -66,6 +68,7 @@
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchExtraArgs>-gcc_flags "-fobjc-arc"</MtouchExtraArgs>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppCenter|iPhone' ">
     <Optimize>true</Optimize>
@@ -869,6 +872,7 @@
     <Compile Include="Views\Initializer\LanguageSelectionViewController.designer.cs">
       <DependentUpon>LanguageSelectionViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\InfectionStatus\HoursPickerModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">
