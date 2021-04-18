@@ -85,7 +85,7 @@ namespace NDB.Covid19.Droid.Utils
             notificationManager?.CreateNotificationChannel(permissionsChannel);
         }
 
-        public void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds)
+        public void GenerateLocalNotification(NotificationViewModel notificationViewModel, long triggerInSeconds)
         {
             BroadcastNotification(notificationViewModel, NotificationType.Local);
         }

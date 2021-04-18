@@ -45,6 +45,7 @@ namespace NDB.Covid19.ViewModels
         public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS".Translate();
         public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS".Translate();
         public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS".Translate();
+
         public static DateTime DailyNumbersUpdatedDateTime => LocalPreferencesHelper.FHILastUpdateDateTime.ToLocalTime();
 
         public string NewDailyNumbersAccessibilityText =>

@@ -54,12 +54,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _dailyNumbersCoverButton;
         private Button _messageCoverButton;
         private Button _registrationCoverButton;
-        private TextView _pauseMessage;
-        private RadioButton _manualRestartButton;
-        private RadioButton _oneHourDisableButton;
-        private RadioButton _twoHoursDisableButton;
-        private RadioButton _fourHoursDisableButton;
-        private RadioButton _eightHoursDisableButton;
+        private NumberPicker _picker;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
         
@@ -431,39 +426,44 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private void ShowPauseDialog()
         {
 
-            View dialogView = LayoutInflater.Inflate(Resource.Layout.pause_exposure_notification_layout, null);
-            _pauseMessage = dialogView.FindViewById<TextView>(Resource.Id.pause_message);
-            _manualRestartButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_manual_restart_button);
-            _oneHourDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_one_hour_button);
-            _twoHoursDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_two_hours_button);
-            _fourHoursDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_four_hours_button);
-            _eightHoursDisableButton = dialogView.FindViewById<RadioButton>(Resource.Id.pause_eight_hours_button);
+            View dialogView = LayoutInflater.Inflate(Resource.Layout.spinner_dialog, null);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);//, Resource.Style.PauseExposureNotificationTitleStyle);
+            builder.SetView(dialogView);
+            builder.SetCancelable(false);
+            builder.SetTitle(INFECTION_STATUS_PAUSE_DIALOG_TITLE);
+            builder.SetMessage(INFECTION_STATUS_PAUSE_DIALOG_MESSAGE);
+            _picker = dialogView.FindViewById(Resource.Id.picker) as NumberPicker;
+            _picker.MinValue = 0;
+            _picker.MaxValue = 4;
+            _picker.DescendantFocusability = DescendantFocusability.BlockDescendants;
+            _picker.SetDisplayedValues(
+                new[]
+                {
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_NO_REMINDER,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_ONE_HOUR,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS,
+                });
 
-            _pauseMessage.Text = INFECTION_STATUS_PAUSE_DIALOG_MESSAGE;
-            _manualRestartButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_NO_REMINDER;
-            _oneHourDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_ONE_HOUR;
-            _twoHoursDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS;
-            _fourHoursDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS;
-            _eightHoursDisableButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS;
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this, Resource.Style.PauseExposureNotificationTitleStyle);
-            dialog.SetView(dialogView);
-            dialog.SetCancelable(false);
-            dialog.SetTitle(INFECTION_STATUS_PAUSE_DIALOG_TITLE);
-
-            dialog.SetPositiveButton(INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON, (sender, args) =>
+            builder.SetPositiveButton(INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON, (sender, args) =>
             {
-                if (_oneHourDisableButton.Checked) StartReminderService(1);
-                else if (_twoHoursDisableButton.Checked) StartReminderService(2);
-                else if (_fourHoursDisableButton.Checked) StartReminderService(4);
-                else if (_eightHoursDisableButton.Checked) StartReminderService(8);
-             
+                switch (_picker.Value)
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        StartReminderService((int)Math.Pow(2, _picker.Value - 1));
+                        break;
+                }
                 StopGoogleAPI();
                 (sender as AlertDialog)?.Dismiss();
             });
+            
+            builder.Create();
 
-            dialog.Create();
-
-            dialog.Show();
+            builder.Show();
 
         }
         private void CloseReminderNotifications()

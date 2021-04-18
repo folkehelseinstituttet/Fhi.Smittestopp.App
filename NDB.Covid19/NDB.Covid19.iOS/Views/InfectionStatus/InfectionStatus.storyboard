@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="716">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,8 +16,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dio-Qd-Xe9" userLabel="Spinner Main View">
+                                <rect key="frame" x="16" y="229" width="343" height="303"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Ht-T8-5DM">
+                                        <rect key="frame" x="0.0" y="8" width="343" height="295"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtP-1W-qPk">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEssage" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY2-vh-Jg6">
+                                                <rect key="frame" x="0.0" y="28.5" width="343" height="20.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0no-F7-Que">
+                                                <rect key="frame" x="0.0" y="49" width="343" height="216"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0M0-th-T5S">
+                                                <rect key="frame" x="0.0" y="265" width="343" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="OnSpinnerDialogButton_TouchUpInside:" destination="716" eventType="touchUpInside" id="Q3z-hO-ait"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="0no-F7-Que" secondAttribute="trailing" id="1Kf-dY-RXY"/>
+                                            <constraint firstItem="OtP-1W-qPk" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leadingMargin" id="1oq-tX-AiJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="OtP-1W-qPk" secondAttribute="trailing" id="4FB-p4-QvP"/>
+                                            <constraint firstItem="0no-F7-Que" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leadingMargin" id="9eH-u7-rEv"/>
+                                            <constraint firstItem="dY2-vh-Jg6" firstAttribute="top" secondItem="OtP-1W-qPk" secondAttribute="bottom" constant="8" id="DWt-VN-eCh"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="0M0-th-T5S" secondAttribute="trailing" id="HSD-77-apd"/>
+                                            <constraint firstItem="dY2-vh-Jg6" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leadingMargin" id="YyO-p1-mKe"/>
+                                            <constraint firstItem="0M0-th-T5S" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leading" id="dok-0o-zIq"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="dY2-vh-Jg6" secondAttribute="trailing" id="uoL-JB-Rre"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3Ht-T8-5DM" secondAttribute="bottom" id="0ik-rk-UuC"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Ht-T8-5DM" secondAttribute="trailing" id="Cyg-K8-Mut"/>
+                                    <constraint firstItem="3Ht-T8-5DM" firstAttribute="top" secondItem="Dio-Qd-Xe9" secondAttribute="top" constant="8" id="D5s-5h-sCQ"/>
+                                    <constraint firstItem="3Ht-T8-5DM" firstAttribute="leading" secondItem="Dio-Qd-Xe9" secondAttribute="leading" id="ot6-bX-Xwi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FM-IV-ZSI">
-                                <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfb-Su-BUZ" userLabel="ScrollDownBackgroundView">
                                         <rect key="frame" x="0.0" y="-250" width="375" height="250"/>
@@ -81,18 +141,18 @@
                                                                     <constraint firstItem="W1z-jk-4Mi" firstAttribute="top" secondItem="vG0-52-px3" secondAttribute="top" constant="20" id="pRc-AF-E3c"/>
                                                                 </constraints>
                                                             </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHISmittestoppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2Lh-4t-IDu" userLabel="App Logo">
-                                                                <rect key="frame" x="75" y="71.5" width="225" height="157"/>
-                                                                <accessibility key="accessibilityConfiguration">
-                                                                    <bool key="isElement" value="YES"/>
-                                                                </accessibility>
-                                                            </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-7p-6vm">
                                                                 <rect key="frame" x="40" y="220.5" width="295" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FHISmittestoppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2Lh-4t-IDu" userLabel="App Logo">
+                                                                <rect key="frame" x="75" y="71.5" width="225" height="157"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <bool key="isElement" value="YES"/>
+                                                                </accessibility>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -423,11 +483,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jkI-zv-Af6"/>
                         <constraints>
-                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="717" secondAttribute="top" constant="-1" id="HF6-lP-dkU"/>
+                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="jkI-zv-Af6" secondAttribute="top" id="5gy-Ib-8wR"/>
+                            <constraint firstAttribute="trailing" secondItem="Dio-Qd-Xe9" secondAttribute="trailing" constant="16" id="R6K-O8-Km1"/>
                             <constraint firstItem="5I2-pE-NTM" firstAttribute="width" secondItem="717" secondAttribute="width" id="T4K-Jx-8fm"/>
                             <constraint firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="Uzr-5N-pbi"/>
-                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="leading" secondItem="717" secondAttribute="leading" id="dLH-ji-tcG"/>
+                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="leading" secondItem="jkI-zv-Af6" secondAttribute="leading" id="dLH-ji-tcG"/>
+                            <constraint firstItem="Dio-Qd-Xe9" firstAttribute="leading" secondItem="717" secondAttribute="leading" constant="16" id="n8X-m6-Eqs"/>
+                            <constraint firstItem="jkI-zv-Af6" firstAttribute="trailing" secondItem="5FM-IV-ZSI" secondAttribute="trailing" id="ntz-Us-T6c"/>
+                            <constraint firstItem="Dio-Qd-Xe9" firstAttribute="centerY" secondItem="jkI-zv-Af6" secondAttribute="centerY" constant="47" id="o2w-UY-eGA"/>
                             <constraint firstAttribute="trailing" secondItem="5FM-IV-ZSI" secondAttribute="trailing" id="p76-re-mBn"/>
+                            <constraint firstItem="Dio-Qd-Xe9" firstAttribute="centerX" secondItem="jkI-zv-Af6" secondAttribute="centerX" id="vrB-cA-bls"/>
+                            <constraint firstItem="jkI-zv-Af6" firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="zEN-Me-ZJx"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -445,7 +511,13 @@
                         <outlet property="NewRegistrationLbl" destination="FWO-uk-OoO" id="name-outlet-FWO-uk-OoO"/>
                         <outlet property="OnOffBtn" destination="xkb-Bo-Rzw" id="name-outlet-xkb-Bo-Rzw"/>
                         <outlet property="OnOffBtnContainer" destination="y9k-ec-FSe" id="name-outlet-y9k-ec-FSe"/>
+                        <outlet property="Picker" destination="0no-F7-Que" id="xUc-DN-f5c"/>
                         <outlet property="ScrollDownBackgroundView" destination="hfb-Su-BUZ" id="name-outlet-hfb-Su-BUZ"/>
+                        <outlet property="SpinnerDialogButton" destination="0M0-th-T5S" id="D7h-Hu-Awf"/>
+                        <outlet property="SpinnerDialogMessage" destination="dY2-vh-Jg6" id="9Ox-CD-Och"/>
+                        <outlet property="SpinnerDialogStackView" destination="3Ht-T8-5DM" id="q1W-74-vdK"/>
+                        <outlet property="SpinnerDialogTitle" destination="OtP-1W-qPk" id="jz1-5m-EId"/>
+                        <outlet property="SpinnerMainView" destination="Dio-Qd-Xe9" id="lA2-Ef-hb4"/>
                         <outlet property="StatusContainer" destination="w4F-Ew-Iyy" id="name-outlet-w4F-Ew-Iyy"/>
                         <outlet property="StatusText" destination="FQ9-7p-6vm" id="name-outlet-FQ9-7p-6vm"/>
                         <outlet property="appLogo" destination="2Lh-4t-IDu" id="WEd-zw-XdJ"/>
