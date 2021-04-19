@@ -71,6 +71,8 @@ namespace NDB.Covid19.Droid
             {
                 BackgroundFetchScheduler.ScheduleBackgroundFetch();
             }
+
+            LogUtils.LogMessage(LogSeverity.INFO, $"The user has opened the app", null);
         }
 
         private void OnUnhandledAndroidException(object sender, RaiseThrowableEventArgs e)
@@ -160,8 +162,6 @@ namespace NDB.Covid19.Droid
             ++_activityReferences;
             if (_activityReferences == 1 && !_isActivityChangingConfigurations)
             {
-                LogUtils.LogMessage(LogSeverity.INFO, $"The user has opened the app", null, GetCorrelationId());
-
                 // Log LoadPageActivity entered foreground after being put into background
                 // because onResume() in LoadPageActivity is not called due to the pop-up window on the activity
                 if (activity is Views.AuthenticationFlow.LoadingPageActivity)
