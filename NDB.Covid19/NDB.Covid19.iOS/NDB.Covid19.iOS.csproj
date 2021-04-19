@@ -25,7 +25,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>Apple Development: Antoni Kistowski (TZ2K58WDRV)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Smittestopp EN API - Development</CodesignProvision>
