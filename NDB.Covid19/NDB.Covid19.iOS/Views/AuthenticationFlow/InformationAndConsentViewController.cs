@@ -140,7 +140,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 LogInWithIDPortenBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
             });
 
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with nemid");
+            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with ID porten");
             _authViewController = AuthenticationState.Authenticator.GetUI();
             PresentViewController(_authViewController, true, null);
         }
