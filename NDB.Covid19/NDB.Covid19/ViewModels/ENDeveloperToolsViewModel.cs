@@ -121,7 +121,7 @@ namespace NDB.Covid19.ViewModels
             string appLanguage = GetAppLanguage();
 
             string formattedString =
-                $"[EN API v2] MAXIMUM_SCORE_THRESHOLD: {MaximumScoreThreshold}\n" +
+                $"[EN API v2] SCORE_SUM_THRESHOLD: {ScoreSumThreshold}\n" +
                 $"[EN API v1] EXPOSURE_TIME_THRESHOLD: {ExposureTimeThreshold}\n" +
                 $"[EN API v1] LOW_ATTENUATION_DURATION_MULTIPLIER: {LowAttenuationDurationMultiplier}\n" +
                 $"[EN API v1] MIDDLE_ATTENUATION_DURATION_MULTIPLIER: {MiddleAttenuationDurationMultiplier}\n" +

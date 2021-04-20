@@ -116,9 +116,9 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 
             if (response.IsSuccessfull && response.Data != null && response.Data.DailySummaryConfiguration != null)
             {
-                if (response.Data.MaximumScoreThreshold.HasValue)
+                if (response.Data.ScoreSumThreshold.HasValue)
                 {
-                    LocalPreferencesHelper.MaximumScoreThreshold = response.Data.MaximumScoreThreshold.Value;
+                    LocalPreferencesHelper.ScoreSumThreshold = response.Data.ScoreSumThreshold.Value;
                 }
                 return response.Data.DailySummaryConfiguration;
             }

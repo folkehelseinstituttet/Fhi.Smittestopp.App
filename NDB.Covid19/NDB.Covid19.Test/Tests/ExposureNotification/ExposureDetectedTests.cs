@@ -179,8 +179,8 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo(locale);
 
-            LocalPreferencesHelper.MaximumScoreThreshold = 900;
-            DailySummaryReport dailySummaryReport = new DailySummaryReport(901, 0, 0);
+            LocalPreferencesHelper.ScoreSumThreshold = 780;
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(0, 781, 0);
             DailySummary dailySummary = new DailySummary(SystemTime.Now(), dailySummaryReport,
                 new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
@@ -197,8 +197,8 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo(locale);
 
-            LocalPreferencesHelper.MaximumScoreThreshold = 900;
-            DailySummaryReport dailySummaryReport = new DailySummaryReport(900, 0, 0);
+            LocalPreferencesHelper.ScoreSumThreshold = 780;
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(0, 780, 0);
             DailySummary dailySummary = new DailySummary(SystemTime.Now(), dailySummaryReport,
                 new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
@@ -215,8 +215,8 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo(locale);
 
-            LocalPreferencesHelper.MaximumScoreThreshold = 900;
-            DailySummaryReport dailySummaryReport = new DailySummaryReport(899, 0, 0);
+            LocalPreferencesHelper.ScoreSumThreshold = 780;
+            DailySummaryReport dailySummaryReport = new DailySummaryReport(0, 779, 0);
             DailySummary dailySummary = new DailySummary(SystemTime.Now(), dailySummaryReport,
                 new Dictionary<ReportType, DailySummaryReport>());
             bool isAboveThreshold = ExposureDetectedHelper.RiskInDailySummaryAboveThreshold(dailySummary);
