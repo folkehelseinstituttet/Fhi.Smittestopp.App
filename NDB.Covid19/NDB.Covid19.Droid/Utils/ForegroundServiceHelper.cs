@@ -23,8 +23,7 @@ namespace NDB.Covid19.Droid.Utils
 
             if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
             {
-                //context.StartForegroundService(intent);
-                context.StartService(intent);
+                context.StartForegroundService(intent);
             }
             else
             {

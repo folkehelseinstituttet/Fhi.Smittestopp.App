@@ -78,11 +78,31 @@ namespace NDB.Covid19.Droid.Utils
 
             permissionsChannel.SetShowBadge(true);
 
+            NotificationChannel reminderChannel = new NotificationChannel(
+                _reminderChannelId,
+                NotificationChannelsViewModel.NOTIFICATION_CHANNEL_REMINDER_NAME,
+                NotificationImportance.High)
+            {
+                Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_REMINDER_DESCRIPTION,
+            };
+            reminderChannel.SetShowBadge(true);
+
+            NotificationChannel counterChannel = new NotificationChannel(
+                _reminderChannelId,
+                NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTER_NAME,
+                NotificationImportance.Low)
+            {
+                Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTER_DESCRIPTION,
+            };
+            counterChannel.SetShowBadge(false);
+
             NotificationManager notificationManager =
                 (NotificationManager)NotificationContext.GetSystemService(Context.NotificationService);
             notificationManager?.CreateNotificationChannel(exposureChannel);
             notificationManager?.CreateNotificationChannel(backgroundFetchChannel);
             notificationManager?.CreateNotificationChannel(permissionsChannel);
+            notificationManager?.CreateNotificationChannel(reminderChannel);
+            notificationManager?.CreateNotificationChannel(counterChannel);
         }
 
         public void GenerateLocalNotification(NotificationViewModel notificationViewModel, long triggerInSeconds)
@@ -185,19 +205,11 @@ namespace NDB.Covid19.Droid.Utils
                 builder.SetColor(Resource.Color.colorPrimary);
             }
 
-            builder.SetSmallIcon(Resource.Drawable.ic_logo_fhi_blue);
+            builder.SetSmallIcon(Resource.Drawable.ic_notification);
 
             return builder.Build();
         }
-        public void GenerateDelayedNotification(NotificationViewModel viewModel, long ticks)
-        {
-            Intent intent = new Intent();
-            intent.SetAction(BroadcastActionName);
-            intent.PutExtra("type", (int)NotificationType.ForegroundWithUpdates);
-            intent.PutExtra("data", (int)viewModel.Type);
-            intent.PutExtra("ticks", ticks);
-            LocalBroadcastManager.GetInstance(Current.Activity ?? Current.AppContext).SendBroadcast(intent);
-        }
+
         public void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel)
         {
             BroadcastNotification(viewModel, NotificationType.InBackground);
@@ -233,7 +245,15 @@ namespace NDB.Covid19.Droid.Utils
         {
             BroadcastNotification(viewModel, NotificationType.Permissions);
         }
-
+        public void GenerateDelayedNotification(NotificationViewModel viewModel, long ticks)
+        {
+            Intent intent = new Intent();
+            intent.SetAction(BroadcastActionName);
+            intent.PutExtra("type", (int)NotificationType.ForegroundWithUpdates);
+            intent.PutExtra("data", (int)viewModel.Type);
+            intent.PutExtra("ticks", ticks);
+            LocalBroadcastManager.GetInstance(Current.Activity ?? Current.AppContext).SendBroadcast(intent);
+        }
         private static void BroadcastNotification(NotificationViewModel viewModel, NotificationType type)
         {
             Intent intent = new Intent();

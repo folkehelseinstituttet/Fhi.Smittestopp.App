@@ -160,11 +160,18 @@ namespace NDB.Covid19.iOS.Utils
         /// <param name="fontSize"></param>
         /// <param name="maxFontSize"></param>
         /// <param name="alignment"></param>
-        public static void InitLabelWithSpacing(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize, UITextAlignment alignment = UITextAlignment.Left, bool useHyphenation = false)
+        public static void InitLabelWithSpacing(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize,bool centerAlignment = false, bool useHyphenation = false)
         {
             NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
             paragraphStyle.LineHeightMultiple = new nfloat(lineHeight);
-            paragraphStyle.Alignment = alignment;
+            if (centerAlignment)
+            {
+                paragraphStyle.Alignment = UITextAlignment.Center;
+            }
+            else
+            {
+                paragraphStyle.Alignment = LayoutUtils.GetTextAlignment();
+            }
             if (useHyphenation)
             {
                 paragraphStyle.HyphenationFactor = 1.0f;

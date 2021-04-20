@@ -2,9 +2,6 @@
 using Android.Content;
 using Android.OS;
 using System;
-using Android.App;
-using Android.Content;
-using Android.OS;
 using Android.Runtime;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
@@ -15,17 +12,19 @@ namespace NDB.Covid19.Droid.Services
     [Service]
     public class TimedReminderForegroundService : Service
     {
+
         private TimedReminderCountdownTimer _timedReminderCountdownTimer;
 
-        public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
+        
+       public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
+            
             if (intent.GetBooleanExtra("close", false))
             {
                 StopForeground(true);
                 StopSelf();
                 return base.OnStartCommand(intent, flags, startId); ;
             }
-            
             long ticks = intent.GetLongExtra("ticks", 0);
             Notification notification =
                 new LocalNotificationsManager()
@@ -35,6 +34,7 @@ namespace NDB.Covid19.Droid.Services
 
             // Enlist this instance of the service as a foreground service
             StartForeground((int)NotificationsEnum.TimedReminder, notification);
+
             
 
             try
@@ -107,5 +107,6 @@ namespace NDB.Covid19.Droid.Services
                     NotificationsEnum.TimedReminder.Data(), millisUntilFinished);
             }
         }
+
     }
 }

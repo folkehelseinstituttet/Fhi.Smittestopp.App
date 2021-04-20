@@ -427,7 +427,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
 
             View dialogView = LayoutInflater.Inflate(Resource.Layout.spinner_dialog, null);
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);//, Resource.Style.PauseExposureNotificationTitleStyle);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetView(dialogView);
             builder.SetCancelable(false);
             builder.SetTitle(INFECTION_STATUS_PAUSE_DIALOG_TITLE);

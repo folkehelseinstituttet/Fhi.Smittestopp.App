@@ -1131,9 +1131,6 @@
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>
     </PackageReference>
-    <PackageReference Include="Unity.Abstractions">
-      <Version>5.11.6</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Media">
       <Version>1.1.0.1</Version>
     </PackageReference>

@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using CommonServiceLocator;
 using CoreFoundation;
 using MoreLinq;
@@ -13,10 +14,10 @@ using NDB.Covid19.iOS.Views.Settings;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
-using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using UIKit;
-using System.Collections.Generic;
 using UserNotifications;
+using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -502,7 +503,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 1.14,
                 24,
                 38,
-                UITextAlignment.Center);
+                true);
             StyleUtil.InitLabelWithSpacing(
                 SpinnerDialogMessage,
                 StyleUtil.FontType.FontRegular,
@@ -510,7 +511,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 1.28,
                 16,
                 20,
-                UITextAlignment.Center);
+                true);
             SpinnerDialogButton.SetTitle(
                 INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON,
                 UIControlState.Normal);
