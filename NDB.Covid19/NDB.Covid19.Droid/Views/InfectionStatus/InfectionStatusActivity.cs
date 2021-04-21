@@ -22,6 +22,7 @@ using NDB.Covid19.ViewModels;
 using Xamarin.ExposureNotifications;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using AlertDialog = Android.App.AlertDialog;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -431,6 +432,35 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             Intent intent = new Intent(this, typeof(InformationAndConsentActivity));
             StartActivity(intent);
+        }
+        //Exemplary method for displaying a diolog for enabling background activity
+        public void ShowBackgroundActivityDialog()
+        {
+            View dialogView = LayoutInflater.Inflate(Resource.Layout.background_activity_dialog, null);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, Resource.Style.AlertDialogTheme);
+            builder.SetView(dialogView);
+            builder.SetTitle(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE);
+            builder.SetMessage(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE);
+            builder.SetCancelable(false);
+            
+            builder.SetPositiveButton(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON, (sender, args) =>
+              {
+                  
+                  (sender as AlertDialog)?.Dismiss();
+              });
+            builder.SetNegativeButton(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON, (sender, args) =>
+              {
+                  
+                  (sender as AlertDialog)?.Dismiss();
+              });
+            builder.SetNeutralButton(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON, (sender, args) =>
+              {
+             
+                  (sender as AlertDialog)?.Dismiss();
+              });
+            builder.Create();
+
+            builder.Show();
         }
     }
 }
