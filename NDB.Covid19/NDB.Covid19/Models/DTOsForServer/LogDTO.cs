@@ -33,6 +33,9 @@ namespace NDB.Covid19.Models.DTOsForServer
 
         public string AdditionalInfo { get; private set; }
 
+        //Used for the authentication/submission flow
+        public string CorrelationId { get; private set; }
+
         public LogDTO(LogSQLiteModel log)
         {
 #if UNIT_TEST
@@ -49,7 +52,7 @@ namespace NDB.Covid19.Models.DTOsForServer
             BuildVersion = log.BuildVersion;
             BuildNumber = log.BuildNumber;
             DeviceOSVersion = log.DeviceOSVersion;
-            DeviceCorrelationId = log.CorrelationId;
+            DeviceCorrelationId = "";
             ExceptionType = log.ExceptionType;
             ExceptionMessage = log.ExceptionMessage;
             ExceptionStackTrace = log.ExceptionStackTrace;
@@ -60,6 +63,7 @@ namespace NDB.Covid19.Models.DTOsForServer
             ApiErrorCode = log.ApiErrorCode;
             ApiErrorMessage = log.ApiErrorMessage;
             AdditionalInfo = log.AdditionalInfo;
+            CorrelationId = log.CorrelationId;
         }
 
         public override string ToString()
