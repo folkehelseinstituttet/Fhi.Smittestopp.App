@@ -89,10 +89,10 @@ namespace NDB.Covid19.Droid.Utils
 
             NotificationChannel counterChannel = new NotificationChannel(
                 _reminderChannelId,
-                NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTER_NAME,
+                NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTDOWN_NAME,
                 NotificationImportance.Low)
             {
-                Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTER_DESCRIPTION,
+                Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTDOWN_DESCRIPTION,
             };
             counterChannel.SetShowBadge(false);
 
