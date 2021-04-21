@@ -71,21 +71,21 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
 
         /// <summary>
         /// [EN API v2] method to evaluate the risk of daily summary of exposures towards
-        /// a maximum score threshold.
+        /// a scoresum threshold.
         /// </summary>
         /// <param name="dailySummary"></param>
         /// <returns></returns>
         public static bool RiskInDailySummaryAboveThreshold(DailySummary dailySummary)
         {
-            if (dailySummary.Summary.MaximumScore >= LocalPreferencesHelper.MaximumScoreThreshold)
+            if (dailySummary.Summary.ScoreSum >= LocalPreferencesHelper.ScoreSumThreshold)
             {
-                Debug.WriteLine($"{_logPrefix}: Maximum score for DailySummary {dailySummary.Timestamp.Date} is " +
-                    $"{dailySummary.Summary.MaximumScore} and is higher than MaximumScoreThreshold {LocalPreferencesHelper.MaximumScoreThreshold}");
+                Debug.WriteLine($"{_logPrefix}: Score sum for DailySummary {dailySummary.Timestamp.Date} is " +
+                    $"{dailySummary.Summary.ScoreSum} and is higher than ScoreSumThreshold {LocalPreferencesHelper.ScoreSumThreshold}");
                 return true;
             }
 
-            Debug.WriteLine($"{_logPrefix}: Maximum score for DailySummary {dailySummary.Timestamp.Date} is " +
-                    $"{dailySummary.Summary.MaximumScore} and is lower than MaximumScoreThreshold {LocalPreferencesHelper.MaximumScoreThreshold}");
+            Debug.WriteLine($"{_logPrefix}: Score sum for DailySummary {dailySummary.Timestamp.Date} is " +
+                    $"{dailySummary.Summary.ScoreSum} and is lower than ScoreSumThreshold {LocalPreferencesHelper.ScoreSumThreshold}");
             return false;
         }
 
