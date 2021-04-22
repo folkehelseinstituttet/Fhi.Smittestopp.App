@@ -330,7 +330,7 @@
   "NOTIFICATION_CHANNEL_BACKGROUND_FETCH_DESCRIPTION": "Notifications about ongoing background activity",
   "NOTIFICATION_CHANNEL_PERMISSIONS_NAME": "Permission issues",
   "NOTIFICATION_CHANNEL_PERMISSIONS_DESCRIPTION": "Notifications about missing access to for example Bluetooth",
-  "NOTIFICATION_CHANNEL_COUNTDOWN_NAME": "Countdown Notifications",
+  "NOTIFICATION_CHANNEL_COUNTDOWN_NAME": "Countdown notifications",
   "NOTIFICATION_CHANNEL_COUNTDOWN_DESCRIPTION": "Notifications with countdown until reminder will be sent",
   "NOTIFICATION_CHANNEL_REMINDER_NAME": "Reminders",
   "NOTIFICATION_CHANNEL_REMINDER_DESCRIPTION": "Reminders about turning application on again",

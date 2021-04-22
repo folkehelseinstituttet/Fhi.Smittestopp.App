@@ -87,14 +87,14 @@ namespace NDB.Covid19.Droid.Utils
             };
             reminderChannel.SetShowBadge(true);
 
-            NotificationChannel counterChannel = new NotificationChannel(
-                _reminderChannelId,
+            NotificationChannel countdownChannel = new NotificationChannel(
+                _countdownChannelId,
                 NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTDOWN_NAME,
                 NotificationImportance.Low)
             {
                 Description = NotificationChannelsViewModel.NOTIFICATION_CHANNEL_COUNTDOWN_DESCRIPTION,
             };
-            counterChannel.SetShowBadge(false);
+            countdownChannel.SetShowBadge(true);
 
             NotificationManager notificationManager =
                 (NotificationManager)NotificationContext.GetSystemService(Context.NotificationService);
@@ -102,7 +102,7 @@ namespace NDB.Covid19.Droid.Utils
             notificationManager?.CreateNotificationChannel(backgroundFetchChannel);
             notificationManager?.CreateNotificationChannel(permissionsChannel);
             notificationManager?.CreateNotificationChannel(reminderChannel);
-            notificationManager?.CreateNotificationChannel(counterChannel);
+            notificationManager?.CreateNotificationChannel(countdownChannel);
         }
 
         public void GenerateLocalNotification(NotificationViewModel notificationViewModel, long triggerInSeconds)
