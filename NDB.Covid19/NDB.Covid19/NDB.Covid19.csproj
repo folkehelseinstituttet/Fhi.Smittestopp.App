@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Configurations>Debug;Release;UNIT_TEST</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppCenter|iPhone' ">
@@ -73,7 +72,6 @@
     <PackageReference Include="Unity" Version="5.11.9" />
     <PackageReference Include="I18NPortable.JsonReader" Version="1.0.1" />
     <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="2.5.0" />
-    <PackageReference Include="Unity.Abstractions" Version="5.11.6" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Unity.ServiceLocation" Version="5.11.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />

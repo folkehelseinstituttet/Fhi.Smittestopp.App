@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="716">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,8 +30,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEssage" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY2-vh-Jg6">
-                                                <rect key="frame" x="0.0" y="28.5" width="343" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY2-vh-Jg6">
+                                                <rect key="frame" x="20" y="28.5" width="303" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -58,7 +59,9 @@
                                             <constraint firstItem="0no-F7-Que" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leadingMargin" id="9eH-u7-rEv"/>
                                             <constraint firstItem="dY2-vh-Jg6" firstAttribute="top" secondItem="OtP-1W-qPk" secondAttribute="bottom" constant="8" id="DWt-VN-eCh"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="0M0-th-T5S" secondAttribute="trailing" id="HSD-77-apd"/>
+                                            <constraint firstItem="dY2-vh-Jg6" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leading" constant="20" symbolic="YES" id="KNF-7H-lm7"/>
                                             <constraint firstItem="dY2-vh-Jg6" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leadingMargin" id="YyO-p1-mKe"/>
+                                            <constraint firstAttribute="trailing" secondItem="dY2-vh-Jg6" secondAttribute="trailing" constant="20" symbolic="YES" id="aqo-ge-son"/>
                                             <constraint firstItem="0M0-th-T5S" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leading" id="dok-0o-zIq"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="dY2-vh-Jg6" secondAttribute="trailing" id="uoL-JB-Rre"/>
                                         </constraints>
