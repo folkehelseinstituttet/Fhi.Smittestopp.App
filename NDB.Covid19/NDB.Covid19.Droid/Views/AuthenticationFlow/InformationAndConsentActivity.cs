@@ -46,14 +46,21 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             InitLayout();
         }
 
+        protected override void OnResume()
+        {
+            base.OnResume();
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Information and Consent", null);
+        }
+
         private void OnAuthError(object sender, AuthErrorType e)
         {
+            LogUtils.LogMessage(LogSeverity.INFO, $"Authentication failed.");
             GoToErrorPage(e);
         }
 
         private void OnAuthSuccess(object sender, EventArgs e)
         {
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, $"Successfully authenticated and verified user. Navigation to {nameof(QuestionnairePageActivity)}");
+            LogUtils.LogMessage(LogSeverity.INFO, $"Successfully authenticated and verified user. Navigation to {nameof(QuestionnairePageActivity)}");
             GoToQuestionnairePage();
         }
 

@@ -136,10 +136,10 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.HIGH_ATTENUATION_DURATION_MULTIPLIER, value);
         }
 
-        public static double MaximumScoreThreshold
+        public static double ScoreSumThreshold
         {
-            get => _preferences.Get(PreferencesKeys.MAXIMUM_SCORE_THRESHOLD, Conf.MAXIMUM_SCORE_THRESHOLD);
-            set => _preferences.Set(PreferencesKeys.MAXIMUM_SCORE_THRESHOLD, value);
+            get => _preferences.Get(PreferencesKeys.SCORE_SUM_THRESHOLD, Conf.SCORE_SUM_THRESHOLD);
+            set => _preferences.Set(PreferencesKeys.SCORE_SUM_THRESHOLD, value);
         }
 
         public static DateTime LastPermissionsNotificationDateTimeUtc
@@ -164,6 +164,13 @@ namespace NDB.Covid19.PersistedData
         {
             get => _preferences.Get(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, false);
             set => _preferences.Set(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, value);
+        }
+
+        // The id is used to identify authentication/submission flow in the logs.
+        public static string GetCorrelationId() => _preferences.Get(PreferencesKeys.CORRELATION_ID, null);
+        public static void UpdateCorrelationId(string correlationId)
+        {
+            _preferences.Set(PreferencesKeys.CORRELATION_ID, correlationId);
         }
 
         public static bool HasNeverSuccessfullyFetchedFHIData

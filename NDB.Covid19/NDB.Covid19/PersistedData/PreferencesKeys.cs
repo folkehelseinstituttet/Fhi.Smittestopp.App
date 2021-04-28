@@ -51,6 +51,8 @@ namespace NDB.Covid19.PersistedData
         public static readonly string FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF = "FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF";
         public static readonly string FETCHING_ACROSS_DATES_204_FIRST_BATCH = "FETCHING_ACROSS_DATES_204_FIRST_BATCH";
 
+        public static readonly string CORRELATION_ID = "CORRELATION_ID";
+
         // EN API v1 configuration parameters
         public static readonly string EXPOSURE_TIME_THRESHOLD = "EXPOSURE_TIME_THRESHOLD";
         public static readonly string LOW_ATTENUATION_DURATION_MULTIPLIER = "LOW_ATTENUATION_DURATION_MULTIPLIER";
@@ -58,6 +60,6 @@ namespace NDB.Covid19.PersistedData
         public static readonly string HIGH_ATTENUATION_DURATION_MULTIPLIER = "HIGH_ATTENUATION_DURATION_MULTIPLIER";
 
         // EN API v2 configuration parameters
-        public static readonly string MAXIMUM_SCORE_THRESHOLD = "MAXIMUM_SCORE_THRESHOLD";
+        public static readonly string SCORE_SUM_THRESHOLD = "SCORE_SUM_THRESHOLD";
     }
 }

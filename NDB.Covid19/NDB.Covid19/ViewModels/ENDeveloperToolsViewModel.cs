@@ -121,7 +121,7 @@ namespace NDB.Covid19.ViewModels
             string appLanguage = GetAppLanguage();
 
             string formattedString =
-                $"[EN API v2] MAXIMUM_SCORE_THRESHOLD: {MaximumScoreThreshold}\n" +
+                $"[EN API v2] SCORE_SUM_THRESHOLD: {ScoreSumThreshold}\n" +
                 $"[EN API v1] EXPOSURE_TIME_THRESHOLD: {ExposureTimeThreshold}\n" +
                 $"[EN API v1] LOW_ATTENUATION_DURATION_MULTIPLIER: {LowAttenuationDurationMultiplier}\n" +
                 $"[EN API v1] MIDDLE_ATTENUATION_DURATION_MULTIPLIER: {MiddleAttenuationDurationMultiplier}\n" +
@@ -370,8 +370,8 @@ namespace NDB.Covid19.ViewModels
             PersonalDataModel pd = AuthenticationState.PersonalData;
             return $"Last Symptom Onset Date: {QuestionnaireViewModel.DateLabel}, " +
                 $"Selection: {QuestionnaireViewModel.Selection}, " +
-                $"MiBaDate:{pd?.Covid19_smitte_start}, " +
-                $"Date used for risk calc:{pd?.FinalMiBaDate}";
+                $"Date in MSIS:{pd?.Covid19_smitte_start}, " +
+                $"Date used for risk calc:{pd?.FinalDateToSetDSOS}";
         }
 
         public string PrintLastPulledKeysAndTimestamp()
