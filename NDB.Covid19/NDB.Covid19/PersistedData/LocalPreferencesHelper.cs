@@ -38,6 +38,11 @@ namespace NDB.Covid19.PersistedData
             _preferences.Set(PreferencesKeys.USE_MOBILE_DATA_PREF, isDownloadWithMobileDataEnabled);
         }
 
+        public static bool GetIsBackgroundActivityDialogShowEnable() => _preferences.Get(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE, true);
+        public static void SetIsBackgroundActivityDialogShowEnable(bool isBackgroundActivityDialogShowEnable)
+        {
+            _preferences.Set(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE, isBackgroundActivityDialogShowEnable);
+        }
         // This is the date of the last fetch, which is displayed to the user on the Messages screen.
         //  The keys are not submitted yet
         public static DateTime GetUpdatedDateTime() => _preferences.Get(PreferencesKeys.MESSAGES_LAST_UPDATED_PREF, DateTime.MinValue);

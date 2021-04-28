@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CommonServiceLocator;
 using I18NPortable;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
@@ -253,6 +256,28 @@ namespace NDB.Covid19.ViewModels
             await NewMessagesFetched();
         }
 
-        
+        public async Task<bool> PullKeysFromServer()
+        {
+            
+            bool processedAnyFiles = false;
+            try
+            {
+                await Xamarin.ExposureNotifications.ExposureNotification.UpdateKeysFromServer();
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                string error = $"Pull keys failed:\n{e}";
+                Debug.WriteLine(error);
+#endif
+                LogUtils.LogException(LogSeverity.WARNING, e,
+                        $"{nameof(InfectionStatusViewModel)}.{nameof(PullKeysFromServer)}: Pull keys failed");
+            }
+
+            return processedAnyFiles;
+        }
+
+
+
     }
 }

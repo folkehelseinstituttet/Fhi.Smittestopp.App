@@ -235,25 +235,4 @@
 		<item name="android:textStyle">bold</item>
 	</style>
 
-	<style name="AlertDialogTheme" parent="ThemeOverlay.AppCompat.Dialog.Alert">
-		<item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
-		<item name="android:buttonBarNeutralButtonStyle">@style/NeutralButtonStyle</item>
-		<item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
-		<item name="android:windowTitleStyle">@style/PrimaryTextBold</item>
-		<item name="android:paddingBottom">4dp</item>
-		
-	</style>
-
-	<style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-		<item name="android:textColor">#f05</item>
-		<item name="android:textSize">13sp</item>
-	</style>
-
-	<style name="NeutralButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-		<item name="android:textColor">#000</item>
-		<item name="android:textSize">13sp</item>
-	</style>
-	<style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-		<item name="android:textSize">13sp</item>
-	</style>
 </resources>
