@@ -11,7 +11,7 @@ namespace NDB.Covid19.Utils
         private readonly NtpClient _client;
         public NTPUtcDateTime()
         {
-            _client = new NtpClient();
+            _client = new NtpClient(KnownNtpServers.PoolOrg);
         }
 
         public virtual async Task<DateTime> GetNTPUtcDateTime()
