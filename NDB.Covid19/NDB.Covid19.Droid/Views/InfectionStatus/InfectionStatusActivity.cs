@@ -22,6 +22,8 @@ using NDB.Covid19.ViewModels;
 using Xamarin.ExposureNotifications;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using NDB.Covid19.Enums;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -99,6 +101,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         protected override void OnResume()
         {
             base.OnResume();
+
+            UpdateCorrelationId(null);
+            LogUtils.LogMessage(LogSeverity.INFO, $"User opened InfectionStatus", null);
 
             _permissionUtils.SubscribePermissionsMessagingCenter(this,
                 o =>
@@ -356,6 +361,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 {
                     ExposureNotification.OnActivityResult(requestCode, resultCode, data);
                 }
+            }
+            catch (Exception e)
+            {
+                _ = e.HandleExposureNotificationException(nameof(InfectionStatusActivity), nameof(OnActivityResult));
             }
             finally
             {
