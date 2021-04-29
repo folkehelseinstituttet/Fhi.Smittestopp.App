@@ -23,7 +23,7 @@ namespace NDB.Covid19.iOS
                     LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user experienced native iOS crash", null, correlationId);
                 }
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e, "iOS crashed (logged in Main.cs)");
-                throw e;
+                throw;
             }
         }
     }

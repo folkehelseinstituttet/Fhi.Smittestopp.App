@@ -362,6 +362,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     ExposureNotification.OnActivityResult(requestCode, resultCode, data);
                 }
             }
+            catch (Exception e)
+            {
+                _ = e.HandleExposureNotificationException(nameof(InfectionStatusActivity), nameof(OnActivityResult));
+            }
             finally
             {
                 _permissionUtils.OnActivityResult(requestCode, resultCode, data);
