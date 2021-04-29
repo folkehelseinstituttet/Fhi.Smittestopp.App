@@ -5,7 +5,7 @@
 
     <IsPackable>false</IsPackable>
 
-    <Configurations>Debug;Release;UNIT_TEST</Configurations>
+    <Configurations>Debug;UNIT_TEST;Release</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -30,6 +30,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
     <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.11.0" />
   </ItemGroup>
 
   <ItemGroup>

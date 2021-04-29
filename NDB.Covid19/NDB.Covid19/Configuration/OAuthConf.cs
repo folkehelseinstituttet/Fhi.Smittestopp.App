@@ -11,6 +11,6 @@ namespace NDB.Covid19.Configuration
         public static string OAUTH2_ACCESSTOKEN_URL => OAUTH2_BASE_URL + "connect/token";
         public static string OAUTH2_ANONTOKEN_URL => OAUTH2_BASE_URL + "api/anonymousTokens";
 
-        public static string OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "INJECTED_IN_APP_CENTER_DURING_BUILD";
+        public static string OAUTH2_JWKS_URL => OAUTH2_BASE_URL + ".well-known/openid-configuration/jwks";
     }
 }

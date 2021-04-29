@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using JWT;
 using JWT.Algorithms;
 using JWT.Builder;
 using JWT.Serializers;
+using Microsoft.IdentityModel.Tokens;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
@@ -70,7 +73,7 @@ namespace NDB.Covid19.OAuth2
         {
             try
             {
-                byte[] publicKey = Convert.FromBase64String(OAuthConf.OAUTH2_VERIFY_TOKEN_PUBLIC_KEY);
+                byte[] publicKey = Convert.FromBase64String(GetPublickey());
 
                 string jsonPayload = new JwtBuilder()
                     .WithAlgorithm(new RS256Algorithm(new X509Certificate2(publicKey)))
@@ -98,6 +101,15 @@ namespace NDB.Covid19.OAuth2
                 LogUtils.LogException(LogSeverity.ERROR, e, $"{nameof(AuthenticationManager)}.{nameof(GetPayloadValidateJWTToken)} failed.");
                 return null;
             }
+        }
+
+        private string GetPublickey()
+        {
+            string json = new WebClient().DownloadString(OAuthConf.OAUTH2_JWKS_URL);
+            JsonWebKeySet jwks = new JsonWebKeySet(json);
+            List<JsonWebKey> keyList = new List<JsonWebKey>(jwks.Keys);
+            string publicKey = keyList[0].X5c[0];
+            return publicKey;
         }
     }
 
