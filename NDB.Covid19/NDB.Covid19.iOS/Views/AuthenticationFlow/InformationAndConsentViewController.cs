@@ -11,6 +11,7 @@ using NDB.Covid19.Utils;
 using UIKit;
 using NDB.Covid19.Enums;
 using System.Collections.Generic;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
@@ -41,6 +42,34 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             SetTexts();
             SetupStyling();
             SetupAccessibility();
+            AddObservers();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Information and Consent page", null);
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+            LogInWithIDPortenBtn.HideSpinner();
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE);
+            MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE);
+        }
+
+        void AddObservers()
+        {
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Information and Consent page", null);
+            });
+
+            MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE, (object _) =>
+            {
+                LogUtils.LogMessage(LogSeverity.INFO, "The user left Information and Consent page", null);
+            });
         }
 
         private void SetTexts()
@@ -84,18 +113,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             }
         }
 
-        public override void ViewWillDisappear(bool animated)
-        {
-            base.ViewWillDisappear(animated);
-
-            LogInWithIDPortenBtn.HideSpinner();
-        }
-
         void OnAuthError(object sender, AuthErrorType authErrorType)
         {
             _viewModel.Cleanup();
 
             Debug.Print("OnAuthError");
+            LogUtils.LogMessage(LogSeverity.INFO, "Authentication failed.");
             LogInWithIDPortenBtn.HideSpinner();
             Utils.AuthErrorUtils.GoToErrorPageForAuthErrorType(this, authErrorType);
             _authViewController.DismissViewController(true, null);
@@ -104,6 +127,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         void OnAuthSuccess(object sender, EventArgs e)
         {
             Debug.Print("OnAuthSuccess");
+            LogUtils.LogMessage(LogSeverity.INFO, $"Successfully authenticated and verifeid user. Navigating to {nameof(QuestionnaireViewController)}");
             LogInWithIDPortenBtn.HideSpinner();
             GoToQuestionnairePage();
             _authViewController.DismissViewController(true, null);
@@ -116,7 +140,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
                 LogInWithIDPortenBtn.ShowSpinner(View, UIActivityIndicatorViewStyle.White);
             });
 
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with nemid");
+            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with ID porten");
             _authViewController = AuthenticationState.Authenticator.GetUI();
             PresentViewController(_authViewController, true, null);
         }

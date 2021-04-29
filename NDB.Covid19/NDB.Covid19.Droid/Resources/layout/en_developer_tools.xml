@@ -121,6 +121,29 @@
                         android:text="Show ExposureInfos"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
+                <Button
+                        android:id="@+id/enDeveloperTools_button_showLastDailySummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Show DailySummary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                <Button
+                        android:id="@+id/enDeveloperTools_button_showLastExposureWindow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="Show ExposureWindows"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                 <Button
                         android:id="@+id/enDeveloperTools_button_pushKeys"

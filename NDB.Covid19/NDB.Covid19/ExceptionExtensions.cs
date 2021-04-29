@@ -22,6 +22,17 @@ namespace NDB.Covid19
                 return true;
             }
 
+            if (e.ToString().Contains("com.google.android.gms.common.api")||
+                e.ToString().Contains("Android.Gms.Common.Apis.ApiException"))
+            {
+                LogUtils.LogException(Enums.LogSeverity.ERROR, e,
+                    className + "." + methodName + ": Other EN api error occurred");
+                return true;
+            }
+
+            LogUtils.LogException(Enums.LogSeverity.ERROR, e,
+                    className + "." + methodName + ": Other unrelated to EN api error occurred");
+
             return false;
         }
 

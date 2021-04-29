@@ -2,8 +2,10 @@ using System;
 using System.Diagnostics;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.ErrorStatus
 {
@@ -19,11 +21,38 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 		{
 			base.ViewDidLoad();
 			SetupStyling();
-			
+			AddObservers();
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user is seeing General Error", null, GetCorrelationId());
+		}
+
+		public override void ViewWillDisappear(bool animated)
+		{
+			base.ViewWillDisappear(animated);
+			MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE);
+			MessagingCenter.Unsubscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE);
+		}
+
+		void AddObservers()
+		{
+			MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_BECAME_ACTIVE, (object _) =>
+			{
+				LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user is seeing General Error", null, GetCorrelationId());
+			});
+
+			MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RESIGN_ACTIVE, (object _) =>
+			{
+				LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user left General Error", null, GetCorrelationId());
+			});
 		}
 
 		public static ErrorPageViewController Create(String errorTitle = "", String errorMessageTxt = "")
 		{
+			UpdateCorrelationId(null);
 			UIStoryboard storyboard = UIStoryboard.FromName("ErrorPage", null);
 			ErrorPageViewController vc = (ErrorPageViewController)storyboard.InstantiateViewController(nameof(ErrorPageViewController));
 			vc.ErrorTitle = errorTitle;

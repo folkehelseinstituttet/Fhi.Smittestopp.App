@@ -6,6 +6,7 @@ using NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using static NDB.Covid19.ViewModels.ErrorViewModel;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Utils
 {
@@ -37,6 +38,7 @@ namespace NDB.Covid19.Droid.Utils
 
         public static void GoToErrorPage(Activity parent, string title, string description, string button, string subtitle = null)
         {
+            UpdateCorrelationId(null);
             Intent intent = new Intent(parent, typeof(GeneralErrorActivity));
             Bundle bundle = new Bundle();
             bundle.PutString("title", title);
