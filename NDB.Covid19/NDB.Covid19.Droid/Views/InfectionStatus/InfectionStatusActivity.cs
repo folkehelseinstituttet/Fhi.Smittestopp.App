@@ -448,9 +448,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         }
         private void CheckIfShowBackgroundActivityDialog()
         {
-            bool firstLaunchCurrent = VersionTracking.IsFirstLaunchForCurrentVersion;
             bool firstLaunchEver = VersionTracking.IsFirstLaunchEver;
-            if (firstLaunchCurrent || firstLaunchEver)
+            if (firstLaunchEver)
             {
                 SetIsBackgroundActivityDialogShowEnable(true);
             }

@@ -223,7 +223,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Key Figures for COVID-19 in Norway",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON": "Yes",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON": "No",
-  "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON": "Do not show this again",
+  "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON": "No, do not show this again",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE": "Allow prioritized background activity",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE": "Enable prioritized background activity to allow the app to determine your risk status in the background any time (recommended). This disables battery life optimazation for Smittestopp app only. We do not expect this to cause a significant decrease in your smartphone's battery life.\n\nIf you do not allow this setting, we encourage you to open the app manually at least once every 24 hours.\n\nDo you allow to turn it on?",
   "INFOCONSENT_HEADER": "Share your positive test result",
