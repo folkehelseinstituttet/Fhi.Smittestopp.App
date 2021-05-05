@@ -108,7 +108,8 @@ namespace NDB.Covid19.OAuth2
             string json = new WebClient().DownloadString(OAuthConf.OAUTH2_JWKS_URL);
             JsonWebKeySet jwks = new JsonWebKeySet(json);
             List<JsonWebKey> keyList = new List<JsonWebKey>(jwks.Keys);
-            string publicKey = keyList[0].X5c[0];
+            int lastIndex = keyList.Count - 1;
+            string publicKey = keyList[lastIndex].X5c[0];
             return publicKey;
         }
     }
