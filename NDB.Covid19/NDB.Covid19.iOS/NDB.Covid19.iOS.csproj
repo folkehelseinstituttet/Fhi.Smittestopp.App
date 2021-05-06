@@ -540,72 +540,28 @@
     <ImageAsset Include="Assets.xcassets\MenuIcon.imageset\hamburgermenuicon%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%401x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%401x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png" />
+     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png" />
+     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%402x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%403x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%401x.png" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%402x.png" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%403x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%403x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%402x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%401x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -657,6 +613,17 @@
     <Folder Include="Assets.xcassets\todays_numbers_icon.imageset\" />
     <Folder Include="Assets.xcassets\VelkommenLogo.imageset\" />
     <Folder Include="Assets.xcassets\WarningIcon.imageset\" />
+    <Folder Include="Views\CustomSubclasses\" />
+    <Folder Include="Views\ForceUpdate\" />
+    <Folder Include="Views\HelpCustomView\" />
+    <Folder Include="Views\HelpText\" />
+    <Folder Include="Views\Settings\SettingsPage2\" />
+    <Folder Include="Views\Settings\SettingsPage4\" />
+    <Folder Include="Views\Settings\SettingsPage5\" />
+    <Folder Include="Views\Settings\SettingsPageGeneral\" />
+    <Folder Include="Views\AuthenticationFlow\QuestionnaireCountries\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Views\DailyNumbers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
