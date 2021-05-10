@@ -185,27 +185,18 @@ namespace NDB.Covid19.PersistedData
             public static void UpdateAll(DailyNumbersDTO dto)
             {
                 FHILastUpdateDateTime = dto.CovidStatistics.Date;
-                FHIConfirmedCasesToday = dto.CovidStatistics.ConfirmedCasesToday;
                 FHIConfirmedCasesTotal = dto.CovidStatistics.ConfirmedCasesTotal;
-                FHITestsConductedToday = dto.CovidStatistics.TestsConductedToday;
                 FHITestsConductedTotal = dto.CovidStatistics.TestsConductedTotal;
-                FHIPatientsAdmittedToday = dto.CovidStatistics.PatientsAdmittedToday;
-                FHIPatientsIntensiveCare = dto.CovidStatistics.IcuAdmittedToday;
-                FHIVaccinationsDoseOneToday = dto.CovidStatistics.VaccinatedFirstDoseToday;
-                FHIVaccinationsDoseTwoToday = dto.CovidStatistics.VaccinatedSecondDoseToday;
                 FHIVaccinationsDoseOneTotal = dto.CovidStatistics.VaccinatedFirstDoseTotal;
                 FHIVaccinationsDoseTwoTotal = dto.CovidStatistics.VaccinatedSecondDoseTotal;
+                FHIPatientsAdmittedTotal = dto.CovidStatistics.PatientsAdmittedTotal;
+                FHIPatientsIntensiveCareTotal = dto.CovidStatistics.IcuAdmittedTotal;
+                FHIDeathsTotal = dto.CovidStatistics.DeathsTotal;
                 APPNumberOfPositiveTestsResultsLast7Days = dto.ApplicationStatistics.PositiveResultsLast7Days;
                 APPNumberOfPositiveTestsResultsTotal = dto.ApplicationStatistics.PositiveTestsResultsTotal;
                 APPSmittestopDownloadsTotal = dto.ApplicationStatistics.SmittestopDownloadsTotal;
                 APPDownloadNumberLastUpdateDateTime = dto.ApplicationStatistics.EntryDate;
                 HasNeverSuccessfullyFetchedFHIData = false;
-            }
-
-            public static int FHIConfirmedCasesToday
-            {
-                get => _preferences.Get(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TODAY_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TODAY_PREF, value);
             }
 
             public static int FHIConfirmedCasesTotal
@@ -214,40 +205,22 @@ namespace NDB.Covid19.PersistedData
                 set => _preferences.Set(PreferencesKeys.FHI_DATA_CONFIRMED_CASES_TOTAL_PREF, value);
             }
 
-            public static int FHITestsConductedToday
-            {
-                get => _preferences.Get(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TODAY_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TODAY_PREF, value);
-            }
-
             public static int FHITestsConductedTotal
             {
                 get => _preferences.Get(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TOTAL_PREF, 0);
                 set => _preferences.Set(PreferencesKeys.FHI_DATA_TESTS_CONDUCTED_TOTAL_PREF, value);
             }
 
-            public static int FHIPatientsAdmittedToday
+            public static int FHIPatientsAdmittedTotal
             {
-                get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TODAY_PREF, value);
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_ADMITTED_TOTAL_PREF, value);
             }
 
-            public static int FHIPatientsIntensiveCare
+            public static int FHIPatientsIntensiveCareTotal
             {
-                get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_PREF, value);
-            }
-
-            public static int FHIVaccinationsDoseOneToday
-            {
-                get => _preferences.Get(PreferencesKeys.FHI_VACCINATIONS_DOSE_ONE_TODAY_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_VACCINATIONS_DOSE_ONE_TODAY_PREF, value);
-            }
-
-            public static int FHIVaccinationsDoseTwoToday
-            {
-                get => _preferences.Get(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TODAY_PREF, 0);
-                set => _preferences.Set(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TODAY_PREF, value);
+                get => _preferences.Get(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DATA_PATIENTS_INTENSIVE_CARE_TOTAL_PREF, value);
             }
 
             public static int FHIVaccinationsDoseOneTotal
@@ -260,6 +233,11 @@ namespace NDB.Covid19.PersistedData
             {
                 get => _preferences.Get(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF, 0);
                 set => _preferences.Set(PreferencesKeys.FHI_VACCINATIONS_DOSE_TWO_TOTAL_PREF, value);
+            }
+            public static int FHIDeathsTotal
+            {
+                get => _preferences.Get(PreferencesKeys.FHI_DEATHS_TOTAL_PREF, 0);
+                set => _preferences.Set(PreferencesKeys.FHI_DEATHS_TOTAL_PREF, value);
             }
 
             public static int APPNumberOfPositiveTestsResultsLast7Days

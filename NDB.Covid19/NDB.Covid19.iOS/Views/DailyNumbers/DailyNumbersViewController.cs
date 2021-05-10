@@ -45,6 +45,8 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersView3.Layer.CornerRadius = 12;
 			DailyNumbersView4.BackgroundColor = ColorHelper.PRIMARY_COLOR;
 			DailyNumbersView4.Layer.CornerRadius = 12;
+			DailyNumbersView5.BackgroundColor = ColorHelper.PRIMARY_COLOR;
+			DailyNumbersView5.Layer.CornerRadius = 12;
 			DailyNumbersView7.BackgroundColor = ColorHelper.PRIMARY_COLOR;
 			DailyNumbersView7.Layer.CornerRadius = 12;
 			DailyNumbersView8.BackgroundColor = ColorHelper.PRIMARY_COLOR;
@@ -59,22 +61,24 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			double width = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Width;
 			int fontMin = width <= 700 ? 22 : 27;
 			int fontMax = width <= 700 ? 24 : 29;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber1Lbl, StyleUtil.FontType.FontBold, ConfirmedCasesToday, 1.14, fontMin, fontMax);
-			DailyNumbersNumber1Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber3Lbl, StyleUtil.FontType.FontBold, TestsConductedToday, 1.14, fontMin, fontMax);
-			DailyNumbersNumber3Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber4Lbl, StyleUtil.FontType.FontBold, PatientsAdmittedToday, 1.14, fontMin, fontMax);
-			DailyNumbersNumber4Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber1Lbl, StyleUtil.FontType.FontBold, ConfirmedCasesTotal, 1.14, fontMin, fontMax);
+			TotalDailyNumbersNumber1Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber3Lbl, StyleUtil.FontType.FontBold, TestsConductedTotal, 1.14, fontMin, fontMax);
+			TotalDailyNumbersNumber3Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber4Lbl, StyleUtil.FontType.FontBold, PatientsAdmittedTotal, 1.14, fontMin, fontMax);
+			TotalDailyNumbersNumber4Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber5Lbl, StyleUtil.FontType.FontBold, NumberOfPositiveTestsResultsLast7Days, 1.14, fontMin, fontMax);
 			DailyNumbersNumber5Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber6Lbl, StyleUtil.FontType.FontBold, SmittestopDownloadsTotal, 1.14, fontMin, fontMax);
 			DailyNumbersNumber6Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber7Lbl, StyleUtil.FontType.FontBold, PatientsIntensiveCare, 1.14, fontMin, fontMax);
-			DailyNumbersNumber7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber9Lbl, StyleUtil.FontType.FontBold, VaccinationsDoseOneToday, 1.14, fontMin, fontMax);
-			DailyNumbersNumber9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			StyleUtil.InitLabelWithSpacing(DailyNumbersNumber10Lbl, StyleUtil.FontType.FontBold, VaccinationsDoseTwoToday, 1.14, fontMin, fontMax);
-			DailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber7Lbl, StyleUtil.FontType.FontBold, PatientsIntensiveCareTotal, 1.14, fontMin, fontMax);
+			TotalDailyNumbersNumber7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber8Lbl, StyleUtil.FontType.FontBold, DeathsTotal, 1.14, fontMin, fontMax);
+			TotalDailyNumbersNumber8Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontBold, VaccinationsDoseOneTotal, 1.14, fontMin,fontMax);
+			TotalDailyNumbersNumber9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber10Lbl, StyleUtil.FontType.FontBold, VaccinationsDoseTwoTotal, 1.14, fontMin, fontMax);
+			TotalDailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			// Labels not dependable on device width
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleOne, StyleUtil.FontType.FontBold, DAILY_NUMBERS_HEADER, 1.14, 30, 36);
@@ -86,15 +90,12 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			DailyNumbersOfTheDayTextLbl.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature1Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_ONE_LABEL, 1.14, 16, 18);
-			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber1Lbl, StyleUtil.FontType.FontRegular, ConfirmedCasesTotal, 1.14, 12, 14);
 			KeyFeature1Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			TotalDailyNumbersNumber1Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+			
 
-			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber3Lbl, StyleUtil.FontType.FontRegular, TestsConductedTotal, 1.14, 12, 14);
 			StyleUtil.InitLabelWithSpacing(KeyFeature3Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_THREE_LABEL, 1.14, 16, 18);
 			KeyFeature3Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			TotalDailyNumbersNumber3Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-
+			
 			StyleUtil.InitLabelWithSpacing(KeyFeature4Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_FOUR_LABEL, 1.14, 16, 18);
 			KeyFeature4Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
@@ -109,6 +110,10 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(KeyFeature7Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_SEVEN_LABEL, 1.14, 16, 18);
 			KeyFeature7Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
+			StyleUtil.InitLabelWithSpacing(KeyFeature8Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_EIGHT_LABEL, 1.14, 16, 18);
+			KeyFeature8Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+
+
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleTwo, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_TWO, 1.14, 20, 36);
 			SetupSubTextWithLink(LastUpdateStringSubTextTwo, DailyNumbersSubtextTwo);
 			DailyNumbersSubtextTwo.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
@@ -116,15 +121,12 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature9Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_NINE_LABEL, 1.14, 16, 18);
 			KeyFeature9Lbl.AccessibilityLabel = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
-			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber9Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseOneTotal, 1.14, 12, 14);
 			KeyFeature9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			TotalDailyNumbersNumber9Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature10Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_TEN_LABEL, 1.14, 16, 18);
 			KeyFeature10Lbl.AccessibilityLabel = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
-			StyleUtil.InitLabelWithSpacing(TotalDailyNumbersNumber10Lbl, StyleUtil.FontType.FontRegular, VaccinationsDoseTwoTotal, 1.14, 12, 14);
 			KeyFeature10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
-			TotalDailyNumbersNumber10Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
+
 
 			StyleUtil.InitLabelWithSpacing(DailyNumbersTitleThree, StyleUtil.FontType.FontBold, DAILY_NUMBERS_TITLE_THREE, 1.14, 20, 36);
 			SetupSubTextWithLink(LastUpdateStringSubSubHeader, DailyNumbersSubSubHeader);
@@ -142,6 +144,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			NumberOfPositiveResults_StackView.ShouldGroupAccessibilityChildren = true;
 			VaccinationsDose1_StackView.ShouldGroupAccessibilityChildren = true;
 			VaccinationsDose2_StackView.ShouldGroupAccessibilityChildren = true;
+			Deaths_StackView.ShouldGroupAccessibilityChildren = true;
 
 			// Back button styling and accessibility
 			BackButton.AccessibilityLabel = BACK_BUTTON_ACCESSIBILITY_TEXT;

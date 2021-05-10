@@ -74,46 +74,49 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         {
             TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
             _dailyNumbersHeader.Text = DAILY_NUMBERS_HEADER;
-            TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_header_textView);
+            TextView _dailyNumbersSubHeaderStatistics = FindViewById<TextView>(Resource.Id.total_numbers_statistics_header_textView);
             _dailyNumbersSubHeaderStatistics.Text = DAILY_NUMBERS_TITLE_ONE;
             _dailyNumbersSubHeaderStatistics.TextAlignment = TextAlignment.ViewStart;
-            TextView _dailyNumbersSubTextStatistics = FindViewById<TextView>(Resource.Id.daily_numbers_statistics_text_textview);
+            TextView _dailyNumbersSubTextStatistics = FindViewById<TextView>(Resource.Id.total_numbers_statistics_text_textview);
             TextView _dailyNumbersSubTextSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_text_textview);
             _dailyNumbersSubTextSmittestopp.TextAlignment = TextAlignment.ViewStart;
             SetupSubTextWithLink(_dailyNumbersSubTextStatistics, LastUpdateStringSubHeader);
             SetupSubTextWithLink(_dailyNumbersSubTextSmittestopp, LastUpdateStringSubSubHeader);
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text).Text = KEY_FEATURE_ONE_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_infected_number_text).Text = ConfirmedCasesToday;
-            FindViewById<TextView>(Resource.Id.daily_numbers_infected_total_text).Text = ConfirmedCasesTotal;
+            FindViewById<TextView>(Resource.Id.total_numbers_infected_header_text).Text = KEY_FEATURE_ONE_LABEL;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_tested_header_text).Text = KEY_FEATURE_THREE_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_tested_number_text).Text = TestsConductedToday;
-            FindViewById<TextView>(Resource.Id.daily_numbers_tested_total_text).Text = TestsConductedTotal;
+            FindViewById<TextView>(Resource.Id.total_numbers_infected_total_text).Text = ConfirmedCasesTotal;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_hospitalized_header_text).Text = KEY_FEATURE_FOUR_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_hospitalized_number_text).Text = PatientsAdmittedToday;
+            FindViewById<TextView>(Resource.Id.total_numbers_tested_header_text).Text = KEY_FEATURE_THREE_LABEL;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_intensive_header_text).Text = KEY_FEATURE_SEVEN_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_intensive_number_text).Text = PatientsIntensiveCare;
+            FindViewById<TextView>(Resource.Id.total_numbers_tested_total_text).Text = TestsConductedTotal;
 
-            TextView _dailyNumbersSubHeaderVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_header_textView);
+            FindViewById<TextView>(Resource.Id.total_numbers_hospitalized_header_text).Text = KEY_FEATURE_FOUR_LABEL;
+            FindViewById<TextView>(Resource.Id.total_numbers_hospitalized_number_text).Text = PatientsAdmittedTotal;
+
+            FindViewById<TextView>(Resource.Id.total_numbers_intensive_header_text).Text = KEY_FEATURE_SEVEN_LABEL;
+            FindViewById<TextView>(Resource.Id.total_numbers_intensive_number_text).Text = PatientsIntensiveCareTotal;
+
+            FindViewById<TextView>(Resource.Id.total_numbers_death_header_text).Text = KEY_FEATURE_EIGHT_LABEL;
+            FindViewById<TextView>(Resource.Id.total_number_death_text).Text = DeathsTotal;
+
+            TextView _dailyNumbersSubHeaderVaccinations = FindViewById<TextView>(Resource.Id.total_numbers_vaccinations_header_textView);
             _dailyNumbersSubHeaderVaccinations.Text = DAILY_NUMBERS_TITLE_TWO;
 
-            TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.daily_numbers_vaccinations_text_textview);
+            TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.total_numbers_vaccinations_text_textview);
             SetupSubTextWithLink(_dailyNumbersSubTextVaccinations, LastUpdateStringSubTextTwo);
 
-            TextView keyFeatureNineTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text);
+            TextView keyFeatureNineTextView = FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_header_text);
             keyFeatureNineTextView.Text = KEY_FEATURE_NINE_LABEL;
             keyFeatureNineTextView.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_number_text).Text = VaccinationsDoseOneToday;
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
+            
+            FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
 
-            TextView keyFeatureTenTextView = FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text);
+            TextView keyFeatureTenTextView = FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_header_text);
             keyFeatureTenTextView.Text = KEY_FEATURE_TEN_LABEL;
             keyFeatureTenTextView.ContentDescription = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_number_text).Text = VaccinationsDoseTwoToday;
-            FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
+            
+            FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
 
             TextView _dailyNumbersSubHeaderSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_header_textView);
             _dailyNumbersSubHeaderSmittestopp.Text = DAILY_NUMBERS_TITLE_THREE;
@@ -144,14 +147,14 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             if (hasFocus)
             {
                 AdjustLines(
-                   FindViewById<TextView>(Resource.Id.daily_numbers_infected_header_text),
-                   FindViewById<TextView>(Resource.Id.daily_numbers_tested_header_text));
+                   FindViewById<TextView>(Resource.Id.total_numbers_infected_header_text),
+                   FindViewById<TextView>(Resource.Id.total_numbers_tested_header_text));
                 AdjustLines(
-                    FindViewById<TextView>(Resource.Id.daily_numbers_hospitalized_header_text),
-                    FindViewById<TextView>(Resource.Id.daily_numbers_intensive_header_text));
+                    FindViewById<TextView>(Resource.Id.total_numbers_hospitalized_header_text),
+                    FindViewById<TextView>(Resource.Id.total_numbers_intensive_header_text));
                 AdjustLines(
-                    FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose1_header_text),
-                    FindViewById<TextView>(Resource.Id.daily_numbers_vaccination_dose2_header_text));
+                    FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_header_text),
+                    FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_header_text));
                 AdjustLines(
                     FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text),
                     FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text));

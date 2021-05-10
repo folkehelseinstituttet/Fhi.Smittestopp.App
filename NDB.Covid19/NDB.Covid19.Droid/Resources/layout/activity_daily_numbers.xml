@@ -45,314 +45,6 @@
 			android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
 			android:paddingBottom="@dimen/defaultVerticalMargin"
 			android:orientation="vertical">
-
-			<LinearLayout
-				android:id="@+id/daily_numbers_linear_layout"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				app:layout_constraintTop_toTopOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				android:layout_marginVertical="@dimen/defaultVerticalMargin"
-				android:orientation="vertical">
-
-				<RelativeLayout
-					android:id="@+id/daily_numbers_relativeLayout"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content">
-					<TextView
-						android:id="@+id/daily_numbers_statistics_header_textView"
-						style="@style/PrimaryTextBold"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_below="@+id/daily_numbers_header_textView"
-						android:text="Sub header" />
-
-					<TextView
-						android:id="@+id/daily_numbers_statistics_text_textview"
-						style="@style/PrimaryTextRegular"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_below="@+id/daily_numbers_statistics_header_textView"
-						android:text="Statistics text"/>
-				</RelativeLayout>
-			</LinearLayout>
-			<LinearLayout
-				android:orientation="vertical"
-				app:layout_constraintTop_toBottomOf="@id/daily_numbers_linear_layout"
-				app:layout_constraintEnd_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				android:layout_marginTop="0dp"
-				android:layout_width="match_parent"
-				android:id="@+id/row1_linear_layout"
-				android:layout_height="wrap_content">
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:orientation="horizontal"
-					android:weightSum="1">
-					<RelativeLayout
-						android:layout_width="match_parent"
-						android:layout_weight="0.5"
-						android:layout_height="match_parent"
-						android:background="@drawable/counter_background_daily_numbers"
-						android:orientation="vertical">
-						<TextView
-							android:id="@+id/daily_numbers_infected_header_text"
-							style="@style/DailyNumbersItemHeaderText"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:text="Dummy name"/>
-						<TextView
-							android:id="@+id/daily_numbers_infected_number_text"
-							style="@style/DailyNumbersItemNumber"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:layout_below="@id/daily_numbers_infected_header_text"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-							android:breakStrategy="balanced"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:text="+001" />
-						<TextView
-							android:id="@+id/daily_numbers_infected_total_text"
-							style="@style/DailyNumbersSubText"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:layout_below="@id/daily_numbers_infected_number_text"
-							android:layout_alignParentBottom="true"
-							android:layout_column="0"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
-							android:text="Dummy sub name" />
-					</RelativeLayout>
-					<Space
-						android:layout_width="@dimen/defaultHorizontalMargin"
-						android:layout_height="match_parent"/>
-					<RelativeLayout
-						android:layout_width="match_parent"
-						android:layout_weight="0.5"
-						android:background="@drawable/counter_background_daily_numbers"
-						android:layout_height="match_parent"
-						android:orientation="vertical">
-						<TextView
-							android:id="@+id/daily_numbers_tested_header_text"
-							style="@style/DailyNumbersItemHeaderText"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:text="Dummy name"/>
-						<TextView
-							android:id="@+id/daily_numbers_tested_number_text"
-							style="@style/DailyNumbersItemNumber"
-							android:layout_width="match_parent"
-							android:layout_below="@id/daily_numbers_tested_header_text"
-							android:layout_height="wrap_content"
-							android:layout_column="1"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:breakStrategy="balanced"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:text="+002" />
-						<TextView
-							android:id="@+id/daily_numbers_tested_total_text"
-							style="@style/DailyNumbersSubText"
-							android:layout_width="match_parent"
-							android:layout_below="@id/daily_numbers_tested_number_text"
-							android:layout_alignParentBottom="true"
-							android:layout_height="match_parent"
-							android:layout_column="1"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
-							android:text="Dummy sub name" />
-					</RelativeLayout>
-				</LinearLayout>
-				<LinearLayout
-					android:layout_width="match_parent"
-					android:orientation="horizontal"
-					android:weightSum="1"
-					android:layout_marginTop="@dimen/defaultVerticalMargin"
-					android:layout_height="wrap_content">
-					<RelativeLayout
-						android:layout_width="match_parent"
-						android:layout_weight="0.5"
-						android:background="@drawable/counter_background_daily_numbers"
-						android:layout_height="match_parent"
-						android:orientation="vertical">
-						<TextView
-							android:id="@+id/daily_numbers_hospitalized_header_text"
-							style="@style/DailyNumbersItemHeaderText"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:text="Dummy name"/>
-						<TextView
-							android:id="@+id/daily_numbers_hospitalized_number_text"
-							style="@style/DailyNumbersItemNumber"
-							android:layout_width="match_parent"
-							android:layout_below="@id/daily_numbers_hospitalized_header_text"
-							android:layout_alignParentBottom="true"
-							android:layout_height="wrap_content"
-							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-							android:breakStrategy="high_quality"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:text="+003" />
-					</RelativeLayout>
-					<Space
-						android:layout_width="@dimen/defaultHorizontalMargin"
-						android:layout_height="match_parent"/>
-					<RelativeLayout
-						android:layout_width="match_parent"
-						android:layout_height="match_parent"
-						android:background="@drawable/counter_background_daily_numbers"
-						android:layout_weight="0.5"
-						android:orientation="vertical">
-						<TextView
-							android:id="@+id/daily_numbers_intensive_header_text"
-							style="@style/DailyNumbersItemHeaderText"
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:text="Dummy name"/>
-						<androidx.appcompat.widget.AppCompatTextView
-							android:id="@+id/daily_numbers_intensive_number_text"
-							style="@style/DailyNumbersItemNumber"
-							android:layout_width="match_parent"
-							android:layout_below="@id/daily_numbers_intensive_header_text"
-							android:layout_alignParentBottom="true"
-							android:layout_height="wrap_content"
-							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
-							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-							android:text="+004"/>
-					</RelativeLayout>
-				</LinearLayout>
-			</LinearLayout>
-			<LinearLayout
-				android:id="@+id/linearLayout4"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:orientation="vertical"
-				app:layout_constraintTop_toBottomOf="@id/row1_linear_layout"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				android:layout_marginTop="@dimen/defaultVerticalMargin"
-				android:layout_marginBottom="@dimen/defaultVerticalMargin">
-
-				<TextView
-					android:id="@+id/daily_numbers_vaccinations_header_textView"
-					style="@style/PrimaryTextBold"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@+id/table2"
-					android:text="Sub header" />
-
-				<TextView
-					android:id="@+id/daily_numbers_vaccinations_text_textview"
-					style="@style/PrimaryTextRegular"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_below="@+id/daily_numbers_vaccinations_header_textView"
-					android:text="Vaccinations text"/>
-			</LinearLayout>
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:orientation="horizontal"
-				android:layout_marginTop="0dp"
-				app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-				app:layout_constraintStart_toStartOf="parent"
-				android:id="@+id/row2_linear_layout"
-				app:layout_constraintEnd_toEndOf="parent"
-				android:weightSum="1"
-				android:layout_height="wrap_content">
-				<RelativeLayout
-					android:layout_weight="0.5"
-					android:layout_width="match_parent"
-					android:background="@drawable/counter_background_daily_numbers"
-					android:layout_height="match_parent"
-					android:orientation="vertical">
-					<TextView
-						android:id="@+id/daily_numbers_vaccination_dose1_header_text"
-						style="@style/DailyNumbersItemHeaderText"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-						android:text="Dummy name"/>
-					<TextView
-						android:id="@+id/daily_numbers_vaccination_dose1_number_text"
-						style="@style/DailyNumbersItemNumber"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_below="@id/daily_numbers_vaccination_dose1_header_text"
-						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:text="+007" />
-					<TextView
-						android:id="@+id/daily_numbers_vaccination_dose1_total_text"
-						style="@style/DailyNumbersSubText"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_column="0"
-						android:layout_below="@id/daily_numbers_vaccination_dose1_number_text"
-						android:layout_alignParentBottom="true"
-						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
-						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
-						android:text="Dummy sub name" />
-				</RelativeLayout>
-				<Space
-                    android:layout_width="@dimen/defaultHorizontalMargin"
-                    android:layout_height="match_parent"/>
-				<RelativeLayout
-					android:layout_width="match_parent"
-					android:layout_weight="0.5"
-					android:background="@drawable/counter_background_daily_numbers"
-					android:layout_height="match_parent"
-					android:orientation="vertical">
-					<TextView
-						android:id="@+id/daily_numbers_vaccination_dose2_header_text"
-						style="@style/DailyNumbersItemHeaderText"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-						android:text="Dummy name"/>
-					<androidx.appcompat.widget.AppCompatTextView
-						android:id="@+id/daily_numbers_vaccination_dose2_number_text"
-						style="@style/DailyNumbersItemNumber"
-						android:layout_below="@id/daily_numbers_vaccination_dose2_header_text"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:text="+008"/>
-					<TextView
-						android:id="@+id/daily_numbers_vaccination_dose2_total_text"
-						style="@style/DailyNumbersSubText"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:layout_alignParentBottom="true"
-						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
-						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
-						android:text="Dummy sub name"/>
-				</RelativeLayout>
-			</LinearLayout>
 			<LinearLayout
 				android:id="@+id/linearLayout5"
 				android:layout_width="match_parent"
@@ -360,7 +52,7 @@
 				android:orientation="vertical"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintTop_toBottomOf="@id/row2_linear_layout"
+				android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 				android:layout_marginTop="@dimen/defaultVerticalMargin"
 				android:layout_marginBottom="@dimen/defaultVerticalMargin">
 
@@ -383,6 +75,7 @@
 			<LinearLayout
 				android:layout_width="match_parent"
 				app:layout_constraintTop_toBottomOf="@id/linearLayout5"
+				android:id="@+id/linearLayout6"
 				app:layout_constraintStart_toStartOf="parent"
 				android:layout_marginTop="0dp"
 				app:layout_constraintEnd_toEndOf="parent"
@@ -409,13 +102,13 @@
 						style="@style/DailyNumbersItemNumber"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:layout_alignParentBottom="true"
+						android:layout_alignBottom="@id/daily_numbers_positive_shared_number_text"
 						android:layout_below="@id/daily_numbers_smittestopp_downloads_header_text"
 						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
 						android:breakStrategy="high_quality"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:text="+009" />
+						android:text="+001" />
 				</RelativeLayout>
 				<Space
                     android:layout_width="@dimen/defaultHorizontalMargin"
@@ -434,7 +127,7 @@
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
 						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
 						android:text="Dummy name"/>
-					<androidx.appcompat.widget.AppCompatTextView
+					<TextView
 						android:id="@+id/daily_numbers_positive_shared_number_text"
 						style="@style/DailyNumbersItemNumber"
 						android:layout_below="@id/daily_numbers_positive_shared_header_text"
@@ -444,7 +137,7 @@
 						android:layout_column="1"
 						android:breakStrategy="high_quality"
 						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
-						android:text="+010"/>
+						android:text="+002" />
 					<TextView
 						android:id="@+id/daily_numbers_positive_shared_total_text"
 						style="@style/DailyNumbersSubText"
@@ -457,6 +150,311 @@
 						android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
 						android:text="Dummy sub name"/>
 				</RelativeLayout>
+			</LinearLayout>
+			<LinearLayout
+				android:id="@+id/linearLayout4"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/linearLayout6"
+				android:layout_marginTop="@dimen/defaultVerticalMargin"
+				android:layout_marginBottom="@dimen/defaultVerticalMargin">
+				<TextView
+					android:id="@+id/total_numbers_vaccinations_header_textView"
+					style="@style/PrimaryTextBold"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@+id/table3"
+					android:text="Sub header"/>
+				<TextView
+					android:id="@+id/total_numbers_vaccinations_text_textview"
+					style="@style/PrimaryTextRegular"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@+id/total_numbers_vaccinations_header_textView"
+					android:text="Vaccinations text"/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginTop="0dp"
+				app:layout_constraintTop_toBottomOf="@id/linearLayout4"
+				app:layout_constraintStart_toStartOf="parent"
+				android:id="@+id/row2_linear_layout"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:weightSum="1"
+				android:layout_height="wrap_content">
+				<RelativeLayout
+					android:layout_weight="0.5"
+					android:layout_width="match_parent"
+					android:background="@drawable/counter_background_daily_numbers"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/total_numbers_vaccination_dose1_header_text"
+						style="@style/DailyNumbersItemHeaderText"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+						android:text="Dummy name"/>
+					<TextView
+						android:id="@+id/total_numbers_vaccination_dose1_total_text"
+						style="@style/DailyNumbersItemNumber"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@id/total_numbers_vaccination_dose1_header_text"
+						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+						android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+						android:text="+003" />
+					
+				</RelativeLayout>
+				<Space
+                    android:layout_width="@dimen/defaultHorizontalMargin"
+                    android:layout_height="match_parent"/>
+				<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_weight="0.5"
+					android:background="@drawable/counter_background_daily_numbers"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/total_numbers_vaccination_dose2_header_text"
+						style="@style/DailyNumbersItemHeaderText"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+						android:text="Dummy name"/>
+					<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/total_numbers_vaccination_dose2_total_text"
+						style="@style/DailyNumbersItemNumber"
+						android:layout_below="@id/total_numbers_vaccination_dose2_header_text"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
+						android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+						android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+						android:text="+004"/>
+				</RelativeLayout>
+			</LinearLayout>
+			
+			<LinearLayout
+				android:id="@+id/total_numbers_linear_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:layout_constraintTop_toBottomOf="@id/row2_linear_layout"
+				app:layout_constraintEnd_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:layout_marginVertical="@dimen/defaultVerticalMargin"
+				android:orientation="vertical">
+
+				<RelativeLayout
+					android:id="@+id/total_numbers_relativeLayout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+					<TextView
+						android:id="@+id/total_numbers_statistics_header_textView"
+						style="@style/PrimaryTextBold"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@+id/total_numbers_header_textView"
+						android:text="Sub header" />
+
+					<TextView
+						android:id="@+id/total_numbers_statistics_text_textview"
+						style="@style/PrimaryTextRegular"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_below="@+id/total_numbers_statistics_header_textView"
+						android:text="Statistics text"/>
+				</RelativeLayout>
+			</LinearLayout>
+			<LinearLayout
+				android:orientation="vertical"
+				app:layout_constraintTop_toBottomOf="@id/total_numbers_linear_layout"
+				app:layout_constraintEnd_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				android:layout_marginTop="0dp"
+				android:layout_width="match_parent"
+				android:id="@+id/row1_linear_layout"
+				android:layout_height="wrap_content">
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:weightSum="1">
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_weight="0.5"
+						android:layout_height="match_parent"
+						android:background="@drawable/counter_background_daily_numbers"
+						android:orientation="vertical">
+						<TextView
+							android:id="@+id/total_numbers_infected_header_text"
+							style="@style/DailyNumbersItemHeaderText"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:text="Dummy name"/>
+						<TextView
+							android:id="@+id/total_numbers_infected_total_text"
+							style="@style/DailyNumbersItemNumber"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
+							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+							android:breakStrategy="balanced"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:layout_below="@id/total_numbers_infected_header_text"
+							android:text="+005" />
+					</RelativeLayout>
+					<Space
+						android:layout_width="@dimen/defaultHorizontalMargin"
+						android:layout_height="match_parent"/>
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_weight="0.5"
+						android:background="@drawable/counter_background_daily_numbers"
+						android:layout_height="match_parent"
+						android:orientation="vertical">
+						<TextView
+							android:id="@+id/total_numbers_tested_header_text"
+							style="@style/DailyNumbersItemHeaderText"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:text="Dummy name"/>
+						<TextView
+							android:id="@+id/total_numbers_tested_total_text"
+							style="@style/DailyNumbersItemNumber"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_column="1"
+							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+							android:breakStrategy="balanced"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:layout_below="@id/total_numbers_tested_header_text"
+							android:text="+006" />
+					</RelativeLayout>
+				</LinearLayout>
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:weightSum="1"
+					android:layout_marginTop="@dimen/defaultVerticalMargin"
+					android:layout_height="wrap_content">
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_weight="0.5"
+						android:background="@drawable/counter_background_daily_numbers"
+						android:layout_height="match_parent"
+						android:orientation="vertical">
+						<TextView
+							android:id="@+id/total_numbers_hospitalized_header_text"
+							style="@style/DailyNumbersItemHeaderText"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:text="Dummy name"/>
+						<TextView
+							android:id="@+id/total_numbers_hospitalized_number_text"
+							style="@style/DailyNumbersItemNumber"
+							android:layout_width="match_parent"
+							android:layout_below="@id/total_numbers_hospitalized_header_text"
+							android:layout_alignParentBottom="true"
+							android:layout_height="wrap_content"
+							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:layout_marginEnd="@dimen/marginEndDailyNumbersTable"
+							android:breakStrategy="high_quality"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:text="+007" />
+					</RelativeLayout>
+					<Space
+						android:layout_width="@dimen/defaultHorizontalMargin"
+						android:layout_height="match_parent"/>
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@drawable/counter_background_daily_numbers"
+						android:layout_weight="0.5"
+						android:orientation="vertical">
+						<TextView
+							android:id="@+id/total_numbers_intensive_header_text"
+							style="@style/DailyNumbersItemHeaderText"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:text="Dummy name"/>
+						<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/total_numbers_intensive_number_text"
+							style="@style/DailyNumbersItemNumber"
+							android:layout_width="match_parent"
+							android:layout_below="@id/total_numbers_intensive_header_text"
+							android:layout_alignParentBottom="true"
+							android:layout_height="wrap_content"
+							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:text="+008"/>
+					</RelativeLayout>
+				</LinearLayout>
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:orientation="horizontal"
+					android:weightSum="1"
+					android:layout_marginTop="@dimen/defaultVerticalMargin"
+					android:layout_height="match_parent">
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@drawable/counter_background_daily_numbers"
+						android:layout_weight="0.5"
+						android:orientation="vertical">
+						<TextView
+							android:id="@+id/total_numbers_death_header_text"
+							style="@style/DailyNumbersItemHeaderText"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:text="Deaths in total"/>
+						<androidx.appcompat.widget.AppCompatTextView
+							android:id="@+id/total_number_death_text"
+							style="@style/DailyNumbersItemNumber"
+							android:layout_width="match_parent"
+							android:layout_below="@id/total_numbers_death_header_text"
+							android:layout_alignParentBottom="true"
+							android:layout_height="wrap_content"
+							android:paddingBottom="@dimen/verticalPaddingDailyNumbersTable"
+							android:paddingTop="@dimen/verticalPaddingDailyNumbersTable"
+							android:paddingHorizontal="@dimen/horizontalPaddingDailyNumbersTable"
+							android:text="1234"/>
+					</RelativeLayout>
+					<Space
+						android:layout_width="@dimen/defaultHorizontalMargin"
+						android:layout_height="match_parent"/>
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_weight="0.5"
+						android:orientation="vertical">
+					</RelativeLayout>
+				</LinearLayout>
 			</LinearLayout>
 		</androidx.constraintlayout.widget.ConstraintLayout>
 	</ScrollView>
