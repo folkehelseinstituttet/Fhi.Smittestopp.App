@@ -20,8 +20,12 @@ using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using Xamarin.ExposureNotifications;
+using Xamarin.Essentials;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using AlertDialog = Android.App.AlertDialog;
+
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -71,6 +75,16 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED,
                 OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
+
+            CheckIfShowBackgroundActivityDialog();
+
+            if (GetIsBackgroundActivityDialogShowEnableNewUser() == false
+                && GetIsBackgroundActivityDialogShowEnable()
+                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false)
+            {
+                ShowBackgroundActivityDialog();
+            }
+
         }
 
         private void OnAppDailyNumbersChanged(object _ = null)
@@ -114,6 +128,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;
             OnMessageStatusChanged();
+
+            UpdateKeys();
         }
 
         private void ShowPermissionsDialogIfTheyHavChangedWhileInIdle() =>
@@ -144,6 +160,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _permissionUtils.UnsubscribePermissionsMessagingCenter(this);
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
         }
+
+        private async void UpdateKeys() => await _viewModel.PullKeysFromServer();
 
         private async void InitLayout()
         {
@@ -391,7 +409,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 UpdateUI();
             }
-
+            //showing dialog for new user
+            if (GetIsBackgroundActivityDialogShowEnableNewUser()
+                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false)
+            {
+                ShowBackgroundActivityDialog();
+            }
             _semaphoreSlim.Release();
         }
 
@@ -431,6 +454,52 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             Intent intent = new Intent(this, typeof(InformationAndConsentActivity));
             StartActivity(intent);
+        }
+
+        private void CheckIfShowBackgroundActivityDialog()
+        {
+
+            bool firstLaunchEver = VersionTracking.IsFirstLaunchEver;
+            if (firstLaunchEver)
+            {
+                SetIsBackgroundActivityDialogShowEnable(true);
+            }
+            
+        }
+
+        public async void ShowBackgroundActivityDialog()
+        {
+            if(await _viewModel.IsRunning())
+            {
+            
+                View dialogView = LayoutInflater.Inflate(Resource.Layout.background_activity_dialog, null);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, Android.Resource.Style.ThemeDeviceDefaultLightDialog);
+                builder.SetView(dialogView);
+                builder.SetTitle(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE);
+                builder.SetMessage(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE);
+                builder.SetCancelable(false);
+                SetIsBackgroundActivityDialogShowEnableNewUser(false);
+
+                builder.SetPositiveButton(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON, (sender, args) =>
+                {
+                    BatteryOptimisationUtils.StopBatteryOptimizationSetting(this);
+                    (sender as AlertDialog)?.Dismiss();
+                });
+                builder.SetNegativeButton(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON, (sender, args) =>
+                {
+
+                    (sender as AlertDialog)?.Dismiss();
+                });
+                builder.SetNeutralButton(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON, (sender, args) =>
+                {
+                    SetIsBackgroundActivityDialogShowEnable(false);
+                    (sender as AlertDialog)?.Dismiss();
+                });
+                builder.Create();
+
+                builder.Show();
+            }
+            
         }
     }
 }
