@@ -115,7 +115,7 @@
   "KEY_FEATURE_ONE_UPDATE_ALL": "{0}",
   "KEY_FEATURE_ONE_LABEL": "Reported cases in total",
   "KEY_FEATURE_THREE_UPDATE_ALL": "{0}",
-  "KEY_FEATURE_THREE_LABEL": "Tests in total",
+  "KEY_FEATURE_THREE_LABEL": "Conducted tests in total",
   "KEY_FEATURE_FOUR_UPDATE_ALL": "{0}",
   "KEY_FEATURE_FOUR_LABEL": "Hospital admissions in total",
   "KEY_FEATURE_FIVE_LABEL": "Number of positive test results shared in the last 7 days",

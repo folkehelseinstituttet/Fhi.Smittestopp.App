@@ -25,6 +25,14 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
     {
         private static readonly DailyNumbersViewModel ViewModel;
         private ImageView _closeButton;
+        private TextView _confirmedCasesHeader;
+        private TextView _conductedTestsHeader;
+        private TextView _patientsAdmittedHeader;
+        private TextView _patientsICAdmittedHeader;
+        private TextView _vaccinationDoseOneHeader;
+        private TextView _vaccinationDoseTwoHeader;
+        private TextView _smittestoppDownloadsHeader;
+        private TextView _positiveSharedCasesHeader;
 
         static DailyNumbersActivity()
         {
@@ -43,6 +51,14 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
         {
             View rootView = Window.DecorView.RootView;
             rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+            _confirmedCasesHeader = FindViewById<TextView>(Resource.Id.total_numbers_infected_header_text);
+            _conductedTestsHeader = FindViewById<TextView>(Resource.Id.total_numbers_tested_header_text);
+            _vaccinationDoseOneHeader = FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_header_text);
+            _vaccinationDoseTwoHeader = FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_header_text);
+            _smittestoppDownloadsHeader = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text);
+            _positiveSharedCasesHeader = FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text);
+            _patientsAdmittedHeader = FindViewById<TextView>(Resource.Id.total_numbers_hospitalized_header_text);
+            _patientsICAdmittedHeader = FindViewById<TextView>(Resource.Id.total_numbers_intensive_header_text);
             UpdateUI();
             _closeButton = FindViewById<ImageView>(Resource.Id.daily_numbers_back_button);
             _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
@@ -83,18 +99,18 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             SetupSubTextWithLink(_dailyNumbersSubTextStatistics, LastUpdateStringSubHeader);
             SetupSubTextWithLink(_dailyNumbersSubTextSmittestopp, LastUpdateStringSubSubHeader);
 
-            FindViewById<TextView>(Resource.Id.total_numbers_infected_header_text).Text = KEY_FEATURE_ONE_LABEL;
+            _confirmedCasesHeader.Text = KEY_FEATURE_ONE_LABEL;
 
             FindViewById<TextView>(Resource.Id.total_numbers_infected_total_text).Text = ConfirmedCasesTotal;
 
-            FindViewById<TextView>(Resource.Id.total_numbers_tested_header_text).Text = KEY_FEATURE_THREE_LABEL;
-
+            _conductedTestsHeader.Text = KEY_FEATURE_THREE_LABEL;
+            
             FindViewById<TextView>(Resource.Id.total_numbers_tested_total_text).Text = TestsConductedTotal;
 
-            FindViewById<TextView>(Resource.Id.total_numbers_hospitalized_header_text).Text = KEY_FEATURE_FOUR_LABEL;
+            _patientsAdmittedHeader.Text = KEY_FEATURE_FOUR_LABEL;
             FindViewById<TextView>(Resource.Id.total_numbers_hospitalized_number_text).Text = PatientsAdmittedTotal;
 
-            FindViewById<TextView>(Resource.Id.total_numbers_intensive_header_text).Text = KEY_FEATURE_SEVEN_LABEL;
+            _patientsICAdmittedHeader.Text = KEY_FEATURE_SEVEN_LABEL;
             FindViewById<TextView>(Resource.Id.total_numbers_intensive_number_text).Text = PatientsIntensiveCareTotal;
 
             FindViewById<TextView>(Resource.Id.total_numbers_death_header_text).Text = KEY_FEATURE_EIGHT_LABEL;
@@ -106,15 +122,14 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.total_numbers_vaccinations_text_textview);
             SetupSubTextWithLink(_dailyNumbersSubTextVaccinations, LastUpdateStringSubTextTwo);
 
-            TextView keyFeatureNineTextView = FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_header_text);
-            keyFeatureNineTextView.Text = KEY_FEATURE_NINE_LABEL;
-            keyFeatureNineTextView.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
+           
+            _vaccinationDoseOneHeader.Text = KEY_FEATURE_NINE_LABEL;
+            _vaccinationDoseTwoHeader.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
             
             FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
 
-            TextView keyFeatureTenTextView = FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_header_text);
-            keyFeatureTenTextView.Text = KEY_FEATURE_TEN_LABEL;
-            keyFeatureTenTextView.ContentDescription = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
+            _vaccinationDoseTwoHeader.Text = KEY_FEATURE_TEN_LABEL;
+            _vaccinationDoseTwoHeader.ContentDescription = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
             
             FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
 
@@ -123,10 +138,10 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersSubHeaderSmittestopp.TextAlignment = TextAlignment.ViewStart;
 
             //Added newline for the UI to align.
-            FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text).Text = $"{KEY_FEATURE_SIX_LABEL} \n";
+            _smittestoppDownloadsHeader.Text = KEY_FEATURE_SIX_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_number_text).Text = SmittestopDownloadsTotal;
 
-            FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text).Text = KEY_FEATURE_FIVE_LABEL;
+            _positiveSharedCasesHeader.Text = KEY_FEATURE_FIVE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_number_text).Text = NumberOfPositiveTestsResultsLast7Days;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_total_text).Text = NumberOfPositiveTestsResultsTotal;
             
@@ -139,25 +154,16 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _dailyNumbersSubHeaderStatistics.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderVaccinations.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             _dailyNumbersSubHeaderSmittestopp.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
+
+            UpdateLinesAlignment();
         }
 
         public override void OnWindowFocusChanged(bool hasFocus)
         {
-            base.OnWindowFocusChanged(hasFocus);
+                base.OnWindowFocusChanged(hasFocus);
             if (hasFocus)
             {
-                AdjustLines(
-                   FindViewById<TextView>(Resource.Id.total_numbers_infected_header_text),
-                   FindViewById<TextView>(Resource.Id.total_numbers_tested_header_text));
-                AdjustLines(
-                    FindViewById<TextView>(Resource.Id.total_numbers_hospitalized_header_text),
-                    FindViewById<TextView>(Resource.Id.total_numbers_intensive_header_text));
-                AdjustLines(
-                    FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_header_text),
-                    FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_header_text));
-                AdjustLines(
-                    FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_downloads_header_text),
-                    FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_header_text));
+                UpdateLinesAlignment();
             }
         }
 
@@ -184,6 +190,21 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             textView.MovementMethod = LinkMovementMethod.Instance;
             Color linkColor = new Color(ContextCompat.GetColor(this, Resource.Color.linkColor));
             textView.SetLinkTextColor(linkColor);
+        }
+        private void UpdateLinesAlignment()
+        {
+            AdjustLines(
+                _confirmedCasesHeader,
+                _conductedTestsHeader);
+            AdjustLines(
+                _patientsAdmittedHeader,
+                _patientsICAdmittedHeader);
+            AdjustLines(
+                _vaccinationDoseOneHeader,
+                _vaccinationDoseTwoHeader);
+            AdjustLines(
+                _smittestoppDownloadsHeader,
+                _positiveSharedCasesHeader);
         }
 
     }
