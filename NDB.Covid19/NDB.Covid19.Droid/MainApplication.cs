@@ -63,6 +63,8 @@ namespace NDB.Covid19.Droid
 
             LogUtils.SendAllLogs();
 
+            Xamarin.Essentials.VersionTracking.Track();
+
             if (PlayServicesVersionUtils.PlayServicesVersionNumberIsLargeEnough(PackageManager))
             {
                 BackgroundFetchScheduler.ScheduleBackgroundFetch();

@@ -148,6 +148,7 @@
     <Compile Include="Views\DailyNumbers\DailyNumbersLoadingPage.cs" />
     <Compile Include="Utils\LayoutUtils.cs" />
     <Compile Include="Views\LanguageSelectionActivity.cs" />
+    <Compile Include="Utils\BatteryOptimisationUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -1101,6 +1102,10 @@
       </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\spinner_dialog.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\background_activity_dialog.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
