@@ -4,8 +4,9 @@ namespace NDB.Covid19.Interfaces
 {
     public interface ILocalNotificationsManager
     {
-        void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds);
+        void GenerateLocalNotification(NotificationViewModel notificationViewModel, long triggerInSeconds);
         void GenerateLocalNotificationOnlyIfInBackground(NotificationViewModel viewModel);
         void GenerateLocalPermissionsNotification(NotificationViewModel viewModel);
+        void GenerateDelayedNotification(NotificationViewModel viewModel, long ticks);
     }
 }

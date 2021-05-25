@@ -32,6 +32,11 @@ namespace NDB.Covid19.Droid.Services
                 case NotificationType.InBackground:
                     GenerateLocalNotificationOnlyIfInBackgroundBroadcasted(context, data.Data());
                     break;
+                case NotificationType.ForegroundWithUpdates:
+                    long ticks = intent.GetLongExtra("ticks", 0);
+                    GenerateForegroundServiceNotificationWithUpdatesBroadcasted(
+                        context, data.Data(), ticks);
+                    break;
                 default:
                     return;
             }
@@ -71,6 +76,18 @@ namespace NDB.Covid19.Droid.Services
                     (int) notificationViewModel.Type,
                     new LocalNotificationsManager(context)
                         .CreateNotification(notificationViewModel));
+            });
+        }
+        private void GenerateForegroundServiceNotificationWithUpdatesBroadcasted(
+            Context context, NotificationViewModel notificationViewModel, long ticksLeft)
+        {
+            Task.Run(() =>
+            {
+                NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(context);
+                notificationManagerCompat.Notify(
+                    (int)notificationViewModel.Type,
+                    new LocalNotificationsManager(context)
+                        .CreateNotificationWithExtraLongData(notificationViewModel, ticksLeft));
             });
         }
     }
