@@ -30,6 +30,10 @@ namespace NDB.Covid19.PersistedData
         
         public static readonly string LAST_MESSAGE_DATE_TIME = "LAST_MESSAGE_DATE_TIME";
 
+        public static readonly string LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE = "LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE";
+
+        public static readonly string LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER = "LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER";
+
         public static readonly string LAST_PERMISSIONS_NOTIFICATION_DATE_TIME = "LAST_PERMISSIONS_NOTIFICATION_DATE_TIME";
         public static readonly string LAST_NTP_UTC_DATE_TIME = "LAST_NTP_DATE_TIME";
         public static readonly string COUNTRY_CONSENTS_GIVEN = "COUNTRTY_CONSENTS_GIVEN";

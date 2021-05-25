@@ -1,17 +1,24 @@
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using CommonServiceLocator;
 using CoreFoundation;
+using MoreLinq;
+using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Permissions;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using NDB.Covid19.iOS.Views.DailyNumbers;
 using NDB.Covid19.iOS.Views.Settings;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using NDB.Covid19.Enums;
+using UserNotifications;
+using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -371,7 +378,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 DialogHelper.ShowDialog(
                     this,
                     _viewModel.OffDialogViewModel,
-                    OnStopScannerChosen
+                        action => ShowPickerController()
                     );
             }
             else
@@ -409,12 +416,17 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void OnStartScannerChosen(UIAlertAction obj)
         {
+            string[] requestID = new[] { NotificationsEnum.TimedReminderFinished.ToString() };
+            UNUserNotificationCenter.Current.RemoveDeliveredNotifications(
+                requestID);
+            UNUserNotificationCenter.Current.RemovePendingNotificationRequests(
+                requestID);
             // If dialog is confimed start exposure notifications through this async method: _viewModel.StartEN(); 
             StartIfStopped();
             UpdateUI();
         }
 
-        async void OnStopScannerChosen(UIAlertAction obj)
+        async void OnStopScannerChosen()
         {
             // If dialog is dismissed stop exposure notifications through this async method: _viewModel.StopEN(); 
             await _viewModel.StopENService();
@@ -456,5 +468,138 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             UIViewController vc = NavigationHelper.ViewControllerByStoryboardName("MessagePage");
             NavigationController?.PushViewController(vc, true);
         }
+        void SetRecursiveInteraction(UIView parentView, bool isEnabled)
+        {
+            InvokeOnMainThread(() =>
+            {
+                parentView?.Subviews.ForEach(view =>
+                {
+                    if (!view.Equals(SpinnerMainView) ||
+                        !view.Equals(Picker) ||
+                        !view.Equals(SpinnerDialogTitle) ||
+                        !view.Equals(SpinnerDialogMessage) ||
+                        !view.Equals(SpinnerDialogButton))
+                    {
+                        view.AccessibilityElementsHidden = !isEnabled;
+                        view.UserInteractionEnabled = isEnabled;
+                    }
+                });
+            });
+        }
+        async void ShowPickerController()
+        {
+            SetRecursiveInteraction(View, false);
+            View.AddSubview(SpinnerMainView);
+            // Make sure accessibility is enabled for the whole view
+            SpinnerMainView.AccessibilityElementsHidden = false;
+            SpinnerMainView.UserInteractionEnabled = true;
+
+            // Disable accessibility for the subviews to prevent focus stealing
+            SpinnerDialogButton.AccessibilityElementsHidden = true;
+            SpinnerDialogButton.UserInteractionEnabled = false;
+            Picker.AccessibilityElementsHidden = true;
+            Picker.UserInteractionEnabled = false;
+            SpinnerDialogTitle.AccessibilityElementsHidden = true;
+            SpinnerDialogTitle.UserInteractionEnabled = false;
+            SpinnerDialogMessage.AccessibilityElementsHidden = true;
+            SpinnerDialogMessage.UserInteractionEnabled = false;
+
+            StyleUtil.InitLabelWithSpacing(
+                SpinnerDialogTitle,
+                StyleUtil.FontType.FontBold,
+                INFECTION_STATUS_PAUSE_DIALOG_TITLE,
+                1.14,
+                24,
+                38,
+                true);
+            StyleUtil.InitLabelWithSpacing(
+                SpinnerDialogMessage,
+                StyleUtil.FontType.FontRegular,
+                INFECTION_STATUS_PAUSE_DIALOG_MESSAGE,
+                1.28,
+                16,
+                20,
+                true);
+            SpinnerDialogButton.SetTitle(
+                INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON,
+                UIControlState.Normal);
+
+            SpinnerDialogTitle.AccessibilityAttributedLabel =
+                AccessibilityUtils.RemovePoorlySpokenSymbols(INFECTION_STATUS_PAUSE_DIALOG_TITLE);
+            SpinnerDialogMessage.AccessibilityAttributedLabel =
+                AccessibilityUtils.RemovePoorlySpokenSymbols(INFECTION_STATUS_PAUSE_DIALOG_MESSAGE);
+            SpinnerDialogButton.AccessibilityAttributedLabel =
+                AccessibilityUtils.RemovePoorlySpokenSymbols(INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON);
+
+            Picker.Model = new HoursPickerModel(
+                new List<string> {
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_NO_REMINDER,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_ONE_HOUR,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS
+                });
+
+            SpinnerMainView.Hidden = false;
+            SetFocusTo(SpinnerDialogTitle, () =>
+            {
+                SpinnerDialogButton.AccessibilityElementsHidden = false;
+                SpinnerDialogButton.UserInteractionEnabled = true;
+                Picker.AccessibilityElementsHidden = false;
+                Picker.UserInteractionEnabled = true;
+                SpinnerDialogTitle.AccessibilityElementsHidden = false;
+                SpinnerDialogTitle.UserInteractionEnabled = true;
+                SpinnerDialogMessage.AccessibilityElementsHidden = false;
+                SpinnerDialogMessage.UserInteractionEnabled = true;
+            });
+        }
+        void SetFocusTo(UIView view, Action onAccessibilityPostFinished = null)
+        {
+            DispatchQueue.MainQueue.DispatchAfter(
+                new DispatchTime(DispatchTime.Now, 10000000L),
+                () =>
+                {
+                    UIAccessibility.PostNotification(
+                        UIAccessibilityPostNotification.LayoutChanged,
+                        view);
+                    onAccessibilityPostFinished?.Invoke();
+                });
+        }
+
+        partial void OnSpinnerDialogButton_TouchUpInside(UIButton sender)
+        {
+            InvokeOnMainThread(() =>
+            {
+                SpinnerMainView.Hidden = true;
+                switch (HoursPickerModel.SelectedOptionByUser)
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        DisplayNotificationAfterTime((int)Math.Pow(2, HoursPickerModel.SelectedOptionByUser - 1));
+                        break;
+                }
+                OnStopScannerChosen();
+                SetRecursiveInteraction(View, true);
+                SetFocusTo(View);
+                SpinnerMainView.AccessibilityElementsHidden = true;
+            });
+        }
+
+        private void DisplayNotificationAfterTime(int hourMultiplier)
+        {
+            long ticks = 60 * 60 * hourMultiplier;
+#if DEBUG
+            ticks /= 60;
+#endif
+            ServiceLocator.Current
+                .GetInstance<ILocalNotificationsManager>()
+                .GenerateDelayedNotification(
+                    NotificationsEnum.TimedReminderFinished.Data(),
+                    ticks);
+        }
+
+
     }
 }
