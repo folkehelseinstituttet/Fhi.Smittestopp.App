@@ -541,12 +541,15 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             if(await _viewModel.IsRunning())
             {
-            
+
+                string messageCombined = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 + "\n\n" +
+                    INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2 + "\n\n" +
+                    INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3;
                 View dialogView = LayoutInflater.Inflate(Resource.Layout.background_activity_dialog, null);
                 AlertDialog.Builder builder = new AlertDialog.Builder(this, Android.Resource.Style.ThemeDeviceDefaultLightDialog);
                 builder.SetView(dialogView);
                 builder.SetTitle(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE);
-                builder.SetMessage(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE);
+                builder.SetMessage(messageCombined);
                 builder.SetCancelable(false);
                 SetIsBackgroundActivityDialogShowEnableNewUser(false);
 
