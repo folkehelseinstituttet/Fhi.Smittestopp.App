@@ -86,6 +86,7 @@
     <Compile Include="Services\BluetoothStateBroadcastReceiver.cs" />
     <Compile Include="Services\FlightModeHandlerBroadcastReceiver.cs" />
     <Compile Include="Services\BackgroundNotificationBroadcastReceiver.cs" />
+    <Compile Include="Services\RemovedFromRecentDetectorService.cs" />
     <Compile Include="Services\TimedReminderForegroundService.cs" />
     <Compile Include="Utils\AccessibilityUtils.cs" />
     <Compile Include="Utils\AuthErrorUtils.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Views\DailyNumbers\DailyNumbersLoadingPage.cs" />
     <Compile Include="Utils\LayoutUtils.cs" />
     <Compile Include="Views\LanguageSelectionActivity.cs" />
+    <Compile Include="Utils\DiagnosisKeysDataMappingUtils.cs" />
     <Compile Include="Utils\BatteryOptimisationUtils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1193,7 +1195,7 @@
     <PackageReference Include="XAB.FlexboxLayout">
       <Version>2.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.ExposureNotification" Version="0.15.0-preview" />
+    <PackageReference Include="Xamarin.ExposureNotification" Version="0.16.0-alpha" />
     <PackageReference Include="Xamarin.ShortcutBadger">
       <Version>1.1.21</Version>
     </PackageReference>

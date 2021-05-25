@@ -15,9 +15,10 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using NDB.Covid19.Enums;
 using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
-
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -80,6 +81,13 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            UpdateCorrelationId(null);
+            LogUtils.LogMessage(LogSeverity.INFO, "User opened InfectionStatus", null);
         }
 
         private void OnAppDailyNumbersChanged(object _ = null)
