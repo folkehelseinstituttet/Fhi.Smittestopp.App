@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using JWT;
 using JWT.Algorithms;
 using JWT.Builder;
@@ -21,6 +23,7 @@ namespace NDB.Covid19.OAuth2
     {
         public EventHandler<AuthenticatorCompletedEventArgs> _completedHandler;
         public EventHandler<AuthenticatorErrorEventArgs> _errorHandler;
+        public HttpClient client = new HttpClient();
         public static JsonSerializer JsonSerializer = new JsonSerializer();
 
         /*
@@ -73,7 +76,8 @@ namespace NDB.Covid19.OAuth2
         {
             try
             {
-                byte[] publicKey = Convert.FromBase64String(GetPublickey());
+                Task<string> vs = GetPublickey(OAuthConf.OAUTH2_JWKS_URL);
+                byte[] publicKey = Convert.FromBase64String(vs.Result);
 
                 string jsonPayload = new JwtBuilder()
                     .WithAlgorithm(new RS256Algorithm(new X509Certificate2(publicKey)))
@@ -103,9 +107,10 @@ namespace NDB.Covid19.OAuth2
             }
         }
 
-        private string GetPublickey()
+        public async Task<string> GetPublickey(string url)
         {
-            string json = new WebClient().DownloadString(OAuthConf.OAUTH2_JWKS_URL);
+
+            string json = await client.GetStringAsync(url);//OAuthConf.OAUTH2_JWKS_URL); 
             JsonWebKeySet jwks = new JsonWebKeySet(json);
             List<JsonWebKey> keyList = new List<JsonWebKey>(jwks.Keys);
             int lastIndex = keyList.Count - 1;

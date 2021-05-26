@@ -20,11 +20,14 @@
 
   <ItemGroup>
     <PackageReference Include="AnonymousTokens.Server" Version="2.0.0" />
+    <PackageReference Include="chilkat-x64" Version="9.5.0.86" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.15" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <PackageReference Include="Moq" Version="4.13.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="2.5.0" />
+    <PackageReference Include="SSH.NET" Version="2020.0.1" />
     <PackageReference Include="WireMock.Net" Version="1.2.3" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
@@ -34,11 +37,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Desktop\Task 57\IdentityServer4Demo\IdentityServer4Demo.TokenServer\IdentityServer4Demo.TokenServer.csproj" />
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Tests\OAuth2\" />
     <Folder Include="Tests\ExposureNotification\" />
   </ItemGroup>
 </Project>
