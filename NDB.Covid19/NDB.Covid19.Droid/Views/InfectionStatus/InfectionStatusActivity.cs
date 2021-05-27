@@ -555,10 +555,18 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 Button positiveButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_yes);
                 Button negativeButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_no);
                 Button dontShowButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_dont_show);
-                positiveButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON;
-                negativeButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON;
-                dontShowButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON;
-
+                positiveButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON.ToUpper();
+                negativeButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON.ToUpper();
+                dontShowButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON.ToUpper();
+                if(dontShowButton.LineCount < 2)
+                {
+                    string positiveButtonTextTemp = positiveButton.Text;
+                    string negativeButtonTextTemp = negativeButton.Text;
+                    string dontShowButtonTextTemp = dontShowButton.Text;
+                    positiveButton.Text = "\n\n" + positiveButtonTextTemp;
+                    negativeButton.Text = "\n\n" + negativeButtonTextTemp;
+                    dontShowButton.Text = "\n\n" + dontShowButtonTextTemp;
+                }
                 AlertDialog builder = new AlertDialog.Builder(this)
                     .SetView(dialogView)
                     .SetTitle(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE)

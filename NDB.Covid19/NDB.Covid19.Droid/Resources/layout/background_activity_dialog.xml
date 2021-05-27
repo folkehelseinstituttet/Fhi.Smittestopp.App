@@ -2,52 +2,78 @@
 <LinearLayout	
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
-	android:layout_width="fill_parent"
+	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:padding="16dp">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+		android:layout_marginStart="8dp"
+		android:layout_marginEnd="8dp"
         android:layout_height="wrap_content"
+		android:weightSum="1"
         android:id="@+id/linearLayout1">
-	<Button
-		android:id="@+id/battery_dialog_button_dont_show"
-		android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
-		android:layout_height="20sp"
-		android:layout_gravity="top"
-		android:layout_marginBottom="6dp"
-		android:text="Dont Show"
-		android:textAlignment="center"
-		android:gravity="center"
-		android:background="@android:color/transparent"
-		android:textColor="@android:color/holo_blue_dark"
-		style="@style/AlertDialog.AppCompat"/>
-	<Button
-		android:id="@+id/battery_dialog_button_no"
-		android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
-		android:layout_marginBottom="6dp"
-		android:layout_height="20sp"
-		android:text="No"
-		android:textAlignment="center"
-		android:gravity="center"
-		android:background="@android:color/transparent"
-	    android:textColor="@android:color/holo_blue_dark"
-		style="@style/AlertDialog.AppCompat" />
-	<Button
-		android:id="@+id/battery_dialog_button_yes"
-		android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
-		android:layout_marginBottom="6dp"
-		android:layout_height="20sp"
-		android:text="Yes"
-		android:textAlignment="center"
-		android:gravity="center"
-		android:background="@android:color/transparent"
-		android:textColor="@android:color/holo_blue_dark"
-		style="@style/AlertDialog.AppCompat" />
+        <RelativeLayout
+			android:layout_weight="0.15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:orientation="vertical"
+            android:id="@+id/relativeLayout1">
+            <Button
+                android:id="@+id/battery_dialog_button_dont_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+				android:layout_marginBottom="4dp"
+                android:text="Dont Show"
+                android:textAlignment="viewStart"
+				android:textSize="14sp"
+				android:gravity="top"
+                android:background="@android:color/transparent"
+				android:textColor="@android:color/holo_blue_dark"
+				style="@style/AlertDialog.AppCompat"/>
+		</RelativeLayout>
 
-		</LinearLayout>
+		<RelativeLayout
+			android:layout_weight="0.425"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_marginStart="2dp"
+			android:orientation="vertical"
+            android:id="@+id/relativeLayout2">
+			<Button
+				android:id="@+id/battery_dialog_button_no"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="4dp"
+				android:text="No"
+				android:textAlignment="center"
+				android:textSize="14sp"
+				android:gravity="top"
+				android:background="@android:color/transparent"
+				android:textColor="@android:color/holo_blue_dark" 
+				style="@style/AlertDialog.AppCompat"/>
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_weight="0.425"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_marginStart="2dp"
+			android:orientation="vertical"
+            android:id="@+id/relativeLayout3">
+			<Button
+				android:id="@+id/battery_dialog_button_yes"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="4dp"
+				android:text="Yes"
+				android:textAlignment="center"
+				android:textSize="14sp"
+				android:gravity="top"
+				android:background="@android:color/transparent"
+				android:textColor="@android:color/holo_blue_dark"
+				style="@style/AlertDialog.AppCompat"/>
+		</RelativeLayout>
+	</LinearLayout>
 </LinearLayout>
