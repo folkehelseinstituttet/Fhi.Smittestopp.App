@@ -233,7 +233,7 @@
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON": "No",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON": "No, do not show this again",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE": "Allow prioritized background activity",
-  "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1": "Enable prioritized background activity to allow the app to determine your risk status in the background any time (recommended). This disables battery life optimazation for Smittestopp app only. We do not expect this to cause a significant decrease in your smartphone's battery life.",
+  "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1": "Enable prioritized background activity to allow the app to determine your risk status in the background any time (recommended). This disables battery life optimazation for the Smittestopp app only. We do not expect this to cause a significant decrease in your smartphone's battery life.",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2": "If you do not allow this setting, we recommend you to open the app manually at least once every 24 hours.",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3": "Do you allow to turn it on?",
   "INFOCONSENT_HEADER": "Share your positive test result",
@@ -337,7 +337,7 @@
   "NOTIFICATION_CHANNEL_BACKGROUND_FETCH_DESCRIPTION": "Notifications about ongoing background activity",
   "NOTIFICATION_CHANNEL_PERMISSIONS_NAME": "Permission issues",
   "NOTIFICATION_CHANNEL_PERMISSIONS_DESCRIPTION": "Notifications about missing access to for example Bluetooth",
-  "NOTIFICATION_CHANNEL_COUNTDOWN_NAME": "Countdown notifications",
+  "NOTIFICATION_CHANNEL_COUNTDOWN_NAME": "Countdown Notifications",
   "NOTIFICATION_CHANNEL_COUNTDOWN_DESCRIPTION": "Notifications with countdown until reminder will be sent",
   "NOTIFICATION_CHANNEL_REMINDER_NAME": "Reminders",
   "NOTIFICATION_CHANNEL_REMINDER_DESCRIPTION": "Reminders about turning application on again",
@@ -354,9 +354,6 @@
   "SETTINGS_GENERAL_EXPLANATION_TWO": "Access to mobile data ",
   "SETTINGS_GENERAL_MOBILE_DATA_HEADER": "Smittestopp may have access to mobile data ",
   "SETTINGS_GENERAL_MOBILE_DATA_DESC": "When you turn off mobile data here, you can control your data usage. If you choose to turn off mobile data, information about infected people you have been nearby to is only obtained when you have a Wi-Fi connection. The app remains active even if you choose to turn off mobile data.",
-  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_EXPLANATION": "Prioritized background activity",
-  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_HEADER": "Turn off battery optimization",
-  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "This will disable battery optimization for Smittestopp to allow the app to determine your risk status in the background any time. If you do not allow this setting, we recommend you to open the app manually at least once every 24 hours.",
   "SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER": "Velg språk / Select language",
   "SETTINGS_GENERAL_NB": "Norwegian Bokmål (Bokmål)",
   "SETTINGS_GENERAL_NN": "Norwegian Nynorsk (Nynorsk)",
@@ -370,5 +367,9 @@
   "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT": "The app will restart to apply your langauge selection. / Appen starter på nytt for å aktivere språkvalget ditt.",
   "SETTINGS_GENERAL_MORE_INFO_LINK": "https://www.fhi.no/en/about/smittestopp/text-in-other-languages",
   "SETTINGS_GENERAL_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at: www.fhi.no/en/about/smittestopp/text-in-other-languages.",
-  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at fhi.no/en/about/smittestopp/text-in-other-languages"
+  "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at fhi.no/en/about/smittestopp/text-in-other-languages",
+  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_EXPLANATION": "Prioritized background activity",
+  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_HEADER": "Turn off battery optimization",
+  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "This will disable battery optimization for Smittestopp to allow the app to determine your risk status in the background any time. If you do not allow this setting, we recommend you to open the app manually at least once every 24 hours."
+
 }
