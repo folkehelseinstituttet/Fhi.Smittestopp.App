@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Desktop\Task 57\IdentityServer4Demo\IdentityServer4Demo.TokenServer\IdentityServer4Demo.TokenServer.csproj" />
+    <ProjectReference Include="..\IdentityServerMock\IdentityServerMock.csproj" />
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj" />
   </ItemGroup>
 

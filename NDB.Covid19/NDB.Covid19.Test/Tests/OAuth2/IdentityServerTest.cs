@@ -1,23 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
-using IdentityServer4Demo.TokenServer;
-using Microsoft.Extensions.DependencyInjection;
-using System.Security.Cryptography.X509Certificates;
+using Tests.IdentityServerMock;
 using NDB.Covid19.OAuth2;
 using IdentityModel.Jwk;
-using System.IdentityModel.Tokens.Jwt;
-using CertificateManager.Models;
-using System.Security.Cryptography;
 using CertificateManager;
 using System.IO;
 
 namespace NDB.Covid19.Test.Tests.OAuth2
 {
-     public class IdentityServerTest : 
+    public class IdentityServerTest : 
         IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> _factory;
@@ -97,10 +91,6 @@ namespace NDB.Covid19.Test.Tests.OAuth2
         {
             // Arrange
             AuthenticationManager authenticationManager = new AuthenticationManager();
-            //CreateStoreCert();
-            // X509Store store = new X509Store("teststore", StoreLocation.CurrentUser, OpenFlags.OpenExistingOnly);
-            //X509Certificate2Collection collection = store.Certificates;
-            //X509Certificate2 certificate1 = collection.
 
             Chilkat.Pfx pfx = new Chilkat.Pfx();
             // This will get the current WORKING directory (i.e. \bin\Debug)
