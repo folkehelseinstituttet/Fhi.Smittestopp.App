@@ -12,21 +12,21 @@
 		android:scrollbarAlwaysDrawVerticalTrack="true">
 		<LinearLayout
 			android:orientation="horizontal"
-			android:layout_gravity="center_horizontal"
 			android:layout_width="match_parent"
+			android:layout_gravity="center_horizontal"
 			android:layout_marginTop="8dp"
 			android:layout_marginStart="8dp"
 			android:layout_marginEnd="8dp"
 			android:layout_height="wrap_content"
 			android:id="@+id/linearLayout_title">
 			<TextView
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="Header"
 				android:textSize="16sp"
 				android:textStyle="bold"
 				style="@style/AlertDialog.AppCompat"
-				android:id="@+id/background_activity_dialog_header"/>
+				android:id="@+id/background_activity_dialog_header"/>	
 		</LinearLayout>
 		<LinearLayout
 			android:orientation="horizontal"
@@ -38,7 +38,7 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/linearLayout_meassage">
 			<TextView
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="Header"
 				android:textSize="15sp"
