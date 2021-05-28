@@ -57,6 +57,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _dailyNumbersCoverButton;
         private Button _messageCoverButton;
         private Button _registrationCoverButton;
+        private Button _positiveButton;
+        private Button _negativeButton;
+        private Button _dontShowButton;
+
         private NumberPicker _picker;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
@@ -133,6 +137,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;
             OnMessageStatusChanged();
+
+            if (!(_positiveButton is null))
+            {
+                AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
+            }
+
 
             UpdateKeys();
         }
@@ -366,7 +376,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
             }
-
+            
+            if (!(_positiveButton is null))
+            {
+                AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
+            }
+           
             UpdateUI();
         }
 
@@ -542,7 +557,25 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             }
             
         }
+        private void AdjustLineBreaks(TextView viewA, TextView viewB)
+        {
+            if (viewA.LineCount > viewB.LineCount)
+            {
+                string addition = "";
+                for (int i = 0; i < viewA.LineCount - viewB.LineCount; ++i)
+                {
+                    addition += "\n";
+                }
 
+                viewB.Text = viewB.Text + addition;
+            }
+        }
+
+        private void AdjustLines(TextView viewA, TextView viewB, TextView viewC)
+        {
+            AdjustLineBreaks(viewA, viewB);
+            AdjustLineBreaks(viewA, viewC);
+        }
         public async void ShowBackgroundActivityDialog()
         {
             if(await _viewModel.IsRunning())
@@ -552,21 +585,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2 + "\n\n" +
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3;
                 View dialogView = LayoutInflater.Inflate(Resource.Layout.background_activity_dialog, null);
-                Button positiveButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_yes);
-                Button negativeButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_no);
-                Button dontShowButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_dont_show);
-                positiveButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON.ToUpper();
-                negativeButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON.ToUpper();
-                dontShowButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON.ToUpper();
-                if(dontShowButton.LineCount < 2)
-                {
-                    string positiveButtonTextTemp = positiveButton.Text;
-                    string negativeButtonTextTemp = negativeButton.Text;
-                    string dontShowButtonTextTemp = dontShowButton.Text;
-                    positiveButton.Text = "\n\n" + positiveButtonTextTemp;
-                    negativeButton.Text = "\n\n" + negativeButtonTextTemp;
-                    dontShowButton.Text = "\n\n" + dontShowButtonTextTemp;
-                }
+                _positiveButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_yes);
+                _negativeButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_no);
+                _dontShowButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_dont_show);
+                _positiveButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON.ToUpper();
+                _negativeButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON.ToUpper();
+                _dontShowButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON.ToUpper();
+                
                 AlertDialog builder = new AlertDialog.Builder(this)
                     .SetView(dialogView)
                     .SetTitle(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE)
@@ -574,20 +599,20 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     .SetCancelable(false)
                     .Create();
                 SetIsBackgroundActivityDialogShowEnableNewUser(false);
-                positiveButton.Click += new SingleClick((sender, args) =>
+                _positiveButton.Click += new SingleClick((sender, args) =>
                 {
                     BatteryOptimisationUtils.StopBatteryOptimizationSetting(this);
                     builder.Dismiss();
                 }).Run;
-                negativeButton.Click += new SingleClick((sender, args) => builder.Dismiss()).Run;
+                _negativeButton.Click += new SingleClick((sender, args) => builder.Dismiss()).Run;
 
-                dontShowButton.Click += new SingleClick((sender, args) =>
+                _dontShowButton.Click += new SingleClick((sender, args) =>
                 {
                     SetIsBackgroundActivityDialogShowEnable(false);
                     builder.Dismiss();
                 }).Run;
-                builder.Window.SetGravity(GravityFlags.FillHorizontal);
                 builder.Show();
+                AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
             }
             
         }
