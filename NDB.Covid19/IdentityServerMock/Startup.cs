@@ -12,7 +12,6 @@ namespace Tests.IdentityServerMock
 {
     public class Startup
     {
-        private object _environment;
         static CreateCertificates _cc;
         private X509Certificate2 Certificate { get; set; }
         public static byte [] RsaCertPfxBytes { get; set; }

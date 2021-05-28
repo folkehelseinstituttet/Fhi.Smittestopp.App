@@ -110,7 +110,7 @@ namespace NDB.Covid19.OAuth2
         public async Task<string> GetPublickey(string url)
         {
 
-            string json = await client.GetStringAsync(url);//OAuthConf.OAUTH2_JWKS_URL); 
+            string json = await client.GetStringAsync(url);
             JsonWebKeySet jwks = new JsonWebKeySet(json);
             List<JsonWebKey> keyList = new List<JsonWebKey>(jwks.Keys);
             int lastIndex = keyList.Count - 1;

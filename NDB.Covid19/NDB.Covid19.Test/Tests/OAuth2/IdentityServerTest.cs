@@ -14,8 +14,6 @@ namespace NDB.Covid19.Test.Tests.OAuth2
         IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> _factory;
-        static CreateCertificates _cc;
-        public static string _path;
         public IdentityServerTest(WebApplicationFactory<Startup> factory)
         {
             _factory = factory;
@@ -38,7 +36,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             File.Delete("rsaCert.pfx");
 
             // Act
-            //public key from local cert
+            //public key from cert
             string alias = "my_ecc_key1";
             string password = "secret123";
             
@@ -55,6 +53,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             //public key from endpoint
             var response = await authenticationManager.client.GetAsync(url);
             string publicKey =await authenticationManager.GetPublickey(url);
+            
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
             Assert.Equal(publicKey2, publicKey);
