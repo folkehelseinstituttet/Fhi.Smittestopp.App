@@ -581,21 +581,23 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             if(await _viewModel.IsRunning())
             {
                 
-                string messageCombined = "\n" + INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 + "\n\n" +
+                string messageCombined = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 + "\n\n" +
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2 + "\n\n" +
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3;
                 View dialogView = LayoutInflater.Inflate(Resource.Layout.background_activity_dialog, null);
-                _positiveButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_yes);
-                _negativeButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_no);
-                _dontShowButton = dialogView.FindViewById<Button>(Resource.Id.battery_dialog_button_dont_show);
+                TextView headerText = dialogView.FindViewById<TextView>(Resource.Id.background_activity_dialog_header);
+                TextView messageText = dialogView.FindViewById<TextView>(Resource.Id.background_activity_dialog_message);
+                headerText.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE;
+                messageText.Text = messageCombined;
+                _positiveButton = dialogView.FindViewById<Button>(Resource.Id.background_activity_dialog_button_yes);
+                _negativeButton = dialogView.FindViewById<Button>(Resource.Id.background_activity_dialog_button_no);
+                _dontShowButton = dialogView.FindViewById<Button>(Resource.Id.background_activity_dialog_button_dont_show);
                 _positiveButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON.ToUpper();
                 _negativeButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON.ToUpper();
                 _dontShowButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON.ToUpper();
                 
                 AlertDialog builder = new AlertDialog.Builder(this)
                     .SetView(dialogView)
-                    .SetTitle(INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE)
-                    .SetMessage(messageCombined)
                     .SetCancelable(false)
                     .Create();
                 SetIsBackgroundActivityDialogShowEnableNewUser(false);
