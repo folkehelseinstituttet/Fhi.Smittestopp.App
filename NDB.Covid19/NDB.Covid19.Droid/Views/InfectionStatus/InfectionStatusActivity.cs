@@ -81,7 +81,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
 
-            if(GetIsAppLaunchedToPullKeys() || GetIsBackgroundActivityDialogShowEnableNewUser())
+            if(GetIsAppLaunchedToPullKeys())
             {
                 UpdateKeys();
                 SetIsAppLaunchedToPullKeys(false);
