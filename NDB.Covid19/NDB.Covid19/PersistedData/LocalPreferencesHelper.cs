@@ -50,6 +50,16 @@ namespace NDB.Covid19.PersistedData
             _preferences.Set(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER, isBackgroundActivityDialogShowEnableNewUser);
         }
 
+        public static bool GetIsAppLaunchedToShowDialog() => _preferences.Get(PreferencesKeys.APP_LAUNCHED_TO_SHOW_DIALOG, false);
+        public static void SetIsAppLaunchedToShowDialog(bool isLaunched)
+        {
+            _preferences.Set(PreferencesKeys.APP_LAUNCHED_TO_SHOW_DIALOG, isLaunched);
+        }
+        public static bool GetIsAppLaunchedToPullKeys() => _preferences.Get(PreferencesKeys.APP_LAUNCHED_TO_PULL_KEYS, false);
+        public static void SetIsAppLaunchedToPullKeys(bool isLaunched)
+        {
+            _preferences.Set(PreferencesKeys.APP_LAUNCHED_TO_PULL_KEYS, isLaunched);
+        }
         // This is the date of the last fetch, which is displayed to the user on the Messages screen.
         //  The keys are not submitted yet
         public static DateTime GetUpdatedDateTime() => _preferences.Get(PreferencesKeys.MESSAGES_LAST_UPDATED_PREF, DateTime.MinValue);

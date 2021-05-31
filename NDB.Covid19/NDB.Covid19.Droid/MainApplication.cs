@@ -117,6 +117,8 @@ namespace NDB.Covid19.Droid
                 .RegisterReceiver(
                     _backgroundNotificationBroadcastReceiver,
                     new IntentFilter(LocalNotificationsManager.BroadcastActionName));
+            SetIsAppLaunchedToShowDialog(true);
+            SetIsAppLaunchedToPullKeys(true);
         }
 
         public override void OnTerminate()

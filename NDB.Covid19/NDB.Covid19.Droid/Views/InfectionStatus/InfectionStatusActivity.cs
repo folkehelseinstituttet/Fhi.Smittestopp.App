@@ -60,7 +60,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _positiveButton;
         private Button _negativeButton;
         private Button _dontShowButton;
-
         private NumberPicker _picker;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
@@ -82,11 +81,18 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
 
+            if(GetIsAppLaunchedToPullKeys() || GetIsBackgroundActivityDialogShowEnableNewUser())
+            {
+                UpdateKeys();
+                SetIsAppLaunchedToPullKeys(false);
+            }
+            
             CheckIfShowBackgroundActivityDialog();
 
             if (GetIsBackgroundActivityDialogShowEnableNewUser() == false
                 && GetIsBackgroundActivityDialogShowEnable()
-                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false)
+                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false
+                && GetIsAppLaunchedToShowDialog())
             {
                 ShowBackgroundActivityDialog();
             }
@@ -143,8 +149,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
             }
 
-
-            UpdateKeys();
         }
 
         private void ShowPermissionsDialogIfTheyHavChangedWhileInIdle() =>
@@ -606,7 +610,11 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     BatteryOptimisationUtils.StopBatteryOptimizationSetting(this);
                     builder.Dismiss();
                 }).Run;
-                _negativeButton.Click += new SingleClick((sender, args) => builder.Dismiss()).Run;
+                _negativeButton.Click += new SingleClick((sender, args) =>
+                {
+                    SetIsAppLaunchedToShowDialog(false);
+                    builder.Dismiss();
+                }).Run;
 
                 _dontShowButton.Click += new SingleClick((sender, args) =>
                 {
