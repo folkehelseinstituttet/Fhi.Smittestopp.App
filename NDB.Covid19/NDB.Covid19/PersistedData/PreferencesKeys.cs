@@ -23,10 +23,6 @@ namespace NDB.Covid19.PersistedData
         
         public static readonly string APP_LANGUAGE = "APP_LANGUAGE";
 
-        public static readonly string APP_LAUNCHED_TO_SHOW_DIALOG = "APP_LAUNCHED_TO_SHOW_DIALOG";
-
-        public static readonly string APP_LAUNCHED_TO_PULL_KEYS = "APP_LAUNCHED_TO_PULL_KEYS";
-
         public static readonly string DEV_TOOLS_PULL_KEYS_HISTORY = "DEV_TOOLS_PULL_KEYS_HISTORY";
         public static readonly string DEV_TOOLS_PULL_KEYS_HISTORY_LAST_RECORD = "DEV_TOOLS_PULL_KEYS_HISTORY_LAST_RECORD";
         

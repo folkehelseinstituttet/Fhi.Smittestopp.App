@@ -81,18 +81,18 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
 
-            if(GetIsAppLaunchedToPullKeys())
+            if (IsAppLaunchedToPullKeys)
             {
                 UpdateKeys();
-                SetIsAppLaunchedToPullKeys(false);
+                IsAppLaunchedToPullKeys = false;
             }
             
             CheckIfShowBackgroundActivityDialog();
 
-            if (GetIsBackgroundActivityDialogShowEnableNewUser() == false
+            if (!GetIsBackgroundActivityDialogShowEnableNewUser()
                 && GetIsBackgroundActivityDialogShowEnable()
-                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false
-                && GetIsAppLaunchedToShowDialog())
+                && !BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations()
+                && IsAppLaunchedToShowDialog)
             {
                 ShowBackgroundActivityDialog();
             }
@@ -582,7 +582,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         }
         public async void ShowBackgroundActivityDialog()
         {
-            if(await _viewModel.IsRunning())
+            if (await _viewModel.IsRunning())
             {
                 
                 string messageCombined = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 + "\n\n" +
@@ -612,7 +612,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 }).Run;
                 _negativeButton.Click += new SingleClick((sender, args) =>
                 {
-                    SetIsAppLaunchedToShowDialog(false);
+                    IsAppLaunchedToShowDialog = false;
                     builder.Dismiss();
                 }).Run;
 
