@@ -25,8 +25,10 @@ using Xamarin.Essentials;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 using NDB.Covid19.Enums;
 using AlertDialog = Android.App.AlertDialog;
+using NDB.Covid19.ExposureNotifications.Helpers;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -60,7 +62,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _positiveButton;
         private Button _negativeButton;
         private Button _dontShowButton;
-
         private NumberPicker _picker;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
@@ -82,13 +83,22 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
 
+            if (IsAppLaunchedToPullKeys)
+            {
+                UpdateKeys();
+                IsAppLaunchedToPullKeys = false;
+            }
+            
             CheckIfShowBackgroundActivityDialog();
 
-            if (GetIsBackgroundActivityDialogShowEnableNewUser() == false
+            if (!GetIsBackgroundActivityDialogShowEnableNewUser()
                 && GetIsBackgroundActivityDialogShowEnable()
-                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false)
+                && !CheckIsEnableBatteryOptimizations()
+                && IsAppLaunchedToShowDialog
+                && (SystemTime.Now().Date != DialogLastShownDate))
             {
                 ShowBackgroundActivityDialog();
+                DialogLastShownDate = SystemTime.Now().Date;                
             }
 
         }
@@ -143,8 +153,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
             }
 
-
-            UpdateKeys();
         }
 
         private void ShowPermissionsDialogIfTheyHavChangedWhileInIdle() =>
@@ -437,7 +445,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             }
             //showing dialog for new user
             if (GetIsBackgroundActivityDialogShowEnableNewUser()
-                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false)
+                && !CheckIsEnableBatteryOptimizations())
             {
                 ShowBackgroundActivityDialog();
             }
@@ -587,9 +595,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         }
         public async void ShowBackgroundActivityDialog()
         {
-            if(await _viewModel.IsRunning())
+            if (await _viewModel.IsRunning())
             {
-                
+
                 string messageCombined = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 + "\n\n" +
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2 + "\n\n" +
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3;
@@ -612,10 +620,14 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 SetIsBackgroundActivityDialogShowEnableNewUser(false);
                 _positiveButton.Click += new SingleClick((sender, args) =>
                 {
-                    BatteryOptimisationUtils.StopBatteryOptimizationSetting(this);
+                    StopBatteryOptimizationSetting(this);
                     builder.Dismiss();
                 }).Run;
-                _negativeButton.Click += new SingleClick((sender, args) => builder.Dismiss()).Run;
+                _negativeButton.Click += new SingleClick((sender, args) =>
+                {
+                    IsAppLaunchedToShowDialog = false;
+                    builder.Dismiss();
+                }).Run;
 
                 _dontShowButton.Click += new SingleClick((sender, args) =>
                 {

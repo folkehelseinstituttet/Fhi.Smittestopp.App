@@ -11,6 +11,10 @@ namespace NDB.Covid19.Droid.Utils
 
         private static readonly int MY_REQUEST_IGNORE_BATTERY_OPTIMIZATION_ID = 1002;
 
+        public static bool IsAppLaunchedToShowDialog { get; set; }
+
+        public static bool IsAppLaunchedToPullKeys { get; set; }
+
         public static bool CheckIsEnableBatteryOptimizations()
         {
             PowerManager pm = (PowerManager)Application.Context.GetSystemService(Context.PowerService);
