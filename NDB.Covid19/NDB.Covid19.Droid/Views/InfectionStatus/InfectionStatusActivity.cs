@@ -25,6 +25,7 @@ using Xamarin.Essentials;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 using NDB.Covid19.Enums;
 using AlertDialog = Android.App.AlertDialog;
 
@@ -91,10 +92,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             if (!GetIsBackgroundActivityDialogShowEnableNewUser()
                 && GetIsBackgroundActivityDialogShowEnable()
-                && !BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations()
-                && IsAppLaunchedToShowDialog)
+                && !CheckIsEnableBatteryOptimizations()
+                && IsAppLaunchedToShowDialog
+                && (DateTime.Now.Date != DialogLastShownDate))
             {
                 ShowBackgroundActivityDialog();
+                DialogLastShownDate = DateTime.Now.Date;                
             }
 
         }
@@ -441,7 +444,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             }
             //showing dialog for new user
             if (GetIsBackgroundActivityDialogShowEnableNewUser()
-                && BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations() == false)
+                && !CheckIsEnableBatteryOptimizations())
             {
                 ShowBackgroundActivityDialog();
             }
@@ -584,7 +587,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             if (await _viewModel.IsRunning())
             {
-                
+
                 string messageCombined = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 + "\n\n" +
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2 + "\n\n" +
                     INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3;
@@ -607,7 +610,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 SetIsBackgroundActivityDialogShowEnableNewUser(false);
                 _positiveButton.Click += new SingleClick((sender, args) =>
                 {
-                    BatteryOptimisationUtils.StopBatteryOptimizationSetting(this);
+                    StopBatteryOptimizationSetting(this);
                     builder.Dismiss();
                 }).Run;
                 _negativeButton.Click += new SingleClick((sender, args) =>

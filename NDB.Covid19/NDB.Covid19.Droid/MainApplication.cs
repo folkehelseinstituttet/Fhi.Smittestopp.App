@@ -11,6 +11,7 @@ using NDB.Covid19.Utils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 using NDB.Covid19.Droid.Services;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 #if APPCENTER
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
