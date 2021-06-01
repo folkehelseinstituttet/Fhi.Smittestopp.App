@@ -511,10 +511,19 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 StopGoogleAPI();
                 (sender as AlertDialog)?.Dismiss();
             });
-            
-            builder.Create();
 
-            builder.Show();
+            if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.M)
+            {
+                AlertDialog alertDialog = builder.Create();
+                alertDialog.Window.DecorView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+                alertDialog.Show();
+            }
+            else
+            {
+                builder.Create();
+                builder.Show();
+            }
+            
 
         }
         private void CloseReminderNotifications()
