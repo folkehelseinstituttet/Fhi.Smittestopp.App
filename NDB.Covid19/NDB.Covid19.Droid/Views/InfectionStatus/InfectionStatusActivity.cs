@@ -28,6 +28,7 @@ using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 using NDB.Covid19.Enums;
 using AlertDialog = Android.App.AlertDialog;
+using NDB.Covid19.ExposureNotifications.Helpers;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -94,10 +95,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 && GetIsBackgroundActivityDialogShowEnable()
                 && !CheckIsEnableBatteryOptimizations()
                 && IsAppLaunchedToShowDialog
-                && (DateTime.Now.Date != DialogLastShownDate))
+                && (SystemTime.Now().Date != DialogLastShownDate))
             {
                 ShowBackgroundActivityDialog();
-                DialogLastShownDate = DateTime.Now.Date;                
+                DialogLastShownDate = SystemTime.Now().Date;                
             }
 
         }
