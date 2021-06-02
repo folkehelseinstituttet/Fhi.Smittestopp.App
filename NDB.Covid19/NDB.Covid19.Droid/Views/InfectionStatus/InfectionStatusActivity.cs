@@ -184,8 +184,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
         }
 
-        private async void UpdateKeys() => await _viewModel.PullKeysFromServer();
-
+        private async void UpdateKeys()
+        {
+            if (await _viewModel.IsRunning())
+            {
+                await _viewModel.PullKeysFromServer();
+            }
+        }
         private async void InitLayout()
         {
             View rootView = Window.DecorView.RootView;
