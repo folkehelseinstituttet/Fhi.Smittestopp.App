@@ -1,8 +1,6 @@
 ﻿using System;
 using Android.App;
 using Android.Content.PM;
-using Android.Graphics;
-using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.V4.Content;
 using Android.Support.V4.Text;
@@ -28,6 +26,7 @@ namespace NDB.Covid19.Droid.Views.Settings
     {
         private readonly SettingsGeneralViewModel _viewModel = new SettingsGeneralViewModel();
         private readonly IResetViews _resetViews = ServiceLocator.Current.GetInstance<IResetViews>();
+        private SwitchCompat _switchActivityButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,7 +36,15 @@ namespace NDB.Covid19.Droid.Views.Settings
 
             Init();
         }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            this.Title = SettingsGeneralViewModel.SETTINGS_GENERAL_TITLE;
+            SetContentView(Resource.Layout.settings_general);
+            Init();
+        }
 
+        
         private void Init()
         {
             ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back_general);
@@ -48,6 +55,10 @@ namespace NDB.Covid19.Droid.Views.Settings
             TextView explanationTwo = FindViewById<TextView>(Resource.Id.settings_general_explanation_two);
             TextView mobileDataHeader = FindViewById<TextView>(Resource.Id.settings_general_mobile_data_header);
             TextView mobileDataDesc = FindViewById<TextView>(Resource.Id.settings_general_mobile_data_desc);
+            //background activity option section
+            TextView explanationBackgroundActivity = FindViewById<TextView>(Resource.Id.settings_general_explanation_background_activity);
+            TextView backgroundActivityHeader = FindViewById<TextView>(Resource.Id.settings_general_background_activity_header);
+            TextView backgroundActivityDesc = FindViewById<TextView>(Resource.Id.settings_general_background_activity_desc);
             TextView languageHeader = FindViewById<TextView>(Resource.Id.settings_general_select_lang_header);
             TextView languageDesc = FindViewById<TextView>(Resource.Id.settings_general_select_lang_desc_one);
             TextView languageLink = FindViewById<TextView>(Resource.Id.settings_general_link);
@@ -58,6 +69,9 @@ namespace NDB.Covid19.Droid.Views.Settings
             explanationTwo.Text = SETTINGS_GENERAL_EXPLANATION_TWO;
             mobileDataHeader.Text = SETTINGS_GENERAL_MOBILE_DATA_HEADER;
             mobileDataDesc.Text = SETTINGS_GENERAL_MOBILE_DATA_DESC;
+            explanationBackgroundActivity.Text = SETTINGS_GENERAL_BACKGROUND_ACTIVITY_EXPLANATION;
+            backgroundActivityHeader.Text = SETTINGS_GENERAL_BACKGROUND_ACTIVITY_HEADER;
+            backgroundActivityDesc.Text = SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC;
             languageHeader.Text = SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER;
             languageDesc.Text = SETTINGS_GENERAL_RESTART_REQUIRED_TEXT;
             languageLink.TextAlignment = TextAlignment.ViewStart;
@@ -132,6 +146,10 @@ namespace NDB.Covid19.Droid.Views.Settings
             switchButton.Checked = _viewModel.GetStoredCheckedState();
             switchButton.CheckedChange += OnCheckedChange;
 
+            _switchActivityButton = FindViewById<SwitchCompat>(Resource.Id.settings_background_activity_switch);
+            _switchActivityButton.Checked = BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations();
+            _switchActivityButton.CheckedChange += OnActivityCheckedChange;
+
             backButton.Click += new StressUtils.SingleClick((sender, args) => Finish()).Run;
 
             // Layout direction logic
@@ -204,6 +222,23 @@ namespace NDB.Covid19.Droid.Views.Settings
             }
 
             _viewModel.OnCheckedChange(switchButton.Checked);
+        }
+
+        private void OnActivityCheckedChange(object sender, EventArgs args)
+        {
+            SwitchCompat switchCompat = (SwitchCompat)sender;
+            
+            if (!BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations())
+            {
+                BatteryOptimisationUtils.StopBatteryOptimizationSetting(this);
+                switchCompat.Checked = true;
+            }
+            else
+            {
+                BatteryOptimisationUtils.StartBatterySetting(this);
+                switchCompat.Checked = false;
+            }
+            
         }
     }
 }

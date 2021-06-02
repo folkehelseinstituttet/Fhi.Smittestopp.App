@@ -38,6 +38,24 @@ namespace NDB.Covid19.PersistedData
             _preferences.Set(PreferencesKeys.USE_MOBILE_DATA_PREF, isDownloadWithMobileDataEnabled);
         }
 
+        public static bool GetIsBackgroundActivityDialogShowEnable() => _preferences.Get(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE, true);
+        public static void SetIsBackgroundActivityDialogShowEnable(bool isBackgroundActivityDialogShowEnable)
+        {
+            _preferences.Set(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE, isBackgroundActivityDialogShowEnable);
+        }
+
+        public static bool GetIsBackgroundActivityDialogShowEnableNewUser() => _preferences.Get(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER, false);
+        public static void SetIsBackgroundActivityDialogShowEnableNewUser(bool isBackgroundActivityDialogShowEnableNewUser)
+        {
+            _preferences.Set(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER, isBackgroundActivityDialogShowEnableNewUser);
+        }
+        
+        public static DateTime DialogLastShownDate
+        {
+            get => _preferences.Get(PreferencesKeys.DIALOG_LAST_SHOWN_DATE, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.DIALOG_LAST_SHOWN_DATE, value);
+        }
+
         // This is the date of the last fetch, which is displayed to the user on the Messages screen.
         //  The keys are not submitted yet
         public static DateTime GetUpdatedDateTime() => _preferences.Get(PreferencesKeys.MESSAGES_LAST_UPDATED_PREF, DateTime.MinValue);
