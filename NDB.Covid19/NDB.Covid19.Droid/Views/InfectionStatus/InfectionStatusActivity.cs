@@ -448,6 +448,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 && !CheckIsEnableBatteryOptimizations())
             {
                 ShowBackgroundActivityDialog();
+                DialogLastShownDate = SystemTime.Now().Date;
             }
             _semaphoreSlim.Release();
         }
