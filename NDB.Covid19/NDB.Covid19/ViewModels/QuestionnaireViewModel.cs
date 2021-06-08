@@ -85,7 +85,7 @@ namespace NDB.Covid19.ViewModels
             Selection = selection;
         }
 
-        private DateTime? GetMibaDateFromPersonalData()
+        private DateTime? GetMSISDateFromPersonalData()
         {
             if (PersonalData.Validate())
             {
@@ -107,8 +107,8 @@ namespace NDB.Covid19.ViewModels
             Action onValidationFail,
             PlatformDialogServiceArguments platformDialogServiceArguments = null)
         {
-            DateTime? mibaDate = GetMibaDateFromPersonalData();
-            if (mibaDate == null)
+            DateTime? dateInMSIS = GetMSISDateFromPersonalData();
+            if (dateInMSIS == null)
             {
                 onFail?.Invoke();
                 return;
@@ -129,11 +129,11 @@ namespace NDB.Covid19.ViewModels
 
                     return;
                 }
-                PersonalData.FinalMiBaDate = mibaDate < _localSelectedDate ? mibaDate : _localSelectedDate;
+                PersonalData.FinalDateToSetDSOS = dateInMSIS < _localSelectedDate ? dateInMSIS : _localSelectedDate;
             }
             else
             {
-                PersonalData.FinalMiBaDate = mibaDate;
+                PersonalData.FinalDateToSetDSOS = dateInMSIS;
             }
 
             onSuccess?.Invoke();

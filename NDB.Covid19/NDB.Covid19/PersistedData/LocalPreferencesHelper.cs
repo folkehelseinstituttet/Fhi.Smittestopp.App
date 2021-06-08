@@ -38,6 +38,24 @@ namespace NDB.Covid19.PersistedData
             _preferences.Set(PreferencesKeys.USE_MOBILE_DATA_PREF, isDownloadWithMobileDataEnabled);
         }
 
+        public static bool GetIsBackgroundActivityDialogShowEnable() => _preferences.Get(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE, true);
+        public static void SetIsBackgroundActivityDialogShowEnable(bool isBackgroundActivityDialogShowEnable)
+        {
+            _preferences.Set(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE, isBackgroundActivityDialogShowEnable);
+        }
+
+        public static bool GetIsBackgroundActivityDialogShowEnableNewUser() => _preferences.Get(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER, false);
+        public static void SetIsBackgroundActivityDialogShowEnableNewUser(bool isBackgroundActivityDialogShowEnableNewUser)
+        {
+            _preferences.Set(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER, isBackgroundActivityDialogShowEnableNewUser);
+        }
+        
+        public static DateTime DialogLastShownDate
+        {
+            get => _preferences.Get(PreferencesKeys.DIALOG_LAST_SHOWN_DATE, DateTime.MinValue);
+            set => _preferences.Set(PreferencesKeys.DIALOG_LAST_SHOWN_DATE, value);
+        }
+
         // This is the date of the last fetch, which is displayed to the user on the Messages screen.
         //  The keys are not submitted yet
         public static DateTime GetUpdatedDateTime() => _preferences.Get(PreferencesKeys.MESSAGES_LAST_UPDATED_PREF, DateTime.MinValue);
@@ -55,6 +73,14 @@ namespace NDB.Covid19.PersistedData
 
             int batchNumber = LastPullKeysBatchNumberNotSubmitted;
             LastPullKeysBatchNumberSuccessfullySubmitted = batchNumber;
+        }
+
+        // [Android only]
+        // The date time of the last successful SetDiagnosisKeysDataMappingAsync call.
+        public static DateTime GetLastDiagnosisKeysDataMappingDateTime() => _preferences.Get(PreferencesKeys.LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME, DateTime.MinValue);
+        public static void UpdateLastDiagnosisKeysDataMappingDateTime()
+        {
+            _preferences.Set(PreferencesKeys.LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME, SystemTime.Now());
         }
 
         //The last batch that was successfully fetched but not yet submitted to the EN API.
@@ -128,6 +154,12 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.HIGH_ATTENUATION_DURATION_MULTIPLIER, value);
         }
 
+        public static double ScoreSumThreshold
+        {
+            get => _preferences.Get(PreferencesKeys.SCORE_SUM_THRESHOLD, Conf.SCORE_SUM_THRESHOLD);
+            set => _preferences.Set(PreferencesKeys.SCORE_SUM_THRESHOLD, value);
+        }
+
         public static DateTime LastPermissionsNotificationDateTimeUtc
         {
             get => _preferences.Get(PreferencesKeys.LAST_PERMISSIONS_NOTIFICATION_DATE_TIME, DateTime.MinValue);
@@ -150,6 +182,13 @@ namespace NDB.Covid19.PersistedData
         {
             get => _preferences.Get(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, false);
             set => _preferences.Set(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, value);
+        }
+
+        // The id is used to identify authentication/submission flow in the logs.
+        public static string GetCorrelationId() => _preferences.Get(PreferencesKeys.CORRELATION_ID, null);
+        public static void UpdateCorrelationId(string correlationId)
+        {
+            _preferences.Set(PreferencesKeys.CORRELATION_ID, correlationId);
         }
 
         public static bool HasNeverSuccessfullyFetchedFHIData

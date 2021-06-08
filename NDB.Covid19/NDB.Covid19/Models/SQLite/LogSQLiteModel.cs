@@ -33,6 +33,9 @@ namespace NDB.Covid19.Models.SQLite
         public string InnerExceptionMessage { get; set; }
         public string InnerExceptionStackTrace { get; set; }
 
+        //Used for the authentication/submission flow
+        public string CorrelationId { get; set; }
+
         //Used for API errors
         public string Api { get; set; }
         public Nullable<int> ApiErrorCode { get; set; }
@@ -42,7 +45,7 @@ namespace NDB.Covid19.Models.SQLite
 
         public LogSQLiteModel() { }
 
-        public LogSQLiteModel(LogDeviceDetails info, LogApiDetails apiDetails = null, LogExceptionDetails e = null)
+        public LogSQLiteModel(LogDeviceDetails info, LogApiDetails apiDetails = null, LogExceptionDetails e = null, string correlationId = null)
         {
             ReportedTime = info.ReportedTime;
             Severity = info.Severity.ToString();
@@ -68,6 +71,11 @@ namespace NDB.Covid19.Models.SQLite
                 InnerExceptionType = e.InnerExceptionType;
                 InnerExceptionMessage = e.InnerExceptionMessage;
                 InnerExceptionStackTrace = e.InnerExceptionStackTrace;
+            }
+
+            if (correlationId != null)
+            {
+                CorrelationId = correlationId;
             }
         }
 

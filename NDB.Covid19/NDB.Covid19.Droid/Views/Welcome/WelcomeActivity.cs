@@ -13,6 +13,7 @@ using NDB.Covid19.Droid.Utils;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
@@ -46,6 +47,11 @@ namespace NDB.Covid19.Droid.Views.Welcome
             {
                 GoToConsents();
                 return;
+            }
+
+            if (IsOnBoarding)
+            {
+                SetIsBackgroundActivityDialogShowEnableNewUser(true);
             }
 
             _pages = new List<AndroidX.Fragment.App.Fragment>(new AndroidX.Fragment.App.Fragment[] { _welcomePageOne, _welcomePageTwo, _welcomePageThree, _welcomePageFour });

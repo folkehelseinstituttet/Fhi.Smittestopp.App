@@ -10,6 +10,8 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 using NDB.Covid19.Droid.Services;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 #if APPCENTER
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -25,6 +27,9 @@ namespace NDB.Covid19.Droid
         private FlightModeHandlerBroadcastReceiver _flightModeBroadcastReceiver;
         private IntentFilter _filter;
         private BackgroundNotificationBroadcastReceiver _backgroundNotificationBroadcastReceiver;
+
+        private int _activityReferences = 0;
+        private bool _isActivityChangingConfigurations = false;
 
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
             : base(handle, transer)
@@ -63,16 +68,30 @@ namespace NDB.Covid19.Droid
 
             LogUtils.SendAllLogs();
 
+            Xamarin.Essentials.VersionTracking.Track();
+
             if (PlayServicesVersionUtils.PlayServicesVersionNumberIsLargeEnough(PackageManager))
             {
                 BackgroundFetchScheduler.ScheduleBackgroundFetch();
             }
+
+            LogUtils.LogMessage(LogSeverity.INFO, $"The user has opened the app", null);
         }
 
         private void OnUnhandledAndroidException(object sender, RaiseThrowableEventArgs e)
         {
             if (e?.Exception != null)
             {
+                string correlationId = GetCorrelationId();
+                if (!string.IsNullOrEmpty(correlationId))
+                {
+                    LogUtils.LogMessage(
+                        LogSeverity.INFO,
+                        "The user has experienced native Android crash",
+                        null,
+                        correlationId);
+                }
+
                 string message = $"{nameof(MainApplication)}.{nameof(OnUnhandledAndroidException)}: "
                                  + (!e.Handled
                                      ? "Native unhandled crash"
@@ -99,6 +118,8 @@ namespace NDB.Covid19.Droid
                 .RegisterReceiver(
                     _backgroundNotificationBroadcastReceiver,
                     new IntentFilter(LocalNotificationsManager.BroadcastActionName));
+            IsAppLaunchedToShowDialog = true;
+            IsAppLaunchedToPullKeys = true;
         }
 
         public override void OnTerminate()
@@ -143,12 +164,53 @@ namespace NDB.Covid19.Droid
 
         public void OnActivityStarted(Activity activity)
         {
-
+            ++_activityReferences;
+            if (_activityReferences == 1 && !_isActivityChangingConfigurations)
+            {
+                // Log LoadPageActivity entered foreground after being put into background
+                // because onResume() in LoadPageActivity is not called due to the pop-up window on the activity
+                if (activity is Views.AuthenticationFlow.LoadingPageActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user is seeing Loading Page", null, GetCorrelationId());
+                }
+            }
         }
 
         public void OnActivityStopped(Activity activity)
         {
-
+            // check if the app entered background
+            _isActivityChangingConfigurations = activity.IsChangingConfigurations;
+            if (--_activityReferences == 0 && !_isActivityChangingConfigurations)
+            {
+                if(activity is Views.AuthenticationFlow.CountriesConsentActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user left Countries Consent", null, GetCorrelationId());
+                }
+                else if(activity is Views.AuthenticationFlow.InformationAndConsentActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user left Information and Consent", null);
+                }
+                else if(activity is Views.AuthenticationFlow.LoadingPageActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user left Loading Page", null, GetCorrelationId());
+                }
+                else if (activity is Views.AuthenticationFlow.QuestionnaireCountriesSelectionActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user left Questionnaire Countries Selection", null, GetCorrelationId());
+                }
+                else if (activity is Views.AuthenticationFlow.QuestionnairePageActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user left Questionnaire", null, GetCorrelationId());
+                }
+                else if(activity is Views.AuthenticationFlow.RegisteredActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user left Registered");
+                }
+                else if(activity is Views.AuthenticationFlow.ErrorActivities.GeneralErrorActivity)
+                {
+                    LogUtils.LogMessage(LogSeverity.INFO, "The user left General Error");
+                }
+            }
         }
 
         void ManualGarbageCollectionTool()
