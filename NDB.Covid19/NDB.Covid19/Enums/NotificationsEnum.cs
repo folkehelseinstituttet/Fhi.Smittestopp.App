@@ -9,6 +9,7 @@ namespace NDB.Covid19.Enums
 {
     public enum NotificationsEnum
     {
+        
         NewMessageReceived,
         ApiDeprecated,
         ConsentNeeded,
@@ -17,7 +18,9 @@ namespace NDB.Covid19.Enums
         BluetoothAndLocationOff,
         BluetoothOff,
         LocationOff,
-        NoNotification
+        NoNotification,
+        TimedReminder,
+        TimedReminderFinished
     }
 
     public static class NotificationsEnumExtensions 
@@ -26,6 +29,7 @@ namespace NDB.Covid19.Enums
         {
             switch (notificationType)
             {
+                
                 case NotificationsEnum.NewMessageReceived:
                     return new NotificationViewModel
                     {
@@ -83,6 +87,20 @@ namespace NDB.Covid19.Enums
                         Type = NotificationsEnum.BluetoothAndLocationOff,
                         Title = "NOTIFICATION_BLUETOOTH_AND_LOCATION_OFF_TITLE".Translate(),
                         Body = "NOTIFICATION_BLUETOOTH_AND_LOCATION_OFF_DESCRIPTION".Translate()
+                    };
+                case NotificationsEnum.TimedReminder:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.TimedReminder,
+                        Title = "NOTIFICATION_TIMED_REMINDER_TITLE".Translate(),
+                        Body = "NOTIFICATION_TIMED_REMINDER_DESCRIPTION".Translate()
+                    };
+                case NotificationsEnum.TimedReminderFinished:
+                    return new NotificationViewModel
+                    {
+                        Type = NotificationsEnum.TimedReminderFinished,
+                        Title = "NOTIFICATION_TIMED_REMINDER_FINISHED_TITLE".Translate(),
+                        Body = "NOTIFICATION_TIMED_REMINDER_FINISHED_DESCRIPTION".Translate()
                     };
                 default:
                     throw new InvalidEnumArgumentException("Notification type does not exist");

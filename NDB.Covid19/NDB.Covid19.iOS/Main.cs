@@ -17,8 +17,13 @@ namespace NDB.Covid19.iOS
             }
             catch(Exception e)
             {
+                string correlationId = PersistedData.LocalPreferencesHelper.GetCorrelationId();
+                if(!string.IsNullOrEmpty(correlationId))
+                {
+                    LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user experienced native iOS crash", null, correlationId);
+                }
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e, "iOS crashed (logged in Main.cs)");
-                throw e;
+                throw;
             }
         }
     }

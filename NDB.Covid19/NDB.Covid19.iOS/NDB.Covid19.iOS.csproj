@@ -52,6 +52,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchExtraArgs>-gcc_flags "-fobjc-arc"</MtouchExtraArgs>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -66,6 +67,7 @@
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <MtouchUseLlvm>true</MtouchUseLlvm>
     <MtouchExtraArgs>-gcc_flags "-fobjc-arc"</MtouchExtraArgs>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppCenter|iPhone' ">
     <Optimize>true</Optimize>
@@ -112,7 +114,7 @@
     <PackageReference Include="Xamarin.Auth">
       <Version>1.7.0</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.ExposureNotification" Version="0.15.0-preview" />
+    <PackageReference Include="Xamarin.ExposureNotification" Version="0.16.0-alpha" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\CloseWhite.imageset\Contents.json">
@@ -376,7 +378,7 @@
     <ImageAsset Include="Assets.xcassets\onboarding02right.imageset\Group 2028%403x.png">
       <Visible>false</Visible>
     </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\40.png">
@@ -539,27 +541,27 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png" />
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png" />
-    <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
-    <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png" />
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled.png" />
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%402x.png" />
-    <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%403x.png" />
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
-    <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%401x.png" />
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%402x.png" />
-    <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%403x.png" />
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%403x.png" />
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%402x.png" />
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%401x.png" />
-    <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%401x.png" />
+     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%402x.png" />
+     <ImageAsset Include="Assets.xcassets\FHISmittestoppLogo.imageset\FHI_Smittestopp_App_Logo_Aktiv_Inaktiv%403x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\AppIconNO.appiconset\iTunesArtwork%402x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%402x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxUnfilled.imageset\checkboxUnfilled%403x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%402x.png" />
+     <ImageAsset Include="Assets.xcassets\checkboxFilled.imageset\combinedShape%403x.png" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Contents.json" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%401x.png" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%402x.png" />
+     <ImageAsset Include="Assets.xcassets\todays_numbers_icon.imageset\Todays_numbers_icon%403x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%403x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%402x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%401x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -567,34 +569,48 @@
     <Folder Include="Assets.xcassets\AppIconLink.appiconset\" />
     <Folder Include="Assets.xcassets\AppIconOld.appiconset\" />
     <Folder Include="Assets.xcassets\arrowBack.imageset\" />
+    <Folder Include="Assets.xcassets\ArrowLeftCircle.imageset\" />
+    <Folder Include="Assets.xcassets\ArrowRightCircle.imageset\" />
+    <Folder Include="Assets.xcassets\arrow_right.imageset\" />
     <Folder Include="Assets.xcassets\BackButton.imageset\" />
     <Folder Include="Assets.xcassets\bellicon.imageset\" />
     <Folder Include="Assets.xcassets\Bluetooth.imageset\" />
+    <Folder Include="Assets.xcassets\BluetoothIconNorway.imageset\" />
     <Folder Include="Assets.xcassets\BlueToothOffIcon.imageset\" />
     <Folder Include="Assets.xcassets\BluetoothOnIcon.imageset\" />
-    <Folder Include="Assets.xcassets\BluetoothIconNorway.imageset\" />
+    <Folder Include="Assets.xcassets\CheckboxChecked.imageset\" />
+    <Folder Include="Assets.xcassets\checkboxFilled.imageset\" />
+    <Folder Include="Assets.xcassets\CheckboxUnchecked.imageset\" />
+    <Folder Include="Assets.xcassets\checkboxUnfilled.imageset\" />
     <Folder Include="Assets.xcassets\CheckCircle.imageset\" />
     <Folder Include="Assets.xcassets\CheckMark.imageset\" />
     <Folder Include="Assets.xcassets\CheckShield.imageset\" />
     <Folder Include="Assets.xcassets\chevronWhite.imageset\" />
-    <Folder Include="Assets.xcassets\CloseWhite.imageset\" />
     <Folder Include="Assets.xcassets\CloseBlue.imageset\" />
+    <Folder Include="Assets.xcassets\CloseWhite.imageset\" />
     <Folder Include="Assets.xcassets\covidIcon.imageset\" />
+    <Folder Include="Assets.xcassets\FHILogo.imageset\" />
+    <Folder Include="Assets.xcassets\FHISmittestoppLogo.imageset\" />
+    <Folder Include="Assets.xcassets\fhi_logo_short.imageset\" />
     <Folder Include="Assets.xcassets\HandAndHeart.imageset\" />
     <Folder Include="Assets.xcassets\HelpIcon.imageset\" />
     <Folder Include="Assets.xcassets\HelpIcon2.imageset\" />
     <Folder Include="Assets.xcassets\HumanIcon.imageset\" />
+    <Folder Include="Assets.xcassets\InformationIcon.imageset\" />
     <Folder Include="Assets.xcassets\iPhoneBackgroundLimitations.imageset\" />
     <Folder Include="Assets.xcassets\LaunchBackground.imageset\" />
     <Folder Include="Assets.xcassets\LogoWhite.imageset\" />
     <Folder Include="Assets.xcassets\LogoWhiteBackground.imageset\" />
     <Folder Include="Assets.xcassets\MenuIcon.imageset\" />
+    <Folder Include="Assets.xcassets\notification_active.imageset\" />
+    <Folder Include="Assets.xcassets\notification_inactive.imageset\" />
     <Folder Include="Assets.xcassets\pauseIcon.imageset\" />
     <Folder Include="Assets.xcassets\playIcon.imageset\" />
     <Folder Include="Assets.xcassets\SplashBackground.imageset\" />
     <Folder Include="Assets.xcassets\SplashImage.imageset\" />
     <Folder Include="Assets.xcassets\SundOgsikkerLogo.imageset\" />
     <Folder Include="Assets.xcassets\SundOgSikkerLogoHvid.imageset\" />
+    <Folder Include="Assets.xcassets\todays_numbers_icon.imageset\" />
     <Folder Include="Assets.xcassets\VelkommenLogo.imageset\" />
     <Folder Include="Assets.xcassets\WarningIcon.imageset\" />
     <Folder Include="Views\CustomSubclasses\" />
@@ -606,22 +622,8 @@
     <Folder Include="Views\Settings\SettingsPage5\" />
     <Folder Include="Views\Settings\SettingsPageGeneral\" />
     <Folder Include="Views\AuthenticationFlow\QuestionnaireCountries\" />
-    <Folder Include="Assets.xcassets\CheckboxChecked.imageset\" />
-    <Folder Include="Assets.xcassets\CheckboxUnchecked.imageset\" />
     <Folder Include="Resources\Fonts\" />
-    <Folder Include="Assets.xcassets\FHILogo.imageset\" />
-    <Folder Include="Assets.xcassets\ArrowLeftCircle.imageset\" />
-    <Folder Include="Assets.xcassets\ArrowRightCircle.imageset\" />
-    <Folder Include="Assets.xcassets\fhi_logo_short.imageset\" />
-    <Folder Include="Assets.xcassets\notification_active.imageset\" />
-    <Folder Include="Assets.xcassets\notification_inactive.imageset\" />
-    <Folder Include="Assets.xcassets\arrow_right.imageset\" />
-    <Folder Include="Assets.xcassets\InformationIcon.imageset\" />
-    <Folder Include="Assets.xcassets\FHISmittestoppLogo.imageset\" />
-    <Folder Include="Assets.xcassets\checkboxUnfilled.imageset\" />
-    <Folder Include="Assets.xcassets\checkboxFilled.imageset\" />
     <Folder Include="Views\DailyNumbers\" />
-    <Folder Include="Assets.xcassets\todays_numbers_icon.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -833,6 +835,7 @@
     <Compile Include="Views\Initializer\LanguageSelectionViewController.designer.cs">
       <DependentUpon>LanguageSelectionViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\InfectionStatus\HoursPickerModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">

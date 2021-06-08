@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CommonServiceLocator;
 using I18NPortable;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
@@ -35,6 +38,26 @@ namespace NDB.Covid19.ViewModels
         public static string INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT".Translate();
         public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT".Translate();
         public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT".Translate();
+        
+        //pause dialog
+        public static string INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON => "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON".Translate();
+        public static string INFECTION_STATUS_PAUSE_DIALOG_TITLE => "INFECTION_STATUS_PAUSE_DIALOG_TITLE".Translate();
+        public static string INFECTION_STATUS_PAUSE_DIALOG_MESSAGE => "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE".Translate();
+        public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_NO_REMINDER => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_NO_REMINDER".Translate();
+        public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_ONE_HOUR => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_ONE_HOUR".Translate();
+        public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS".Translate();
+        public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS".Translate();
+        public static string INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS => "INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS".Translate();
+
+        //background activity dialog
+
+        public static string INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE => "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE".Translate();
+        public static string INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 => "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1".Translate();
+        public static string INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2 => "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2".Translate();
+        public static string INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3 => "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3".Translate();
+        public static string INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON => "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON".Translate();
+        public static string INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON => "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON".Translate();
+        public static string INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON => "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON".Translate();
 
         public static DateTime DailyNumbersUpdatedDateTime => LocalPreferencesHelper.FHILastUpdateDateTime.ToLocalTime();
 
@@ -129,7 +152,9 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(IsRunning)))
                 {
-                    throw e;
+#if DEBUG
+                    throw;
+#endif
                 }
                 return false;
             }
@@ -148,7 +173,9 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(IsEnabled)))
                 {
-                    throw e;
+#if DEBUG
+                    throw;
+#endif
                 }
                 return false;
             }
@@ -168,7 +195,9 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(StartENService)))
                 {
-                    throw e;
+#if DEBUG
+                    throw;
+#endif
                 }
             }
 
@@ -189,7 +218,9 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(StopENService)))
                 {
-                    throw e;
+#if DEBUG
+                    throw;
+#endif
                 }
             }
             return await IsRunning();
@@ -245,6 +276,28 @@ namespace NDB.Covid19.ViewModels
             await NewMessagesFetched();
         }
 
-        
+        public async Task<bool> PullKeysFromServer()
+        {
+            
+            bool processedAnyFiles = false;
+            try
+            {
+                await Xamarin.ExposureNotifications.ExposureNotification.UpdateKeysFromServer();
+            }
+            catch (Exception e)
+            {
+#if DEBUG
+                string error = $"Pull keys failed:\n{e}";
+                Debug.WriteLine(error);
+#endif
+                LogUtils.LogException(LogSeverity.WARNING, e,
+                        $"{nameof(InfectionStatusViewModel)}.{nameof(PullKeysFromServer)}: Pull keys failed");
+            }
+
+            return processedAnyFiles;
+        }
+
+
+
     }
 }
