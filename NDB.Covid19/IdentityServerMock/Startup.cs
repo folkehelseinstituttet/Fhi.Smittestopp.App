@@ -14,6 +14,7 @@ namespace Tests.IdentityServerMock
     {
         static CreateCertificates _cc;
         private X509Certificate2 Certificate { get; set; }
+        private X509Certificate2 OldCertificate { get; set; }
         public static byte [] RsaCertPfxBytes { get; set; }
         public Startup(IConfiguration configuration)
         {
@@ -29,10 +30,11 @@ namespace Tests.IdentityServerMock
                     .AddInMemoryApiResources(Data.ResourceManager.Apis)
                     .AddInMemoryClients(Data.ClientManager.Clients);
             CreateCert();
+            AddOldKey(services);
             AddKey(services);
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)//, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseIdentityServer();
         }
@@ -85,6 +87,8 @@ namespace Tests.IdentityServerMock
 
             _cc = sp.GetService<CreateCertificates>();
 
+            var oldRsaCert = CreateRsaCertificate("localhost_IS_test_old", 1);
+
             var rsaCert = CreateRsaCertificate("localhost_IS_test", 10);
 
             string password = "12345";
@@ -92,12 +96,21 @@ namespace Tests.IdentityServerMock
 
             RsaCertPfxBytes =
                 iec.ExportSelfSignedCertificatePfx(password, rsaCert);
+            var OldRsaCertPfxBytes = 
+                iec.ExportSelfSignedCertificatePfx(password, oldRsaCert);
+
             Certificate = new X509Certificate2(RsaCertPfxBytes, password);
 
+            OldCertificate = new X509Certificate2(OldRsaCertPfxBytes, password);
+
+        }
+        public void AddOldKey(IServiceCollection services)
+        {
+            var builder = services.AddIdentityServerBuilder();
+            builder.AddValidationKey(OldCertificate);
         }
         public void AddKey(IServiceCollection services)
         {
-
             var builder = services.AddIdentityServerBuilder();
             builder.AddValidationKey(Certificate);
         }

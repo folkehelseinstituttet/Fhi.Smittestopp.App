@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{07EA9751
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDB.Covid19.Test", "NDB.Covid19.Test\NDB.Covid19.Test.csproj", "{32E6F9D2-3332-40EE-AD1F-25360DB5478F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerMock", "IdentityServerMock\IdentityServerMock.csproj", "{0EA7875B-EC3B-49B1-BBE8-8712EEE0A749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerMock", "IdentityServerMock\IdentityServerMock.csproj", "{0EA7875B-EC3B-49B1-BBE8-8712EEE0A749}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,7 +151,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{32E6F9D2-3332-40EE-AD1F-25360DB5478F} = {07EA9751-037A-41CE-BD06-EFC51B6A971D}
-		{0EA7875B-EC3B-49B1-BBE8-8712EEE0A749} = {07EA9751-037A-41CE-BD06-EFC51B6A971D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C57DD63A-C407-41B6-A3A7-A81825B7687C}

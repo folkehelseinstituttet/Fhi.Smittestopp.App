@@ -36,7 +36,9 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             File.Delete("rsaCert.pfx");
 
             // Act
-            //public key from cert
+            //public key from certificate
+            //Chilkat package is used to process X509 certificate 2 from pfx file to JWKS (Json Web Key Set) from which it is possible 
+            //to extract public key X5c. Key is then compared with the one pulled from mocked server. 
             string alias = "my_ecc_key1";
             string password = "secret123";
             
@@ -50,9 +52,10 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             JsonWebKeySet jwkscheck = new JsonWebKeySet(jwksCheck);
             List<JsonWebKey> keyList2 = new List<JsonWebKey>(jwkscheck.Keys);
             string publicKey2 = keyList2[0].X5c[0];
-            //public key from endpoint
+            //response from server
             var response = await authenticationManager.client.GetAsync(url);
-            string publicKey =await authenticationManager.GetPublickey(url);
+            //public key from endpoint
+            string publicKey = await authenticationManager.GetPublickey(url);
             
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
