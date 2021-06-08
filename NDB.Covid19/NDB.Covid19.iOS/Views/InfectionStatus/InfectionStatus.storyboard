@@ -60,10 +60,8 @@
                                             <constraint firstItem="dY2-vh-Jg6" firstAttribute="top" secondItem="OtP-1W-qPk" secondAttribute="bottom" constant="8" id="DWt-VN-eCh"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="0M0-th-T5S" secondAttribute="trailing" id="HSD-77-apd"/>
                                             <constraint firstItem="dY2-vh-Jg6" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leading" constant="20" symbolic="YES" id="KNF-7H-lm7"/>
-                                            <constraint firstItem="dY2-vh-Jg6" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leadingMargin" id="YyO-p1-mKe"/>
                                             <constraint firstAttribute="trailing" secondItem="dY2-vh-Jg6" secondAttribute="trailing" constant="20" symbolic="YES" id="aqo-ge-son"/>
                                             <constraint firstItem="0M0-th-T5S" firstAttribute="leading" secondItem="3Ht-T8-5DM" secondAttribute="leading" id="dok-0o-zIq"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="dY2-vh-Jg6" secondAttribute="trailing" id="uoL-JB-Rre"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -490,6 +488,7 @@
                             <constraint firstAttribute="trailing" secondItem="Dio-Qd-Xe9" secondAttribute="trailing" constant="16" id="R6K-O8-Km1"/>
                             <constraint firstItem="5I2-pE-NTM" firstAttribute="width" secondItem="717" secondAttribute="width" id="T4K-Jx-8fm"/>
                             <constraint firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="Uzr-5N-pbi"/>
+                            <constraint firstItem="5FM-IV-ZSI" firstAttribute="leading" secondItem="717" secondAttribute="leading" id="WR6-80-wk8"/>
                             <constraint firstItem="5FM-IV-ZSI" firstAttribute="leading" secondItem="jkI-zv-Af6" secondAttribute="leading" id="dLH-ji-tcG"/>
                             <constraint firstItem="Dio-Qd-Xe9" firstAttribute="leading" secondItem="717" secondAttribute="leading" constant="16" id="n8X-m6-Eqs"/>
                             <constraint firstItem="jkI-zv-Af6" firstAttribute="trailing" secondItem="5FM-IV-ZSI" secondAttribute="trailing" id="ntz-Us-T6c"/>
