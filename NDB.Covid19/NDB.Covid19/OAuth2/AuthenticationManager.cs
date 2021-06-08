@@ -76,8 +76,7 @@ namespace NDB.Covid19.OAuth2
         {
             try
             {
-                Task<string> vs = GetPublickey(OAuthConf.OAUTH2_JWKS_URL);
-                byte[] publicKey = Convert.FromBase64String(vs.Result);
+                byte[] publicKey = Convert.FromBase64String(GetPublickey(OAuthConf.OAUTH2_JWKS_URL));
 
                 string jsonPayload = new JwtBuilder()
                     .WithAlgorithm(new RS256Algorithm(new X509Certificate2(publicKey)))
@@ -107,10 +106,12 @@ namespace NDB.Covid19.OAuth2
             }
         }
 
-        public async Task<string> GetPublickey(string url)
+        public string GetPublickey(string url)
         {
 
-            string json = await client.GetStringAsync(url);
+            Task<string> vs = client.GetStringAsync(url);
+            string json = vs.Result;
+            client.Dispose();
             JsonWebKeySet jwks = new JsonWebKeySet(json);
             List<JsonWebKey> keyList = new List<JsonWebKey>(jwks.Keys);
             int lastIndex = keyList.Count - 1;
