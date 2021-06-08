@@ -43,5 +43,6 @@
 
   <ItemGroup>
     <Folder Include="Tests\ExposureNotification\" />
+	  <Folder Include="Tests\OAuth2\" />
   </ItemGroup>
 </Project>
