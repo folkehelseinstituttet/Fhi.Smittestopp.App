@@ -60,7 +60,8 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
             Assert.Equal(publicKey2, publicKey);
-
+            authenticationManager.client.Dispose();
+            _factory.Dispose();
         }
     }
 }
