@@ -55,7 +55,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             //response from server
             var response = await authenticationManager.client.GetAsync(url);
             //public key from endpoint
-            string publicKey = authenticationManager.GetPublickey(url);
+            string publicKey = authenticationManager.GetPublicKey(url);
             
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
