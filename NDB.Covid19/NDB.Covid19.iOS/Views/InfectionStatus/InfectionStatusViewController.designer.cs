@@ -112,6 +112,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel StatusText { get; set; }
 
+		[Outlet]
+		UIKit.UIView TopBar { get; set; }
+
 		[Action ("OnMenubtnTapped:")]
 		partial void OnMenubtnTapped (UIKit.UIButton sender);
 
@@ -123,6 +126,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (TopBar != null) {
+				TopBar.Dispose ();
+				TopBar = null;
+			}
+
 			if (ActivityExplainerLbl != null) {
 				ActivityExplainerLbl.Dispose ();
 				ActivityExplainerLbl = null;
