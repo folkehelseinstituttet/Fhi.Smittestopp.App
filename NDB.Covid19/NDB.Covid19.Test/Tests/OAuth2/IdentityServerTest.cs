@@ -53,7 +53,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             List<JsonWebKey> keyList2 = new List<JsonWebKey>(jwkscheck.Keys);
             string publicKey2 = keyList2[0].X5c[0];
             //response from server
-            var response = await authenticationManager.client.GetAsync(url);
+            System.Net.Http.HttpResponseMessage response = await authenticationManager.client.GetAsync(url);
             //public key from endpoint
             string publicKey = authenticationManager.GetPublicKey(url);
             

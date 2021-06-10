@@ -41,7 +41,7 @@ namespace Tests.IdentityServerMock
         public static X509Certificate2 CreateRsaCertificate(
             string dnsName, int validityPeriodInYears)
         {
-            var basicConstraints = new BasicConstraints
+            BasicConstraints basicConstraints = new BasicConstraints
             {
                 CertificateAuthority = false,
                 HasPathLengthConstraint = false,
@@ -49,21 +49,21 @@ namespace Tests.IdentityServerMock
                 Critical = false
             };
 
-            var subjectAlternativeName = new SubjectAlternativeName
+            SubjectAlternativeName subjectAlternativeName = new SubjectAlternativeName
             {
                 DnsName = new List<string> { dnsName }
             };
 
-            var x509KeyUsageFlags = X509KeyUsageFlags.DigitalSignature;
+            X509KeyUsageFlags x509KeyUsageFlags = X509KeyUsageFlags.DigitalSignature;
 
-            var enhancedKeyUsages = new System.Security.Cryptography.OidCollection
+            OidCollection enhancedKeyUsages = new System.Security.Cryptography.OidCollection
                 {
                     new Oid("1.3.6.1.5.5.7.3.1"),  // TLS Server auth
                     new Oid("1.3.6.1.5.5.7.3.2"),  // TLS Client auth
                 };
 
 
-            var certificate = _cc.NewRsaSelfSignedCertificate(
+            X509Certificate2 certificate = _cc.NewRsaSelfSignedCertificate(
                 new DistinguishedName { CommonName = dnsName },
                 basicConstraints,
                 new ValidityPeriod
@@ -81,22 +81,22 @@ namespace Tests.IdentityServerMock
         }
         public void CreateCert()
         {
-            var sp = new ServiceCollection()
+            ServiceProvider sp = new ServiceCollection()
                            .AddCertificateManager()
                            .BuildServiceProvider();
 
             _cc = sp.GetService<CreateCertificates>();
 
-            var oldRsaCert = CreateRsaCertificate("localhost_IS_test_old", 1);
+            X509Certificate2 oldRsaCert = CreateRsaCertificate("localhost_IS_test_old", 1);
 
-            var rsaCert = CreateRsaCertificate("localhost_IS_test", 10);
+            X509Certificate2 rsaCert = CreateRsaCertificate("localhost_IS_test", 10);
 
             string password = "12345";
-            var iec = sp.GetService<ImportExportCertificate>();
+            ImportExportCertificate iec = sp.GetService<ImportExportCertificate>();
 
             RsaCertPfxBytes =
                 iec.ExportSelfSignedCertificatePfx(password, rsaCert);
-            var OldRsaCertPfxBytes = 
+            byte[] OldRsaCertPfxBytes = 
                 iec.ExportSelfSignedCertificatePfx(password, oldRsaCert);
 
             Certificate = new X509Certificate2(RsaCertPfxBytes, password);
@@ -106,12 +106,12 @@ namespace Tests.IdentityServerMock
         }
         public void AddOldKey(IServiceCollection services)
         {
-            var builder = services.AddIdentityServerBuilder();
+            IIdentityServerBuilder builder = services.AddIdentityServerBuilder();
             builder.AddValidationKey(OldCertificate);
         }
         public void AddKey(IServiceCollection services)
         {
-            var builder = services.AddIdentityServerBuilder();
+            IIdentityServerBuilder builder = services.AddIdentityServerBuilder();
             builder.AddValidationKey(Certificate);
         }
     }

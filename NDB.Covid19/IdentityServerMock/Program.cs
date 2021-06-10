@@ -8,7 +8,7 @@ namespace Tests.IdentityServerMock
     {
         public static void Main(string[] args)
         {
-            var host = CreateWebHostBuilder(args).Build();
+            IWebHost host = CreateWebHostBuilder(args).Build();
             host.Run();
         }
 
