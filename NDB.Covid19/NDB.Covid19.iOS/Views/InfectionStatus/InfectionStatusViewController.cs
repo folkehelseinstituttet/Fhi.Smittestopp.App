@@ -244,6 +244,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 statusBar.BackgroundColor = ColorHelper.DEFAULT_BACKGROUND_COLOR;
             }
 
+            TopBar.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
+
             ScrollDownBackgroundView.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;
 
             StatusContainer.BackgroundColor = isRunning ? ColorHelper.STATUS_ACTIVE : ColorHelper.STATUS_INACTIVE;

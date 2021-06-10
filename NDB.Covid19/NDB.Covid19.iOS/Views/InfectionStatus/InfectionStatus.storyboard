@@ -17,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5e-Kl-Xbr" userLabel="TopBar">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dio-Qd-Xe9" userLabel="Spinner Main View">
                                 <rect key="frame" x="16" y="229" width="343" height="303"/>
                                 <subviews>
@@ -485,6 +489,9 @@
                         <viewLayoutGuide key="safeArea" id="jkI-zv-Af6"/>
                         <constraints>
                             <constraint firstItem="5FM-IV-ZSI" firstAttribute="top" secondItem="jkI-zv-Af6" secondAttribute="top" id="5gy-Ib-8wR"/>
+                            <constraint firstItem="G5e-Kl-Xbr" firstAttribute="top" secondItem="717" secondAttribute="top" id="5hI-Ln-nUa"/>
+                            <constraint firstItem="jkI-zv-Af6" firstAttribute="top" secondItem="G5e-Kl-Xbr" secondAttribute="bottom" id="Hfm-c0-kA7"/>
+                            <constraint firstItem="G5e-Kl-Xbr" firstAttribute="leading" secondItem="jkI-zv-Af6" secondAttribute="leading" id="PVd-82-s3I"/>
                             <constraint firstAttribute="trailing" secondItem="Dio-Qd-Xe9" secondAttribute="trailing" constant="16" id="R6K-O8-Km1"/>
                             <constraint firstItem="5I2-pE-NTM" firstAttribute="width" secondItem="717" secondAttribute="width" id="T4K-Jx-8fm"/>
                             <constraint firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="Uzr-5N-pbi"/>
@@ -495,6 +502,7 @@
                             <constraint firstItem="Dio-Qd-Xe9" firstAttribute="centerY" secondItem="jkI-zv-Af6" secondAttribute="centerY" constant="47" id="o2w-UY-eGA"/>
                             <constraint firstAttribute="trailing" secondItem="5FM-IV-ZSI" secondAttribute="trailing" id="p76-re-mBn"/>
                             <constraint firstItem="Dio-Qd-Xe9" firstAttribute="centerX" secondItem="jkI-zv-Af6" secondAttribute="centerX" id="vrB-cA-bls"/>
+                            <constraint firstItem="jkI-zv-Af6" firstAttribute="trailing" secondItem="G5e-Kl-Xbr" secondAttribute="trailing" id="x0f-xk-T9s"/>
                             <constraint firstItem="jkI-zv-Af6" firstAttribute="bottom" secondItem="5FM-IV-ZSI" secondAttribute="bottom" id="zEN-Me-ZJx"/>
                         </constraints>
                     </view>
@@ -522,6 +530,7 @@
                         <outlet property="SpinnerMainView" destination="Dio-Qd-Xe9" id="lA2-Ef-hb4"/>
                         <outlet property="StatusContainer" destination="w4F-Ew-Iyy" id="name-outlet-w4F-Ew-Iyy"/>
                         <outlet property="StatusText" destination="FQ9-7p-6vm" id="name-outlet-FQ9-7p-6vm"/>
+                        <outlet property="TopBar" destination="G5e-Kl-Xbr" id="dGg-Kj-kU9"/>
                         <outlet property="appLogo" destination="2Lh-4t-IDu" id="WEd-zw-XdJ"/>
                         <outlet property="dailyNumbersIcon" destination="rRS-H4-JMP" id="gbe-LR-SqA"/>
                         <outlet property="dailyNumbersLbl" destination="Duq-JN-gwm" id="Xaf-1b-IV7"/>
