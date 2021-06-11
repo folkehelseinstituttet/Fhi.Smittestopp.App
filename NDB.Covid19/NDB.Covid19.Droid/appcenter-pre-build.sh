@@ -73,11 +73,6 @@ then
     exit 1
 fi
 
-if [ -z "OAUTH2_VERIFY_TOKEN_PUBLIC_KEY" ]
-then
-    echo "You need define the OAUTH2_VERIFY_TOKEN_PUBLIC_KEY variable in App Center"
-    exit 1
-fi
 
 if [ -z "APPCENTER_DIAGNOSTICS_TOKEN" ]
 then
@@ -116,9 +111,6 @@ if [ -e "$OAUTH_CONF_FILE" ]
 then
     echo "Updating OAUTH2_BASE_URL to $OAUTH2_BASE_URL in OAuthConf.cs"
     sed -i '' 's#OAUTH2_BASE_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_BASE_URL = "'$OAUTH2_BASE_URL'"#' $OAUTH_CONF_FILE
-
-    echo "Updating OAUTH2_VERIFY_TOKEN_PUBLIC_KEY to $OAUTH2_VERIFY_TOKEN_PUBLIC_KEY in OAuthConf.cs"
-    sed -i '' 's#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "[-A-Za-z0-9:_./]*"#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "'$OAUTH2_VERIFY_TOKEN_PUBLIC_KEY'"#' $OAUTH_CONF_FILE
 
     echo "File content:"
     cat $OAUTH_CONF_FILE
