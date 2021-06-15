@@ -148,6 +148,78 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/settings_general_mobile_data_desc"/>
 
+
+            <TextView
+                    android:id="@+id/settings_general_explanation_background_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4sp"
+                    android:paddingVertical="14dp"
+                    style="@style/PrimaryText"
+                    android:text="Explanation of the background activity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_top"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/settings_general_background_activity_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:isScrollContainer="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_general_explanation_background_activity">
+
+                <TextView
+                        android:id="@+id/settings_general_background_activity_header"
+                        style="@style/PrimaryTextBold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="5dp"
+                        android:text="Background activity"
+                        android:layout_marginEnd="8dp"
+                        android:textAppearance="@style/PrimaryTextBold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/settings_background_activity_switch"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/settings_background_activity_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:buttonTint="#1AB759"
+                        android:gravity="center"
+                        android:importantForAccessibility="yes"
+                        android:thumb="@drawable/ic_thumb_selector"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/settings_general_background_activity_header"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:track="@drawable/ic_track_selector"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                    android:id="@+id/settings_general_background_activity_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="14dp"
+                    android:text="Description of background activity"
+                    style="@style/PrimaryText"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_general_background_activity_layout"/>
+
+            <View
+                    android:id="@+id/settings_general_select_lang_divider_top_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/primaryText"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/settings_general_background_activity_desc"/>
+
             <TextView
                     android:id="@+id/settings_general_select_lang_header"
                     android:layout_width="match_parent"
@@ -157,7 +229,7 @@
                     style="@style/PrimaryText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_top"/>
+                    app:layout_constraintTop_toBottomOf="@id/settings_general_select_lang_divider_top_two"/>
 
             <RadioGroup
                     android:id="@+id/settings_general_select_lang_radio_group"

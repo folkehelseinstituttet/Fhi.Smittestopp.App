@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+
     <Configurations>Debug;Release;UNIT_TEST</Configurations>
     <RestoreSources>
       ../TempNugetFeed;https://api.nuget.org/v3/index.json;
     </RestoreSources>
+
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppCenter|iPhone' ">
@@ -91,6 +93,7 @@
     <PackageReference Include="Xamarin.ExposureNotification" Version="0.16.0-alpha" />
     <PackageReference Include="PCLCrypto" Version="2.1.40-alpha" />
     <PackageReference Include="Yort.Ntp.Portable" Version="2.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.11.0" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Locales\en.json" />
