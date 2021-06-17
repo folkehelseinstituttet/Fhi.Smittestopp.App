@@ -15,7 +15,7 @@ namespace NDB.Covid19.Test.Mocks
         public int NewConsentsHasBeenCalledCount { get; set; } = 0;
 
 
-        public void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds)
+        public void GenerateLocalNotification(NotificationViewModel notificationViewModel, long triggerInSeconds)
         {
             HasBeenCalled[notificationViewModel.Type] = true;
             if (notificationViewModel.Type == NotificationsEnum.NewMessageReceived)
@@ -39,6 +39,11 @@ namespace NDB.Covid19.Test.Mocks
         }
 
         public void GenerateLocalPermissionsNotification(NotificationViewModel viewModel)
+        {
+            HasBeenCalled[viewModel.Type] = true;
+        }
+
+        public void GenerateDelayedNotification(NotificationViewModel viewModel, long ticks)
         {
             HasBeenCalled[viewModel.Type] = true;
         }

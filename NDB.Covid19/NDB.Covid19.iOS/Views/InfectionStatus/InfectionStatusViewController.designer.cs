@@ -1,11 +1,10 @@
 // WARNING
 //
-// This file has been generated automatically by Visual Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
@@ -19,9 +18,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
 		[Outlet]
 		UIKit.UIImageView appLogo { get; set; }
-
-		[Outlet]
-		UIKit.UILabel MenuLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -56,6 +52,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		UIKit.UIButton MenuIcon { get; set; }
 
 		[Outlet]
+		UIKit.UILabel MenuLabel { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIImageView MessageIcon { get; set; }
 
@@ -84,8 +83,26 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		UIKit.UIView OnOffBtnContainer { get; set; }
 
 		[Outlet]
+		UIKit.UIPickerView Picker { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIView ScrollDownBackgroundView { get; set; }
+
+		[Outlet]
+		UIKit.UIButton SpinnerDialogButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel SpinnerDialogMessage { get; set; }
+
+		[Outlet]
+		UIKit.UIStackView SpinnerDialogStackView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel SpinnerDialogTitle { get; set; }
+
+		[Outlet]
+		UIKit.UIView SpinnerMainView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -95,14 +112,25 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel StatusText { get; set; }
 
+		[Outlet]
+		UIKit.UIView TopBar { get; set; }
+
 		[Action ("OnMenubtnTapped:")]
 		partial void OnMenubtnTapped (UIKit.UIButton sender);
 
 		[Action ("OnOffBtnTapped:")]
 		partial void OnOffBtnTapped (UIKit.UIButton sender);
+
+		[Action ("OnSpinnerDialogButton_TouchUpInside:")]
+		partial void OnSpinnerDialogButton_TouchUpInside (UIKit.UIButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (TopBar != null) {
+				TopBar.Dispose ();
+				TopBar = null;
+			}
+
 			if (ActivityExplainerLbl != null) {
 				ActivityExplainerLbl.Dispose ();
 				ActivityExplainerLbl = null;
@@ -123,11 +151,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				AreYouInfectetView = null;
 			}
 
-			if (DailyNumbersView != null) {
-				DailyNumbersView.Dispose ();
-				DailyNumbersView = null;
-			}
-
 			if (dailyNumbersIcon != null) {
 				dailyNumbersIcon.Dispose ();
 				dailyNumbersIcon = null;
@@ -143,6 +166,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				dailyNumbersUpdatedLbl = null;
 			}
 
+			if (DailyNumbersView != null) {
+				DailyNumbersView.Dispose ();
+				DailyNumbersView = null;
+			}
+
 			if (fhiLogo != null) {
 				fhiLogo.Dispose ();
 				fhiLogo = null;
@@ -156,6 +184,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 			if (MenuIcon != null) {
 				MenuIcon.Dispose ();
 				MenuIcon = null;
+			}
+
+			if (MenuLabel != null) {
+				MenuLabel.Dispose ();
+				MenuLabel = null;
 			}
 
 			if (MessageIcon != null) {
@@ -193,9 +226,39 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				OnOffBtnContainer = null;
 			}
 
+			if (Picker != null) {
+				Picker.Dispose ();
+				Picker = null;
+			}
+
 			if (ScrollDownBackgroundView != null) {
 				ScrollDownBackgroundView.Dispose ();
 				ScrollDownBackgroundView = null;
+			}
+
+			if (SpinnerDialogButton != null) {
+				SpinnerDialogButton.Dispose ();
+				SpinnerDialogButton = null;
+			}
+
+			if (SpinnerDialogMessage != null) {
+				SpinnerDialogMessage.Dispose ();
+				SpinnerDialogMessage = null;
+			}
+
+			if (SpinnerDialogStackView != null) {
+				SpinnerDialogStackView.Dispose ();
+				SpinnerDialogStackView = null;
+			}
+
+			if (SpinnerDialogTitle != null) {
+				SpinnerDialogTitle.Dispose ();
+				SpinnerDialogTitle = null;
+			}
+
+			if (SpinnerMainView != null) {
+				SpinnerMainView.Dispose ();
+				SpinnerMainView = null;
 			}
 
 			if (StatusContainer != null) {

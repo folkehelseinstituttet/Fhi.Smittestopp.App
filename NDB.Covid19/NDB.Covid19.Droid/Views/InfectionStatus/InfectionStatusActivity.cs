@@ -17,13 +17,18 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using NDB.Covid19.Droid.Views.DailyNumbers;
 using NDB.Covid19.Droid.Views.Messages;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using Xamarin.ExposureNotifications;
+using Xamarin.Essentials;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 using NDB.Covid19.Enums;
+using AlertDialog = Android.App.AlertDialog;
+using NDB.Covid19.ExposureNotifications.Helpers;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -54,6 +59,10 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _dailyNumbersCoverButton;
         private Button _messageCoverButton;
         private Button _registrationCoverButton;
+        private Button _positiveButton;
+        private Button _negativeButton;
+        private Button _dontShowButton;
+        private NumberPicker _picker;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
         
@@ -73,6 +82,25 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED,
                 OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
+
+            if (IsAppLaunchedToPullKeys)
+            {
+                UpdateKeys();
+                IsAppLaunchedToPullKeys = false;
+            }
+            
+            CheckIfShowBackgroundActivityDialog();
+
+            if (!GetIsBackgroundActivityDialogShowEnableNewUser()
+                && GetIsBackgroundActivityDialogShowEnable()
+                && !CheckIsEnableBatteryOptimizations()
+                && IsAppLaunchedToShowDialog
+                && (SystemTime.Now().Date != DialogLastShownDate))
+            {
+                ShowBackgroundActivityDialog();
+                DialogLastShownDate = SystemTime.Now().Date;                
+            }
+
         }
 
         private void OnAppDailyNumbersChanged(object _ = null)
@@ -119,6 +147,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;
             OnMessageStatusChanged();
+
+            if (!(_positiveButton is null))
+            {
+                AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
+            }
+
         }
 
         private void ShowPermissionsDialogIfTheyHavChangedWhileInIdle() =>
@@ -150,6 +184,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
         }
 
+        private async void UpdateKeys()
+        {
+            if (await _viewModel.IsRunning())
+            {
+                await _viewModel.PullKeysFromServer();
+            }
+        }
         private async void InitLayout()
         {
             View rootView = Window.DecorView.RootView;
@@ -320,7 +361,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     await DialogUtils.DisplayDialogAsync(
                         this,
                         _viewModel.OffDialogViewModel,
-                        StopGoogleAPI,
+                        ShowPauseDialog,
                         () => _semaphoreSlim.Release());
                     break;
                 default:
@@ -348,7 +389,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
             }
-
+            
+            if (!(_positiveButton is null))
+            {
+                AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
+            }
+           
             UpdateUI();
         }
 
@@ -377,11 +423,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             try
             {
+                CloseReminderNotifications();
                 await _viewModel.StartENService();
                 bool isRunning = await IsRunning();
                 if (isRunning)
                 {
                     BackgroundFetchScheduler.ScheduleBackgroundFetch();
+                    
                 }
 
                 if (await _viewModel.IsEnabled() &&
@@ -400,7 +448,13 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 UpdateUI();
             }
-
+            //showing dialog for new user
+            if (GetIsBackgroundActivityDialogShowEnableNewUser()
+                && !CheckIsEnableBatteryOptimizations())
+            {
+                ShowBackgroundActivityDialog();
+                DialogLastShownDate = SystemTime.Now().Date;
+            }
             _semaphoreSlim.Release();
         }
 
@@ -427,7 +481,81 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             StartActivity(new Intent(this, typeof(MessagesActivity)));
         }
+        private void ShowPauseDialog()
+        {
 
+            View dialogView = LayoutInflater.Inflate(Resource.Layout.spinner_dialog, null);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetView(dialogView);
+            builder.SetCancelable(false);
+            builder.SetTitle(INFECTION_STATUS_PAUSE_DIALOG_TITLE);
+            builder.SetMessage(INFECTION_STATUS_PAUSE_DIALOG_MESSAGE);
+            _picker = dialogView.FindViewById(Resource.Id.picker) as NumberPicker;
+            _picker.MinValue = 0;
+            _picker.MaxValue = 4;
+            _picker.DescendantFocusability = DescendantFocusability.BlockDescendants;
+            _picker.SetDisplayedValues(
+                new[]
+                {
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_NO_REMINDER,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_ONE_HOUR,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_TWO_HOURS,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_FOUR_HOURS,
+                    INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS,
+                });
+
+            builder.SetPositiveButton(INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON, (sender, args) =>
+            {
+                switch (_picker.Value)
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        StartReminderService((int)Math.Pow(2, _picker.Value - 1));
+                        break;
+                }
+                StopGoogleAPI();
+                (sender as AlertDialog)?.Dismiss();
+            });
+
+            if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.M)
+            {
+                AlertDialog alertDialog = builder.Create();
+                alertDialog.Window.DecorView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+                alertDialog.Show();
+            }
+            else
+            {
+                builder.Create();
+                builder.Show();
+            }
+            
+
+        }
+        private void CloseReminderNotifications()
+        {
+            NotificationManager notificationManager = GetSystemService(NotificationService) as NotificationManager;
+            notificationManager?.Cancel((int)NotificationsEnum.TimedReminderFinished);
+            StopReminderService();
+        }
+        private void StartReminderService(long hourMultiplier)
+        {
+            Bundle bundle = new Bundle();
+            long ticks = 1000 * 60 * 60 * hourMultiplier;
+#if DEBUG
+            ticks /= 60;
+#endif
+            bundle.PutLong("ticks", ticks);
+            ForegroundServiceHelper
+                .StartForegroundServiceCompat<TimedReminderForegroundService>(this, bundle);
+        }
+
+        private void StopReminderService()
+        {
+            ForegroundServiceHelper
+                .StopForegroundServiceCompat<TimedReminderForegroundService>(this);
+        }
         private async void RegistrationLayoutButton_Click(object sender, EventArgs e)
         {
             if (!await IsRunning())
@@ -440,6 +568,82 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             Intent intent = new Intent(this, typeof(InformationAndConsentActivity));
             StartActivity(intent);
+        }
+
+        private void CheckIfShowBackgroundActivityDialog()
+        {
+
+            bool firstLaunchEver = VersionTracking.IsFirstLaunchEver;
+            if (firstLaunchEver)
+            {
+                SetIsBackgroundActivityDialogShowEnable(true);
+            }
+            
+        }
+        private void AdjustLineBreaks(TextView viewA, TextView viewB)
+        {
+            if (viewA.LineCount > viewB.LineCount)
+            {
+                string addition = "";
+                for (int i = 0; i < viewA.LineCount - viewB.LineCount; ++i)
+                {
+                    addition += "\n";
+                }
+
+                viewB.Text = viewB.Text + addition;
+            }
+        }
+
+        private void AdjustLines(TextView viewA, TextView viewB, TextView viewC)
+        {
+            AdjustLineBreaks(viewA, viewB);
+            AdjustLineBreaks(viewA, viewC);
+        }
+        public async void ShowBackgroundActivityDialog()
+        {
+            if (await _viewModel.IsRunning())
+            {
+
+                string messageCombined = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART1 + "\n\n" +
+                    INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2 + "\n\n" +
+                    INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3;
+                View dialogView = LayoutInflater.Inflate(Resource.Layout.background_activity_dialog, null);
+                TextView headerText = dialogView.FindViewById<TextView>(Resource.Id.background_activity_dialog_header);
+                TextView messageText = dialogView.FindViewById<TextView>(Resource.Id.background_activity_dialog_message);
+                headerText.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_TITLE;
+                messageText.Text = messageCombined;
+                _positiveButton = dialogView.FindViewById<Button>(Resource.Id.background_activity_dialog_button_yes);
+                _negativeButton = dialogView.FindViewById<Button>(Resource.Id.background_activity_dialog_button_no);
+                _dontShowButton = dialogView.FindViewById<Button>(Resource.Id.background_activity_dialog_button_dont_show);
+                _positiveButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON.ToUpper();
+                _negativeButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON.ToUpper();
+                _dontShowButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON.ToUpper();
+                
+                AlertDialog builder = new AlertDialog.Builder(this)
+                    .SetView(dialogView)
+                    .SetCancelable(false)
+                    .Create();
+                SetIsBackgroundActivityDialogShowEnableNewUser(false);
+                _positiveButton.Click += new SingleClick((sender, args) =>
+                {
+                    StopBatteryOptimizationSetting(this);
+                    builder.Dismiss();
+                }).Run;
+                _negativeButton.Click += new SingleClick((sender, args) =>
+                {
+                    IsAppLaunchedToShowDialog = false;
+                    builder.Dismiss();
+                }).Run;
+
+                _dontShowButton.Click += new SingleClick((sender, args) =>
+                {
+                    SetIsBackgroundActivityDialogShowEnable(false);
+                    builder.Dismiss();
+                }).Run;
+                builder.Show();
+                AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
+            }
+            
         }
     }
 }
