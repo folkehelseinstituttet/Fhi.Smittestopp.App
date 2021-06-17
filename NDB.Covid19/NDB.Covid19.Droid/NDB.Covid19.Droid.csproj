@@ -87,12 +87,14 @@
     <Compile Include="Services\FlightModeHandlerBroadcastReceiver.cs" />
     <Compile Include="Services\BackgroundNotificationBroadcastReceiver.cs" />
     <Compile Include="Services\RemovedFromRecentDetectorService.cs" />
+    <Compile Include="Services\TimedReminderForegroundService.cs" />
     <Compile Include="Utils\AccessibilityUtils.cs" />
     <Compile Include="Utils\AuthErrorUtils.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BackgroundFetchScheduler.cs" />
     <Compile Include="Utils\DroidResetViews.cs" />
+    <Compile Include="Utils\ForegroundServiceHelper.cs" />
     <Compile Include="Views\AuthenticationFlow\CountriesConsentActivity.cs" />
     <Compile Include="Views\AuthenticationFlow\QuestionnaireAdapters\QuestionnaireCountriesSelectionAdapter.cs" />
     <Compile Include="Views\AuthenticationFlow\QuestionnaireCountriesSelectionActivity.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Utils\LayoutUtils.cs" />
     <Compile Include="Views\LanguageSelectionActivity.cs" />
     <Compile Include="Utils\DiagnosisKeysDataMappingUtils.cs" />
+    <Compile Include="Utils\BatteryOptimisationUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -1100,6 +1103,14 @@
       <Generator>
       </Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\spinner_dialog.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\background_activity_dialog.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
@@ -1308,11 +1319,11 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\font\" />
-    <Folder Include="Views\DailyNumbers\" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ItemGroup>
+  <Folder Include="Resources\font\" />
+     <Folder Include="Views\DailyNumbers\" />
+  </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">

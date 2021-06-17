@@ -11,6 +11,7 @@ using NDB.Covid19.Utils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 using NDB.Covid19.Droid.Services;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 #if APPCENTER
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -67,6 +68,8 @@ namespace NDB.Covid19.Droid
 
             LogUtils.SendAllLogs();
 
+            Xamarin.Essentials.VersionTracking.Track();
+
             if (PlayServicesVersionUtils.PlayServicesVersionNumberIsLargeEnough(PackageManager))
             {
                 BackgroundFetchScheduler.ScheduleBackgroundFetch();
@@ -115,6 +118,8 @@ namespace NDB.Covid19.Droid
                 .RegisterReceiver(
                     _backgroundNotificationBroadcastReceiver,
                     new IntentFilter(LocalNotificationsManager.BroadcastActionName));
+            IsAppLaunchedToShowDialog = true;
+            IsAppLaunchedToPullKeys = true;
         }
 
         public override void OnTerminate()

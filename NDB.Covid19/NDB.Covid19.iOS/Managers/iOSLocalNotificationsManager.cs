@@ -44,7 +44,7 @@ namespace NDB.Covid19.iOS.Managers
             OnNotificationTappedHandler?.Invoke(this, response.Notification.Request.Identifier);
         }
 
-        public void GenerateLocalNotification(NotificationViewModel notificationViewModel, int triggerInSeconds)
+        public void GenerateLocalNotification(NotificationViewModel notificationViewModel, long triggerInSeconds)
         {
             CreateLocalNotification(notificationViewModel, triggerInSeconds);
         }
@@ -79,7 +79,10 @@ namespace NDB.Covid19.iOS.Managers
                     notificationViewModel.Type == NotificationsEnum.NewMessageReceived
                         ? NewMessageIdentifier
                         : NewNotificationIdentifier;
-
+                if (notificationViewModel.Type == NotificationsEnum.TimedReminderFinished)
+                {
+                    requestID = notificationViewModel.Type.ToString();
+                }
                 // For already delivered Notifications, the existing Notification will get updated and promoted to the top
                 // of the list on the Home and Lock screens and in the Notification Center if it has already been read by the user.
 
@@ -119,6 +122,10 @@ namespace NDB.Covid19.iOS.Managers
         public void GenerateLocalPermissionsNotification(NotificationViewModel viewModel)
         {
             GenerateLocalNotification(viewModel, 0);
+        }
+        public void GenerateDelayedNotification(NotificationViewModel viewModel, long ticks)
+        {
+            GenerateLocalNotification(viewModel, ticks);
         }
     }
 }
