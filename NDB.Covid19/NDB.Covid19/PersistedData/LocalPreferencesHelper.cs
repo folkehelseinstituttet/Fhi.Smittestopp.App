@@ -191,7 +191,7 @@ namespace NDB.Covid19.PersistedData
                 FHIVaccinationsDoseTwoTotal = dto.CovidStatistics.VaccinatedSecondDoseTotal;
                 FHIPatientsAdmittedTotal = dto.CovidStatistics.PatientsAdmittedTotal;
                 FHIPatientsIntensiveCareTotal = dto.CovidStatistics.IcuAdmittedTotal;
-                FHIDeathsTotal = dto.CovidStatistics.DeathsTotal;
+                FHIDeathsTotal = dto.CovidStatistics.DeathsCasesTotal;
                 APPNumberOfPositiveTestsResultsLast7Days = dto.ApplicationStatistics.PositiveResultsLast7Days;
                 APPNumberOfPositiveTestsResultsTotal = dto.ApplicationStatistics.PositiveTestsResultsTotal;
                 APPSmittestopDownloadsTotal = dto.ApplicationStatistics.SmittestopDownloadsTotal;
