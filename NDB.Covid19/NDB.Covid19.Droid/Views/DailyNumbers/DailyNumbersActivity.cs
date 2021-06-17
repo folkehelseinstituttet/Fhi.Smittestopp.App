@@ -160,7 +160,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
         public override void OnWindowFocusChanged(bool hasFocus)
         {
-                base.OnWindowFocusChanged(hasFocus);
+            base.OnWindowFocusChanged(hasFocus);
             if (hasFocus)
             {
                 UpdateLinesAlignment();
