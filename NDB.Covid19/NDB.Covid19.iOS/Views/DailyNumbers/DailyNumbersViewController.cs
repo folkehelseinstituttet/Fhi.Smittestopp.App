@@ -96,7 +96,7 @@ namespace NDB.Covid19.iOS.Views.DailyNumbers
 			StyleUtil.InitLabelWithSpacing(KeyFeature3Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_THREE_LABEL, 1.14, 16, 18);
 			KeyFeature3Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 			
-			StyleUtil.InitLabelWithSpacing(KeyFeature4Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_FOUR_LABEL, 1.14, 16, 18);
+			StyleUtil.InitLabelWithSpacing(KeyFeature4Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_FOUR_LABEL, 1.14, 16, 18, false, true);
 			KeyFeature4Lbl.TextColor = ColorHelper.TEXT_COLOR_ON_PRIMARY;
 
 			StyleUtil.InitLabelWithSpacing(KeyFeature6Lbl, StyleUtil.FontType.FontRegular, KEY_FEATURE_SIX_LABEL, 1.14, 16, 18);
