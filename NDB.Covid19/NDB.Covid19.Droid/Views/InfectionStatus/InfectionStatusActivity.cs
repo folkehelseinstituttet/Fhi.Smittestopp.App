@@ -48,6 +48,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private TextView _registrationHeader;
         private TextView _registrationSubheader;
         private TextView _menuText;
+        private TextView _surveyText;
         private Button _onOffButton;
         private ImageView _notificationDot;
         private RelativeLayout _dailyNumbersRelativeLayout;
@@ -62,6 +63,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _positiveButton;
         private Button _negativeButton;
         private Button _dontShowButton;
+        private Button _surveyButton;
         private NumberPicker _picker;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
@@ -213,6 +215,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 FindViewById<TextView>(Resource.Id.infection_status_registration_login_text_textView);
             _menuText = FindViewById<TextView>(Resource.Id.infection_status_menu_text_view);
             _menuText.TextAlignment = Android.Views.TextAlignment.ViewEnd;
+            _surveyText = FindViewById<TextView>(Resource.Id.infection_status_questionnaire_textView);
 
             //Buttons
             _onOffButton = FindViewById<Button>(Resource.Id.infection_status_on_off_button);
@@ -227,6 +230,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 FindViewById<Button>(Resource.Id.infection_status_messages_button_relativeLayout_button);
             _registrationCoverButton =
                 FindViewById<Button>(Resource.Id.infection_status_registration_button_relativeLayout_button);
+            _surveyButton = FindViewById<Button>(Resource.Id.infection_status_questionnaire_button_relativeLayout_button);
 
             //ImageViews
             _notificationDot = FindViewById<ImageView>(Resource.Id.infection_status_message_bell_imageView);
@@ -249,6 +253,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationHeader.Text = INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
             _registrationSubheader.Text = INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
             _menuText.Text = INFECTION_STATUS_MENU_TEXT;
+            _surveyText.Text = INFECTION_STATUS_SURVEY_HEADER_TEXT;
 
             _messeageHeader.TextAlignment = TextAlignment.ViewStart;
             _messageSubHeader.TextAlignment = TextAlignment.ViewStart;
@@ -269,6 +274,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 $"{INFECTION_STATUS_REGISTRATION_HEADER_TEXT} {INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT}";
             _fhiLogo.ContentDescription = SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
             _appLogo.ContentDescription = SMITTESPORING_APP_LOGO_ACCESSIBILITY;
+            _surveyButton.ContentDescription = INFECTION_STATUS_SURVEY_HEADER_TEXT;
 
             //Button click events
             _onOffButton.Click += new SingleClick(StartStopButton_Click, 500).Run;

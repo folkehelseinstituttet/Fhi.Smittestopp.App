@@ -1104,12 +1104,16 @@
       </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\spinner_dialog.xml">
-      <SubType></SubType>
-      <Generator></Generator>
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\background_activity_dialog.xml">
-      <SubType></SubType>
-      <Generator></Generator>
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
@@ -1321,8 +1325,15 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
-  <Folder Include="Resources\font\" />
+    <AndroidResource Include="Resources\drawable\ic_infection_status_survey_border.xml" />
+  </ItemGroup>
+          <Folder Include="Resources\font\" />
      <Folder Include="Views\DailyNumbers\" />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_survey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_survey.png" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

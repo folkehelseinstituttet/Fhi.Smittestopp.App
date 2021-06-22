@@ -219,6 +219,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT": "Nøkkeltall",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "Nøkkeltall for covid-19 i Norge",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Nøkkeltall for covid-19 i Norge",
+  "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Delta i en spørreundersøkelse",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "OK",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "Angi påminnelse",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "Velg hvor lang tid det skal gå før du blir varslet om å slå på Smittestopp på nytt.",
