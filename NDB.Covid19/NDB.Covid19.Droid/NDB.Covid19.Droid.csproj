@@ -1325,10 +1325,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
+     <Folder Include="Resources\font\" />
+    <Folder Include="Views\DailyNumbers\" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_infection_status_survey_border.xml" />
   </ItemGroup>
-          <Folder Include="Resources\font\" />
-     <Folder Include="Views\DailyNumbers\" />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_survey.png" />
   </ItemGroup>
