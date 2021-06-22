@@ -124,7 +124,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
            
             _vaccinationDoseOneHeader.Text = KEY_FEATURE_NINE_LABEL;
-            _vaccinationDoseTwoHeader.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
+            _vaccinationDoseOneHeader.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
             
             FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
 
