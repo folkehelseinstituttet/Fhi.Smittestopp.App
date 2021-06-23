@@ -184,6 +184,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             base.OnPause();
             _permissionUtils.UnsubscribePermissionsMessagingCenter(this);
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
+            _surveyButton.Click -= SurveyButton_Click;
         }
 
         private async void UpdateKeys()
