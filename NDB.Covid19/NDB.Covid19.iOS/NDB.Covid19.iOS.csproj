@@ -562,6 +562,10 @@
      <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%402x.png" />
      <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\starticon%401x.png" />
      <ImageAsset Include="Resources\Assets.xcassets\StartArrow.imageset\Contents.json" />
+     <ImageAsset Include="Resources\Assets.xcassets\ic_survey.imageset\External_white%402x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\ic_survey.imageset\External_white%403x.png" />
+     <ImageAsset Include="Resources\Assets.xcassets\ic_survey.imageset\Contents.json" />
+     <ImageAsset Include="Resources\Assets.xcassets\ic_survey.imageset\External_white.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
