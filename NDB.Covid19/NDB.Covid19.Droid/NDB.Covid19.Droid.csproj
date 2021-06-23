@@ -1115,15 +1115,11 @@
       <Generator>
       </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_survey.png">
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_survey.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_survey.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_survey.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

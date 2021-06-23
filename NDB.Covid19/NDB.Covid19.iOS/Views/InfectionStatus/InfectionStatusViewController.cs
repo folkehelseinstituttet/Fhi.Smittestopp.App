@@ -19,6 +19,7 @@ using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using NDB.Covid19.Enums;
 using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using Xamarin.Essentials;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -142,6 +143,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _dailyNumbersButton.TouchUpInside += OnDailyNumbersBtnTapped;
             _messageViewBtn.TouchUpInside += OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside += OnAreYouInfectedBtnTapped;
+            _surveyButton.TouchUpInside += SurveyButtonTapped;
 
             OnAppReturnsFromBackground(null);
 
@@ -160,6 +162,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _messageViewBtn.TouchUpInside -= OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside -= OnAreYouInfectedBtnTapped;
             _dailyNumbersButton.TouchUpInside -= OnDailyNumbersBtnTapped;
+            _surveyButton.TouchUpInside += SurveyButtonTapped;
 
             ResetStatusBar();
         }
@@ -471,6 +474,18 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             else
             {
                 DialogHelper.ShowDialog(this, _viewModel.ReportingIllDialogViewModel, null);
+            }
+        }
+        async void SurveyButtonTapped(object sender, EventArgs e)
+        {
+            string uri = "http://www.xamarin.com";
+            try
+            {
+                await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

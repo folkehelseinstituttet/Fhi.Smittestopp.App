@@ -286,6 +286,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationCoverButton.Click += new SingleClick(RegistrationLayoutButton_Click, 500).Run;
             _menuIcon.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
             _menuText.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
+            _surveyButton.Click += new SingleClick(SurveyButton_Click, 500).Run;
             if (!await IsRunning())
             {
                 _onOffButton.PerformClick();
@@ -650,6 +651,18 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
             }
             
+        }
+        public async void SurveyButton_Click(object sender, EventArgs e)
+        {
+            string uri = "http://www.xamarin.com";
+            try
+            {
+                await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

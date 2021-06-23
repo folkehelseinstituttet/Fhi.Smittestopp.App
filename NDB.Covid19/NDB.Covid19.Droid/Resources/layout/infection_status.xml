@@ -321,14 +321,14 @@
 						style="@style/PrimaryTextBold"
 						android:textColor="@android:color/white"
                         android:id="@+id/infection_status_questionnaire_textView"/>
-                    <ImageView
-                        android:src="@drawable/ic_survey"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="8dp"
-                        android:id="@+id/infection_status_questionnaire_imageView"/>
+					<ImageView
+						android:src="@drawable/ic_survey"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:layout_alignParentEnd="true"
+						android:layout_marginStart="8dp"
+						android:id="@+id/infection_status_questionnaire_imageView"/>
                 </RelativeLayout>
                 <Button
                     android:id="@+id/infection_status_questionnaire_button_relativeLayout_button"
