@@ -21,6 +21,7 @@ using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using Xamarin.Essentials;
 
+
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
 
@@ -318,23 +319,27 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
             dailyNumbersLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             dailyNumbersLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT;
+            dailyNumbersLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             dailyNumbersUpdatedLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             dailyNumbersUpdatedLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT;
+            dailyNumbersUpdatedLbl.TextAlignment = LayoutUtils.GetTextAlignment();
 
             MessageLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             MessageLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_MESSAGE_HEADER_TEXT;
+            MessageLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             NewRegistrationLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;
+            NewRegistrationLbl.TextAlignment = LayoutUtils.GetTextAlignment();
 
             AreYouInfectetLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             AreYouInfectetLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
+            AreYouInfectetLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             LogInAndRegisterLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             LogInAndRegisterLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
+            LogInAndRegisterLbl.TextAlignment = LayoutUtils.GetTextAlignment();
 
-            SurveyLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
-            SurveyLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_SURVEY_HEADER_TEXT;
-        
-
+            StyleUtil.InitLabel(SurveyLbl, StyleUtil.FontType.FontBold, INFECTION_STATUS_SURVEY_HEADER_TEXT, 18, 22);
+            SurveyLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             // We take the fairly complicated UIViews from the storyboard and embed them into UIButtons
             _messageViewBtn = new UIButton();
             _messageViewBtn.TranslatesAutoresizingMaskIntoConstraints = false;
@@ -480,17 +485,23 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             string uri;
             string appLanguage = LocalesService.GetLanguage();
-
+    
             switch (appLanguage)
             {
-                case "nb":
-                    uri = "https://nettskjema.no/a/195329";
+                case "en":
+                    uri = "https://nettskjema.no/a/197991";
+                    break;
+                case "lt":
+                    uri = "https://nettskjema.no/a/197991";
+                    break;
+                case "pl":
+                    uri = "https://nettskjema.no/a/197991";
                     break;
                 case "nn":
                     uri = "https://nettskjema.no/a/197874";
                     break;
                 default:
-                    uri = "https://nettskjema.no/a/197991";
+                    uri = "https://nettskjema.no/a/195329";
                     break;
             }
             try

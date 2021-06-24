@@ -660,14 +660,20 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             switch (appLanguage)
             {
-                case "nb":
-                    uri = "https://nettskjema.no/a/195329";
+                case "en":
+                    uri = "https://nettskjema.no/a/197991";
+                    break;
+                case "lt":
+                    uri = "https://nettskjema.no/a/197991";
+                    break;
+                case "pl":
+                    uri = "https://nettskjema.no/a/197991";
                     break;
                 case "nn":
                     uri = "https://nettskjema.no/a/197874";
                     break;
                 default:
-                    uri = "https://nettskjema.no/a/197991";
+                    uri = "https://nettskjema.no/a/195329";
                     break;
             }
              
