@@ -219,6 +219,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT": "Tirooyin guud",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "Tirooyinka guud ee COVID-19 ee Noorway",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Tirooyinka guud ee COVID-19 ee Noorway",
+  "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Ka qaybgal baadhitaan su'aalo ah",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "Okey",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "Samee xasuusin",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "Waqti intee le'eg kaddib ayaad rabtaa in lagu xasuusiyo dib u daaridda Smittestopp. Dooro waqti.",

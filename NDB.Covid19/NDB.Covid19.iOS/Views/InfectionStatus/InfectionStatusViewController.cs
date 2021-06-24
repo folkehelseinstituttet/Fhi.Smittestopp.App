@@ -478,7 +478,21 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         }
         async void SurveyButtonTapped(object sender, EventArgs e)
         {
-            string uri = "http://www.xamarin.com";
+            string uri;
+            string appLanguage = LocalesService.GetLanguage();
+
+            switch (appLanguage)
+            {
+                case "nb":
+                    uri = "https://nettskjema.no/a/195329";
+                    break;
+                case "nn":
+                    uri = "https://nettskjema.no/a/197874";
+                    break;
+                default:
+                    uri = "https://nettskjema.no/a/197991";
+                    break;
+            }
             try
             {
                 await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
