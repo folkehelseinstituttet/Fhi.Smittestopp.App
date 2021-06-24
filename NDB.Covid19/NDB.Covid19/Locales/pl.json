@@ -109,7 +109,7 @@
   "DAILY_NUMBERS_TITLE_ONE": "Statystyki COVID-19",
   "DAILY_NUMBERS_SUBHEADER": "Liczbę potwierdzonych przypadków, testów i przyjęć do placówek medycznych zaktualizowano ostatnio dnia {0} o {1}. Łączne (zsumowane) liczby w Norwegii od lutego 2020. Liczby są aktualizowane od poniedziałku do piątku około godz. 13:00. Źródło:  <a href=\"https://www.fhi.no/en/id/infectious-diseases/coronavirus/daily-reports/daily-reports-COVID19/\">Norweski Instytut Zdrowia Publicznego - Statystyki COVID-19</a><br>",
   "DAILY_NUMBERS_TITLE_TWO": "Szczepienia",
-  "DAILY_NUMBERS_SUBTEXT_TWO": "Liczbę szczepień ostatnio zaktualizowano {0} o {1}. Dane są aktualizowane od poniedziałku do piątku ok. godziny 13:00. Źródło: <a href=\"https://www.fhi.no/sv/vaksine/koronavaksinasjonsprogrammet/koronavaksinasjonsstatistikk/\">Norweski Instytut Zdrowia Publicznego - Szczepienia</a><br>",
+  "DAILY_NUMBERS_SUBTEXT_TWO": "Liczbę szczepień ostatnio zaktualizowano {0} o {1}. Dane są aktualizowane od poniedziałku do piątku ok. godziny 13:00. Źródło: <a href=\"https://www.fhi.no/en/id/vaccines/coronavirus-immunisation-programme/coronavirus-vaccination---statistic/\">Norweski Instytut Zdrowia Publicznego - Szczepienia</a><br>",
   "DAILY_NUMBERS_TITLE_THREE": "Smittestopp",
   "DAILY_NUMBERS_SUBSUBHEADER": "Dane liczbowe aplikacji Smittestopp zaktualizowano ostatnio dnia {0} o {1}. Przeczytaj o danych liczbowych na stronie: <a href=\"https://www.fhi.no/om/smittestopp/nokkeltall-fra-smittestopp/\">Norweski Instytut Zdrowia Publicznego - Smittestopp</a><br>",
   "KEY_FEATURE_ONE_UPDATE_ALL": "{0}",
