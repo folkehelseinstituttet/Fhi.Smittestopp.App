@@ -683,7 +683,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             }
             catch (Exception ex)
             {
-                throw ex;
+                LogUtils.LogException(LogSeverity.WARNING, ex, "Failed to start web browser");
             }
         }
     }
