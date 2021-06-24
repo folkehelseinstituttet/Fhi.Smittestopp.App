@@ -220,6 +220,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "Key Figures for COVID-19 in Norway",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Key Figures for COVID-19 in Norway",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Participate in a survey",
+  "INFECTION_STATUS_SURVEY_LINK": "https://nettskjema.no/a/197991",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "OK",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "Set reminder",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "Please select the period after which you will be notified about turning on Smittestopp again.",

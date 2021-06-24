@@ -220,6 +220,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "Pagrindiniai duomenys apie COVID-19 Norvegijoje",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Pagrindiniai duomenys apie COVID-19 Norvegijoje",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Dalyvaukite apklausoje",
+  "INFECTION_STATUS_SURVEY_LINK": "https://nettskjema.no/a/197991",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "Gerai",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "Nustatyti priminimą ",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "Pasirinkite laikotarpį, po kurio pageidaujate gauti pranešimą apie „Smittestopp“ įjungimą. ",

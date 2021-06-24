@@ -220,6 +220,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "Nøkkeltal for covid-19 i Noreg",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Nøkkeltal for covid-19 i Noreg",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Delta i ei spørjeundersøking",
+  "INFECTION_STATUS_SURVEY_LINK": "https://nettskjema.no/a/197874",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "OK",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "Gje opp påminning",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "Vel kor lang tid det skal gå før du blir varsla om å slå på Smittestopp på nytt.",
