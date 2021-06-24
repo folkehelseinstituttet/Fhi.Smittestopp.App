@@ -21,7 +21,6 @@ using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using Xamarin.Essentials;
 
-
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
 
@@ -163,7 +162,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _messageViewBtn.TouchUpInside -= OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside -= OnAreYouInfectedBtnTapped;
             _dailyNumbersButton.TouchUpInside -= OnDailyNumbersBtnTapped;
-            _surveyButton.TouchUpInside += SurveyButtonTapped;
+            _surveyButton.TouchUpInside -= SurveyButtonTapped;
 
             ResetStatusBar();
         }
