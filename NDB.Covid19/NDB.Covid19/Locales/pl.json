@@ -219,6 +219,8 @@
   "INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT": "Kluczowe dane",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "Kluczowe dane dotyczące COVID-19 w Norwegii",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "Kluczowe dane dotyczące COVID-19 w Norwegii",
+  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/197991",
+  "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Weź udział w sondażu",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "OK",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "Ustaw przypomnienie",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "Wybierz za jaki czas chcesz otrzymać przypomnienie o ponownym uruchomieniu Smittestopp. ",
