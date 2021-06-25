@@ -243,6 +243,8 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             arrowImage.AutoMirrored = true;
             arrowImageView1.SetImageDrawable(arrowImage);
             arrowImageView2.SetImageDrawable(arrowImage);
+            Drawable surveyDrawable = ContextCompat.GetDrawable(this, Resource.Drawable.ic_survey);
+            surveyDrawable.AutoMirrored = true;
 
             //Text initialization
             _activityStatusText.Text = INFECTION_STATUS_ACTIVE_TEXT;
@@ -653,19 +655,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             }
             
         }
-        public async void SurveyButton_Click(object sender, EventArgs e)
+        public void SurveyButton_Click(object sender, EventArgs e)
         {
-            
-            string uri = INFECTION_STATUS_SURVEY_LINK;
-
-            try
-            {
-                await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
-            }
-            catch (Exception ex)
-            {
-                LogUtils.LogException(LogSeverity.WARNING, ex, "Failed to start web browser");
-            }
+            OpenSurveyWebPageLink();
         }
     }
 }

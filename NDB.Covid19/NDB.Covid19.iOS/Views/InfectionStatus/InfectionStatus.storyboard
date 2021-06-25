@@ -592,6 +592,7 @@
                         <outlet property="SpinnerMainView" destination="Dio-Qd-Xe9" id="lA2-Ef-hb4"/>
                         <outlet property="StatusContainer" destination="w4F-Ew-Iyy" id="name-outlet-w4F-Ew-Iyy"/>
                         <outlet property="StatusText" destination="FQ9-7p-6vm" id="name-outlet-FQ9-7p-6vm"/>
+                        <outlet property="SurveyIcon" destination="Ubi-X9-vu9" id="25F-56-M2c"/>
                         <outlet property="SurveyLbl" destination="MHd-o2-iFe" id="4K9-Kn-0Q5"/>
                         <outlet property="SurveyView" destination="jYW-9b-Hei" id="Bkm-YS-bx3"/>
                         <outlet property="TopBar" destination="G5e-Kl-Xbr" id="dGg-Kj-kU9"/>

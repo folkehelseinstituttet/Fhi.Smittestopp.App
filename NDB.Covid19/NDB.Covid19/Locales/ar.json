@@ -220,7 +220,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "الأعداد الرئيسية لـلإصابات بـ COVID-19 في النرويج",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "الأعداد الرئيسية لـلإصابات بـ COVID-19 في النرويج",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "شارك في استطلاع الرأي",
-  "INFECTION_STATUS_SURVEY_LINK": "https://nettskjema.no/a/195329",
+  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/195329",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "نعم",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "ضبط التذكير",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "يرجى تحديد الفترة التي سيتم بعدها إعلامك حول تشغيل Smittestopp مرة أخرى.",

@@ -113,6 +113,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		UIKit.UILabel StatusText { get; set; }
 
 		[Outlet]
+		UIKit.UIImageView SurveyIcon { get; set; }
+
+		[Outlet]
 		UIKit.UILabel SurveyLbl { get; set; }
 
 		[Outlet]
@@ -252,11 +255,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				SpinnerDialogStackView = null;
 			}
 
-			if (SurveyLbl != null) {
-				SurveyLbl.Dispose ();
-				SurveyLbl = null;
-			}
-
 			if (SpinnerDialogTitle != null) {
 				SpinnerDialogTitle.Dispose ();
 				SpinnerDialogTitle = null;
@@ -277,9 +275,19 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				StatusText = null;
 			}
 
+			if (SurveyLbl != null) {
+				SurveyLbl.Dispose ();
+				SurveyLbl = null;
+			}
+
 			if (SurveyView != null) {
 				SurveyView.Dispose ();
 				SurveyView = null;
+			}
+
+			if (SurveyIcon != null) {
+				SurveyIcon.Dispose ();
+				SurveyIcon = null;
 			}
 
 			if (TopBar != null) {

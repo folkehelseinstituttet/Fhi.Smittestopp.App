@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
+using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
@@ -39,7 +40,7 @@ namespace NDB.Covid19.ViewModels
         public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT".Translate();
         public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT".Translate();
         public static string INFECTION_STATUS_SURVEY_HEADER_TEXT => "INFECTION_STATUS_SURVEY_HEADER_TEXT".Translate();
-        public static string INFECTION_STATUS_SURVEY_LINK => "INFECTION_STATUS_SURVEY_LINK".Translate();
+        public static string INFECTION_STATUS_SURVEY_LINK_URL => "INFECTION_STATUS_SURVEY_LINK_URL".Translate();
 
         //pause dialog
         public static string INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON => "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON".Translate();
@@ -299,7 +300,17 @@ namespace NDB.Covid19.ViewModels
             return processedAnyFiles;
         }
 
-
+        public static void OpenSurveyWebPageLink()
+        {
+            try
+            {
+                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(INFECTION_STATUS_SURVEY_LINK_URL);
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(LogSeverity.ERROR, e, "Failed to open survey web page");
+            }
+        }
 
     }
 }

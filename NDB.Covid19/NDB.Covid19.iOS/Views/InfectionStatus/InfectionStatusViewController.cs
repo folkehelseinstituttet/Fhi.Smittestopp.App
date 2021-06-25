@@ -315,6 +315,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             SurveyView.Subviews[0].Layer.BorderWidth = 2;
             SurveyView.Subviews[0].Layer.BorderColor = ColorHelper.STATUS_INACTIVE.CGColor;
             SurveyView.Subviews[0].Layer.BackgroundColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            
+            if (LayoutUtils.GetTextAlignment() == UITextAlignment.Right) {
+                SurveyIcon.Image = SurveyIcon.Image.GetImageWithHorizontallyFlippedOrientation();
+            }
 
             dailyNumbersLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             dailyNumbersLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT;
@@ -480,19 +484,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 DialogHelper.ShowDialog(this, _viewModel.ReportingIllDialogViewModel, null);
             }
         }
-        async void SurveyButtonTapped(object sender, EventArgs e)
+        void SurveyButtonTapped(object sender, EventArgs e)
         {
-            
-            string uri = INFECTION_STATUS_SURVEY_LINK;
-
-            try
-            {
-                await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
-            }
-            catch (Exception ex)
-            {
-                LogUtils.LogException(LogSeverity.WARNING, ex, "Failed to start web browser");
-            }
+            OpenSurveyWebPageLink();
         }
 
         void OpenDailyNumbersPage()

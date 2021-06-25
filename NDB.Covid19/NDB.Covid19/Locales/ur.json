@@ -220,7 +220,7 @@
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT": "ناروے میں COVID-19  کے اہم اعدادوشمار",
   "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT": "ناروے میں COVID-19  کے اہم اعدادوشمار",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "سروے میں حصہ لیں",
-  "INFECTION_STATUS_SURVEY_LINK": "https://nettskjema.no/a/195329",
+  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/195329",
   "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON": "اوکے",
   "INFECTION_STATUS_PAUSE_DIALOG_TITLE": "یاد دہانی سیٹ کریں",
   "INFECTION_STATUS_PAUSE_DIALOG_MESSAGE": "طے کریں کہ آپ کو کتنا وقت گزرنے پر  Smittestopp دوبارہ آن کرنے کی یاد دہانی کروائی جائے ",
