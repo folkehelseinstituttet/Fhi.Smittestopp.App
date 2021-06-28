@@ -321,8 +321,8 @@
 						style="@style/PrimaryTextBold"
 						android:textColor="@android:color/white"
 						android:id="@+id/infection_status_questionnaire_textView"
-						android:layout_toLeftOf="@id/infection_status_questionnaire_imageView"
-						android:layout_alignParentLeft="true" />
+						android:layout_toStartOf="@id/infection_status_questionnaire_imageView"
+						android:layout_alignParentStart="true" />
 					<ImageView
 						android:src="@drawable/ic_survey"
 						android:layout_width="wrap_content"

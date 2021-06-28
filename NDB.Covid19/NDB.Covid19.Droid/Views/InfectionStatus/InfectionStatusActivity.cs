@@ -262,6 +262,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _messageSubHeader.TextAlignment = TextAlignment.ViewStart;
             _registrationHeader.TextAlignment = TextAlignment.ViewStart;
             _registrationSubheader.TextAlignment = TextAlignment.ViewStart;
+            _surveyText.TextAlignment = TextAlignment.ViewStart;
 
             //Accessibility
             _messageSubHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
