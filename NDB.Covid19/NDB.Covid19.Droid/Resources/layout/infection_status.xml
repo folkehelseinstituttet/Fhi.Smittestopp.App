@@ -312,15 +312,17 @@
                     android:id="@+id/infection_status_questionnaire_button_relativeLayout_inner"
                     style="@style/InfectionStatusLayoutButton"
                     android:background="@drawable/ic_infection_status_survey_border">
-                    <TextView
-                        android:text="Questionnaire"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:importantForAccessibility="no"
-                        android:breakStrategy="balanced"
+					<TextView
+						android:text="Questionnaire"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:importantForAccessibility="no"
+						android:breakStrategy="balanced"
 						style="@style/PrimaryTextBold"
 						android:textColor="@android:color/white"
-                        android:id="@+id/infection_status_questionnaire_textView"/>
+						android:id="@+id/infection_status_questionnaire_textView"
+						android:layout_toStartOf="@id/infection_status_questionnaire_imageView"
+						android:layout_alignParentStart="true" />
 					<ImageView
 						android:src="@drawable/ic_survey"
 						android:layout_width="wrap_content"
@@ -330,7 +332,7 @@
 						android:layout_marginStart="8dp"
 						android:id="@+id/infection_status_questionnaire_imageView"/>
                 </RelativeLayout>
-                <Button
+                <TextView
                     android:id="@+id/infection_status_questionnaire_button_relativeLayout_button"
                     android:importantForAccessibility="yes"
                     android:background="@android:color/transparent"

@@ -359,6 +359,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _surveyButton = new UIButton();
             _surveyButton.TranslatesAutoresizingMaskIntoConstraints = false;
             StyleUtil.EmbedViewInsideButton(SurveyView, _surveyButton);
+            _surveyButton.AccessibilityTraits = UIAccessibilityTrait.Link;
 
         }
 
