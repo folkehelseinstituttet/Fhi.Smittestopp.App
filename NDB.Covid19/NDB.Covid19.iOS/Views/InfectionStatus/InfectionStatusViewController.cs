@@ -19,6 +19,7 @@ using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using NDB.Covid19.Enums;
 using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using Xamarin.Essentials;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -54,6 +55,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         UIButton _dailyNumbersButton;
         UIButton _messageViewBtn;
         UIButton _areYouInfectedBtn;
+        UIButton _surveyButton;
 
         IOSPermissionManager _permissionManager;
 
@@ -141,6 +143,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _dailyNumbersButton.TouchUpInside += OnDailyNumbersBtnTapped;
             _messageViewBtn.TouchUpInside += OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside += OnAreYouInfectedBtnTapped;
+            _surveyButton.TouchUpInside += SurveyButtonTapped;
 
             OnAppReturnsFromBackground(null);
 
@@ -159,6 +162,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _messageViewBtn.TouchUpInside -= OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside -= OnAreYouInfectedBtnTapped;
             _dailyNumbersButton.TouchUpInside -= OnDailyNumbersBtnTapped;
+            _surveyButton.TouchUpInside -= SurveyButtonTapped;
 
             ResetStatusBar();
         }
@@ -221,6 +225,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _areYouInfectedBtn.AccessibilityLabel = _viewModel.NewRegistrationAccessibilityText;
             _messageViewBtn.AccessibilityAttributedLabel = AccessibilityUtils.RemovePoorlySpokenSymbols(_viewModel.NewMessageAccessibilityText);
             _dailyNumbersButton.AccessibilityLabel = _viewModel.NewDailyNumbersAccessibilityText;
+            _surveyButton.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_SURVEY_HEADER_TEXT;
             ActivityExplainerLbl.Text = await _viewModel.StatusTxtDescription();
             SetOnOffBtnState(await _viewModel.IsRunning());
             SetStatusContainerState(await _viewModel.IsRunning());
@@ -306,22 +311,38 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             AreYouInfectetView.Subviews[0].Layer.CornerRadius = 12;
             AreYouInfectetView.Subviews[0].Layer.BorderWidth = 1;
             AreYouInfectetView.Subviews[0].Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            SurveyView.Subviews[0].Layer.CornerRadius = 12;
+            SurveyView.Subviews[0].Layer.BorderWidth = 2;
+            SurveyView.Subviews[0].Layer.BorderColor = ColorHelper.STATUS_INACTIVE.CGColor;
+            SurveyView.Subviews[0].Layer.BackgroundColor = ColorHelper.PRIMARY_COLOR.CGColor;
+            
+            if (LayoutUtils.GetTextAlignment() == UITextAlignment.Right) {
+                SurveyIcon.Image = SurveyIcon.Image.GetImageWithHorizontallyFlippedOrientation();
+            }
 
             dailyNumbersLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             dailyNumbersLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT;
+            dailyNumbersLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             dailyNumbersUpdatedLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             dailyNumbersUpdatedLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT;
+            dailyNumbersUpdatedLbl.TextAlignment = LayoutUtils.GetTextAlignment();
 
             MessageLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             MessageLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_MESSAGE_HEADER_TEXT;
+            MessageLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             NewRegistrationLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             NewRegistrationLbl.Text = _viewModel.NewMessageSubheaderTxt;
+            NewRegistrationLbl.TextAlignment = LayoutUtils.GetTextAlignment();
 
             AreYouInfectetLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontBold, 18, 22);
             AreYouInfectetLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
+            AreYouInfectetLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             LogInAndRegisterLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 14, 18);
             LogInAndRegisterLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
+            LogInAndRegisterLbl.TextAlignment = LayoutUtils.GetTextAlignment();
 
+            StyleUtil.InitLabel(SurveyLbl, StyleUtil.FontType.FontBold, INFECTION_STATUS_SURVEY_HEADER_TEXT, 18, 22);
+            SurveyLbl.TextAlignment = LayoutUtils.GetTextAlignment();
             // We take the fairly complicated UIViews from the storyboard and embed them into UIButtons
             _messageViewBtn = new UIButton();
             _messageViewBtn.TranslatesAutoresizingMaskIntoConstraints = false;
@@ -334,6 +355,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _dailyNumbersButton = new UIButton();
             _dailyNumbersButton.TranslatesAutoresizingMaskIntoConstraints = false;
             StyleUtil.EmbedViewInsideButton(DailyNumbersView, _dailyNumbersButton);
+
+            _surveyButton = new UIButton();
+            _surveyButton.TranslatesAutoresizingMaskIntoConstraints = false;
+            StyleUtil.EmbedViewInsideButton(SurveyView, _surveyButton);
+            _surveyButton.AccessibilityTraits = UIAccessibilityTrait.Link;
 
         }
 
@@ -458,6 +484,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             {
                 DialogHelper.ShowDialog(this, _viewModel.ReportingIllDialogViewModel, null);
             }
+        }
+        void SurveyButtonTapped(object sender, EventArgs e)
+        {
+            OpenSurveyWebPageLink();
         }
 
         void OpenDailyNumbersPage()

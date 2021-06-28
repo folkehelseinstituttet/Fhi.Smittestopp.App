@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="716">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="716">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -93,10 +93,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5I2-pE-NTM">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="979.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1117"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-YJ-e0x">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="979.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1117"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4F-Ew-Iyy" userLabel="Status View">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
@@ -205,10 +205,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ug-II-NMf">
-                                                        <rect key="frame" x="0.0" y="540" width="375" height="407.5"/>
+                                                        <rect key="frame" x="0.0" y="540" width="375" height="545"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="9yc-jF-FcE">
-                                                                <rect key="frame" x="16" y="0.0" width="343" height="407.5"/>
+                                                                <rect key="frame" x="16" y="0.0" width="343" height="545"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNP-uq-7Sg">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="132.5"/>
@@ -443,6 +443,68 @@
                                                                             <constraint firstItem="QbY-ej-sQl" firstAttribute="width" secondItem="TRc-Zn-X3X" secondAttribute="width" id="u4B-Yx-VnD"/>
                                                                         </constraints>
                                                                     </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYW-9b-Hei" userLabel="SurveyView">
+                                                                        <rect key="frame" x="0.0" y="431.5" width="343" height="113.5"/>
+                                                                        <subviews>
+                                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FWg-mM-7TA">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="113.5"/>
+                                                                                <color key="backgroundColor" red="0.1375645688310744" green="0.12984526815633299" blue="0.41654197456910436" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                            </view>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RBd-oR-73s">
+                                                                                <rect key="frame" x="22" y="0.0" width="321" height="113.5"/>
+                                                                                <subviews>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IoT-fD-8AF">
+                                                                                        <rect key="frame" x="0.0" y="15" width="241" height="83.5"/>
+                                                                                        <subviews>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survey" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHd-o2-iFe" userLabel="Survey Lbl">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="83.5"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                    </stackView>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjt-C9-KFs">
+                                                                                        <rect key="frame" x="261" y="0.0" width="60" height="113.5"/>
+                                                                                        <subviews>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_survey" translatesAutoresizingMaskIntoConstraints="NO" id="Ubi-X9-vu9">
+                                                                                                <rect key="frame" x="20" y="47" width="20" height="20"/>
+                                                                                                <color key="tintColor" red="0.19607843459999999" green="0.2039215714" blue="0.36078432199999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="width" constant="20" id="8OU-EN-uiB"/>
+                                                                                                    <constraint firstAttribute="height" constant="20" id="rid-q8-qAn"/>
+                                                                                                </constraints>
+                                                                                            </imageView>
+                                                                                        </subviews>
+                                                                                        <constraints>
+                                                                                            <constraint firstItem="Ubi-X9-vu9" firstAttribute="centerY" secondItem="tjt-C9-KFs" secondAttribute="centerY" id="tyP-5t-ZVf"/>
+                                                                                            <constraint firstItem="Ubi-X9-vu9" firstAttribute="leading" secondItem="tjt-C9-KFs" secondAttribute="leading" constant="20" id="vJt-eo-0wf"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="Ubi-X9-vu9" secondAttribute="trailing" constant="20" id="wge-dF-8IZ"/>
+                                                                                        </constraints>
+                                                                                    </view>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="bottom" secondItem="IoT-fD-8AF" secondAttribute="bottom" constant="15" id="BMu-RK-djq"/>
+                                                                                    <constraint firstItem="IoT-fD-8AF" firstAttribute="top" secondItem="RBd-oR-73s" secondAttribute="top" constant="15" id="GAO-b1-aHF"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="tjt-C9-KFs" secondAttribute="bottom" id="MPQ-Mg-pda"/>
+                                                                                    <constraint firstItem="tjt-C9-KFs" firstAttribute="top" secondItem="RBd-oR-73s" secondAttribute="top" id="ZHe-PK-1nX"/>
+                                                                                </constraints>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <accessibility key="accessibilityConfiguration">
+                                                                            <accessibilityTraits key="traits" button="YES"/>
+                                                                        </accessibility>
+                                                                        <constraints>
+                                                                            <constraint firstItem="FWg-mM-7TA" firstAttribute="height" secondItem="jYW-9b-Hei" secondAttribute="height" id="4ma-hp-p0t"/>
+                                                                            <constraint firstItem="FWg-mM-7TA" firstAttribute="centerY" secondItem="jYW-9b-Hei" secondAttribute="centerY" id="L5Y-Yg-Nbr"/>
+                                                                            <constraint firstItem="FWg-mM-7TA" firstAttribute="width" secondItem="jYW-9b-Hei" secondAttribute="width" id="P9e-CX-QRV"/>
+                                                                            <constraint firstItem="RBd-oR-73s" firstAttribute="leading" secondItem="jYW-9b-Hei" secondAttribute="leading" constant="22" id="W8F-4B-2oN"/>
+                                                                            <constraint firstItem="RBd-oR-73s" firstAttribute="top" secondItem="jYW-9b-Hei" secondAttribute="top" id="hGF-KX-6Fn"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="RBd-oR-73s" secondAttribute="trailing" id="kwC-gz-8Mn"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="RBd-oR-73s" secondAttribute="bottom" id="p9S-hl-snj"/>
+                                                                            <constraint firstItem="FWg-mM-7TA" firstAttribute="centerX" secondItem="jYW-9b-Hei" secondAttribute="centerX" id="yR6-Gg-jEd"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
@@ -455,7 +517,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-37-3XW">
-                                                        <rect key="frame" x="0.0" y="955.5" width="375" height="24"/>
+                                                        <rect key="frame" x="0.0" y="1093" width="375" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="NAS-98-7at"/>
                                                         </constraints>
@@ -530,6 +592,9 @@
                         <outlet property="SpinnerMainView" destination="Dio-Qd-Xe9" id="lA2-Ef-hb4"/>
                         <outlet property="StatusContainer" destination="w4F-Ew-Iyy" id="name-outlet-w4F-Ew-Iyy"/>
                         <outlet property="StatusText" destination="FQ9-7p-6vm" id="name-outlet-FQ9-7p-6vm"/>
+                        <outlet property="SurveyIcon" destination="Ubi-X9-vu9" id="25F-56-M2c"/>
+                        <outlet property="SurveyLbl" destination="MHd-o2-iFe" id="4K9-Kn-0Q5"/>
+                        <outlet property="SurveyView" destination="jYW-9b-Hei" id="Bkm-YS-bx3"/>
                         <outlet property="TopBar" destination="G5e-Kl-Xbr" id="dGg-Kj-kU9"/>
                         <outlet property="appLogo" destination="2Lh-4t-IDu" id="WEd-zw-XdJ"/>
                         <outlet property="dailyNumbersIcon" destination="rRS-H4-JMP" id="gbe-LR-SqA"/>
@@ -540,7 +605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="718" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161.875" y="-79.267600000000002"/>
+            <point key="canvasLocation" x="160.80000000000001" y="-79.610194902548727"/>
         </scene>
     </scenes>
     <resources>
@@ -550,6 +615,7 @@
         <image name="bellicon" width="36" height="36"/>
         <image name="covidIcon" width="36" height="36"/>
         <image name="fhi_logo_short" width="58" height="24"/>
+        <image name="ic_survey" width="16" height="16"/>
         <image name="todays_numbers_icon" width="36" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -1104,10 +1104,26 @@
       </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\spinner_dialog.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\background_activity_dialog.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_survey.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\background_activity_dialog.xml">
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_survey.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_survey.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -1321,14 +1337,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
-  <Folder Include="Resources\font\" />
-     <Folder Include="Views\DailyNumbers\" />
+     <Folder Include="Resources\font\" />
+    <Folder Include="Views\DailyNumbers\" />
   </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-    Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-  -->
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_infection_status_survey_border.xml" />
+  </ItemGroup>
+   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+     Other similar extension points exist, see Microsoft.Common.targets.
+     <Target Name="BeforeBuild">
+     </Target>
+     <Target Name="AfterBuild">
+     </Target>
+   -->
 </Project>
