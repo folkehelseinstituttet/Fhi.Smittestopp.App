@@ -17,6 +17,7 @@ namespace NDB.Covid19.Utils
                 string appLanguage = LocalesService.GetLanguage();
                 CultureInfo selectedCulture = CultureInfo.GetCultureInfo(appLanguage);
                 // Due to a bug in C# string representation in nb culture, nn must be used
+                if (appLanguage == "en") selectedCulture = CultureInfo.GetCultureInfo("en-GB");
                 CultureInfo defaultCulture = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
                 bool shouldUseDefaultCulture = appLanguage == "ar" || appLanguage == "ur" || appLanguage == "ti" || appLanguage == "nb";
                 string dateString;

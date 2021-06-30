@@ -84,7 +84,7 @@ namespace NDB.Covid19.ViewModels
         
         public string NewMessageSubheaderTxt =>
             ShowNewMessageIcon
-                ? $"{INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT} {DateUtils.GetDateFromDateTime(_latestMessageDateTime, "d. MMMMM")}"
+                ? $"{INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT} {DateUtils.GetDateFromDateTime(_latestMessageDateTime, "m")}"
                 : INFECTION_STATUS_NO_NEW_MESSAGE_SUBHEADER_TEXT;
 
         public string NewMessageAccessibilityText =>
