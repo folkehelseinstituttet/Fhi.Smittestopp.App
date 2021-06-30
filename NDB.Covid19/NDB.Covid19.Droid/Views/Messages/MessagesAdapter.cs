@@ -38,6 +38,7 @@ namespace NDB.Covid19.Droid.Views.Messages
             title.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
             view.FindViewById<TextView>(Resource.Id.new_item).Text = MessagesViewModel.MESSAGES_NEW_ITEM;
             view.FindViewById<TextView>(Resource.Id.messages_item_date).Text = _items[position].DayAndMonthString;
+            view.FindViewById<TextView>(Resource.Id.messages_item_date).TextAlignment = TextAlignment.ViewStart;
             view.FindViewById<TextView>(Resource.Id.messages_item_description).Text = MessageItemViewModel.MESSAGES_RECOMMENDATIONS;
             view.FindViewById<LinearLayout>(Resource.Id.dot_layout).Visibility =
                 _items[position].IsRead
