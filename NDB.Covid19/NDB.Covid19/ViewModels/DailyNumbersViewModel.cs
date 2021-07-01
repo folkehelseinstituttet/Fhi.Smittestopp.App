@@ -52,15 +52,15 @@ namespace NDB.Covid19.ViewModels
         public static DateTime LastUpdateDownloadsNumbersDateTime => APPDownloadNumberLastUpdateDateTime.ToLocalTime();
 
         public static string LastUpdateStringSubHeader => LastUpdateFHINumbersDateTime != DateTime.MinValue.ToLocalTime()
-            ? string.Format(DAILY_NUMBERS_SUBHEADER, $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "t")}")
+            ? string.Format(DAILY_NUMBERS_SUBHEADER, $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "t", true, "so", "en")}")
             : "";
 
         public static string LastUpdateStringSubTextTwo => LastUpdateFHINumbersDateTime != DateTime.MinValue.ToLocalTime()
-            ? string.Format(DAILY_NUMBERS_SUBTEXT_TWO, $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "t")}")
+            ? string.Format(DAILY_NUMBERS_SUBTEXT_TWO, $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateFHINumbersDateTime, "t", true, "so", "en")}")
             : "";
 
         public static string LastUpdateStringSubSubHeader => LastUpdateDownloadsNumbersDateTime != DateTime.MinValue.ToLocalTime()
-            ? string.Format(DAILY_NUMBERS_SUBSUBHEADER, $"{DateUtils.GetDateFromDateTime(LastUpdateDownloadsNumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateDownloadsNumbersDateTime, "t")}")
+            ? string.Format(DAILY_NUMBERS_SUBSUBHEADER, $"{DateUtils.GetDateFromDateTime(LastUpdateDownloadsNumbersDateTime, "m")}", $"{DateUtils.GetDateFromDateTime(LastUpdateDownloadsNumbersDateTime, "t", true, "so", "en")}")
             : "";
 
         public static async void RequestFHIDataUpdate(Action onFinished = null)
