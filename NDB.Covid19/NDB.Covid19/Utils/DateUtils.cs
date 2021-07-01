@@ -9,7 +9,7 @@ namespace NDB.Covid19.Utils
 {
     public static class DateUtils
     {
-        public static string GetDateFromDateTime(this DateTime? date, string dateFormat)
+        public static string GetDateFromDateTime(this DateTime? date, string dateFormat, bool changeCulture = false, string oldCulture = "nn", string newCulture = "nn")
         {
             if (date != null)
             {
@@ -20,6 +20,10 @@ namespace NDB.Covid19.Utils
                 CultureInfo defaultCulture = CultureInfo.GetCultureInfo(Conf.DEFAULT_LANGUAGE);
                 bool shouldUseDefaultCulture = appLanguage == "ar" || appLanguage == "ur" || appLanguage == "ti" || appLanguage == "nb";
                 string dateString;
+                if (changeCulture && appLanguage == oldCulture)
+                {
+                    selectedCulture = CultureInfo.GetCultureInfo(newCulture);
+                }
                 DateTime calenderDateTime = new DateTime(
                     dateTime.Year,
                     dateTime.Month,
