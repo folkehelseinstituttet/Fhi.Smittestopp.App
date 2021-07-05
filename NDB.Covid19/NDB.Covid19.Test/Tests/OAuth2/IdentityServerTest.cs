@@ -33,7 +33,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
 
             X509SecurityKey rsaSecurityKey = new X509SecurityKey(cert);
             JsonWebKey rsaJwk = JsonWebKeyConverter.ConvertFromX509SecurityKey(rsaSecurityKey);
-            string pubKey2 = rsaJwk.X5c[0];
+            string publicKey2 = rsaJwk.X5c[0];
             //response from server
             System.Net.Http.HttpResponseMessage response = await authenticationManager.client.GetAsync(url);
             //public key from endpoint
@@ -41,7 +41,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
-            Assert.Equal(pubKey2, publicKey);
+            Assert.Equal(publicKey2, publicKey);
             authenticationManager.client.Dispose();
             _factory.Dispose();
         }
