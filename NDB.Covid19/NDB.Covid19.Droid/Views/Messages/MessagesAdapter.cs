@@ -33,6 +33,11 @@ namespace NDB.Covid19.Droid.Views.Messages
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             View view = convertView ?? _context.LayoutInflater.Inflate(Resource.Layout.messages_list_element, null);
+            TextView accessibilityView = view.FindViewById<TextView>(Resource.Id.accessibility_pane_box);
+            accessibilityView.Text = _items[position].MessageLink.Translate();
+            LinkUtil.LinkifyTextView(accessibilityView);
+            accessibilityView.ContentDescription = "Test accessibility";
+            accessibilityView.SetTextSize(Android.Util.ComplexUnitType.Px, 0);
             TextView title = view.FindViewById<TextView>(Resource.Id.messages_item_title);
             TextView dateView = view.FindViewById<TextView>(Resource.Id.messages_item_date);
             title.Text = _items[position].Title.Translate();
