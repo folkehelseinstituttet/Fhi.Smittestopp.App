@@ -363,28 +363,36 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
         private async void StartStopButton_Click(object sender, EventArgs e)
         {
-            await _semaphoreSlim.WaitAsync();
-            bool isRunning = await _viewModel.IsEnabled();
-            switch (isRunning)
+            await _semaphoreSlim.WaitAsync().ConfigureAwait(false);
+            try
             {
-                case true when !_permissionUtils.AreAllPermissionsGranted():
-                    PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions);
-                    _semaphoreSlim.Release();
-                    break;
-                case true:
-                    await DialogUtils.DisplayDialogAsync(
-                        this,
-                        _viewModel.OffDialogViewModel,
-                        ShowPauseDialog,
-                        () => _semaphoreSlim.Release());
-                    break;
-                default:
-                    await DialogUtils.DisplayDialogAsync(
-                        this,
-                        _viewModel.OnDialogViewModel,
-                        StartGoogleAPI,
-                        () => _semaphoreSlim.Release());
-                    break;
+                bool isRunning = await _viewModel.IsEnabled();
+                switch (isRunning)
+                {
+                    case true when !_permissionUtils.AreAllPermissionsGranted():
+                        PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions);
+                        _semaphoreSlim.Release();
+                        break;
+                    case true:
+                        await DialogUtils.DisplayDialogAsync(
+                            this,
+                            _viewModel.OffDialogViewModel,
+                            ShowPauseDialog,
+                            () => _semaphoreSlim.Release());
+                        break;
+                    default:
+                        await DialogUtils.DisplayDialogAsync(
+                            this,
+                            _viewModel.OnDialogViewModel,
+                            StartGoogleAPI,
+                            () => _semaphoreSlim.Release());
+                        break;
+                }
+
+            }
+            finally
+            {
+                _semaphoreSlim.Release();
             }
 
             UpdateUI();
@@ -469,7 +477,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 ShowBackgroundActivityDialog();
                 DialogLastShownDate = SystemTime.Now().Date;
             }
-            _semaphoreSlim.Release();
         }
 
         private async void StopGoogleAPI()
@@ -482,8 +489,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 UpdateUI();
             }
-
-            _semaphoreSlim.Release();
         }
 
         private void DailyNumbersLayoutButton_Click(object sender, EventArgs e)
