@@ -371,21 +371,18 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 {
                     case true when !_permissionUtils.AreAllPermissionsGranted():
                         PreventMultiplePermissionsDialogsForAction(_permissionUtils.HasPermissions);
-                        _semaphoreSlim.Release();
                         break;
                     case true:
                         await DialogUtils.DisplayDialogAsync(
                             this,
                             _viewModel.OffDialogViewModel,
-                            ShowPauseDialog,
-                            () => _semaphoreSlim.Release());
+                            ShowPauseDialog);
                         break;
                     default:
                         await DialogUtils.DisplayDialogAsync(
                             this,
                             _viewModel.OnDialogViewModel,
-                            StartGoogleAPI,
-                            () => _semaphoreSlim.Release());
+                            StartGoogleAPI);
                         break;
                 }
 
