@@ -1,9 +1,9 @@
-﻿using System;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Utils;
+using System;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification

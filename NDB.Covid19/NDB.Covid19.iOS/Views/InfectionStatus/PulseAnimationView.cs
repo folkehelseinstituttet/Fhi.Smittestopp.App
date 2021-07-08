@@ -1,11 +1,11 @@
-﻿using UIKit;
+﻿using CoreAnimation;
 using CoreGraphics;
-using CoreAnimation;
 using Foundation;
+using UIKit;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
-    public class PulseAnimationView: UIView
+    public class PulseAnimationView : UIView
     {
         private CAAnimationGroup _animationGroup;
 

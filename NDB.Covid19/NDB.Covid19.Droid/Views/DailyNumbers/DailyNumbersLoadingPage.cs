@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
@@ -11,6 +10,7 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 
 namespace NDB.Covid19.Droid.Views.DailyNumbers
 {

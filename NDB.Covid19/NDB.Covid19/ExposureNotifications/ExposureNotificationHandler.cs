@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
@@ -15,6 +9,12 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
 using NDB.Covid19.WebServices.ExposureNotification;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.ExposureNotifications;
 

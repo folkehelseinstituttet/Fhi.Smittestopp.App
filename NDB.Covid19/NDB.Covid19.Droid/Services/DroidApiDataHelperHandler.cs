@@ -8,7 +8,7 @@ namespace NDB.Covid19.Droid.Services
 {
     class DroidApiDataHelperHandler : IApiDataHelper
     {
-       
+
         public bool IsGoogleServiceEnabled()
         {
             return GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(CrossCurrentActivity.Current

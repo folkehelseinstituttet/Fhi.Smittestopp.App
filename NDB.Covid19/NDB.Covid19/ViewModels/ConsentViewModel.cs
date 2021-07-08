@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
 using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
+using System;
+using System.Collections.Generic;
 using static NDB.Covid19.Models.ConsentViewModel;
 
 namespace NDB.Covid19.ViewModels

@@ -1,4 +1,3 @@
-using System;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -8,10 +7,11 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using Java.Nio.FileNio;
-using NDB.Covid19.ViewModels;
+using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
-using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.ViewModels;
+using System;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
@@ -49,7 +49,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 LogUtils.LogMessage(LogSeverity.INFO, "The user agreed to share keys", null, GetCorrelationId());
                 OnActivityFinished();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _ = e.HandleExposureNotificationException(nameof(LoadingPageActivity), nameof(StartPushActivity));
                 OnError(e);
@@ -67,7 +67,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             {
                 _ = e.HandleExposureNotificationException(nameof(LoadingPageActivity), nameof(OnActivityResult));
             }
-            
+
         }
 
         void OnActivityFinished()
@@ -76,7 +76,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             {
                 StartActivity(new Intent(this, typeof(RegisteredActivity)));
             });
-            
+
         }
 
         void OnError(Exception e, bool isOnFail = false)

@@ -1,6 +1,6 @@
-﻿using System;
-using CoreGraphics;
+﻿using CoreGraphics;
 using Foundation;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.CustomSubclasses

@@ -1,8 +1,8 @@
-using System;
 using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Settings
@@ -24,7 +24,7 @@ namespace NDB.Covid19.iOS.Views.Settings
             return vc;
         }
 
-        public SettingsViewController (IntPtr handle) : base (handle)
+        public SettingsViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -69,7 +69,7 @@ namespace NDB.Covid19.iOS.Views.Settings
         {
             switch (type)
             {
-                case SettingItemType.Intro:              
+                case SettingItemType.Intro:
                     UIViewController WelcomeViewController = NavigationHelper.ViewControllerByStoryboardName("Welcome");
                     NavigationController?.PushViewController(WelcomeViewController, true);
                     break;

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
-using NDB.Covid19.PersistedData;
-using CommonServiceLocator;
-using NDB.Covid19.Utils;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData;
+using NDB.Covid19.Utils;
+using System;
 
 namespace NDB.Covid19.ViewModels
 {

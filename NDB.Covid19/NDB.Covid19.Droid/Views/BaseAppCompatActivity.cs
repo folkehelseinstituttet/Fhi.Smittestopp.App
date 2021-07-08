@@ -17,7 +17,7 @@ namespace NDB.Covid19.Droid.Views
                 base.OnCreate(null);
                 Intent intent = GetStartingNewIntent();
 
-                if(intent != null)
+                if (intent != null)
                 {
                     intent.AddFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
                     StartActivity(intent);

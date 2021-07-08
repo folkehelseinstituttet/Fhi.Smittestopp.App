@@ -1,6 +1,5 @@
-using System;
-using CoreGraphics;
 using Foundation;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Utils
@@ -99,7 +98,7 @@ namespace NDB.Covid19.iOS.Utils
             btn.Layer.BorderColor = ColorHelper.PRIMARY_COLOR.CGColor;
             btn.TitleLabel.Lines = 0;
             btn.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
-            
+
             btn.ContentEdgeInsets = new UIEdgeInsets(12, 12, 12, 12);
             NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle { HyphenationFactor = 1.0f };
             UIStringAttributes attributes = new UIStringAttributes { ParagraphStyle = paragraphStyle };
@@ -160,7 +159,7 @@ namespace NDB.Covid19.iOS.Utils
         /// <param name="fontSize"></param>
         /// <param name="maxFontSize"></param>
         /// <param name="alignment"></param>
-        public static void InitLabelWithSpacing(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize,bool centerAlignment = false, bool useHyphenation = false)
+        public static void InitLabelWithSpacing(UILabel label, FontType fontType, string rawText, double lineHeight, float fontSize, float maxFontSize, bool centerAlignment = false, bool useHyphenation = false)
         {
             NSMutableParagraphStyle paragraphStyle = new NSMutableParagraphStyle();
             paragraphStyle.LineHeightMultiple = new nfloat(lineHeight);
@@ -445,5 +444,5 @@ namespace NDB.Covid19.iOS.Utils
             label.TextColor = UIColor.White;
             label.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, "#FADC5D".ToUIColor(), UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
         }
-    } 
+    }
 }

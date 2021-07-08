@@ -11,6 +11,6 @@ namespace NDB.Covid19.ViewModels
         public static string WELCOME_PAGE_WHATS_NEW_BUTTON => "WELCOME_PAGE_WHATS_NEW_BUTTON".Translate();
         public static string WELCOME_PAGE_WHATS_NEW_FOOTER => "WELCOME_PAGE_WHATS_NEW_FOOTER".Translate();
 
-        public WelcomePageWhatIsNewViewModel(){}
+        public WelcomePageWhatIsNewViewModel() { }
     }
 }

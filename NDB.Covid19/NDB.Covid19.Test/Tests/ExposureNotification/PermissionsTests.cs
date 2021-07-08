@@ -1,21 +1,21 @@
-﻿using System;
-using System.Threading;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Utils;
+using System;
+using System.Threading;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
     public class PermissionsTests : IDisposable
     {
-        private static readonly PermissionsMock PermissionsHelper = (PermissionsMock) ServiceLocator.Current.GetInstance<IPermissionsHelper>();
+        private static readonly PermissionsMock PermissionsHelper = (PermissionsMock)ServiceLocator.Current.GetInstance<IPermissionsHelper>();
         private static readonly LocalNotificationManagerMock LocalNotificationsManager =
-            (LocalNotificationManagerMock) NotificationsHelper.LocalNotificationsManager;
+            (LocalNotificationManagerMock)NotificationsHelper.LocalNotificationsManager;
 
         public PermissionsTests()
         {
@@ -32,7 +32,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             ResetData();
             PermissionsHelper.BluetoothEnabled = hasBluetooth;
             PermissionsHelper.LocationEnabled = hasLocation;
-            
+
             LocalNotificationsManager.HasBeenCalled[type] = false;
             LocalNotificationsManager.HasBeenCalled[NotificationsEnum.NoNotification] = false;
             try

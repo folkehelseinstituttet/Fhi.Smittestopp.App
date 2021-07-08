@@ -1,6 +1,7 @@
 ﻿namespace NDB.Covid19.Enums
 {
-    public enum ENOperation {
+    public enum ENOperation
+    {
         PUSH,
         PULL
     }

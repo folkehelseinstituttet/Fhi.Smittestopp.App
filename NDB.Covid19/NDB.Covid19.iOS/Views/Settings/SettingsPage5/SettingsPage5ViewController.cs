@@ -1,8 +1,7 @@
-using System;
-using CoreGraphics;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
@@ -10,7 +9,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
 {
     public partial class SettingsPage5ViewController : BaseViewController
     {
-        public SettingsPage5ViewController (IntPtr handle) : base (handle)
+        public SettingsPage5ViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -33,7 +32,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage5
             ContentText.TextContainer.LineFragmentPadding = 0;
             ContentText.AccessibilityTraits = UIAccessibilityTrait.Link;
             ContentText.WeakDelegate = new OpenTextViewUrlInWebviewDelegate(this);
-            
+
             //ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
             ContentText.WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, ColorHelper.LINK_COLOR, UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
 

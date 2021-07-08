@@ -1,6 +1,6 @@
-using System;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
+using System;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
@@ -8,7 +8,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
     public partial class SettingsContentTextView : UITextView
     {
-        public SettingsContentTextView (IntPtr handle) : base (handle)
+        public SettingsContentTextView(IntPtr handle) : base(handle)
         {
             BackgroundColor = UIColor.Clear;
         }
@@ -26,7 +26,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
             TextColor = UIColor.White;
             //ForegroundColor sets the color of the links. UnderlineStyle determins if the link is underlined, 0 without underline 1 with underline.
             WeakLinkTextAttributes = new NSDictionary(UIStringAttributeKey.ForegroundColor, "#FADC5D".ToUIColor(), UIStringAttributeKey.UnderlineStyle, new NSNumber(1));
-            
+
         }
 
         /// <summary>
@@ -40,6 +40,6 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
             Setup();
         }
 
-    
+
     }
 }

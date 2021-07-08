@@ -1,5 +1,4 @@
-﻿using System;
-using Android.Views;
+﻿using Android.Views;
 using Android.Views.Accessibility;
 
 namespace NDB.Covid19.Droid.Utils

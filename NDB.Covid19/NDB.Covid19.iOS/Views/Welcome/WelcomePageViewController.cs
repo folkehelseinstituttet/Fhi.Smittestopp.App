@@ -1,17 +1,17 @@
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.iOS.Views.Welcome.ChildViews;
 using System;
 using System.Collections.Generic;
-using NDB.Covid19.iOS.Views.Welcome.ChildViews;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Welcome
 {
     public partial class WelcomePageViewController : UIPageViewController
     {
-        public List<string> PageTitles = new List<string> {"WelcomePageOne", "WelcomePageTwo", "WelcomePageThree", "WelcomePageFour"};
+        public List<string> PageTitles = new List<string> { "WelcomePageOne", "WelcomePageTwo", "WelcomePageThree", "WelcomePageFour" };
         PageViewController _currentPage;
 
-        public WelcomePageViewController (IntPtr handle) : base (handle)
+        public WelcomePageViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -23,7 +23,7 @@ namespace NDB.Covid19.iOS.Views.Welcome
             PageViewController[] viewControllers = new PageViewController[] { _currentPage };
 
             SetViewControllers(viewControllers, UIPageViewControllerNavigationDirection.Forward, false, null);
-            
+
         }
 
         public void SetCurrentPage(int index)

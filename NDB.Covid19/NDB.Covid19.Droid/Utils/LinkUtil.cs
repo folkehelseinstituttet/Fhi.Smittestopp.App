@@ -1,5 +1,5 @@
-﻿using Android.Widget;
-using Android.Text.Method;
+﻿using Android.Text.Method;
+using Android.Widget;
 
 namespace NDB.Covid19.Droid.Utils
 {

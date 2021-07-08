@@ -1,11 +1,11 @@
-using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.WebServices.ErrorHandlers;
-using Unity;
-using Unity.ServiceLocation;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
 using NDB.Covid19.iOS.Permissions;
+using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.WebServices.ErrorHandlers;
+using Unity;
 using Unity.Lifetime;
+using Unity.ServiceLocation;
 
 namespace NDB.Covid19.iOS
 {
@@ -23,7 +23,7 @@ namespace NDB.Covid19.iOS
             unityContainer.RegisterType<IPermissionsHelper, IOSPermissionsHelper>();
 
             CommonDependencyInjectionConfig.Init(unityContainer);
-           
+
             UnityServiceLocator unityServiceLocalter = new UnityServiceLocator(unityContainer);
             CommonServiceLocator.ServiceLocator.SetLocatorProvider(() => unityServiceLocalter);
         }

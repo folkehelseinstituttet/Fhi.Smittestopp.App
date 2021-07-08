@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using FluentAssertions;
+using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
 using Xunit;
 using static NDB.Covid19.Utils.Anonymizer;
 

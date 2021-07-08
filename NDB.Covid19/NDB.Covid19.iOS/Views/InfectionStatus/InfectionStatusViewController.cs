@@ -1,25 +1,23 @@
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using CommonServiceLocator;
 using CoreFoundation;
 using MoreLinq;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Permissions;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using NDB.Covid19.iOS.Views.DailyNumbers;
 using NDB.Covid19.iOS.Views.Settings;
-using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using UIKit;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
-using NDB.Covid19.Enums;
 using UserNotifications;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
-using Xamarin.Essentials;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -59,14 +57,14 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         IOSPermissionManager _permissionManager;
 
-        UIFocusGuide _focusGuide = new UIFocusGuide ();
-        
+        UIFocusGuide _focusGuide = new UIFocusGuide();
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
             View.AddLayoutGuide(_focusGuide);
-            
+
             _focusGuide.LeadingAnchor.ConstraintEqualTo(MenuIcon.LeadingAnchor).Active = true;
             _focusGuide.TrailingAnchor.ConstraintEqualTo(MenuIcon.TrailingAnchor).Active = true;
             _focusGuide.TopAnchor.ConstraintEqualTo(OnOffBtn.TopAnchor).Active = true;
@@ -77,7 +75,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 OnMenubtnTapped(MenuIcon);
             }));
             MenuLabel.IsAccessibilityElement = false;
-           
+
             SetupStyling();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
@@ -94,25 +92,31 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         private void OnAppDailyNumbersChanged(object _ = null)
         {
-            DispatchQueue.MainQueue.DispatchAsync(() => {
+            DispatchQueue.MainQueue.DispatchAsync(() =>
+            {
                 _dailyNumbersButton.AccessibilityLabel = _viewModel.NewDailyNumbersAccessibilityText;
                 StyleUtil.InitLabelWithSpacing(dailyNumbersUpdatedLbl, StyleUtil.FontType.FontRegular, InfectionStatusViewModel.INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT, 1.14, 12, 16);
             });
         }
 
-        public override void DidUpdateFocus (UIFocusUpdateContext context, UIFocusAnimationCoordinator coordinator)
+        public override void DidUpdateFocus(UIFocusUpdateContext context, UIFocusAnimationCoordinator coordinator)
         {
-            base.DidUpdateFocus (context, coordinator);
+            base.DidUpdateFocus(context, coordinator);
 
             UIView nextFocusableItem = context.NextFocusedView;
 
             if (nextFocusableItem == null) return;
-            
-            if (nextFocusableItem.Equals(OnOffBtn)) {
+
+            if (nextFocusableItem.Equals(OnOffBtn))
+            {
                 _focusGuide.PreferredFocusedView = MenuIcon;
-            } else if (nextFocusableItem.Equals(MenuIcon)) {
+            }
+            else if (nextFocusableItem.Equals(MenuIcon))
+            {
                 _focusGuide.PreferredFocusedView = OnOffBtn;
-            } else {
+            }
+            else
+            {
                 _focusGuide.PreferredFocusedView = null;
             }
         }
@@ -133,7 +137,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             UpdateUI();
         }
-        
+
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
@@ -315,8 +319,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             SurveyView.Subviews[0].Layer.BorderWidth = 2;
             SurveyView.Subviews[0].Layer.BorderColor = ColorHelper.STATUS_INACTIVE.CGColor;
             SurveyView.Subviews[0].Layer.BackgroundColor = ColorHelper.PRIMARY_COLOR.CGColor;
-            
-            if (LayoutUtils.GetTextAlignment() == UITextAlignment.Right) {
+
+            if (LayoutUtils.GetTextAlignment() == UITextAlignment.Right)
+            {
                 SurveyIcon.Image = SurveyIcon.Image.GetImageWithHorizontallyFlippedOrientation();
             }
 

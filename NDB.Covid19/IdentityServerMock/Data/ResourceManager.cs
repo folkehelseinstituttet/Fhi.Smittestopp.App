@@ -12,7 +12,7 @@ namespace Tests.IdentityServerMock.Data
                     Name = "app.api.whatever",
                     DisplayName = "Whatever Apis",
                     ApiSecrets = { new Secret("a75a559d-1dab-4c65-9bc0-f8e590cb388d".Sha256()) }
-             
+
                 },
                 new ApiResource("app.api.weather","Whatever Apis")
             };

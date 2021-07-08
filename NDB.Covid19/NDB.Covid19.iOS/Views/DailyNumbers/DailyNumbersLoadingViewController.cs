@@ -1,10 +1,10 @@
-﻿using System;
-using NDB.Covid19.Enums;
+﻿using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.Utils;
-using UIKit;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.PersistedData;
+using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
+using UIKit;
 
 namespace NDB.Covid19.iOS.Views.DailyNumbers
 {

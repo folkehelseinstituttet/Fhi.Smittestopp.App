@@ -1,12 +1,12 @@
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using AndroidX.Core.App;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
-using NDB.Covid19.ExposureNotifications.Helpers;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.Droid.Services
 {
@@ -19,8 +19,8 @@ namespace NDB.Covid19.Droid.Services
     {
         public override void OnReceive(Context context, Intent intent)
         {
-            NotificationType type = (NotificationType) intent.GetIntExtra("type", 0);
-            NotificationsEnum data = (NotificationsEnum) intent.GetIntExtra("data", 0);
+            NotificationType type = (NotificationType)intent.GetIntExtra("type", 0);
+            NotificationsEnum data = (NotificationsEnum)intent.GetIntExtra("data", 0);
             switch (type)
             {
                 case NotificationType.Local:
@@ -46,7 +46,7 @@ namespace NDB.Covid19.Droid.Services
         {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(context);
             notificationManagerCompat.Notify(
-                    (int) viewModel.Type,
+                    (int)viewModel.Type,
                 new LocalNotificationsManager(context)
                     .CreateNotification(viewModel));
         }
@@ -73,7 +73,7 @@ namespace NDB.Covid19.Droid.Services
                 NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(context);
                 await Task.Delay(triggerInSeconds * 1000);
                 notificationManagerCompat.Notify(
-                    (int) notificationViewModel.Type,
+                    (int)notificationViewModel.Type,
                     new LocalNotificationsManager(context)
                         .CreateNotification(notificationViewModel));
             });

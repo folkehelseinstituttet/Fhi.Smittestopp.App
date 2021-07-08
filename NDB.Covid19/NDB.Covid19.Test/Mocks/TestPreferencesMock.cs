@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NDB.Covid19.Interfaces;
+using System;
 using System.Collections.Generic;
-using NDB.Covid19.Interfaces;
 
 namespace NDB.Covid19.Test.Mocks
 {

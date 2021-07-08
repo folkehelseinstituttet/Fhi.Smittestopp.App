@@ -1,11 +1,11 @@
-﻿using System;
-using System.Threading;
-using NDB.Covid19.Enums;
+﻿using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Utils;
-using NDB.Covid19.ExposureNotifications.Helpers;
+using System;
+using System.Threading;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
@@ -13,7 +13,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
     public class ReapproveConsentsNotificationTests
     {
         private static readonly LocalNotificationManagerMock LocalNotificationsManager =
-            (LocalNotificationManagerMock) NotificationsHelper.LocalNotificationsManager;
+            (LocalNotificationManagerMock)NotificationsHelper.LocalNotificationsManager;
 
         public ReapproveConsentsNotificationTests()
         {
@@ -68,7 +68,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             DateTime inXDays = SystemTime.Now().AddDays(daysToPullForInFuture);
 
-            while(SystemTime.Now() < inXDays)
+            while (SystemTime.Now() < inXDays)
             {
                 try
                 {
@@ -81,7 +81,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 }
                 SystemTime.SetDateTime(SystemTime.Now().AddHours(pullingIntervalInHours));
             }
-            
+
             Assert.True(LocalNotificationsManager.HasBeenCalled[NotificationsEnum.ReApproveConsents]);
             Assert.Equal(numberOfNotificationsExpectedToBeShown, LocalNotificationsManager.NewConsentsHasBeenCalledCount);
         }

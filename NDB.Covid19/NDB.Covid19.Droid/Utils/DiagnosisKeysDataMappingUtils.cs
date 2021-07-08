@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Gms.Common.Apis;
 using Android.Gms.Nearby;
 using Android.Gms.Nearby.ExposureNotification;
@@ -11,6 +8,9 @@ using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices.ExposureNotification;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using EN = Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.Droid.Utils
@@ -31,7 +31,7 @@ namespace NDB.Covid19.Droid.Utils
             catch (ApiException e)
             {
                 // This is EN API v1, do nothing in this case.
-                if(e.StatusCode == CommonStatusCodes.ApiNotConnected)
+                if (e.StatusCode == CommonStatusCodes.ApiNotConnected)
                 {
                     LogUtils.LogException(LogSeverity.WARNING, e, _logPrefix + "SetDiagnosisKeysDataMappingAsync is not available in EN API v1, aborting.");
                     return;

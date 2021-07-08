@@ -1,7 +1,7 @@
 using Foundation;
-﻿using System;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.Utils;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS
@@ -78,7 +78,8 @@ namespace NDB.Covid19.iOS
                 Uri uri_netfx = new Uri(array[0].Url.AbsoluteString);
                 AuthenticationState.Authenticator.OnPageLoading(uri_netfx);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 LogUtils.LogException(Enums.LogSeverity.WARNING, e, $"{nameof(SceneDelegate)}.{nameof(OpenUrlContexts)}: Failed to redirect the user to the app ID Porten login in browser");
             }
         }

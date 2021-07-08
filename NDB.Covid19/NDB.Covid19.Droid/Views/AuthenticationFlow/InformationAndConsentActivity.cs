@@ -1,4 +1,3 @@
-using System;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -7,11 +6,12 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
-using NDB.Covid19.OAuth2;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
+using NDB.Covid19.OAuth2;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
 using Xamarin.Auth;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 

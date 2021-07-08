@@ -1,7 +1,7 @@
-﻿using System;
-using I18NPortable;
+﻿using I18NPortable;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.Utils;
+using System;
 
 namespace NDB.Covid19.ViewModels
 {

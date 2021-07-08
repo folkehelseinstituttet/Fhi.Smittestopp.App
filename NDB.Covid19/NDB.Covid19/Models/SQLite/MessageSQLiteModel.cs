@@ -1,6 +1,6 @@
-﻿using System;
-using NDB.Covid19.ViewModels;
+﻿using NDB.Covid19.ViewModels;
 using SQLite;
+using System;
 
 namespace NDB.Covid19.Models.SQLite
 {
@@ -13,7 +13,7 @@ namespace NDB.Covid19.Models.SQLite
         public string MessageLink { get; set; }
         public bool IsRead { get; set; }
 
-        public MessageSQLiteModel() {}
+        public MessageSQLiteModel() { }
         public MessageSQLiteModel(MessageItemViewModel model)
         {
             ID = model.ID;

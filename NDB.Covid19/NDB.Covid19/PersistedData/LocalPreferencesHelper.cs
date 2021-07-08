@@ -1,10 +1,10 @@
-﻿using System;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.WebServices.ExposureNotification;
+using System;
 
 namespace NDB.Covid19.PersistedData
 {
@@ -49,7 +49,7 @@ namespace NDB.Covid19.PersistedData
         {
             _preferences.Set(PreferencesKeys.LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER, isBackgroundActivityDialogShowEnableNewUser);
         }
-        
+
         public static DateTime DialogLastShownDate
         {
             get => _preferences.Get(PreferencesKeys.DIALOG_LAST_SHOWN_DATE, DateTime.MinValue);
@@ -178,7 +178,7 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.COUNTRY_CONSENTS_GIVEN, value);
         }
 
-         public static bool DidFirstFileOfTheDayEndedWith204
+        public static bool DidFirstFileOfTheDayEndedWith204
         {
             get => _preferences.Get(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, false);
             set => _preferences.Set(PreferencesKeys.FETCHING_ACROSS_DATES_204_FIRST_BATCH, value);

@@ -1,11 +1,11 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
+using System;
 
 namespace NDB.Covid19.Droid.Services
 {
     [BroadcastReceiver(Enabled = true)]
-    [IntentFilter(new[] {"android.intent.action.AIRPLANE_MODE"})]
+    [IntentFilter(new[] { "android.intent.action.AIRPLANE_MODE" })]
     class FlightModeHandlerBroadcastReceiver : BroadcastReceiver
     {
         public static bool IsFlightModeOn { get; set; }

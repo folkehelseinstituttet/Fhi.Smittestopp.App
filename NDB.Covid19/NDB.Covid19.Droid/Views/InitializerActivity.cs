@@ -1,16 +1,16 @@
 ﻿using Android.App;
-using Android.OS;
-using Android.Widget;
-using NDB.Covid19.Droid.Utils;
-using System;
 using Android.Content.PM;
-using NDB.Covid19.ViewModels;
-using static NDB.Covid19.Droid.Utils.StressUtils;
-using I18NPortable;
-using NDB.Covid19.Utils;
-using Android.Views;
-using AndroidX.Core.Content;
 using Android.Graphics;
+using Android.OS;
+using Android.Views;
+using Android.Widget;
+using AndroidX.Core.Content;
+using I18NPortable;
+using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
+using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Views
 {
@@ -20,7 +20,7 @@ namespace NDB.Covid19.Droid.Views
         ImageView _fhiLogo;
         ImageView _appLogo;
         Button _launcherButton;
-        
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             if (!IsTaskRoot)
@@ -49,11 +49,11 @@ namespace NDB.Covid19.Droid.Views
             _launcherButton = FindViewById<Button>(Resource.Id.launcher_button);
 
             _launcherButton.Text = InitializerViewModel.LAUNCHER_PAGE_START_BTN;
-            
+
             _launcherButton.Click += new SingleClick(LauncherButton_Click).Run;
 
             Window.SetStatusBarColor(new Color(ContextCompat.GetColor(this, Resource.Color.colorPrimary)));
-            Window.DecorView.SystemUiVisibility &= (StatusBarVisibility) ~SystemUiFlags.LightStatusBar;
+            Window.DecorView.SystemUiVisibility &= (StatusBarVisibility)~SystemUiFlags.LightStatusBar;
         }
 
         protected override void OnResume()

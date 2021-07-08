@@ -1,9 +1,7 @@
-﻿using System;
-using System.Globalization;
-using NDB.Covid19.Enums;
-using NDB.Covid19.ExposureNotifications.Helpers;
+﻿using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.PersistedData;
-using NDB.Covid19.Utils;
+using System;
+using System.Globalization;
 
 namespace NDB.Covid19.WebServices.ExposureNotification
 {

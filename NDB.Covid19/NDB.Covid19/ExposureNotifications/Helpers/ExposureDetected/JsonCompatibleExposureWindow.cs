@@ -7,7 +7,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
     {
         public CalibrationConfidence CalibrationConfidence { get; set; }
         public DateTime Timestamp { get; set; }
-        public Infectiousness Infectiousness { get; set; } 
+        public Infectiousness Infectiousness { get; set; }
         public ReportType ReportType { get; set; }
         public IReadOnlyList<ScanInstance> ScanInstances { get; set; }
 

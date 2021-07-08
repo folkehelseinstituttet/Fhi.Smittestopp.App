@@ -71,14 +71,16 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
             errorDescription.MovementMethod = Android.Text.Method.LinkMovementMethod.Instance;
 
             ViewGroup close = FindViewById<ViewGroup>(Resource.Id.close_cross_btn);
-            close.Click += new SingleClick((o, ev) => {
+            close.Click += new SingleClick((o, ev) =>
+            {
                 NavigationHelper.GoToResultPageAndClearTop(this);
             }).Run;
             close.ContentDescription = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
             Button button = FindViewById<Button>(Resource.Id.error_button);
             button.Text = buttonText;
             button.ContentDescription = buttonText;
-            button.Click += new SingleClick((o, ev) => {
+            button.Click += new SingleClick((o, ev) =>
+            {
                 NavigationHelper.GoToResultPageAndClearTop(this);
             }).Run;
 

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using NDB.Covid19.ViewModels;
+﻿using NDB.Covid19.ViewModels;
+using System.Collections.Generic;
 using UIKit;
-using static NDB.Covid19.Models.ConsentViewModel;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
+using static NDB.Covid19.Models.ConsentViewModel;
 
 namespace NDB.Covid19.iOS.Utils
 {

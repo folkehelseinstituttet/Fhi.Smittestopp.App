@@ -4,14 +4,14 @@ using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.ConstraintLayout.Widget;
-using NDB.Covid19.Utils;
-using NDB.Covid19.Interfaces;
-using Xamarin.Essentials;
-using static NDB.Covid19.ViewModels.QuestionnaireViewModel;
-using static NDB.Covid19.Droid.Utils.StressUtils;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
+using NDB.Covid19.Interfaces;
+using NDB.Covid19.Utils;
+using Xamarin.Essentials;
+using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.ViewModels.QuestionnaireViewModel;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -47,7 +47,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             TextView registeredDescription = FindViewById<TextView>(Resource.Id.registered_description);
             TextView recipeHeader = FindViewById<TextView>(Resource.Id.recipe_header);
             TextView recipeSmallText = FindViewById<TextView>(Resource.Id.recipe_small_text);
-            
+
             registeredTitle.Text = REGISTER_QUESTIONAIRE_RECEIPT_HEADER;
             registeredTickText.Text = REGISTER_QUESTIONAIRE_RECEIPT_TEXT;
             registeredDescription.Text = REGISTER_QUESTIONAIRE_RECEIPT_DESCRIPTION;

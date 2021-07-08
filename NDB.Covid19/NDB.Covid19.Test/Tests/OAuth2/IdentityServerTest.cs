@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using IdentityModel.Jwk;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Xunit;
-using Tests.IdentityServerMock;
 using NDB.Covid19.OAuth2;
-using IdentityModel.Jwk;
-using CertificateManager;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
+using Tests.IdentityServerMock;
+using Xunit;
 
 namespace NDB.Covid19.Test.Tests.OAuth2
 {
-    public class IdentityServerTest : 
+    public class IdentityServerTest :
         IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly WebApplicationFactory<Startup> _factory;
@@ -18,7 +17,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
         {
             _factory = factory;
         }
-        
+
         [Theory]
         [InlineData("/.well-known/openid-configuration/jwks")]
         public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
@@ -32,7 +31,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             {
                 pfx.LoadPfxFile("rsaCert.pfx", "12345");
             }
-           
+
             File.Delete("rsaCert.pfx");
 
             // Act
@@ -41,7 +40,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             //to extract public key X5c. Key is then compared with the one pulled from mocked server. 
             string alias = "my_ecc_key1";
             string password = "secret123";
-            
+
             Chilkat.JavaKeyStore jks = pfx.ToJavaKeyStore(alias, password);
             Chilkat.StringBuilder sbJwkSet = new Chilkat.StringBuilder();
             jks.ToJwkSet(password, sbJwkSet);
@@ -56,7 +55,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             System.Net.Http.HttpResponseMessage response = await authenticationManager.client.GetAsync(url);
             //public key from endpoint
             string publicKey = authenticationManager.GetPublicKey(url);
-            
+
             // Assert
             response.EnsureSuccessStatusCode(); // Status Code 200-299
             Assert.Equal(publicKey2, publicKey);

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
+using System;
+using System.Linq;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
@@ -26,7 +26,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
         {
             string logPrefix = $"{nameof(PullRules)}.{nameof(ShouldAbortPull)}: ";
 
-            if (!LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled() && !ConnectivityHelper.ConnectionProfiles.Contains(ConnectionProfile.WiFi) )
+            if (!LocalPreferencesHelper.GetIsDownloadWithMobileDataEnabled() && !ConnectivityHelper.ConnectionProfiles.Contains(ConnectionProfile.WiFi))
             {
                 return PrepareAbortMessage(logPrefix,
                     "Pull aborted. Mobile connectivity has been disabled in general settings and WiFi connection is not available. ",

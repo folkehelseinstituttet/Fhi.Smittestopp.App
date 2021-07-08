@@ -1,9 +1,9 @@
-﻿using System;
-using Android.Content;
+﻿using Android.Content;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using AndroidX.ViewPager.Widget;
+using System;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {

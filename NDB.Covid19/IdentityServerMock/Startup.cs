@@ -1,12 +1,12 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using CertificateManager;
-using System.Security.Cryptography.X509Certificates;
 using CertificateManager.Models;
-using System.Collections.Generic;
-using System;
-using System.Security.Cryptography;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Tests.IdentityServerMock
 {
@@ -15,7 +15,7 @@ namespace Tests.IdentityServerMock
         static CreateCertificates _cc;
         private X509Certificate2 Certificate { get; set; }
         private X509Certificate2 OldCertificate { get; set; }
-        public static byte [] RsaCertPfxBytes { get; set; }
+        public static byte[] RsaCertPfxBytes { get; set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -96,7 +96,7 @@ namespace Tests.IdentityServerMock
 
             RsaCertPfxBytes =
                 iec.ExportSelfSignedCertificatePfx(password, rsaCert);
-            byte[] OldRsaCertPfxBytes = 
+            byte[] OldRsaCertPfxBytes =
                 iec.ExportSelfSignedCertificatePfx(password, oldRsaCert);
 
             Certificate = new X509Certificate2(RsaCertPfxBytes, password);

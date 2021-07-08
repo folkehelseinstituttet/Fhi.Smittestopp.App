@@ -1,8 +1,8 @@
-using System;
-using System.Collections.Generic;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StressUtils;
 
@@ -164,7 +164,7 @@ namespace NDB.Covid19.iOS.Views.Welcome
         }
 
         ~WelcomeViewController()
-        {  
+        {
             _singleClick = null;
         }
     }

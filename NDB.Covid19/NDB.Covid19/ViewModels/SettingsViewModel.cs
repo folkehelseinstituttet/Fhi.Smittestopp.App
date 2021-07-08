@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using I18NPortable;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
-using I18NPortable;
-using NDB.Covid19.Configuration;
+using System.Collections.Generic;
 
 namespace NDB.Covid19.ViewModels
 {

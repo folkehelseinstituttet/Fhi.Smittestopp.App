@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Models;
 using NDB.Covid19.PersistedData.SQLite;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xamarin.ExposureNotifications;
 using Xunit;
 

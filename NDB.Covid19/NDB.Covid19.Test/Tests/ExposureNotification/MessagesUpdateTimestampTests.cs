@@ -1,18 +1,18 @@
-﻿using System;
+﻿using CommonServiceLocator;
+using Moq;
+using NDB.Covid19.Models;
+using NDB.Covid19.PersistedData.SecureStorage;
+using NDB.Covid19.Test.Mocks;
+using NDB.Covid19.ViewModels;
+using NDB.Covid19.WebServices.ExposureNotification;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using CommonServiceLocator;
-using Moq;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.Models;
-using NDB.Covid19.Test.Mocks;
 using Xunit;
-using System.Net.Http;
-using NDB.Covid19.PersistedData.SecureStorage;
-using NDB.Covid19.WebServices.ExposureNotification;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
@@ -34,7 +34,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             ApiResponse<Stream> apiResponse = new ApiResponse<Stream>("test", HttpMethod.Get)
             {
-                StatusCode = (int) httpStatus,
+                StatusCode = (int)httpStatus,
             };
 
             ExposureNotificationWebService notificationWebService =

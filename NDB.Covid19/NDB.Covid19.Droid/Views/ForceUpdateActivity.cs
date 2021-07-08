@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
@@ -9,6 +8,7 @@ using AndroidX.Core.Text;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using Uri = Android.Net.Uri;
 
 namespace NDB.Covid19.Droid.Views

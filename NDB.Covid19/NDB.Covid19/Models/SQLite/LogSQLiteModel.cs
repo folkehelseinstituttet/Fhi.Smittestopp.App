@@ -1,6 +1,6 @@
-﻿using System;
-using NDB.Covid19.Models.Logging;
+﻿using NDB.Covid19.Models.Logging;
 using SQLite;
+using System;
 
 namespace NDB.Covid19.Models.SQLite
 {

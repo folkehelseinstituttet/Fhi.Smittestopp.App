@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO.Compression;
-using System.Threading.Tasks;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ProtoModels;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO.Compression;
+using System.Threading.Tasks;
 using Xamarin.ExposureNotifications;
 using TemporaryExposureKey = NDB.Covid19.ProtoModels.TemporaryExposureKey;
 
@@ -207,7 +207,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public void AddToPullHistoryRecord(string message, string requestUrl = null)
         {
             string appendString = requestUrl == null ?
-                $"\n* {message}":
+                $"\n* {message}" :
                 $"\n* {requestUrl}: {message}";
             AllPullHistory = AllPullHistory + appendString;
             LastPullHistory = LastPullHistory + appendString;

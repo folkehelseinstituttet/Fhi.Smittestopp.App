@@ -1,11 +1,11 @@
-﻿using System;
+﻿using NDB.Covid19.Configuration;
+using NDB.Covid19.Models.SQLite;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using NDB.Covid19.Configuration;
-using NDB.Covid19.Models.SQLite;
-using SQLite;
 
 namespace NDB.Covid19.PersistedData.SQLite
 {
@@ -113,7 +113,7 @@ namespace NDB.Covid19.PersistedData.SQLite
                 _syncLock.Release();
             }
         }
-        
+
         public async Task MarkAllAsRead()
         {
             await _syncLock.WaitAsync();

@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Moq;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
@@ -9,6 +6,9 @@ using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Models.Logging;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.Utils
@@ -26,7 +26,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             SystemTime.ResetDateTime();
             DateTime currentTime = DateTime.UtcNow;
             SystemTime.SetDateTime(currentTime);
-            
+
             try
             {
                 new FetchExposureKeysHelper()
@@ -36,18 +36,18 @@ namespace NDB.Covid19.Test.Tests.Utils
             {
                 // ignore as ZipDownloader is not mocked in this test
             }
-            
+
             LogDeviceDetails logModel =
                 new LogDeviceDetails(
                     LogSeverity.WARNING,
                     "message",
                     "additionalInfo");
-            
+
             Assert.Equal(currentTime, logModel.ReportedTime);
-            
+
             SystemTime.ResetDateTime();
         }
-        
+
         [Fact]
         public async void SystemDateTimeIsIncorrect_NtpIsLowerThanCurrent_ShouldUseDefault()
         {
@@ -58,7 +58,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             NTPUtcDateTime ntpUtcDateTime =
                 Mock.Of<NTPUtcDateTime>(ntp =>
                     ntp.GetNTPUtcDateTime() == Task.FromResult(currentTime.AddYears(-1)));
-            
+
             try
             {
                 new FetchExposureKeysHelper().UpdateLastNTPDateTime(ntpUtcDateTime);
@@ -72,12 +72,12 @@ namespace NDB.Covid19.Test.Tests.Utils
                     LogSeverity.WARNING,
                     "message",
                     "additionalInfo");
-            
-            Assert.Equal(Conf.DATE_TIME_REPLACEMENT,logModel.ReportedTime);
-            
+
+            Assert.Equal(Conf.DATE_TIME_REPLACEMENT, logModel.ReportedTime);
+
             SystemTime.ResetDateTime();
         }
-        
+
         [Fact]
         public async void SystemDateTimeIsIncorrect_NtpIsEqualToPersisted_ShouldUseDefault()
         {
@@ -88,7 +88,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             NTPUtcDateTime ntpUtcDateTime =
                 Mock.Of<NTPUtcDateTime>(ntp =>
                     ntp.GetNTPUtcDateTime() == Task.FromResult(LocalPreferencesHelper.LastNTPUtcDateTime));
-            
+
             try
             {
                 new FetchExposureKeysHelper().UpdateLastNTPDateTime(ntpUtcDateTime);
@@ -102,19 +102,19 @@ namespace NDB.Covid19.Test.Tests.Utils
                     LogSeverity.WARNING,
                     "message",
                     "additionalInfo");
-            
-            Assert.Equal(Conf.DATE_TIME_REPLACEMENT,logModel.ReportedTime);
-            
+
+            Assert.Equal(Conf.DATE_TIME_REPLACEMENT, logModel.ReportedTime);
+
             SystemTime.ResetDateTime();
         }
-        
+
         [Fact]
         public async void SystemDateTimeIsIncorrect_ShouldUseNTP()
         {
             SystemTime.ResetDateTime();
             DateTime currentTime = DateTime.UtcNow.AddYears(-3);
             SystemTime.SetDateTime(currentTime);
-            
+
             try
             {
                 await new FetchExposureKeysHelper()
@@ -126,25 +126,25 @@ namespace NDB.Covid19.Test.Tests.Utils
             {
                 // ignore as ZipDownloader is not mocked in this test
             }
-            
+
             LogDeviceDetails logModel =
                 new LogDeviceDetails(
                     LogSeverity.WARNING,
                     "message",
                     "additionalInfo");
-            
+
             Assert.True(currentTime < logModel.ReportedTime);
-            
+
             SystemTime.ResetDateTime();
         }
-        
+
         [Fact]
         public async void SystemDateTimeIsIncorrectInTheFuture_ShouldUseNTP()
         {
             SystemTime.ResetDateTime();
             DateTime currentTime = DateTime.UtcNow.AddYears(3);
             SystemTime.SetDateTime(currentTime);
-            
+
             try
             {
                 await new FetchExposureKeysHelper()
@@ -156,15 +156,15 @@ namespace NDB.Covid19.Test.Tests.Utils
             {
                 // ignore as ZipDownloader is not mocked in this test
             }
-            
+
             LogDeviceDetails logModel =
                 new LogDeviceDetails(
                     LogSeverity.WARNING,
                     "message",
                     "additionalInfo");
-            
+
             Assert.True(currentTime > logModel.ReportedTime);
-            
+
             SystemTime.ResetDateTime();
         }
     }

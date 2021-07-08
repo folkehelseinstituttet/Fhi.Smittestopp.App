@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
@@ -16,6 +14,8 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 using XamarinShortcutBadger;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
@@ -74,13 +74,13 @@ namespace NDB.Covid19.Droid.Views.Messages
         private void CloseLocalNotification()
         {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.From(Current.Activity);
-            notificationManagerCompat.Cancel((int) NotificationsEnum.NewMessageReceived);
+            notificationManagerCompat.Cancel((int)NotificationsEnum.NewMessageReceived);
         }
 
         private async void Init()
         {
             MessagesViewModel.SubscribeMessages(this, ClearAndAddNewMessages);
-            
+
             _messagesList = FindViewById<ListView>(Resource.Id.messages_list);
             _noItemsTextView = FindViewById<TextView>(Resource.Id.no_items_description);
             _lastUpdatedTextView = FindViewById<TextView>(Resource.Id.last_updated);
@@ -90,7 +90,7 @@ namespace NDB.Covid19.Droid.Views.Messages
 
 
             TextView title = FindViewById<TextView>(Resource.Id.messages_page_title);
-            
+
             title.Text = MessagesViewModel.MESSAGES_HEADER;
             title.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
@@ -125,7 +125,7 @@ namespace NDB.Covid19.Droid.Views.Messages
             _noItemsTextView.Text = MessagesViewModel.MESSAGES_NO_ITEMS_DESCRIPTION;
 
             _closeButton = FindViewById<ImageView>(Resource.Id.arrow_back);
-            _closeButton.Click +=new StressUtils.SingleClick(OnCloseBtnClicked).Run;
+            _closeButton.Click += new StressUtils.SingleClick(OnCloseBtnClicked).Run;
             _closeButton.ContentDescription = MessagesViewModel.MESSAGES_ACCESSIBILITY_CLOSE_BUTTON;
 
             _adapterMessages = new MessagesAdapter(this, new MessageItemViewModel[0]);

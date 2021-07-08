@@ -1,7 +1,7 @@
-using System;
 using CommonServiceLocator;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
+using System;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.Utils

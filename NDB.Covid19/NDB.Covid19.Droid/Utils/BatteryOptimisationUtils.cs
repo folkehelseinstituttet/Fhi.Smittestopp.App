@@ -27,7 +27,7 @@ namespace NDB.Covid19.Droid.Utils
             intent.SetAction(Android.Provider.Settings.ActionRequestIgnoreBatteryOptimizations);
             intent.SetData(Android.Net.Uri.Parse("package:" + PACKAGE_NAME));
             current.StartActivityForResult(intent, MY_REQUEST_IGNORE_BATTERY_OPTIMIZATION_ID);
-          
+
 
         }
         public static void StartBatterySetting(Context context)

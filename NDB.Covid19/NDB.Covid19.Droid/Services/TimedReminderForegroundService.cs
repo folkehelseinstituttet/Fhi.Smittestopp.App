@@ -1,11 +1,11 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using System;
 using Android.Runtime;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
+using System;
 
 namespace NDB.Covid19.Droid.Services
 {
@@ -15,10 +15,10 @@ namespace NDB.Covid19.Droid.Services
 
         private TimedReminderCountdownTimer _timedReminderCountdownTimer;
 
-        
-       public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
+
+        public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
         {
-            
+
             if (intent.GetBooleanExtra("close", false))
             {
                 StopForeground(true);
@@ -35,7 +35,7 @@ namespace NDB.Covid19.Droid.Services
             // Enlist this instance of the service as a foreground service
             StartForeground((int)NotificationsEnum.TimedReminder, notification);
 
-            
+
 
             try
             {

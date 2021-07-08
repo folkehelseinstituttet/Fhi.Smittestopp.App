@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using NDB.Covid19.Utils;
+﻿using NDB.Covid19.Utils;
+using System.Linq;
 
 namespace NDB.Covid19.Models.Logging
 {
@@ -13,7 +13,7 @@ namespace NDB.Covid19.Models.Logging
         {
             Api = "/" + apiResponse.Endpoint;
             ApiErrorCode = apiResponse.StatusCode > 0
-                ? (int?) apiResponse.StatusCode
+                ? (int?)apiResponse.StatusCode
                 : null;
             ApiErrorMessage = (new int?[] { 200, 201 }).Contains(ApiErrorCode)
                 ? null

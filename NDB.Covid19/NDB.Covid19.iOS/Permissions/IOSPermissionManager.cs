@@ -3,8 +3,9 @@ using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.iOS.Permissions
 {
-    public class IOSPermissionManager { 
-        
+    public class IOSPermissionManager
+    {
+
         public async Task<bool> PermissionUnknown()
         {
             return await ExposureNotification.GetStatusAsync() == Status.Unknown;
@@ -23,7 +24,7 @@ namespace NDB.Covid19.iOS.Permissions
         public async Task<bool> PoweredOn()
         {
             Status status = await ExposureNotification.GetStatusAsync();
-            return status == Status.Active || status == Status.Disabled; 
+            return status == Status.Active || status == Status.Disabled;
         }
     }
 }

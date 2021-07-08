@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using Microsoft.Security.Application;
+using System.Linq;
 using System.Text.RegularExpressions;
-using Microsoft.Security.Application;
 using static Microsoft.Security.Application.Encoder;
 
 namespace NDB.Covid19.Utils

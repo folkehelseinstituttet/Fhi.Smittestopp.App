@@ -27,7 +27,7 @@ namespace NDB.Covid19.WebServices.ErrorHandlers
 
         public void HandleError(ApiResponse apiResponse)
         {
-            LogUtils.LogApiError(Enums.LogSeverity.WARNING, apiResponse, IsSilent, "", "Failed contact to server: No internet") ;
+            LogUtils.LogApiError(Enums.LogSeverity.WARNING, apiResponse, IsSilent, "", "Failed contact to server: No internet");
             if (!IsSilent)
             {
                 ShowErrorToUser();

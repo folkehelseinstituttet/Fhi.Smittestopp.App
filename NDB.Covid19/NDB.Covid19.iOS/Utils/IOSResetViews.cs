@@ -3,7 +3,7 @@ using UIKit;
 
 namespace NDB.Covid19.iOS.Utils
 {
-    public class IOSResetViews: IResetViews
+    public class IOSResetViews : IResetViews
     {
         public void ResetViews()
         {

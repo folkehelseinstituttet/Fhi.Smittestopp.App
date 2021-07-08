@@ -1,5 +1,4 @@
-﻿using System;
-namespace NDB.Covid19.Models.DTOsForServer
+﻿namespace NDB.Covid19.Models.DTOsForServer
 {
     public class DailyNumbersDTO
     {

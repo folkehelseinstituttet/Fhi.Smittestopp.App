@@ -1,4 +1,3 @@
-using System;
 using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
@@ -6,6 +5,7 @@ using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.CustomSubclasses;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
@@ -17,7 +17,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
         private SettingsGeneralViewModel _viewModel;
         private UITapGestureRecognizer _gestureRecognizer;
         private readonly IResetViews _resetViews = ServiceLocator.Current.GetInstance<IResetViews>();
-        
+
         public SettingsPageGeneralSettingsViewController(IntPtr handle) : base(handle)
         {
         }
@@ -27,7 +27,7 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPageGeneral
             base.ViewDidLoad();
 
             SetupStyling();
-            
+
             _viewModel = new SettingsGeneralViewModel();
         }
 

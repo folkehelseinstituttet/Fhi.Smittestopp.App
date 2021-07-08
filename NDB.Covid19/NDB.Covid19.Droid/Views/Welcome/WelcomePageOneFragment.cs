@@ -1,8 +1,8 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.ViewModels;
 using Fragment = AndroidX.Fragment.App.Fragment;
 
 namespace NDB.Covid19.Droid.Views.Welcome

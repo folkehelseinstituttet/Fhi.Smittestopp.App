@@ -1,19 +1,19 @@
-using System;
-using System.Diagnostics;
 using CommonServiceLocator;
 using Foundation;
-using NDB.Covid19.iOS.Views.MessagePage;
-using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.Utils;
-using Plugin.SecureStorage;
-using UIKit;
-using UserNotifications;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
+using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.InfectionStatus;
+using NDB.Covid19.iOS.Views.MessagePage;
 using NDB.Covid19.OAuth2;
+using NDB.Covid19.Utils;
+using Plugin.SecureStorage;
+using System;
+using System.Diagnostics;
+using UIKit;
+using UserNotifications;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
-using NDB.Covid19.Enums;
 
 #if APPCENTER
 using Microsoft.AppCenter;
@@ -78,11 +78,12 @@ namespace NDB.Covid19.iOS
 
             return true;
         }
-        
+
         void HandleLocalNotifications()
         {
             // Request notification permissions from the user. Dialog will only show if user has not already answered
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge, (approved, err) => {
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge, (approved, err) =>
+            {
                 Console.WriteLine("Notifications approve = " + approved.ToString());
             });
 
@@ -116,7 +117,7 @@ namespace NDB.Covid19.iOS
             {
                 return;
             }
-            
+
             UINavigationController vc =
                 e == iOSLocalNotificationsManager.NewMessageIdentifier
                     ? MessagePageViewController.GetMessagePageControllerInNavigationController()
@@ -234,7 +235,7 @@ namespace NDB.Covid19.iOS
         public void AppWillTerminate(UIApplication application)
         {
             string correlationId = GetCorrelationId();
-            if(!string.IsNullOrEmpty(correlationId))
+            if (!string.IsNullOrEmpty(correlationId))
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user closed the app", null, correlationId);
             }

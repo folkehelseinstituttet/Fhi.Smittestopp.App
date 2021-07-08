@@ -1,8 +1,8 @@
-using System;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Views.ErrorStatus;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 using Xamarin.Auth;
 
@@ -67,5 +67,5 @@ namespace NDB.Covid19.iOS.Utils
             }
         }
     }
-       
+
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Threading;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Configuration;
+using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
-using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData.SecureStorage;
@@ -12,6 +10,8 @@ using NDB.Covid19.PersistedData.SQLite;
 using NDB.Covid19.Test.Mocks;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Threading;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
@@ -19,13 +19,13 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
     public class ResendNotificationTests : IDisposable
     {
         private static readonly LocalNotificationManagerMock LocalNotificationsManager =
-            (LocalNotificationManagerMock) NotificationsHelper.LocalNotificationsManager;
+            (LocalNotificationManagerMock)NotificationsHelper.LocalNotificationsManager;
 
         private static SecureStorageService _secureStorageService =>
             ServiceLocator.Current.GetInstance<SecureStorageService>();
 
         private static PermissionsMock Permissions =>
-            (PermissionsMock) ServiceLocator.Current.GetInstance<IPermissionsHelper>();
+            (PermissionsMock)ServiceLocator.Current.GetInstance<IPermissionsHelper>();
 
         public ResendNotificationTests()
         {

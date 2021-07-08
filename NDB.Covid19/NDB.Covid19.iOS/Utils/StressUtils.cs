@@ -1,5 +1,5 @@
-﻿using System;
-using CoreFoundation;
+﻿using CoreFoundation;
+using System;
 
 namespace NDB.Covid19.iOS.Utils
 {

@@ -29,7 +29,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             // When
             if (pref == Pref.Main) IsOnboardingCompleted = status;
             else IsOnboardingCountriesCompleted = status;
-            
+
             // Then
             Assert.Equal(pref == Pref.Main ? IsOnboardingCompleted : IsOnboardingCountriesCompleted, status);
         }

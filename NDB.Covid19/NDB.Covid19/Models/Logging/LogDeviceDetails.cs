@@ -34,7 +34,7 @@ namespace NDB.Covid19.Models.Logging
                            (lastNTPDateTime - reportedUtcDateTime).Duration().Days >= 365 * 2
                 ? LocalPreferencesHelper.LastNTPUtcDateTime
                 : reportedUtcDateTime;
-            
+
             ApiVersion = Conf.APIVersion;
 
             string addInfoPostfix = ServiceLocator.Current.GetInstance<IApiDataHelper>().GetBackGroundServicVersionLogString();

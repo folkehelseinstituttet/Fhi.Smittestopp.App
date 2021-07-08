@@ -1,6 +1,5 @@
-﻿using System;
-using CoreFoundation;
-using NDB.Covid19.iOS.Utils;
+﻿using NDB.Covid19.iOS.Utils;
+using System;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 

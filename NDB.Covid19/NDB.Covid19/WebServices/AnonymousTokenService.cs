@@ -1,10 +1,10 @@
 ﻿using AnonymousTokens.Client.Protocol;
 using NDB.Covid19.Configuration;
+using NDB.Covid19.Models.UserDefinedExceptions;
 using NDB.Covid19.OAuth2;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto.EC;
-using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Math.EC;
 using System;
@@ -13,7 +13,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using NDB.Covid19.Models.UserDefinedExceptions;
 
 namespace NDB.Covid19.WebServices
 {
@@ -141,16 +140,16 @@ namespace NDB.Covid19.WebServices
 
         [JsonProperty("kty")]
         public string Kty { get; set; }
-        
+
         [JsonProperty("crv")]
         public string Crv { get; set; }
-        
+
         [JsonProperty("x")]
         public string X { get; set; }
-        
+
         [JsonProperty("y")]
         public string Y { get; set; }
-        
+
         [JsonProperty("k")]
         public string K { get; set; }
 

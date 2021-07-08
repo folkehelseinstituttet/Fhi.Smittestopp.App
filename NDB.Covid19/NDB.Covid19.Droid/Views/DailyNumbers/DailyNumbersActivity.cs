@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
@@ -13,6 +12,7 @@ using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Views.InfectionStatus;
 using NDB.Covid19.ViewModels;
+using System;
 using static NDB.Covid19.ViewModels.DailyNumbersViewModel;
 
 namespace NDB.Covid19.Droid.Views.DailyNumbers
@@ -85,7 +85,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             AdjustLineBreaks(viewA, viewB);
             AdjustLineBreaks(viewB, viewA);
         }
-        
+
         private void UpdateUI()
         {
             TextView _dailyNumbersHeader = FindViewById<TextView>(Resource.Id.daily_numbers_header_textView);
@@ -104,7 +104,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             FindViewById<TextView>(Resource.Id.total_numbers_infected_total_text).Text = ConfirmedCasesTotal;
 
             _conductedTestsHeader.Text = KEY_FEATURE_THREE_LABEL;
-            
+
             FindViewById<TextView>(Resource.Id.total_numbers_tested_total_text).Text = TestsConductedTotal;
 
             _patientsAdmittedHeader.Text = KEY_FEATURE_FOUR_LABEL;
@@ -122,15 +122,15 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             TextView _dailyNumbersSubTextVaccinations = FindViewById<TextView>(Resource.Id.total_numbers_vaccinations_text_textview);
             SetupSubTextWithLink(_dailyNumbersSubTextVaccinations, LastUpdateStringSubTextTwo);
 
-           
+
             _vaccinationDoseOneHeader.Text = KEY_FEATURE_NINE_LABEL;
             _vaccinationDoseOneHeader.ContentDescription = KEY_FEATURE_NINE_ACCESSIBILITY_LABEL;
-            
+
             FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose1_total_text).Text = VaccinationsDoseOneTotal;
 
             _vaccinationDoseTwoHeader.Text = KEY_FEATURE_TEN_LABEL;
             _vaccinationDoseTwoHeader.ContentDescription = KEY_FEATURE_TEN_ACCESSIBILITY_LABEL;
-            
+
             FindViewById<TextView>(Resource.Id.total_numbers_vaccination_dose2_total_text).Text = VaccinationsDoseTwoTotal;
 
             TextView _dailyNumbersSubHeaderSmittestopp = FindViewById<TextView>(Resource.Id.daily_numbers_smittestopp_header_textView);
@@ -144,7 +144,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
             _positiveSharedCasesHeader.Text = KEY_FEATURE_FIVE_LABEL;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_number_text).Text = NumberOfPositiveTestsResultsLast7Days;
             FindViewById<TextView>(Resource.Id.daily_numbers_positive_shared_total_text).Text = NumberOfPositiveTestsResultsTotal;
-            
+
             // CONTENT DESCRIPTIONS OF HEADERS
             _dailyNumbersHeader.ContentDescription = DAILY_NUMBERS_HEADER.ToLower();
             _dailyNumbersSubHeaderStatistics.ContentDescription = DAILY_NUMBERS_TITLE_ONE.ToLower();
@@ -182,7 +182,7 @@ namespace NDB.Covid19.Droid.Views.DailyNumbers
 
         private void GoToInfectionStatusActivity() => Finish();
 
-        private void SetupSubTextWithLink (TextView textView, string formattedText)
+        private void SetupSubTextWithLink(TextView textView, string formattedText)
         {
             ISpanned formattedDescription = HtmlCompat.FromHtml(formattedText, HtmlCompat.FromHtmlModeLegacy);
             textView.TextFormatted = formattedDescription;

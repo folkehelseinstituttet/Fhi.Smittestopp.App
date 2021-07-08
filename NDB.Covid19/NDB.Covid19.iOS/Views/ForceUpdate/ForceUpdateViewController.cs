@@ -1,16 +1,16 @@
-using System;
 using Foundation;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.ForceUpdate
 {
     public partial class ForceUpdateViewController : BaseViewController
     {
-        public ForceUpdateViewController (IntPtr handle) : base (handle)
+        public ForceUpdateViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -20,7 +20,8 @@ namespace NDB.Covid19.iOS.Views.ForceUpdate
 
             NSAttributedStringDocumentAttributes documentAttributes = new NSAttributedStringDocumentAttributes
             {
-                DocumentType = NSDocumentType.HTML, StringEncoding = NSStringEncoding.UTF8
+                DocumentType = NSDocumentType.HTML,
+                StringEncoding = NSStringEncoding.UTF8
             };
             NSError error = null;
             NSAttributedString attributedString =

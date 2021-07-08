@@ -5,7 +5,8 @@ namespace NDB.Covid19.Test.Tests.OAuth2
 {
     public class AuthenticationManagerTest
     {
-        public AuthenticationManagerTest() {
+        public AuthenticationManagerTest()
+        {
             DependencyInjectionConfig.Init();
         }
 

@@ -1,10 +1,10 @@
+using NDB.Covid19.Droid.Services;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Interfaces;
 using NDB.Covid19.WebServices.ErrorHandlers;
 using Unity;
-using Unity.ServiceLocation;
-using NDB.Covid19.Droid.Services;
 using Unity.Lifetime;
-using NDB.Covid19.Interfaces;
+using Unity.ServiceLocation;
 
 namespace NDB.Covid19.Droid
 {

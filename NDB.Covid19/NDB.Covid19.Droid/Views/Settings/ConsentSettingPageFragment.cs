@@ -1,5 +1,4 @@
-﻿using System;
-using Android.OS;
+﻿using Android.OS;
 using Android.Text.Util;
 using Android.Views;
 using Android.Widget;
@@ -7,6 +6,7 @@ using AndroidX.Core.Text;
 using AndroidX.Fragment.App;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 
 namespace NDB.Covid19.Droid.Views.Settings
 {

@@ -1,7 +1,7 @@
-using System;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
@@ -17,7 +17,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
             Nib = UINib.FromName("CountryTableCell", NSBundle.MainBundle);
         }
 
-        public CountryTableCell (IntPtr handle) : base (handle)
+        public CountryTableCell(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
         }

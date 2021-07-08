@@ -1,9 +1,9 @@
-﻿using System;
-using System.Net.Http.Headers;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Configuration;
-using NDB.Covid19.Utils;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.Utils;
+using System;
+using System.Net.Http.Headers;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.WebServices.Utils
@@ -38,7 +38,7 @@ namespace NDB.Covid19.WebServices.Utils
                 HttpClientAccessor.HttpClient.DefaultRequestHeaders.Add("OSVersion", deviceInfo.VersionString);
                 HttpClientAccessor.HttpClient.DefaultRequestHeaders.Add("OS", DeviceUtils.DeviceType);
             }
-            HttpClientAccessor.HttpClient.MaxResponseContentBufferSize = 3000000; 
+            HttpClientAccessor.HttpClient.MaxResponseContentBufferSize = 3000000;
             HttpClientAccessor.HttpClient.Timeout = TimeSpan.FromSeconds(Conf.DEFAULT_TIMEOUT_SERVICECALLS_SECONDS);
         }
 

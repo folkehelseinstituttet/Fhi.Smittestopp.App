@@ -1,8 +1,6 @@
+using NDB.Covid19.Configuration;
 using System;
 using System.Globalization;
-using System.Linq;
-using NDB.Covid19.Configuration;
-using NDB.Covid19.PersistedData;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.Utils

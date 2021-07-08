@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using FluentAssertions;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
@@ -12,6 +7,11 @@ using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Test.Mocks;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Threading;
 using Xamarin.ExposureNotifications;
 using Xunit;
 
@@ -45,7 +45,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             TimeSpan mediumAttenuationDuration = TimeSpan.FromMinutes(0);
             TimeSpan highAttenuationDuration = TimeSpan.FromMinutes(15);
             ExposureDetectionSummary summary = new ExposureDetectionSummary(
-                3, 100, 2, new[] {lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration}, 512);
+                3, 100, 2, new[] { lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration }, 512);
 
             //When the IsAttenuationDurationOverThreshold is called
             bool isOverThreshold = ExposureDetectedHelper.IsAttenuationDurationOverThreshold(summary);
@@ -67,7 +67,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             TimeSpan mediumAttenuationDuration = TimeSpan.FromMinutes(10);
             TimeSpan highAttenuationDuration = TimeSpan.FromMinutes(100);
             ExposureDetectionSummary summary = new ExposureDetectionSummary(
-                3, 100, 2, new[] {lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration}, 512);
+                3, 100, 2, new[] { lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration }, 512);
 
             //When the IsAttenuationDurationOverThreshold is called
             bool isOverThreshold = ExposureDetectedHelper.IsAttenuationDurationOverThreshold(summary);
@@ -90,7 +90,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             TimeSpan mediumAttenuationDuration = TimeSpan.FromMinutes(30);
             TimeSpan highAttenuationDuration = TimeSpan.FromMinutes(0);
             ExposureDetectionSummary summary = new ExposureDetectionSummary(
-                3, 100, 2, new[] {lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration}, 512);
+                3, 100, 2, new[] { lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration }, 512);
 
             //When the IsAttenuationDurationOverThreshold is called
             bool isOverThreshold = ExposureDetectedHelper.IsAttenuationDurationOverThreshold(summary);
@@ -114,7 +114,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             TimeSpan mediumAttenuationDuration = TimeSpan.FromMinutes(10);
             TimeSpan highAttenuationDuration = TimeSpan.FromMinutes(0);
             ExposureDetectionSummary summary = new ExposureDetectionSummary(
-                3, 100, 2, new[] {lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration}, 512);
+                3, 100, 2, new[] { lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration }, 512);
 
             //When the IsAttenuationDurationOverThreshold is called
             bool isOverThreshold = ExposureDetectedHelper.IsAttenuationDurationOverThreshold(summary);
@@ -137,7 +137,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             TimeSpan mediumAttenuationDuration = TimeSpan.FromMinutes(0);
             TimeSpan highAttenuationDuration = TimeSpan.FromMinutes(9999999);
             ExposureDetectionSummary summary = new ExposureDetectionSummary(
-                3, 100, 2, new[] {lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration}, 512);
+                3, 100, 2, new[] { lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration }, 512);
 
             //When the IsAttenuationDurationOverThreshold is called
             bool isOverThreshold = ExposureDetectedHelper.IsAttenuationDurationOverThreshold(summary);
@@ -161,7 +161,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             TimeSpan mediumAttenuationDuration = TimeSpan.FromMinutes(8);
             TimeSpan highAttenuationDuration = TimeSpan.FromMinutes(0);
             ExposureDetectionSummary summary = new ExposureDetectionSummary(
-                3, 100, 2, new[] {lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration}, 512);
+                3, 100, 2, new[] { lowAttenuationDuration, mediumAttenuationDuration, highAttenuationDuration }, 512);
 
             //When the IsAttenuationDurationOverThreshold is called
             bool isOverThreshold = ExposureDetectedHelper.IsAttenuationDurationOverThreshold(summary);

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using NDB.Covid19.Models;
+﻿using NDB.Covid19.Models;
 using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.Test.Helpers;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.WebServices;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using Xunit;
@@ -31,7 +31,7 @@ namespace NDB.Covid19.Test.Tests.ViewModels
         }
 
         [Fact]
-        public async void  CountryListService_EndpointWorks()
+        public async void CountryListService_EndpointWorks()
         {
             var testApiPath = "/countries";
 
@@ -109,10 +109,10 @@ namespace NDB.Covid19.Test.Tests.ViewModels
 
             TaskCompletionSource<bool> _tcs = new TaskCompletionSource<bool>();
 
-            _viewModel.InvokeNextButtonClick(null,() =>
-            {
-                _tcs.SetResult(true);
-            }, list.ToList());
+            _viewModel.InvokeNextButtonClick(null, () =>
+             {
+                 _tcs.SetResult(true);
+             }, list.ToList());
 
             Assert.True(await _tcs.Task);
             Assert.Null(AuthenticationState.PersonalData?.VisitedCountries);

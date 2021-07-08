@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using I18NPortable;
 using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.WebServices;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -37,7 +37,7 @@ namespace NDB.Covid19.ViewModels
         public async Task<List<CountryDetailsViewModel>> GetListOfCountriesAsync()
         {
             CountryListDTO countryList = await (new CountryListService()).GetCountryList();
-            return countryList?.CountryCollection?.Select(x => new CountryDetailsViewModel{ Name = x.TranslatedName, Code = x.Code }).ToList()
+            return countryList?.CountryCollection?.Select(x => new CountryDetailsViewModel { Name = x.TranslatedName, Code = x.Code }).ToList()
                 ?? new List<CountryDetailsViewModel>();
         }
 

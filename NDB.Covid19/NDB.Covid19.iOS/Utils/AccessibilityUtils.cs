@@ -1,5 +1,5 @@
-﻿using System.Text.RegularExpressions;
-using Foundation;
+﻿using Foundation;
+using System.Text.RegularExpressions;
 
 namespace NDB.Covid19.iOS.Utils
 {

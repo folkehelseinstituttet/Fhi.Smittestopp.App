@@ -1,6 +1,6 @@
-﻿using System;
-using Plugin.SecureStorage;
+﻿using Plugin.SecureStorage;
 using Plugin.SecureStorage.Abstractions;
+using System;
 
 namespace NDB.Covid19.PersistedData.SecureStorage
 {

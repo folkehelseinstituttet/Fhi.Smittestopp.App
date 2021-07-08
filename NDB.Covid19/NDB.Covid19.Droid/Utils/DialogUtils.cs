@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Views;
 using Android.Widget;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Threading.Tasks;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Utils
@@ -122,7 +122,8 @@ namespace NDB.Covid19.Droid.Utils
             {
                 tcs.SetResult(result);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 if (e is InvalidOperationException)
                 {
                     LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "InvalidOperationException, this indicates the task was already in a final state when SetResult was called, (User most likely pressed both button at the same time)", additionalInfo);

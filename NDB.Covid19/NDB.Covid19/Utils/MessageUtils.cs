@@ -1,14 +1,14 @@
-﻿using System;
+﻿using CommonServiceLocator;
+using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
+using NDB.Covid19.Models.SQLite;
+using NDB.Covid19.PersistedData.SecureStorage;
+using NDB.Covid19.PersistedData.SQLite;
+using NDB.Covid19.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CommonServiceLocator;
-using NDB.Covid19.Enums;
-using NDB.Covid19.ExposureNotifications.Helpers;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.Models.SQLite;
-using NDB.Covid19.PersistedData.SQLite;
-using NDB.Covid19.PersistedData.SecureStorage;
 
 namespace NDB.Covid19.Utils
 {

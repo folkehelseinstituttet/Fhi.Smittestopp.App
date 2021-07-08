@@ -1,10 +1,10 @@
-﻿using System;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
+using System;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -49,7 +49,7 @@ namespace NDB.Covid19.ViewModels
                 string endpoint = Conf.BASE_URL;
                 bool isHttps = endpoint.StartsWith("https://");
                 int httpsLength = (isHttps ? "https://" : "http://").Length;
-                int length = endpoint.IndexOf(isHttps? "." : ":9095") - httpsLength;
+                int length = endpoint.IndexOf(isHttps ? "." : ":9095") - httpsLength;
                 return endpoint.Substring(httpsLength, length);
             }
             catch

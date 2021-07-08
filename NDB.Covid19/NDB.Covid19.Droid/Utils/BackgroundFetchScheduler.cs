@@ -1,11 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Android.Content;
+﻿using Android.Content;
 using AndroidX.Work;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Debug = System.Diagnostics.Debug;
 
@@ -80,7 +80,7 @@ namespace NDB.Covid19.Droid.Utils
             private ForegroundInfo CreateForegroundInfo()
             {
                 return new ForegroundInfo(
-                    (int) NotificationsEnum.BackgroundFetch,
+                    (int)NotificationsEnum.BackgroundFetch,
                     new LocalNotificationsManager().CreateNotification(NotificationsEnum.BackgroundFetch.Data()));
             }
 

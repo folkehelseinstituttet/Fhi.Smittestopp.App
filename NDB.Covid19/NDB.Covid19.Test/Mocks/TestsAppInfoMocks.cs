@@ -1,10 +1,10 @@
-﻿using System;
-using NDB.Covid19.Interfaces;
+﻿using NDB.Covid19.Interfaces;
+using System;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.Test.Mocks
 {
-    public class TestsAppInfoMocks: IAppInfo
+    public class TestsAppInfoMocks : IAppInfo
     {
         public void ShowSettingsUI()
         {

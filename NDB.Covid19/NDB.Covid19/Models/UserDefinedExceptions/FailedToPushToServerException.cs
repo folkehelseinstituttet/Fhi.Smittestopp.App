@@ -3,7 +3,7 @@
 namespace NDB.Covid19.Models.UserDefinedExceptions
 {
     [Serializable]
-    public class FailedToPushToServerException: Exception
+    public class FailedToPushToServerException : Exception
     {
         public FailedToPushToServerException()
         {
@@ -13,9 +13,9 @@ namespace NDB.Covid19.Models.UserDefinedExceptions
         {
         }
 
-        public FailedToPushToServerException (string message, Exception innerException)
-            : base (message, innerException)
+        public FailedToPushToServerException(string message, Exception innerException)
+            : base(message, innerException)
         {
-        }    
+        }
     }
 }

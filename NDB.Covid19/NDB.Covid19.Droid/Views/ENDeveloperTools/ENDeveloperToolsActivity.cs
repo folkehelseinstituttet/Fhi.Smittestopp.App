@@ -1,18 +1,18 @@
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Widget;
-using AndroidX.AppCompat.App;
-using static NDB.Covid19.Droid.Utils.StressUtils;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.Droid.Utils;
-using System;
 using Android.Text;
 using Android.Views;
+using Android.Widget;
+using AndroidX.AppCompat.App;
+using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
+using System.Threading.Tasks;
+using static NDB.Covid19.Droid.Utils.StressUtils;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 
 namespace NDB.Covid19.Droid.Views.ENDeveloperTools
@@ -192,7 +192,7 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
             {
                 EditText input = new EditText(this);
                 InputFilterLengthFilter inputFilterLengthFilter = new InputFilterLengthFilter(2);
-                input.SetFilters(new IInputFilter[]{inputFilterLengthFilter});
+                input.SetFilters(new IInputFilter[] { inputFilterLengthFilter });
                 input.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
                 new AlertDialog.Builder(this)
                     .SetMessage("Enter region code (2 chars country code)")
@@ -222,7 +222,7 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         {
             MessagingCenter.Send<object>(this, MessagingCenterKeys.KEY_FORCE_UPDATE);
         }
-        
+
         private SingleClick OnPrintActualPreferences() => new SingleClick(async (o, args) =>
         {
             UpdateText(await _viewModel.GetFormattedPreferences());
@@ -244,19 +244,23 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
             UpdateText(_viewModel.IncementExposureDate());
         }
 
-        private void UpdateText(string text) {
+        private void UpdateText(string text)
+        {
             RunOnUiThread(() => _textViewDevOutput.Text = text);
         }
 
-        private void ToggleRetentionTime() {
+        private void ToggleRetentionTime()
+        {
             UpdateText(_viewModel.ToggleMessageRetentionTime());
         }
 
-        private void PrintLastSymptomsOnsetDate() {
+        private void PrintLastSymptomsOnsetDate()
+        {
             UpdateText(_viewModel.PrintLastSymptomOnsetDate());
         }
 
-        private void PrintLastPulledKeysAndTimestamp() {
+        private void PrintLastPulledKeysAndTimestamp()
+        {
             UpdateText(_viewModel.PrintLastPulledKeysAndTimestamp());
         }
 
@@ -299,10 +303,12 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private async Task SendExposureMessageAfter10Sec()
         {
             UpdateText("Sending Exposure Message in 10 sec");
-            try {
+            try
+            {
                 await _viewModel.SimulateExposureMessageAfter10Sec();
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 System.Diagnostics.Debug.WriteLine(e.ToString());
                 UpdateText("Test method: _viewModel.SimulateExposureMessageAfter10Sec() failed on android");
             }
@@ -310,19 +316,22 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
 
         private void FetchExposureConfiguration()
         {
-            Task.Run(async () => {
+            Task.Run(async () =>
+            {
                 string res = await _viewModel.FetchExposureConfigurationAsync();
-                RunOnUiThread(() => {
+                RunOnUiThread(() =>
+                {
                     UpdateText("Copied to clipboard:\n" + res);
-                }); 
+                });
             });
         }
         private void LastUsedExposureConfiguration()
         {
             string res = _viewModel.LastUsedExposureConfigurationAsync();
-            RunOnUiThread(() => {
+            RunOnUiThread(() =>
+            {
                 UpdateText("Copied to clipboard:\n" + res);
-            }); 
+            });
         }
 
         private void ResetLocalData()

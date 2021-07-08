@@ -1,5 +1,5 @@
-using System;
 using NDB.Covid19.iOS.Utils;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.HelpText
@@ -10,7 +10,7 @@ namespace NDB.Covid19.iOS.Views.HelpText
         public string Content { get; set; }
         public string OkBtnText { get; set; }
 
-        public HelpTextViewController (IntPtr handle) : base (handle)
+        public HelpTextViewController(IntPtr handle) : base(handle)
         {
         }
 

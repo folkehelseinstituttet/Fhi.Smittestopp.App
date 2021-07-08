@@ -1,7 +1,7 @@
-using System;
 using CoreGraphics;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.CustomSubclasses
@@ -35,7 +35,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
             UpdateState();
         }
 
-        
+
         public override void Draw(CGRect rect)
         {
             base.Draw(rect);
@@ -50,7 +50,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
         }
 
         public new void Dispose()
-        { 
+        {
             TouchUpInside -= OnTouchUpInside;
             _innerView.RemoveFromSuperview();
             _innerView = null;
@@ -79,7 +79,7 @@ namespace NDB.Covid19.iOS.Views.CustomSubclasses
         void AddInnerView()
         {
             _innerView = new UIView();
-            
+
             _innerView.TranslatesAutoresizingMaskIntoConstraints = false;
 
             _innerView.BackgroundColor = ColorHelper.PRIMARY_COLOR;

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Moq;
+﻿using Moq;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
 namespace NDB.Covid19.Test.Tests.Utils
 {

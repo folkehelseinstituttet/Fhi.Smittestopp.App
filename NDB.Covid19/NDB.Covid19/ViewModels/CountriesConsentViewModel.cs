@@ -1,7 +1,7 @@
-using System;
 using I18NPortable;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.PersistedData;
+using System;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -22,7 +22,7 @@ namespace NDB.Covid19.ViewModels
             OkBtnTxt = EU_CONSENT_ABORT_DIALOG_BUTTON_ONE_TEXT,
             CancelbtnTxt = EU_CONSENT_ABORT_DIALOG_BUTTON_TWO_TEXT
         };
-        
+
         public static string HEADER_TEXT => "CONSENT3_HEADER_TEXT".Translate();
         public static string CONSENT3_BODYTEXT_1 => "CONSENT3_BODYTEXT_1".Translate();
         public static string CONSENT3_SHAREDATA_HEADER => "CONSENT3_SHAREDATA_HEADER".Translate();

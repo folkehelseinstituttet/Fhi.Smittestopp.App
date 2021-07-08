@@ -1,9 +1,9 @@
-﻿using System;
+﻿using NDB.Covid19.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
-using NDB.Covid19.Models;
 using Xamarin.ExposureNotifications;
 using Xunit;
 using static NDB.Covid19.ExposureNotifications.Helpers.UploadDiagnosisKeysHelper;

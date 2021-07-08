@@ -1,27 +1,27 @@
-using System;
-using System.Threading.Tasks;
 using CommonServiceLocator;
-using NDB.Covid19.Models;
-using NDB.Covid19.PersistedData.SecureStorage;
-using NDB.Covid19.Utils;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using MoreLinq;
-using NDB.Covid19.WebServices.ExposureNotification;
-using System.Collections.Generic;
-using Xamarin.ExposureNotifications;
-using NDB.Covid19.Interfaces;
 using NDB.Covid19.Configuration;
-using NDB.Covid19.OAuth2;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
+using NDB.Covid19.Interfaces;
+using NDB.Covid19.Models;
+using NDB.Covid19.OAuth2;
+using NDB.Covid19.PersistedData.SecureStorage;
+using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
-using EN = Xamarin.ExposureNotifications;
-using Debug = System.Diagnostics.Debug;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
-using System.Linq;
+using NDB.Covid19.WebServices.ExposureNotification;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.ExposureNotifications;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using Debug = System.Diagnostics.Debug;
+using EN = Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -71,8 +71,8 @@ namespace NDB.Covid19.ViewModels
 
             JObject parsed = JObject.Parse(jsonBody);
             JArray keyArray = (JArray)parsed["keys"];
-            JArray visitedCountries = (JArray) parsed["visitedCountries"];
-            JArray regions = (JArray) parsed["regions"];
+            JArray visitedCountries = (JArray)parsed["visitedCountries"];
+            JArray regions = (JArray)parsed["regions"];
 
             PushKeysInfo += $"visitedCountries: {visitedCountries}\n";
             PushKeysInfo += $"regions: {regions}\n";
@@ -90,12 +90,14 @@ namespace NDB.Covid19.ViewModels
             });
         }
 
-        private static void PutInPushKeyInfoInSharedPrefs() {
+        private static void PutInPushKeyInfoInSharedPrefs()
+        {
             ServiceLocator.Current.GetInstance<IDeveloperToolsService>().LastKeyUploadInfo = PushKeysInfo;
             Debug.WriteLine(PushKeysInfo);
         }
 
-        public async Task<string> GetPushKeyInfoFromSharedPrefs() {
+        public async Task<string> GetPushKeyInfoFromSharedPrefs()
+        {
             string res = "Empty";
 
             PushKeysInfo = _devTools.LastKeyUploadInfo;
@@ -185,7 +187,8 @@ namespace NDB.Covid19.ViewModels
             {
                 await Xamarin.ExposureNotifications.ExposureNotification.UpdateKeysFromServer();
             }
-            catch (Exception e){
+            catch (Exception e)
+            {
                 string error = $"Pull keys failed:\n{e}";
                 await _clipboard.SetTextAsync(error);
                 ServiceLocator.Current.GetInstance<IDeveloperToolsService>().AddToPullHistoryRecord(error);
@@ -201,7 +204,7 @@ namespace NDB.Covid19.ViewModels
             bool processedAnyFiles = false;
 
             _devTools.ShouldSaveExposureInfo = true;
-            
+
             try
             {
                 await Xamarin.ExposureNotifications.ExposureNotification.UpdateKeysFromServer();
@@ -226,7 +229,8 @@ namespace NDB.Covid19.ViewModels
             {
                 result = "We have not saved any ExposureInfos yet";
             }
-            else {
+            else
+            {
                 try
                 {
                     IEnumerable<ExposureInfo> exposureInfos = ExposureInfoJsonHelper.ExposureInfosFromJsonCompatibleString(exposureInfosString);
@@ -265,7 +269,7 @@ namespace NDB.Covid19.ViewModels
                 result = "We have not saved any ExposureWindows yet";
             }
             else
-            {              
+            {
                 try
                 {
                     string jsonString = exposureWindowsString;
@@ -278,8 +282,8 @@ namespace NDB.Covid19.ViewModels
                     LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
                     result = "Failed at deserializing the saved ExposureWindows";
                 }
-        }
-            string finalResult = $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}"; 
+            }
+            string finalResult = $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}";
             _clipboard.SetTextAsync(finalResult);
             return finalResult;
         }
@@ -331,13 +335,15 @@ namespace NDB.Covid19.ViewModels
         private string ENConfArrayString(int[] values)
         {
             string res = "";
-            for (int i = 0; i < values.Length; i++) {
+            for (int i = 0; i < values.Length; i++)
+            {
                 _ = (i == values.Length - 1) ? res += values[i] : res += values[i] + ", ";
             }
             return res;
         }
 
-        public string ToggleMessageRetentionTime() {
+        public string ToggleMessageRetentionTime()
+        {
             if (_longRetentionTime)
             {
                 Conf.MAX_MESSAGE_RETENTION_TIME_IN_MINUTES = Conf.MESSAGE_RETENTION_TIME_IN_MINUTES_SHORT;
@@ -378,7 +384,7 @@ namespace NDB.Covid19.ViewModels
         {
             string savedKeyBatches = _devTools.LastProvidedFilesPref;
             if (savedKeyBatches == "")
-                savedKeyBatches = "We have not saved any downloaded keys yet"; 
+                savedKeyBatches = "We have not saved any downloaded keys yet";
             string result = $"These are the last TEK batch files provided to the EN API:\n{savedKeyBatches}";
             _clipboard.SetTextAsync(result);
             return result;
@@ -442,7 +448,7 @@ namespace NDB.Covid19.ViewModels
         public string GetPullHistory()
         {
             string pullHistory = _devTools.AllPullHistory;
-            
+
             if (pullHistory == "")
             {
                 return "No pull history";

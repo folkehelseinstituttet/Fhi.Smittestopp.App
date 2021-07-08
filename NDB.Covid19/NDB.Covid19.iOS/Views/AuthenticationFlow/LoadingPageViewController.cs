@@ -1,8 +1,8 @@
 using Foundation;
-using System;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
+using System;
 using UIKit;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
@@ -10,7 +10,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     public partial class LoadingPageViewController : BaseViewController
     {
-        public LoadingPageViewController (IntPtr handle) : base (handle)
+        public LoadingPageViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -75,14 +75,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             }
             catch (Exception e)
             {
-                if (e is NSErrorException nsErrorEx && nsErrorEx.Code == 4) 
+                if (e is NSErrorException nsErrorEx && nsErrorEx.Code == 4)
                 {
                     LogUtils.LogException(LogSeverity.INFO, e, "The user refused to share keys", null, GetCorrelationId());
                     NavigationHelper.GoToResultPageFromAuthFlow(NavigationController);
                 }
                 else
                 {
-                   
+
                     OnError(e);
                 }
             }
@@ -95,12 +95,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         void OnError(Exception e, bool isOnFail = false)
         {
-            if(!isOnFail)
+            if (!isOnFail)
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "Something went wrong during key sharing", e.Message, GetCorrelationId());
             }
             Cleanup();
-            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, e, "Pushing keys failed" );
+            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, e, "Pushing keys failed");
         }
 
         void OnSuccess()

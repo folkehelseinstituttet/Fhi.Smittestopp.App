@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using NDB.Covid19.Interfaces;
+﻿using NDB.Covid19.Interfaces;
 using SQLite;
+using System;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.Test.Mocks
@@ -16,7 +16,7 @@ namespace NDB.Covid19.Test.Mocks
             => NetworkAccess.Internet;
 
         IEnumerable<ConnectionProfile> IConnectivity.ConnectionProfiles
-            => new List<ConnectionProfile>{ ConnectionProfile.WiFi };
+            => new List<ConnectionProfile> { ConnectionProfile.WiFi };
 
         event EventHandler<ConnectivityChangedEventArgs> IConnectivity.ConnectivityChanged
         {

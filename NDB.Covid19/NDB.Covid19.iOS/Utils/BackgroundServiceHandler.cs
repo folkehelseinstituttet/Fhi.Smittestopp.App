@@ -1,13 +1,12 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using BackgroundTasks;
 using ExposureNotifications;
 using Foundation;
-using NDB.Covid19.Utils;
-using Xamarin.ExposureNotifications;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.Utils;
+using System;
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.iOS.Utils
 {

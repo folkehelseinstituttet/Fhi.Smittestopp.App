@@ -1,5 +1,5 @@
-﻿using System;
-using NDB.Covid19.Utils;
+﻿using NDB.Covid19.Utils;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS
@@ -15,10 +15,10 @@ namespace NDB.Covid19.iOS
             {
                 UIApplication.Main(args, null, "AppDelegate");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 string correlationId = PersistedData.LocalPreferencesHelper.GetCorrelationId();
-                if(!string.IsNullOrEmpty(correlationId))
+                if (!string.IsNullOrEmpty(correlationId))
                 {
                     LogUtils.LogMessage(Enums.LogSeverity.INFO, "The user experienced native iOS crash", null, correlationId);
                 }

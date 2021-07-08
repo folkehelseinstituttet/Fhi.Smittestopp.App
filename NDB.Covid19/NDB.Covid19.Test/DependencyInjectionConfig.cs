@@ -1,8 +1,8 @@
+using NDB.Covid19.Implementation;
+using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.PersistedData.SQLite;
 using NDB.Covid19.Test.Mocks;
-using NDB.Covid19.Interfaces;
-using NDB.Covid19.Implementation;
-using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils.DeveloperTools;
 using Unity;
 using Unity.ServiceLocation;

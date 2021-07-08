@@ -1,5 +1,5 @@
-﻿using System;
-using Android.OS;
+﻿using Android.OS;
+using System;
 
 namespace NDB.Covid19.Droid.Utils
 {

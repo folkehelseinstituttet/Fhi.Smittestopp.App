@@ -1,6 +1,6 @@
-﻿using System;
-using I18NPortable;
+﻿using I18NPortable;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Utils

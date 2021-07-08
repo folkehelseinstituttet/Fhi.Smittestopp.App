@@ -1,12 +1,12 @@
-﻿using System;
-using System.Globalization;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices.ExposureNotification;
+using System;
+using System.Globalization;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
@@ -202,7 +202,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 
             //Reset
             SystemTime.ResetDateTime();
-            
+
         }
     }
 }

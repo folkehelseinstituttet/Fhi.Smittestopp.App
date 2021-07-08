@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using CoreFoundation;
+﻿using CoreFoundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
+using System;
+using System.Linq;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views
 {
-    public class BaseViewController: UIViewController
+    public class BaseViewController : UIViewController
     {
         protected internal BaseViewController(IntPtr handle) : base(handle)
         {

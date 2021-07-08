@@ -6,7 +6,8 @@ namespace NDB.Covid19.WebServices.Utils
     {
         public static void AddSecretToHeader(IHttpClientAccessor accessor)
         {
-            if (accessor.HttpClient.DefaultRequestHeaders.Contains("Authorization")) {
+            if (accessor.HttpClient.DefaultRequestHeaders.Contains("Authorization"))
+            {
                 accessor.HttpClient.DefaultRequestHeaders.Remove("Authorization");
             }
 

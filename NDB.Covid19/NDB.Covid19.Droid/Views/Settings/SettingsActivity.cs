@@ -20,7 +20,7 @@ namespace NDB.Covid19.Droid.Views.Settings
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
+
             SetContentView(Resource.Layout.settings_page);
             Init();
         }

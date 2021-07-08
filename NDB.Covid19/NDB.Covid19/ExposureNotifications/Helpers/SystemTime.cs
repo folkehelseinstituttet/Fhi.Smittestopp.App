@@ -8,15 +8,15 @@ namespace NDB.Covid19.ExposureNotifications.Helpers
     public static class SystemTime
     {
         public static Func<DateTime> Now = () => DateTime.UtcNow;
-        
+
         public static void SetDateTime(DateTime dateTimeNow)
         {
             Now = dateTimeNow.ToUniversalTime;
         }
-        
+
         public static void ResetDateTime()
         {
             Now = () => DateTime.UtcNow;
-        }       
+        }
     }
 }

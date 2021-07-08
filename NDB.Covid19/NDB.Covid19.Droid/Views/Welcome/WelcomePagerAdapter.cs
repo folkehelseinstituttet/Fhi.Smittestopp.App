@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using AndroidX.Fragment.App;
+﻿using AndroidX.Fragment.App;
+using System.Collections.Generic;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
@@ -15,7 +15,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
         public override int Count { get { return pages.Count; } }
 
         public override Fragment GetItem(int position)
-        {         
+        {
             return pages[position];
         }
 

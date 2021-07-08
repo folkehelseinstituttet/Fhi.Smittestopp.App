@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.Models.DTOsForServer;
@@ -9,6 +6,9 @@ using NDB.Covid19.Models.Logging;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData.SQLite;
 using NDB.Covid19.WebServices;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Utils
@@ -59,7 +59,7 @@ namespace NDB.Covid19.Utils
             try
             {
                 bool allLogsSent = false;
-                while(!allLogsSent)
+                while (!allLogsSent)
                 {
                     List<LogSQLiteModel> logs = await manager.GetLogs(_numLogsToSendAtATime);
                     if (logs == null || !logs.Any())
@@ -104,7 +104,7 @@ namespace NDB.Covid19.Utils
             {
                 // GetLogs gives the earliest logs
                 List<LogSQLiteModel> logs = await manager.GetLogs(_maxNumOfPersistedLogsOnSendError * 2);
-                    
+
                 tooManyPersistedLogs = logs.Count() > _maxNumOfPersistedLogsOnSendError;
                 if (tooManyPersistedLogs)
                 {

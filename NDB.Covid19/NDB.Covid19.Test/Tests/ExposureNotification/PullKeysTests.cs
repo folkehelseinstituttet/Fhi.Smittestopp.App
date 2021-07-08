@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
@@ -16,6 +10,12 @@ using NDB.Covid19.Test.Helpers;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
 using NDB.Covid19.WebServices.ExposureNotification;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Threading;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
@@ -57,7 +57,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             _preferences.Clear();
             _logManager.DeleteAll();
             _developerTools.ClearAllFields();
-           
+
         }
 
         [Theory]
@@ -473,7 +473,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 new PullKeysMockData(day1, 3).HttpStatusCode(200).WithMoreBatchesExistHeader(false),
                 new PullKeysMockData(day1, 4).HttpStatusCode(204),
             });
-            
+
             //When pulling keys
             List<string> zipLocations2 = (await new ZipDownloader().PullNewKeys(mockedService2, new CancellationToken())).ToList();
 
@@ -552,7 +552,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             List<string> zipLocations = (await new ZipDownloader().PullNewKeys(mockedService, new CancellationToken())).ToList();
 
             //Then only pull the last 14 days' keys
-            Assert.Equal(14*3, zipLocations.Count);
+            Assert.Equal(14 * 3, zipLocations.Count);
             Assert.Equal(3, LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted); //The last batch number is saved from header
             Assert.False((await _logManager.GetLogs(10)).Any()); //And no errors were logged
         }
@@ -740,7 +740,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             List<PullKeysMockData> keys = new List<PullKeysMockData>();
             DateTime date = sixteenDaysAgo;
-            for (int i=0; i<17; i++)
+            for (int i = 0; i < 17; i++)
             {
                 keys.Add(new PullKeysMockData(date, 1).HttpStatusCode(200).WithLastBatchHeader(1).WithMoreBatchesExistHeader(true));
                 keys.Add(new PullKeysMockData(date, 2).HttpStatusCode(200).WithLastBatchHeader(2).WithMoreBatchesExistHeader(true));

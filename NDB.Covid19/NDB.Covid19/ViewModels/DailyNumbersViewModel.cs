@@ -1,11 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using I18NPortable;
+﻿using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Models.DTOsForServer;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices;
+using System;
+using System.Threading.Tasks;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.ViewModels
@@ -29,7 +29,7 @@ namespace NDB.Covid19.ViewModels
         public static string KEY_FEATURE_FIVE_UPDATE_ALL => "KEY_FEATURE_FIVE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_FIVE_LABEL => "KEY_FEATURE_FIVE_LABEL".Translate();
         public static string KEY_FEATURE_SIX_UPDATE_ALL => "KEY_FEATURE_SIX_UPDATE_ALL".Translate();
-        public static string KEY_FEATURE_SIX_LABEL => "KEY_FEATURE_SIX_LABEL".Translate();       
+        public static string KEY_FEATURE_SIX_LABEL => "KEY_FEATURE_SIX_LABEL".Translate();
         public static string KEY_FEATURE_SEVEN_LABEL => "KEY_FEATURE_SEVEN_LABEL".Translate();
         public static string KEY_FEATURE_SEVEN_UPDATE_ALL => "KEY_FEATURE_SEVEN_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_EIGHT_LABEL => "KEY_FEATURE_EIGHT_LABEL".Translate();
@@ -73,7 +73,7 @@ namespace NDB.Covid19.ViewModels
                 onFinished?.Invoke();
             }
         }
-        
+
         public static async Task<bool> UpdateFHIDataAsync()
         {
             try

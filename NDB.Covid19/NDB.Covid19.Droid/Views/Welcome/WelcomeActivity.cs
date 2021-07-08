@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -8,11 +6,13 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.ViewPager.Widget;
 using Google.Android.Material.Tabs;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.Droid.Utils;
-using static NDB.Covid19.Droid.Utils.StressUtils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
+using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.Welcome
@@ -26,7 +26,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
         WelcomePageThreeFragment _welcomePageThree = new WelcomePageThreeFragment();
         WelcomePageFourFragment _welcomePageFour = new WelcomePageFourFragment();
         List<AndroidX.Fragment.App.Fragment> _pages;
-        
+
         Button _button;
         Button _previousButton;
         NonSwipeableViewPager _pager;

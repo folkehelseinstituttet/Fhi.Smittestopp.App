@@ -1,11 +1,11 @@
-﻿using System;
-using Foundation;
+﻿using Foundation;
 using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
-using NDB.Covid19.ExposureNotifications.Helpers;
+using System;
 using UIKit;
 using UserNotifications;
 

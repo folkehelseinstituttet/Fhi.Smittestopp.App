@@ -1,15 +1,15 @@
-﻿using System.ComponentModel;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.ViewModels;
+using System.ComponentModel;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.Enums
 {
     public enum NotificationsEnum
     {
-        
+
         NewMessageReceived,
         ApiDeprecated,
         ConsentNeeded,
@@ -23,13 +23,13 @@ namespace NDB.Covid19.Enums
         TimedReminderFinished
     }
 
-    public static class NotificationsEnumExtensions 
+    public static class NotificationsEnumExtensions
     {
-        public static NotificationViewModel Data(this NotificationsEnum notificationType) 
+        public static NotificationViewModel Data(this NotificationsEnum notificationType)
         {
             switch (notificationType)
             {
-                
+
                 case NotificationsEnum.NewMessageReceived:
                     return new NotificationViewModel
                     {

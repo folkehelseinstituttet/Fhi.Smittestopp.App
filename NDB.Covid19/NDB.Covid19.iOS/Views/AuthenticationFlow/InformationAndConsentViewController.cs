@@ -1,23 +1,18 @@
+using Foundation;
+using NDB.Covid19.Enums;
+using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.OAuth2;
+using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using DeviceCheck;
-using Foundation;
-using NDB.Covid19.Models.UserDefinedExceptions;
-using NDB.Covid19.OAuth2;
-using NDB.Covid19.ViewModels;
-using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.Utils;
 using UIKit;
-using NDB.Covid19.Enums;
-using System.Collections.Generic;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     public partial class InformationAndConsentViewController : BaseViewController, IUIAccessibilityContainer
     {
-        public InformationAndConsentViewController (IntPtr handle) : base (handle)
+        public InformationAndConsentViewController(IntPtr handle) : base(handle)
         {
         }
 

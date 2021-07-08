@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using Foundation;
 using I18NPortable;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UIKit;
 using Xamarin.Essentials;
-using NDB.Covid19.iOS.Utils;
 
 namespace NDB.Covid19.iOS.Views.MessagePage
 {
     public class MessageTableViewSource : UITableViewSource
-    { 
-         List<MessageItemViewModel> _models = new List<MessageItemViewModel>();
+    {
+        List<MessageItemViewModel> _models = new List<MessageItemViewModel>();
 
         public MessageTableViewSource()
         {
@@ -65,8 +65,8 @@ namespace NDB.Covid19.iOS.Views.MessagePage
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-           ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_models[indexPath.Section].MessageLink.Translate(), BrowserLaunchMode.SystemPreferred);
-           _models[indexPath.Section].IsRead = true;
+            ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(_models[indexPath.Section].MessageLink.Translate(), BrowserLaunchMode.SystemPreferred);
+            _models[indexPath.Section].IsRead = true;
             tableView.ReloadData();
         }
     }

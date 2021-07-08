@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UIKit;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 

@@ -1,12 +1,12 @@
-﻿using System;
-using NDB.Covid19.Utils;
+﻿using NDB.Covid19.Utils;
+using System;
 using static NDB.Covid19.Utils.MessagingCenter;
 
 namespace NDB.Covid19.Droid.Utils.MessagingCenter
 {
     public class PermissionsMessagingCenter
     {
-        public static bool PermissionsChanged { get; set; } = false; 
+        public static bool PermissionsChanged { get; set; } = false;
 
         public static void SubscribeForPermissionsChanged(object sender, Action<object> action)
         {

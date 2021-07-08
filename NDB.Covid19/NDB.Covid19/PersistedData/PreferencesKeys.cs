@@ -20,20 +20,20 @@ namespace NDB.Covid19.PersistedData
         public static readonly string LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED = "LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED";
         public static readonly string LAST_PULLED_BATCH_NUMBER_SUBMITTED = "LAST_PULLED_BATCH_NUMBER_SUBMITTED";
         public static readonly string LAST_PULLED_BATCH_TYPE = "LAST_PULLED_BATCH_TYPE";
-        
+
         public static readonly string APP_LANGUAGE = "APP_LANGUAGE";
 
         public static readonly string DEV_TOOLS_PULL_KEYS_HISTORY = "DEV_TOOLS_PULL_KEYS_HISTORY";
         public static readonly string DEV_TOOLS_PULL_KEYS_HISTORY_LAST_RECORD = "DEV_TOOLS_PULL_KEYS_HISTORY_LAST_RECORD";
-        
+
         public static readonly string LAST_TERMS_NOTIFICATION_DATE_TIME = "LAST_TERMS_NOTIFICATION_DATE_TIME";
-        
+
         public static readonly string LAST_MESSAGE_DATE_TIME = "LAST_MESSAGE_DATE_TIME";
 
         public static readonly string LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE = "LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE";
 
         public static readonly string LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER = "LAST_BACKGROUND_ACTIVITY_DIALOG_SHOW_STATE_NEW_USER";
-        
+
         public static readonly string DIALOG_LAST_SHOWN_DATE = "DIALOG_LAST_SHOWN_DATE";
 
         public static readonly string LAST_PERMISSIONS_NOTIFICATION_DATE_TIME = "LAST_PERMISSIONS_NOTIFICATION_DATE_TIME";

@@ -1,8 +1,8 @@
-﻿using System.IO;
-using System.Net;
-using I18NPortable;
+﻿using I18NPortable;
 using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
+using System.IO;
+using System.Net;
 
 namespace NDB.Covid19.WebServices.ErrorHandlers
 {
@@ -35,7 +35,7 @@ namespace NDB.Covid19.WebServices.ErrorHandlers
 
         public void HandleError(ApiResponse apiResponse)
         {
-            LogUtils.LogApiError(Enums.LogSeverity.WARNING, apiResponse, IsSilent, "", "Failed contact to server: Bad connection") ;
+            LogUtils.LogApiError(Enums.LogSeverity.WARNING, apiResponse, IsSilent, "", "Failed contact to server: Bad connection");
             if (!IsSilent)
             {
                 ShowErrorToUser();

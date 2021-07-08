@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using Moq;
+﻿using Moq;
+using System.Linq;
 
 namespace NDB.Covid19.Test.Tests.Utils
 {

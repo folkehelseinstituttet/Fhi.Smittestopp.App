@@ -1,7 +1,7 @@
-﻿using System;
+﻿using NDB.Covid19.ProtoModels;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NDB.Covid19.ProtoModels;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.Utils.DeveloperTools

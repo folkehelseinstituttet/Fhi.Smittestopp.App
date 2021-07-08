@@ -5,19 +5,17 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
-using NDB.Covid19.ViewModels;
-using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using NDB.Covid19.Utils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
     [Activity(Theme = "@style/AppTheme",
         ScreenOrientation = ScreenOrientation.FullSensor, LaunchMode = LaunchMode.SingleTop)]
-    public class CountriesConsentActivity: AppCompatActivity
+    public class CountriesConsentActivity : AppCompatActivity
     {
         private ViewGroup _closeButton;
         private TextView _header;
@@ -29,7 +27,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         private TextView _consentText;
         private Button _consentButtonEU;
         private Button _consentButtonOnlyNorway;
-        
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -99,7 +97,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 $"{nameof(CountriesConsentActivity)}.{nameof(OnFail)}: " +
                 "AuthenticationState.PersonalData was garbage collected (Android)");
         }
-        
+
         private void GoToLoadingPage() =>
             StartActivity(new Intent(this, typeof(LoadingPageActivity)));
 
@@ -111,7 +109,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 StartActivity(intent);
             });
         }
-        
+
         private async void ShowAbortDialog()
         {
             await DialogUtils.DisplayDialogAsync(

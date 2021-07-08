@@ -1,9 +1,9 @@
-using System;
 using CoreGraphics;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.CustomSubclasses;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
@@ -55,7 +55,8 @@ namespace NDB.Covid19.iOS.Views.Settings.SettingsPage3
         {
             _privacyPolicyButton = new UIButton(UIButtonType.System);
             _privacyPolicyButton.Frame = new CGRect(0, 0, 0, 0);
-            _privacyPolicyButton.TouchUpInside += (sender, e) => {
+            _privacyPolicyButton.TouchUpInside += (sender, e) =>
+            {
                 ConsentViewModel.OpenPrivacyPolicyLink();
             };
 

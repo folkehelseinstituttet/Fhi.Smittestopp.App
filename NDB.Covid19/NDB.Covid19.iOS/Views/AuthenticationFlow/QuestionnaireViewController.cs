@@ -1,12 +1,11 @@
-using System;
 using Foundation;
 using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.WebServices.ErrorHandlers;
+using System;
 using UIKit;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
@@ -169,7 +168,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         partial void NextBtnTapped(CustomSubclasses.DefaultBorderButton sender)
         {
-            if(QuestionnaireViewModel.Selection == QuestionaireSelection.Skip)
+            if (QuestionnaireViewModel.Selection == QuestionaireSelection.Skip)
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user does not want to provide health information", null, GetCorrelationId());
             }

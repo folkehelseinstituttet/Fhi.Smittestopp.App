@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Android.Views;
+﻿using Android.Views;
 using Android.Widget;
 using AndroidX.ConstraintLayout.Widget;
 using AndroidX.RecyclerView.Widget;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
+using System.Collections.Generic;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
 {
@@ -54,12 +54,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters
 
             public void OnClick(View v)
             {
-                QuestionnaireCountriesSelectionAdapterViewHolder vh = (QuestionnaireCountriesSelectionAdapterViewHolder) _holder;
+                QuestionnaireCountriesSelectionAdapterViewHolder vh = (QuestionnaireCountriesSelectionAdapterViewHolder)_holder;
                 vh.Check.Checked = !vh.Check.Checked;
                 _self.Data[_position].Checked = vh.Check.Checked;
             }
         }
-        
+
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             ConstraintLayout view = LayoutInflater

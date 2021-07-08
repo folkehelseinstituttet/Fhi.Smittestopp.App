@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Interfaces;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 
 namespace NDB.Covid19.Utils

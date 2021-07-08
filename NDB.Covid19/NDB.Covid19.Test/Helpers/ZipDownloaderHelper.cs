@@ -1,19 +1,19 @@
-﻿using System;
+﻿using CommonServiceLocator;
+using Moq;
+using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
+using NDB.Covid19.Interfaces;
+using NDB.Covid19.Models;
+using NDB.Covid19.PersistedData;
+using NDB.Covid19.WebServices.ExposureNotification;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Moq;
-using NDB.Covid19.Models;
-using System.Collections.Generic;
-using NDB.Covid19.WebServices.ExposureNotification;
-using System.Net.Http.Headers;
-using System.Net.Http;
-using NDB.Covid19.Interfaces;
-using CommonServiceLocator;
-using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
-using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19.Test.Helpers
 {

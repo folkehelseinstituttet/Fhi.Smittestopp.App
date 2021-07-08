@@ -1,5 +1,5 @@
-﻿using System;
-using NDB.Covid19.Utils;
+﻿using NDB.Covid19.Utils;
+using System;
 
 namespace NDB.Covid19
 {
@@ -22,7 +22,7 @@ namespace NDB.Covid19
                 return true;
             }
 
-            if (e.ToString().Contains("com.google.android.gms.common.api")||
+            if (e.ToString().Contains("com.google.android.gms.common.api") ||
                 e.ToString().Contains("Android.Gms.Common.Apis.ApiException"))
             {
                 LogUtils.LogException(Enums.LogSeverity.ERROR, e,

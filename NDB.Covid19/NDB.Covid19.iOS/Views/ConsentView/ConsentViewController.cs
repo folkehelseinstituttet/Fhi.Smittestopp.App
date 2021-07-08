@@ -1,11 +1,10 @@
-using System;
-using CoreGraphics;
 using Foundation;
-using NDB.Covid19.PersistedData;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 
@@ -14,7 +13,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
     public partial class ConsentViewController : BaseViewController
     {
         ConsentViewModel _consentViewModel;
-        public ConsentViewController (IntPtr handle) : base (handle)
+        public ConsentViewController(IntPtr handle) : base(handle)
         {
 
         }
@@ -76,7 +75,8 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             }
         }
 
-        void SetAccessibility() {
+        void SetAccessibility()
+        {
             InvokeOnMainThread(() =>
             {
                 SetAccessibilityText(TitleLabel, ConsentViewModel.WELCOME_PAGE_CONSENT_TITLE);
@@ -101,7 +101,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
                 HowItWorks_header.AccessibilityTraits = UIAccessibilityTrait.Header;
                 SamtykkeBottom_header.AccessibilityTraits = UIAccessibilityTrait.Header;
             });
-            
+
         }
 
         protected void SetAccessibilityText(UILabel label, string text)
@@ -180,7 +180,7 @@ namespace NDB.Covid19.iOS.Views.ConsentView
             });
         }
 
-        public void SetWarningViewVisibility() { WarningView.Hidden = _consentViewModel.ConsentIsGiven;}
+        public void SetWarningViewVisibility() { WarningView.Hidden = _consentViewModel.ConsentIsGiven; }
 
         partial void AcceptSwitched(UISwitch sender)
         {

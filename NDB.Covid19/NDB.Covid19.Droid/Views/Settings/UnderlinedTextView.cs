@@ -1,4 +1,3 @@
-using System;
 using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
@@ -6,6 +5,7 @@ using Android.Runtime;
 using Android.Text;
 using Android.Util;
 using AndroidX.AppCompat.Widget;
+using System;
 
 namespace NDB.Covid19.Droid.Views.Settings
 {
@@ -16,7 +16,7 @@ namespace NDB.Covid19.Droid.Views.Settings
         private float _strokeWidth;
         private Color _color;
         private float _margin;
-        
+
         protected UnderlinedTextView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
         }
@@ -43,7 +43,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             float density = context.Resources.DisplayMetrics.Density;
 
             TypedArray typedArray = context.ObtainStyledAttributes(attributeSet, Resource.Styleable.UnderlinedTextView, defStyle, 0);
-            _color = typedArray.GetColor(Resource.Styleable.UnderlinedTextView_underlineColor, new Color(0,0,0));
+            _color = typedArray.GetColor(Resource.Styleable.UnderlinedTextView_underlineColor, new Color(0, 0, 0));
             _strokeWidth = typedArray.GetDimension(Resource.Styleable.UnderlinedTextView_underlineWidth, density * 2);
             _margin = typedArray.GetDimension(Resource.Styleable.UnderlinedTextView_underlineMarginTop, density * 2);
             typedArray.Recycle();

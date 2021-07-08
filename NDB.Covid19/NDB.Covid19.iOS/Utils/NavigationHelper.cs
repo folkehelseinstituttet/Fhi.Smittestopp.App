@@ -1,9 +1,9 @@
-using System.Diagnostics;
 using Foundation;
 using NDB.Covid19.iOS.Views.InfectionStatus;
 using NDB.Covid19.iOS.Views.Initializer;
 using NDB.Covid19.iOS.Views.Welcome;
 using NDB.Covid19.Utils;
+using System.Diagnostics;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Utils

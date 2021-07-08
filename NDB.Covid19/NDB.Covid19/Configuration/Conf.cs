@@ -29,7 +29,7 @@ namespace NDB.Covid19.Configuration
         public static string DEFAULT_LANGUAGE = "nn"; //In case the device is set to use an unsupported language
         public static string[] SUPPORTED_LANGUAGES = new string[] { "en", "nb", "nn", "pl", "so", "ti", "ar", "ur", "lt" };
 
-        public static int MESSAGE_RETENTION_TIME_IN_MINUTES_SHORT => 15; 
+        public static int MESSAGE_RETENTION_TIME_IN_MINUTES_SHORT => 15;
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_LONG => 14 * 24 * 60;
         public static int MAX_MESSAGE_RETENTION_TIME_IN_MINUTES = MESSAGE_RETENTION_TIME_IN_MINUTES_LONG;
         public static int HOURS_UNTIL_RESEND_MESSAGES = 48;
@@ -57,7 +57,7 @@ namespace NDB.Covid19.Configuration
         // Repeat interval of the periodic work request that pulls on Android
         // (The minimum is 15 minutes: PeriodicWorkRequest.MinPeriodicIntervalMillis is 900000)
         public static readonly TimeSpan BACKGROUND_FETCH_REPEAT_INTERVAL_ANDROID = TimeSpan.FromHours(4);
-        
+
         // For ZipDownloader.RetryIfInvalidResponse
         public static readonly int FETCH_MAX_ATTEMPTS = 1;
 
@@ -90,7 +90,7 @@ namespace NDB.Covid19.Configuration
         // with DailySummaryConfiguration on each pull of the keys from server
         public static readonly double SCORE_SUM_THRESHOLD = 780;
 
-        public static readonly string[] SUPPORTED_REGIONS = { "no" }; 
+        public static readonly string[] SUPPORTED_REGIONS = { "no" };
 
         public static string DB_NAME => "Smittestopp1.db3";
 

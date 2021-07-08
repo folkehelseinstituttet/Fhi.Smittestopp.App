@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
@@ -13,6 +7,12 @@ using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 #if APPCENTER
 using Microsoft.AppCenter.Crashes;
 #endif
@@ -118,7 +118,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
                 LocalPreferencesHelper.LastNTPUtcDateTime = ntpDateTime;
             }
         }
-        
+
         private void SendReApproveConsentsNotificationIfNeeded()
         {
             if (ConsentsHelper.IsNotFullyOnboarded &&

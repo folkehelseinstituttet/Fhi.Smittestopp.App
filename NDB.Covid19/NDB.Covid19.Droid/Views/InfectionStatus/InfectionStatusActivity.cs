@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -18,17 +15,19 @@ using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using NDB.Covid19.Droid.Views.DailyNumbers;
 using NDB.Covid19.Droid.Views.Messages;
 using NDB.Covid19.Enums;
+using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
-using Xamarin.ExposureNotifications;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
-using static NDB.Covid19.Droid.Utils.StressUtils;
-using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using Xamarin.ExposureNotifications;
 using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
-using NDB.Covid19.Enums;
+using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using AlertDialog = Android.App.AlertDialog;
-using NDB.Covid19.ExposureNotifications.Helpers;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -63,11 +62,11 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private Button _registrationCoverButton;
         private Button _positiveButton;
         private Button _negativeButton;
-        private Button _dontShowButton;        
+        private Button _dontShowButton;
         private NumberPicker _picker;
         private bool _dialogDisplayed;
         private bool _lockUnfocusedDialogs;
-        
+
         private readonly SemaphoreSlim _semaphoreSlim =
             new SemaphoreSlim(1, 1);
 
@@ -90,7 +89,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 UpdateKeys();
                 IsAppLaunchedToPullKeys = false;
             }
-            
+
             CheckIfShowBackgroundActivityDialog();
 
             if (!GetIsBackgroundActivityDialogShowEnableNewUser()
@@ -100,14 +99,15 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 && (SystemTime.Now().Date != DialogLastShownDate))
             {
                 ShowBackgroundActivityDialog();
-                DialogLastShownDate = SystemTime.Now().Date;                
+                DialogLastShownDate = SystemTime.Now().Date;
             }
 
         }
 
         private void OnAppDailyNumbersChanged(object _ = null)
         {
-            RunOnUiThread(() => {
+            RunOnUiThread(() =>
+            {
                 _dailyNumbersSubHeader.Text = INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_TEXT;
                 _dailyNumbersCoverButton.ContentDescription =
                 $"{INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT} {INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT}";
@@ -393,9 +393,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         public override async void OnWindowFocusChanged(bool hasFocus)
         {
             base.OnWindowFocusChanged(hasFocus);
-            
+
             _lockUnfocusedDialogs = !hasFocus;
-            
+
             if (hasFocus
                 && await _viewModel.IsEnabled()
                 && (!_permissionUtils.IsBluetoothEnabled()
@@ -403,12 +403,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 ShowPermissionsDialogIfTheyHavChangedWhileInIdle();
             }
-            
+
             if (!(_positiveButton is null))
             {
                 AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
             }
-           
+
             UpdateUI();
         }
 
@@ -443,7 +443,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 if (isRunning)
                 {
                     BackgroundFetchScheduler.ScheduleBackgroundFetch();
-                    
+
                 }
 
                 if (await _viewModel.IsEnabled() &&
@@ -544,7 +544,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 builder.Create();
                 builder.Show();
             }
-            
+
 
         }
         private void CloseReminderNotifications()
@@ -592,7 +592,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             {
                 SetIsBackgroundActivityDialogShowEnable(true);
             }
-            
+
         }
         private void AdjustLineBreaks(TextView viewA, TextView viewB)
         {
@@ -632,7 +632,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 _positiveButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_OK_BUTTON.ToUpper();
                 _negativeButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_NOK_BUTTON.ToUpper();
                 _dontShowButton.Text = INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_DONT_SHOW_BUTTON.ToUpper();
-                
+
                 AlertDialog builder = new AlertDialog.Builder(this)
                     .SetView(dialogView)
                     .SetCancelable(false)
@@ -657,7 +657,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 builder.Show();
                 AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
             }
-            
+
         }
         public void SurveyButton_Click(object sender, EventArgs e)
         {

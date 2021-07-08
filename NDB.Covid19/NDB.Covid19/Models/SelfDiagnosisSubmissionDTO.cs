@@ -1,12 +1,12 @@
-﻿using System;
+﻿using CommonServiceLocator;
+using NDB.Covid19.Configuration;
+using NDB.Covid19.Interfaces;
+using NDB.Covid19.PersistedData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using CommonServiceLocator;
-using NDB.Covid19.Configuration;
-using NDB.Covid19.Interfaces;
-using NDB.Covid19.PersistedData;
 using static NDB.Covid19.OAuth2.AuthenticationState;
 
 namespace NDB.Covid19.Models
@@ -51,7 +51,7 @@ namespace NDB.Covid19.Models
 
             for (int i = 1; i <= minRepeatTimes; ++i)
             {
-                byte[] bytes = 
+                byte[] bytes =
                     SHA256.Create()
                         .ComputeHash(
                             Encoding.UTF8.GetBytes(

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using NDB.Covid19.Enums;
+﻿using NDB.Covid19.Enums;
 using NDB.Covid19.PersistedData;
+using System;
+using System.Threading.Tasks;
 using Yort.Ntp;
 
 namespace NDB.Covid19.Utils

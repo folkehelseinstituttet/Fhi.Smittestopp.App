@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 using Xunit;
 

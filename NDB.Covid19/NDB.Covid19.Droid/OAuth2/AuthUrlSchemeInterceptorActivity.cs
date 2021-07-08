@@ -1,12 +1,11 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using NDB.Covid19.Droid.Views.AuthenticationFlow;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.Utils;
+using System;
 
 namespace NDB.Covid19.Droid.OAuth2
 {

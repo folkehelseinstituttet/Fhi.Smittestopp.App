@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NDB.Covid19.Models;
+﻿using NDB.Covid19.Models;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NDB.Covid19.WebServices.Helpers
 {

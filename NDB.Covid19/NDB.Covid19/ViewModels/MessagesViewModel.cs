@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using I18NPortable;
+﻿using I18NPortable;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.ViewModels
 {

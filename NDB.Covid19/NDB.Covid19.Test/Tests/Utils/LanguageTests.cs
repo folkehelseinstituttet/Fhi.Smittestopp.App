@@ -1,6 +1,5 @@
-﻿using System.Globalization;
-using NDB.Covid19.Configuration;
-using NDB.Covid19.Models.DTOsForServer;
+﻿using NDB.Covid19.Configuration;
+using System.Globalization;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.Utils

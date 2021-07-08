@@ -1,17 +1,17 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using AndroidX.LocalBroadcastManager.Content;
-using NDB.Covid19.Droid.Views;
+using NDB.Covid19.Droid.Services;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
-using static Plugin.CurrentActivity.CrossCurrentActivity;
-using NDB.Covid19.Droid.Services;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using System;
 using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static Plugin.CurrentActivity.CrossCurrentActivity;
 #if APPCENTER
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -182,15 +182,15 @@ namespace NDB.Covid19.Droid
             _isActivityChangingConfigurations = activity.IsChangingConfigurations;
             if (--_activityReferences == 0 && !_isActivityChangingConfigurations)
             {
-                if(activity is Views.AuthenticationFlow.CountriesConsentActivity)
+                if (activity is Views.AuthenticationFlow.CountriesConsentActivity)
                 {
                     LogUtils.LogMessage(LogSeverity.INFO, "The user left Countries Consent", null, GetCorrelationId());
                 }
-                else if(activity is Views.AuthenticationFlow.InformationAndConsentActivity)
+                else if (activity is Views.AuthenticationFlow.InformationAndConsentActivity)
                 {
                     LogUtils.LogMessage(LogSeverity.INFO, "The user left Information and Consent", null);
                 }
-                else if(activity is Views.AuthenticationFlow.LoadingPageActivity)
+                else if (activity is Views.AuthenticationFlow.LoadingPageActivity)
                 {
                     LogUtils.LogMessage(LogSeverity.INFO, "The user left Loading Page", null, GetCorrelationId());
                 }
@@ -202,11 +202,11 @@ namespace NDB.Covid19.Droid
                 {
                     LogUtils.LogMessage(LogSeverity.INFO, "The user left Questionnaire", null, GetCorrelationId());
                 }
-                else if(activity is Views.AuthenticationFlow.RegisteredActivity)
+                else if (activity is Views.AuthenticationFlow.RegisteredActivity)
                 {
                     LogUtils.LogMessage(LogSeverity.INFO, "The user left Registered");
                 }
-                else if(activity is Views.AuthenticationFlow.ErrorActivities.GeneralErrorActivity)
+                else if (activity is Views.AuthenticationFlow.ErrorActivities.GeneralErrorActivity)
                 {
                     LogUtils.LogMessage(LogSeverity.INFO, "The user left General Error");
                 }
@@ -226,7 +226,7 @@ namespace NDB.Covid19.Droid
             //constantGC.Elapsed += GarbageCollect;
             #endregion MANUALLY GC
         }
-        
+
         void OnForceUpdate(Activity activity)
         {
             activity.RunOnUiThread(() =>

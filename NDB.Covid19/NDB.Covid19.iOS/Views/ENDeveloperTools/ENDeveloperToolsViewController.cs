@@ -1,12 +1,11 @@
-using System;
-using System.Threading.Tasks;
 using CommonServiceLocator;
-using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Threading.Tasks;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.ENDeveloperTools
@@ -45,7 +44,8 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 
         partial void ENDevSendExposureMessage_TouchUpInside(UIButton sender)
         {
-            Task.Run(async () => {
+            Task.Run(async () =>
+            {
                 await _enDeveloperViewModel.SimulateExposureMessage();
             });
         }
@@ -96,10 +96,11 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 
         partial void ENDevExposureHistoryBtn_TouchUpInside(UIButton sender)
         {
-            Task.Run(async () => {
+            Task.Run(async () =>
+            {
                 string res = await _enDeveloperViewModel.FetchExposureConfigurationAsync();
                 ENDevOutput.Text = "Copied to clipboard" + res;
-                
+
             });
         }
 
@@ -131,8 +132,8 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 
         partial void ENDevLastUsedConfigurationBtn_TouchUpInside(UIButton sender)
         {
-             string res = _enDeveloperViewModel.LastUsedExposureConfigurationAsync();
-             ENDevOutput.Text = "Copied to clipboard:\n" + res;
+            string res = _enDeveloperViewModel.LastUsedExposureConfigurationAsync();
+            ENDevOutput.Text = "Copied to clipboard:\n" + res;
         }
 
         partial void BackButton_TouchUpInside(UIButton sender)
@@ -156,7 +157,7 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
             alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, async obj =>
             {
                 ApiResponse response = await _enDeveloperViewModel.FakeGateway(alert.TextFields[0].Text);
-                ENDevOutput.Text =$"Pushed keys to region: {alert.TextFields[0].Text}\n" +
+                ENDevOutput.Text = $"Pushed keys to region: {alert.TextFields[0].Text}\n" +
                                   $"isSuccessful: {response.IsSuccessfull}\n" +
                                   $"StatusCode: {response.StatusCode}\n" +
                                   $"Error Message: {response.ErrorLogMessage}\n\n";

@@ -1,5 +1,5 @@
-﻿using System;
-using Android.Graphics;
+﻿using Android.Graphics;
+using System;
 
 namespace NDB.Covid19.Droid
 {

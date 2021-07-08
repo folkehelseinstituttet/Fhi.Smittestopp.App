@@ -1,20 +1,19 @@
-﻿using System;
-using Foundation;
+﻿using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
-using UIKit;
+using System;
 
 namespace NDB.Covid19.iOS.Views.Initializer
 {
     public partial class LanguageSelectionViewController : BaseViewController
     {
-        public LanguageSelectionViewController(IntPtr handle) : base(handle) 
+        public LanguageSelectionViewController(IntPtr handle) : base(handle)
         {
         }
 
         public override void ViewDidLoad()
-        { 
+        {
             base.ViewDidLoad();
             InitButtons();
         }

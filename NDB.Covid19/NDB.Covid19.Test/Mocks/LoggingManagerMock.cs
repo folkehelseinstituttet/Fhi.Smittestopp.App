@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using NDB.Covid19.Models.SQLite;
+﻿using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData.SQLite;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.Test.Mocks
 {

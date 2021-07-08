@@ -3,7 +3,7 @@
 namespace NDB.Covid19.Models.UserDefinedExceptions
 {
     [Serializable]
-    public class DSOSDateMissingException: Exception
+    public class DSOSDateMissingException : Exception
     {
         public DSOSDateMissingException()
         {
@@ -13,9 +13,9 @@ namespace NDB.Covid19.Models.UserDefinedExceptions
         {
         }
 
-        public DSOSDateMissingException (string message, Exception innerException)
-            : base (message, innerException)
+        public DSOSDateMissingException(string message, Exception innerException)
+            : base(message, innerException)
         {
-        }    
+        }
     }
 }

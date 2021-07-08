@@ -1,8 +1,8 @@
-using System;
-using System.Linq;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
 using ObjCRuntime;
+using System;
+using System.Linq;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.HelpCustomView

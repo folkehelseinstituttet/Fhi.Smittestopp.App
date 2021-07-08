@@ -1,16 +1,16 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Bluetooth;
 using Android.Content;
 using Android.Locations;
 using CommonServiceLocator;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Droid.Utils.MessagingCenter;
+using System;
 
 namespace NDB.Covid19.Droid.Services
 {
     [BroadcastReceiver(Enabled = true)]
-    [IntentFilter(new[] {"android.bluetooth.adapter.action.STATE_CHANGED", "android.location.PROVIDERS_CHANGED"})]
+    [IntentFilter(new[] { "android.bluetooth.adapter.action.STATE_CHANGED", "android.location.PROVIDERS_CHANGED" })]
     class PermissionsBroadcastReceiver : BroadcastReceiver
     {
         private readonly PermissionUtils _permissionsUtils = ServiceLocator.Current.GetInstance<PermissionUtils>();
@@ -22,7 +22,7 @@ namespace NDB.Covid19.Droid.Services
             var intentAction = intent.Action;
             if (intentAction.Equals(LocationManager.ProvidersChangedAction)
                 || (intentAction.Equals(BluetoothAdapter.ActionStateChanged)
-                    && intent.GetIntExtra(BluetoothAdapter.ExtraState, BluetoothAdapter.Error) == (int) State.Off))
+                    && intent.GetIntExtra(BluetoothAdapter.ExtraState, BluetoothAdapter.Error) == (int)State.Off))
             {
                 NotifyAboutPermissionsChange();
             }

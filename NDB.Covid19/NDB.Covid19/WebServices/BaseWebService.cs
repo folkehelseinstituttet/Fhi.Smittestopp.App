@@ -1,3 +1,9 @@
+using NDB.Covid19.Models;
+using NDB.Covid19.WebServices.ErrorHandlers;
+using NDB.Covid19.WebServices.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,12 +12,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using NDB.Covid19.Models;
-using NDB.Covid19.WebServices.ErrorHandlers;
-using NDB.Covid19.WebServices.Utils;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 
 namespace NDB.Covid19.WebServices
 {
@@ -88,7 +88,7 @@ namespace NDB.Covid19.WebServices
                 //_client.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue { NoCache = true };
                 HttpResponseMessage response = await _client.GetAsync(url);
 
-                result.StatusCode = (int) response.StatusCode;
+                result.StatusCode = (int)response.StatusCode;
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -132,7 +132,7 @@ namespace NDB.Covid19.WebServices
             StringContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
             Debug.WriteLine("Sending json " + content.ReadAsStringAsync().Result);
 
-            ApiResponse apiResponse =  await InnerPost(content, url);
+            ApiResponse apiResponse = await InnerPost(content, url);
 
             if (apiResponse.IsSuccessfull == false)
             {
@@ -144,7 +144,7 @@ namespace NDB.Covid19.WebServices
                     apiResponse = await InnerPost(content, url);
                 }
             }
-  
+
             return apiResponse;
 
         }

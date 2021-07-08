@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using I18NPortable;
+﻿using I18NPortable;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.WebServices.ErrorHandlers
 {
@@ -30,7 +30,7 @@ namespace NDB.Covid19.WebServices.ErrorHandlers
         public void HandleError(ApiResponse apiResponse)
         {
             string message = $"{apiResponse.ErrorLogMessage}. Timed out after {Conf.DEFAULT_TIMEOUT_SERVICECALLS_SECONDS} seconds because of bad connection.";
-            LogUtils.LogApiError(Enums.LogSeverity.WARNING, apiResponse, IsSilent, "", message) ;
+            LogUtils.LogApiError(Enums.LogSeverity.WARNING, apiResponse, IsSilent, "", message);
             if (!IsSilent)
             {
                 ShowErrorToUser();

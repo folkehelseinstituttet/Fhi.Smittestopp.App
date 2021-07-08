@@ -1,10 +1,10 @@
-﻿using System;
-using Xunit;
+﻿using NDB.Covid19.Configuration;
 using NDB.Covid19.Models;
-using System.Net;
 using NDB.Covid19.Test.Tests.Models.utils;
+using System;
+using System.Net;
 using System.Net.Http;
-using NDB.Covid19.Configuration;
+using Xunit;
 
 namespace NDB.Covid19.Test.Tests.Models
 {
@@ -32,8 +32,8 @@ namespace NDB.Covid19.Test.Tests.Models
         public void StatusCode_SetValueAndGetValue_ShouldReturnCorrectValue(HttpStatusCode httpStatus)
         {
             ApiResponse res = new ApiResponse("url", HttpMethod.Get);
-            res.StatusCode = (int) httpStatus;
-            Assert.Equal((int) httpStatus, res.StatusCode);
+            res.StatusCode = (int)httpStatus;
+            Assert.Equal((int)httpStatus, res.StatusCode);
         }
 
         [Theory]
@@ -51,7 +51,7 @@ namespace NDB.Covid19.Test.Tests.Models
         public void isSuccessful_HaveStatusCreatedOrOK_ShouldReturnTrue(HttpStatusCode httpStatus)
         {
             ApiResponse res = new ApiResponse("url", HttpMethod.Get);
-            res.StatusCode = (int) httpStatus;
+            res.StatusCode = (int)httpStatus;
             Assert.True(res.IsSuccessfull);
         }
 
@@ -65,7 +65,7 @@ namespace NDB.Covid19.Test.Tests.Models
         public void isSuccessful_HaveStatusNotEqualCreatedAndOK_ShouldReturnFalse(HttpStatusCode httpStatus)
         {
             ApiResponse res = new ApiResponse("Url", HttpMethod.Get);
-            res.StatusCode = (int) httpStatus;
+            res.StatusCode = (int)httpStatus;
             Assert.False(res.IsSuccessfull);
         }
 
@@ -101,7 +101,7 @@ namespace NDB.Covid19.Test.Tests.Models
             res.Exception = new ArgumentNullException("Something was null");
 
             Assert.Equal(expectedMessage + " with ArgumentNullException", res.ErrorLogMessage);
-               
+
             res.StatusCode = 500;
 
             Assert.Equal(expectedMessage + " with HttpStatusCode 500", res.ErrorLogMessage);

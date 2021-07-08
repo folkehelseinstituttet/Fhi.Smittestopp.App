@@ -3,7 +3,7 @@
 namespace NDB.Covid19.Models.UserDefinedExceptions
 {
     [Serializable]
-    public class FailedToFetchConfigurationException: Exception
+    public class FailedToFetchConfigurationException : Exception
     {
         public FailedToFetchConfigurationException()
         {
@@ -14,8 +14,8 @@ namespace NDB.Covid19.Models.UserDefinedExceptions
         }
 
         public FailedToFetchConfigurationException(string message, Exception innerException)
-            : base (message, innerException)
+            : base(message, innerException)
         {
-        }    
+        }
     }
 }

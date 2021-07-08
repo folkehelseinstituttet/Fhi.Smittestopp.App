@@ -1,13 +1,13 @@
-using System;
 using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries;
 using NDB.Covid19.iOS.Views.CustomSubclasses;
 using NDB.Covid19.Utils;
+using System;
 using UIKit;
-using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.ViewModels.CountriesConsentViewModel;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {

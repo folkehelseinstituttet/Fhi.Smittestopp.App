@@ -12,7 +12,7 @@ namespace NDB.Covid19.Test.Tests.Models.utils
             {
                 new Exception()
             };
-            
+
             yield return new object[]
             {
                 new TimeoutException()

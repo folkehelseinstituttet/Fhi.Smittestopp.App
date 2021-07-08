@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
@@ -12,16 +9,19 @@ using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
 using I18NPortable;
 using MoreLinq.Extensions;
+using NDB.Covid19.Droid.Services;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using static NDB.Covid19.ViewModels.QuestionnaireViewModel;
-using static NDB.Covid19.Droid.Utils.StressUtils;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 using Object = Java.Lang.Object;
-using NDB.Covid19.Droid.Services;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -212,7 +212,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         private long DateTimeToAndroidDatePickerLong(DateTime dateTime)
         {
-            return (long) dateTime.ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
+            return (long)dateTime.ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
         }
 
         public override void OnBackPressed()
@@ -237,7 +237,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         private void OnNextButtonClick(object o, EventArgs args)
         {
-            if(_fourthRadioButton.Checked)
+            if (_fourthRadioButton.Checked)
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user does not want to provide health information", null, GetCorrelationId());
             }

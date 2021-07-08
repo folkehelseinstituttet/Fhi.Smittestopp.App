@@ -7,7 +7,7 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 {
     public partial class ENDeveloperToolsOutputData : UILabel
     {
-        public ENDeveloperToolsOutputData (IntPtr handle) : base (handle)
+        public ENDeveloperToolsOutputData(IntPtr handle) : base(handle)
         {
             Lines = 100;
             TranslatesAutoresizingMaskIntoConstraints = false;

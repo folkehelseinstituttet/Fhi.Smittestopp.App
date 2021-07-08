@@ -10,9 +10,11 @@ namespace NDB.Covid19.Droid.Utils
     public static class AccessibilityUtils
     {
         // Method for limiting the font scale in Accessibility utils
-        public static void AdjustFontScale(Activity context) {
+        public static void AdjustFontScale(Activity context)
+        {
             Android.Content.Res.Configuration configuration = context.Resources.Configuration;
-            if (configuration.FontScale > 1.25) {
+            if (configuration.FontScale > 1.25)
+            {
                 configuration.FontScale = 1.25f;
                 DisplayMetrics metrics = context.Resources.DisplayMetrics;
                 IWindowManager wm = Application.Context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();

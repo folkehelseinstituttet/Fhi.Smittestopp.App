@@ -1,12 +1,12 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
-using static NDB.Covid19.ViewModels.ErrorViewModel;
+using System;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.ViewModels.ErrorViewModel;
 
 namespace NDB.Covid19.Droid.Utils
 {

@@ -1,11 +1,11 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
+using System;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Views

@@ -1,15 +1,15 @@
-using System;
 using Foundation;
 using I18NPortable;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.ViewModels;
-using UIKit;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
+using UIKit;
 
 namespace NDB.Covid19.iOS.Views.MessagePage
 {
-	public partial class MessagePageCell : UITableViewCell
-	{
+    public partial class MessagePageCell : UITableViewCell
+    {
         public static readonly NSString Key = new NSString("MessagePageCell");
         public static readonly UINib Nib;
 
@@ -30,7 +30,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
                 IndicatorView.BackgroundColor = UIColor.Red;
                 IndicatorView.Layer.CornerRadius = IndicatorView.Layer.Frame.Height / 2;
             }
-            
+
             StyleUtil.InitLabelWithSpacing(Label1, StyleUtil.FontType.FontMedium, message.Title.Translate(), 1.14, 18, 28);
             StyleUtil.InitLabelWithSpacing(Label2, StyleUtil.FontType.FontRegular, DateUtils.GetDateFromDateTime(message.TimeStamp, "d. MMMMM"), 1.14, 15, 17);
             StyleUtil.InitLabelWithSpacing(Label3, StyleUtil.FontType.FontRegular, MessageItemViewModel.MESSAGES_RECOMMENDATIONS, 1.14, 15, 17);
@@ -43,5 +43,5 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             }
             this.BackgroundColor = UIColor.Clear;
         }
-	}
+    }
 }

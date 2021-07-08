@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V4.Content;
@@ -13,6 +12,7 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
+using System;
 using static NDB.Covid19.ViewModels.SettingsGeneralViewModel;
 using static NDB.Covid19.ViewModels.SettingsViewModel;
 using Object = Java.Lang.Object;
@@ -44,7 +44,7 @@ namespace NDB.Covid19.Droid.Views.Settings
             Init();
         }
 
-        
+
         private void Init()
         {
             ImageButton backButton = FindViewById<ImageButton>(Resource.Id.arrow_back_general);
@@ -215,7 +215,7 @@ namespace NDB.Covid19.Droid.Views.Settings
 
         private async void OnCheckedChange(object obj, EventArgs args)
         {
-            SwitchCompat switchButton = (SwitchCompat) obj;
+            SwitchCompat switchButton = (SwitchCompat)obj;
             if (!switchButton.Checked && !await DialogUtils.DisplayDialogAsync(this, AreYouSureDialogViewModel))
             {
                 switchButton.Checked = true;
@@ -227,7 +227,7 @@ namespace NDB.Covid19.Droid.Views.Settings
         private void OnActivityCheckedChange(object sender, EventArgs args)
         {
             SwitchCompat switchCompat = (SwitchCompat)sender;
-            
+
             if (!BatteryOptimisationUtils.CheckIsEnableBatteryOptimizations())
             {
                 BatteryOptimisationUtils.StopBatteryOptimizationSetting(this);
@@ -238,7 +238,7 @@ namespace NDB.Covid19.Droid.Views.Settings
                 BatteryOptimisationUtils.StartBatterySetting(this);
                 switchCompat.Checked = false;
             }
-            
+
         }
     }
 }

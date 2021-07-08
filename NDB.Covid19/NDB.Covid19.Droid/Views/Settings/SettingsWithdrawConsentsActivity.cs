@@ -1,13 +1,13 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using NDB.Covid19.ViewModels;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ViewModels;
+using System;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Views.Settings

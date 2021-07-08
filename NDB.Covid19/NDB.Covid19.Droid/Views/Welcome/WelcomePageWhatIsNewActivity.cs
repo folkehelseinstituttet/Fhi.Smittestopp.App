@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;

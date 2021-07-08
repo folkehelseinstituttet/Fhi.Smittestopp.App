@@ -1,24 +1,23 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Text.Util;
+using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
-using AndroidX.ConstraintLayout.Widget;
-using static NDB.Covid19.Droid.Utils.StressUtils;
-using NDB.Covid19.Droid.Utils;
-using NDB.Covid19.ViewModels;
 using AndroidX.Core.Text;
+using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Utils;
-using Android.Views;
-using Android.Text.Util;
+using NDB.Covid19.ViewModels;
+using System;
+using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Views.Welcome
 {
 
     [Activity(Label = "", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.FullUser, LaunchMode = LaunchMode.SingleTop)]
-    public class WelcomePageConsentsActivity: AppCompatActivity
+    public class WelcomePageConsentsActivity : AppCompatActivity
     {
         public event EventHandler<Boolean> ButtonPressed;
 
@@ -174,7 +173,7 @@ namespace NDB.Covid19.Droid.Views.Welcome
                 _consentWarningTextView.SendAccessibilityEvent(Android.Views.Accessibility.EventTypes.ViewAccessibilityFocused);
             }
         }
-        
+
         private void PreviousButtonPressed(object sender, EventArgs eventArgs)
         {
             if (ConsentsHelper.IsNotFullyOnboarded)

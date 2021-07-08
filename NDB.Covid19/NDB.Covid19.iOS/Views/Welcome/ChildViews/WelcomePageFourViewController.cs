@@ -1,14 +1,14 @@
+using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
 using System;
-using NDB.Covid19.PersistedData;
 using UIKit;
-using NDB.Covid19.iOS.Utils;
 
 namespace NDB.Covid19.iOS.Views.Welcome.ChildViews
 {
     public partial class WelcomePageFourViewController : PageViewController
     {
-        public WelcomePageFourViewController (IntPtr handle) : base (handle)
+        public WelcomePageFourViewController(IntPtr handle) : base(handle)
         {
         }
 

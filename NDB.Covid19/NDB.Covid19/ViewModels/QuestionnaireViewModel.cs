@@ -1,11 +1,11 @@
-﻿using System;
-using System.Globalization;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices.ErrorHandlers;
+using System;
+using System.Globalization;
 using static NDB.Covid19.OAuth2.AuthenticationState;
 
 namespace NDB.Covid19.ViewModels
@@ -93,7 +93,7 @@ namespace NDB.Covid19.ViewModels
                 {
                     return Convert.ToDateTime(PersonalData.Covid19_smitte_start, CultureInfo.InvariantCulture);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     LogUtils.LogMessage(LogSeverity.ERROR, e.StackTrace, "MSIS data can't be parsed into DateTime");
                 }

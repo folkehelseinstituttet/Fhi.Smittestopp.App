@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
@@ -13,6 +10,9 @@ using NDB.Covid19.Droid.Views.AuthenticationFlow.QuestionnaireAdapters;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
@@ -35,7 +35,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         {
             base.OnCreate(savedInstanceState);
             Title = QuestionnaireCountriesViewModel.COUNTRY_QUESTIONAIRE_HEADER_TEXT;
-           
+
             InitView();
         }
 

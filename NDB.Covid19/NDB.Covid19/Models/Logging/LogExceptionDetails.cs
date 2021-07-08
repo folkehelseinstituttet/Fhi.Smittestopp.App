@@ -1,5 +1,5 @@
-﻿using System;
-using NDB.Covid19.Utils;
+﻿using NDB.Covid19.Utils;
+using System;
 
 namespace NDB.Covid19.Models.Logging
 {

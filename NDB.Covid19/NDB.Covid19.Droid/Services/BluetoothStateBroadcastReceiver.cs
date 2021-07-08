@@ -1,11 +1,11 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Bluetooth;
 using Android.Content;
 using Android.Locations;
 using Plugin.CurrentActivity;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.Droid.Services
 {
@@ -17,7 +17,7 @@ namespace NDB.Covid19.Droid.Services
     }
 
     [BroadcastReceiver(Enabled = true)]
-    [IntentFilter(new[] {"android.bluetooth.adapter.action.STATE_CHANGED"})]
+    [IntentFilter(new[] { "android.bluetooth.adapter.action.STATE_CHANGED" })]
     class BluetoothStateBroadcastReceiver : BroadcastReceiver
     {
         public Action OnBluetoothStateChange { get; set; } = null;
@@ -31,12 +31,12 @@ namespace NDB.Covid19.Droid.Services
             {
                 int btState = intent.GetIntExtra(BluetoothAdapter.ExtraState, BluetoothAdapter.Error);
 
-                if (btState == (int) State.On)
+                if (btState == (int)State.On)
                 {
                     _isBluetoothOnAsync?.TrySetResult(true);
                     OnBluetoothStateChange?.Invoke();
                 }
-                else if (btState == (int) State.Off)
+                else if (btState == (int)State.Off)
                 {
                     _isBluetoothOnAsync?.TrySetResult(false);
                     OnBluetoothStateChange?.Invoke();

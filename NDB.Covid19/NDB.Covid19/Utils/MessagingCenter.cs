@@ -1,8 +1,8 @@
-﻿using System;
+﻿using NDB.Covid19.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NDB.Covid19.Interfaces;
 
 namespace NDB.Covid19.Utils
 {

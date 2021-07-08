@@ -1,13 +1,13 @@
-﻿using System;
+﻿using NDB.Covid19.Enums;
+using NDB.Covid19.Utils;
+using Newtonsoft.Json;
+using PCLCrypto;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using NDB.Covid19.Enums;
-using NDB.Covid19.Utils;
-using Newtonsoft.Json;
 using Xamarin.Auth;
-using PCLCrypto;
 
 namespace NDB.Covid19.OAuth2
 {

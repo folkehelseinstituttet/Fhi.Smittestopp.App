@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Castle.Core.Internal;
 using CommonServiceLocator;
 using Moq;
@@ -11,6 +8,9 @@ using NDB.Covid19.Test.Tests.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
 using NDB.Covid19.WebServices.ExposureNotification;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using WireMock.RequestBuilders;
 using WireMock.ResponseBuilders;
 using Xamarin.ExposureNotifications;

@@ -1,14 +1,14 @@
-using System;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Settings.SettingsPage4
 {
     public partial class SettingsPage4ViewController : BaseViewController
     {
-        public SettingsPage4ViewController (IntPtr handle) : base (handle)
+        public SettingsPage4ViewController(IntPtr handle) : base(handle)
         {
         }
 

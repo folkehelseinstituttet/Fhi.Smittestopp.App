@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Foundation;
+﻿using Foundation;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Models;
+using System;
+using System.Collections.Generic;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Settings

@@ -1,10 +1,10 @@
-﻿using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using I18NPortable;
+﻿using I18NPortable;
 using I18NPortable.JsonReader;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.PersistedData;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
 
 namespace NDB.Covid19
 {
@@ -33,7 +33,7 @@ namespace NDB.Covid19
             }
 
             bool currentCultureIsSupported = Conf.SUPPORTED_LANGUAGES.Contains(CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
-                    
+
             return currentCultureIsSupported
                 ? CultureInfo.CurrentCulture.TwoLetterISOLanguageName
                 : Conf.DEFAULT_LANGUAGE;

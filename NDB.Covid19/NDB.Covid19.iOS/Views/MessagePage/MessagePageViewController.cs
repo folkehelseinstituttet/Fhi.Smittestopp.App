@@ -1,14 +1,13 @@
+using NDB.Covid19.Configuration;
 using NDB.Covid19.iOS.Utils;
-using static NDB.Covid19.ViewModels.MessagesViewModel;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using System;
 using System.Collections.Generic;
-using UIKit;
 using System.Threading.Tasks;
-using NDB.Covid19.Configuration;
+using UIKit;
 using UserNotifications;
-using NDB.Covid19.PersistedData;
+using static NDB.Covid19.ViewModels.MessagesViewModel;
 
 namespace NDB.Covid19.iOS.Views.MessagePage
 {
@@ -34,7 +33,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
             return navigationController;
         }
-        
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -122,7 +121,7 @@ namespace NDB.Covid19.iOS.Views.MessagePage
             LabelLastUpdate.Text = LastUpdateString;
             List<MessageItemViewModel> listReversed = list;
             InvokeOnMainThread(() =>
-            {   
+            {
                 NoItemsView.Hidden = list.Count > 0;
                 MessageTable.Hidden = list.Count <= 0;
                 (MessageTable.Source as MessageTableViewSource).Update(listReversed);

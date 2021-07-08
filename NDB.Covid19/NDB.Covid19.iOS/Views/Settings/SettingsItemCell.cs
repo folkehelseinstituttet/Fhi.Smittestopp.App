@@ -1,13 +1,13 @@
-using System;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Settings
 {
     public partial class SettingsItemCell : UITableViewCell
     {
-        public SettingsItemCell (IntPtr handle) : base (handle)
+        public SettingsItemCell(IntPtr handle) : base(handle)
         {
         }
 

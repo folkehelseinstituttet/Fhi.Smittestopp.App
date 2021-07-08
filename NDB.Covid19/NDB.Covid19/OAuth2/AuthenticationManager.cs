@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using JWT;
+﻿using JWT;
 using JWT.Algorithms;
 using JWT.Builder;
 using JWT.Serializers;
@@ -15,6 +9,11 @@ using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using Xamarin.Auth;
 
 namespace NDB.Covid19.OAuth2
@@ -83,7 +82,7 @@ namespace NDB.Covid19.OAuth2
                     .WithValidator(new JwtValidator(new JsonNetSerializer(), new UtcDateTimeProvider(), 5 * 60))
                     .MustVerifySignature()
                     .Decode(accessToken);
-                
+
                 System.Diagnostics.Debug.Print(jsonPayload);
 
                 JObject obj = JObject.Parse(jsonPayload);

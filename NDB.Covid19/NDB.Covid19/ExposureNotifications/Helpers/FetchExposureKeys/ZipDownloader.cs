@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
@@ -13,6 +6,13 @@ using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.Utils.DeveloperTools;
 using NDB.Covid19.WebServices.ExposureNotification;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
 {
@@ -54,7 +54,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             {
                 string requestUrl = requestParams.ToBatchFileRequest();
 
-                ApiResponse <Stream> response = await service.GetDiagnosisKeys(requestUrl, cancellationToken);
+                ApiResponse<Stream> response = await service.GetDiagnosisKeys(requestUrl, cancellationToken);
                 HttpHeaders headers = response.Headers;
                 lastReceivedStatusCodeFromRequest = response.StatusCode;
                 bool headersAreValid = true;
@@ -158,7 +158,7 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
             if (zipLocations.Any() && lastBatchReceived != null)
             {
                 //Persist the last batch that was fetched, to know which one to fetch next time the background task runs.
-                LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted = (int) lastBatchReceived;
+                LocalPreferencesHelper.LastPullKeysBatchNumberNotSubmitted = (int)lastBatchReceived;
 
                 //Also save the last batchtype fetched
                 LocalPreferencesHelper.LastPulledBatchType = requestParams.BatchType;

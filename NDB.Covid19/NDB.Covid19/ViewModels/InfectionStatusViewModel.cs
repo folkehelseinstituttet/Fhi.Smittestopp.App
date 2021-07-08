@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
@@ -10,6 +5,11 @@ using NDB.Covid19.Interfaces;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ViewModels
@@ -68,20 +68,20 @@ namespace NDB.Covid19.ViewModels
             INFECTION_STATUS_DAILY_NUMBERS_HEADER_TEXT + ". " + INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT;
 
         public async Task<string> StatusTxt(bool hasLocation = true) =>
-            await IsRunning(hasLocation) 
-                ? INFECTION_STATUS_ACTIVE_TEXT 
+            await IsRunning(hasLocation)
+                ? INFECTION_STATUS_ACTIVE_TEXT
                 : INFECTION_STATUS_INACTIVE_TEXT;
 
-        public async Task<string> StatusTxtDescription(bool hasLocation = true) => 
-            await IsRunning(hasLocation) 
-                ? INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT 
+        public async Task<string> StatusTxtDescription(bool hasLocation = true) =>
+            await IsRunning(hasLocation)
+                ? INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT
                 : SMITTESPORING_INACTIVE_DESCRIPTION;
 
         private DateTime _latestMessageDateTime = DateTime.Today;
         public bool ShowNewMessageIcon { get; private set; }
         public EventHandler NewMessagesIconVisibilityChanged { get; set; }
         public bool IsAppRestricted { get; set; }
-        
+
         public string NewMessageSubheaderTxt =>
             ShowNewMessageIcon
                 ? $"{INFECTION_STATUS_MESSAGE_SUBHEADER_TEXT} {DateUtils.GetDateFromDateTime(_latestMessageDateTime, "d. MMMMM")}"
@@ -163,7 +163,7 @@ namespace NDB.Covid19.ViewModels
             }
         }
 
-        public async Task<bool> IsRunning(bool hasLocation) => 
+        public async Task<bool> IsRunning(bool hasLocation) =>
             await IsRunning() && hasLocation;
 
         public async Task<bool> IsEnabled()
@@ -248,7 +248,7 @@ namespace NDB.Covid19.ViewModels
             }
             action?.Invoke();
         }
-        
+
         async Task NewMessagesFetched()
         {
             List<MessageItemViewModel> orderedMessages =
@@ -281,7 +281,7 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> PullKeysFromServer()
         {
-            
+
             bool processedAnyFiles = false;
             try
             {

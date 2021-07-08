@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using MoreLinq;
+﻿using MoreLinq;
 using NDB.Covid19.Models;
 using NDB.Covid19.WebServices;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NDB.Covid19.Utils
 {
@@ -17,7 +17,7 @@ namespace NDB.Covid19.Utils
             {
                 key.DaysSinceOnsetOfSymptoms = 2;
             });
-            
+
             return new SelfDiagnosisSubmissionDTO(LastPulledExposureKeys)
             {
                 Regions = regions

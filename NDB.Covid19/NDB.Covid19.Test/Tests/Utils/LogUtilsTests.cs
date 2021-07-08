@@ -1,20 +1,20 @@
-﻿using System;
-using System.Linq;
-using CommonServiceLocator;
-using Xunit;
-using NDB.Covid19.Utils;
-using NDB.Covid19.PersistedData.SQLite;
-using NDB.Covid19.Models.SQLite;
-using System.Collections.Generic;
-using NDB.Covid19.Models.DTOsForServer;
-using NDB.Covid19.Models;
-using NDB.Covid19.WebServices.Helpers;
-using Xamarin.ExposureNotifications;
-using Newtonsoft.Json;
-using static NDB.Covid19.Utils.Anonymizer;
-using NDB.Covid19.WebServices;
-using System.Net.Http;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Configuration;
+using NDB.Covid19.Models;
+using NDB.Covid19.Models.DTOsForServer;
+using NDB.Covid19.Models.SQLite;
+using NDB.Covid19.PersistedData.SQLite;
+using NDB.Covid19.Utils;
+using NDB.Covid19.WebServices;
+using NDB.Covid19.WebServices.Helpers;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using Xamarin.ExposureNotifications;
+using Xunit;
+using static NDB.Covid19.Utils.Anonymizer;
 
 namespace NDB.Covid19.Test.Tests.Utils
 {
@@ -90,7 +90,7 @@ namespace NDB.Covid19.Test.Tests.Utils
             List<LogSQLiteModel> logSqliteModels = await logManager.GetLogs(10);
             Assert.Equal(2, logSqliteModels.Count);
 
-            
+
             // Convert models to DTOs
             IEnumerable<LogDTO> logDtos = logSqliteModels.Select(x => new LogDTO(x));
 
@@ -133,7 +133,7 @@ namespace NDB.Covid19.Test.Tests.Utils
                     new ExposureKeyModel(new byte[5], DateTimeOffset.FromUnixTimeSeconds(1234), TimeSpan.FromHours(24), RiskLevel.Medium),
                     new ExposureKeyModel(new byte[5], DateTimeOffset.FromUnixTimeSeconds(1234), TimeSpan.FromHours(24), RiskLevel.Medium),
                 };
-             
+
             string redactedKeysJson = RedactedTekListHelper.CreateRedactedTekList(temporaryExposureKeys);
             LogUtils.LogApiError(Enums.LogSeverity.INFO, apiResponse1,
                 false, redactedKeysJson);

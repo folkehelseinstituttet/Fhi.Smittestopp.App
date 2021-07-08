@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Android.App;
+﻿using Android.App;
 using Android.Bluetooth;
 using Android.Content;
 using Android.Locations;
@@ -12,6 +10,8 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
+using System.Threading.Tasks;
 using static NDB.Covid19.Droid.Utils.DroidRequestCodes;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 
@@ -26,16 +26,16 @@ namespace NDB.Covid19.Droid.Utils
         {
             bool hasBluetoothSupport = await CheckBluetoothSupport();
             bool hasLocationSupport = await CheckLocationSupport();
-            
+
             PermissionsMessagingCenter.PermissionsChanged = false;
-            
+
             return hasBluetoothSupport && hasLocationSupport;
         }
 
         private async Task<bool> CheckBluetoothSupport()
         {
             _bluetoothTCS = new TaskCompletionSource<bool>();
-            
+
             if (IsBluetoothEnabled())
             {
                 _bluetoothTCS.TrySetResult(true);
@@ -47,11 +47,11 @@ namespace NDB.Covid19.Droid.Utils
 
             return await _bluetoothTCS.Task;
         }
-        
+
         private async Task<bool> CheckLocationSupport()
         {
             _locationTCS = new TaskCompletionSource<bool>();
-            
+
             if (IsLocationEnabled())
             {
                 _locationTCS.TrySetResult(true);
@@ -63,7 +63,7 @@ namespace NDB.Covid19.Droid.Utils
 
             return await _locationTCS.Task;
         }
-        
+
         public async Task<bool> CheckPermissionsIfChangedWhileIdle()
         {
             if (PermissionsMessagingCenter.PermissionsChanged)
@@ -150,20 +150,20 @@ namespace NDB.Covid19.Droid.Utils
 
         public bool IsLocationEnabled()
         {
-            if ((int) Build.VERSION.SdkInt >= 30)
+            if ((int)Build.VERSION.SdkInt >= 30)
             {
                 // Location is not required on Android 11 and above
                 return true;
             }
             if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
             {
-                LocationManager lm = (LocationManager) Current.AppContext.GetSystemService(Context.LocationService);
+                LocationManager lm = (LocationManager)Current.AppContext.GetSystemService(Context.LocationService);
                 return lm.IsLocationEnabled;
             }
 
             int mode = Settings.Secure.GetInt(Current.AppContext.ContentResolver, Settings.Secure.LocationMode,
-                (int) SecurityLocationMode.Off);
-            return (mode != (int) SecurityLocationMode.Off);
+                (int)SecurityLocationMode.Off);
+            return (mode != (int)SecurityLocationMode.Off);
         }
 
         public bool AreAllPermissionsGranted()

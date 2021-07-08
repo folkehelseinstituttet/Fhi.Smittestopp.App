@@ -1,6 +1,5 @@
-using System;
-using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
+using System;
 using static NDB.Covid19.Utils.OnboardingStatusHelper;
 
 namespace NDB.Covid19.Utils

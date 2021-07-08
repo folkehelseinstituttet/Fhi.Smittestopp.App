@@ -1,10 +1,10 @@
-﻿using System;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ViewModels;
+using System;
 
 namespace NDB.Covid19.Utils
 {
@@ -40,7 +40,8 @@ namespace NDB.Covid19.Utils
                     if (!hasBluetooth && !hasLocation)
                     {
                         viewModel = NotificationsEnum.BluetoothAndLocationOff.Data();
-                    } else if (!hasBluetooth)
+                    }
+                    else if (!hasBluetooth)
                     {
                         viewModel = NotificationsEnum.BluetoothOff.Data();
                     }

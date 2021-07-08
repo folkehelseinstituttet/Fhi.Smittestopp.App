@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using CommonServiceLocator;
+﻿using CommonServiceLocator;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.PersistedData.SecureStorage;
 using NDB.Covid19.Utils;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
@@ -185,7 +185,8 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected
                         LogUtils.LogMessage(Enums.LogSeverity.INFO, $"{_logPrefix}.UpdateDatesOfExposure: Dates: {datesAsString}");
                         _secureStorageService.SaveValue(SecureStorageKeys.DAILY_SUMMARIES_OVER_THRESHOLD_TIMESTAMP_KEY, datesAsString);
                     }
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     LogUtils.LogException(Enums.LogSeverity.ERROR, e, $"{_logPrefix}.UpdateDatesOfExposure: " +
                         $"Unexpected error has occured when saving Exposure Dates to Secure Storage. " +

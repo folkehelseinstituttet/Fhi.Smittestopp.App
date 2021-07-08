@@ -1,9 +1,8 @@
-using System;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views.CustomSubclasses;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
+using System;
 using UIKit;
 using static NDB.Covid19.iOS.Utils.StyleUtil;
 

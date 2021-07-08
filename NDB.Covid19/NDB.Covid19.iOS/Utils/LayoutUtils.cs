@@ -1,6 +1,6 @@
-﻿using System;
+﻿using NDB.Covid19.PersistedData;
+using System;
 using System.Runtime.InteropServices;
-using NDB.Covid19.PersistedData;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Utils

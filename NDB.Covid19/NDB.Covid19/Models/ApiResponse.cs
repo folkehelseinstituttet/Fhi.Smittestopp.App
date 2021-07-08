@@ -1,9 +1,9 @@
+using NDB.Covid19.Configuration;
 using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using NDB.Covid19.Configuration;
 
 namespace NDB.Covid19.Models
 {

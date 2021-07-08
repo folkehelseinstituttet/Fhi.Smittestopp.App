@@ -1,12 +1,12 @@
-using System;
 using NDB.Covid19.iOS.Utils;
+using System;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.CustomSubclasses
 {
     public partial class SetttingsPageTitleLabel : UILabel
     {
-        public SetttingsPageTitleLabel (IntPtr handle) : base (handle)
+        public SetttingsPageTitleLabel(IntPtr handle) : base(handle)
         {
             Lines = 100;
             TextColor = UIColor.White;

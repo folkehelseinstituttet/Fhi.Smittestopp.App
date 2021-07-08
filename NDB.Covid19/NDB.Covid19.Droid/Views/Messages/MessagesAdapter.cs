@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Android.App;
+﻿using Android.App;
 using Android.Views;
 using Android.Widget;
 using I18NPortable;
 using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NDB.Covid19.Droid.Views.Messages
 {

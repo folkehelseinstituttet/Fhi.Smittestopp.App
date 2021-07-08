@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using NDB.Covid19.Models.SQLite;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using NDB.Covid19.Models.SQLite;
 
 namespace NDB.Covid19.PersistedData.SQLite
 {

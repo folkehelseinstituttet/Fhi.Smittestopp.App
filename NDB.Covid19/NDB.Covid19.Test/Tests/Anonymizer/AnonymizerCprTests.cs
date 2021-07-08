@@ -88,7 +88,7 @@ namespace NDB.Covid19.Test.Tests.Anonymizer
             string testString1 = "RanDoM StrInG";
             string testString2 = "An0Th3r RanDoM StrInG";
 
-            ReplaceCpr(testString1+testCpr1+testString2).Should().Be($"{testString1}{replacementKebabCase}{testString2}");
+            ReplaceCpr(testString1 + testCpr1 + testString2).Should().Be($"{testString1}{replacementKebabCase}{testString2}");
             ReplaceCpr($"{testString1} {testCpr1} {testString2}").Should().Be($"{testString1} {replacementKebabCase} {testString2}");
 
             testString1 = "010203";

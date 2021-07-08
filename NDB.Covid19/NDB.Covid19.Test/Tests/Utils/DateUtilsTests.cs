@@ -1,10 +1,9 @@
-﻿using System;
-using System.Globalization;
-using System.Threading;
-using NDB.Covid19.Configuration;
+﻿using NDB.Covid19.Configuration;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
-
+using System;
+using System.Globalization;
+using System.Threading;
 using Xunit;
 
 namespace NDB.Covid19.Test.Tests.Utils

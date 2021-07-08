@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Foundation;
+using NDB.Covid19.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Foundation;
-using NDB.Covid19.ViewModels;
 using UIKit;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
