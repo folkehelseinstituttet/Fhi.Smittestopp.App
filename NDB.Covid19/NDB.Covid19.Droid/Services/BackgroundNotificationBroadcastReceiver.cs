@@ -77,6 +77,14 @@ namespace NDB.Covid19.Droid.Services
                     new LocalNotificationsManager(context)
                         .CreateNotification(notificationViewModel));
             });
+            ActivityManager.RunningAppProcessInfo myProcess = new ActivityManager.RunningAppProcessInfo();
+            ActivityManager.GetMyMemoryState(myProcess);
+            bool isInBackground = myProcess.Importance != Importance.Foreground;
+
+            if (isInBackground)
+            {
+                LocalPreferencesHelper.LastDateTimeTermsNotificationWasShown = SystemTime.Now();
+            }
         }
         private void GenerateForegroundServiceNotificationWithUpdatesBroadcasted(
             Context context, NotificationViewModel notificationViewModel, long ticksLeft)

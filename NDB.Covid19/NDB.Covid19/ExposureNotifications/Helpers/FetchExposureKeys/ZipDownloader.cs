@@ -90,7 +90,13 @@ namespace NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys
                     else
                     {
                         //There were no new keys to fetch for today
-                        _developerTools.AddToPullHistoryRecord($"204 No Content - No new keys", requestUrl);
+                        var dateCurrent = SystemTime.Now();
+                        var lastTimePull = LocalPreferencesHelper.GetLastPullKeysSucceededDateTime();
+                        DateTime timeRounded = new DateTime(dateCurrent.Year, dateCurrent.Month, dateCurrent.Day, dateCurrent.Hour, 0, 0);
+                        if (dateCurrent.Minute > 0 || dateCurrent.Second > 0) timeRounded = lastTimePull.AddHours(1.0);
+                        var time = timeRounded.Subtract(SystemTime.Now()).TotalMinutes;
+                        int minutes = (int)Math.Ceiling(time);
+                        _developerTools.AddToPullHistoryRecord($"204 No Content - No new keys, please try in {minutes} minutes", requestUrl);
                         string warning = $"API {response.Endpoint} returned 204 No Content - No new keys since last pull";
                         LogUtils.LogMessage(LogSeverity.WARNING, $"{_logPrefix}.{nameof(DownloadZips)}: {warning}");
                         lastPull = true;
