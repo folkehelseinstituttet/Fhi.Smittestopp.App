@@ -36,7 +36,6 @@ namespace NDB.Covid19.Droid.Views.Messages
             TextView accessibilityView = view.FindViewById<TextView>(Resource.Id.accessibility_pane_box);
             accessibilityView.Text = _items[position].MessageLink.Translate();
             LinkUtil.LinkifyTextView(accessibilityView);
-            accessibilityView.ContentDescription = "Test accessibility";
             accessibilityView.SetTextSize(Android.Util.ComplexUnitType.Px, 0);
             TextView title = view.FindViewById<TextView>(Resource.Id.messages_item_title);
             TextView dateView = view.FindViewById<TextView>(Resource.Id.messages_item_date);
