@@ -299,18 +299,5 @@ namespace NDB.Covid19.ViewModels
 
             return processedAnyFiles;
         }
-
-        public static void OpenSurveyWebPageLink()
-        {
-            try
-            {
-                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(INFECTION_STATUS_SURVEY_LINK_URL);
-            }
-            catch (Exception e)
-            {
-                LogUtils.LogException(LogSeverity.ERROR, e, "Failed to open survey web page");
-            }
-        }
-
     }
 }
