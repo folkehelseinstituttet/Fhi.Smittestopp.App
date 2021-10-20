@@ -48,8 +48,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private TextView _registrationHeader;
         private TextView _registrationSubheader;
         private TextView _menuText;
-        private TextView _surveyText;
-        private TextView _surveyButtonView;
         private Button _onOffButton;
         private ImageView _notificationDot;
         private RelativeLayout _dailyNumbersRelativeLayout;
@@ -184,7 +182,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             base.OnPause();
             _permissionUtils.UnsubscribePermissionsMessagingCenter(this);
             _viewModel.NewMessagesIconVisibilityChanged -= OnNewMessagesIconVisibilityChanged;
-            _surveyButtonView.Click -= SurveyButton_Click;
         }
 
         private async void UpdateKeys()
@@ -216,7 +213,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 FindViewById<TextView>(Resource.Id.infection_status_registration_login_text_textView);
             _menuText = FindViewById<TextView>(Resource.Id.infection_status_menu_text_view);
             _menuText.TextAlignment = Android.Views.TextAlignment.ViewEnd;
-            _surveyText = FindViewById<TextView>(Resource.Id.infection_status_questionnaire_textView);
 
             //Buttons
             _onOffButton = FindViewById<Button>(Resource.Id.infection_status_on_off_button);
@@ -231,7 +227,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 FindViewById<Button>(Resource.Id.infection_status_messages_button_relativeLayout_button);
             _registrationCoverButton =
                 FindViewById<Button>(Resource.Id.infection_status_registration_button_relativeLayout_button);
-            _surveyButtonView = FindViewById<TextView>(Resource.Id.infection_status_questionnaire_button_relativeLayout_button);
 
             //ImageViews
             _notificationDot = FindViewById<ImageView>(Resource.Id.infection_status_message_bell_imageView);
@@ -243,8 +238,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             arrowImage.AutoMirrored = true;
             arrowImageView1.SetImageDrawable(arrowImage);
             arrowImageView2.SetImageDrawable(arrowImage);
-            Drawable surveyDrawable = ContextCompat.GetDrawable(this, Resource.Drawable.ic_survey);
-            surveyDrawable.AutoMirrored = true;
 
             //Text initialization
             _activityStatusText.Text = INFECTION_STATUS_ACTIVE_TEXT;
@@ -256,13 +249,11 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationHeader.Text = INFECTION_STATUS_REGISTRATION_HEADER_TEXT;
             _registrationSubheader.Text = INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT;
             _menuText.Text = INFECTION_STATUS_MENU_TEXT;
-            _surveyText.Text = INFECTION_STATUS_SURVEY_HEADER_TEXT;
 
             _messeageHeader.TextAlignment = TextAlignment.ViewStart;
             _messageSubHeader.TextAlignment = TextAlignment.ViewStart;
             _registrationHeader.TextAlignment = TextAlignment.ViewStart;
             _registrationSubheader.TextAlignment = TextAlignment.ViewStart;
-            _surveyText.TextAlignment = TextAlignment.ViewStart;
 
             //Accessibility
             _messageSubHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
@@ -278,10 +269,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 $"{INFECTION_STATUS_REGISTRATION_HEADER_TEXT} {INFECTION_STATUS_REGISTRATION_SUBHEADER_TEXT}";
             _fhiLogo.ContentDescription = SMITTESPORING_FHI_LOGO_ACCESSIBILITY;
             _appLogo.ContentDescription = SMITTESPORING_APP_LOGO_ACCESSIBILITY;
-            _surveyButtonView.Text = INFECTION_STATUS_SURVEY_LINK_URL;
-            LinkUtil.LinkifyTextView(_surveyButtonView);
-            _surveyButtonView.ContentDescription = INFECTION_STATUS_SURVEY_HEADER_TEXT;
-            _surveyButtonView.SetTextSize(Android.Util.ComplexUnitType.Px, 0);
 
             //Button click events
             _onOffButton.Click += new SingleClick(StartStopButton_Click, 500).Run;
@@ -293,7 +280,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _registrationCoverButton.Click += new SingleClick(RegistrationLayoutButton_Click, 500).Run;
             _menuIcon.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
             _menuText.Click += new SingleClick((sender, e) => NavigationHelper.GoToSettingsPage(this), 500).Run;
-            _surveyButtonView.Click += new SingleClick(SurveyButton_Click, 500).Run;
             if (!await IsRunning())
             {
                 _onOffButton.PerformClick();
@@ -659,11 +645,6 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 builder.Show();
                 AdjustLines(_dontShowButton, _positiveButton, _negativeButton);
             }
-            
-        }
-        public void SurveyButton_Click(object sender, EventArgs e)
-        {
-            OpenSurveyWebPageLink();
         }
     }
 }
