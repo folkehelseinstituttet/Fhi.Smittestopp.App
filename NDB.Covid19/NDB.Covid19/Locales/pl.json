@@ -260,6 +260,7 @@
   "REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_HEADER": "Wynik Twojego testu został już udostępniony w aplikacji Smittestopp",
   "REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION": "W aplikacji Smittestopp możesz się zarejestrować jako osoba zarażona tylko raz.",
   "REGISTER_ERROR_FETCH_FHI_DATA_HEADER": "Wystąpił błąd",
+  "REGISTER_SELFTEST_BUTTON": "I want to report that I have been contaminated",
   "REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION": "Nie udało się pobrać najnowszych danych. Proszę spróbować ponownie później.",
   "REGISTER_QUESTIONAIRE_HEADER": "Aby móc ostrzec właściwe osoby, aplikacja Smittestopp musi uzyskać informację o tym, kiedy zachorowałeś.",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_TEXT": "Czy masz lub miałeś objawy COVID-19?",

@@ -107,8 +107,17 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
             {
                 ErrorMessageLabel.AccessibilityLabel = ErrorViewModel.REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION;
             }
-        }
 
+
+			StyleUtil.InitButtonStyling(ContinueWithSelftestButton, ErrorViewModel.REGISTER_SELFTEST_BUTTON);
+
+			if (ErrorTitle != ErrorViewModel.REGISTER_ERROR_NOMATCH_HEADER)
+            {
+				ContinueWithSelftestButton.Hidden = true;
+			}
+
+        }
+		
 		private void AdjustTextHeight(UILabel label)
         {
 			//Enable auto-layout to be resized programatically

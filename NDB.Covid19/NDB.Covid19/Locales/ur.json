@@ -261,6 +261,7 @@
   "REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION": "آپ Smittestopp میں صرف ایک بار خود کو انفیکشن میں مبتلا رجسٹرڈ کر سکتے ہیں۔",
   "REGISTER_ERROR_FETCH_FHI_DATA_HEADER": "کوئی مسئلہ ہوا ہے",
   "REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION": "ہم تازہ ترین ڈیٹا حاصل نہیں کر سکے۔ براہ مہربانی ٹھہر کر دوبارہ کوشش کریں۔",
+  "REGISTER_SELFTEST_BUTTON": "I want to report that I have been contaminated",
   "REGISTER_QUESTIONAIRE_HEADER": "متعلقہ افراد کو اطلاع دینے کے لیے ضروری ہے کہ Smittestopp کو پتہ ہو کہ آپکی بیماری کب شروع ہوئی تھی۔",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_TEXT": "کیا آپکو COVID-19 کی علامات پیش ہیں یا پیش تھیں؟",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES": "ہاں، تقریباً اس وقت سے ",
