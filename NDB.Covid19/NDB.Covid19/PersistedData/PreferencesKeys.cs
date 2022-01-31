@@ -64,5 +64,7 @@ namespace NDB.Covid19.PersistedData
 
         // EN API v2 configuration parameters
         public static readonly string SCORE_SUM_THRESHOLD = "SCORE_SUM_THRESHOLD";
+
+        public static readonly string POSITIVE_SELF_TEST = "POSITIVE_SELF_TEST";
     }
 }

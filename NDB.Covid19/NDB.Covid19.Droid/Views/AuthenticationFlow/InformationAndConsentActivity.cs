@@ -14,6 +14,7 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using Xamarin.Auth;
 using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -87,8 +88,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _idPortenButton.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT;
             _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
             _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
-            _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER;
-            _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT;
             _notificationHeader.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER;
             _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT;
             _beAwareText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT;
@@ -96,6 +95,18 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             _lookupHeader.TextAlignment = TextAlignment.ViewStart;
             _notificationHeader.TextAlignment = TextAlignment.ViewStart;
+
+            if (HasTestedPositiveWithSelfTest)
+            {
+                // TODO: Add missing texts for self test here
+                _lookupHeader.Text = "";
+                _lookupText.Text = "";
+            }
+            else
+            {
+                _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER;
+                _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT;
+            }
 
             ////Accessibility
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;

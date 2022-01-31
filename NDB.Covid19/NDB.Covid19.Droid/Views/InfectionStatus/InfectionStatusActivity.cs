@@ -29,6 +29,7 @@ using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
 using NDB.Covid19.Enums;
 using AlertDialog = Android.App.AlertDialog;
 using NDB.Covid19.ExposureNotifications.Helpers;
+using NDB.Covid19.PersistedData;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -568,8 +569,9 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 return;
             }
 
-            Intent intent = new Intent(this, typeof(InformationAndConsentActivity));
+            Intent intent = new Intent(this, typeof(QuestionnaireTestOptionActivity));
             StartActivity(intent);
+            HasTestedPositiveWithSelfTest = false;
         }
 
         private void CheckIfShowBackgroundActivityDialog()
