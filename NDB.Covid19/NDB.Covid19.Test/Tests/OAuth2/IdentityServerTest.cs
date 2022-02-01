@@ -19,7 +19,7 @@ namespace NDB.Covid19.Test.Tests.OAuth2
             _factory = factory;
         }
         
-        [Theory(Skip ="The test is possible to skip in 2022 because the functionality it was testing is already in production")]
+        [Theory]
         [InlineData("/.well-known/openid-configuration/jwks")]
         public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
         {
