@@ -112,7 +112,7 @@ namespace NDB.Covid19.Test.Tests.Utils
         public async void SystemDateTimeIsIncorrect_ShouldUseNTP()
         {
             SystemTime.ResetDateTime();
-            DateTime currentTime = DateTime.UtcNow.AddYears(-3);
+            DateTime currentTime = DateTime.UtcNow.AddYears(-4);
             SystemTime.SetDateTime(currentTime);
             
             try
