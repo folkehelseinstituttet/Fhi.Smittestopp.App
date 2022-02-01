@@ -52,7 +52,7 @@ namespace NDB.Covid19.Test.Tests.Utils
         public async void SystemDateTimeIsIncorrect_NtpIsLowerThanCurrent_ShouldUseDefault()
         {
             SystemTime.ResetDateTime();
-            DateTime currentTime = DateTime.UtcNow.AddYears(-3);
+            DateTime currentTime = DateTime.UtcNow.AddYears(-4);
             SystemTime.SetDateTime(currentTime);
 
             NTPUtcDateTime ntpUtcDateTime =
@@ -82,7 +82,7 @@ namespace NDB.Covid19.Test.Tests.Utils
         public async void SystemDateTimeIsIncorrect_NtpIsEqualToPersisted_ShouldUseDefault()
         {
             SystemTime.ResetDateTime();
-            DateTime currentTime = DateTime.UtcNow.AddYears(-3);
+            DateTime currentTime = DateTime.UtcNow.AddYears(-4);
             SystemTime.SetDateTime(currentTime);
 
             NTPUtcDateTime ntpUtcDateTime =
