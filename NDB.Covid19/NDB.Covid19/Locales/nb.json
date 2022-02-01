@@ -371,6 +371,9 @@
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Les om Smittestopp på andre språk på www.fhi.no/om/smittestopp/tekster-pa-andre-sprak",
   "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_EXPLANATION": "Prioritert bakgrunnsaktivitet",
   "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_HEADER": "Slå av batterioptimalisering",
-  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "Dette vil deaktivere batterioptimaliseringen for Smittestopp slik at appen kan bestemme risikostatusen din i bakgrunnen når som helst. Hvis du ikke tillater denne innstillingen, anbefaler vi at du åpner appen manuelt minst én gang hver 24. time."
+  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "Dette vil deaktivere batterioptimaliseringen for Smittestopp slik at appen kan bestemme risikostatusen din i bakgrunnen når som helst. Hvis du ikke tillater denne innstillingen, anbefaler vi at du åpner appen manuelt minst én gang hver 24. time.",
+  "POSITIVE_TEST_MSISBUTTON_TEXT": "Jeg fikk positivt testresultat på test utført på teststasjon",
+  "POSTIVE_TEST_SELFTESTBUTTON_TEXT": "Jeg fikk positivt testresultat på selvtest",
+  "HEADER_LABEL_SELFTEST_REGISTRATION_TEXT": "Velg ett alternativ for å forsette", 
 
 }

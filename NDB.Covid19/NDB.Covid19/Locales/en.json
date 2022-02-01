@@ -371,6 +371,9 @@
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Read about Smittestopp in other languages at fhi.no/en/about/smittestopp/text-in-other-languages",
   "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_EXPLANATION": "Prioritized background activity",
   "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_HEADER": "Turn off battery optimization",
-  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "This will disable battery optimization for Smittestopp to allow the app to determine your risk status in the background any time. If you do not allow this setting, we recommend you to open the app manually at least once every 24 hours."
+  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "This will disable battery optimization for Smittestopp to allow the app to determine your risk status in the background any time. If you do not allow this setting, we recommend you to open the app manually at least once every 24 hours.",
+  "POSITIVE_TEST_MSISBUTTON_TEXT": "I got a positive test result, by a test, taken on a testcenter",
+  "POSTIVE_TEST_SELFTESTBUTTON_TEXT": "I got a positive test result, by selftesting",
+  "HEADER_LABEL_SELFTEST_REGISTRATION_TEXT": "Chose an alternative to continue"
 
 }

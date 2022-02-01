@@ -631,6 +631,7 @@
     <Folder Include="Views\AuthenticationFlow\QuestionnaireCountries\" />
     <Folder Include="Resources\Fonts\" />
     <Folder Include="Views\DailyNumbers\" />
+    <Folder Include="Views\SelftestOption\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -666,6 +667,7 @@
     <InterfaceDefinition Include="Views\DailyNumbers\DailyNumbers.storyboard" />
     <InterfaceDefinition Include="Views\DailyNumbers\DailyNumbersLoading.storyboard" />
     <InterfaceDefinition Include="Views\Initializer\LanguageSelection.storyboard" />
+    <InterfaceDefinition Include="Views\SelftestOption\SelftestOption.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -843,6 +845,10 @@
       <DependentUpon>LanguageSelectionViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\InfectionStatus\HoursPickerModel.cs" />
+    <Compile Include="Views\SelftestOption\SelftestOptionViewController.cs" />
+    <Compile Include="Views\SelftestOption\SelftestOptionViewController.designer.cs">
+      <DependentUpon>SelftestOptionViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">
