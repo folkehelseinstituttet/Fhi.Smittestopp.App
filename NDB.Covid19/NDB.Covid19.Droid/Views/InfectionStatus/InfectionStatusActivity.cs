@@ -487,11 +487,14 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
 
             View dialogView = LayoutInflater.Inflate(Resource.Layout.spinner_dialog, null);
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetView(dialogView);
-            builder.SetCancelable(false);
+            AlertDialog builder = new AlertDialog.Builder(this)
+                    .SetView(dialogView)
+                    .SetCancelable(false)
+                    .Create();
             builder.SetTitle(INFECTION_STATUS_PAUSE_DIALOG_TITLE);
             builder.SetMessage(INFECTION_STATUS_PAUSE_DIALOG_MESSAGE);
+            Button okButton = dialogView.FindViewById<Button>(Resource.Id.spinner_dialog_ok_button);
+            okButton.Text = INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON;
             _picker = dialogView.FindViewById(Resource.Id.picker) as NumberPicker;
             _picker.MinValue = 0;
             _picker.MaxValue = 4;
@@ -506,7 +509,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                     INFECTION_STATUS_PAUSE_DIALOG_OPTION_EIGHT_HOURS,
                 });
 
-            builder.SetPositiveButton(INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON, (sender, args) =>
+            okButton.Click += new SingleClick((sender, args) =>
             {
                 switch (_picker.Value)
                 {
@@ -518,21 +521,19 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                         break;
                 }
                 StopGoogleAPI();
-                (sender as AlertDialog)?.Dismiss();
-            });
+                builder.Dismiss();
+            }).Run;
 
             if (Android.OS.Build.VERSION.SdkInt > Android.OS.BuildVersionCodes.M)
-            {
-                AlertDialog alertDialog = builder.Create();
-                alertDialog.Window.DecorView.LayoutDirection = LayoutUtils.GetLayoutDirection();
-                alertDialog.Show();
+            {      
+                builder.Window.DecorView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+                builder.Show();
             }
             else
             {
-                builder.Create();
                 builder.Show();
             }
-            
+
 
         }
         private void CloseReminderNotifications()
