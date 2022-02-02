@@ -46,7 +46,6 @@ namespace NDB.Covid19.ViewModels
         public static string REGISTER_QUESTIONAIRE_MSIS_TEST_BUTTON_TEXT => "REGISTER_QUESTIONAIRE_MSIS_TEST_BUTTON_TEXT".Translate();
         public static string REGISTER_QUESTIONAIRE_SELF_TEST_BUTTON_TEXT => "REGISTER_QUESTIONAIRE_SELF_TEST_BUTTON_TEXT".Translate();
 
-
         public DialogViewModel CloseDialogViewModel => new DialogViewModel
         {
             Title = ErrorViewModel.REGISTER_LEAVE_HEADER,
