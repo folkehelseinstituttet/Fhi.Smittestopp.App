@@ -28,6 +28,13 @@ namespace NDB.Covid19.ViewModels
         public static string INFOCONSENT_CONSENT_EXPLANATION_TEXT => "INFOCONSENT_CONSENT_EXPLANATION_TEXT".Translate();
         public static string INFOCONSENT_CONSENTSWITCH_LABEL => "INFOCONSENT_CONSENTSWITCH_LABEL".Translate();
 
+        public static string INFOCONSENT_SELF_TEST_HEADER => "INFOCONSENT_SELF_TEST_HEADER".Translate();
+        public static string INFOCONSENT_SELF_TEST_DESCRIPTION => "INFOCONSENT_SELF_TEST_DESCRIPTION".Translate();
+        public static string INFOCONSENT_SELF_TEST_LOOKUP_HEADER => "INFOCONSENT_SELF_TEST_LOOKUP_HEADER".Translate();
+        public static string INFOCONSENT_SELF_TEST_LOOKUP_TEXT => "INFOCONSENT_SELF_TEST_LOOKUP_TEXT".Translate();
+        public static string INFOCONSENT_SELF_TEST_NOTIFICATION_TEXT => "INFOCONSENT_SELF_TEST_NOTIFICATION_TEXT".Translate();
+        public static string INFOCONSENT_SELF_TEST_CONSENT_EXPLANATION_TEXT => "INFOCONSENT_SELF_TEST_CONSENT_EXPLANATION_TEXT".Translate();
+
         AuthenticationManager _authManager;
         public event EventHandler<AuthErrorType> OnError;
         public event EventHandler OnSuccess;
