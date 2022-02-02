@@ -286,9 +286,6 @@
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE": "Ładowanie…",
   "REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATE_INFO_BUTTON": "Informacja",
   "REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT": "dd.mm.rrrr",
-  "REGISTER_QUESTIONAIRE_CHOOSE_OPTION": "Choose one option to continue",
-  "REGISTER_QUESTIONAIRE_MSIS_TEST_BUTTON_TEXT": "I got a positive test result on a test performed at a test station",
-  "REGISTER_QUESTIONAIRE_SELF_TEST_BUTTON_TEXT": "I got a positive test result on a self test",
   "REGISTER_COUNTRY_QUESTIONAIRE_HEADER_TEXT": "Czy w ciągu ostatnich 14 dni przebywałeś w innym kraju członkowskim UE lub EOG bądź też chcesz się podzielić kluczami kontaktowymi z którymś z tych krajów?  ",
   "REGISTER_COUNTRY_QUESTIONAIRE_INFORMATION_TEXT": "Które kraje odwiedziłeś bądź z osobami jakiej narodowości się kontaktowałeś? Podanie tej informacji jest dobrowolne. Takie dane mogą jednak ułatwić aplikacjom ostrzegającym przed zakażeniem w innych krajach wyśledzenie użytkowników i podzielenie się z nimi kluczami kontaktowymi.",
   "REGISTER_COUNTRY_QUESTIONAIRE_BUTTON_TEXT": "Prześlij",
@@ -373,6 +370,18 @@
   "SETTINGS_GENERAL_ACCESSIBILITY_MORE_INFO_BUTTON_TEXT": "Przeczytaj o aplikacji Smittestopp w innych językach na stronie fhi.no/en/about/smittestopp/text-in-other-languages",
   "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_EXPLANATION": "Priorytetowa aktywność w tle",
   "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_HEADER": "Wyłącz optymalizację zużycia baterii",
-  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "Spowoduje to wyłączenie optymalizacji zużycia baterii w przypadku aplikacji Smittestopp, dzięki czemu aplikacja będzie mogła w każdej chwili oceniać w tle Twój status ryzyka. Jeśli nie zezwolisz na tę funkcję, zalecamy manualne otwieranie aplikacji co najmniej raz na 24 godziny."
-
+  "SETTINGS_GENERAL_BACKGROUND_ACTIVITY_DESC": "Spowoduje to wyłączenie optymalizacji zużycia baterii w przypadku aplikacji Smittestopp, dzięki czemu aplikacja będzie mogła w każdej chwili oceniać w tle Twój status ryzyka. Jeśli nie zezwolisz na tę funkcję, zalecamy manualne otwieranie aplikacji co najmniej raz na 24 godziny.",
+  // TODO: Add correct text
+  "INFOCONSENT_SELF_TEST_HEADER": "Del at du har testet positivt med selvtest",
+  "INFOCONSENT_SELF_TEST_DESCRIPTION": "Du har valgt å varsle andre om at du er smittet av covid-19. De som blir varslet om mulig smitte får ikke vite at det er du som har varslet om smitten. Du må være over 16 år for å dele testresultatet ditt med Smittestopp. Ingen kan melde smitte mer enn en gang i løpet av 60 dager.",
+  "INFOCONSENT_SELF_TEST_LOOKUP_HEADER": "Innlogging via ID-porten",
+  "INFOCONSENT_SELF_TEST_LOOKUP_TEXT": "Basert på innlogging i ID-porten, kontrollerer Smittestopp  at du er over 16 år. ID-porten utsteder også et pseudonym som Smittestopp bruker for å kontrollere at en person ikke melder smitte flere ganger på kort tid. ",
+  "INFOCONSENT_SELF_TEST_NOTIFICATION_HEADER": "Hvordan varsling skjer",
+  "INFOCONSENT_SELF_TEST_NOTIFICATION_TEXT": "Smittestopp vil gjøre data som ble benyttet for å lage kontaktnøklene på din telefon tilgjengelig for andre telefoner som har smittesporingsapper aktivert. Disse dataene er enveisnøkler. De kan ikke spores tilbake til deg, men andre telefoner kan benytte disse for å sjekke om de har vært i nærheten av din telefon. \nHvis det viser seg at andre telefoner har vært i nærheten av din telefon, vil brukerne av disse telefonene få varsel om dette på sine telefoner. Brukerne vil også få anbefalinger om hva de bør gjøre. Smittestopp er laget slik at det ikke formidles noen opplysninger om hvem som varsler om smitte. Dersom den som mottar varsel, bare har hatt kontakt med et veldig få antall personer den siste tiden, vil vedkommende likevel kunne forstå hvem som kan ha varslet. ",
+  "INFOCONSENT_SELF_TEST_CONSENT_BEAWARE_TEXT": "Når du først har gitt samtykke til varsling, og varsel er sendt, kan ikke dette samtykket trekkes tilbake. ",
+  "INFOCONSENT_SELF_TEST_CONSENT_EXPLANATION_TEXT": "Jeg samtykker til at personer jeg har vært i nærheten av blir varslet om at de har vært i nærheten av en som er smittet av covid-19. For å varsle, godkjenner jeg også at det gjøres oppslag i ID-porten for å kontrollere at jeg er over 16 år. Jeg godkjenner også at ID-porten utsteder et pseudonym som Smittestopp benytter for å kontrollere at det ikke allerede er meldt om smitte i løpet av de siste 60 dager. De som blir varslet om mulig smitte får ikke vite at det er jeg som har varslet om smitten. ",
+  "INFOCONSENT_SELF_TEST_LOGIN": "Jeg samtykker",
+  "CHOOSE_TYPE_OF_TEST_HEADER": "Velg ett alternativ for å fortsette",
+  "CHOOSE_CONFIRMED_TEST_BUTTON_TEXT": "Jeg fikk positivt testresultat på test utført på teststasjon",
+  "CHOOSE_SELF_TEST_BUTTON_TEXT": "Jeg fikk positivt testresultat på selvtest"
 }

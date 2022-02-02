@@ -35,7 +35,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Title = REGISTER_QUESTIONAIRE_CHOOSE_OPTION;
+            Title = CHOOSE_TYPE_OF_TEST_HEADER;
             SetContentView(Resource.Layout.questionnaire_test_option);
             Init();
             if (!RemovedFromRecentDetectorService.IsRunning)
@@ -58,8 +58,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _questionnaireViewModel = new QuestionnaireViewModel();
 
             TextView questionnaireTitle = FindViewById<TextView>(Resource.Id.questionnaire_title);
-            questionnaireTitle.Text = REGISTER_QUESTIONAIRE_CHOOSE_OPTION;
-            questionnaireTitle.ContentDescription = REGISTER_QUESTIONAIRE_CHOOSE_OPTION;
+            questionnaireTitle.Text = CHOOSE_TYPE_OF_TEST_HEADER;
+            questionnaireTitle.ContentDescription = CHOOSE_TYPE_OF_TEST_HEADER;
             questionnaireTitle.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             ViewGroup close = FindViewById<ViewGroup>(Resource.Id.close_cross_btn);
@@ -68,8 +68,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             }).Run;
 
             _msisTestButton = FindViewById<Button>(Resource.Id.questionnaire_button_msis_test);
-            _msisTestButton.ContentDescription = REGISTER_QUESTIONAIRE_MSIS_TEST_BUTTON_TEXT;
-            _msisTestButton.Text = REGISTER_QUESTIONAIRE_MSIS_TEST_BUTTON_TEXT;
+            _msisTestButton.ContentDescription = CHOOSE_CONFIRMED_TEST_BUTTON_TEXT;
+            _msisTestButton.Text = CHOOSE_CONFIRMED_TEST_BUTTON_TEXT;
             _msisTestButton.Click += new SingleClick((o, ev) =>
             {
                 GoToInformationAndConsentPage();
@@ -77,8 +77,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             }).Run;
 
             _selfTestButton = FindViewById<Button>(Resource.Id.questionnaire_button_self_test);
-            _selfTestButton.ContentDescription = REGISTER_QUESTIONAIRE_SELF_TEST_BUTTON_TEXT;
-            _selfTestButton.Text = REGISTER_QUESTIONAIRE_SELF_TEST_BUTTON_TEXT;
+            _selfTestButton.ContentDescription = CHOOSE_SELF_TEST_BUTTON_TEXT;
+            _selfTestButton.Text = CHOOSE_SELF_TEST_BUTTON_TEXT;
             _selfTestButton.Click += new SingleClick((o, ev) =>
             {
                 GoToInformationAndConsentPage();
