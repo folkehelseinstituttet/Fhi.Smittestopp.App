@@ -35,11 +35,6 @@ namespace NDB.Covid19.Droid.Utils
             GoToErrorPage(parent, REGISTER_ERROR_FETCH_FHI_DATA_HEADER, REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
             LogUtils.LogException(severity, e, errorMessage);
         }
-
-       
-
-
-
         public static void GoToErrorPage(Activity parent, string title, string description, string button, string continuebutton, string subtitle = null)
         {
             UpdateCorrelationId(null);
