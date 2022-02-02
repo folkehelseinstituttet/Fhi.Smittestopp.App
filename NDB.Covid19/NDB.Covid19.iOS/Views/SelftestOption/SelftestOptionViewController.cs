@@ -4,14 +4,6 @@ using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using DeviceCheck;
-using NDB.Covid19.Models.UserDefinedExceptions;
-using NDB.Covid19.OAuth2;
-using NDB.Covid19.Enums;
-using System.Collections.Generic;
-using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
 
 namespace NDB.Covid19.iOS.Views.SelftestOption
@@ -36,14 +28,12 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
         UIButton _ContinueButton;
 
         public override void ViewDidLoad()
-
         {
             base.ViewDidLoad();
             _viewmodel = new SelftestRegistrationViewModel();
             SetTexts();
             SetupStyling();
             //ContinueWithMSISBtn.TouchUpInside += ContinueButtonTapped;
-
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
@@ -51,7 +41,6 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
-
         }
 
         private void SetTexts()
@@ -74,7 +63,6 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
 
             StyleUtil.InitButtonStyling(ContinueWithMSISBtn, SelftestRegistrationViewModel.POSITIVE_TEST_MSISBUTTON_TEXT);
             StyleUtil.InitButtonStyling(ContinueWithSelfTestBtn, SelftestRegistrationViewModel.POSTIVE_TEST_SELFTESTBUTTON_TEXT);
-
         }
 
         private void AdjustTextHeight(UILabel Header)
@@ -90,17 +78,22 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
             LeaveController();
         }
 
-
-   
-
-        partial void ContinueWithMSISButtonTouchUpInside(UIKit.UIButton sender)
+        partial void ContinueWithMSISBtn_TouchUpInside(UIKit.UIButton sender)
 
         {
-
-            LeaveController(); 
-
+            UINavigationController navigationController = new UINavigationController(InformationAndConsentViewController.GetInformationAndConsentViewController());
+            navigationController.SetNavigationBarHidden(true, false);
+            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+            PresentViewController(navigationController, true, null);
         }
 
+        partial void ContinueWithSelftestBtn_TouchUpInside(UIKit.UIButton sender)
+        {
+            UINavigationController navigationController = new UINavigationController(InformationAndConsentViewController.GetInformationAndConsentViewController());
+            navigationController.SetNavigationBarHidden(true, false);
+            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+            PresentViewController(navigationController, true, null);
+        }
 
     }
 }   

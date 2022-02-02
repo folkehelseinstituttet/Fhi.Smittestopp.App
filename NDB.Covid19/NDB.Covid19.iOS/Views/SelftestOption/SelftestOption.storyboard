@@ -58,9 +58,7 @@
                                                 <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="ContinueWithMSISBtn:" destination="WHC-8J-Mry" eventType="touchUpInside" id="b5b-vf-hnp"/>
-                                                    <action selector="ContinueWithMSISBtn_Click:" destination="WHC-8J-Mry" eventType="touchUpInside" id="8xZ-bb-QKz"/>
-                                                    <action selector="ContinueWithMSISButtonTouchUpInside:" destination="WHC-8J-Mry" eventType="touchUpInside" id="OoN-QP-mhK"/>
+                                                    <action selector="ContinueWithMSISBtn_TouchUpInside:" destination="WHC-8J-Mry" eventType="touchUpInside" id="1gC-rL-dXo"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="c1N-mJ-nev" userLabel="ContinueWithSelfTestBtn">
@@ -69,8 +67,7 @@
                                                 <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="ContinueWithSelfTestButton:" destination="WHC-8J-Mry" eventType="touchUpInside" id="nrw-jk-AQW"/>
-                                                    <action selector="ContinueWithSelfTestButtonTouchUpInside:" destination="WHC-8J-Mry" eventType="touchUpInside" id="gVv-Gp-XvJ"/>
+                                                    <action selector="ContinueWithSelftestBtn_TouchUpInside:" destination="WHC-8J-Mry" eventType="touchUpInside" id="Yln-Ew-hu7"/>
                                                 </connections>
                                             </button>
                                         </subviews>

@@ -27,13 +27,12 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
 		[Action ("CloseBtn_TouchUpInside:")]
 		partial void CloseBtn_TouchUpInside (UIKit.UIButton sender);
 
+		[Action ("ContinueWithMSISBtn_TouchUpInside:")]
+		partial void ContinueWithMSISBtn_TouchUpInside (UIKit.UIButton sender);
 
-		[Action ("ContinueWithMSISButtonTouchUpInside:")]
-		partial void ContinueWithMSISButtonTouchUpInside (UIKit.UIButton sender);
+		[Action ("ContinueWithSelftestBtn_TouchUpInside:")]
+		partial void ContinueWithSelftestBtn_TouchUpInside (UIKit.UIButton sender);
 
-
-		[Action ("ContinueWithSelfTestButtonTouchUpInside:")]
-		partial void ContinueWithSelfTestButtonTouchUpInside (UIKit.UIButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
