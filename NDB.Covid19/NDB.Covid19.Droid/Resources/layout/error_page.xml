@@ -76,6 +76,15 @@
     </ScrollView>
 
     <Button
+        style="@style/ConsentButton"
+        android:id="@+id/continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/defaultVerticalMarginContinue"
+        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+        android:text="Dummy Button"
+        />      
+    <Button
             style="@style/ConsentButton"
             android:id="@+id/error_button"
             android:layout_width="match_parent"

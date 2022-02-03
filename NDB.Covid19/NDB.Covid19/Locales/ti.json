@@ -262,6 +262,7 @@
   "REGISTER_ERROR_FETCH_FHI_DATA_HEADER": "ጌጋ ኣጋጢሙ",
   "REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION": "ናይ ዝቐረበ እዋን ዳታ/ጸብጻብ ምምጻእ ዝተገብረ ፈተነ ኣይተዓወተን። ብኽብረትካ ጸኒሕካ ፈትን።",
   "REGISTER_QUESTIONAIRE_HEADER": "እቶም ዝድለዩ ሰባት መታን ክሕበሩ፡ ልክዕ መዓስ ከም ዝሓመምካ Smittestopp ክፈልጥ ኣድላዪ ኢዩ።",
+  "REGISTER_SELFTEST_BUTTON": "I want to report that I have been contaminated",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_TEXT": "ምልክታት ናይ ኮቪድ-19 ኣሎካ ድዩ ወይ ነይሩካ ድዩ?  ",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES": "እወ፣ ካብ ዕለት …",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YESBUT": "እወ፡ እንተኾነ እቶም ምልክታት መዓስ ከም ዝጀመሩ ከዝክሮ ኣይክእልን እየ።",

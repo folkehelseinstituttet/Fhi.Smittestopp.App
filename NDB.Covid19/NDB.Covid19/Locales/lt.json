@@ -261,6 +261,7 @@
   "REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION": "Užregistruoti užsikrėtusiu „Smittestopp“ galima tik vieną kartą. ",
   "REGISTER_ERROR_FETCH_FHI_DATA_HEADER": "Įvyko klaida",
   "REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION": "Nepavyko gauti naujausių duomenų. Bandykite dar kartą vėliau.",
+  "REGISTER_SELFTEST_BUTTON": "I want to report that I have been contaminated",
   "REGISTER_QUESTIONAIRE_HEADER": "Norėdami informuoti tinkamus asmenis, „Smittestopp“ turi žinoti, kada susirgote.",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_TEXT": "Ar turite ar turėjote COVID-19 simptomų?",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES": "Taip, maždaug nuo ",

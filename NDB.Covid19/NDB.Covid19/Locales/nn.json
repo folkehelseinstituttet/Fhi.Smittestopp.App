@@ -261,6 +261,7 @@
   "REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION": "Du kan berre registrere deg som smitta éin gong i Smittestopp. ",
   "REGISTER_ERROR_FETCH_FHI_DATA_HEADER": "Ein feil oppsto",
   "REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION": "Vi greidde ikkje å laste inn dei nyaste dataa. Ver venleg, prøv igjen seinare.",
+  "REGISTER_SELFTEST_BUTTON": "Eg ynskjer likevel å melde meg sjølv smitta",
   "REGISTER_QUESTIONAIRE_HEADER": "For å kunne varsle dei rette personane må Smittestopp kjenne til når du blei sjuk.",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_TEXT": "Har du, eller har du hatt, symptom på covid-19?",
   "REGISTER_QUESTIONAIRE_SYMPTOMONSET_ANSWER_YES": "Ja, sidan cirka",
