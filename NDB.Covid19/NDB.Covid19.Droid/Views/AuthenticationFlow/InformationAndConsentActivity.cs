@@ -14,6 +14,7 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using Xamarin.Auth;
 using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -85,17 +86,30 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             //Text initialization
             _idPortenButton.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT;
-            _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
-            _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
-            _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER;
-            _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT;
             _notificationHeader.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER;
-            _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT;
             _beAwareText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT;
-            _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT;
 
             _lookupHeader.TextAlignment = TextAlignment.ViewStart;
             _notificationHeader.TextAlignment = TextAlignment.ViewStart;
+
+            if (HasTestedPositiveWithSelfTest)
+            {
+                _header.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_HEADER;
+                _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
+                _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_LOOKUP_HEADER;
+                _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_LOOKUP_TEXT;
+                _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_NOTIFICATION_TEXT;
+                _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_CONSENT_EXPLANATION_TEXT;
+            }
+            else
+            {
+                _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
+                _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
+                _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER;
+                _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT;
+                _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT;
+                _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT;
+            }
 
             ////Accessibility
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;

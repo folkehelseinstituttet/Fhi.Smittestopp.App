@@ -151,6 +151,7 @@
     <Compile Include="Views\LanguageSelectionActivity.cs" />
     <Compile Include="Utils\DiagnosisKeysDataMappingUtils.cs" />
     <Compile Include="Utils\BatteryOptimisationUtils.cs" />
+    <Compile Include="Views\AuthenticationFlow\QuestionnaireTestOptionActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -1124,6 +1125,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-hdpi\ic_survey.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\questionnaire_test_option.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
