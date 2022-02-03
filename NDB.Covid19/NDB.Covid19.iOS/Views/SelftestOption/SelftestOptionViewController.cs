@@ -24,8 +24,6 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
         }
 
         SelftestRegistrationViewModel _viewmodel;
-        UIViewController _authViewController;
-        UIButton _ContinueButton;
 
         public override void ViewDidLoad()
         {
