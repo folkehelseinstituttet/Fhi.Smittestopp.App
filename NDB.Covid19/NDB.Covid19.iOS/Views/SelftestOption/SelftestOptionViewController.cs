@@ -33,8 +33,6 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
             _viewmodel = new SelftestRegistrationViewModel();
             SetTexts();
             SetupStyling();
-            //ContinueWithMSISBtn.TouchUpInside += ContinueButtonTapped;
-            // Perform any additional setup after loading the view, typically from a nib.
         }
 
         public override void DidReceiveMemoryWarning()
@@ -79,7 +77,6 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
         }
 
         partial void ContinueWithMSISBtn_TouchUpInside(UIKit.UIButton sender)
-
         {
             UINavigationController navigationController = new UINavigationController(InformationAndConsentViewController.GetInformationAndConsentViewController());
             navigationController.SetNavigationBarHidden(true, false);

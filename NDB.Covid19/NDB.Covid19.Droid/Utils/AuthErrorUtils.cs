@@ -36,10 +36,6 @@ namespace NDB.Covid19.Droid.Utils
             LogUtils.LogException(severity, e, errorMessage);
         }
 
-       
-
-
-
         public static void GoToErrorPage(Activity parent, string title, string description, string button, string continuebutton, string subtitle = null)
         {
             UpdateCorrelationId(null);
