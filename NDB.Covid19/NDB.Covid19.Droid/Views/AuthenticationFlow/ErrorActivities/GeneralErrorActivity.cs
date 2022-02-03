@@ -88,7 +88,6 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
             registerSelftestButton.Text = continueButtonText;
             registerSelftestButton.ContentDescription = ErrorViewModel.REGISTER_SELFTEST_BUTTON;
             button.ContentDescription = continueButtonText;
-
         }
 
         public override void OnBackPressed()

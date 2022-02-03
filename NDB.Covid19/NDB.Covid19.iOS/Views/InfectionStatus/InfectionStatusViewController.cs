@@ -18,6 +18,7 @@ using UIKit;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using NDB.Covid19.iOS.Views.SelftestOption;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -453,7 +454,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             if (await _viewModel.IsRunning())
             {
-                UINavigationController navigationController = new UINavigationController(InformationAndConsentViewController.GetInformationAndConsentViewController());
+                UINavigationController navigationController = new UINavigationController(SelftestOptionViewController.GetSelftestOptionViewController());
                 navigationController.SetNavigationBarHidden(true, false);
                 navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
                 PresentViewController(navigationController, true, null);
