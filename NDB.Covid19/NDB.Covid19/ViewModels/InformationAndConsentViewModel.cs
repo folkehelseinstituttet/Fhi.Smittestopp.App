@@ -8,7 +8,9 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ProtoModels;
 using Xamarin.Auth;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -37,16 +39,19 @@ namespace NDB.Covid19.ViewModels
 
         AuthenticationManager _authManager;
         public event EventHandler<AuthErrorType> OnError;
-        public event EventHandler OnSuccess;
+        public event EventHandler<AuthSuccessType> OnSuccess;
 
-        EventHandler _onSuccess;
+        readonly TemporaryExposureKey.Types.ReportType _reportInfectedType;
+        EventHandler<AuthSuccessType> _onSuccess;
         EventHandler<AuthErrorType> _onError;
 
-        public InformationAndConsentViewModel(EventHandler onSuccess,
-            EventHandler<AuthErrorType> onError)
+        public InformationAndConsentViewModel(EventHandler<AuthSuccessType> onSuccess,
+            EventHandler<AuthErrorType> onError,
+            TemporaryExposureKey.Types.ReportType reportInfectedType)
         {
             _onSuccess = onSuccess;
             _onError = onError;
+            _reportInfectedType = reportInfectedType;
             _authManager = new AuthenticationManager();
         }
 
@@ -54,7 +59,14 @@ namespace NDB.Covid19.ViewModels
         {
             OnError += _onError;
             OnSuccess += _onSuccess;
-            _authManager.Setup(OnAuthCompleted, OnAuthError);
+            try
+            {
+                _authManager.Setup(OnAuthCompleted, OnAuthError, _reportInfectedType);
+            }
+            catch (ArgumentException e)
+            {
+                OnError?.Invoke(this, AuthErrorType.Unknown);
+            }
         }
 
         public void Cleanup()
@@ -90,6 +102,7 @@ namespace NDB.Covid19.ViewModels
             if ((e?.IsAuthenticated ?? false) && e.Account?.Properties != null && e.Account.Properties.ContainsKey("access_token"))
             {
                 LogUtils.LogMessage(Enums.LogSeverity.INFO, errorMsgPrefix + "User returned from ID Porten after authentication and access_token exists.");
+                AreCountryConsentsGiven = false;
 
                 //Access_token
                 string token = e.Account?.Properties["access_token"];
@@ -118,30 +131,53 @@ namespace NDB.Covid19.ViewModels
 
                     SaveCovidRelatedAttributes(payload);
 
+                    if (AuthenticationState.PersonalData.IsUnderaged)
+                    {
+                        OnError?.Invoke(this, AuthErrorType.Underaged);
+                        return;
+                    }
+
                     if (AuthenticationState.PersonalData.IsBlocked)
                     {
                         OnError?.Invoke(this, AuthErrorType.MaxTriesExceeded);
                     }
                     else
                     {
-                        if (AuthenticationState.PersonalData.IsNotInfected)
+                        if (AuthenticationState.PersonalData.CanUploadKeys
+                            && !AuthenticationState.PersonalData.UnknownStatus
+                            && payload.ValidateAccessToken()
+                            )
                         {
-                            OnError?.Invoke(this, AuthErrorType.NotInfected);
-                        }
-                        else
-                        {
-                            if (!payload.Validate() || AuthenticationState.PersonalData.UnknownStatus)
+                            if (AuthenticationState.PersonalData.IsNotInfected)
                             {
-                                if (AuthenticationState.PersonalData.UnknownStatus)
+                                if (AuthenticationState.PersonalData.IsMsisLookupSkipped)
                                 {
-                                    LogUtils.LogMessage(LogSeverity.ERROR, errorMsgPrefix + "Value Covid19_status = ukendt");
+                                    OnSuccess?.Invoke(this, AuthSuccessType.SelfDiagnosis);
                                 }
-                                OnError?.Invoke(this, AuthErrorType.Unknown);
+                                else
+                                {
+                                    OnError?.Invoke(this, AuthErrorType.NotInfected);
+                                }
                             }
                             else
                             {
-                                OnSuccess?.Invoke(this, null);
+                                if (payload.Validate())
+                                {
+                                    OnSuccess?.Invoke(this, AuthSuccessType.ConfirmedTest);
+                                }
+                                else
+                                {
+                                    OnError?.Invoke(this, AuthErrorType.Unknown);
+                                }
                             }
+                        }
+                        else
+                        {
+                            if (AuthenticationState.PersonalData.UnknownStatus)
+                            {
+                                LogUtils.LogMessage(LogSeverity.ERROR, errorMsgPrefix + "Value Covid19_status = ukendt");
+                            }
+                            OnError?.Invoke(this, AuthErrorType.Unknown);
                         }
                     }
                 }

@@ -35,6 +35,13 @@ namespace NDB.Covid19.Droid.Utils
             GoToErrorPage(parent, REGISTER_ERROR_FETCH_FHI_DATA_HEADER, REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
             LogUtils.LogException(severity, e, errorMessage);
         }
+
+        public static void GoToUnderagedError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
+        {
+            GoToErrorPage(parent, REGISTER_ERROR_NOT16YEARSOLD_HEADER, REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
+            LogUtils.LogException(severity, e, errorMessage);
+        }
+
         public static void GoToErrorPage(Activity parent, string title, string description, string button, string continuebutton, string subtitle = null)
         {
             UpdateCorrelationId(null);
@@ -47,6 +54,10 @@ namespace NDB.Covid19.Droid.Utils
             if (subtitle != null)
             {
                 bundle.PutString("subtitle", subtitle);
+            }
+            if (title == REGISTER_ERROR_NOMATCH_HEADER)
+            {
+                bundle.PutBoolean("canContinueReportingInfected", true);
             }
             intent.PutExtras(bundle);
             parent.StartActivity(intent);

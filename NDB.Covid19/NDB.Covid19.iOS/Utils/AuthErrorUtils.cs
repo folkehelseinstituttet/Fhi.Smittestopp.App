@@ -38,6 +38,13 @@ namespace NDB.Covid19.iOS.Utils
             GoToVC(parent, newVC);
         }
 
+        public static void GoToUnderageError(UIViewController parent, LogSeverity severity, Exception e, string errorMessage)
+        {
+            UIViewController newVC = ErrorPageViewController.Create(ErrorViewModel.REGISTER_ERROR_NOT16YEARSOLD_HEADER, errorMessageTxt: ErrorViewModel.REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION);
+            LogUtils.LogException(severity, e, errorMessage);
+            GoToVC(parent, newVC);
+        }
+
         public static void GoToErrorPageForAuthErrorType(UIViewController parent, AuthErrorType authErrorType)
         {
             AuthException authException = new AuthException(authErrorType.ToString());
@@ -51,6 +58,9 @@ namespace NDB.Covid19.iOS.Utils
                     break;
                 case AuthErrorType.Unknown:
                     GoToTechnicalError(parent, LogSeverity.WARNING, authException, "User sees Technical error page after ID Porten login: Unknown auth error or user press backbtn");
+                    break;
+                case AuthErrorType.Underaged:
+                    GoToUnderageError(parent, LogSeverity.WARNING, authException, "User is below age-limit");
                     break;
             }
         }

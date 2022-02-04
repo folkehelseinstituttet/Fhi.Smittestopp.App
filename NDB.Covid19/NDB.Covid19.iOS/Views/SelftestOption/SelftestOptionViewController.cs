@@ -5,6 +5,7 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.SelftestOption
 {
@@ -80,6 +81,7 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
             navigationController.SetNavigationBarHidden(true, false);
             navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
             PresentViewController(navigationController, true, null);
+            IsReportingSelfTest = false;
         }
 
         partial void ContinueWithSelftestBtn_TouchUpInside(UIKit.UIButton sender)
@@ -88,6 +90,7 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
             navigationController.SetNavigationBarHidden(true, false);
             navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
             PresentViewController(navigationController, true, null);
+            IsReportingSelfTest = true;
         }
 
     }

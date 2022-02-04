@@ -572,7 +572,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
             Intent intent = new Intent(this, typeof(QuestionnaireTestOptionActivity));
             StartActivity(intent);
-            HasTestedPositiveWithSelfTest = false;
+            IsReportingSelfTest = false;
         }
 
         private void CheckIfShowBackgroundActivityDialog()
