@@ -15,7 +15,7 @@ using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using NDB.Covid19.ProtoModels;
+using static NDB.Covid19.ProtoModels.TemporaryExposureKey.Types;
 using Xamarin.Auth;
 
 namespace NDB.Covid19.OAuth2
@@ -42,13 +42,13 @@ namespace NDB.Covid19.OAuth2
         public void Setup(
             EventHandler<AuthenticatorCompletedEventArgs> completedHandler,
             EventHandler<AuthenticatorErrorEventArgs> errorHandler,
-            TemporaryExposureKey.Types.ReportType reportType
+            ReportType reportType
             )
         {
             string OAuthScope = reportType switch
             {
-                TemporaryExposureKey.Types.ReportType.ConfirmedTest => OAuthConf.OAUTH2_CONFIRMED_TEST_SCOPE,
-                TemporaryExposureKey.Types.ReportType.SelfReport => OAuthConf.OAUTH2_SELF_DIAGNOSIS_SCOPE,
+                ReportType.ConfirmedTest => OAuthConf.OAUTH2_CONFIRMED_TEST_SCOPE,
+                ReportType.SelfReport => OAuthConf.OAUTH2_SELF_DIAGNOSIS_SCOPE,
                 _ => throw new ArgumentException("Unsupported report type was specified")
             };
 

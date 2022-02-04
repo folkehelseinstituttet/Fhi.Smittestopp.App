@@ -8,7 +8,7 @@ using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
-using NDB.Covid19.ProtoModels;
+using static NDB.Covid19.ProtoModels.TemporaryExposureKey.Types.ReportType;
 using static NDB.Covid19.OAuth2.AuthenticationState;
 
 namespace NDB.Covid19.Models
@@ -32,7 +32,7 @@ namespace NDB.Covid19.Models
             Platform = ServiceLocator.Current.GetInstance<IDeviceInfo>().Platform.ToString();
             Regions = Conf.SUPPORTED_REGIONS.ToList();
             IsSharingAllowed = LocalPreferencesHelper.AreCountryConsentsGiven;
-            ReportType = LocalPreferencesHelper.IsReportingSelfTest ? (int)TemporaryExposureKey.Types.ReportType.SelfReport : (int)TemporaryExposureKey.Types.ReportType.ConfirmedTest;
+            ReportType = LocalPreferencesHelper.IsReportingSelfTest ? (int)SelfReport : (int)ConfirmedTest;
 
             // Denmark will be added automatically on server side. Only additional countries should be added here.
             VisitedCountries.AddRange(PersonalData?.VisitedCountries ?? new List<string>());
