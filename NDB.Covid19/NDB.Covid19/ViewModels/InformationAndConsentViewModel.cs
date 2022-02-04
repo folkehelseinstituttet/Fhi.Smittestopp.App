@@ -93,6 +93,7 @@ namespace NDB.Covid19.ViewModels
             if ((e?.IsAuthenticated ?? false) && e.Account?.Properties != null && e.Account.Properties.ContainsKey("access_token"))
             {
                 LogUtils.LogMessage(Enums.LogSeverity.INFO, errorMsgPrefix + "User returned from ID Porten after authentication and access_token exists.");
+                AreCountryConsentsGiven = false;
 
                 //Access_token
                 string token = e.Account?.Properties["access_token"];
