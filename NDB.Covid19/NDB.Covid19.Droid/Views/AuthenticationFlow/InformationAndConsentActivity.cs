@@ -13,6 +13,7 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using Xamarin.Auth;
+using NDB.Covid19.ProtoModels;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
@@ -33,7 +34,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         TextView _consentExplanationText;
         Button _idPortenButton;
         InformationAndConsentViewModel _viewModel;
-        private ReportInfectedType _reportInfectedType;
+        private TemporaryExposureKey.Types.ReportType _reportInfectedType;
 
         ProgressBar _progressBar;
 
@@ -43,7 +44,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             this.Title = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
             SetContentView(Resource.Layout.information_and_consent);
             CustomTabsConfiguration.CustomTabsClosingMessage = null;
-            _reportInfectedType = IsReportingSelfTest ? ReportInfectedType.SelfDiagnosis : ReportInfectedType.ConfirmedTest;
+            _reportInfectedType = IsReportingSelfTest ? TemporaryExposureKey.Types.ReportType.SelfReport : TemporaryExposureKey.Types.ReportType.ConfirmedTest;
             _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError, _reportInfectedType);
             _viewModel.Init();
             InitLayout();

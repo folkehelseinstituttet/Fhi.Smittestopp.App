@@ -10,6 +10,7 @@ using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.Utils;
 using UIKit;
 using NDB.Covid19.Enums;
+using NDB.Covid19.ProtoModels;
 using System.Collections.Generic;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
@@ -31,13 +32,13 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         InformationAndConsentViewModel _viewModel;
         UIViewController _authViewController;
-        private ReportInfectedType _reportInfectedType;
+        private TemporaryExposureKey.Types.ReportType _reportInfectedType;
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            _reportInfectedType = IsReportingSelfTest ? ReportInfectedType.SelfDiagnosis : ReportInfectedType.ConfirmedTest;
+            _reportInfectedType = IsReportingSelfTest ? TemporaryExposureKey.Types.ReportType.SelfReport : TemporaryExposureKey.Types.ReportType.ConfirmedTest;
             _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError, _reportInfectedType);
             _viewModel.Init();
 

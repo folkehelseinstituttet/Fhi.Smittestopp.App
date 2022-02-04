@@ -8,7 +8,9 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.OAuth2;
 using NDB.Covid19.Utils;
+using NDB.Covid19.ProtoModels;
 using Xamarin.Auth;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -39,13 +41,13 @@ namespace NDB.Covid19.ViewModels
         public event EventHandler<AuthErrorType> OnError;
         public event EventHandler<AuthSuccessType> OnSuccess;
 
-        readonly ReportInfectedType _reportInfectedType;
+        readonly TemporaryExposureKey.Types.ReportType _reportInfectedType;
         EventHandler<AuthSuccessType> _onSuccess;
         EventHandler<AuthErrorType> _onError;
 
         public InformationAndConsentViewModel(EventHandler<AuthSuccessType> onSuccess,
             EventHandler<AuthErrorType> onError,
-            ReportInfectedType reportInfectedType)
+            TemporaryExposureKey.Types.ReportType reportInfectedType)
         {
             _onSuccess = onSuccess;
             _onError = onError;
@@ -57,7 +59,14 @@ namespace NDB.Covid19.ViewModels
         {
             OnError += _onError;
             OnSuccess += _onSuccess;
-            _authManager.Setup(OnAuthCompleted, OnAuthError, _reportInfectedType);
+            try
+            {
+                _authManager.Setup(OnAuthCompleted, OnAuthError, _reportInfectedType);
+            }
+            catch (ArgumentException e)
+            {
+                OnError?.Invoke(this, AuthErrorType.Unknown);
+            }
         }
 
         public void Cleanup()
