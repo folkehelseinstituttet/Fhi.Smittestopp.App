@@ -197,7 +197,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
         void OnSuccess()
         {
             NextBtn.HideSpinner();
-            NavigationController?.PushViewController(CountriesConsentViewController.Create(), true);
+            if (IsReportingSelfTest)
+            {
+                NavigationController?.PushViewController(LoadingPageViewController.Create(), true);
+            }
+            else
+            {
+                NavigationController?.PushViewController(CountriesConsentViewController.Create(), true);
+            }
         }
 
         void DatePickerChanged(object sender, EventArgs e)

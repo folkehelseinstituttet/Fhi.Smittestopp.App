@@ -252,6 +252,8 @@
   "REGISTER_ERROR_HEADER": "Įvyko klaida",
   "REGISTER_ERROR_DESCRIPTION": "Įvyko techninė klaida. Jūsų testo rezultatas mums svarbus ir tikimės, kad vėliau bandysite dar kartą. ",
   "REGISTER_ERROR_DISMISS": "Yra",
+  "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "Du er ikke gammel nok til å varsle om smitte i Smittestopp",
+  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "Du må være over 16 år for å melde deg smittet i Smittestopp.",
   "REGISTER_LEAVE_HEADER": "Patvirtinkite, kad norite išeiti iš šio puslapio",
   "REGISTER_LEAVE_DESCRIPTION": "Ar norite išeiti iš šio puslapio nebendrinti su kitais programos naudotojais, kurių testas buvo teigiamas?",
   "REGISTER_LEAVE_CANCEL": "Atšaukti",

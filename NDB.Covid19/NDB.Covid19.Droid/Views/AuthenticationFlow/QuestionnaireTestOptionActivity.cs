@@ -71,7 +71,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _msisTestButton.Click += new SingleClick((o, ev) =>
             {
                 GoToInformationAndConsentPage();
-                HasTestedPositiveWithSelfTest = false;
+                IsReportingSelfTest = false;
             }).Run;
 
             _selfTestButton = FindViewById<Button>(Resource.Id.questionnaire_button_self_test);
@@ -80,7 +80,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _selfTestButton.Click += new SingleClick((o, ev) =>
             {
                 GoToInformationAndConsentPage();
-                HasTestedPositiveWithSelfTest = true;
+                IsReportingSelfTest = true;
             }).Run;
 
             View rootView = Window.DecorView.RootView;

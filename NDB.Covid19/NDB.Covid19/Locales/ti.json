@@ -252,6 +252,8 @@
   "REGISTER_ERROR_HEADER": "ጌጋ ኣጋጢሙ ",
   "REGISTER_ERROR_DESCRIPTION": "ቴክኒካዊ ጌጋ ኣጋጢሙ። ውጽኢት መርመራኻ ንዓና ኣገዳሲ እዩ፡ ጸኒሕካ ከምብሓድሽ ከም ትፍትን ድማ ተስፋ ንገብር። ",
   "REGISTER_ERROR_DISMISS": "ሕራይ",
+  "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "Du er ikke gammel nok til å varsle om smitte i Smittestopp",
+  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "Du må være over 16 år for å melde deg smittet i Smittestopp.",
   "REGISTER_LEAVE_HEADER": "ካብዚ ገጽ ክትወጽእ ከም ዝደለኻ ኣረጋግጽ",
   "REGISTER_LEAVE_DESCRIPTION": "ኣወንታዊ ውጽኢት መርመራ ከም ተነገረካ ንኻልኦት ተጠቀምቲ ናይዚ ኣፕ ከይኣካፈልካ ነዚ ገጽ ክትሓድጎ ትደሊ ዲኻ?",
   "REGISTER_LEAVE_CANCEL": "ሰርዝ",

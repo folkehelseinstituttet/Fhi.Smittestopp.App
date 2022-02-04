@@ -252,6 +252,8 @@
   "REGISTER_ERROR_HEADER": "Cillad ayaa jirta",
   "REGISTER_ERROR_DESCRIPTION": "Cillad farsamo ayaa jirta. Natiijada tijaabadu waa noo muhiim, markaa waxannu jeclaan lahayn inaad mardambe ku soo noqotid.",
   "REGISTER_ERROR_DISMISS": "Okey",
+  "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "Du er ikke gammel nok til å varsle om smitte i Smittestopp",
+  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "Du må være over 16 år for å melde deg smittet i Smittestopp.",
   "REGISTER_LEAVE_HEADER": "Xaqiiji inaad ka baxayso bogga",
   "REGISTER_LEAVE_DESCRIPTION": "Ma rabtaa inaad ka baxdo boggan adoo dadka kale la wadaagin in lagaa helay covid-19?",
   "REGISTER_LEAVE_CANCEL": "Ka noqo",

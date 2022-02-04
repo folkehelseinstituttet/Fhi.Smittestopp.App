@@ -252,6 +252,8 @@
   "REGISTER_ERROR_HEADER": "Det har oppstått ein feil",
   "REGISTER_ERROR_DESCRIPTION": "Det har oppstått ein teknisk feil. Testresultatet ditt er viktig for oss, og vi håper du kan prøve igjen seinare. ",
   "REGISTER_ERROR_DISMISS": "OK",
+  "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "Du er ikke gammel nok til å varsle om smitte i Smittestopp",
+  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "Du må være over 16 år for å melde deg smittet i Smittestopp.",
   "REGISTER_LEAVE_HEADER": "Stadfest at du vil forlate sida",
   "REGISTER_LEAVE_DESCRIPTION": "Vil du forlate denne sida utan å dele med andre brukarar av appen at du har testa positivt?",
   "REGISTER_LEAVE_CANCEL": "Angre",

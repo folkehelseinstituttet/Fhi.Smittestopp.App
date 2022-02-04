@@ -4,6 +4,7 @@
     {
         Unknown,
         MaxTriesExceeded,
-        NotInfected
+        NotInfected,
+        Underaged
     }
 }

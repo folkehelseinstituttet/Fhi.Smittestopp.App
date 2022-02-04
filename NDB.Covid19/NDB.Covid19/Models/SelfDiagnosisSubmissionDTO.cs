@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using CommonServiceLocator;
 using NDB.Covid19.Configuration;
+using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
 using static NDB.Covid19.OAuth2.AuthenticationState;
@@ -20,6 +21,7 @@ namespace NDB.Covid19.Models
         public string Platform { get; set; }
         public string Padding { get; set; }
         public bool IsSharingAllowed { get; set; } = false;
+        public int ReportType { get; set; }
 
         // For unit testing
         // Moq library requires public constructor that is overwritten by parametrized constructor
@@ -29,6 +31,7 @@ namespace NDB.Covid19.Models
             Platform = ServiceLocator.Current.GetInstance<IDeviceInfo>().Platform.ToString();
             Regions = Conf.SUPPORTED_REGIONS.ToList();
             IsSharingAllowed = LocalPreferencesHelper.AreCountryConsentsGiven;
+            ReportType = LocalPreferencesHelper.IsReportingSelfTest ? (int)ReportInfectedType.SelfDiagnosis : (int)ReportInfectedType.ConfirmedTest;
 
             // Denmark will be added automatically on server side. Only additional countries should be added here.
             VisitedCountries.AddRange(PersonalData?.VisitedCountries ?? new List<string>());

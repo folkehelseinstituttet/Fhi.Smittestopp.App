@@ -37,16 +37,19 @@ namespace NDB.Covid19.ViewModels
 
         AuthenticationManager _authManager;
         public event EventHandler<AuthErrorType> OnError;
-        public event EventHandler OnSuccess;
+        public event EventHandler<AuthSuccessType> OnSuccess;
 
-        EventHandler _onSuccess;
+        readonly ReportInfectedType _reportInfectedType;
+        EventHandler<AuthSuccessType> _onSuccess;
         EventHandler<AuthErrorType> _onError;
 
-        public InformationAndConsentViewModel(EventHandler onSuccess,
-            EventHandler<AuthErrorType> onError)
+        public InformationAndConsentViewModel(EventHandler<AuthSuccessType> onSuccess,
+            EventHandler<AuthErrorType> onError,
+            ReportInfectedType reportInfectedType)
         {
             _onSuccess = onSuccess;
             _onError = onError;
+            _reportInfectedType = reportInfectedType;
             _authManager = new AuthenticationManager();
         }
 
@@ -54,7 +57,7 @@ namespace NDB.Covid19.ViewModels
         {
             OnError += _onError;
             OnSuccess += _onSuccess;
-            _authManager.Setup(OnAuthCompleted, OnAuthError);
+            _authManager.Setup(OnAuthCompleted, OnAuthError, _reportInfectedType);
         }
 
         public void Cleanup()
@@ -118,30 +121,53 @@ namespace NDB.Covid19.ViewModels
 
                     SaveCovidRelatedAttributes(payload);
 
+                    if (AuthenticationState.PersonalData.IsUnderaged)
+                    {
+                        OnError?.Invoke(this, AuthErrorType.Underaged);
+                        return;
+                    }
+
                     if (AuthenticationState.PersonalData.IsBlocked)
                     {
                         OnError?.Invoke(this, AuthErrorType.MaxTriesExceeded);
                     }
                     else
                     {
-                        if (AuthenticationState.PersonalData.IsNotInfected)
+                        if (AuthenticationState.PersonalData.CanUploadKeys
+                            && !AuthenticationState.PersonalData.UnknownStatus
+                            && payload.ValidateAccessToken()
+                            )
                         {
-                            OnError?.Invoke(this, AuthErrorType.NotInfected);
-                        }
-                        else
-                        {
-                            if (!payload.Validate() || AuthenticationState.PersonalData.UnknownStatus)
+                            if (AuthenticationState.PersonalData.IsNotInfected)
                             {
-                                if (AuthenticationState.PersonalData.UnknownStatus)
+                                if (AuthenticationState.PersonalData.IsMsisLookupSkipped)
                                 {
-                                    LogUtils.LogMessage(LogSeverity.ERROR, errorMsgPrefix + "Value Covid19_status = ukendt");
+                                    OnSuccess?.Invoke(this, AuthSuccessType.SelfDiagnosis);
                                 }
-                                OnError?.Invoke(this, AuthErrorType.Unknown);
+                                else
+                                {
+                                    OnError?.Invoke(this, AuthErrorType.NotInfected);
+                                }
                             }
                             else
                             {
-                                OnSuccess?.Invoke(this, null);
+                                if (payload.Validate())
+                                {
+                                    OnSuccess?.Invoke(this, AuthSuccessType.ConfirmedTest);
+                                }
+                                else
+                                {
+                                    OnError?.Invoke(this, AuthErrorType.Unknown);
+                                }
                             }
+                        }
+                        else
+                        {
+                            if (AuthenticationState.PersonalData.UnknownStatus)
+                            {
+                                LogUtils.LogMessage(LogSeverity.ERROR, errorMsgPrefix + "Value Covid19_status = ukendt");
+                            }
+                            OnError?.Invoke(this, AuthErrorType.Unknown);
                         }
                     }
                 }

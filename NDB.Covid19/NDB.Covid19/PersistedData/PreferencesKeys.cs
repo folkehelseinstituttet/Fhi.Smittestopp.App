@@ -36,6 +36,8 @@ namespace NDB.Covid19.PersistedData
         
         public static readonly string DIALOG_LAST_SHOWN_DATE = "DIALOG_LAST_SHOWN_DATE";
 
+        public static readonly string IS_REPORTING_SELFTEST = "IS_REPORTING_SELFTEST";
+
         public static readonly string LAST_PERMISSIONS_NOTIFICATION_DATE_TIME = "LAST_PERMISSIONS_NOTIFICATION_DATE_TIME";
         public static readonly string LAST_NTP_UTC_DATE_TIME = "LAST_NTP_DATE_TIME";
         public static readonly string COUNTRY_CONSENTS_GIVEN = "COUNTRTY_CONSENTS_GIVEN";
@@ -64,7 +66,5 @@ namespace NDB.Covid19.PersistedData
 
         // EN API v2 configuration parameters
         public static readonly string SCORE_SUM_THRESHOLD = "SCORE_SUM_THRESHOLD";
-
-        public static readonly string POSITIVE_SELF_TEST = "POSITIVE_SELF_TEST";
     }
 }

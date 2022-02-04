@@ -40,12 +40,20 @@ namespace NDB.Covid19.OAuth2
 
         public void Setup(
             EventHandler<AuthenticatorCompletedEventArgs> completedHandler,
-            EventHandler<AuthenticatorErrorEventArgs> errorHandler)
+            EventHandler<AuthenticatorErrorEventArgs> errorHandler,
+            ReportInfectedType reportType
+            )
         {
+            string OAuthScope = reportType switch
+            {
+                ReportInfectedType.ConfirmedTest => OAuthConf.OAUTH2_CONFIRMED_TEST_SCOPE,
+                ReportInfectedType.SelfDiagnosis => OAuthConf.OAUTH2_SELF_DIAGNOSIS_SCOPE,
+            };
+
             AuthenticationState.Authenticator = new CustomOAuth2Authenticator(
                 OAuthConf.OAUTH2_CLIENT_ID,
                 null,
-                OAuthConf.OAUTH2_SCOPE,
+                OAuthScope,
                 new Uri(OAuthConf.OAUTH2_AUTHORISE_URL),
                 new Uri(OAuthConf.OAUTH2_REDIRECT_URL),
                 new Uri(OAuthConf.OAUTH2_ACCESSTOKEN_URL),
@@ -92,6 +100,7 @@ namespace NDB.Covid19.OAuth2
                 if (obj != null)
                 {
                     personalDataModel = obj.ToObject<PersonalDataModel>(JsonSerializer);
+                    personalDataModel.IsMsisLookupSkipped = obj.GetValue("no-msis")?.ToString() == "true";
                 }
 
                 personalDataModel.Access_token = accessToken;

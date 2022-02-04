@@ -252,6 +252,8 @@
   "REGISTER_ERROR_HEADER": "کوئی خرابی ہوئی ہے",
   "REGISTER_ERROR_DESCRIPTION": "ٹیکنیکل مسئلہ ہوا ہے۔ آپکے ٹیسٹ کا نتیجہ ہمارے لیے اہم ہے اور ہمیں امید ہے کہ آپ ٹھہر کر دوبارہ چیک کریں گے۔",
   "REGISTER_ERROR_DISMISS": "اوکے",
+  "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "Du er ikke gammel nok til å varsle om smitte i Smittestopp",
+  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "Du må være over 16 år for å melde deg smittet i Smittestopp.",
   "REGISTER_LEAVE_HEADER": "تصدیق کریں کہ آپ اس پیج سے ہٹنا چاہتے ہیں",
   "REGISTER_LEAVE_DESCRIPTION": "کیا آپ دوسرے ایپ استعمال کرنے والوں کو یہ بتائے بغیر اس پیج سے ہٹنا چاہتے ہیں کہ آپکا ٹیسٹ مثبت آیا ہے؟",
   "REGISTER_LEAVE_CANCEL": "منسوخ کریں",

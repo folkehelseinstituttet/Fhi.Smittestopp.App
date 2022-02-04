@@ -35,19 +35,22 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 		[Action ("BackButton_TouchUpInside:")]
 		partial void BackButton_TouchUpInside (UIKit.UIButton sender);
 
+		[Action ("ContinueWithSelftestButton_TouchUpInside:")]
+		partial void ContinueWithSelftestButton_TouchUpInside (UIKit.UIButton sender);
+
 		[Action ("DismissErrorBtn_TouchUpInside:")]
 		partial void DismissErrorBtn_TouchUpInside (UIKit.UIButton sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ContinueWithSelftestButton != null) {
-				ContinueWithSelftestButton.Dispose ();
-				ContinueWithSelftestButton = null;
-			}
-
 			if (BackButton != null) {
 				BackButton.Dispose ();
 				BackButton = null;
+			}
+
+			if (ContinueWithSelftestButton != null) {
+				ContinueWithSelftestButton.Dispose ();
+				ContinueWithSelftestButton = null;
 			}
 
 			if (ErrorMessageLabel != null) {

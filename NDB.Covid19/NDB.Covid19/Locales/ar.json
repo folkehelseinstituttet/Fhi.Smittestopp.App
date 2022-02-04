@@ -252,6 +252,8 @@
   "REGISTER_ERROR_HEADER": "حدث خطأ",
   "REGISTER_ERROR_DESCRIPTION": "حدث خطأ تقني. نتيجة الاختبار مهمة بالنسبة لنا ونأمل أن تحاول مرة أخرى لاحقًا.",
   "REGISTER_ERROR_DISMISS": "موافق",
+  "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "Du er ikke gammel nok til å varsle om smitte i Smittestopp",
+  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "Du må være over 16 år for å melde deg smittet i Smittestopp.",
   "REGISTER_LEAVE_HEADER": "من فضلك أكد أنك تريد مغادرة هذه الصفحة",
   "REGISTER_LEAVE_DESCRIPTION": "هل تريد مغادرة هذه الصفحة دون مشاركة المستخدمين الآخرين للتطبيق أن نتیجة  اختبارك کانت إيجابية؟",
   "REGISTER_LEAVE_CANCEL": "إلغاء",

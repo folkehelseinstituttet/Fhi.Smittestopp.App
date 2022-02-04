@@ -13,6 +13,7 @@ namespace NDB.Covid19.Models
         public string Covid19_smitte_stop { get; set; }
         public string Covid19_status { get; set; }
         public string Covid19_anonymous_token { get; set; }
+        public string Role { get; set; }
 
         [JsonIgnore]
         public string Access_token { get; set; }
@@ -24,6 +25,8 @@ namespace NDB.Covid19.Models
         public DateTime? FinalDateToSetDSOS { get; set; }
         [JsonIgnore]
         public List<string> VisitedCountries { get; set; } = new List<string>();
+        [JsonIgnore]
+        public bool IsMsisLookupSkipped { get; set; }
 
         [JsonIgnore]
         public bool IsBlocked => Covid19_blokeret == "true";
@@ -33,17 +36,20 @@ namespace NDB.Covid19.Models
         public bool UnknownStatus => Covid19_status == "ukendt";
         [JsonIgnore]
         public bool AnonymousTokensEnabled => Covid19_anonymous_token == "v1_enabled";
+        [JsonIgnore]
+        public bool CanUploadKeys => Role == "upload-approved";
+        [JsonIgnore]
+        public bool IsUnderaged => Role == "underaged";
 
 
         public bool Validate()
         {
-            string logPrefix = nameof(PersonalDataModel) + "." + nameof(Validate) + ": ";
+            return ValidateStartDate() && ValidateAccessToken();
+        }
 
-            bool startDateOK = !String.IsNullOrEmpty(Covid19_smitte_start);
-            if (!startDateOK)
-            {
-                LogUtils.LogMessage(Enums.LogSeverity.ERROR, logPrefix + "Covid19_smitte_start value was null or empty");
-            }
+        public bool ValidateAccessToken()
+        {
+            string logPrefix = nameof(PersonalDataModel) + "." + nameof(ValidateAccessToken) + ": ";
 
             bool notExpired = TokenExpiration != null && TokenExpiration > DateTime.Now;
             if (!notExpired)
@@ -51,7 +57,20 @@ namespace NDB.Covid19.Models
                 LogUtils.LogMessage(Enums.LogSeverity.ERROR, logPrefix + "Access token was expired");
             }
 
-            return startDateOK && notExpired;
+            return notExpired;
+        }
+
+        public bool ValidateStartDate()
+        {
+            string logPrefix = nameof(PersonalDataModel) + "." + nameof(ValidateStartDate) + ": ";
+
+            bool startDateOK = !String.IsNullOrEmpty(Covid19_smitte_start);
+            if (!startDateOK)
+            {
+                LogUtils.LogMessage(Enums.LogSeverity.ERROR, logPrefix + "Covid19_smitte_start value was null or empty");
+            }
+
+            return startDateOK;
         }
     }
 }
