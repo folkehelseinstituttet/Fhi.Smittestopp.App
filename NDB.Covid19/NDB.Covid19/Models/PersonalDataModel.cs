@@ -49,7 +49,7 @@ namespace NDB.Covid19.Models
 
         public bool ValidateAccessToken()
         {
-            string logPrefix = nameof(PersonalDataModel) + "." + nameof(ValidateAccessToken) + ": ";
+            string logPrefix = $"{nameof(PersonalDataModel)}.{nameof(ValidateAccessToken)}: ";
 
             bool notExpired = TokenExpiration != null && TokenExpiration > DateTime.Now;
             if (!notExpired)
@@ -62,7 +62,7 @@ namespace NDB.Covid19.Models
 
         public bool ValidateStartDate()
         {
-            string logPrefix = nameof(PersonalDataModel) + "." + nameof(ValidateStartDate) + ": ";
+            string logPrefix = $"{nameof(PersonalDataModel)}.{nameof(ValidateStartDate)}: ";
 
             bool startDateOK = !String.IsNullOrEmpty(Covid19_smitte_start);
             if (!startDateOK)

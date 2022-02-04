@@ -246,7 +246,7 @@
   "INFOCONSENT_CONSENT_EXPLANATION_TEXT": "Waan oggolahay in dadka aan u dhawaaday loo diro ogeysiin ku saabsan in qof ay u dhawaadeen laga helay covid-19.  Si loo diri karo ogeysiinta, waxaan oggolahay in la eego Nidaamka Ogeysiinta ee cudurrada la is qaadsiiyo (MSIS). Sidaas ayaa Machadka Caafimaadka Dadweynuhu ku hubsan karaa in fayrusta la iga helay ka hor intaan ogeysiin loo dirin dad kale. Dadka hela ogeysiintu ma ogaan karaan in anigu soo sheegay in la iga helay fayrusta.",
   "INFOCONSENT_LOGIN": "Waan oggolaaday",
   "REGISTER_ERROR_NOMATCH_HEADER": "Lama heli natiijadii tijaabada lagaa qaaday",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Wakhti ayey qaadan kartaa inta natiijada la gelinayo MSIS. Fadlan markale ku soo noqo. </p> Waa inaad 16 sanno ka weynaato si aad natiijada ula wadaagto Smittestopp.",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Det kan ta tid før resultatet er oppdatert i MSIS. Du kan forsøke igjen senere. </p> Hvis du kan bekrefte at du har avlagt positivt testresultat på teststasjon eller selvtest, kan du likevel velge å melde deg smittet ved å trykke på den øverste knappen nedenfor.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "Natiijada tijaabada hore ayaad ula wadaagtay Smittestopp",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "Hal mar oo keliya ayaad Smittestopp u sheegi kartaa in lagaa helay covid-19.",
   "REGISTER_ERROR_HEADER": "Cillad ayaa jirta",

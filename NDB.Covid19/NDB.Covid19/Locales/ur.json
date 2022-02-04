@@ -246,7 +246,7 @@
   "INFOCONSENT_CONSENT_EXPLANATION_TEXT": "میری طرف سے اجازت ہے کہ مجھ سے قریبی واسطہ رکھنے والے افراد کو اطلاع دی جائے کہ وہ COVID-19 میں مبتلا کسی شخص کے قریب رہے ہیں۔ دوسروں کو اطلاع دینے کے لیے مجھے یہ بھی منظور ہے کہ چھوتی بیماریوں کی نگرانی کے نظام (MSIS) میں چیک کر لیا جائے۔ اس طرح نارویجن انسٹی ٹیوٹ آف پبلک ہیلتھ دوسروں کو انفیکشن سے خبردار کرنے سے پہلے تصدیق کر سکتا ہے کہ مجھے انفیکشن ہے۔ اطلاع پانے والوں کو پتہ نہیں چلے گا کہ انفیکشن سے خبردار میں نے کیا ہے۔",
   "INFOCONSENT_LOGIN": "میری طرف سے اجازت ہے",
   "REGISTER_ERROR_NOMATCH_HEADER": "آپکے ٹیسٹ کا نتیجہ نہیں مل سکا",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>MSIS میں نتیجہ ظاہر ہونے میں وقت لگ سکتا ہے۔ براہ مہربانی ٹھہر کر دوبارہ چیک کریں۔ </p>  Smittestopp سے اپنے ٹیسٹ کا نتیجہ شیئر کرنے کے لیے آپکی عمر 16 سال سے اوپر ہونا ضروری ہے۔",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Det kan ta tid før resultatet er oppdatert i MSIS. Du kan forsøke igjen senere. </p> Hvis du kan bekrefte at du har avlagt positivt testresultat på teststasjon eller selvtest, kan du likevel velge å melde deg smittet ved å trykke på den øverste knappen nedenfor.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "آپکے ٹیسٹ کا نتیجہ پہلے ہی Smittestopp میں شیئر ہو چکا ہے",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "آپ Smittestopp میں صرف ایک بار خود کو انفیکشن میں مبتلا رجسٹرڈ کر سکتے ہیں۔",
   "REGISTER_ERROR_HEADER": "کوئی خرابی ہوئی ہے",

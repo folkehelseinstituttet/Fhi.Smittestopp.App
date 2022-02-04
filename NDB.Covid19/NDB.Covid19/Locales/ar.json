@@ -246,7 +246,7 @@
   "INFOCONSENT_CONSENT_EXPLANATION_TEXT": "أوافق على إبلاغ الأشخاص الذين كانوا بالقرب مني بأنهم كانوا بالقرب من شخص مصاب بفيروس کوفید-19. ولأجل إخطار الآخرين ، أوافق أيضًا على إجراء بحث في نظام المراقبة النرويجي للأمراض المعدية (MSIS). سيمكن هذا المعهد النرويجي للصحة العامة من تأكيد إصابتي بالعدوى قبل إرسال أي إشعارات إلى أشخاص آخرين. لن يعرف الأشخاص الذين يتم إخطارهم أنني أرسلت الإخطار الخاص بالعدوى.",
   "INFOCONSENT_LOGIN": "أنا موافق",
   "REGISTER_ERROR_NOMATCH_HEADER": "لم يتم العثور على نتيجة اختبارك",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p> قد يستغرق الأمر بعض الوقت قبل تحديث النتيجة في MSIS. الرجاء معاودة المحاولة في وقت لاحق. </p> يجب أن يكون عمرك أكثر من 16 عامًا لمشاركة نتيجة الاختبار مع Smittestopp.",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Det kan ta tid før resultatet er oppdatert i MSIS. Du kan forsøke igjen senere. </p> Hvis du kan bekrefte at du har avlagt positivt testresultat på teststasjon eller selvtest, kan du likevel velge å melde deg smittet ved å trykke på den øverste knappen nedenfor.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "تمت مشاركة نتيجة الاختبار الخاصة بك بالفعل في Smittestopp",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "يمكنك تسجيل نفسك كمصاب في Smittestopp  مرة واحدة فقط. ",
   "REGISTER_ERROR_HEADER": "حدث خطأ",
