@@ -77,19 +77,13 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
 
         partial void ContinueWithMSISBtn_TouchUpInside(UIKit.UIButton sender)
         {
-            UINavigationController navigationController = new UINavigationController(InformationAndConsentViewController.GetInformationAndConsentViewController());
-            navigationController.SetNavigationBarHidden(true, false);
-            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-            PresentViewController(navigationController, true, null);
+            NavigationController?.PushViewController(InformationAndConsentViewController.GetInformationAndConsentViewController(), true);
             IsReportingSelfTest = false;
         }
 
         partial void ContinueWithSelftestBtn_TouchUpInside(UIKit.UIButton sender)
         {
-            UINavigationController navigationController = new UINavigationController(InformationAndConsentViewController.GetInformationAndConsentViewController());
-            navigationController.SetNavigationBarHidden(true, false);
-            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
-            PresentViewController(navigationController, true, null);
+            NavigationController?.PushViewController(InformationAndConsentViewController.GetInformationAndConsentViewController(), true);
             IsReportingSelfTest = true;
         }
 

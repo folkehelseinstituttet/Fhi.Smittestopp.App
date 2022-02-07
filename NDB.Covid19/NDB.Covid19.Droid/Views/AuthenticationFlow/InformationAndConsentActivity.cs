@@ -122,7 +122,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _notificationHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             //Button click events
-            _closeButton.Click += new SingleClick((sender, e) => Finish(), 500).Run;
+            _closeButton.Click += new SingleClick((sender, e) => GoToInfectionStatusPage(), 500).Run;
             _idPortenButton.Click += new SingleClick(LogInWithIDPortenButton_Click, 500).Run;
 
             //Progress bar
@@ -188,5 +188,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 _progressBar.Visibility = ViewStates.Gone;
             }
         }
+
+        private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
     }
 }
