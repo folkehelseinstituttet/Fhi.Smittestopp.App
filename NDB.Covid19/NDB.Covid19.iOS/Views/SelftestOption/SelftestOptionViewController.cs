@@ -60,6 +60,9 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
 
             StyleUtil.InitButtonStyling(ContinueWithMSISBtn, SelftestRegistrationViewModel.POSITIVE_TEST_MSISBUTTON_TEXT);
             StyleUtil.InitButtonStyling(ContinueWithSelfTestBtn, SelftestRegistrationViewModel.POSTIVE_TEST_SELFTESTBUTTON_TEXT);
+            ContinueWithMSISBtn.TitleLabel.TextAlignment = UITextAlignment.Center;
+            ContinueWithSelfTestBtn.TitleLabel.TextAlignment = UITextAlignment.Center;
+
         }
 
         private void AdjustTextHeight(UILabel Header)
