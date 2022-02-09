@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.App;
@@ -261,9 +261,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         void OnValidationFail()
         {
-            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, null,
-                $"{nameof(QuestionnaireCountriesSelectionActivity)}.{nameof(OnFail)}: " +
-                "AuthenticationState.personaldata is not valid (Android)");
+            LogUtils.LogMessage(LogSeverity.INFO, $"{nameof(QuestionnairePageActivity)}.{nameof(OnFail)}: Failed to validate selected date.", null, GetCorrelationId());
         }
 
         private void OnInfoButtonPressed(object o, EventArgs args)
