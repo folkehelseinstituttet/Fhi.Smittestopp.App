@@ -67,8 +67,10 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
             ContinueWithSelfTestBtn.TitleLabel.Font = Font(FontType.FontMedium, 16f, 16f);
             ContinueWithSelfTestBtn.TitleLabel.LineBreakMode = UIKit.UILineBreakMode.WordWrap;
             ContinueWithMSISBtn.TitleLabel.LineBreakMode = UIKit.UILineBreakMode.WordWrap;
-            ContinueWithMSISBtn.VerticalAlignment = UIControlContentVerticalAlignment.Fill;
-            ContinueWithSelfTestBtn.VerticalAlignment = UIControlContentVerticalAlignment.Fill; 
+            nfloat verticalSpacing = 30;
+            nfloat horizontalSpacing = 24;
+            ContinueWithMSISBtn.ContentEdgeInsets = new UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing);
+            ContinueWithMSISBtn.ContentEdgeInsets = new UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing);
         }
 
         private void AdjustTextHeight(UILabel Header)
