@@ -70,7 +70,7 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
             nfloat verticalSpacing = 30;
             nfloat horizontalSpacing = 24;
             ContinueWithMSISBtn.ContentEdgeInsets = new UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing);
-            ContinueWithMSISBtn.ContentEdgeInsets = new UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing);
+            ContinueWithSelfTestBtn.ContentEdgeInsets = new UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing);
         }
 
         private void AdjustTextHeight(UILabel Header)
