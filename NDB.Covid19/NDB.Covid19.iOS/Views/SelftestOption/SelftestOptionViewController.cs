@@ -6,6 +6,7 @@ using NDB.Covid19.ViewModels;
 using UIKit;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
+using static NDB.Covid19.iOS.Utils.StyleUtil;
 
 namespace NDB.Covid19.iOS.Views.SelftestOption
 {
@@ -61,8 +62,11 @@ namespace NDB.Covid19.iOS.Views.SelftestOption
             StyleUtil.InitButtonStyling(ContinueWithMSISBtn, SelftestRegistrationViewModel.POSITIVE_TEST_MSISBUTTON_TEXT);
             StyleUtil.InitButtonStyling(ContinueWithSelfTestBtn, SelftestRegistrationViewModel.POSTIVE_TEST_SELFTESTBUTTON_TEXT);
             ContinueWithMSISBtn.TitleLabel.TextAlignment = UITextAlignment.Center;
-            ContinueWithSelfTestBtn.TitleLabel.TextAlignment = UITextAlignment.Center;
-
+            ContinueWithSelfTestBtn.TitleLabel.TextAlignment = UITextAlignment.Center;   
+            ContinueWithMSISBtn.TitleLabel.Font = Font(FontType.FontMedium, 16f, 16f);
+            ContinueWithSelfTestBtn.TitleLabel.Font = Font(FontType.FontMedium, 16f, 16f);
+            ContinueWithSelfTestBtn.TitleLabel.LineBreakMode = UIKit.UILineBreakMode.WordWrap;
+            ContinueWithMSISBtn.TitleLabel.LineBreakMode = UIKit.UILineBreakMode.WordWrap;
         }
 
         private void AdjustTextHeight(UILabel Header)
