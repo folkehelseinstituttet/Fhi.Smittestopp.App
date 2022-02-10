@@ -64,6 +64,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             close.Click += new SingleClick((o, ev) => {
                 NavigationHelper.GoToResultPageAndClearTop(this);
             }).Run;
+            close.ContentDescription = SettingsViewModel.SETTINGS_ITEM_ACCESSIBILITY_CLOSE_BUTTON;
 
             _msisTestButton = FindViewById<Button>(Resource.Id.questionnaire_button_msis_test);
             _msisTestButton.ContentDescription = CHOOSE_CONFIRMED_TEST_BUTTON_TEXT;
