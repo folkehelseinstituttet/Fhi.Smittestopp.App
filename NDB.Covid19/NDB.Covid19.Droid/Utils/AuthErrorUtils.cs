@@ -14,31 +14,31 @@ namespace NDB.Covid19.Droid.Utils
     {
         public static void GoToNotInfectedError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
-            GoToErrorPage(parent, REGISTER_ERROR_NOMATCH_HEADER, REGISTER_ERROR_NOMATCH_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
+            GoToErrorPage(parent, REGISTER_ERROR_NOMATCH_HEADER, REGISTER_ERROR_NOMATCH_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT);
             LogUtils.LogException(severity, e, errorMessage);
         }
 
         public static void GoToManyTriesError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
-            GoToErrorPage(parent, REGISTER_ERROR_TOOMANYTRIES_HEADER, REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
+            GoToErrorPage(parent, REGISTER_ERROR_TOOMANYTRIES_HEADER, REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT);
             LogUtils.LogException(severity, e, errorMessage);
         }
 
         public static void GoToTechnicalError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
-            GoToErrorPage(parent, REGISTER_ERROR_HEADER, REGISTER_ERROR_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
+            GoToErrorPage(parent, REGISTER_ERROR_HEADER, REGISTER_ERROR_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT);
             LogUtils.LogException(severity, e, errorMessage);
         }
 
         public static void GoToTechnicalErrorFHINumbers(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
-            GoToErrorPage(parent, REGISTER_ERROR_FETCH_FHI_DATA_HEADER, REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
+            GoToErrorPage(parent, REGISTER_ERROR_FETCH_FHI_DATA_HEADER, REGISTER_ERROR_FETCH_FHI_DATA_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT);
             LogUtils.LogException(severity, e, errorMessage);
         }
 
         public static void GoToUnderagedError(Activity parent, LogSeverity severity, Exception e, string errorMessage)
         {
-            GoToErrorPage(parent, REGISTER_ERROR_NOT16YEARSOLD_HEADER, REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_SELFTEST_BUTTON);
+            GoToErrorPage(parent, REGISTER_ERROR_NOT16YEARSOLD_HEADER, REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION, REGISTER_ERROR_DISMISS, REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT);
             LogUtils.LogException(severity, e, errorMessage);
         }
 

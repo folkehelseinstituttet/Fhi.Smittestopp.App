@@ -96,7 +96,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
                 Button registerSelftestButton = FindViewById<Button>(Resource.Id.continue_button);
                 registerSelftestButton.Visibility = ViewStates.Visible;
                 registerSelftestButton.Text = continueButtonText;
-                registerSelftestButton.ContentDescription = ErrorViewModel.REGISTER_SELFTEST_BUTTON;
+                registerSelftestButton.ContentDescription = ErrorViewModel.REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT;
                 registerSelftestButton.Click += new SingleClick((o, ev) =>
                 {
                     IsReportingSelfTest = true;
