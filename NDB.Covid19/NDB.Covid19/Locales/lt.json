@@ -259,7 +259,7 @@
   "INFOCONSENT_LOGIN": "Sutinku ",
   "REGISTER_ERROR_NOMATCH_HEADER": "Jūsų testo rezultatas nerastas",
   "REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT": "Patvirtinu, kad mano testo rezultatas buvo teigiamas ir pranešiu, kad esu užsikrėtęs",
-  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p> Rezultatų atnaujinimas MSIS gali užtrukti. Galite bandyti vėliau. </p> Jei galite patvirtinti, kad testavimo stotyje arba savikontrolės metu gavote teigiamą testo rezultatą, vis tiek galite pranešti apie infekciją paspausdami apačioje esantį viršutinį mygtuką.",
+  "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>Rezultatų atnaujinimas MSIS gali užtrukti. Galite bandyti vėliau. </p> Jei galite patvirtinti, kad testavimo stotyje arba savikontrolės metu gavote teigiamą testo rezultatą, vis tiek galite pranešti apie infekciją paspausdami apačioje esantį viršutinį mygtuką.",
   "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "Jūs nesate pakankamo amžiaus, kad galėtumėte pranešti apie infekciją per „Smittestopp“.",
   "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "Norėdami registruoti infekciją per „Smittestopp“, turite būti vyresni nei 16 metų.",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "Jūsų testo rezultatas jau bendrinamas „Smittestopp“",
