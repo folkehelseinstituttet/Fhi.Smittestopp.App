@@ -41,6 +41,9 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
 
         void Init()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+
             Bundle textFieldsBundle = Intent.Extras;
             string titleText = textFieldsBundle.GetString("title");
             string descriptionText = textFieldsBundle.GetString("description");
