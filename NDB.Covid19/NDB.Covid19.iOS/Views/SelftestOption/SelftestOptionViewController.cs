@@ -1,7 +1,5 @@
 ﻿using System;
-using Foundation;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 using NDB.Covid19.iOS.Views.AuthenticationFlow;
