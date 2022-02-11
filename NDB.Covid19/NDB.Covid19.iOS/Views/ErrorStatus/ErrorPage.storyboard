@@ -52,19 +52,18 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z9q-4j-7sK" customClass="SettingsContentTextView">
-                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="545.5"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="489.5"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hCb-EW-FEY">
-                                                                <rect key="frame" x="0.0" y="614" width="258" height="44"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hCb-EW-FEY">
+                                                                <rect key="frame" x="0.0" y="558" width="374" height="100"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="GHQ-yD-TOD"/>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="GHQ-yD-TOD"/>
                                                                 </constraints>
-                                                                <inset key="contentEdgeInsets" minX="100" minY="0.0" maxX="50" maxY="0.0"/>
                                                                 <state key="normal" title="ContinueButton"/>
                                                                 <connections>
                                                                     <action selector="ContinueWithSelftestButton_TouchUpInside:" destination="632" eventType="touchUpInside" id="QOn-7n-hJn"/>
@@ -74,6 +73,7 @@
                                                         <constraints>
                                                             <constraint firstItem="Z9q-4j-7sK" firstAttribute="leading" secondItem="Uzn-YX-awd" secondAttribute="leading" id="DXn-hy-eUA"/>
                                                             <constraint firstAttribute="trailing" secondItem="Z9q-4j-7sK" secondAttribute="trailing" id="euu-D0-LAW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hCb-EW-FEY" secondAttribute="trailing" id="sM8-gI-Qbb"/>
                                                         </constraints>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ea-bc-qn7">
