@@ -266,7 +266,7 @@
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "Užregistruoti užsikrėtusiu „Smittestopp“ galima tik vieną kartą. ",
   "REGISTER_ERROR_HEADER": "Įvyko klaida",
   "REGISTER_ERROR_DESCRIPTION": "Įvyko techninė klaida. Jūsų testo rezultatas mums svarbus ir tikimės, kad vėliau bandysite dar kartą. ",
-  "REGISTER_ERROR_DISMISS": "Yra",
+  "REGISTER_ERROR_DISMISS": "Gerai",
   "REGISTER_LEAVE_HEADER": "Patvirtinkite, kad norite išeiti iš šio puslapio",
   "REGISTER_LEAVE_DESCRIPTION": "Ar norite išeiti iš šio puslapio nebendrinti su kitais programos naudotojais, kurių testas buvo teigiamas?",
   "REGISTER_LEAVE_CANCEL": "Atšaukti",
