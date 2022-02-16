@@ -23,7 +23,7 @@ namespace NDB.Covid19.ViewModels
         public static string KEY_FEATURE_ONE_LABEL => "KEY_FEATURE_ONE_LABEL".Translate();
         public static string KEY_FEATURE_THREE_UPDATE_ALL => "KEY_FEATURE_THREE_UPDATE_ALL".Translate();
         public static string KEY_FEATURE_THREE_LABEL => "KEY_FEATURE_THREE_LABEL".Translate();
-        public static string KEY_FEATURE_FOUR_UPDATE_ALL => "KEY_FEATURE_FOUR_UPDATE_ALL".Translate();
+        public static string KEY_FEATURE_FOUR_UPDATE_NEW => "KEY_FEATURE_FOUR_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_FOUR_LABEL => "KEY_FEATURE_FOUR_LABEL".Translate();
         public static string KEY_FEATURE_FIVE_UPDATE_NEW => "KEY_FEATURE_FIVE_UPDATE_NEW".Translate();
         public static string KEY_FEATURE_FIVE_UPDATE_ALL => "KEY_FEATURE_FIVE_UPDATE_ALL".Translate();
@@ -102,7 +102,7 @@ namespace NDB.Covid19.ViewModels
 
         public static string ConfirmedCasesTotal => string.Format(KEY_FEATURE_ONE_UPDATE_ALL, $"{DailyNumbers.FHIConfirmedCasesTotal:N0}");
         public static string TestsConductedTotal => string.Format(KEY_FEATURE_THREE_UPDATE_ALL, $"{DailyNumbers.FHITestsConductedTotal:N0}");
-        public static string PatientsAdmittedTotal => string.Format(KEY_FEATURE_FOUR_UPDATE_ALL, $"{DailyNumbers.FHIPatientsAdmittedTotal:N0}");
+        public static string PatientsAdmittedTotal => string.Format(KEY_FEATURE_FOUR_UPDATE_NEW, $"{DailyNumbers.FHIPatientsAdmittedTotal:N0}");
         public static string NumberOfPositiveTestsResultsLast7Days => string.Format(KEY_FEATURE_FIVE_UPDATE_NEW, $"{DailyNumbers.APPNumberOfPositiveTestsResultsLast7Days:N0}");
         public static string NumberOfPositiveTestsResultsTotal => string.Format(KEY_FEATURE_FIVE_UPDATE_ALL, $"{DailyNumbers.APPNumberOfPositiveTestsResultsTotal:N0}");
         public static string SmittestopDownloadsTotal => string.Format(KEY_FEATURE_SIX_UPDATE_ALL, $"{DailyNumbers.APPSmittestopDownloadsTotal:N0}");
