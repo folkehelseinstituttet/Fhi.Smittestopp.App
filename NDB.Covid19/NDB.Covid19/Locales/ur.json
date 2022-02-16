@@ -261,7 +261,7 @@
   "REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT": "میں تصدیق کرتا/کرتی ہوں کہ میرے ٹیسٹ کا نتیجہ مثبت آیا ہے اور میں اپنے  انفیکشن کی اطلاع دینا چاہتا/چاہتی ہوں۔",
   "REGISTER_ERROR_NOMATCH_DESCRIPTION": "<p>MSISمیں نتیجہ شامل ہونے میں کچھ وقت لگ سکتا ہے۔ تھوڑی دیر ٹھہر کر دوبارہ کوشش کر لیں۔</p>  اگر آپ تصدیق کر سکتے ہیں کہ ٹیسٹنگ سٹیشن میں آپ کے ٹیسٹ کا نتیجہ یا سیلف ٹیسٹ کا نتیجہ مثبت آیا ہے تو آپ نیچے دیے گئے بٹنوں میں سے اوپر والا بٹن دبا کر اپنے انفیکشن کی اطلاع دے سکتے ہیں۔",
   "REGISTER_ERROR_NOT16YEARSOLD_HEADER": "آپ کی عمر اتنی نہیں ہے کہ آپ Smittestopp میں انفیکشن کی اطلاع دے سکیں۔",
-  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": " Smittestopp میں اپنے انفیکشن کی اطلاع دینے کے لیے ضروری ہے کہ آپ کی عمر 16 سال سے اوپر ہو۔ ",
+  "REGISTER_ERROR_NOT16YEARSOLD_DESCRIPTION": "\u200F Smittestopp میں اپنے انفیکشن کی اطلاع دینے کے لیے ضروری ہے کہ آپ کی عمر 16 سال سے اوپر ہو۔ ",
   "REGISTER_ERROR_TOOMANYTRIES_HEADER": "آپکے ٹیسٹ کا نتیجہ پہلے ہی Smittestopp میں شیئر ہو چکا ہے",
   "REGISTER_ERROR_TOOMANYTRIES_DESCRIPTION": "آپ Smittestopp میں صرف ایک بار خود کو انفیکشن میں مبتلا رجسٹرڈ کر سکتے ہیں۔",
   "REGISTER_ERROR_HEADER": "کوئی خرابی ہوئی ہے",
