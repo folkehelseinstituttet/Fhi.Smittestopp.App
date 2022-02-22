@@ -248,6 +248,7 @@
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3": "Tillater du å slå den på?",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Spørreundersøkelse for deg som har testet deg",
   "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/195329",
+  "INFECTION_STATUS_INFORMATION_BANNER_LINK_URL": "https://www.helsenorge.no/",
   "INFOCONSENT_HEADER": "Del at du har testet positivt",
   "INFOCONSENT_DESCRIPTION": "Du har valgt å varsle andre om at du er smittet av covid-19. De som blir varslet om mulig smitte får ikke vite at det er du som har varslet om smitten. Du må være over 16 år for å dele testresultatet ditt med Smittestopp. Ingen kan melde smitte mer enn en gang i løpet av 60 dager.",
   "INFOCONSENT_LOOKUP_HEADER": "Oppslag mot MSIS",
