@@ -7,9 +7,11 @@ using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.Models;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using NDB.Covid19.WebServices;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ViewModels
@@ -139,6 +141,22 @@ namespace NDB.Covid19.ViewModels
         {
             //This subscribe is intentional placed here, as the InfectionStatus is not supposed to be garbed collected
             SubscribeMessages();
+        }
+
+
+        /// <summary>
+        /// Opens the banner link in an in-app browser.
+        /// </summary>
+        public static void OpenBannerLink()
+        {
+            try
+            {
+                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync("https://www.fhi.no/"); // TODO: Localized URL
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(LogSeverity.ERROR, e, "Failed to open banner link on infection status page");
+            }
         }
 
         public async Task<bool> IsRunning()
@@ -279,6 +297,16 @@ namespace NDB.Covid19.ViewModels
             await NewMessagesFetched();
         }
 
+        public async void RequestImportantMessageAsync(Action <ImportantMessage> onFinished = null)
+        {
+            ImportantMessage message = await GetImportantMessageAsync();
+
+            if (message != null)
+            {
+                onFinished?.Invoke(message);
+            }
+        }
+
         public async Task<bool> PullKeysFromServer()
         {
             
@@ -298,6 +326,15 @@ namespace NDB.Covid19.ViewModels
             }
 
             return processedAnyFiles;
+        }
+
+        /// <summary>
+        /// Calls the server and checks if there is an important messages to display
+        /// </summary>
+        /// <returns>Active message if there is one</returns>
+        public async Task<ImportantMessage> GetImportantMessageAsync()
+        {
+            return await new ImportantMessageService().GetImportantMessage();
         }
     }
 }

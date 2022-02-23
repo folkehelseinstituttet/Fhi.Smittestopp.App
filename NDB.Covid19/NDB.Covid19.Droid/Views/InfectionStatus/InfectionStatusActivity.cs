@@ -26,10 +26,9 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using static NDB.Covid19.Droid.Utils.BatteryOptimisationUtils;
-using NDB.Covid19.Enums;
 using AlertDialog = Android.App.AlertDialog;
 using NDB.Covid19.ExposureNotifications.Helpers;
-using NDB.Covid19.PersistedData;
+using NDB.Covid19.Models;
 
 namespace NDB.Covid19.Droid.Views.InfectionStatus
 {
@@ -49,6 +48,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private TextView _registrationHeader;
         private TextView _registrationSubheader;
         private TextView _menuText;
+        private TextView _messageBannerText;
         private Button _onOffButton;
         private ImageView _notificationDot;
         private RelativeLayout _dailyNumbersRelativeLayout;
@@ -56,6 +56,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         private RelativeLayout _registrationRelativeLayout;
         private LinearLayout _toolbarLinearLayout;
         private LinearLayout _statusLinearLayout;
+        private LinearLayout _messageBannerLinearLayout;
         private ImageButton _menuIcon;
         private Button _dailyNumbersCoverButton;
         private Button _messageCoverButton;
@@ -80,6 +81,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             _viewModel = new InfectionStatusViewModel();
             InitLayout();
             UpdateMessagesStatus();
+            _viewModel.RequestImportantMessageAsync((ImportantMessage message) => RunOnUiThread(() => UpdateImportantMessage(message)));;
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED,
                 OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
@@ -200,6 +202,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
             // Header
             _toolbarLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_toolbar_layout);
             _statusLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_activity_status_layout);
+            _messageBannerLinearLayout = FindViewById<LinearLayout>(Resource.Id.infection_status_important_message_banner);
 
             //TextViews
             _activityStatusText = FindViewById<TextView>(Resource.Id.infection_status_activity_status_textView);
@@ -214,6 +217,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 FindViewById<TextView>(Resource.Id.infection_status_registration_login_text_textView);
             _menuText = FindViewById<TextView>(Resource.Id.infection_status_menu_text_view);
             _menuText.TextAlignment = Android.Views.TextAlignment.ViewEnd;
+            _messageBannerText = FindViewById<TextView>(Resource.Id.infection_status_important_message_banner_text);
 
             //Buttons
             _onOffButton = FindViewById<Button>(Resource.Id.infection_status_on_off_button);
@@ -340,6 +344,22 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
                 _messageSubHeader.Text = _viewModel.NewMessageSubheaderTxt;
                 _messageCoverButton.ContentDescription =
                     $"{INFECTION_STATUS_MESSAGE_HEADER_TEXT} {_viewModel.NewMessageSubheaderTxt}";
+            });
+        }
+
+        private void UpdateImportantMessage(ImportantMessage message)
+        {          
+            RunOnUiThread(() =>
+            {
+                _messageBannerLinearLayout.Visibility = ViewStates.Visible;
+                _messageBannerLinearLayout.SetBackgroundColor(Color.ParseColor(message.BannerColor));
+                _messageBannerText.Text = message.Text;
+                _messageBannerText.ContentDescription = message.Text;
+
+                if (message.IsClickable)
+                {
+                    _messageBannerLinearLayout.Click += new SingleClick(ImportantMessageBanner_Click, 500).Run;
+                }                
             });
         }
 
@@ -484,6 +504,12 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
         {
             StartActivity(new Intent(this, typeof(MessagesActivity)));
         }
+
+        private void ImportantMessageBanner_Click(object sender, EventArgs e)
+        {
+            OpenBannerLink();
+        }
+
         private void ShowPauseDialog()
         {
 
