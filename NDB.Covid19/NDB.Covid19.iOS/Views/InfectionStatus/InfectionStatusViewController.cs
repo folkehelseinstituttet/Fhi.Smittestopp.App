@@ -19,6 +19,8 @@ using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using NDB.Covid19.iOS.Views.SelftestOption;
+using NDB.Covid19.Models;
+
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -47,6 +49,38 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             return navigationController;
         }
 
+
+        private void UpdateImportantMessage(ImportantMessage message)
+
+
+        {
+            if (message != null)
+            {
+                InformationBannerLbl.Hidden = false;
+                InformationBannerLbl.Text = message.Text;
+                InformationBannerLbl.AccessibilityLabel = message.Text;
+                InformationBannerLbl.BackgroundColor = message.BannerColor.ToUIColor();
+
+                if (message.IsClickable)
+                
+
+                {
+                    SetupInformationBannerLink();
+                }
+
+               else
+                {
+                    InformationBannerLbl.UserInteractionEnabled = false;
+                }
+
+            }
+
+            
+            
+        }
+
+
+
         bool _comingFromOnboarding;
 
         InfectionStatusViewModel _viewModel;
@@ -64,8 +98,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
-            View.AddLayoutGuide(_focusGuide);
-
+            _viewModel.RequestImportantMessageAsync((ImportantMessage message) => DispatchQueue.MainQueue.DispatchAsync(() => UpdateImportantMessage(message)));
+            View.AddLayoutGuide(_focusGuide);         
             _focusGuide.LeadingAnchor.ConstraintEqualTo(MenuIcon.LeadingAnchor).Active = true;
             _focusGuide.TrailingAnchor.ConstraintEqualTo(MenuIcon.TrailingAnchor).Active = true;
             _focusGuide.TopAnchor.ConstraintEqualTo(OnOffBtn.TopAnchor).Active = true;
@@ -78,7 +112,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             MenuLabel.IsAccessibilityElement = false;
 
             SetupStyling();
-            SetupInformationBannerLink();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);

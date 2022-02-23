@@ -145,21 +145,6 @@ namespace NDB.Covid19.ViewModels
         }
 
 
-        /// <summary>
-        /// Opens the banner link in an in-app browser.
-        /// </summary>
-        public static void OpenBannerLink()
-        {
-            try
-            {
-                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync("https://www.fhi.no/"); // TODO: Localized URL
-            }
-            catch (Exception e)
-            {
-                LogUtils.LogException(LogSeverity.ERROR, e, "Failed to open banner link on infection status page");
-            }
-        }
-
         public async Task<bool> IsRunning()
         {
             if (IsAppRestricted)

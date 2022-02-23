@@ -507,7 +507,7 @@ namespace NDB.Covid19.Droid.Views.InfectionStatus
 
         private void ImportantMessageBanner_Click(object sender, EventArgs e)
         {
-            OpenBannerLink();
+            _viewModel.OpenInformationBannerLink();
         }
 
         private void ShowPauseDialog()
