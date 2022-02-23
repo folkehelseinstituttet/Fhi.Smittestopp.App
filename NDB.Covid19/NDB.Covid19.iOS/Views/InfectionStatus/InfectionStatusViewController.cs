@@ -285,9 +285,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             }
         }
 
-        
-
-
         void SetupStyling()
         {
             InformationBannerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
