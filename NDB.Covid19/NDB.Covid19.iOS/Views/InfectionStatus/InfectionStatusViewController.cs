@@ -49,9 +49,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             return navigationController;
         }
 
-
         private void UpdateImportantMessage(ImportantMessage message)
-
 
         {
             if (message != null)
@@ -62,24 +60,18 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 InformationBannerLbl.BackgroundColor = message.BannerColor.ToUIColor();
 
                 if (message.IsClickable)
-                
 
                 {
                     SetupInformationBannerLink();
                 }
 
-               else
+                else
                 {
                     InformationBannerLbl.UserInteractionEnabled = false;
                 }
 
-            }
-
-            
-            
+            }          
         }
-
-
 
         bool _comingFromOnboarding;
 
@@ -117,9 +109,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
 
-
         }
-
 
         public override void ViewDidAppear(bool animated)
         {
@@ -189,7 +179,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 _comingFromOnboarding = false;
             }
         }
-
 
         public override void ViewWillDisappear(bool animated)
         {
