@@ -310,7 +310,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         void SetupStyling()
         {
             InformationBannerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
-            InformationBannerLbl.Text = "TODO";
             InformationBannerLbl.TextAlignment = UITextAlignment.Center;
             ActivityExplainerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
             ActivityExplainerLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT;
