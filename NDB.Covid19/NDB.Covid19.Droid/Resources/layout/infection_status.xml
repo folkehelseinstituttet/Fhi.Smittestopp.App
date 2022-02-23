@@ -2,6 +2,7 @@
 
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -52,6 +53,31 @@
 			android:id="@+id/infection_status_relativeLayout">
 
 			<LinearLayout
+				android:id="@+id/infection_status_important_message_banner"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#F5E360"				
+				android:foreground="?android:attr/selectableItemBackground"
+				android:visibility="gone"
+				tools:visibility="visible"
+				tools:background="#F5E360">
+
+				<TextView
+					android:id="@+id/infection_status_important_message_banner_text"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+					android:layout_marginVertical="@dimen/defaultVerticalMargin"
+					android:layout_gravity="center"
+					android:textAlignment="center"
+					android:textColor="@color/primaryText"
+					android:textSize="18sp"					
+					style="@style/PrimaryTextRegular"
+					tools:text="This is a banner text">
+				</TextView>
+			</LinearLayout>
+
+			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:id="@+id/infection_status_activity_status_layout"
@@ -59,23 +85,22 @@
 				android:gravity="center"
 				android:paddingTop="36dp"
 				android:paddingBottom="@dimen/defaultVerticalMargin"
-				android:background="@color/infectionStatusButtonOnGreen"
-            >
+				android:layout_below="@+id/infection_status_important_message_banner"
+				android:background="@color/infectionStatusButtonOnGreen">
 
 				<ImageView
 					android:src="@drawable/ic_app_logo"
 					android:layout_width="250dp"
 					android:layout_height="100dp"
 					android:importantForAccessibility="yes"
-					android:id="@+id/infection_status_app_logo"
-                />
+					android:id="@+id/infection_status_app_logo" />
 
 				<TextView
 					android:text="State"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:id="@+id/infection_status_activity_status_textView"
-					style="@style/PrimaryTextBold"/>
+					style="@style/PrimaryTextBold" />
 			</LinearLayout>
 
 			<TextView
