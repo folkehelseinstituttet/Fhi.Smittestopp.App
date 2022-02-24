@@ -469,16 +469,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             UpdateUI();
         }
 
-        void OnInformationBannerBtnTapped(object sender, EventArgs e)
-        {
-            OpenLinkPage();
-        }
-
-        void OpenLinkPage()
-        {
-           UIApplication.SharedApplication.OpenUrl(new Foundation.NSUrl("https://www.helsenorge.no/smittestopp"));
-        }
-
         void OnDailyNumbersBtnTapped(object sender, EventArgs e)
         {
             OpenDailyNumbersPage();
