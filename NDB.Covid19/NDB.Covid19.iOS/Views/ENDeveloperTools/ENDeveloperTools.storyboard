@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fvg-aa-tO1" userLabel="Back Button StackView">
-                                <rect key="frame" x="20" y="24" width="168.5" height="30"/>
+                                <rect key="frame" x="20" y="68" width="168.5" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12904">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -54,7 +56,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="770.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tFY-jD-BcY">
-                                                <rect key="frame" x="20" y="40" width="335" height="986.5"/>
+                                                <rect key="frame" x="20" y="40" width="335" height="1032.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev Tools Output" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5939" customClass="ENDeveloperToolsOutputData">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -247,8 +249,18 @@
                                                             <action selector="ENDevPrintPreferencesBtn_TounchInside:" destination="2348" eventType="touchUpInside" id="15782"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyI-cs-VwU" userLabel="Go to force update">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3C8-oW-dUP" userLabel="Print Last Message">
                                                         <rect key="frame" x="0.0" y="864.5" width="335" height="30"/>
+                                                        <state key="normal" title="Print Last Message">
+                                                            <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ENDevPrintPreferencesBtn_TounchInside:" destination="2348" eventType="touchUpInside" id="sfR-XG-Fld"/>
+                                                            <action selector="PrintLastMessageButton_TouchUpInside:" destination="2348" eventType="touchUpInside" id="Mt3-kg-T3a"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyI-cs-VwU" userLabel="Go to force update">
+                                                        <rect key="frame" x="0.0" y="910.5" width="335" height="30"/>
                                                         <state key="normal" title="Go to Force Update page">
                                                             <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -257,7 +269,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-MQ-o3x">
-                                                        <rect key="frame" x="0.0" y="910.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="956.5" width="335" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bf-wL-ohh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
@@ -289,7 +301,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-Ui-5IF" userLabel="Pull with 10 sec delay">
-                                                        <rect key="frame" x="0.0" y="956.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="1002.5" width="335" height="30"/>
                                                         <state key="normal" title="Pull with 10 sec delay">
                                                             <color key="titleColor" red="0.1960784314" green="0.20392156859999999" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         </state>
@@ -357,6 +369,7 @@
                         <outlet property="ENDevToggleMessageRetentionBtn" destination="3758" id="name-outlet-3758"/>
                         <outlet property="GoToForceUpdate" destination="PyI-cs-VwU" id="G6x-cd-csJ"/>
                         <outlet property="NoConsentButton" destination="7Bf-wL-ohh" id="name-outlet-7Bf-wL-ohh"/>
+                        <outlet property="PrintLastMessageButton" destination="3C8-oW-dUP" id="TBo-Ly-1ei"/>
                         <outlet property="PullWithDelay" destination="7vw-Ui-5IF" id="name-outlet-7vw-Ui-5IF"/>
                         <outlet property="V1OnlyConsentButton" destination="JPT-Ru-OSp" id="name-outlet-JPT-Ru-OSp"/>
                     </connections>

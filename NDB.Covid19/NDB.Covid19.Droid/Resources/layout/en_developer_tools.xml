@@ -311,6 +311,13 @@
                         android:text="Print Preferences"/>
 
                 <Button
+                        android:id="@+id/print_last_fetched_message_response"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="1dp"
+                        android:text="Print last message"/>
+
+                <Button
                         android:id="@+id/navigate_to_force_update"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

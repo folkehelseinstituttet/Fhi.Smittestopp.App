@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using NDB.Covid19.Models;
 using NDB.Covid19.ProtoModels;
 using Xamarin.ExposureNotifications;
 
@@ -51,6 +52,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
 
         public string AllPullHistory { get; set; }
         public string LastPullHistory { get; set; }
+        public string LastFetchedImportantMessage { get; set; }
         public void StartPullHistoryRecord() { }
         public void AddToPullHistoryRecord(string message, string requestUrl) { }
 
@@ -62,6 +64,11 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
         {
             //Daily Summaries are not saved in release mode for now
+        }
+
+        public void SaveLastFetchedImportantMessage(ApiResponse response, DateTime dateTime)
+        {
+            // Last important message not saved to release for now
         }
     }
 }
