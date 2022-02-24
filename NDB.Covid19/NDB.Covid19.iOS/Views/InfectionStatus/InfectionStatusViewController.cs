@@ -8,7 +8,6 @@ using MoreLinq;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Permissions;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using NDB.Covid19.iOS.Views.DailyNumbers;
 using NDB.Covid19.iOS.Views.Settings;
 using NDB.Covid19.Enums;
@@ -49,7 +48,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         }
 
         private void UpdateImportantMessage(ImportantMessage message)
-
         {
             if (message != null)
             {
