@@ -142,8 +142,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _messageViewBtn.TouchUpInside += OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside += OnAreYouInfectedBtnTapped;
 
-         
-
             OnAppReturnsFromBackground(null);
 
             if (_comingFromOnboarding)
