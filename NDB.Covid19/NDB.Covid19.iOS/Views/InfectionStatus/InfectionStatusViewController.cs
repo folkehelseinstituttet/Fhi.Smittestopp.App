@@ -299,9 +299,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         void SetupInformationBannerLink()
         {
             _bannerGestureRecognizer = new UITapGestureRecognizer();
-            _bannerGestureRecognizer.AddTarget(() => OnInformationBannerLblTapped(_bannerGestureRecognizer));
-            InformationBannerLbl.AddGestureRecognizer(_bannerGestureRecognizer);
-            InformationBannerLbl.UserInteractionEnabled = true;
+            _bannerGestureRecognizer.AddTarget(() => OnInformationBannerViewTapped(_bannerGestureRecognizer));
+            InformationBannerView.AddGestureRecognizer(_bannerGestureRecognizer);
+            InformationBannerView.UserInteractionEnabled = true;
             InformationBannerLbl.AccessibilityTraits = UIAccessibilityTrait.Button;
         }
 
@@ -309,10 +309,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             if (message != null)
             {
-                InformationBannerLbl.Hidden = false;
+                UIView.Transition(withView: View, duration: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animation: () => InformationBannerView.Hidden = false, completion: null);                
+                InformationBannerView.BackgroundColor = message.BannerColor.ToUIColor();
                 InformationBannerLbl.Text = message.Text;
                 InformationBannerLbl.AccessibilityLabel = message.Text;
-                InformationBannerLbl.BackgroundColor = message.BannerColor.ToUIColor();
 
                 if (message.IsClickable)
                 {
@@ -633,7 +633,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             });
         }
 
-        void OnInformationBannerLblTapped(UITapGestureRecognizer recognizer)
+        void OnInformationBannerViewTapped(UITapGestureRecognizer recognizer)
         {
             _viewModel.OpenInformationBannerLink();
         }
