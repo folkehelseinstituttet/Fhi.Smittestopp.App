@@ -59,12 +59,10 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 InformationBannerLbl.BackgroundColor = message.BannerColor.ToUIColor();
 
                 if (message.IsClickable)
-
                 {
                     SetupInformationBannerLink();
                 }
                 else
-
                 {
                     InformationBannerLbl.UserInteractionEnabled = false;
                 }
