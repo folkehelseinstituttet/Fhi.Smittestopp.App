@@ -43,7 +43,7 @@ namespace NDB.Covid19.ViewModels
         public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT".Translate();
         public static string INFECTION_STATUS_SURVEY_HEADER_TEXT => "INFECTION_STATUS_SURVEY_HEADER_TEXT".Translate();
         public static string INFECTION_STATUS_SURVEY_LINK_URL => "INFECTION_STATUS_SURVEY_LINK_URL".Translate();
-        public static string INFECTION_STATUS_INFORMATION_BANNER_LINK_URL => "INFECTION_STATUS_INFORMATION_BANNER_LINK_URL".Translate(); 
+        public static string INFECTION_STATUS_INFORMATION_BANNER_LINK_URL => "https://www.helsenorge.no/".Translate(); 
 
         //pause dialog
         public static string INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON => "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON".Translate();

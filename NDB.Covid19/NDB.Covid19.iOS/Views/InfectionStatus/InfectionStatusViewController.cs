@@ -21,7 +21,6 @@ using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
 using NDB.Covid19.iOS.Views.SelftestOption;
 using NDB.Covid19.Models;
 
-
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
 
@@ -64,12 +63,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 {
                     SetupInformationBannerLink();
                 }
-
                 else
+
                 {
                     InformationBannerLbl.UserInteractionEnabled = false;
                 }
-
             }          
         }
 
@@ -108,7 +106,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_CONSENT_MODAL_IS_CLOSED, OnConsentModalIsClosed);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_UPDATE_DAILY_NUMBERS, OnAppDailyNumbersChanged);
-
         }
 
         public override void ViewDidAppear(bool animated)
@@ -334,7 +331,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             InformationBannerLbl.AccessibilityTraits = UIAccessibilityTrait.Button;
         }
 
-
         void SetupEncounterAndInfectedButtons()
         {
             DailyNumbersView.Subviews[0].Layer.CornerRadius = 12;
@@ -380,7 +376,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             _dailyNumbersButton = new UIButton();
             _dailyNumbersButton.TranslatesAutoresizingMaskIntoConstraints = false;
             StyleUtil.EmbedViewInsideButton(DailyNumbersView, _dailyNumbersButton);
-
         }
 
         void UpdateNewIndicatorView()
@@ -405,7 +400,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             UIViewController vc = SettingsViewController.Create();
             NavigationController?.PushViewController(vc, true);
         }
-
 
         async partial void OnOffBtnTapped(UIButton sender)
         {
