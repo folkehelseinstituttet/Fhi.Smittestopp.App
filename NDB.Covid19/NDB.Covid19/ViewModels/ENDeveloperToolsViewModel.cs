@@ -457,5 +457,10 @@ namespace NDB.Covid19.ViewModels
                 return pullHistory;
             }
         }
+
+        public string GetLastFetchedImportantMessage()
+        {
+            return _devTools.LastFetchedImportantMessage;
+        }
     }
 }

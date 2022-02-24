@@ -8,6 +8,7 @@ using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.Models;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.ProtoModels;
 using Xamarin.ExposureNotifications;
@@ -29,6 +30,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public static readonly string DEV_TOOLS_LAST_USED_CONFIGURATION = "LastUsedConfiguration";
         public static readonly string DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF = "DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF";
         public static readonly string DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF = "DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF";
+        public static readonly string DEV_TOOLS_LAST_FETCHED_IMPORTANT_MESSAGE_PREF = "DEV_TOOLS_LAST_FETCHED_IMPORTANT_MESSAGE_PREF";
         private static IPreferences _preferences => ServiceLocator.Current.GetInstance<IPreferences>();
 
         /// <summary>
@@ -69,6 +71,18 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public string PersistedExposureInfo { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, value); } }
         public string PersistedExposureWindows { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, value); } }
         public string PersistedDailySummaries { get => _preferences.Get(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, value); } }
+
+        /// <summary>
+        /// Store response of previously fetched ImportantMessage
+        /// </summary>
+        public string LastFetchedImportantMessage
+        {
+            get => _preferences.Get(DEV_TOOLS_LAST_FETCHED_IMPORTANT_MESSAGE_PREF, "");
+            set
+            {
+                _preferences.Set(DEV_TOOLS_LAST_FETCHED_IMPORTANT_MESSAGE_PREF, value);
+            }
+        }
 
         // Stores a nice string to Preferences, which shows the content of the files last provided to the EN API,
         // so that this can be displayed on Developer Tools
@@ -212,6 +226,18 @@ namespace NDB.Covid19.Utils.DeveloperTools
             AllPullHistory = AllPullHistory + appendString;
             LastPullHistory = LastPullHistory + appendString;
             Debug.Print(appendString);
+        }
+
+        public void SaveLastFetchedImportantMessage(ApiResponse response, DateTime dateTime)
+        {
+            string lastFetchedMessageOutput = "";
+            lastFetchedMessageOutput +=
+                $"{response.HttpMethod} --> {response.Endpoint}\n" +
+                $"Last fetched at: {dateTime.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")}\n" +
+                $"StatusCode: {response.StatusCode}\n" +
+                $"Data: {response.ResponseText}";
+
+            LastFetchedImportantMessage = lastFetchedMessageOutput;
         }
     }
 }
