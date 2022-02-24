@@ -47,26 +47,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             return navigationController;
         }
 
-        private void UpdateImportantMessage(ImportantMessage message)
-        {
-            if (message != null)
-            {
-                InformationBannerLbl.Hidden = false;
-                InformationBannerLbl.Text = message.Text;
-                InformationBannerLbl.AccessibilityLabel = message.Text;
-                InformationBannerLbl.BackgroundColor = message.BannerColor.ToUIColor();
-
-                if (message.IsClickable)
-                {
-                    SetupInformationBannerLink();
-                }
-                else
-                {
-                    InformationBannerLbl.UserInteractionEnabled = false;
-                }
-            }          
-        }
-
         bool _comingFromOnboarding;
 
         InfectionStatusViewModel _viewModel;
@@ -325,6 +305,26 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             InformationBannerLbl.AddGestureRecognizer(_bannerGestureRecognizer);
             InformationBannerLbl.UserInteractionEnabled = true;
             InformationBannerLbl.AccessibilityTraits = UIAccessibilityTrait.Button;
+        }
+
+        private void UpdateImportantMessage(ImportantMessage message)
+        {
+            if (message != null)
+            {
+                InformationBannerLbl.Hidden = false;
+                InformationBannerLbl.Text = message.Text;
+                InformationBannerLbl.AccessibilityLabel = message.Text;
+                InformationBannerLbl.BackgroundColor = message.BannerColor.ToUIColor();
+
+                if (message.IsClickable)
+                {
+                    SetupInformationBannerLink();
+                }
+                else
+                {
+                    InformationBannerLbl.UserInteractionEnabled = false;
+                }
+            }
         }
 
         void SetupEncounterAndInfectedButtons()
