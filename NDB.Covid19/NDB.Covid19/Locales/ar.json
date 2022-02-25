@@ -247,7 +247,7 @@
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2": "إذا لم تسمح بهذا الإعداد، نوصيك بفتح التطبيق يدويًا مرة واحدة على الأقل كل 24 ساعة.",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3": "هل تسمح بتشغيله؟",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "استبیان لمن أجری الاختبار",
-  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/195329",
+  "INFECTION_STATUS_INFORMATION_BANNER_URL": "https://www.helsenorge.no/en/smittestopp/",
   "INFOCONSENT_HEADER": "شارك نتيجة الاختبار الإيجابية الخاصة بك",
   "INFOCONSENT_DESCRIPTION": "لقد اخترت إخطار الآخرين بأنك مصاب بـ کوفید-19. لن يعرف أولئك الذين  یتم إخطارهم بإمكانية إصابتهم بالعدوى أنك من أخطرت بالعدوى. يجب أن يكون عمرك أكثر من 16 عامًا لمشاركة نتيجة اختبارك مع تطبیق Smittestopp. لا يمكن لأي شخص الإبلاغ عن الإصابة بالعدوی أكثر من مرة واحدة في 60 يومًا.",
   "INFOCONSENT_LOOKUP_HEADER": "البحث في نظام MSIS",

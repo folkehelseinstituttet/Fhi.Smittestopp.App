@@ -247,7 +247,7 @@
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2": "If you do not allow this setting, we recommend you to open the app manually at least once every 24 hours.",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3": "Do you allow to turn it on?",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Questionnaire for anyone who has been tested",
-  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/197991",
+  "INFECTION_STATUS_INFORMATION_BANNER_URL": "https://www.helsenorge.no/en/smittestopp/",
   "INFOCONSENT_HEADER": "Share your positive test result",
   "INFOCONSENT_DESCRIPTION": "You have opted to alert other app users that you have coronavirus (COVID-19). The Smittestopp app users alerted to their possible exposure to COVID-19 will not be informed of your identity as the sender of an alert. You must be over age 16 to share your test result with the Smittestopp contact-tracing app. No-one can send a COVID-19 alert more than once in any 60-day period.",
   "INFOCONSENT_LOOKUP_HEADER": "Check with MSIS",

@@ -247,7 +247,7 @@
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2": "Jeśli nie włączysz tej funkcji, zalecamy manualne otwieranie aplikacji co najmniej raz na 24 godziny.",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3": "Czy zgadzasz się na włączenie tej funkcji?",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Ankieta dla osób, które miały wykonany test",
-  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/197991",
+  "INFECTION_STATUS_INFORMATION_BANNER_URL": "https://www.helsenorge.no/en/smittestopp/",
   "INFOCONSENT_HEADER": "Udostępnij dodatni wynik testu",
   "INFOCONSENT_DESCRIPTION": "Zdecydowałeś się powiadomić inne osoby, że jesteś zarażony COVID-19. Osoby, które zostaną powiadomione o możliwej infekcji, nie będą wiedzieć, że to Ty złożyłeś zawiadomienie. Musisz mieć ukończone 16 lat, aby podzielić się wynikiem swojego testu przez aplikację Smittestopp. Nie jest możliwe zgłoszenie infekcji więcej niż raz w ciągu 60 dni.",
   "INFOCONSENT_LOOKUP_HEADER": "Sprawdź w systemie MSIS",

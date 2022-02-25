@@ -247,7 +247,7 @@
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2": "Jei šio nustatymo neįjungsite, rekomenduojame programėlę atidaryti rankiniu būdu bent kartą per 24 valandas.  ",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3": "Ar leidžiate jį įjungti?",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Testą atlikusių asmenų apklausa",
-  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/197991",
+  "INFECTION_STATUS_INFORMATION_BANNER_URL": "https://www.helsenorge.no/en/smittestopp/",
   "INFOCONSENT_HEADER": "Pasidalykite teigiamu testo rezultatu",
   "INFOCONSENT_DESCRIPTION": "Jūs nusprendėte įspėti kitus, kad esate užsikrėtęs COVID-19. Asmenys, įspėjami apie galimą užsikrėtimą, nežinos, kad apie užsikrėtimą įspėjote Jūs. Norėdami pasidalyti savo tyrimo rezultatais per „Smittestopp“, turite būti vyresnis nei 16 metų. Negalima pranešti apie infekciją dažniau nei vieną kartą per 60 dienų.",
   "INFOCONSENT_LOOKUP_HEADER": "Patikrinkite MSIS",
