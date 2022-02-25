@@ -247,7 +247,7 @@
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART2": "Om du ikkje tillet denne innstillinga, rår vi til at du opnar appen manuelt minst éin gong kvar 24. time.",
   "INFECTION_STATUS_BACKGROUND_ACTIVITY_DIALOG_MESSAGE_PART3": "Tillet du å slå han på?",
   "INFECTION_STATUS_SURVEY_HEADER_TEXT": "Spørjeundersøking for deg som har testa deg",
-  "INFECTION_STATUS_SURVEY_LINK_URL": "https://nettskjema.no/a/197874",
+  "INFECTION_STATUS_INFORMATION_BANNER_URL": "https://www.helsenorge.no/smittestopp/",
   "INFOCONSENT_HEADER": "Del at du har testa positivt",
   "INFOCONSENT_DESCRIPTION": "Du har valt å varsle andre om at du er smitta av covid-19. Dei som blir varsla om mogleg smitte får ikkje vite at det er du som har varsla om smitten. Du må vere over 16 år for å dele testresultatet ditt med Smittestopp. Ingen kan melde smitte meir enn ein gong i løpet av 60 dagar.",
   "INFOCONSENT_LOOKUP_HEADER": "Oppslag mot MSIS",
