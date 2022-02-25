@@ -47,6 +47,9 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 		UIKit.UILabel InformationBannerLbl { get; set; }
 
 		[Outlet]
+		UIKit.UIView InformationBannerView { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UILabel LogInAndRegisterLbl { get; set; }
 
@@ -134,11 +137,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 				ActivityExplainerLbl = null;
 			}
 
-			if (InformationBannerLbl != null) {
-				InformationBannerLbl.Dispose ();
-				InformationBannerLbl = null;
-			}
-
 			if (appLogo != null) {
 				appLogo.Dispose ();
 				appLogo = null;
@@ -177,6 +175,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 			if (fhiLogo != null) {
 				fhiLogo.Dispose ();
 				fhiLogo = null;
+			}
+
+			if (InformationBannerLbl != null) {
+				InformationBannerLbl.Dispose ();
+				InformationBannerLbl = null;
 			}
 
 			if (LogInAndRegisterLbl != null) {
@@ -277,6 +280,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 			if (TopBar != null) {
 				TopBar.Dispose ();
 				TopBar = null;
+			}
+
+			if (InformationBannerView != null) {
+				InformationBannerView.Dispose ();
+				InformationBannerView = null;
 			}
 		}
 	}
