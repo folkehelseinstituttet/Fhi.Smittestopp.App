@@ -849,6 +849,7 @@
     <Compile Include="Views\SelftestOption\SelftestOptionViewController.designer.cs">
       <DependentUpon>SelftestOptionViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomSubclasses\CustomResizableButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">

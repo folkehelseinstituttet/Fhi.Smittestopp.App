@@ -113,9 +113,6 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
 
 			ContinueWithSelftestButton.Hidden = ErrorTitle != ErrorViewModel.REGISTER_ERROR_NOMATCH_HEADER;
 			ContinueWithSelftestButton.TitleLabel.TextAlignment = UITextAlignment.Center;
-			nfloat verticalSpacing = 5;
-			nfloat horizontalSpacing = 10;
-			ContinueWithSelftestButton.ContentEdgeInsets = new UIEdgeInsets(top: verticalSpacing, left: horizontalSpacing, bottom: verticalSpacing, right: horizontalSpacing);
 		}
 		
 		private void AdjustTextHeight(UILabel label)
