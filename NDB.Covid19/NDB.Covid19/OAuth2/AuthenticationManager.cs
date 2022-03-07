@@ -15,6 +15,7 @@ using NDB.Covid19.Models;
 using NDB.Covid19.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static NDB.Covid19.ProtoModels.TemporaryExposureKey.Types;
 using Xamarin.Auth;
 
 namespace NDB.Covid19.OAuth2
@@ -40,12 +41,21 @@ namespace NDB.Covid19.OAuth2
 
         public void Setup(
             EventHandler<AuthenticatorCompletedEventArgs> completedHandler,
-            EventHandler<AuthenticatorErrorEventArgs> errorHandler)
+            EventHandler<AuthenticatorErrorEventArgs> errorHandler,
+            ReportType reportType
+            )
         {
+            string OAuthScope = reportType switch
+            {
+                ReportType.ConfirmedTest => OAuthConf.OAUTH2_CONFIRMED_TEST_SCOPE,
+                ReportType.SelfReport => OAuthConf.OAUTH2_SELF_DIAGNOSIS_SCOPE,
+                _ => throw new ArgumentException("Unsupported report type was specified")
+            };
+
             AuthenticationState.Authenticator = new CustomOAuth2Authenticator(
                 OAuthConf.OAUTH2_CLIENT_ID,
                 null,
-                OAuthConf.OAUTH2_SCOPE,
+                OAuthScope,
                 new Uri(OAuthConf.OAUTH2_AUTHORISE_URL),
                 new Uri(OAuthConf.OAUTH2_REDIRECT_URL),
                 new Uri(OAuthConf.OAUTH2_ACCESSTOKEN_URL),
@@ -92,6 +102,7 @@ namespace NDB.Covid19.OAuth2
                 if (obj != null)
                 {
                     personalDataModel = obj.ToObject<PersonalDataModel>(JsonSerializer);
+                    personalDataModel.IsMsisLookupSkipped = obj.GetValue("no-msis")?.ToString() == "true";
                 }
 
                 personalDataModel.Access_token = accessToken;

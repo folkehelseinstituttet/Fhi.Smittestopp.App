@@ -53,6 +53,7 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private Button _buttonGoToForceUpdate;
         private Button _buttonShowLastDailySummary;
         private Button _buttonShowLastExposureWindow;
+        private Button _buttonPrintLastMessage;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -181,6 +182,12 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
                 OnboardingStatusHelper.Status = OnboardingStatus.OnlyMainOnboardingCompleted).Run;
             _buttonAllConsentNoRestarts.Click += new SingleClick((o, args) =>
                 OnboardingStatusHelper.Status = OnboardingStatus.CountriesOnboardingCompleted).Run;
+
+            _buttonPrintLastMessage = FindViewById<Button>(Resource.Id.print_last_fetched_message_response);
+            _buttonPrintLastMessage.Click += new SingleClick((o, args) =>
+            {
+                PrintLastMessage();
+            }).Run;
         }
 
         private SingleClick OnPullWithDelay() => new SingleClick((o, args) =>
@@ -347,7 +354,6 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
             UpdateText(_viewModel.GetPullHistory());
         }
 
-
         private void PrintLastExposureWindow()
         {
             UpdateText(_viewModel.GetExposureWindows());
@@ -356,6 +362,11 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private void PrintLastDailySummary()
         {
             UpdateText(_viewModel.GetDailySummaries());
+        }
+
+        private void PrintLastMessage()
+        {
+            UpdateText(_viewModel.GetLastFetchedImportantMessage());
         }
     }
 }

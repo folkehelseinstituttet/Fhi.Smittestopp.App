@@ -8,7 +8,6 @@ using MoreLinq;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Permissions;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using NDB.Covid19.iOS.Views.DailyNumbers;
 using NDB.Covid19.iOS.Views.Settings;
 using NDB.Covid19.Enums;
@@ -18,6 +17,8 @@ using UIKit;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 using UserNotifications;
 using static NDB.Covid19.ViewModels.InfectionStatusViewModel;
+using NDB.Covid19.iOS.Views.SelftestOption;
+using NDB.Covid19.Models;
 
 namespace NDB.Covid19.iOS.Views.InfectionStatus
 {
@@ -56,14 +57,15 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         IOSPermissionManager _permissionManager;
 
-        UIFocusGuide _focusGuide = new UIFocusGuide ();
-        
+        UIFocusGuide _focusGuide = new UIFocusGuide();
+        UITapGestureRecognizer _bannerGestureRecognizer;
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             _viewModel = new InfectionStatusViewModel();
-            View.AddLayoutGuide(_focusGuide);
-            
+            _viewModel.RequestImportantMessageAsync((ImportantMessage message) => DispatchQueue.MainQueue.DispatchAsync(() => UpdateImportantMessage(message)));
+            View.AddLayoutGuide(_focusGuide);         
             _focusGuide.LeadingAnchor.ConstraintEqualTo(MenuIcon.LeadingAnchor).Active = true;
             _focusGuide.TrailingAnchor.ConstraintEqualTo(MenuIcon.TrailingAnchor).Active = true;
             _focusGuide.TopAnchor.ConstraintEqualTo(OnOffBtn.TopAnchor).Active = true;
@@ -74,7 +76,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 OnMenubtnTapped(MenuIcon);
             }));
             MenuLabel.IsAccessibilityElement = false;
-           
+
             SetupStyling();
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_MESSAGE_STATUS_UPDATED, OnMessageStatusChanged);
             MessagingCenter.Subscribe<object>(this, MessagingCenterKeys.KEY_APP_RETURNS_FROM_BACKGROUND, OnAppReturnsFromBackground);
@@ -97,14 +99,14 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             });
         }
 
-        public override void DidUpdateFocus (UIFocusUpdateContext context, UIFocusAnimationCoordinator coordinator)
+        public override void DidUpdateFocus(UIFocusUpdateContext context, UIFocusAnimationCoordinator coordinator)
         {
-            base.DidUpdateFocus (context, coordinator);
+            base.DidUpdateFocus(context, coordinator);
 
             UIView nextFocusableItem = context.NextFocusedView;
 
             if (nextFocusableItem == null) return;
-            
+
             if (nextFocusableItem.Equals(OnOffBtn)) {
                 _focusGuide.PreferredFocusedView = MenuIcon;
             } else if (nextFocusableItem.Equals(MenuIcon)) {
@@ -130,13 +132,12 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             UpdateUI();
         }
-        
+
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
             SetPermissionManager();
-            _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;
-
+            _viewModel.NewMessagesIconVisibilityChanged += OnNewMessagesIconVisibilityChanged;            
             _dailyNumbersButton.TouchUpInside += OnDailyNumbersBtnTapped;
             _messageViewBtn.TouchUpInside += OnMessageBtnTapped;
             _areYouInfectedBtn.TouchUpInside += OnAreYouInfectedBtnTapped;
@@ -149,7 +150,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 _comingFromOnboarding = false;
             }
         }
-
 
         public override void ViewWillDisappear(bool animated)
         {
@@ -280,6 +280,8 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
 
         void SetupStyling()
         {
+            InformationBannerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
+            InformationBannerLbl.TextAlignment = UITextAlignment.Center;
             ActivityExplainerLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontMedium, 18, 22);
             ActivityExplainerLbl.Text = InfectionStatusViewModel.INFECTION_STATUS_ACTIVITY_STATUS_DESCRIPTION_TEXT;
             MenuIcon.AccessibilityLabel = InfectionStatusViewModel.INFECTION_STATUS_MENU_ACCESSIBILITY_TEXT;
@@ -292,6 +294,35 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             OnOffBtn.Layer.CornerRadius = 8;
 
             SetupEncounterAndInfectedButtons();
+        }
+
+        void SetupInformationBannerLink()
+        {
+            _bannerGestureRecognizer = new UITapGestureRecognizer();
+            _bannerGestureRecognizer.AddTarget(() => OnInformationBannerViewTapped(_bannerGestureRecognizer));
+            InformationBannerView.AddGestureRecognizer(_bannerGestureRecognizer);
+            InformationBannerView.UserInteractionEnabled = true;
+            InformationBannerLbl.AccessibilityTraits = UIAccessibilityTrait.Button;
+        }
+
+        private void UpdateImportantMessage(ImportantMessage message)
+        {
+            if (message != null)
+            {
+                UIView.Transition(withView: View, duration: 0.2, options: UIViewAnimationOptions.CurveEaseInOut, animation: () => InformationBannerView.Hidden = false, completion: null);                
+                InformationBannerView.BackgroundColor = message.BannerColor.ToUIColor();
+                InformationBannerLbl.Text = message.Text;
+                InformationBannerLbl.AccessibilityLabel = message.Text;
+
+                if (message.IsClickable)
+                {
+                    SetupInformationBannerLink();
+                }
+                else
+                {
+                    InformationBannerLbl.UserInteractionEnabled = false;
+                }
+            }
         }
 
         void SetupEncounterAndInfectedButtons()
@@ -363,7 +394,6 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
             UIViewController vc = SettingsViewController.Create();
             NavigationController?.PushViewController(vc, true);
         }
-
 
         async partial void OnOffBtnTapped(UIButton sender)
         {
@@ -453,7 +483,7 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
         {
             if (await _viewModel.IsRunning())
             {
-                UINavigationController navigationController = new UINavigationController(InformationAndConsentViewController.GetInformationAndConsentViewController());
+                UINavigationController navigationController = new UINavigationController(SelftestOptionViewController.GetSelftestOptionViewController());
                 navigationController.SetNavigationBarHidden(true, false);
                 navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
                 PresentViewController(navigationController, true, null);
@@ -591,6 +621,11 @@ namespace NDB.Covid19.iOS.Views.InfectionStatus
                 SetFocusTo(View);
                 SpinnerMainView.AccessibilityElementsHidden = true;
             });
+        }
+
+        void OnInformationBannerViewTapped(UITapGestureRecognizer recognizer)
+        {
+            _viewModel.OpenInformationBannerLink();
         }
 
         private void DisplayNotificationAfterTime(int hourMultiplier)

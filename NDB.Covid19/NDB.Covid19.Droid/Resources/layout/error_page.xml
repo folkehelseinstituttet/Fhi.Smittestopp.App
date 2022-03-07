@@ -2,6 +2,7 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
@@ -24,7 +25,7 @@
                     android:layout_height="24dp"
                     android:layout_marginEnd="@dimen/defaultHorizontalMargin"
                     android:layout_marginTop="@dimen/defaultVerticalMargin"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
                 <ImageView
                         android:src="@drawable/ic_close_blue"
@@ -75,6 +76,16 @@
 
     </ScrollView>
 
+    <Button
+        style="@style/ConsentButton"
+        android:id="@+id/continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/defaultVerticalMarginContinue"
+        android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+        android:text="Dummy Button"
+        android:visibility="gone"
+        tools:visibility="visible"/>      
     <Button
             style="@style/ConsentButton"
             android:id="@+id/error_button"

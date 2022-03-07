@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using Foundation;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.iOS.Views.AuthenticationFlow;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
@@ -107,8 +108,13 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
             {
                 ErrorMessageLabel.AccessibilityLabel = ErrorViewModel.REGISTER_ERROR_ACCESSIBILITY_TOOMANYTRIES_DESCRIPTION;
             }
-        }
 
+			StyleUtil.InitButtonStyling(ContinueWithSelftestButton, ErrorViewModel.REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT);
+
+			ContinueWithSelftestButton.Hidden = ErrorTitle != ErrorViewModel.REGISTER_ERROR_NOMATCH_HEADER;
+			ContinueWithSelftestButton.TitleLabel.TextAlignment = UITextAlignment.Center;
+		}
+		
 		private void AdjustTextHeight(UILabel label)
         {
 			//Enable auto-layout to be resized programatically
@@ -125,6 +131,12 @@ namespace NDB.Covid19.iOS.Views.ErrorStatus
         partial void DismissErrorBtn_TouchUpInside(UIButton sender)
         {
 			Close();
+		}
+
+        partial void ContinueWithSelftestButton_TouchUpInside(UIButton sender)
+        {
+			IsReportingSelfTest = true;
+            NavigationController?.PushViewController(QuestionnaireViewController.Create(), true);
 		}
 
         void Close()

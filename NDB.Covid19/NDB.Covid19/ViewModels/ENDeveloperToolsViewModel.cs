@@ -73,9 +73,13 @@ namespace NDB.Covid19.ViewModels
             JArray keyArray = (JArray)parsed["keys"];
             JArray visitedCountries = (JArray) parsed["visitedCountries"];
             JArray regions = (JArray) parsed["regions"];
+            string reportType = parsed["reportType"].ToString();
+            string isSharingAllowed = parsed["isSharingAllowed"].ToString();
 
             PushKeysInfo += $"visitedCountries: {visitedCountries}\n";
             PushKeysInfo += $"regions: {regions}\n";
+            PushKeysInfo += $"reportType: {reportType}\n";
+            PushKeysInfo += $"isSharingAllowed: {isSharingAllowed}\n\n";
 
             keyArray?.ForEach(key =>
             {
@@ -452,6 +456,11 @@ namespace NDB.Covid19.ViewModels
                 _clipboard.SetTextAsync(pullHistory);
                 return pullHistory;
             }
+        }
+
+        public string GetLastFetchedImportantMessage()
+        {
+            return _devTools.LastFetchedImportantMessage;
         }
     }
 }

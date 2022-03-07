@@ -7,9 +7,11 @@ using CommonServiceLocator;
 using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
+using NDB.Covid19.Models;
 using NDB.Covid19.Models.SQLite;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
+using NDB.Covid19.WebServices;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.ViewModels
@@ -41,6 +43,7 @@ namespace NDB.Covid19.ViewModels
         public static string INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT => "INFECTION_STATUS_DAILY_NUMBERS_LAST_UPDATED_ACCESSIBILITY_TEXT".Translate();
         public static string INFECTION_STATUS_SURVEY_HEADER_TEXT => "INFECTION_STATUS_SURVEY_HEADER_TEXT".Translate();
         public static string INFECTION_STATUS_SURVEY_LINK_URL => "INFECTION_STATUS_SURVEY_LINK_URL".Translate();
+        public static string INFECTION_STATUS_INFORMATION_BANNER_LINK_URL => "INFECTION_STATUS_INFORMATION_BANNER_URL".Translate();
 
         //pause dialog
         public static string INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON => "INFECTION_STATUS_PAUSE_DIALOG_OK_BUTTON".Translate();
@@ -140,6 +143,7 @@ namespace NDB.Covid19.ViewModels
             //This subscribe is intentional placed here, as the InfectionStatus is not supposed to be garbed collected
             SubscribeMessages();
         }
+
 
         public async Task<bool> IsRunning()
         {
@@ -279,6 +283,16 @@ namespace NDB.Covid19.ViewModels
             await NewMessagesFetched();
         }
 
+        public async void RequestImportantMessageAsync(Action <ImportantMessage> onFinished = null)
+        {
+            ImportantMessage message = await GetImportantMessageAsync();
+
+            if (message != null)
+            {
+                onFinished?.Invoke(message);
+            }
+        }
+
         public async Task<bool> PullKeysFromServer()
         {
             
@@ -298,6 +312,27 @@ namespace NDB.Covid19.ViewModels
             }
 
             return processedAnyFiles;
+        }
+
+        public void OpenInformationBannerLink()
+        {
+            try
+            {
+                ServiceLocator.Current.GetInstance<IBrowser>().OpenAsync(INFECTION_STATUS_INFORMATION_BANNER_LINK_URL);
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(Enums.LogSeverity.ERROR, e, "Failed to open link on general settings page");
+            }
+        }
+
+        /// <summary>
+        /// Calls the server and checks if there is an important messages to display
+        /// </summary>
+        /// <returns>Active message if there is one</returns>
+        public async Task<ImportantMessage> GetImportantMessageAsync()
+        {
+            return await new ImportantMessageService().GetImportantMessage();
         }
     }
 }

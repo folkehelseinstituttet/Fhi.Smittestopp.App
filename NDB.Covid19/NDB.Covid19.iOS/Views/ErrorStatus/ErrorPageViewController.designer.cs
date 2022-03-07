@@ -1,63 +1,72 @@
 // WARNING
 //
-// This file has been generated automatically by Visual Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Visual Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.ErrorStatus
 {
-    [Register ("ErrorPageViewController")]
-    partial class ErrorPageViewController
-    {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton BackButton { get; set; }
+	[Register ("ErrorPageViewController")]
+	partial class ErrorPageViewController
+	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton BackButton { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        NDB.Covid19.iOS.Views.CustomSubclasses.SettingsContentTextView ErrorMessageLabel { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton ContinueWithSelftestButton { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel ErrorTitleLabel { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		NDB.Covid19.iOS.Views.CustomSubclasses.SettingsContentTextView ErrorMessageLabel { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton OkButton { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel ErrorTitleLabel { get; set; }
 
-        [Action ("BackButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void BackButton_TouchUpInside (UIKit.UIButton sender);
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton OkButton { get; set; }
 
-        [Action ("DismissErrorBtn_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void DismissErrorBtn_TouchUpInside (UIKit.UIButton sender);
+		[Action ("BackButton_TouchUpInside:")]
+		partial void BackButton_TouchUpInside (UIKit.UIButton sender);
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (BackButton != null) {
-                BackButton.Dispose ();
-                BackButton = null;
-            }
+		[Action ("ContinueWithSelftestButton_TouchUpInside:")]
+		partial void ContinueWithSelftestButton_TouchUpInside (UIKit.UIButton sender);
 
-            if (ErrorMessageLabel != null) {
-                ErrorMessageLabel.Dispose ();
-                ErrorMessageLabel = null;
-            }
+		[Action ("DismissErrorBtn_TouchUpInside:")]
+		partial void DismissErrorBtn_TouchUpInside (UIKit.UIButton sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (BackButton != null) {
+				BackButton.Dispose ();
+				BackButton = null;
+			}
 
-            if (ErrorTitleLabel != null) {
-                ErrorTitleLabel.Dispose ();
-                ErrorTitleLabel = null;
-            }
+			if (ContinueWithSelftestButton != null) {
+				ContinueWithSelftestButton.Dispose ();
+				ContinueWithSelftestButton = null;
+			}
 
-            if (OkButton != null) {
-                OkButton.Dispose ();
-                OkButton = null;
-            }
-        }
-    }
+			if (ErrorMessageLabel != null) {
+				ErrorMessageLabel.Dispose ();
+				ErrorMessageLabel = null;
+			}
+
+			if (ErrorTitleLabel != null) {
+				ErrorTitleLabel.Dispose ();
+				ErrorTitleLabel = null;
+			}
+
+			if (OkButton != null) {
+				OkButton.Dispose ();
+				OkButton = null;
+			}
+		}
+	}
 }

@@ -13,7 +13,9 @@ using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using Xamarin.Auth;
+using NDB.Covid19.ProtoModels;
 using static NDB.Covid19.Droid.Utils.StressUtils;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 {
@@ -32,6 +34,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         TextView _consentExplanationText;
         Button _idPortenButton;
         InformationAndConsentViewModel _viewModel;
+        private TemporaryExposureKey.Types.ReportType _reportInfectedType;
 
         ProgressBar _progressBar;
 
@@ -41,7 +44,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             this.Title = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
             SetContentView(Resource.Layout.information_and_consent);
             CustomTabsConfiguration.CustomTabsClosingMessage = null;
-            _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError);
+            _reportInfectedType = IsReportingSelfTest ? TemporaryExposureKey.Types.ReportType.SelfReport : TemporaryExposureKey.Types.ReportType.ConfirmedTest;
+            _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError, _reportInfectedType);
             _viewModel.Init();
             InitLayout();
         }
@@ -58,9 +62,10 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             GoToErrorPage(e);
         }
 
-        private void OnAuthSuccess(object sender, EventArgs e)
+        private void OnAuthSuccess(object sender, AuthSuccessType e)
         {
-            LogUtils.LogMessage(LogSeverity.INFO, $"Successfully authenticated and verified user. Navigation to {nameof(QuestionnairePageActivity)}");
+            IsReportingSelfTest = e == AuthSuccessType.SelfDiagnosis;
+            LogUtils.LogMessage(LogSeverity.INFO, $"Successfully authenticated and verified user. Navigation to {nameof(QuestionnairePageActivity)} for flow: {nameof(e)}");
             GoToQuestionnairePage();
         }
 
@@ -85,17 +90,30 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
             //Text initialization
             _idPortenButton.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_ID_PORTEN_BUTTON_TEXT;
-            _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
-            _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
-            _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER;
-            _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT;
             _notificationHeader.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER;
-            _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT;
             _beAwareText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT;
-            _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT;
 
             _lookupHeader.TextAlignment = TextAlignment.ViewStart;
             _notificationHeader.TextAlignment = TextAlignment.ViewStart;
+
+            if (IsReportingSelfTest)
+            {
+                _header.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_HEADER;
+                _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
+                _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_LOOKUP_HEADER;
+                _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_LOOKUP_TEXT;
+                _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_NOTIFICATION_TEXT;
+                _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_CONSENT_EXPLANATION_TEXT;
+            }
+            else
+            {
+                _header.Text = InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT;
+                _consentDescriptionText.TextFormatted = HtmlCompat.FromHtml($"{InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION}", HtmlCompat.FromHtmlModeLegacy);
+                _lookupHeader.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER;
+                _lookupText.Text = InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT;
+                _notificationText.Text = InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT;
+                _consentExplanationText.Text = InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT;
+            }
 
             ////Accessibility
             _closeButton.ContentDescription = InformationAndConsentViewModel.CLOSE_BUTTON_ACCESSIBILITY_LABEL;
@@ -104,7 +122,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             _notificationHeader.SetAccessibilityDelegate(AccessibilityUtils.GetHeadingAccessibilityDelegate());
 
             //Button click events
-            _closeButton.Click += new SingleClick((sender, e) => Finish(), 500).Run;
+            _closeButton.Click += new SingleClick((sender, e) => GoToInfectionStatusPage(), 500).Run;
             _idPortenButton.Click += new SingleClick(LogInWithIDPortenButton_Click, 500).Run;
 
             //Progress bar
@@ -113,7 +131,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         private void LogInWithIDPortenButton_Click(object sender, EventArgs e)
         {
-            LogUtils.LogMessage(Enums.LogSeverity.INFO, "Startet login with ID porten");
+            LogUtils.LogMessage(LogSeverity.INFO, "Startet login with ID porten");
             Intent browserIntent = AuthenticationState.Authenticator.GetUI(this);
             StartActivity(browserIntent);
         }
@@ -134,10 +152,12 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                         AuthErrorUtils.GoToNotInfectedError(this, LogSeverity.WARNING, null, "User is not infected");
                         break;
                     case AuthErrorType.Unknown:
-                        AuthErrorUtils.GoToTechnicalError(this, Enums.LogSeverity.WARNING, null, "User sees Technical error page after ID Porten login: Unknown auth error or user press backbtn");
+                        AuthErrorUtils.GoToTechnicalError(this, LogSeverity.WARNING, null, "User sees Technical error page after ID Porten login: Unknown auth error or user press backbtn");
+                        break;
+                    case AuthErrorType.Underaged:
+                        AuthErrorUtils.GoToUnderagedError(this, LogSeverity.WARNING, null, "User is below age-limit");
                         break;
                 }
-
             });
         }
 
@@ -168,5 +188,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
                 _progressBar.Visibility = ViewStates.Gone;
             }
         }
+
+        private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
     }
 }
