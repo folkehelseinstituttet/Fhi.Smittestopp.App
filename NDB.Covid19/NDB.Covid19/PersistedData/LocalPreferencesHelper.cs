@@ -197,6 +197,12 @@ namespace NDB.Covid19.PersistedData
             set => _preferences.Set(PreferencesKeys.FHI_DATA_HAS_NEVER_BEEN_CALLED, value);
         }
 
+        public static bool IsReportingSelfTest
+        {
+            get => _preferences.Get(PreferencesKeys.IS_REPORTING_SELFTEST, false);
+            set => _preferences.Set(PreferencesKeys.IS_REPORTING_SELFTEST, value);
+        }
+
         //Data from FHI
         public static class DailyNumbers
         {

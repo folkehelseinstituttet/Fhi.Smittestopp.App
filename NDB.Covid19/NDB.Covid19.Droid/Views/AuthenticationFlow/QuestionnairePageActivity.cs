@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.App;
@@ -237,12 +237,19 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         private void OnNextButtonClick(object o, EventArgs args)
         {
-            if(_fourthRadioButton.Checked)
+            if (_fourthRadioButton.Checked)
             {
                 LogUtils.LogMessage(LogSeverity.INFO, "The user does not want to provide health information", null, GetCorrelationId());
             }
-            _questionnaireViewModel.InvokeNextButtonClick(
-                GoToCountriesConsentPage, OnFail, OnValidationFail);
+
+            if (IsReportingSelfTest)
+            {
+                _questionnaireViewModel.InvokeNextButtonClick(GoToLoadingPage, OnFail, OnValidationFail);
+            }
+            else
+            {
+                _questionnaireViewModel.InvokeNextButtonClick(GoToCountriesConsentPage, OnFail, OnValidationFail);
+            }
         }
 
         void OnFail()
@@ -254,9 +261,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         void OnValidationFail()
         {
-            AuthErrorUtils.GoToTechnicalError(this, LogSeverity.ERROR, null,
-                $"{nameof(QuestionnaireCountriesSelectionActivity)}.{nameof(OnFail)}: " +
-                "AuthenticationState.personaldata is not valid (Android)");
+            LogUtils.LogMessage(LogSeverity.INFO, $"{nameof(QuestionnairePageActivity)}.{nameof(OnFail)}: Failed to validate selected date.", null, GetCorrelationId());
         }
 
         private void OnInfoButtonPressed(object o, EventArgs args)
@@ -266,6 +271,8 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
 
         private void GoToCountriesConsentPage() =>
             StartActivity(new Intent(this, typeof(CountriesConsentActivity)));
+
+        private void GoToLoadingPage() => StartActivity(new Intent(this, typeof(LoadingPageActivity)));
 
         private void GoToInfectionStatusPage() => NavigationHelper.GoToResultPageAndClearTop(this);
 

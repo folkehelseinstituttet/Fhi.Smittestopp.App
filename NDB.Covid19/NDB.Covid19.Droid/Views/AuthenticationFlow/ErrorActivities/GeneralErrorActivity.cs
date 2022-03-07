@@ -41,10 +41,15 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
 
         void Init()
         {
+            View rootView = Window.DecorView.RootView;
+            rootView.LayoutDirection = LayoutUtils.GetLayoutDirection();
+
             Bundle textFieldsBundle = Intent.Extras;
             string titleText = textFieldsBundle.GetString("title");
             string descriptionText = textFieldsBundle.GetString("description");
             string buttonText = textFieldsBundle.GetString("button");
+            string continueButtonText = textFieldsBundle.GetString("continuebutton");
+            bool canContinueReportingInfected = false;
 
             TextView subtitleTextView = FindViewById<TextView>(Resource.Id.error_subtitle);
             if (textFieldsBundle.ContainsKey("subtitle"))
@@ -57,6 +62,11 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
             else
             {
                 subtitleTextView.Visibility = ViewStates.Gone;
+            }
+
+            if (textFieldsBundle.ContainsKey("canContinueReportingInfected"))
+            {
+                canContinueReportingInfected = textFieldsBundle.GetBoolean("canContinueReportingInfected");
             }
 
             TextView errorTitle = FindViewById<TextView>(Resource.Id.error_title);
@@ -83,6 +93,20 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow.ErrorActivities
             }).Run;
 
             this.Title = textFieldsBundle.GetString("title");
+
+            if (canContinueReportingInfected)
+            {
+                Button registerSelftestButton = FindViewById<Button>(Resource.Id.continue_button);
+                registerSelftestButton.Visibility = ViewStates.Visible;
+                registerSelftestButton.Text = continueButtonText;
+                registerSelftestButton.ContentDescription = ErrorViewModel.REGISTER_CONTINUE_WITH_SELF_TEST_BUTTON_TEXT;
+                registerSelftestButton.Click += new SingleClick((o, ev) =>
+                {
+                    IsReportingSelfTest = true;
+                    Intent intent = new Intent(this, typeof(QuestionnairePageActivity));
+                    StartActivity(intent);
+                }).Run;
+            }
         }
 
         public override void OnBackPressed()

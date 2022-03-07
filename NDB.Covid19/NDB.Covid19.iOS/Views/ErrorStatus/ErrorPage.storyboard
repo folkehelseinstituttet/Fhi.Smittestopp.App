@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="632">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="632">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="20" width="374" height="798"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1O-pC-n5q">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="90.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jx-uG-4Qw">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
@@ -40,10 +40,10 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdh-ph-nBx">
-                                                <rect key="frame" x="0.0" y="90.5" width="374" height="707.5"/>
+                                                <rect key="frame" x="0.0" y="50" width="374" height="748"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Uzn-YX-awd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="607.5"/>
+                                                        <rect key="frame" x="0.0" y="20" width="374" height="658"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="500" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4101">
                                                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -52,46 +52,60 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z9q-4j-7sK" customClass="SettingsContentTextView">
-                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="563"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="559.5"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
+                                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hCb-EW-FEY" customClass="CustomResizableButton">
+                                                                <rect key="frame" x="0.0" y="628" width="374" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="DD8-25-frT"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <action selector="ContinueWithSelftestButton_TouchUpInside:" destination="632" eventType="touchUpInside" id="QOn-7n-hJn"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="Z9q-4j-7sK" firstAttribute="leading" secondItem="Uzn-YX-awd" secondAttribute="leading" id="DXn-hy-eUA"/>
+                                                            <constraint firstItem="hCb-EW-FEY" firstAttribute="leading" secondItem="Uzn-YX-awd" secondAttribute="leading" id="Vrw-uG-hvV"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hCb-EW-FEY" secondAttribute="trailing" id="d4B-zb-GJH"/>
                                                             <constraint firstAttribute="trailing" secondItem="Z9q-4j-7sK" secondAttribute="trailing" id="euu-D0-LAW"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ea-bc-qn7">
+                                                        <rect key="frame" x="0.0" y="688" width="374" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="a9H-h2-yqA"/>
+                                                        </constraints>
+                                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <state key="normal" title="OK"/>
+                                                        <connections>
+                                                            <action selector="DismissErrorBtn_TouchUpInside:" destination="632" eventType="touchUpInside" id="3152"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="Uzn-YX-awd" firstAttribute="leading" secondItem="Pdh-ph-nBx" secondAttribute="leading" id="30b-lt-kY2"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Uzn-YX-awd" secondAttribute="bottom" constant="100" id="RfN-3Z-8cX"/>
-                                                    <constraint firstItem="Uzn-YX-awd" firstAttribute="top" secondItem="Pdh-ph-nBx" secondAttribute="top" id="iPb-nq-Vg2"/>
+                                                    <constraint firstItem="8Ea-bc-qn7" firstAttribute="leading" secondItem="Pdh-ph-nBx" secondAttribute="leading" id="43T-em-P4Y"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8Ea-bc-qn7" secondAttribute="bottom" constant="16" id="HP7-vq-hXO"/>
+                                                    <constraint firstItem="8Ea-bc-qn7" firstAttribute="top" secondItem="Uzn-YX-awd" secondAttribute="bottom" constant="10" id="NSL-oA-P5b"/>
+                                                    <constraint firstItem="Uzn-YX-awd" firstAttribute="top" secondItem="Pdh-ph-nBx" secondAttribute="top" constant="20" id="iPb-nq-Vg2"/>
                                                     <constraint firstAttribute="trailing" secondItem="Uzn-YX-awd" secondAttribute="trailing" id="nwM-gy-wJi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8Ea-bc-qn7" secondAttribute="trailing" id="tUT-7Z-OT7"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ea-bc-qn7">
-                                        <rect key="frame" x="0.0" y="780" width="374" height="18"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="OK"/>
-                                        <connections>
-                                            <action selector="DismissErrorBtn_TouchUpInside:" destination="632" eventType="touchUpInside" id="3152"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="8Ea-bc-qn7" secondAttribute="bottom" constant="20" id="0H5-pd-2v6"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Ea-bc-qn7" secondAttribute="trailing" id="4Vo-83-jKO"/>
                                     <constraint firstItem="RHs-8M-t6t" firstAttribute="leading" secondItem="Rez-Gi-t1Q" secondAttribute="leading" id="CDc-kC-rR8"/>
                                     <constraint firstAttribute="bottom" secondItem="RHs-8M-t6t" secondAttribute="bottom" id="OLL-Na-Gzx"/>
                                     <constraint firstAttribute="trailing" secondItem="RHs-8M-t6t" secondAttribute="trailing" id="XIT-1E-ROh"/>
                                     <constraint firstItem="RHs-8M-t6t" firstAttribute="top" secondItem="Rez-Gi-t1Q" secondAttribute="top" constant="20" id="l5t-pA-ris"/>
-                                    <constraint firstItem="8Ea-bc-qn7" firstAttribute="leading" secondItem="Rez-Gi-t1Q" secondAttribute="leading" id="qYf-bV-GQG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -105,6 +119,7 @@
                     </view>
                     <connections>
                         <outlet property="BackButton" destination="692" id="name-outlet-692"/>
+                        <outlet property="ContinueWithSelftestButton" destination="hCb-EW-FEY" id="jYJ-gy-QJa"/>
                         <outlet property="ErrorMessageLabel" destination="Z9q-4j-7sK" id="name-outlet-Z9q-4j-7sK"/>
                         <outlet property="ErrorTitleLabel" destination="4101" id="name-outlet-4101"/>
                         <outlet property="OkButton" destination="8Ea-bc-qn7" id="name-outlet-8Ea-bc-qn7"/>
@@ -112,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="634" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366.66669999999999" y="8.7053580000000004"/>
+            <point key="canvasLocation" x="366.66666666666669" y="8.7053571428571423"/>
         </scene>
     </scenes>
     <resources>

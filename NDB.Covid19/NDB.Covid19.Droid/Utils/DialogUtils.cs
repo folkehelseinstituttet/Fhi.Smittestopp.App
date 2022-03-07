@@ -48,7 +48,7 @@ namespace NDB.Covid19.Droid.Utils
                 return tcs.Task;
             }
 
-            var dialog = new AlertDialog.Builder(activity, Android.Resource.Style.ThemeDeviceDefaultLightDialog)
+            var dialog = new AlertDialog.Builder(activity)
               .SetTitle(title)
               .SetMessage(message)
               .SetCancelable(false);
@@ -138,7 +138,11 @@ namespace NDB.Covid19.Droid.Utils
             }
         }
 
-        public static async Task<bool> DisplayDialogAsync(Activity current, DialogViewModel viewModel, Action actionOk = null, Action actionNotOk = null)
+        public static async Task<bool> DisplayDialogAsync(
+            Activity current,
+            DialogViewModel viewModel,
+            Action actionOk = null,
+            Action actionNotOk = null)
         {
             TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
             if (current == null || current.IsFinishing)

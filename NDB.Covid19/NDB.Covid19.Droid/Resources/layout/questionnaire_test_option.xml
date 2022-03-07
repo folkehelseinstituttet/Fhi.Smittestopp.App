@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center_horizontal"
+	android:orientation="vertical">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:id="@+id/questionnaire_page_scrollview">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<RelativeLayout
+				android:id="@+id/close_cross_btn"
+				android:layout_width="24dp"
+				android:accessibilityTraversalAfter="@id/error_button"
+				android:layout_height="24dp"
+				android:layout_marginEnd="@dimen/defaultHorizontalMargin"
+				android:layout_marginTop="@dimen/defaultVerticalMargin"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<ImageView
+					android:src="@drawable/ic_close_blue"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"/>
+			</RelativeLayout>
+
+			<TextView
+				android:id="@id/questionnaire_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+				android:layout_marginTop="@dimen/defaultVerticalMargin"
+				android:paddingBottom="@dimen/defaultVerticalMargin"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/close_cross_btn"
+				android:text="Dummy title"
+				style="@style/HeaderText"/>
+
+			<Button
+				style="@style/ConsentButton"
+				android:id="@+id/questionnaire_button_msis_test"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/defaultVerticalMargin"
+				android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/questionnaire_title"
+				android:text="Dummy Button 1"/>
+
+			<Button
+				style="@style/ConsentButton"
+				android:id="@+id/questionnaire_button_self_test"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginVertical="@dimen/defaultVerticalMargin"
+				android:layout_marginHorizontal="@dimen/defaultHorizontalMargin"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/questionnaire_button_msis_test"
+				android:text="Dummy Button 2"/>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</ScrollView>
+
+</LinearLayout>

@@ -5,6 +5,7 @@
     <dimen name="buttonToScreenEdgeMarginHorizontal">24dp</dimen>
     <dimen name="defaultHorizontalMargin">16dp</dimen>
     <dimen name="defaultVerticalMargin">24dp</dimen>
+    <dimen name="defaultVerticalMarginContinue">0dp</dimen>
     <dimen name="backButton">36dp</dimen>
     <dimen name="smallMargin">8dp</dimen>
     <dimen name="welcomeTitlePadding">54dp</dimen>

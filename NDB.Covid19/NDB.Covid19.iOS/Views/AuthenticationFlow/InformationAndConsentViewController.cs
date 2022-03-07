@@ -11,13 +11,14 @@ using NDB.Covid19.Utils;
 using UIKit;
 using NDB.Covid19.Enums;
 using System.Collections.Generic;
+using static NDB.Covid19.ProtoModels.TemporaryExposureKey.Types;
 using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 {
     public partial class InformationAndConsentViewController : BaseViewController, IUIAccessibilityContainer
     {
-        public InformationAndConsentViewController (IntPtr handle) : base (handle)
+        public InformationAndConsentViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -31,12 +32,14 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         InformationAndConsentViewModel _viewModel;
         UIViewController _authViewController;
+        private ReportType _reportInfectedType;
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError);
+            _reportInfectedType = IsReportingSelfTest ? ReportType.SelfReport : ReportType.ConfirmedTest;
+            _viewModel = new InformationAndConsentViewModel(OnAuthSuccess, OnAuthError, _reportInfectedType);
             _viewModel.Init();
 
             SetTexts();
@@ -74,14 +77,26 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
 
         private void SetTexts()
         {
-            HeaderLabel.SetAttributedText(InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT);
-            DescriptionLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION);
-            LookUp_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER, StyleUtil.FontType.FontBold);
-            LookUp_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT);
-            Notification_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER, StyleUtil.FontType.FontBold);
-            Notification_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT);
+            if (IsReportingSelfTest)
+            {
+                HeaderLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_HEADER);
+                DescriptionLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_DESCRIPTION);
+                LookUp_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_LOOKUP_HEADER, StyleUtil.FontType.FontBold);
+                LookUp_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_LOOKUP_TEXT);
+                Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
+                Notification_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_SELF_TEST_NOTIFICATION_TEXT);
+            }
+            else
+            {
+                HeaderLabel.SetAttributedText(InformationAndConsentViewModel.INFORMATION_CONSENT_HEADER_TEXT);
+                DescriptionLabel.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_DESCRIPTION);
+                LookUp_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_LOOKUP_HEADER, StyleUtil.FontType.FontBold);
+                LookUp_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_LOOKUP_TEXT);
+                Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
+                Notification_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_TEXT);
+            }
             Consent_BeAware_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_BEAWARE_TEXT);
-            Consent_Explanation_Text.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_CONSENT_EXPLANATION_TEXT, StyleUtil.FontType.FontItalic);
+            Notification_Header.SetAttributedText(InformationAndConsentViewModel.INFOCONSENT_NOTIFICATION_HEADER, StyleUtil.FontType.FontBold);
         }
 
         public void SetupStyling()
@@ -124,11 +139,12 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow
             _authViewController.DismissViewController(true, null);
         }
 
-        void OnAuthSuccess(object sender, EventArgs e)
+        void OnAuthSuccess(object sender, AuthSuccessType e)
         {
             Debug.Print("OnAuthSuccess");
-            LogUtils.LogMessage(LogSeverity.INFO, $"Successfully authenticated and verifeid user. Navigating to {nameof(QuestionnaireViewController)}");
+            LogUtils.LogMessage(LogSeverity.INFO, $"Successfully authenticated and verified user. Navigating to {nameof(QuestionnaireViewController)} for flow: {e}");
             LogInWithIDPortenBtn.HideSpinner();
+            IsReportingSelfTest = e == AuthSuccessType.SelfDiagnosis;
             GoToQuestionnairePage();
             _authViewController.DismissViewController(true, null);
         }

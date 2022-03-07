@@ -7,6 +7,7 @@ using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Utils;
 using NDB.Covid19.WebServices.ErrorHandlers;
 using static NDB.Covid19.OAuth2.AuthenticationState;
+using static NDB.Covid19.PersistedData.LocalPreferencesHelper;
 
 namespace NDB.Covid19.ViewModels
 {
@@ -42,6 +43,9 @@ namespace NDB.Covid19.ViewModels
         public static string REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE => "REGISTER_QUESTIONAIRE_ACCESSIBILITY_LOADING_PAGE_TITLE".Translate();
         public static string REGISTER_QUESTIONAIRE_ACCESSIBILITY_DATEPICKER => "REGISTER_QUESTIONAIRE_CHOOSE_DATE_POP_UP".Translate();
         public static string REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT => "REGISTER_QUESTIONAIRE_DATE_LABEL_FORMAT".Translate();
+        public static string CHOOSE_TYPE_OF_TEST_HEADER => "CHOOSE_TYPE_OF_TEST_HEADER".Translate();
+        public static string CHOOSE_CONFIRMED_TEST_BUTTON_TEXT => "CHOOSE_CONFIRMED_TEST_BUTTON_TEXT".Translate();
+        public static string CHOOSE_SELF_TEST_BUTTON_TEXT => "CHOOSE_SELF_TEST_BUTTON_TEXT".Translate();
 
         public DialogViewModel CloseDialogViewModel => new DialogViewModel
         {
@@ -87,13 +91,13 @@ namespace NDB.Covid19.ViewModels
 
         private DateTime? GetMSISDateFromPersonalData()
         {
-            if (PersonalData.Validate())
+            if (!IsReportingSelfTest && PersonalData.Validate())
             {
                 try
                 {
                     return Convert.ToDateTime(PersonalData.Covid19_smitte_start, CultureInfo.InvariantCulture);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     LogUtils.LogMessage(LogSeverity.ERROR, e.StackTrace, "MSIS data can't be parsed into DateTime");
                 }
@@ -108,11 +112,14 @@ namespace NDB.Covid19.ViewModels
             PlatformDialogServiceArguments platformDialogServiceArguments = null)
         {
             DateTime? dateInMSIS = GetMSISDateFromPersonalData();
-            if (dateInMSIS == null)
+
+            // If we are not able to get infection date from MSIS on a confirmed test, this should result in an error
+            if (dateInMSIS == null && !IsReportingSelfTest)
             {
                 onFail?.Invoke();
                 return;
             }
+
             if (Selection == QuestionaireSelection.YesSince)
             {
                 if (_selectedDateUTC == DateTime.MinValue)
@@ -129,13 +136,27 @@ namespace NDB.Covid19.ViewModels
 
                     return;
                 }
-                PersonalData.FinalDateToSetDSOS = dateInMSIS < _localSelectedDate ? dateInMSIS : _localSelectedDate;
+
+                if (IsReportingSelfTest)
+                {
+                    PersonalData.FinalDateToSetDSOS = _localSelectedDate < SystemTime.Now().Date ? _localSelectedDate : SystemTime.Now().Date;
+                }
+                else
+                {
+                    PersonalData.FinalDateToSetDSOS = dateInMSIS < _localSelectedDate ? dateInMSIS : _localSelectedDate;
+                }
             }
             else
             {
-                PersonalData.FinalDateToSetDSOS = dateInMSIS;
+                if (dateInMSIS != null)
+                {
+                    PersonalData.FinalDateToSetDSOS = dateInMSIS;
+                }
+                else
+                {
+                    PersonalData.FinalDateToSetDSOS = SystemTime.Now().Date;
+                }
             }
-
             onSuccess?.Invoke();
         }
     }

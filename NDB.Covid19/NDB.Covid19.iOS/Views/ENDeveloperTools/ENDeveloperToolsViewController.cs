@@ -135,6 +135,11 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
              ENDevOutput.Text = "Copied to clipboard:\n" + res;
         }
 
+        partial void PrintLastMessageButton_TouchUpInside(UIButton sender)
+        {
+            ENDevOutput.Text = _enDeveloperViewModel.GetLastFetchedImportantMessage();           
+        }
+
         partial void BackButton_TouchUpInside(UIButton sender)
         {
             LeaveController();

@@ -106,6 +106,9 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 		UIKit.UIButton NoConsentButton { get; set; }
 
 		[Outlet]
+		UIKit.UIButton PrintLastMessageButton { get; set; }
+
+		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIKit.UIButton PullWithDelay { get; set; }
 
@@ -184,6 +187,9 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 
 		[Action ("NoConsentButton_TouchUpInside:")]
 		partial void NoConsentButton_TouchUpInside (UIKit.UIButton sender);
+
+		[Action ("PrintLastMessageButton_TouchUpInside:")]
+		partial void PrintLastMessageButton_TouchUpInside (UIKit.UIButton sender);
 
 		[Action ("PullWithDelay_TouchUpInside:")]
 		partial void PullWithDelay_TouchUpInside (UIKit.UIButton sender);
@@ -321,6 +327,11 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 			if (V1OnlyConsentButton != null) {
 				V1OnlyConsentButton.Dispose ();
 				V1OnlyConsentButton = null;
+			}
+
+			if (PrintLastMessageButton != null) {
+				PrintLastMessageButton.Dispose ();
+				PrintLastMessageButton = null;
 			}
 		}
 	}
