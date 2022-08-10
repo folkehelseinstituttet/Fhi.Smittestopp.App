@@ -5,7 +5,7 @@
 [![Open pull requests](https://img.shields.io/github/issues-pr/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/pulls)
 [![Open issues](https://img.shields.io/github/issues/folkehelseinstituttet/Fhi.Smittestopp.App)](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.App/issues)
 
-** This app has been retired as of August 10th 2022, see [information here](https://www.fhi.no/nyheter/2022/fhi-legger-ned-smittestopp/)**
+**This app has been retired as of August 10th 2022, see [information here](https://www.fhi.no/nyheter/2022/fhi-legger-ned-smittestopp/)**
 
 The goal of this open-source project is to develop and maintain the official Smittestopp mobile app in Norway based on the Exposure Notification API from [Apple](https://www.apple.com/covid19/contacttracing/) and [Google](https://www.google.com/covid19/exposurenotifications/). This repository contains the code for frontend mobile application (iOS and Android). The app uses Xamarin cross-platform solution for Exposure Notification: [Nuget](https://www.nuget.org/packages/Xamarin.ExposureNotification) and [Source](https://github.com/xamarin/XamarinComponents/tree/master/XPlat/ExposureNotification).
 
